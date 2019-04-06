@@ -124,7 +124,7 @@ var flagsRepository = {
       lat: 34.050133,
       lng: -118.256324 },
     Zambie    : 
-    { img : " https://3.bp.blogspot.com/-xEQ2KFhZWDA/XKjRPuL9u0I/AAAAAAAAiqM/liwjMA2Rxq4TEXlYoHidTTZRQ28TdkaBwCLcBGAs/s1600/zm.png",
+    { img : "https://philquand.github.io/Javascript/flagsRepository/Zambie.png",
     lat: -14.81,
     lng: 25.12 }
 };

@@ -60,7 +60,7 @@ var flagsRepository = {
     lat: 39.94,
     lng: 21.33 },
     Illinois      : 
-    { img :"https://1.bp.blogspot.com/-lSRqjAtu9k0/XKhuSYr-LRI/AAAAAAAAip8/qo-Vo4pVCd8TFuIFOvGuyP8JumAnLwQRQCLcBGAs/s1600/il.png",
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Illinois.png",
     lat: 42.73,
     lng: -87.4 },
     Italie      : 
@@ -88,7 +88,7 @@ var flagsRepository = {
       lat: 19,
       lng: 10 },
     Ontario    : 
-    { img : " https://3.bp.blogspot.com/-6kW5WmD03QY/XKhsfqirTxI/AAAAAAAAipw/0TYC-ZlyKLgSpmnu_Nsd3bfWZBF1AsbIACLcBGAs/s1600/Ontario.png",
+    { img : "https://philquand.github.io/Javascript/flagsRepository/Ontario.png",
     lat: 53.23,
     lng: -88.09 },
     Ouganda    : 

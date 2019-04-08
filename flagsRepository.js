@@ -83,8 +83,8 @@ var flagsRepository = {
     { img : "https://philquand.github.io/Javascript/flagsRepository/Maroc.png",
     lat: 33.48,
     lng: -4.91 },
-    Missipi      : 
-    { img : "https://philquand.github.io/Javascript/flagsRepository/Missipi.png",
+    Mississippi      : 
+    { img : "https://philquand.github.io/Javascript/flagsRepository/Mississippi.png",
     lat: 32.90,
     lng: -89.98 },
     Netherlands : 

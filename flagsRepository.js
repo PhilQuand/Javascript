@@ -103,6 +103,10 @@ var flagsRepository = {
     { img : "https://philquand.github.io/Javascript/flagsRepository/Ouganda.png",
     lat: 2.56,
     lng: 32.59 },
+    Pennsylvanie    : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Pennsylvanie.png",
+    lat: 40.41 ,
+    lng: -77.90 },
     Portugal    : 
     { img :"https://philquand.github.io/Javascript/flagsRepository/Portugal.png",
     lat: 41,

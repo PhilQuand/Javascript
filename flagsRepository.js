@@ -123,6 +123,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Suisse.png",
       lat: 46.25 ,
       lng: 7.5 },
+    Tasmanie : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Tasmanie.png",
+      lat: -42.48 ,
+      lng: 146.54 },
     Tunisie : 
     { img :"https://philquand.github.io/Javascript/flagsRepository/Tunisie.png",
       lat: 35.5 ,

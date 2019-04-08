@@ -19,6 +19,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Allemagne.png",
       lat: 49. ,
       lng: 9.7 },
+    Arizona : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Arizona.png",
+      lat: 35.29 ,
+      lng: -112.16 },
     Australie : 
     { img :"https://philquand.github.io/Javascript/flagsRepository/Australie.png",
       lat: -26 ,

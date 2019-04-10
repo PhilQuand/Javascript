@@ -1,5 +1,7 @@
 var flagsRepository = {
+    fdAustralie : 'https://philquand.github.io/Javascript/flagsRepository/Australie.png',
     fdCanada    : 'https://philquand.github.io/Javascript/flagsRepository/Canada.png',
+    fdUE        : 'https://philquand.github.io/Javascript/flagsRepository/UE.png',
     fdUSA       : 'https://philquand.github.io/Javascript/flagsRepository/USA.png',
     Afghanistan : 
     { img : "https://philquand.github.io/Javascript/flagsRepository/Afghanistan.png",

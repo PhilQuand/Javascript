@@ -1,4 +1,6 @@
 var flagsRepository = {
+    fdCanada    : 'https://philquand.github.io/Javascript/flagsRepository/Canada.png',
+    fdUSA       : 'https://philquand.github.io/Javascript/flagsRepository/USA.png',
     Afghanistan : 
     { img : "https://philquand.github.io/Javascript/flagsRepository/Afghanistan.png",
       lat: 35.84 ,

@@ -37,8 +37,8 @@ var flagsRepository = {
       lng: 4.7 },
     Californie  : 
     { img :'https://philquand.github.io/Javascript/flagsRepository/Californie.png',
-      lat: 34.050133,
-      lng: -118.256324 },
+      lat: 39.80,
+      lng: -122.15 },
     Colombie : 
     { img :"https://philquand.github.io/Javascript/flagsRepository/Colombie.png",
       lat: 4.5 ,

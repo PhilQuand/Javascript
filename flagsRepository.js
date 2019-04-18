@@ -104,7 +104,9 @@ var flagsRepository = {
       lat: 19,
       lng: 10 },
     Ontario    : 
-    { img : "https://philquand.github.io/Javascript/flagsRepository/Ontario.png",
+    { 
+    //img : "https://philquand.github.io/Javascript/flagsRepository/Ontario.png",
+    img: 'https://philquand.github.io/Javascript/flagsRepository/Canada.png',
     lat: 53.23,
     lng: -88.09 },
     Ouganda    : 

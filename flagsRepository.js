@@ -24,7 +24,9 @@ var flagsRepository = {
       lat: 49. ,
       lng: 9.7 },
     Arizona : 
-    { img :"https://philquand.github.io/Javascript/flagsRepository/Arizona.png",
+    { 
+    //img :"https://philquand.github.io/Javascript/flagsRepository/Arizona.png",
+      img :"https://philquand.github.io/Javascript/flagsRepository/USA.png",
       lat: 35.29 ,
       lng: -112.16 },
     Australie : 
@@ -36,7 +38,9 @@ var flagsRepository = {
       lat: 51.5 , 
       lng: 4.7 },
     Californie  : 
-    { img :'https://philquand.github.io/Javascript/flagsRepository/Californie.png',
+    { 
+    //img :'https://philquand.github.io/Javascript/flagsRepository/Californie.png',
+      img :'https://philquand.github.io/Javascript/flagsRepository/USA.png',
       lat: 39.80,
       lng: -122.15 },
     Colombie : 
@@ -72,7 +76,9 @@ var flagsRepository = {
     lat: 14.87,
     lng: -87.22 },
     Illinois      : 
-    { img :"https://philquand.github.io/Javascript/flagsRepository/Illinois.png",
+    { 
+    //img :"https://philquand.github.io/Javascript/flagsRepository/Illinois.png",
+    img :"https://philquand.github.io/Javascript/flagsRepository/USA.png",
     lat: 42.73,
     lng: -87.4 },
     Italie      : 
@@ -92,7 +98,9 @@ var flagsRepository = {
     lat: 33.48,
     lng: -4.91 },
     Mississippi      : 
-    { img : "https://philquand.github.io/Javascript/flagsRepository/Mississippi.png",
+    { 
+    //img : "https://philquand.github.io/Javascript/flagsRepository/Mississippi.png",
+    img : "https://philquand.github.io/Javascript/flagsRepository/USA.png",
     lat: 32.90,
     lng: -89.98 },
     Netherlands : 
@@ -105,6 +113,7 @@ var flagsRepository = {
       lng: 10 },
     Ontario    : 
     { 
+    //img: "https://philquand.github.io/Javascript/flagsRepository/Ontario.png",
     img: "https://philquand.github.io/Javascript/flagsRepository/Canada.png",
     lat: 53.23,
     lng: -88.09 },
@@ -113,7 +122,9 @@ var flagsRepository = {
     lat: 2.56,
     lng: 32.59 },
     Pennsylvanie    : 
-    { img :"https://philquand.github.io/Javascript/flagsRepository/Pennsylvanie.png",
+    { 
+    //img :"https://philquand.github.io/Javascript/flagsRepository/Pennsylvanie.png",
+    img :"https://philquand.github.io/Javascript/flagsRepository/USA.png",
     lat: 40.41 ,
     lng: -77.90 },
     Pologne    : 

@@ -156,7 +156,7 @@ var flagsRepository = {
       lat: 46.25 ,
       lng: 7.5 },
     Tasmanie : 
-    { img :"https://philquand.github.io/Javascript/flagsRepository/Tasmanie.png",
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Australie.png",
       lat: -42.48 ,
       lng: 146.54 },
     Tunisie : 

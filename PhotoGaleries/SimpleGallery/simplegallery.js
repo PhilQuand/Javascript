@@ -18,7 +18,7 @@ var simpleGallery_navpanel={
 	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/play.gif', 
 	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/right.gif', 
 	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/pause.gif'], //nav panel images (in that order)
-	imageSpacing: {offsetTop:[-4, 0, -4], spacing:10}, //top offset of left, play, and right images, PLUS spacing between the 3 images
+	imageSpacing: {offsetTop:[-4, -4, -4], spacing:10}, //top offset of left, play, and right images, PLUS spacing between the 3 images
 	slideduration: 500 //duration of slide up animation to reveal panel
 }
 

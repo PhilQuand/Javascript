@@ -11,9 +11,13 @@
 	//2) Adds a new "scaleimage" option to scale the images inside the gallery in 2 different ways.
 
 var simpleGallery_navpanel={
-	loadinggif: 'ajaxload.gif', //full path or URL to loading gif image
+	loadinggif: 'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/ajaxload.gif', //full path or URL to loading gif image
 	panel: {height:'50px', opacity:0.5, paddingTop:'5px', fontStyle:'bold 11px Verdana'}, //customize nav panel container
-	images: [ 'left.gif', 'play.gif', 'right.gif', 'pause.gif'], //nav panel images (in that order)
+	images: [ 
+	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/left.gif',
+	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/play.gif', 
+	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/right.gif', 
+	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/pause.gif'], //nav panel images (in that order)
 	imageSpacing: {offsetTop:[-4, 0, -4], spacing:10}, //top offset of left, play, and right images, PLUS spacing between the 3 images
 	slideduration: 500 //duration of slide up animation to reveal panel
 }

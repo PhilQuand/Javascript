@@ -12,7 +12,7 @@
 
 var simpleGallery_navpanel={
 	loadinggif: 'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/ajaxload.gif', //full path or URL to loading gif image
-	panel: {height:'25px', opacity:0.5, paddingTop:'5px', fontStyle:'bold 11px Verdana'}, //customize nav panel container
+	panel: {height:'30px', opacity:0.5, paddingTop:'5px', paddingBottom:'5px', fontStyle:'bold 11px Verdana'}, //customize nav panel container
 	images: [ 
 	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/left.gif',
 	'https://philquand.github.io/Javascript/PhotoGaleries/SimpleGallery/play.gif', 

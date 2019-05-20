@@ -65,7 +65,7 @@ function simpleGallery(settingarg){
 		var setting=slideshow.setting
 		setting.$wrapperdiv=$('#'+setting.wrapperid).css({position:'relative', visibility:'visible', background:'black', overflow:'hidden', width:setting.dimensions[0], height:setting.dimensions[1]}).empty() //main gallery DIV
 		if (setting.$wrapperdiv.length==0){ //if no wrapper DIV found
-			alert("Error: DIV with ID \""+setting.wrapperid+"\" not found on page.")
+			//alert("Error: DIV with ID \""+setting.wrapperid+"\" not found on page.")
 			return
 		}
 		setting.$gallerylayers=$('<div class="gallerylayer"></div><div class="gallerylayer"></div>') //two stacked DIVs to display the actual slide 

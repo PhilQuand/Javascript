@@ -20,6 +20,7 @@
   height: 45px;
   padding: 0;
   margin: 0;
+  /*background: #777777;*/
   background: #777777;
   transition: 0.5s all;
 }
@@ -38,6 +39,7 @@
 }
 #share-bar.right .sharing-providers > li {
  margin-right: 0;
+ background: #D0E1E2;
 }
 
 .sharing-providers > li > a {
@@ -70,7 +72,6 @@
 
 .sharing-providers > li.facebook:hover {
   background: #4267B2;
-  
 }
 
 .sharing-providers > li.googleplus:hover {

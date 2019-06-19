@@ -1,5 +1,5 @@
 <!-- begin of customized social share buttons P.Q.-->
-<link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet' type='text/css' />
+<link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet' type='text/css'/>
 <!--script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' type='text/javascript'></script-->
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' type='text/javascript'></script>
 <link href='https://philquand.github.io/Javascript/FloatingShareBar/css/jquery-social-share-bar.css' rel='stylesheet' type='text/css'/>
@@ -311,93 +311,84 @@ left: auto;
 </style>
 
 <div class="PageList" id="contNavetFlags">
-  <!--Start Navigation -->
-  <div id='navigationGB' style="display: none;">
-    <div class="navigationbar" lang="fr"
-      style="display: block; text-align: left;">
-     <ul id='frnavigation' class='navigationcss'>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html?lang=fr">Appel</a></li>
-        <!--li><a href="" ontouchstart="return false">l’Équipe éditoriale</a>
-        <ul-->
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html?lang=fr">Qui sommes-nous ?</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/contacts.html?lang=fr">Contacts</a></li>
-        <!--/ul>
-        </li-->
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/critiques.html?lang=fr">Critiques</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/luttes.html?lang=fr">Luttes</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html?lang=fr">Alternatives</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html?lang=fr">Liens</a></li>
-        <li><a href="javascript:frDropdownGB()" data-isplus="false" >Plus...</a></li>
-      </ul>
-    </div>
-    <div class="navigationbar" lang="en"
-      style="display: block; text-align: left;">
-      <ul id='ennavigation' class='navigationcss'>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html?lang=en">Call</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html?lang=fr">Who are we?</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/contacts.html?lang=en">Contacts</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/critiques.html?lang=en">Critics</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/luttes.html?lang=en">Struggles</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html?lang=en">Alternatives</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html?lang=en">Links</a></li>
-        <li><a href="javascript:enDropdownGB()" data-isplus="false" >More...</a></li>
-      </ul>
-    </div>
-    <div class="navigationbar" lang="de"
-      style="display: block; text-align: left;">
-      <ul id='denavigation' class='navigationcss'>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html?lang=de">Aufruf
+<!--Start Navigation -->
+	<div id='navigationGB' style="display: none;">
+		<div class="navigationbar" lang="fr" style="display: block; text-align: left;">
+			<ul id='frnavigation' class='navigationcss'>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html?lang=fr">Appel</a></li>
+        <!--li><a href="" ontouchstart="return false">l’Équipe éditoriale</a><ul-->
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html?lang=fr">Qui sommes-nous ?</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/contacts.html?lang=fr">Contacts</a></li>
+        <!--/ul></li-->
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/critiques.html?lang=fr">Critiques</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/luttes.html?lang=fr">Luttes</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/alternatives.html?lang=fr">Alternatives</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/liens.html?lang=fr">Liens</a></li>
+				<li><a href="javascript:frDropdownGB()" data-isplus="false">Plus...</a></li>
+			</ul>
+		</div>
+		<div class="navigationbar" lang="en" style="display: block; text-align: left;">
+			<ul id='ennavigation' class='navigationcss'>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html?lang=en">Call</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html?lang=en">Who are we?</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/contacts.html?lang=en">Contacts</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/critiques.html?lang=en">Critics</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/luttes.html?lang=en">Struggles</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/alternatives.html?lang=en">Alternatives</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/liens.html?lang=en">Links</a></li>
+				<li><a href="javascript:enDropdownGB()" data-isplus="false">More...</a></li>
+			</ul>
+		</div>
+		<div class="navigationbar" lang="de" style="display: block; text-align: left;">
+			<ul id='denavigation' class='navigationcss'>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html?lang=de">Aufruf
 </a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html?lang=de">Über uns</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/contacts.html?lang=de">Kontakt</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/critiques.html?lang=de">Kritiken</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/luttes.html?lang=de">Kämpfe</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html?lang=de">Alternativlösungen</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html?lang=de">Links</a></li>
-        <li><a href="javascript:itDropdownGB()" data-isplus="false" >Mehr...</a></li>      </ul>
-    </div>
-    <div class="navigationbar" lang="it"
-      style="display: block; text-align: left;">
-      <ul id='itnavigation' class='navigationcss'>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html?lang=it">Appello</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html?lang=it">Chi siamo?</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/contacts.html?lang=it">Contatti</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/critiques.html?lang=it">Critiche</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/luttes.html?lang=it">Lotte</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html?lang=it">Alternative</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html?lang=it">Links</a></li>
-        <li><a href="javascript:itDropdownGB()" data-isplus="false" >Di più...</a></li>
-      </ul>
-    </div>
-    <div class="navigationbar" lang="pt"
-      style="display: block; text-align: left;">
-      <ul id='ptnavigation' class='navigationcss'>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html?lang=pt">Chamamento</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html?lang=pt">Quem somos nós?</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/contacts.html?lang=pt">Contactos</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/critiques.html?lang=pt">Críticas</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/luttes.html?lang=pt">Lutas</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html?lang=pt">Alternativas</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html?lang=pt">Links</a></li>
-        <li><a href="javascript:ptDropdownGB()" data-isplus="false" >Mais...</a></li>
-      </ul>
-    </div>
-    <div class="navigationbar" lang="es"
-      style="display: block; text-align: left;">
-      <ul id='esnavigation' class='navigationcss'>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html?lang=es">Llamamiento</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html?lang=es">¿Quiénes somos?</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/contacts.html?lang=es">Contactos</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/critiques.html?lang=es">Críticas</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/luttes.html?lang=es">Luchas</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html?lang=es">Alternativas</a></li>
-        <li><a href="https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html?lang=es">Enlaces</a></li>
-        <li><a href="javascript:esDropdownGB()" data-isplus="false" >Más...</a></li>
-      </ul>
-    </div>
-  </div>
-  <!--End Navigation -->
-
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html?lang=de">Über uns</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/contacts.html?lang=de">Kontakt</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/critiques.html?lang=de">Kritiken</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/luttes.html?lang=de">Kämpfe</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/alternatives.html?lang=de">Alternativlösungen</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/liens.html?lang=de">Links</a></li>
+        <li><a href="javascript:itDropdownGB()" data-isplus="false" >Mehr...</a></li>      			</ul>
+		</div>
+		<div class="navigationbar" lang="it" style="display: block; text-align: left;">
+			<ul id='itnavigation' class='navigationcss'>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html?lang=it">Appello</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html?lang=it">Chi siamo?</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/contacts.html?lang=it">Contatti</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/critiques.html?lang=it">Critiche</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/luttes.html?lang=it">Lotte</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/alternatives.html?lang=it">Alternative</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/liens.html?lang=it">Links</a></li>
+				<li><a href="javascript:itDropdownGB()" data-isplus="false">Di più...</a></li>
+			</ul>
+		</div>
+		<div class="navigationbar" lang="pt" style="display: block; text-align: left;">
+			<ul id='ptnavigation' class='navigationcss'>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html?lang=pt">Chamamento</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html?lang=pt">Quem somos nós?</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/contacts.html?lang=pt">Contactos</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/critiques.html?lang=pt">Críticas</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/luttes.html?lang=pt">Lutas</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/alternatives.html?lang=pt">Alternativas</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/liens.html?lang=pt">Links</a></li>
+				<li><a href="javascript:ptDropdownGB()" data-isplus="false">Mais...</a></li>
+			</ul>
+		</div>
+		<div class="navigationbar" lang="es" style="display: block; text-align: left;">
+			<ul id='esnavigation' class='navigationcss'>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html?lang=es">Llamamiento</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html?lang=es">¿Quiénes somos?</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/contacts.html?lang=es">Contactos</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/critiques.html?lang=es">Críticas</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/luttes.html?lang=es">Luchas</a></li>
+				<li><a href="https://www.linternationaledessavoirspourtous.org/p/alternatives.html?lang=es">Alternativas</a></li>
+        <li><a href="https://www.linternationaledessavoirspourtous.org/p/liens.html?lang=es">Enlaces</a></li>
+				<li><a href="javascript:esDropdownGB()" data-isplus="false">Más...</a></li>
+			</ul>
+		</div>
+	</div>
+<!--End Navigation -->
 	<div id="Flags" style="display: inline-block;">
 		<div id="frHandler" style="display: inline-block">
 			<img src="https://lh3.googleusercontent.com/-3p9wIlYxoho/XAWXYvAZpoI/AAAAAAAAh_4/Eirfipvf8z0Shz92eq1AXOuVaoufvpYBwCHMYCw/s0/fr.png" title="French" border="0" width="32" height="32" style="cursor:pointer;" /> 
@@ -422,224 +413,207 @@ left: auto;
 
 
 <script type="text/javascript" />
-
-function hreflangCreate(lang) {
-  var link = document.createElement('link');
-  var headID = document.getElementsByTagName('body')[0];
-  headID.appendChild(link);
-  link.rel = 'alternate';
-  link.id = 'hreflangID' + lang;
-  if (lang == '') {
-    link.hreflang = 'x-default';
-    link.href = window.location.href.split("?")[0];
-  } else {
-    link.hreflang = lang;
-    link.href = window.location.href.split("?")[0] + '?lang=' + lang;
-  }
-}
-/*hreflangCreate('');
-hreflangCreate('fr');
-hreflangCreate('en');
-hreflangCreate('de');
-hreflangCreate('es');
-hreflangCreate('it');
-hreflangCreate('pt');*/
-
 function msgPostTittleFR() {
   var msgPostTittle = [{
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html",
-        tittle : "La science pour le plus grand nombre, pas pour l'argent"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html",
-        tittle : "Qui sommes-nous ?"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/contacts.html",
-        tittle : "Contacts"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html",
-        tittle : "Liens"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/critiques.html",
-        tittle : "Critiques"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/luttes.html",
-        tittle : "Luttes"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html",
-        tittle : "Alternatives"
-     }];
+      href: "https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html",
+      tittle: "La science pour le plus grand nombre, pas pour l'argent"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html",
+      tittle: "Qui sommes-nous ?"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/contacts.html",
+      tittle: "Contacts"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/critiques.html",
+      tittle: "Critiques"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/luttes.html",
+      tittle: "Luttes"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/alternatives.html",
+      tittle: "Alternatives"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/liens.html",
+      tittle: "Liens"
+    }
+  ];
   return msgPostTittle;
 }
 
 function msgPostTittleEN() {
   var msgPostTittle = [{
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html",
-        tittle : "Science for the many, not for money"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html",
-        tittle : "Who are we?"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/contacts.html",
-        tittle : "Contacts"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html",
-        tittle : "Links"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/critiques.html",
-        tittle : "Critics"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/luttes.html",
-        tittle : "Struggles"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html",
-        tittle : "Alternatives"
-     }];
+      href: "https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html",
+      tittle: "Science for the many, not for money"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html",
+      tittle: "Who are we?"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/contacts.html",
+      tittle: "Contacts"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/critiques.html",
+      tittle: "Critics"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/luttes.html",
+      tittle: "Struggles"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/alternatives.html",
+      tittle: "Alternatives"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/liens.html",
+      tittle: "Links"
+    }
+  ];
   return msgPostTittle;
 }
 
 function msgPostTittleDE() {
   var msgPostTittle = [{
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html",
-        tittle : "Wissenschaft für die Vielen statt Wissenschaft für Profit"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html",
-        tittle : "Über uns"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/contacts.html",
-        tittle : "Kontakt"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/critiques.html",
-        tittle : "Kritiken"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/luttes.html",
-        tittle : "Kämpfe"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html",
-        tittle : "Alternativlösungen"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html",
-        tittle : "Links"
-     }];
+      href: "https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html",
+      tittle: "Wissenschaft für die Vielen statt Wissenschaft für Profit"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html",
+      tittle: "Über uns"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/contacts.html",
+      tittle: "Kontakt"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/critiques.html",
+      tittle: "Kritik"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/luttes.html",
+      tittle: "Kämpfe"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/alternatives.html",
+      tittle: "Alternativlösungen"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/liens.html",
+      tittle: "Links"
+    }
+  ];
   return msgPostTittle;
 }
 
 function msgPostTittleIT() {
   var msgPostTittle = [{
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html",
-        tittle : "La scienza per i molti, e non per i soldi"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html",
-        tittle : "Chi siamo?"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/contacts.html",
-        tittle : "Contatti"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/critiques.html",
-        tittle : "Critiche"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/luttes.html",
-        tittle : "Lotte"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html",
-        tittle : "Alternative"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html",
-        tittle : "Links"
-     }];
+      href: "https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html",
+      tittle: "La scienza per i molti, e non per i soldi"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html",
+      tittle: "Chi siamo?"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/contacts.html",
+      tittle: "Contatti"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/critiques.html",
+      tittle: "Critiche"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/luttes.html",
+      tittle: "Lotte"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/alternatives.html",
+      tittle: "Alternative"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/liens.html",
+      tittle: "Links"
+    }
+  ];
   return msgPostTittle;
 }
 
 function msgPostTittlePT() {
   var msgPostTittle = [{
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html",
-        tittle : "La scienza per i molti, e non per i soldi"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html",
-        tittle : "Chi siamo?"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/contacts.html",
-        tittle : "Contatti"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/critiques.html",
-        tittle : "Critiche"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/luttes.html",
-        tittle : "Lotte"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html",
-        tittle : "Alternative"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html",
-        tittle : "Links"
-     }];
+      href: "https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html",
+      tittle: "Ciência para todos, não para o dinheiro"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html",
+      tittle: "Quem somos nós?"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/contacts.html",
+      tittle: "Contactos"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/critiques.html",
+      tittle: "Críticas"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/luttes.html",
+      tittle: "Lutas"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/alternatives.html",
+      tittle: "Alternativas"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/liens.html",
+      tittle: "Links"
+    }
+  ];
   return msgPostTittle;
 }
 
 function msgPostTittleES() {
   var msgPostTittle = [{
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/biblioteca-delluniversita-di-bologna.html",
-        tittle : "Ciencia para todos, no por dinero"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/qui-sommes-nous.html",
-        tittle : "¿Quiénes somos?"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/contacts.html",
-        tittle : "Contactos"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/critiques.html",
-        tittle : "Críticas"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/luttes.html",
-        tittle : "Luchas"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/alternatives.html",
-        tittle : "Alternativas"
-     },
-     {
-        href : "https://brouillon-savoirspourtous.blogspot.com/p/liens-externes.html",
-        tittle : "Enlaces"
-     }];
+      href: "https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html",
+      tittle: "Ciencia para todos, no por dinero"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/qui-sommes-nous.html",
+      tittle: "¿Quiénes somos?"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/contacts.html",
+      tittle: "Contactos"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/critiques.html",
+      tittle: "Críticas"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/luttes.html",
+      tittle: "Luchas"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/alternatives.html",
+      tittle: "Alternativas"
+    },
+    {
+      href: "https://www.linternationaledessavoirspourtous.org/p/liens.html",
+      tittle: "Enlaces"
+    }
+  ];
   return msgPostTittle;
 }
 
 function curRootSite() {
 
-  return 'brouillon-savoirspourtous.blogspot.com';
+  return 'www.linternationaledessavoirspourtous.org';
 
 }
 </script>
@@ -965,7 +939,7 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
     var v = searchText.value;
     var lang = searchText.getAttribute('data-lang')
     //window.location = "search?q=" + v + "&lang=" + lang;
-    window.location.href = "https://brouillon-savoirspourtous.blogspot.com/search?q=" + v + "&lang=" + lang;
+    window.location.href = "https://www.linternationaledessavoirspourtous.org/search?q=" + v + "&lang=" + lang;
     return false; // not entirely necessary, but just in case
     }  
 }
@@ -1195,7 +1169,6 @@ function setNavigation() {
       else myA.style.display = 'inline-block';
     }
     else {
-//alert("onclick: isPlus = " + myA.dataset.isplus);
       if (myA.dataset.isplus == "true") isPlus = true;
       if (isPlus) myA.parentNode.style.display = 'inline-block';
       else myA.parentNode.style.display = 'none';
@@ -1301,7 +1274,7 @@ function callFBSDKinit() {
       xfbml: true,
       version: 'v3.2'
     });
-  };
+};
 
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -1317,7 +1290,33 @@ function callFBSDKinit() {
 
 function fbSummarize() {
   var dataSocNet = document.getElementById('postBodyforSocialNetworks');
-  var encodedURL = encodeURI(dataSocNet.dataset.url);
+  var encodedURL = encodeURI(dataSocNet.dataset.url + '&test');
+  /*FB.ui({
+
+      //display: 'popup',
+      method: 'share_open_graph',
+      action_type: 'og.shares',
+      action_properties: JSON.stringify({
+        object: {
+          'og:url': encodedURL, // your url to share
+          'og:title': 'test facebook', // dataSocNet.dataset.title,
+          'og:description': 'ceci est un test...', // dataSocNet.dataset.caption,
+          'og:image': dataSocNet.dataset.imgtag,
+          'fb:app_id': '2258091117847688'
+        }
+      })
+    },
+    // callback
+    function(response) {
+      if (response && !response.error_message) {
+        alert('Posting completed.');
+      }
+      else {
+        alert('Error while posting.');
+      }
+    }
+
+  );*/ 
   FB.ui({
 
       display: 'popup',
@@ -1351,6 +1350,14 @@ function fbSummarize() {
     }
 
   );  
+  /*FB.api('https://graph.facebook.com/', 'post', {
+            id: encodedURL,
+            scrape: true,
+            access_token: 'EAAgFuM7zJIgBAH6R2305MtL7KK34ya1tI9utq8SJB7dUYuzkAanlospKTkUehI1YZBoH7IfhdYXvZA920ZCAwZByIDm3CaTMTJZABrfAPaZA7jDAzNYvLio3FztdxdqZByEj7M2cBlOdj2kPxXKPysUGNiDXImANl5ewciPV0NjVVWlK2xQO21aFp7vZBoPdfz7zBtHA7ujhLQZDZD'
+        }, function(response) {
+            console.log('rescrape!',response);
+        }
+  );*/  
 }
 
 // triggers the modal menubar
@@ -2281,7 +2288,6 @@ function loadMap(idMap) {
   L.map(idMap).remove();
   var bounds = new L.LatLngBounds(new L.LatLng(80, -180), new L.LatLng(-70, 200));
   var map = L.map(idMap, {
-    //gestureHandling: true,
     scrollWheelZoom: false,
     maxBounds: bounds,
     maxBoundsViscosity: 1.0
@@ -2327,29 +2333,6 @@ function add2Layer(myLayer, inputCollection, setCallBack, iconSize) {
   for (var i = 0; i < inputCollection.length; i++) {
     var input = inputCollection[i];
 
-    /*      // définition des lieux (icons)
-          var myIconPopUp = new FlagIcon({
-            iconUrl: input.flag
-          });
-          // définition des markers associés au groupe météo des luttes
-           var markerPopUp = L.marker([input.lat, input.lng], {
-            icon: myIconPopUp
-          });
-			//marker.bindPopup(title);
-			myLayer.addLayer(markerPopUp);
-          markerPopUp.bindPopup(input.doc, {
-          maxWidth: 600, 
-          minWidth: 250, 
-          maxHeight: 160, 
-          autoPan: true, 
-          closeButton: true, 
-          autoPanPadding: [5, 5]
-          }).openPopup();
-          
-          markerPopUp.getPopup().on('remove', function() {
-            setCallBack();
-          });
-    */
     Object.getOwnPropertyNames(myLayer).forEach(
       function(val, idx, array) {
         if (val == 'Links') {
@@ -2366,7 +2349,8 @@ function add2Layer(myLayer, inputCollection, setCallBack, iconSize) {
             idHref(event);
           });
         }
-        else if ( (val == 'options') || (val == 'PopUps')) {
+        //else if ( (val == 'options') || (val == 'PopUps')) {
+        else {
           // définition des lieux (icons)
           var myIconPopUp = new FlagIcon({
             iconUrl: input.flag
@@ -2993,7 +2977,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
             weight: 1,
             opacity: .5
           });
-                    
+                              
           if ("ontouchstart" in document.documentElement) {
             layer.on({
               //dblclick: clickLayer,
@@ -3006,12 +2990,6 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
               mouseout: leaveLayer
             });
           }
-          /*layer.on({
-            dblclick: clickLayer,
-            click: enterLayer,
-            mouseover: enterLayer,
-            mouseout: leaveLayer
-          });*/
                       
           function getColor() {
             var countryName = layer.feature.properties.name;
@@ -3030,7 +3008,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
             return thisColor(d);
           }
           
-          function getLang() {
+        ej  function getLang() {
             var mySignatures = document.getElementById("signatures-country-name");
             if( mySignatures !== 'undefined') return mySignatures.getAttribute("data-lang");
             else return '';
@@ -3359,7 +3337,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
               opacity: .5
             });
           }
-                   
+
         }
         addLegend();
       },

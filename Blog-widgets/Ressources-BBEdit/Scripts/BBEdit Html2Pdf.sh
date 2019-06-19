@@ -140,7 +140,7 @@ then
 
 fi
 
-wkhtmltopdf --encoding 'utf-8' --user-style-sheet file:///Users/Philippe/Documents/Blogs/Code_JavaScript/wkhtmltopdf/wkhtmltopdf.css "$INPUT_FILE" "$OUTPUT_FILENAME"
+wkhtmltopdf --encoding 'utf-8' --user-style-sheet file:///Users/Philippe/Documents/Blogs/GitHub/Javascript/Blog-widgets/Ressources-BBEdit/wkhtmltopdf/wkhtmltopdf.css "$INPUT_FILE" "$OUTPUT_FILENAME"
 
 EXIT="$?"
 

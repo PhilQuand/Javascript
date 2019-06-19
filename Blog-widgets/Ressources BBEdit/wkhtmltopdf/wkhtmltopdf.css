@@ -1,0 +1,187 @@
+body {
+  background-color: #D0E1E2;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 1em;
+}
+
+a:link {
+  color: red;
+}
+
+.html2pdf-post-title a{
+color: #186779;
+font-size: 24px;
+font-weight: bold;
+line-height: 1;
+}
+
+.html2pdf-post-date {
+color: grey;
+line-height: 1;
+margin-top: -0.5em;
+}
+
+.html2pdf-post-signature {
+text-align: right;
+}
+
+.authors-in-post {
+color: blue;
+font-style: italic
+}
+
+.lang-in-post {
+display: none;
+}
+
+.blogger-post-footer {
+display: none;
+}
+
+.a.footptr {
+    vertical-align: super;
+    font-size: .83em;
+    text-decoration: none;
+}
+
+.foot-tooltip {
+    background-color: #FCF6CF;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    opacity: 0;
+	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-o-transition: opacity 0.3s linear;
+	-ms-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+}
+
+.ref-tooltip {
+    background-color: #90F790;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    opacity: 0;
+	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-o-transition: opacity 0.3s linear;
+	-ms-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+}
+
+li:target {
+    background-color: #BFEFFF;
+}
+
+. {
+    text-indent: -1.2em;
+    counter-reset: refcounter;
+    font-style: italic;
+    line-height: 1.5;
+    font-size: smaller;
+
+}
+
+.footnotes {
+    text-indent: -1.2em;
+    counter-reset: footcounter;
+    font-style: italic;
+    line-height: 1.5;
+    font-size: smaller;
+
+}
+
+.reference:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -140px; 
+  height: 140px; 
+  visibility: hidden; 
+  pointer-events: none;
+}
+
+.reference:target li {
+    background-color: #BFEFFF;
+}
+
+.reference li:before {
+  content: "[" counter(refcounter) "] ";
+  counter-increment: refcounter;
+}
+
+.footnote:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -285px; 
+  height: 285px; 
+  visibility: hidden; 
+  pointer-events: none;
+}
+
+.footnote:target li {
+    background-color: #BFEFFF;
+}
+
+.footnote li:before {
+  content: "(" counter(footcounter) ") ";
+  counter-increment: footcounter;
+}
+
+.topage:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -285px; 
+  height: 285px; 
+  visibility: hidden; 
+  pointer-events: none;
+}
+
+.incrustation {
+    background-color: #e8f6f8;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+blockquote {
+   text-align: left;
+   font-size: 20px; 
+   line-height: 22pt;
+}
+
+.styled {
+    max-width: 300px !important;   /* Largeur du formulaire */
+    border: 0;
+    line-height: 1.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(208, 225, 226, 1);
+    background-color: rgba(162, 196, 201, 1);
+
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(162, 196, 201, 1);
+    background-color: rgba(208, 225, 226, 1);
+
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+

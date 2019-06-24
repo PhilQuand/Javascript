@@ -38,8 +38,8 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Belgique.png",
       lat: 51.5 , 
       lng: 4.7 },
-    Bresil : 
-    { img :"https://philquand.github.io/Javascript/flagsRepository/Bresil.png",
+    Brazil : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Brazil.png",
       lat: -15.7 , 
       lng: -48 },
     Californie  : 

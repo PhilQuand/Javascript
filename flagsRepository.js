@@ -48,6 +48,10 @@ var flagsRepository = {
       img :'https://philquand.github.io/Javascript/flagsRepository/USA.png',
       lat: 39.80,
       lng: -122.15 },
+    Chili : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Chili.png",
+      lat: -33.50 ,
+      lng: -70.92 },
     Colombie : 
     { img :"https://philquand.github.io/Javascript/flagsRepository/Colombie.png",
       lat: 4.5 ,

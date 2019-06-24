@@ -152,6 +152,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png",
       lat: 52,
       lng: -1 },
+    Saint-Domingue : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Saint-Domingue.png",
+      lat: 18.65,
+      lng: -69.93 },
     Sénégal     : 
     { img :"https://philquand.github.io/Javascript/flagsRepository/Sénégal.png",
       lat: 16.032327,

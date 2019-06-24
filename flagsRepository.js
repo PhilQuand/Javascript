@@ -1,3 +1,4 @@
+//https://icon-icons.com/fr/icone/bresil-drapeaux-drapeau/16249
 var flagsRepository = {
     fdAustralie : 'https://philquand.github.io/Javascript/flagsRepository/Australie.png',
     fdCanada    : 'https://philquand.github.io/Javascript/flagsRepository/Canada.png',
@@ -37,6 +38,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Belgique.png",
       lat: 51.5 , 
       lng: 4.7 },
+    Brazil : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Brazil.png",
+      lat: -15.7 , 
+      lng: -48 },
     Californie  : 
     { 
     //img :'https://philquand.github.io/Javascript/flagsRepository/Californie.png',

@@ -124,6 +124,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Niger.png",
       lat: 19,
       lng: 10 },
+    NouvelleZélande : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/NouvelleZélande.png",
+      lat: -41.25,
+      lng: 174.75 },
     Ontario    : 
     { 
     //img: "https://philquand.github.io/Javascript/flagsRepository/Ontario.png",

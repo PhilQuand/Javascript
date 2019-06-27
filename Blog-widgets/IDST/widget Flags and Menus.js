@@ -3008,7 +3008,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
             return thisColor(d);
           }
           
-        ej  function getLang() {
+          function getLang() {
             var mySignatures = document.getElementById("signatures-country-name");
             if( mySignatures !== 'undefined') return mySignatures.getAttribute("data-lang");
             else return '';

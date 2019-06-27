@@ -3,35 +3,37 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
 
 <!-- jQuery for FancyBox 3-->
+<!-- FancyBox CSS -->
+<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+<!-- jQuery for FancyBox 3-->
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
 <!-- FancyBox 3 -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js'></script>
 
 <script type='text/javascript'>
-//<![CDATA[
-$(document).ready(function(){
-$(".post-body a img").each(function(){
-var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test( $(this).parent("a").attr("href") );
+$(document).ready(function() {
+  $(".post-body a img").each(function() {
+    var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 
-if ( isImage ) {
-$(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
-$(this).parent("a").attr('data-fancybox', 'fancy-box' );
-}
+    if (isImage) {
+      $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
+      $(this).parent("a").attr('data-fancybox', 'fancy-box');
+    }
 
-else {
-}
+    else {}
+  });
+  $("[data-fancybox]").fancybox({
+    infobar: true,
+    arrows: false,
+    animationEffect: "fade",
+    transitionEffect: "slide",
+    speed: 300,
+    margin: [40, 20]
+  });
 });
-$("[data-fancybox]").fancybox({
-infobar : true,
-arrows : false,
-animationEffect : "fade",
-transitionEffect : "slide",
-speed : 300,
-margin : [40, 20]
-});
-});
-//]]>
 </script>
 <!-- End FancyBox -->
 

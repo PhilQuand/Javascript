@@ -9,6 +9,12 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js'></script>
 <script type='text/javascript'>
 $(document).ready(function() {
+  var entryTitle = document.getElementsByClassName("entry-title");
+  for( var i=0; i < entryTitle.length; i++) {
+  	//entryTitle[i].children[0].style.backgroundColor = "blue";
+  	//entryTitle[i].children[0].classList.add("blogPostsTitle");
+  	//entryTitle[i].children[0].style.fontSize = "20px";
+  };
   $(".post-body a img").each(function() {
     var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 
@@ -32,7 +38,62 @@ $(document).ready(function() {
 <!-- End FancyBox -->
 
 <style>
-.mySumFeat, .mySumReg {
+.PopularPosts .post-title,
+.PopularPosts .post-title a,
+.PopularPosts .post-title a:visited,
+.PopularPosts .post-title a:hover {
+  font-size: 24px;
+}
+
+.contTitle {
+  margin-top: 350px;
+}
+.sticky .contTitle {
+  margin-top: 10px;
+}
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  //line-height: 1;
+}
+/* We tell all items to be 100% width, via flex-basis */
+.blog-posts > * {
+  flex: 1 30%;
+}
+.PopularPosts div div {
+  display: flex;
+  align-items: stretch;
+  //background: green;
+  //align-items: stretch;
+  /*flex-wrap: wrap;
+  align-items: stretch;*/
+}
+/* We tell all items to be 100% width, via flex-basis */
+.PopularPosts div div article {
+  flex: 1;
+  background: orangered;
+  display: flex;
+  flex-direction: column;
+}
+.item-content {
+  flex: 1;
+  background: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.item-content .jump-link {
+}
+.PopularPosts div div article  > * {
+	//align-self: flex-end;
+  background-color: blue;
+}
+.item-content  > * {
+	//align-self: flex-end;
+  //background-color: grey;
+}
+.mySumFeat {
 line-height: 1.6;
 }
 .mySumFeat {
@@ -40,6 +101,7 @@ color: black;
 font-size: 125%;
 }
 .mySumReg {
+line-height: 1.2;
 color: grey;
 }
 @media screen and (max-width: 425px) {
@@ -48,6 +110,16 @@ color: grey;
   }
 }
 </style>
+<script type='text/javascript'>
+  var blogTitle = document.getElementsByClassName("header-widget");
+  if( blogTitle.length == 1) {
+  	var h1Title = blogTitle[0].children[0].children[0];
+  	if(h1Title.children.length == 0){
+  	  var contTitle = blogTitle[0].parentNode.parentNode.parentNode.parentNode;
+      contTitle.classList.add("contTitle");
+    };
+  };
+</script>
 <script>
 function compSumAndImg(strx, chop, imgtag) {
   var result = {

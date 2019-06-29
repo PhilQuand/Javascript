@@ -54,22 +54,62 @@ $(document).ready(function() {
 .blog-posts {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  //line-height: 1;
+  /* Then we define how is distributed the remaining space */
+  //justify-content: space-between;
+  background: orangered;
 }
 /* We tell all items to be 100% width, via flex-basis */
 .blog-posts > * {
   flex: 1 30%;
+  display: flex;
+  //flex-direction: column;
+  //justify-content: space-between;
+  background: lime;
 }
-.PopularPosts div div {
+.blog-posts > * > *  {
+  //flex: 0 0 auto;
+  flex: 0 100%;
+  background: grey;
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+}
+.blog-posts > * > * > * {
+  //flex: 0 0 auto;
+  flex: 0 100%;
+  background: purple;
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+}
+.blog-posts > * > * > * > * {
+  flex: 0 0 auto;
+  background: lime;
+}
+.post-title {
+ //flex: 2 0 5em;
+ flex-basis: 5em;
+ background: yellow;
+}
+.post-bottom {
+ flex-basis: auto;
+ display: flex;
+ flex-direction: column;
+ background: yellow;
+}
+.post-bottom > * {
+  flex: 0 0 auto;
+  background: lime;
+}
+/*.PopularPosts div div {
   display: flex;
   align-items: stretch;
   //background: green;
   //align-items: stretch;
-  /*flex-wrap: wrap;
-  align-items: stretch;*/
+  //flex-wrap: wrap;
+  //align-items: stretch;
 }
-/* We tell all items to be 100% width, via flex-basis */
+//We tell all items to be 100% width, via flex-basis 
 .PopularPosts div div article {
   flex: 1;
   background: orangered;
@@ -92,7 +132,7 @@ $(document).ready(function() {
 .item-content  > * {
 	//align-self: flex-end;
   //background-color: grey;
-}
+}*/
 .mySumFeat {
 line-height: 1.6;
 }
@@ -119,6 +159,15 @@ color: grey;
       contTitle.classList.add("contTitle");
     };
   };
+$(document).ready(function() {
+  var postBottom = document.getElementsByClassName("post-bottom");
+  for( var i=0; i<postBottom.length; i++ ) {
+    //var div = document.createElement("div");
+    //postOuter[i].parentNode.append(div);
+    postBottom[i].parentNode.parentNode.appendChild(postBottom[i]);
+    postBottom[i].children[0].style.display= "none";
+  };
+});
 </script>
 <script>
 function compSumAndImg(strx, chop, imgtag) {

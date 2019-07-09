@@ -38,101 +38,176 @@ $(document).ready(function() {
 <!-- End FancyBox -->
 
 <style>
+.Attribution {
+  display: none;
+}
+#Image2_img {
+  //height: 325px;
+}
 .PopularPosts .post-title,
 .PopularPosts .post-title a,
 .PopularPosts .post-title a:visited,
 .PopularPosts .post-title a:hover {
   font-size: 24px;
 }
-
 .contTitle {
-  margin-top: 350px;
+  margin-top: 300px;
 }
 .sticky .contTitle {
   margin-top: 10px;
 }
-.blog-posts {
-  display: flex;
-  flex-wrap: wrap;
-  /* Then we define how is distributed the remaining space */
-  //justify-content: space-between;
-  background: orangered;
+.archivedate a, .archivedate .post-count, .archivedate .post-count::before, .archivedate .post-count::after {
+  color: yellow;
 }
-/* We tell all items to be 100% width, via flex-basis */
-.blog-posts > * {
-  flex: 1 30%;
-  display: flex;
-  //flex-direction: column;
-  //justify-content: space-between;
-  background: lime;
+</style>
+<script type='text/javascript'>
+  var blogTitle = document.getElementsByClassName("header-widget");
+  if( blogTitle.length == 1) {
+  	var h1Title = blogTitle[0].children[0].children[0];
+  	if(h1Title.children.length == 0){
+  	  var contTitle = blogTitle[0].parentNode.parentNode.parentNode.parentNode;
+      contTitle.classList.add("contTitle");
+    };
+  };
+</script>
+
+<!-- Début des modifications pour Accueil sur deux colonnes -->
+<!--style>
+.Blog1 .blog-posts {
+  display:none;
 }
-.blog-posts > * > *  {
-  //flex: 0 0 auto;
-  flex: 0 100%;
-  background: grey;
-  display: flex;
-  flex-direction: column;
-  //justify-content: space-between;
+.Blog1 .blog-posts-table {
+    display:block;
 }
-.blog-posts > * > * > * {
-  //flex: 0 0 auto;
-  flex: 0 100%;
-  background: purple;
-  display: flex;
-  flex-direction: column;
-  //justify-content: space-between;
+.classTable {
+  width: 100%;
+  margin: 1em;
+  //border: solid;
 }
-.blog-posts > * > * > * > * {
-  flex: 0 0 auto;
-  background: lime;
+.classTable tbody tr td {
+  width: 50%;
+  //border-right: solid;
+  //border-left: solid;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
 }
-.post-title {
- //flex: 2 0 5em;
- flex-basis: 5em;
- background: yellow;
+.classTable tbody tr {
+  vertical-align: top;
 }
-.post-bottom {
- flex-basis: auto;
- display: flex;
- flex-direction: column;
- background: yellow;
+.jumpLink div {
+  margin-right: 3em;
+  //margin-left: auto;
+  float: right;
 }
-.post-bottom > * {
-  flex: 0 0 auto;
-  background: lime;
+@media screen and (max-width: 900px) {
+  .Blog1 .blog-posts {
+    display:block;
+  }
+  .Blog1 .blog-posts-table {
+    display:none;
+  }
 }
-/*.PopularPosts div div {
-  display: flex;
-  align-items: stretch;
-  //background: green;
-  //align-items: stretch;
-  //flex-wrap: wrap;
-  //align-items: stretch;
+</style>
+<script type='text/javascript'>
+$(document).ready(function() {
+breakCode : {
+var href = "https://catdp37.blogspot.com/";
+var actHref = window.location.href;
+var s = actHref.split(href);
+if( s[1] != '') break breakCode;
+
+  var idBlog1 = document.getElementById('Blog1');
+  idBlog1.classList.add('Blog1');
+  var idTable = document.createElement("div");
+  idTable.classList.add('blog-posts-table');
+  idBlog1.appendChild(idTable);
+  //var dataTable = [['R1C1','R1C2','R1C3'],['R2C1','R2C2','R2C3'],['R3C1','R3C2','R3C3']];
+  var contArticles = idBlog1.children[0];
+  var postTitle = contArticles.getElementsByClassName('post-title')
+  var postShareButtons = contArticles.getElementsByClassName('post-share-buttons')
+  var postHeader = contArticles.getElementsByClassName('post-header')
+  var likebtnWrapper = contArticles.getElementsByClassName('likebtn-wrapper')
+  var postBody = contArticles.getElementsByClassName('post-body')
+  var postFooterLine1 = contArticles.getElementsByClassName('post-footer-line-1')
+  var jumpLink = contArticles.getElementsByClassName('jump-link')
+  for( var i=0; i<postTitle.length; i+=2 ) {
+    var dataTable = [];
+    if(i<postTitle.length-1) {
+      dataTable.push(addRowTable(postTitle[i],postTitle[i+1],'postTitle'));
+      dataTable.push(addRowTable(postShareButtons[i],postShareButtons[i+1],'postShareButtons'));
+      dataTable.push(addRowTable(postHeader[i],postHeader[i+1],'postHeader'));
+      dataTable.push(addRowTable(likebtnWrapper[i],likebtnWrapper[i+1],'likebtnWrapper'));
+      dataTable.push(addRowTable(postBody[i],postBody[i+1],'postBody'));
+      dataTable.push(addRowTable(postFooterLine1[i],postFooterLine1[i+1],'postFooterLine1'));
+      dataTable.push(addRowTable(jumpLink[i],jumpLink[i+1],'jumpLink'));
+    } else {
+      dataTable.push(addRowTable(postTitle[i],'','postTitle'));
+      dataTable.push(addRowTable(postShareButtons[i],'','postShareButtons'));
+      dataTable.push(addRowTable(postHeader[i],'','postHeader'));
+      dataTable.push(addRowTable(likebtnWrapper[i],'','likebtnWrapper'));
+      dataTable.push(addRowTable(postBody[i],'','postBody'));
+      dataTable.push(addRowTable(postFooterLine1[i],'','postFooterLine1'));
+      dataTable.push(addRowTable(jumpLink[i],'','jumpLink'));
+    }
+    writeTable(idTable, dataTable,'classTable');
+  }
+  //accueilRemoveClass("jump-link");
+  //accueilRemoveClass("post-footer");
 }
-//We tell all items to be 100% width, via flex-basis 
-.PopularPosts div div article {
-  flex: 1;
-  background: orangered;
-  display: flex;
-  flex-direction: column;
+});
+function addRowTable(cell1, cell2, classRow) {
+  var newRow = [];
+  newRow.push(classRow);
+  var newCell1 = cell1.cloneNode(true);
+  newRow.push(newCell1);
+  if( cell2 != '') {
+    var newCell2 = cell2.cloneNode(true);
+    newRow.push(newCell2);
+  }
+  return newRow;
 }
-.item-content {
-  flex: 1;
-  background: yellow;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+function writeTable(parent, data, classTable) {
+    var TBtbody = document.createElement("table");
+    TBtbody.classList.add(classTable);
+    parent.appendChild(TBtbody);
+    var tbody = document.createElement("tbody");
+    TBtbody.appendChild(tbody);
+
+    for (var r = 0; r < data.length; r++) {
+        drawRow(tbody, data[r]);
+    }
+
+    function drawRow(table, rowData) {
+    	if (rowData == null) return null;
+        if (rowData.length == 0) return null;
+        //var tr = $("<tr style='width: 100%;'/>");
+        var tr = document.createElement("tr");
+        //tr.classList.add(rowData[0]);
+        table.appendChild(tr);
+        for (var c = 1; c < rowData.length; c++) {
+            drawCell(tr, rowData[c], rowData[0]);
+        }
+        return tr;
+
+        function drawCell(tr, val, cellClass) {
+            var td = document.createElement("td");
+            td.classList.add(cellClass);
+            tr.appendChild(td);
+            td.appendChild(val);
+            return td;
+        }
+    }
+
+}                                       
+function accueilRemoveClass(oldClass) {
+	var div = document.getElementsByClassName(oldClass);
+    while (div[0]) {
+      div[0].className = 'accueil-' + oldClass;
+    }
 }
-.item-content .jump-link {
-}
-.PopularPosts div div article  > * {
-	//align-self: flex-end;
-  background-color: blue;
-}
-.item-content  > * {
-	//align-self: flex-end;
-  //background-color: grey;
-}*/
+</script-->
+<!-- Fin des modifications pour Accueil sur deux colonnes -->
+<style>
 .mySumFeat {
 line-height: 1.6;
 }
@@ -141,7 +216,7 @@ color: black;
 font-size: 125%;
 }
 .mySumReg {
-line-height: 1.2;
+//line-height: 1.2;
 color: grey;
 }
 @media screen and (max-width: 425px) {
@@ -150,7 +225,7 @@ color: grey;
   }
 }
 </style>
-<script type='text/javascript'>
+<!--script type='text/javascript'>
   var blogTitle = document.getElementsByClassName("header-widget");
   if( blogTitle.length == 1) {
   	var h1Title = blogTitle[0].children[0].children[0];
@@ -166,9 +241,16 @@ $(document).ready(function() {
     //postOuter[i].parentNode.append(div);
     postBottom[i].parentNode.parentNode.appendChild(postBottom[i]);
     postBottom[i].children[0].style.display= "none";
+    //postBottom[i].children[1].style.display= "none";
+    /*var div = document.createElement("div");
+    div.innerHTML = "Commentaires"
+    postBottom[i].append(div);
+    var div = document.createElement("div");
+    div.innerHTML = "À suivre"
+    postBottom[i].append(div);*/
   };
 });
-</script>
+</script-->
 <script>
 function compSumAndImg(strx, chop, imgtag) {
   var result = {

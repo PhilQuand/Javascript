@@ -23,14 +23,14 @@ if (!pdfjsLib.getDocument || !pdfjsViewer.PDFSinglePageViewer) {
 // The workerSrc property shall be specified.
 //
 pdfjsLib.GlobalWorkerOptions.workerSrc =
-  '../../node_modules/pdfjs-dist/build/pdf.worker.js';
+  '../build/pdf.worker.js';
 
 // Some PDFs need external cmaps.
 //
-var CMAP_URL = '../../node_modules/pdfjs-dist/cmaps/';
+var CMAP_URL = 'cmaps/';
 var CMAP_PACKED = true;
 
-var DEFAULT_URL = '../../web/compressed.tracemonkey-pldi-09.pdf';
+var DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';
 var SEARCH_FOR = ''; // try 'Mozilla';
 
 var container = document.getElementById('viewerContainer');

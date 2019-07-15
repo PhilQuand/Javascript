@@ -932,7 +932,7 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
     document.getElementById("searchButton").onclick = doSearch;
 
     var mySignatures = document.getElementById("signatures-country-name");
-    if( mySignatures !== 'undefined') mySignatures.setAttribute("data-lang", Lang);
+    if( typeof mySignatures !== 'undefined') mySignatures.setAttribute("data-lang", Lang);
 
     function doSearch() {
     var searchText = document.getElementById("searchText");
@@ -3010,7 +3010,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
           
           function getLang() {
             var mySignatures = document.getElementById("signatures-country-name");
-            if( mySignatures !== 'undefined') return mySignatures.getAttribute("data-lang");
+            if( typeof mySignatures !== 'undefined') return mySignatures.getAttribute("data-lang");
             else return '';
           }
 

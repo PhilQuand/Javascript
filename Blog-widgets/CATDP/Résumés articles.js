@@ -1,29 +1,128 @@
-<!-- FancyBox CSS -->
-<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+<!-- Add jQuery library -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- Add mousewheel plugin (this is optional) -->
+<!--script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs//fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script-->
 
 <!-- jQuery for FancyBox 3-->
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
+<!-- Add fancyBox -->
+<!-- FancyBox CSS -->
+<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<style>
+/* Background color */
+.fancybox-bg {
+  background-color: #fff;
+}
+
+/* Move counter to the right */
+.fancybox-infobar {
+  left: auto;
+  right: 0;
+}
+
+/* Add shadow around image, but hide it while zooming */
+.fancybox-image {
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+  transition: box-shadow .2s;
+}
+
+.fancybox-is-scaling .fancybox-image {
+  box-shadow: none;
+}
+
+/* Hide elements while zooming or when zoomed-in */
+.fancybox-is-scaling .fancybox-item,
+.fancybox-can-drag .fancybox-item {
+  display: none !important;
+}
+
+/* Style close button */
+.fancybox-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 36px;
+  height: 36px;
+  background-image: url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
+  z-index: 2;
+}
+
+/* Style navigation elements */
+.fancybox-nav {
+  position: absolute;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.fancybox-prev {
+  left: 0;
+}
+
+.fancybox-next {
+  right: 0;
+}
+
+.fancybox-nav span {
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 34px;
+  margin-top: -18px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.fancybox-prev span, .fancybox-next span {
+  background-image : url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
+}
+
+.fancybox-prev span {
+  left: 10px;
+  background-position: 0 -36px;
+}
+
+.fancybox-next span {
+  right: 10px;
+  background-position: 0 -72px;
+}
+
+.fancybox-nav:hover span {
+  visibility: visible;
+}
+
+</style>
+<!--link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" /-->
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
 <!-- FancyBox 3 -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js'></script>
+<!--script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js'></script-->
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.js'></script>
 <script type='text/javascript'>
 $(document).ready(function() {
-  var entryTitle = document.getElementsByClassName("entry-title");
-  for( var i=0; i < entryTitle.length; i++) {
-  	//entryTitle[i].children[0].style.backgroundColor = "blue";
-  	//entryTitle[i].children[0].classList.add("blogPostsTitle");
-  	//entryTitle[i].children[0].style.fontSize = "20px";
-  };
-  $(".post-body a img").each(function() {
-    var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
+  $(".post-body").find("a img").each(function() {
+      var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 
-    if (isImage) {
-      $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
-      $(this).parent("a").attr('data-fancybox', 'fancy-box');
-    }
+      if (isImage) {
+        var aClass = $(this).parent("a").attr('class');
+        var aId = $(this).parent("a").attr('id');
+        var aFancy = $(this).parent("a").attr('data-fancybox');
+        if((typeof aClass ==='undefined') && (typeof aId ==='undefined') && (typeof aFancy ==='undefined')) {
+          $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
+          $(this).parent("a").attr('data-fancybox', 'fancy-box');
+          $(this).parent("a").attr('href', 'javascript:;');
+        }
+      }
 
-    else {}
+      else {}
   });
   $("[data-fancybox]").fancybox({
     infobar: true,
@@ -31,15 +130,28 @@ $(document).ready(function() {
     animationEffect: "fade",
     transitionEffect: "slide",
     speed: 300,
-    margin: [40, 20]
+    margin: [40, 20]               
   });
 });
 </script>
 <!-- End FancyBox -->
 
 <style>
+/*.header-widget {
+  padding-bottom : 1em;
+}
+.header-widget div h1 {
+  line-height : 0.8;
+}*/
 .Attribution {
   display: none;
+}
+#sidebar_bottom {
+  font-family: 'Crimson text';
+  line-height: 0.8;
+}
+.archivedate a, .archivedate .post-count, .archivedate .post-count::before, .archivedate .post-count::after {
+  color: white;
 }
 #Image2_img {
   //height: 325px;
@@ -56,19 +168,28 @@ $(document).ready(function() {
 .sticky .contTitle {
   margin-top: 10px;
 }
-.archivedate a, .archivedate .post-count, .archivedate .post-count::before, .archivedate .post-count::after {
-  color: yellow;
-}
 </style>
 <script type='text/javascript'>
-  var blogTitle = document.getElementsByClassName("header-widget");
-  if( blogTitle.length == 1) {
-  	var h1Title = blogTitle[0].children[0].children[0];
-  	if(h1Title.children.length == 0){
-  	  var contTitle = blogTitle[0].parentNode.parentNode.parentNode.parentNode;
-      contTitle.classList.add("contTitle");
+//$(document).ready(function() {
+  breakCode: {
+    var href = "https://catdp37.blogspot.com/";
+    var actHref = window.location.href;
+    var s = actHref.split(href);
+    //if (s[1] != '') break breakCode;
+    var blogTitle = document.getElementsByClassName("header-widget");
+    if (blogTitle.length == 1) {
+      var h1Title = blogTitle[0].children[0].children[0];
+    if (s[1] == '') {
+      blogTitle[0].style.paddingBottomt = "1em";
+      h1Title.style.lineHeight = "0.8";
+    } else {
+      var title = h1Title.children[0].innerHTML;
+      //title.replace(/br/gi, "");
+      h1Title.children[0].innerHTML = "C’est au Tour(s) du Peuple !<br>Municipales 2020";
+    }
     };
-  };
+  }
+//});
 </script>
 
 <!-- Début des modifications pour Accueil sur deux colonnes -->
@@ -207,6 +328,7 @@ function accueilRemoveClass(oldClass) {
 }
 </script-->
 <!-- Fin des modifications pour Accueil sur deux colonnes -->
+
 <style>
 .mySumFeat {
 line-height: 1.6;
@@ -225,32 +347,6 @@ color: grey;
   }
 }
 </style>
-<!--script type='text/javascript'>
-  var blogTitle = document.getElementsByClassName("header-widget");
-  if( blogTitle.length == 1) {
-  	var h1Title = blogTitle[0].children[0].children[0];
-  	if(h1Title.children.length == 0){
-  	  var contTitle = blogTitle[0].parentNode.parentNode.parentNode.parentNode;
-      contTitle.classList.add("contTitle");
-    };
-  };
-$(document).ready(function() {
-  var postBottom = document.getElementsByClassName("post-bottom");
-  for( var i=0; i<postBottom.length; i++ ) {
-    //var div = document.createElement("div");
-    //postOuter[i].parentNode.append(div);
-    postBottom[i].parentNode.parentNode.appendChild(postBottom[i]);
-    postBottom[i].children[0].style.display= "none";
-    //postBottom[i].children[1].style.display= "none";
-    /*var div = document.createElement("div");
-    div.innerHTML = "Commentaires"
-    postBottom[i].append(div);
-    var div = document.createElement("div");
-    div.innerHTML = "À suivre"
-    postBottom[i].append(div);*/
-  };
-});
-</script-->
 <script>
 function compSumAndImg(strx, chop, imgtag) {
   var result = {

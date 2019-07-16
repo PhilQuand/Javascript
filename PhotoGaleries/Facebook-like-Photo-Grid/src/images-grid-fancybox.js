@@ -253,7 +253,7 @@
             imageIndex = img.data('index');
         }
 
-        this.modal.open(imageIndex);
+        //this.modal.open(imageIndex);
     }
 
     ImagesGrid.prototype.onImageLoaded = function(event, imageEl, image) {

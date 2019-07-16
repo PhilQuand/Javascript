@@ -114,7 +114,7 @@
 
         this.setGridClass();
         this.renderGridItems();
-        this.createModal();
+        //this.createModal();
 
         this.$window.on('resize', this.onWindowResize);
     }

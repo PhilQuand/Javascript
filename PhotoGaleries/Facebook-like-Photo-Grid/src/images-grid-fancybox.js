@@ -161,7 +161,7 @@
             if (i === opts.cells) {
                 break;
             }
-            this.$('<div>').renderGridItem(imgs[i], i);
+            this.renderGridItem(imgs[i], i);
         }
 
         if (opts.showViewAll === 'always' || 
@@ -193,7 +193,7 @@
             title = image.title || '';
         }
 
-        var item = $('<div>', {
+        var item = $('<div>').$('<div>', {
             class: 'imgs-grid-image',
             click: this.onImageClick,
             data: { index: index }

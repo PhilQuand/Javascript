@@ -159,7 +159,7 @@
 
         for (var i = 0; i < imgsLen; ++i) {
             if (i === opts.cells) {
-                if(!opts.fancybox) break;
+                break;
             }
             this.renderGridItem(imgs[i], i);
         }
@@ -168,6 +168,12 @@
             (opts.showViewAll === 'more' && imgsLen > opts.cells)
         ) {
             this.renderViewAll();
+        }
+
+        if(opts.fancybox) {
+          for (var i = opts.cells; i < imgsLen; ++i) {
+            this.renderGridItem(imgs[i], i);
+          }
         }
 
         opts.onGridRendered(this.$element);

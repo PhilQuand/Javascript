@@ -156,7 +156,7 @@
 
         this.$element.empty();
         this.$gridItems = [];
-        $('div').append($('<div>'));
+        $.append($('<div>'));
 
         for (var i = 0; i < imgsLen; ++i) {
             if (i === opts.cells) {

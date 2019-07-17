@@ -242,8 +242,7 @@
      
         item.append(
             $('<div>').append(
-                $('<img>', { src: src }
-                })
+                $('<img>', { src: src })
             )
         );
 

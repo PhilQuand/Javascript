@@ -238,7 +238,7 @@
             title = image.title || '';
         }
 
-        var item = $('<div>'}
+        var item = $('<div>')
         });
 
         item.append(

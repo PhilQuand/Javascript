@@ -156,7 +156,7 @@
 
         this.$element.empty();
         this.$gridItems = [];
-        this.append($('<div>'))
+        $('div').append($('<div>'));
 
         for (var i = 0; i < imgsLen; ++i) {
             if (i === opts.cells) {
@@ -194,7 +194,7 @@
             title = image.title || '';
         }
 
-        var item = $('<div>').$('<div>', {
+        var item = $('div').$('<div>', {
             class: 'imgs-grid-image',
             click: this.onImageClick,
             data: { index: index }

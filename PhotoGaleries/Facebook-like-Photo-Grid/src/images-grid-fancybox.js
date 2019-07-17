@@ -52,6 +52,7 @@
 
     $.fn.imagesGrid.defaults = {
         images: [],
+        fancybox: false,
         cells: 5,
         align: false,
         nextOnClick: true,
@@ -114,7 +115,7 @@
 
         this.setGridClass();
         this.renderGridItems();
-        //this.createModal();
+        if(!fancybox) this.createModal();
 
         this.$window.on('resize', this.onWindowResize);
     }
@@ -253,7 +254,7 @@
             imageIndex = img.data('index');
         }
 
-        //this.modal.open(imageIndex);
+        if(!fancybox) this.modal.open(imageIndex);
     }
 
     ImagesGrid.prototype.onImageLoaded = function(event, imageEl, image) {

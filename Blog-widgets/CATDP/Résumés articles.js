@@ -102,6 +102,52 @@
   visibility: visible;
 }
 
+.fancybox-content {
+	//width  : 800px;
+	//height : 600px;
+	//max-width  : 100%;
+	//max-height : calc( 100% - 100px );
+  margin: 50px 0;
+  overflow: visible;
+  background: #000;
+}
+
+.button-close,
+.button-previous,
+.button-next {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: #C2C2C2;
+  text-align: center;
+  line-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.button-previous,
+.button-next {
+  top: 50%;
+  margin-top: -22px;
+  line-height: 42px;
+}
+
+.button-previous {
+    left: -50px;
+}
+
+.button-next {
+    right: -50px;
+}
+
+.button-close {
+  top: -44px;
+  right: -44px;
+  font-size: 22px;
+  color: rgba(255,255,255,0.8);
+}
 </style>
 
 <!-- FancyBox 3 -->
@@ -131,7 +177,19 @@ $(document).ready(function() {
     animationEffect: "fade",
     transitionEffect: "slide",
     speed: 300,
-    margin: [40, 20]               
+    margin: [40, 20],               
+    buttons : false,
+    afterLoad : function( instance, current ) {
+    if ( instance.group.length > 1 && current.$content ) {
+      current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+    }
+    /*if ( instance.group.length > 1 && current.$content ) {
+      current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
+    }*/
+    
+    //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
+  }
+
   });
 });
 </script>

@@ -4,7 +4,10 @@
 <!-- Add fancyBox -->
 <!-- FancyBox CSS -->
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<!--link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" /-->
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
 <style>
+
 /* Background color */
 .fancybox-bg {
   background-color: #fff;
@@ -91,8 +94,6 @@
 }
 
 </style>
-<!--link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" /-->
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
 
 <!-- FancyBox 3 -->
 <!--script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js'></script-->

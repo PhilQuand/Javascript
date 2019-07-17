@@ -6,7 +6,6 @@
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
 <!--link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" /-->
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
-
 <!-- FancyBox 3 -->
 <style>
 /* Background color */
@@ -95,6 +94,7 @@
 }
 
 </style>
+
 <!--script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js'></script-->
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.js'></script>
 <script type='text/javascript'>

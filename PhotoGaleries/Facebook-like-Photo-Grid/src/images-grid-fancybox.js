@@ -115,7 +115,7 @@
 
         this.setGridClass();
         this.renderGridItems();
-        if(!this.opt.fancybox) this.createModal();
+        if(!this.opts.fancybox) this.createModal();
 
         this.$window.on('resize', this.onWindowResize);
     }

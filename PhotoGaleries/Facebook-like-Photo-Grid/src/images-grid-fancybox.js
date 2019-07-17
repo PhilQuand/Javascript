@@ -239,8 +239,6 @@
         }
 
         var item = $('<div>', {
-            class: 'imgs-grid-image',
-            click: this.onImageClick,
             data: { index: index }
         });
 

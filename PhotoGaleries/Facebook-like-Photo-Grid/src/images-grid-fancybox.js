@@ -238,21 +238,12 @@
             title = image.title || '';
         }
 
-        var item = $('<div>', {
-            data: { index: index }
+        var item = $('<div>'}
         });
 
         item.append(
             $('<div>').append(
-                $('<img>', {
-                    src: src,
-                    alt: alt,
-                    title: title,
-                    on: {
-                        load: function(event) {
-                            _this.onImageLoaded(event, $(this), image);
-                        }
-                    }
+                $('<img>', { src: src }
                 })
             )
         );

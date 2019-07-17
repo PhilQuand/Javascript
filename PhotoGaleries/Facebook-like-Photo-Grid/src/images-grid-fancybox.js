@@ -172,7 +172,7 @@
 
         if(opts.fancybox) {
           for (var i = opts.cells; i < imgsLen; ++i) {
-            this.renderGridItem(imgs[i], i);
+            this.renderGridHiddenItem(imgs[i], i);
           }
         }
 
@@ -203,6 +203,49 @@
             $('<div>', {
                 class: 'image-wrap'
             }).append(
+                $('<img>', {
+                    src: src,
+                    alt: alt,
+                    title: title,
+                    on: {
+                        load: function(event) {
+                            _this.onImageLoaded(event, $(this), image);
+                        }
+                    }
+                })
+            )
+        );
+
+        this.$gridItems.push(item);
+        this.$element.append(item);
+
+        if(index >= opts.cells) item.find("div").attr('style','display: none;');
+        if(opts.fancybox) item.find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
+        opts.onGridItemRendered(item, image);
+    }
+
+    ImagesGrid.prototype.renderGridHiddenItem = function(image, index) {
+
+        var src = image,
+            alt = '',
+            title = '',
+            opts = this.opts,
+            _this = this;
+
+        if ($.isPlainObject(image)) {
+            src = image.thumbnail || image.src;
+            alt = image.alt || '';
+            title = image.title || '';
+        }
+
+        var item = $('<div>', {
+            class: 'imgs-grid-image',
+            click: this.onImageClick,
+            data: { index: index }
+        });
+
+        item.append(
+            $('<div>').append(
                 $('<img>', {
                     src: src,
                     alt: alt,

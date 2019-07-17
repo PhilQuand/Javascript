@@ -167,14 +167,14 @@
         if (opts.showViewAll === 'always' || 
             (opts.showViewAll === 'more' && imgsLen > opts.cells)
         ) {
-            //this.renderViewAll();
+            this.renderViewAll();
         }
 
-        if(opts.fancybox) {
+        /*if(opts.fancybox) {
           for (var i = opts.cells; i < imgsLen; ++i) {
             this.renderGridItem(imgs[i], i);
           }
-        }
+        }*/
 
         opts.onGridRendered(this.$element);
     }

@@ -161,7 +161,7 @@
             if (i === opts.cells) {
                 break;
             }
-            this$('<div>').renderGridItem(imgs[i], i);
+            this.$('<div>').renderGridItem(imgs[i], i);
         }
 
         if (opts.showViewAll === 'always' || 

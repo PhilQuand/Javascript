@@ -161,7 +161,7 @@
             if (i === opts.cells) {
                 break;
             }
-            this.renderGridItem(imgs[i], i);
+            this$('<div>').renderGridItem(imgs[i], i);
         }
 
         if (opts.showViewAll === 'always' || 
@@ -170,11 +170,11 @@
             this.renderViewAll();
         }
 
-        if(opts.fancybox) {
+        /*if(opts.fancybox) {
           for (var i = opts.cells; i < imgsLen; ++i) {
             this.renderGridHiddenItem(imgs[i], i);
           }
-        }
+        }*/
 
         opts.onGridRendered(this.$element);
     }

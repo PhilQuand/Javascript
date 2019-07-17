@@ -159,7 +159,7 @@
 
         for (var i = 0; i < imgsLen; ++i) {
             if (i === opts.cells) {
-                break;
+                if(!opts.fancybox) break;
             }
             this.renderGridItem(imgs[i], i);
         }

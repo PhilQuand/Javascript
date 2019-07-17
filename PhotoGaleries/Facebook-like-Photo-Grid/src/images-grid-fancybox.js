@@ -115,7 +115,7 @@
 
         this.setGridClass();
         this.renderGridItems();
-        if(!fancybox) this.createModal();
+        if(!this.opt.fancybox) this.createModal();
 
         this.$window.on('resize', this.onWindowResize);
     }
@@ -254,7 +254,7 @@
             imageIndex = img.data('index');
         }
 
-        if(!fancybox) this.modal.open(imageIndex);
+        if(!opts.fancybox) this.modal.open(imageIndex);
     }
 
     ImagesGrid.prototype.onImageLoaded = function(event, imageEl, image) {

@@ -220,7 +220,6 @@
         this.$gridItems.push(item);
         this.$element.append(item);
 
-        if(index >= opts.cells) item.find("div").attr('style','display: none;');
         if(opts.fancybox) item.find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
         opts.onGridItemRendered(item, image);
     }
@@ -249,7 +248,7 @@
 
         this.opts.element.append(item);
 
-        if(index >= opts.cells) item.find("div").attr('style','display: none;');
+        //if(index >= opts.cells) item.find("div").attr('style','display: none;');
         if(opts.fancybox) item.find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
         opts.onGridItemRendered(item, image);
     }

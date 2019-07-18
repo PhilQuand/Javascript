@@ -240,7 +240,7 @@
             title = image.title || '';
         }
 
-        if(opts.fancybox)
+        if(opts.fancybox) {
             item = $('<div>', {
                 class: 'imgs-hidden-image',
                 data: { index: index }

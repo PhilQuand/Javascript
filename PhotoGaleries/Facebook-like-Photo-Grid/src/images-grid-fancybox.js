@@ -171,11 +171,12 @@
             this.renderViewAll();
         }
 
-        if(opts.fancybox) {
+        var element = this.opts.element.append('<div clas="hiddenPictures"></div>');
+        /*if(opts.fancybox) {
           for (var i = opts.cells; i < imgsLen; ++i) {
             this.renderGridHiddenItem(imgs[i], i);
           }
-        }
+        }*/
 
         opts.onGridRendered(this.$element);
     }

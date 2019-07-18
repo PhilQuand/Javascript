@@ -239,13 +239,30 @@
             title = image.title || '';
         }
 
-        $('.hiddenPictures').append(
-            $('<div>').append(
-                $('<img>', { src: src })
+        var item = $('<div>', {
+            class: 'imgs-hidden-image',
+            click: this.onImageClick,
+            data: { index: index }
+        });
+        item.append(
+            $('<div>', {
+                class: 'image-wrap'
+            }).append(
+                $('<img>', {
+                    src: src,
+                    alt: alt,
+                    title: title,
+                    on: {
+                        load: function(event) {
+                            _this.onImageLoaded(event, $(this), image);
+                        }
+                    }
+                })
             )
         );
 
-        if(opts.fancybox) $('.hiddenPictures').find("div img").wrap('<a data-src="' + src + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
+       $('.hiddenPictures').append(item);
+       if(opts.fancybox) item.find("div img").wrap('<a data-src="' + src + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
         //opts.onGridItemRendered(item, image);
     }
 

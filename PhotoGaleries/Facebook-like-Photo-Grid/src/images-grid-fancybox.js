@@ -195,11 +195,18 @@
             title = image.title || '';
         }
 
-        var item = $('<div>', {
-            class: 'imgs-grid-image',
-            //click: this.onImageClick,
-            data: { index: index }
-        });
+        if(opts.fancybox) {
+            item = $('<div>', {
+                class: 'imgs-grid-image',
+                data: { index: index }
+            });
+        } else {
+            item = $('<div>', {
+                class: 'imgs-grid-image',
+                click: this.onImageClick,
+                data: { index: index }
+            });
+        }
 
         item.append(
             $('<div>', {
@@ -240,18 +247,11 @@
             title = image.title || '';
         }
 
-        if(opts.fancybox) {
-            item = $('<div>', {
-                class: 'imgs-hidden-image',
-                data: { index: index }
-            });
-        } else {
-            item = $('<div>', {
-                class: 'imgs-hidden-image',
-                click: this.onImageClick,
-                data: { index: index }
-            });
-        }
+        item = $('<div>', {
+            class: 'imgs-hidden-image',
+            data: { index: index }
+        });
+
         item.append(
             $('<div>', {
                 class: 'image-wrap'

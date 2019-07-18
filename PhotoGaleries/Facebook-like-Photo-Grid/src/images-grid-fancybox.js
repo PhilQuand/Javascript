@@ -171,11 +171,11 @@
             this.renderViewAll();
         }
 
-        /*if(opts.fancybox) {
+        if(opts.fancybox) {
           for (var i = opts.cells; i < imgsLen; ++i) {
             this.renderGridHiddenItem(imgs[i], i);
           }
-        }*/
+        }
 
         opts.onGridRendered(this.$element);
     }
@@ -239,7 +239,7 @@
             title = image.title || '';
         }
 
-        var item = $('<div>')
+        var item = this.opts.element;
      
         item.append(
             $('<div>').append(
@@ -247,8 +247,7 @@
             )
         );
 
-        this.$gridItems.push(item);
-        this.$element.append(item);
+        this.opts.element.append(item);
 
         if(index >= opts.cells) item.find("div").attr('style','display: none;');
         if(opts.fancybox) item.find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 

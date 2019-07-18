@@ -14,7 +14,7 @@ $(document).ready(function() {
         }
         var hasDataFancybox = $(this).parent("a").hasClass('data-fancybox');
         var hasDataFancyboxInline = $(this).parent("a").hasClass('data-fancybox-inline');
-        if((!hasDataFancybox) && (!(hasDataFancyboxInline)))
+        if((!hasDataFancybox) && (!(hasDataFancyboxInline))) {
           $(this).parent("a").addClass('data-fancybox');
         }
       }

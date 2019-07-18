@@ -197,7 +197,7 @@
 
         var item = $('<div>', {
             class: 'imgs-grid-image',
-            click: this.onImageClick,
+            //click: this.onImageClick,
             data: { index: index }
         });
 
@@ -241,7 +241,7 @@
 
         var item = $('<div>', {
             class: 'imgs-hidden-image',
-            click: this.onImageClick,
+            //click: this.onImageClick,
             data: { index: index }
         });
         item.append(
@@ -269,6 +269,7 @@
     ImagesGrid.prototype.renderViewAll = function() {
 
         var opts = this.opts;
+           _this = this;
 
         var lastPicture = this.$element.find('.imgs-grid-image:last .image-wrap');
         lastPicture.append(
@@ -277,9 +278,11 @@
             }).append(
                 $('<span>', {
                     class: 'view-all-cover',
+                    click: this.onImageClick
                 }),
                 $('<span>', {
                     class: 'view-all-text',
+                    click: this.onImageClick,
                     text: opts.getViewAllText(opts.images.length)
                 })
             )

@@ -274,7 +274,7 @@
         lastPicture.append(
             $('<div>', {
                 class: 'view-all'
-            }).append(lastPicture.parent().find('a')).append(
+            }).append(
                 $('<span>', {
                     class: 'view-all-cover',
                 }),

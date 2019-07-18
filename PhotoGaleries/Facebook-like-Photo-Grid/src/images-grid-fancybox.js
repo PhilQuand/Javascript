@@ -96,7 +96,8 @@
         this.opts = opts || {};
 
         this.$window = $(window);
-        this.$element = this.opts.element;
+        this.opts.element.append("div");
+        this.$element = this.opts.element.("div");
         this.$gridItems = [];
 
         this.modal = null;
@@ -156,7 +157,6 @@
 
         this.$element.empty();
         this.$gridItems = [];
-        $.append($('<div>'));
 
         for (var i = 0; i < imgsLen; ++i) {
             if (i === opts.cells) {
@@ -194,7 +194,7 @@
             title = image.title || '';
         }
 
-        var item = $('div').$('<div>', {
+        var item = $('<div>', {
             class: 'imgs-grid-image',
             click: this.onImageClick,
             data: { index: index }

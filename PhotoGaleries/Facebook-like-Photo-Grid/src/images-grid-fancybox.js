@@ -171,7 +171,7 @@
             this.renderViewAll();
         }
 
-        var element = this.opts.element.append('<div class="hiddenPictures"></div>');
+        var element = this.opts.element.append('<div class="hiddenPictures" style="display: none;"></div>');
         if(opts.fancybox) {
           for (var i = opts.cells; i < imgsLen; ++i) {
             this.renderGridHiddenItem(imgs[i], i);
@@ -222,7 +222,7 @@
         this.$element.append(item);
 
         if(opts.fancybox) item.find("div img").wrap('<a data-src="' + src+ '" data-fancybox="fancy-box" href="javascript:;"></a>') 
-        //opts.onGridItemRendered(item, image);
+        opts.onGridItemRendered(item, image);
     }
 
     ImagesGrid.prototype.renderGridHiddenItem = function(image, index) {
@@ -263,7 +263,7 @@
 
        $('.hiddenPictures').append(item);
        if(opts.fancybox) item.find("div img").wrap('<a data-src="' + src + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
-        //opts.onGridItemRendered(item, image);
+       opts.onGridItemRendered(item, image);
     }
 
     ImagesGrid.prototype.renderViewAll = function() {

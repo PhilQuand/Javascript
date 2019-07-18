@@ -10,12 +10,13 @@ $(document).ready(function() {
           $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
           $(this).parent("a").attr('data-fancybox', 'fancy-box');
           $(this).parent("a").attr('href', 'javascript:;');
+          $(this).parent("a").addClass('data-fancybox');
         }
       }
 
       else {}
   });
-  $("[data-fancybox]").fancybox({
+  $(".data-fancybox").fancybox({
     /*infobar: true,
     arrows: false,
     animationEffect: "fade",
@@ -23,7 +24,7 @@ $(document).ready(function() {
     speed: 300,
     margin: [40, 20]*/               
   });
-  $("[data-fancybox-inline]").fancybox({
+  $(".data-fancybox-inline").fancybox({
     infobar: true,
     arrows: false,
     animationEffect: "fade",

@@ -301,7 +301,7 @@
             img = $(event.currentTarget),
             imageIndex;
 
-        if (img.find('.view-all').length > 0 &&
+        if (img.parent().find('.view-all').length > 0 &&
             typeof opts.viewAllStartIndex === 'number' ) {
             imageIndex = opts.viewAllStartIndex;
         } else {

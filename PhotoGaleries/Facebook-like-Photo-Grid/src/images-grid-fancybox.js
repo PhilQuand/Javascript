@@ -308,7 +308,11 @@
             imageIndex = img.data('index');
         }
 
-        if(opts.fancybox) $("[data-fancybox='fancy-box']").eq(imageIndex).trigger("click");
+        if(opts.fancybox) {
+            var fancybox1 = $("[data-fancybox='fancy-box']");
+            var fancybox1 = $("[data-fancybox]");
+            $("[data-fancybox='fancy-box']").eq(imageIndex).trigger("click");
+        }
         else this.modal.open(imageIndex);
     }
 

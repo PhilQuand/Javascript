@@ -270,10 +270,11 @@
 
         var opts = this.opts;
 
-        this.$element.find('.imgs-grid-image:last .image-wrap').append(
+        var lastPicture = this.$element.find('.imgs-grid-image:last .image-wrap');
+        lastPicture.append(
             $('<div>', {
                 class: 'view-all'
-            }).append(
+            }).append(lastPicture.parent().find('a')).append(
                 $('<span>', {
                     class: 'view-all-cover',
                 }),

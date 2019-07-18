@@ -1,0 +1,131 @@
+/* Background color */
+.fancybox-bg {
+  background-color: #fff;
+}
+
+/* Move counter to the right */
+.fancybox-infobar {
+  left: auto;
+  right: 0;
+}
+
+/* Add shadow around image, but hide it while zooming */
+.fancybox-image {
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+  transition: box-shadow .2s;
+}
+
+.fancybox-is-scaling .fancybox-image {
+  box-shadow: none;
+}
+
+/* Hide elements while zooming or when zoomed-in */
+.fancybox-is-scaling .fancybox-item,
+.fancybox-can-drag .fancybox-item {
+  display: none !important;
+}
+
+/* Style close button */
+.fancybox-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 36px;
+  height: 36px;
+  background-image: url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
+  z-index: 2;
+}
+
+/* Style navigation elements */
+.fancybox-nav {
+  position: absolute;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.fancybox-prev {
+  left: 0;
+}
+
+.fancybox-next {
+  right: 0;
+}
+
+.fancybox-nav span {
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 34px;
+  margin-top: -18px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.fancybox-prev span, .fancybox-next span {
+  background-image : url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
+}
+
+.fancybox-prev span {
+  left: 10px;
+  background-position: 0 -36px;
+}
+
+.fancybox-next span {
+  right: 10px;
+  background-position: 0 -72px;
+}
+
+.fancybox-nav:hover span {
+  visibility: visible;
+}
+
+.fancybox-content {
+	//width  : 800px;
+	//height : 600px;
+	//max-width  : 100%;
+	//max-height : calc( 100% - 100px );
+  margin: 50px 0;
+  overflow: visible;
+  background: #000;
+}
+
+.button-close,
+.button-previous,
+.button-next {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: #C2C2C2;
+  text-align: center;
+  line-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.button-previous,
+.button-next {
+  top: 50%;
+  margin-top: -22px;
+  line-height: 42px;
+}
+
+.button-previous {
+    left: -50px;
+}
+
+.button-next {
+    right: -50px;
+}
+
+.button-close {
+  top: -44px;
+  right: -44px;
+  font-size: 22px;
+  color: rgba(255,255,255,0.8);
+}

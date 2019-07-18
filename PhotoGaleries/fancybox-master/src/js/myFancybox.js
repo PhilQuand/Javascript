@@ -3,13 +3,18 @@ $(document).ready(function() {
       var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 
       if (isImage) {
-        var aClass = $(this).parent("a").attr('class');
-        var aId = $(this).parent("a").attr('id');
         var aFancy = $(this).parent("a").attr('data-fancybox');
-        if((typeof aClass ==='undefined') && (typeof aId ==='undefined') && (typeof aFancy ==='undefined')) {
+        //var aClass = $(this).parent("a").attr('class');
+        //var aId = $(this).parent("a").attr('id');
+        //if((typeof aClass ==='undefined') && (typeof aId ==='undefined') && (typeof aFancy ==='undefined')) {
+        if(typeof aFancy ==='undefined') {
           $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
           $(this).parent("a").attr('data-fancybox', 'fancy-box');
           $(this).parent("a").attr('href', 'javascript:;');
+        }
+        var hasDataFancybox = $(this).parent("a").hasClass('data-fancybox');
+        var hasDataFancyboxInline = $(this).parent("a").hasClass('data-fancybox-inline');
+        if((!hasDataFancybox) && (!(hasDataFancyboxInline)))
           $(this).parent("a").addClass('data-fancybox');
         }
       }

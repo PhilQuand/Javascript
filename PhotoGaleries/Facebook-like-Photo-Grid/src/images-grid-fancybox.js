@@ -305,7 +305,8 @@
             imageIndex = img.data('index');
         }
 
-        if(!opts.fancybox) this.modal.open(imageIndex);
+        if(opts.fancybox) $("[data-fancybox='fancy-box']").eq(imageIndex).trigger("click");
+        else this.modal.open(imageIndex);
     }
 
     ImagesGrid.prototype.onImageLoaded = function(event, imageEl, image) {

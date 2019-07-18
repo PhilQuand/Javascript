@@ -171,12 +171,12 @@
             this.renderViewAll();
         }
 
-        var element = this.opts.element.append('<div clas="hiddenPictures"></div>');
-        /*if(opts.fancybox) {
+        var element = this.opts.element.append('<div class="hiddenPictures"></div>');
+        if(opts.fancybox) {
           for (var i = opts.cells; i < imgsLen; ++i) {
             this.renderGridHiddenItem(imgs[i], i);
           }
-        }*/
+        }
 
         opts.onGridRendered(this.$element);
     }
@@ -222,7 +222,7 @@
         this.$element.append(item);
 
         if(opts.fancybox) item.find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
-        opts.onGridItemRendered(item, image);
+        //opts.onGridItemRendered(item, image);
     }
 
     ImagesGrid.prototype.renderGridHiddenItem = function(image, index) {
@@ -239,19 +239,14 @@
             title = image.title || '';
         }
 
-        var item = this.opts.element;
-     
-        item.append(
+        $('.hiddenPictures').append(
             $('<div>').append(
                 $('<img>', { src: src })
             )
         );
 
-        this.opts.element.append(item);
-
-        //if(index >= opts.cells) item.find("div").attr('style','display: none;');
-        if(opts.fancybox) item.find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
-        opts.onGridItemRendered(item, image);
+        if(opts.fancybox) $('.hiddenPictures').find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
+        //opts.onGridItemRendered(item, image);
     }
 
     ImagesGrid.prototype.renderViewAll = function() {

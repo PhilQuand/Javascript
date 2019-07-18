@@ -300,7 +300,7 @@
         var opts = this.opts,
             img = $(event.currentTarget),
             imageIndex;
-        if(opts.fancybox) img.parent()
+        if(opts.fancybox) img = img.parent()
 
         if (img.find('.view-all').length > 0 &&
             typeof opts.viewAllStartIndex === 'number' ) {

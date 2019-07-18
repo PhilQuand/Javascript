@@ -22,6 +22,11 @@ $(document).ready(function() {
       else {}
   });
   $(".data-fancybox").fancybox({
+    buttons : [
+      'download',
+      'thumbs',
+      'close'
+    ]
     /*infobar: true,
     arrows: false,
     animationEffect: "fade",

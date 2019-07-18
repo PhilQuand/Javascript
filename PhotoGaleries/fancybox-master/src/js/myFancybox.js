@@ -16,12 +16,12 @@ $(document).ready(function() {
       else {}
   });
   $("[data-fancybox]").fancybox({
-    infobar: true,
+    /*infobar: true,
     arrows: false,
     animationEffect: "fade",
     transitionEffect: "slide",
     speed: 300,
-    margin: [40, 20]               
+    margin: [40, 20]*/               
   });
   $("[data-fancybox-inline]").fancybox({
     infobar: true,

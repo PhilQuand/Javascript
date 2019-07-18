@@ -2,129 +2,14 @@
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
 <!-- Add fancyBox -->
-<!-- FancyBox CSS -->
+<!-- FancyBox 3 CSS -->
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
 <!--link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" /-->
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
-<!-- FancyBox 3 -->
-<style>
-/* Background color */
-.fancybox-bg {
-  background-color: #fff;
-}
-
-/* Move counter to the right */
-.fancybox-infobar {
-  left: auto;
-  right: 0;
-}
-
-/* Add shadow around image, but hide it while zooming */
-.fancybox-image {
-  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
-  transition: box-shadow .2s;
-}
-
-.fancybox-is-scaling .fancybox-image {
-  box-shadow: none;
-}
-
-/* Hide elements while zooming or when zoomed-in */
-.fancybox-is-scaling .fancybox-item,
-.fancybox-can-drag .fancybox-item {
-  display: none !important;
-}
-
-/* Style close button */
-.fancybox-close {
-  position: absolute;
-  top: -18px;
-  right: -18px;
-  width: 36px;
-  height: 36px;
-  background-image: url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
-  z-index: 2;
-}
-
-/* Style navigation elements */
-.fancybox-nav {
-  position: absolute;
-  top: 0;
-  width: 25%;
-  height: 100%;
-  cursor: pointer;
-  text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-.fancybox-prev {
-  left: 0;
-}
-
-.fancybox-next {
-  right: 0;
-}
-
-.fancybox-nav span {
-  position: absolute;
-  top: 50%;
-  width: 36px;
-  height: 34px;
-  margin-top: -18px;
-  cursor: pointer;
-  visibility: hidden;
-}
-
-.fancybox-prev span, .fancybox-next span {
-  background-image : url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
-}
-
-.fancybox-prev span {
-  left: 10px;
-  background-position: 0 -36px;
-}
-
-.fancybox-next span {
-  right: 10px;
-  background-position: 0 -72px;
-}
-
-.fancybox-nav:hover span {
-  visibility: visible;
-}
-
-</style>
-
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/src/css/myFancybox.css" rel="stylesheet" type="text/css" />
 <!--script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js'></script-->
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.js'></script>
-<script type='text/javascript'>
-$(document).ready(function() {
-  $(".post-body").find("a img").each(function() {
-      var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
-
-      if (isImage) {
-        var aClass = $(this).parent("a").attr('class');
-        var aId = $(this).parent("a").attr('id');
-        var aFancy = $(this).parent("a").attr('data-fancybox');
-        if((typeof aClass ==='undefined') && (typeof aId ==='undefined') && (typeof aFancy ==='undefined')) {
-          $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
-          $(this).parent("a").attr('data-fancybox', 'fancy-box');
-          $(this).parent("a").attr('href', 'javascript:;');
-        }
-      }
-
-      else {}
-  });
-  $("[data-fancybox]").fancybox({
-    infobar: true,
-    arrows: false,
-    animationEffect: "fade",
-    transitionEffect: "slide",
-    speed: 300,
-    margin: [40, 20]               
-  });
-});
-</script>
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/src/js/myFancybox.js'></script>
 <!-- End FancyBox -->
 
 <style>

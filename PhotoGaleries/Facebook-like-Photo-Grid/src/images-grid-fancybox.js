@@ -232,6 +232,7 @@
             title = '',
             opts = this.opts,
             _this = this;
+            item;
 
         if ($.isPlainObject(image)) {
             src = image.thumbnail || image.src;
@@ -239,11 +240,18 @@
             title = image.title || '';
         }
 
-        var item = $('<div>', {
-            class: 'imgs-hidden-image',
-            //click: this.onImageClick,
-            data: { index: index }
-        });
+        if(opts.fancybox)
+            item = $('<div>', {
+                class: 'imgs-hidden-image',
+                data: { index: index }
+            });
+        } else {
+            item = $('<div>', {
+                class: 'imgs-hidden-image',
+                click: this.onImageClick,
+                data: { index: index }
+            });
+        }
         item.append(
             $('<div>', {
                 class: 'image-wrap'

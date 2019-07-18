@@ -221,7 +221,7 @@
         this.$gridItems.push(item);
         this.$element.append(item);
 
-        if(opts.fancybox) item.find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
+        if(opts.fancybox) item.find("div img").wrap('<a data-src="' + src+ '" data-fancybox="fancy-box" href="javascript:;"></a>') 
         //opts.onGridItemRendered(item, image);
     }
 
@@ -245,7 +245,7 @@
             )
         );
 
-        if(opts.fancybox) $('.hiddenPictures').find("div img").wrap('<a data-src="' + item.find('div img').attr('src') + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
+        if(opts.fancybox) $('.hiddenPictures').find("div img").wrap('<a data-src="' + src + '" data-fancybox="fancy-box" href="javascript:;"></a>') 
         //opts.onGridItemRendered(item, image);
     }
 

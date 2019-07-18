@@ -311,7 +311,7 @@
         if(opts.fancybox) {
             var fancybox1 = $("[data-fancybox='fancy-box']");
             var fancybox1 = $("[data-fancybox]");
-            $("[data-fancybox='fancy-box']").eq(imageIndex).trigger("click");
+            $("[data-fancybox='fancy-box']").eq(imageIndex).find("img").trigger("click");
         }
         else this.modal.open(imageIndex);
     }

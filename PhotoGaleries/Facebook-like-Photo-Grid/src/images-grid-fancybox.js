@@ -97,7 +97,7 @@
 
         this.$window = $(window);
         var element = this.opts.element.append("<div></div>");
-        this.$element = element.$("div");
+        this.$element = element.find("div");
         this.$gridItems = [];
 
         this.modal = null;

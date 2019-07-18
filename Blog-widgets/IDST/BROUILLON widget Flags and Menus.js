@@ -2089,7 +2089,7 @@ function compSumAndImg(strx, chop, Lang, preLang, isFB) {
           }*/
           if (!(isToDelete > 0)) {
             var curS = '';
-            if (isFB == 'no' && isTagtoSum(s[i])) {
+            if (isFB == 'no' && isTagtoSum(s,i)) {
               //if(chopCount < chopIn) chop += s[i].indexOf(">") + 1
               curS = '<' + s[i];
               if (chopCount < chopIn) {
@@ -2148,14 +2148,18 @@ function SummaryOn(s) {
   return false;
 }*/
 
-function isTagtoSum(s) {
-  if( (s[0] == 'a') || (s.indexOf('/a>') > -1) ) {
+function isTagtoSum(s,i) {
+  //if(s[i][0] == 'a' || s[i].indexOf('/a>') > -1) {
+  if( s[i][0] == 'a' && s[i+1].indexOf('img') != 0 ) {
+      return true; 
+  } 
+  if( s[i].indexOf('/a>') > -1 && s[i-1].indexOf('img') != 0 ) {
+      return true; 
+  } 
+  if( s[i].indexOf('strong') > -1 ) {
     return true;
   } 
-  if( s.indexOf('strong>') > -1 ) {
-    return true;
-  } 
-  if( s.indexOf('em>') > -1 ) {
+  if( s[i].indexOf('em>') > -1 ) {
     return true;
   } 
   return false;

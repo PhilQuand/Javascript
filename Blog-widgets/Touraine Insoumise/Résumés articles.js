@@ -1,8 +1,7 @@
 <!-- jQuery for FancyBox 3-->
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-<!-- Add fancyBox -->
-<!-- FancyBox 3 CSS -->
+<!-- Add fancyBox 3 -->
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
 <!--link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" /-->
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />

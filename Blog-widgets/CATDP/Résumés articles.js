@@ -355,6 +355,61 @@ function endDiv(s) {
   return false;
 }
 
+function getInnerLinkContent(theURL) {
+  var xmlhttp = false;
+  loadXMLDoc(theURL);
+  if (xmlhttp == false) {
+    //alert("timeout");
+    return '';
+  }
+  else {
+    var allText = xmlhttp.responseText;
+    return getBody(allText);
+  }
+
+  function getBody(content) {
+    return getPart(content, 'post-body entry-content float-container', 0, 'no').split("widget PopularPosts")[0].split("post-bottom")[0] ;
+  }
+
+  function getPart(content, élément, iIndex, iShow) {
+    var indices = [];
+    var idx = content.indexOf(élément);
+    while (idx != -1) {
+      indices.push(idx);
+      idx = content.indexOf(élément, idx + 1);
+    }
+    if( iShow == 'yes' ) {
+      for (var i = 0; i < indices.length; i++) {
+        var x = indices[i];
+        x = content.indexOf(">", x + 1);
+        var y = content.lastIndexOf("</body>");
+        var z = content.slice(x + 1, y);
+        alert('getBody for ' + élément + ' :\ni = ' + i + '\n' + z);
+      }
+    }
+    var x = indices[iIndex];
+    x = content.indexOf(">", x + 1);
+    var y = content.lastIndexOf("</body>");
+    return content.slice(x + 1, y);
+  }
+
+  function loadXMLDoc(theURL) {
+    if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari, SeaMonkey
+      xmlhttp = new XMLHttpRequest();
+    }
+    else { // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //alert(xmlhttp.responseText);
+      }
+    }
+    xmlhttp.open("GET", theURL, false);
+    xmlhttp.send();
+  }
+}
+
 img_thumb_width_reg = 180; // Image Thumbnail Width
 img_thumb_height_reg = 180; // Image Thumbnail Height
 img_thumb_width_feat = 360; // Image Thumbnail Width

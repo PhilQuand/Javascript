@@ -3,12 +3,10 @@
 
 <!-- Add fancyBox 3 -->
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<!--link href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" rel="stylesheet" type="text/css" /-->
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/src/css/myFancybox.css" rel="stylesheet" type="text/css" />
-<!--script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js'></script-->
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/dist/jquery.fancybox.min.js'></script>
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/fancybox-master/src/js/myFancybox.js'></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.js"></script>
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
 <!-- End FancyBox -->
 
 
@@ -449,5 +447,67 @@ function createSummaryAndThumb(pID, isRegular) {
   if( isRegular ) summary = '<div style="position: 0;" class="mySumReg"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   div.innerHTML = summary;
+}
+
+function getMyInnerLinkContent(theURL) {
+  var xmlhttp = false;
+  loadXMLDoc(theURL);
+  if (xmlhttp == false) {
+    //alert("timeout");
+    return '';
+  }
+  else {
+    var allText = xmlhttp.responseText;
+    return getBody(allText);
+  }
+
+  function getBody(content) {
+    var result = {title: '', authors: '',body: ''};
+    var other = $("<div>").html(content);
+    var post = $("<div>").append(other.find('.Blog').find('.post'));
+    result.title = post.find('.post-title');
+    result.header = post.find('.post-header');
+    result.body = post.find('.post-body');
+    return result;
+  }
+
+
+  function getPart(content, élément, iIndex, iShow) {
+    var indices = [];
+    var idx = content.indexOf(élément);
+    while (idx != -1) {
+      indices.push(idx);
+      idx = content.indexOf(élément, idx + 1);
+    }
+    if( iShow == 'yes' ) {
+      for (var i = 0; i < indices.length; i++) {
+        var x = indices[i];
+        x = content.indexOf(">", x + 1);
+        var y = content.lastIndexOf("</body>");
+        var z = content.slice(x + 1, y);
+        alert('getBody for ' + élément + ' :\ni = ' + i + '\n' + z);
+      }
+    }
+    var x = indices[iIndex];
+    x = content.indexOf(">", x + 1);
+    var y = content.lastIndexOf("</body>");
+    return content.slice(x + 1, y);
+  }
+
+  function loadXMLDoc(theURL) {
+    if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari, SeaMonkey
+      xmlhttp = new XMLHttpRequest();
+    }
+    else { // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //alert(xmlhttp.responseText);
+      }
+    }
+    xmlhttp.open("GET", theURL, false);
+    xmlhttp.send();
+  }
 }
 </script>

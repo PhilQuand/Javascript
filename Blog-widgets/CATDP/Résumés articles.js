@@ -52,8 +52,12 @@
     //if (s[1] != '') break breakCode;
     var blogTitle = document.getElementsByClassName("header-widget");
     if (blogTitle.length == 1) {
+      if(blogTitle[0].children.length > 1) {
+        var plusP = blogTitle[0].children[1]
+        plusP.remove();
+      }
       var h1Title = blogTitle[0].children[0].children[0];
-    if (s[1] == '') {
+    if (s[1] == '' || s[1] == '#loadCATDPTimeLine') {
       blogTitle[0].style.paddingBottomt = "1em";
       h1Title.style.lineHeight = "0.8";
     } else {
@@ -66,143 +70,133 @@
 //});
 </script>
 
-<!-- Début des modifications pour Accueil sur deux colonnes -->
-<!--style>
-.Blog1 .blog-posts {
-  display:none;
+<script>
+$(document).ready(function() {
+  $('.PageList').find('li').each(function() {
+    var link = $(this).find('a')
+    if (link.html() == 'Nos Actions') {
+      var actHref = window.location.href;
+      link.click(function(e) {
+        e.preventDefault(); 
+        loadCATDPTimeLine()
+        return false;
+      });
+    }
+  });
+  /*window.onload = function() {
+    if (location.hash.indexOf("loadCATDPTimeLine") > -1) {
+      loadCATDPTimeLine()
+    }
+  };*/
+});
+function loadCATDPTimeLine() {
+  var href = "https://catdp37.blogspot.com/p/nos-actions_24.html";
+  var result = getMyInnerLinkContent(href);
+  $('body').append(result.body.find('style'));
+  $('body').append(result.body.find('#myTimeLine'));
+
+  $.fancybox.open({
+    src: "#myTimeLine",
+    type: "inline",
+    opts: {
+      infobar: true,
+      arrows: false,
+      animationEffect: "fade",
+      transitionEffect: "slide",
+      speed: 300,
+      margin: [40, 20],
+      buttons: false,
+      slideClass: 'customVid',
+      afterLoad: function(instance, current) {
+
+        $(function() {
+          $('.corpsFancy').scroll(function() {
+            $('.year').each(function() {
+              var year = $(this).find('h2').first().text();
+              if ($(this).offset().top < $(document).scrollTop() + 250) {
+                $(this).find('.date').addClass('activeYear');
+                $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span>');
+              }
+              else {
+                $(this).find('.date').removeClass('activeYear');
+              }
+            });
+          });
+        });
+        $(document).ready(function() {
+          var year = $('.year').find('h2').first().text();
+          $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span>');
+          $('.year').first().find('.date').addClass('activeYear');
+        });
+
+      }
+
+    }
+  });
 }
-.Blog1 .blog-posts-table {
-    display:block;
+</script>
+<style>
+h1 { 
+  display: block;
+  color: black;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
-.classTable {
-  width: 100%;
-  margin: 1em;
-  //border: solid;
+h2 {
+  display: block;
+  color: black;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
-.classTable tbody tr td {
-  width: 50%;
-  //border-right: solid;
-  //border-left: solid;
-  padding-right: 0.5em;
-  padding-left: 0.5em;
+h3 { 
+  display: block;
+  color: black;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
-.classTable tbody tr {
-  vertical-align: top;
+h4 { 
+  display: block;
+  color: black;
+  font-size: 1em;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
-.jumpLink div {
-  margin-right: 3em;
-  //margin-left: auto;
-  float: right;
+h5 { 
+  display: block;
+  color: black;
+  font-size: .83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
-@media screen and (max-width: 900px) {
-  .Blog1 .blog-posts {
-    display:block;
-  }
-  .Blog1 .blog-posts-table {
-    display:none;
-  }
+h6 { 
+  display: block;
+  color: black;
+  font-size: .67em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
 </style>
-<script type='text/javascript'>
-$(document).ready(function() {
-breakCode : {
-var href = "https://catdp37.blogspot.com/";
-var actHref = window.location.href;
-var s = actHref.split(href);
-if( s[1] != '') break breakCode;
-
-  var idBlog1 = document.getElementById('Blog1');
-  idBlog1.classList.add('Blog1');
-  var idTable = document.createElement("div");
-  idTable.classList.add('blog-posts-table');
-  idBlog1.appendChild(idTable);
-  //var dataTable = [['R1C1','R1C2','R1C3'],['R2C1','R2C2','R2C3'],['R3C1','R3C2','R3C3']];
-  var contArticles = idBlog1.children[0];
-  var postTitle = contArticles.getElementsByClassName('post-title')
-  var postShareButtons = contArticles.getElementsByClassName('post-share-buttons')
-  var postHeader = contArticles.getElementsByClassName('post-header')
-  var likebtnWrapper = contArticles.getElementsByClassName('likebtn-wrapper')
-  var postBody = contArticles.getElementsByClassName('post-body')
-  var postFooterLine1 = contArticles.getElementsByClassName('post-footer-line-1')
-  var jumpLink = contArticles.getElementsByClassName('jump-link')
-  for( var i=0; i<postTitle.length; i+=2 ) {
-    var dataTable = [];
-    if(i<postTitle.length-1) {
-      dataTable.push(addRowTable(postTitle[i],postTitle[i+1],'postTitle'));
-      dataTable.push(addRowTable(postShareButtons[i],postShareButtons[i+1],'postShareButtons'));
-      dataTable.push(addRowTable(postHeader[i],postHeader[i+1],'postHeader'));
-      dataTable.push(addRowTable(likebtnWrapper[i],likebtnWrapper[i+1],'likebtnWrapper'));
-      dataTable.push(addRowTable(postBody[i],postBody[i+1],'postBody'));
-      dataTable.push(addRowTable(postFooterLine1[i],postFooterLine1[i+1],'postFooterLine1'));
-      dataTable.push(addRowTable(jumpLink[i],jumpLink[i+1],'jumpLink'));
-    } else {
-      dataTable.push(addRowTable(postTitle[i],'','postTitle'));
-      dataTable.push(addRowTable(postShareButtons[i],'','postShareButtons'));
-      dataTable.push(addRowTable(postHeader[i],'','postHeader'));
-      dataTable.push(addRowTable(likebtnWrapper[i],'','likebtnWrapper'));
-      dataTable.push(addRowTable(postBody[i],'','postBody'));
-      dataTable.push(addRowTable(postFooterLine1[i],'','postFooterLine1'));
-      dataTable.push(addRowTable(jumpLink[i],'','jumpLink'));
-    }
-    writeTable(idTable, dataTable,'classTable');
-  }
-  //accueilRemoveClass("jump-link");
-  //accueilRemoveClass("post-footer");
-}
-});
-function addRowTable(cell1, cell2, classRow) {
-  var newRow = [];
-  newRow.push(classRow);
-  var newCell1 = cell1.cloneNode(true);
-  newRow.push(newCell1);
-  if( cell2 != '') {
-    var newCell2 = cell2.cloneNode(true);
-    newRow.push(newCell2);
-  }
-  return newRow;
-}
-function writeTable(parent, data, classTable) {
-    var TBtbody = document.createElement("table");
-    TBtbody.classList.add(classTable);
-    parent.appendChild(TBtbody);
-    var tbody = document.createElement("tbody");
-    TBtbody.appendChild(tbody);
-
-    for (var r = 0; r < data.length; r++) {
-        drawRow(tbody, data[r]);
-    }
-
-    function drawRow(table, rowData) {
-    	if (rowData == null) return null;
-        if (rowData.length == 0) return null;
-        //var tr = $("<tr style='width: 100%;'/>");
-        var tr = document.createElement("tr");
-        //tr.classList.add(rowData[0]);
-        table.appendChild(tr);
-        for (var c = 1; c < rowData.length; c++) {
-            drawCell(tr, rowData[c], rowData[0]);
-        }
-        return tr;
-
-        function drawCell(tr, val, cellClass) {
-            var td = document.createElement("td");
-            td.classList.add(cellClass);
-            tr.appendChild(td);
-            td.appendChild(val);
-            return td;
-        }
-    }
-
-}                                       
-function accueilRemoveClass(oldClass) {
-	var div = document.getElementsByClassName(oldClass);
-    while (div[0]) {
-      div[0].className = 'accueil-' + oldClass;
-    }
-}
-</script-->
-<!-- Fin des modifications pour Accueil sur deux colonnes -->
-
 <style>
 .mySumFeat {
 line-height: 1.6;

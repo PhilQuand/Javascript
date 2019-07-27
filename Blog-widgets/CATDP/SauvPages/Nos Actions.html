@@ -1,99 +1,10 @@
 <style>
-//https://codepen.io/frippa/pen/eIBJD
-.wrap{
-  margin:0px auto;
-  width:800px;
-}
-/*#dataYear{
-  position:absolute; 
-  background:#ED473B;
-  left:60%;
-  top:0px;
-  color:white;
-  padding:0px 10px;
-} 
-
-.header{ 
-  min-width:400px;
-  width:90%; 
-  position:fixed;
-  top:0px;
-  margin:0px auto; 
-  background:#fff;
-  z-index:1;
-  padding-left:15%;
-  padding-right:15%;
-  font-size:35px; 
-  color:#c9c9c9;
-  box-shadow:0 0 5px 0px #ccc; 
-}*/
-.timeline{
-  width:100%;
-  margin:10px 0px 300px 0px; 
-  padding-top:50px;
-  position: relative;
-  overflow:auto;
-  border-bottom:2px solid #f1f1f1;
-
-}
-.timeline:before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 49.5%;
-  top: 120px;
-  width: 3px;
-  height: 92%;
-  background: #666;
-}
-.year{
-    transition: all 0.4s ease-in-out;
-
-  width:100%; 
-  margin-bottom:50px;
-  position: relative;
-  overflow:auto; 
-}
-.evt{
-  min-height:100px;
-  width:100%; 
-  margin-bottom:20px;
-  position:relative;
-}
-.evt:nth-child(even) .in{
-  float:left;
-}
-.evt:nth-child(odd) .in{
-float:right;
-}
-.in div, .in p {  
-  padding: 10px;
-  margin: 0;
-  font-size: 14px;
-  background: #f1f1f1;
-  color: #656565;
-}
-.in h2 {
-  padding: 15px;
-  margin: 0;
-  color: #333;
-  font-size: 20px;
-  letter-spacing: -1px;
-  position: relative;
-}
-
-.in h2{
-  border-radius: 5px 5px 0 0;
-  background:#c1c1c1;
-
-}
 .date{
   transition: all 0.2s ease-in-out;
-  display: block;
+  display: inline-block;
   width: 8%;
-  position: absolute;
-  top: 10px;
-  left: 45.7%;   
+  //top: 10px;
+  //left: 45.7%;   
   line-height:60px;
   border-radius: 100%;
   font-size: 16px;
@@ -102,41 +13,100 @@ float:right;
   font-weight:900;
   text-align:center;
   border: 2px solid #fff;
-}
-.in{
-  width: 40%; 
-  float: left;
-  margin: 5px 0 0 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .activeYear{
   background:#ED473B; 
   color:#fff;
   border-color:#fff;
 }
+.mySumFeat, .mySumReg {
+  margin: 0 0 0 0;
+}
+/*.in h2 {
+  //padding: 15px;
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+  letter-spacing: -1px;
+  //top: 20px;
+  //position: absolute;
+  border-radius: 5px 5px 0 0;
+  background:#c1c1c1;
+}*/
+.in h2 {
+  font-size: 20px;
+}
+.in > div > div > div { 
+  //padding: 10px;
+  width: 45%;
+  margin: 0;
+  //font-size: 14px;
+  //background: #f1f1f1;
+  color: #656565;
+}
+.divOdd {
+  float: left;
+  padding-right: 1em;
+}
+.divEven {
+  float:right;
+  padding-left: 1em;
+}
+.evt:nth-child(even) .divOdd {
+  visibility: visible;
+}
+.evt:nth-child(even) .divEven {
+  visibility: hidden;
+}
+.evt:nth-child(odd) .divOdd {
+  visibility: hidden;
+}
+.evt:nth-child(odd) .divEven {
+  visibility: visible;
+}
 @media screen and (max-width: 800px) {
   .date {
-    width: 12%;
-    font-size: 12px;
-    left: 43.5%;   
+    //width: 12%;
+    //font-size: 12px;
+    display:none;
+  }
+  .evt:nth-child(odd) .divOdd {
+    visibility: visible;
+  }
+ .divEven, .dispYearTitle {
+    display:none;
+  }
+  .in > div > div > div { 
+    width: 100%;
   }
 }
-@media screen and (max-width: 650px) {
+/*@media screen and (max-width: 650px) {
   .date {
     width: 16%;
     font-size: 8px;
-    left: 41%;   
   }
-}
+  .evt:nth-child(odd) .divOdd {
+    visibility: visible;
+  }
+  .divEven {
+    display:none;
+  }
+  .in > div > div > div { 
+    width: 83%;
+  }
+}*/
 </style>
 <style>
-.customVid {
+.customActions {
     overflow: hidden;
 }
-.customVid .fancybox-content {
+.customActions .fancybox-content {
     background-color: #e8f6f8;
     width: 100%;
 }
-.articleFancy {
+.articleACFancy {
     padding: 0 0 0 0;
     width: 80%;
     height: 90vh;
@@ -144,195 +114,215 @@ float:right;
     transition: box-shadow .2s;
     display: none;
 }
-.fontFancy {
+.fontACFancy {
     padding: 40px 20px 20px 20px;
 }
-.titreSummary, .titreFancy {
+.titreACSummary, .titreACFancy {
     color: #762a83;
     font-size: 24px;
     line-height: 1.2;
     margin: 10px 10px 10px 0;
     //margin: 10px 10px 0 0;
 }
-.titreFancy {
+.titreACFancy {
    font-weight: bold;
 }
-.titreSummary, .titreFancy a:link {
+.titreACSummary, .titreACFancy a:link {
    color:inherit;
 }
-.maximeSummary, .maximeFancy {
-    color: blue;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 0.5em;
-}
-.fontSummary, .fontFancy {
-    max-width: 100% ;
-    font-weight: normal;
-    font-style: normal;
-    text-align: justify;
-    color: black;
-}
-.corpsFancy {
+.corpsACFancy {
     width: 100%;
-    //min-height: 90vh;
-    max-height: calc(90vh - 200px);
+    //max-height: calc(90vh - 200px);
+    max-height: calc(90vh - 100px);
     overflow: auto;
     padding: 10px 15px 10px 15px;
 }
-.titreFancy, .maximeFancy {
+.titreACFancy, .maximeFancy {
     text-align: center;
-}
-.engagementsFancy {
-    text-align: center;
-    color: blue;
-    text-decoration: underline;
 }
 @media screen and (max-width: 600px) {
-  .fontFancy, .articleFancy, .corpsFancy {
+  .fontACFancy, .articleACFancy, .corpsACFancy {
     width: 100% ;
     max-height: none;
   }
-  .customVid {
+  .customActions {
     overflow: auto;
   }
 }
 </style>
 <!--a data-fancybox data-slide-class='myTimeLineVid' data-src="#myTimeLine" href="javascript:;">myTimeLine</a-->
-<div class="incrustation articleFancy" id='myTimeLine'>
-<div class="incrustation fontFancy">
+<div class="incrustation articleACFancy" id='myTimeLine'>
+<div class="incrustation fontACFancy">
 
 <center>
-<div class="titreFancy" id="dataYear">My Timeline...</div>
+<div class="titreACFancy" id="dataYear">My Timeline...</div>
 </center>
 
-<div class="corpsFancy">
+<div class="corpsACFancy">
 
 <div class="wrap">
   <div class="timeline">
-    <div class="year"><h2>2015</h2>
-      <div class="evt">
-        <div class="in">
-          <span class="date">
-            <span class="day">26</span> 
-            <span class="month">Mai</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">first</p> 
-      </div>
-      </div>
-      
-        <div class="evt">
-        <div class="in"> 
-          <span class="date">
-            <span class="day">02</span>
-            <span class="month">Janvier</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">Second</p>
-      </div>
-      </div>
-      
-    </div>
-    <div class="year">
-      <h2>2013</h2>
-      <div class="evt">
-        <div class="in">
-        <span class="date">
-            <span class="day">05</span>
-            <span class="month">Décembre</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">stuff</p>
-      </div>
-      </div>
-      <div class="evt">
-        <div class="in">
-         <span class="date">
-            <span class="day">04</span>
-            <span class="month">Novembre</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">data</p>
-        </div>
-      </div>
-      <div class="evt">
-       <span class="date">
-            <span class="day">25</span>
-            <span class="month">Juin</span>
-          </span>
-        <div class="in">
-        <h2>Title</h2>
-        <p class="data">yup</p>
-      </div>
-      </div>
-    </div>
-    
-    <div class="year"><h2>2012</h2>
-      <div class="evt">
-        <div class="in">
-          <span class="date">
-            <span class="day">15</span>
-            <span class="month">Août</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">first</p>
-      </div>
-      </div>
-      
-        <div class="evt">
-        <div class="in">
-          <span class="date">
-            <span class="day">11</span>
-            <span class="month">Févirier</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">first</p>
-      </div>
-      </div>
-      
-      <div class="evt">
-        <div class="in">
-          <span class="date">
-            <span class="day">20</span>
-            <span class="month">Janvier</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">first</p>
-      </div>
-      </div>
-    </div>
-    
-    <div class="year"><h2>2011</h2>
-      <div class="evt">
-        <div class="in">
-          <span class="date">
-            <span class="day">03</span>
-            <span class="month">Juillet</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">Some things</p>
-      </div>
-      </div>
-      
-        <div class="evt">
-        <div class="in"> 
-          <span class="date">
-            <span class="day">02</span>
-            <span class="month">Avril</span>
-          </span>
-        <h2>Title</h2>
-        <p class="data">Start</p>
-      </div>
-      </div>
-    </div>
-    
-  </div>
-<br/><br/><br/><br/>
+<div class="year"><h2>2017</h2>
+
+<div class="evt"><div class="in">
+
+<div style="position: 0;">
+<div style="display: inline-block; margin-top: 1em; width: 100%">
+
+<div class="divOdd"><h2><a href="https://catdp37.blogspot.com/2019/07/pour-une-autre-politique-locale-tours.html">
+Pour une autre politique locale à tours et à tours +
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-rlLfy0M9iCg/XTcWh83kv-I/AAAAAAAAjm0/Gl0z_Ok82qQDaomkZjDrNwMUBalGsVcZwCLcBGAs/s1600/Article2016-9juin.jpg" width="180px" height="auto">Voici les propositions de «&nbsp;C’est au Tour(s) du Peuple&nbsp;» pour une autre politique locale à Tours et à Tours +
+<strong>
+POUR UNE AUTRE
+POLITIQUE LOCALE
+à TOURS et à TOURS +
+</strong>
+<strong>
+Les décisions de la Ville et de l’Agglo
+en 2015 et 2016
+</strong>
+<strong>Les propositions de
+«&nbsp;C’est au Tour(s) du Peuple&nbsp;»
+</strong>
+<strong>Une ville bling-bling&nbsp;!</strong>
+Prévu de longue date, l’aménagement du Haut de la Rue...</div></div></div>
+
+<span class="date activeYear"><span class="day">30</span><span class="month"> juin</span></span>
+
+<div class="divEven"><h2><a href="https://catdp37.blogspot.com/2019/07/pour-une-autre-politique-locale-tours.html">
+Pour une autre politique locale à tours et à tours +
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-rlLfy0M9iCg/XTcWh83kv-I/AAAAAAAAjm0/Gl0z_Ok82qQDaomkZjDrNwMUBalGsVcZwCLcBGAs/s1600/Article2016-9juin.jpg" width="180px" height="auto">Voici les propositions de «&nbsp;C’est au Tour(s) du Peuple&nbsp;» pour une autre politique locale à Tours et à Tours +
+<strong>
+POUR UNE AUTRE
+POLITIQUE LOCALE
+à TOURS et à TOURS +
+</strong>
+<strong>
+Les décisions de la Ville et de l’Agglo
+en 2015 et 2016
+</strong>
+<strong>Les propositions de
+«&nbsp;C’est au Tour(s) du Peuple&nbsp;»
+</strong>
+<strong>Une ville bling-bling&nbsp;!</strong>
+Prévu de longue date, l’aménagement du Haut de la Rue...</div></div></div>
+
+</div></div></div></div>
+
+<div class="evt"><div class="in">
+
+<div style="position: 0;">
+<div style="display: inline-block; margin-top: 1em; width: 100%">
+
+<div class="divOdd"><h2><a href="https://catdp37.blogspot.com/2019/07/gratuite-des-transports-publics-dans-la.html">
+Gratuité des Transports Publics dans la communauté d’agglomération Tours Plus
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-dSI6Io7tVgs/XTcWhENLJhI/AAAAAAAAjmo/gcGb8dNHAkcb4dzOiYVHSzMh_pb6SCiKACLcBGAs/s1600/Article2016-5septembre.jpg" width="180px" height="auto">
+Plusieurs villes de France l’ont déjà instaurée et d’autres commencent à la mettre en place…
+Pourquoi pas dans l’agglomération tourangelle&nbsp;?
+L’association <strong>C’est Au Tour(s) Du Peuple</strong> y réfléchit depuis longtemps. Or il ne suffit pas de convaincre les Tourangeaux et leurs employeurs qu’ils ont tout à gagner dans cette réforme, il faut aussi trouver les moyens de la réussir en tenant compte...</div></div></div>
+
+<span class="date activeYear"><span class="day">23</span><span class="month"> septembre</span></span>
+
+<div class="divEven"><h2><a href="https://catdp37.blogspot.com/2019/07/gratuite-des-transports-publics-dans-la.html">
+Gratuité des Transports Publics dans la communauté d’agglomération Tours Plus
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-dSI6Io7tVgs/XTcWhENLJhI/AAAAAAAAjmo/gcGb8dNHAkcb4dzOiYVHSzMh_pb6SCiKACLcBGAs/s1600/Article2016-5septembre.jpg" width="180px" height="auto">
+Plusieurs villes de France l’ont déjà instaurée et d’autres commencent à la mettre en place…
+Pourquoi pas dans l’agglomération tourangelle&nbsp;?
+L’association <strong>C’est Au Tour(s) Du Peuple</strong> y réfléchit depuis longtemps. Or il ne suffit pas de convaincre les Tourangeaux et leurs employeurs qu’ils ont tout à gagner dans cette réforme, il faut aussi trouver les moyens de la réussir en tenant compte...</div></div></div>
+
+</div></div></div></div>
+
+<div class="evt"><div class="in">
+
+<div style="position: 0;">
+<div style="display: inline-block; margin-top: 1em; width: 100%">
+
+<div class="divOdd"><h2><a href="https://catdp37.blogspot.com/2016/11/communique-de-cest-au-tours-du-peuple.html">
+Communiqué de «&nbsp;C’est au Tour(s) du Peuple&nbsp;» sur la destruction des services publics
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-_4Qh94bdPgA/XTcWfx0FyXI/AAAAAAAAjmc/Wdg4Q6C_AiAU96wXd1xW7eEpyCs_d8yTQCLcBGAs/s1600/Article2016-1novembre.jpg" width="180px" height="auto">
+
+Après la fermeture de bon nombre de bureaux de poste en milieu rural, la suppression de prétendues « petites lignes » de chemin de fer, la casse des services publics se poursuit en Touraine comme dans l’ensemble du territoire.
+Les guichets SNCF à Saint-Pierre-des-Corps, 4 bureaux de poste à Tours, des boîtes à lettresdans différents quartiers <strong>sont supprimés</strong>, tandis que diminuent les effectifs du...</div></div></div>
+
+<span class="date activeYear"><span class="day">14</span><span class="month"> novembre</span></span>
+
+<div class="divEven"><h2><a href="https://catdp37.blogspot.com/2016/11/communique-de-cest-au-tours-du-peuple.html">
+Communiqué de «&nbsp;C’est au Tour(s) du Peuple&nbsp;» sur la destruction des services publics
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-_4Qh94bdPgA/XTcWfx0FyXI/AAAAAAAAjmc/Wdg4Q6C_AiAU96wXd1xW7eEpyCs_d8yTQCLcBGAs/s1600/Article2016-1novembre.jpg" width="180px" height="auto">
+
+Après la fermeture de bon nombre de bureaux de poste en milieu rural, la suppression de prétendues « petites lignes » de chemin de fer, la casse des services publics se poursuit en Touraine comme dans l’ensemble du territoire.
+Les guichets SNCF à Saint-Pierre-des-Corps, 4 bureaux de poste à Tours, des boîtes à lettresdans différents quartiers <strong>sont supprimés</strong>, tandis que diminuent les effectifs du...</div></div></div>
+
+</div></div></div></div>
+</div>
+  
+<div class="year"><h2>2016</h2>
+<div class="evt"><div class="in">
+
+<div style="position: 0;">
+<div style="display: inline-block; margin-top: 1em; width: 100%">
+
+<div class="divOdd"><h2><a href="https://catdp37.blogspot.com/2019/07/pour-une-autre-politique-locale-tours.html">
+Pour une autre politique locale à tours et à tours +
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-rlLfy0M9iCg/XTcWh83kv-I/AAAAAAAAjm0/Gl0z_Ok82qQDaomkZjDrNwMUBalGsVcZwCLcBGAs/s1600/Article2016-9juin.jpg" width="180px" height="auto">Voici les propositions de «&nbsp;C’est au Tour(s) du Peuple&nbsp;» pour une autre politique locale à Tours et à Tours +
+<strong>
+POUR UNE AUTRE
+POLITIQUE LOCALE
+à TOURS et à TOURS +
+</strong>
+<strong>
+Les décisions de la Ville et de l’Agglo
+en 2015 et 2016
+</strong>
+<strong>Les propositions de
+«&nbsp;C’est au Tour(s) du Peuple&nbsp;»
+</strong>
+<strong>Une ville bling-bling&nbsp;!</strong>
+Prévu de longue date, l’aménagement du Haut de la Rue...</div></div></div>
+
+<span class="date activeYear"><span class="day">30</span><span class="month"> juin</span></span>
+
+<div class="divEven"><h2><a href="https://catdp37.blogspot.com/2019/07/pour-une-autre-politique-locale-tours.html">
+Pour une autre politique locale à tours et à tours +
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-rlLfy0M9iCg/XTcWh83kv-I/AAAAAAAAjm0/Gl0z_Ok82qQDaomkZjDrNwMUBalGsVcZwCLcBGAs/s1600/Article2016-9juin.jpg" width="180px" height="auto">Voici les propositions de «&nbsp;C’est au Tour(s) du Peuple&nbsp;» pour une autre politique locale à Tours et à Tours +
+<strong>
+POUR UNE AUTRE
+POLITIQUE LOCALE
+à TOURS et à TOURS +
+</strong>
+<strong>
+Les décisions de la Ville et de l’Agglo
+en 2015 et 2016
+</strong>
+<strong>Les propositions de
+«&nbsp;C’est au Tour(s) du Peuple&nbsp;»
+</strong>
+<strong>Une ville bling-bling&nbsp;!</strong>
+Prévu de longue date, l’aménagement du Haut de la Rue...</div></div></div>
+
+</div></div></div></div>
+
+<div class="evt"><div class="in"><span class="date activeYear"><span class="day">23</span><span class="month"> septembre</span></span><h2><a href="https://catdp37.blogspot.com/2019/07/gratuite-des-transports-publics-dans-la.html">
+Gratuité des Transports Publics dans la communauté d’agglomération Tours Plus
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-dSI6Io7tVgs/XTcWhENLJhI/AAAAAAAAjmo/gcGb8dNHAkcb4dzOiYVHSzMh_pb6SCiKACLcBGAs/s1600/Article2016-5septembre.jpg" width="180px" height="auto">
+Plusieurs villes de France l’ont déjà instaurée et d’autres commencent à la mettre en place…
+Pourquoi pas dans l’agglomération tourangelle&nbsp;?
+L’association <strong>C’est Au Tour(s) Du Peuple</strong> y réfléchit depuis longtemps. Or il ne suffit pas de convaincre les Tourangeaux et leurs employeurs qu’ils ont tout à gagner dans cette réforme, il faut aussi trouver les moyens de la réussir en tenant compte...</div></div></div></div>
+
+<div class="evt"><div class="in"><span class="date activeYear"><span class="day">14</span><span class="month"> novembre</span></span><h2><a href="https://catdp37.blogspot.com/2016/11/communique-de-cest-au-tours-du-peuple.html">
+Communiqué de «&nbsp;C’est au Tour(s) du Peuple&nbsp;» sur la destruction des services publics
+</a></h2><div class="data"><div style="position: 0;" class="mySumReg"><img style="float:left; margin: 0 1em 0.5em 0;" src="https://1.bp.blogspot.com/-_4Qh94bdPgA/XTcWfx0FyXI/AAAAAAAAjmc/Wdg4Q6C_AiAU96wXd1xW7eEpyCs_d8yTQCLcBGAs/s1600/Article2016-1novembre.jpg" width="180px" height="auto">
+
+Après la fermeture de bon nombre de bureaux de poste en milieu rural, la suppression de prétendues « petites lignes » de chemin de fer, la casse des services publics se poursuit en Touraine comme dans l’ensemble du territoire.
+Les guichets SNCF à Saint-Pierre-des-Corps, 4 bureaux de poste à Tours, des boîtes à lettresdans différents quartiers <strong>sont supprimés</strong>, tandis que diminuent les effectifs du...</div></div></div></div></div>
+</div>
+  
+<!--br/><br/><br/><br/-->
 </div>
 
-</div></div></div>
+</div>
+</div>
+</div>
 <script>
 breakCode: {
   var href = "https://catdp37.blogspot.com/p/nos-actions_24.html";
@@ -341,15 +331,15 @@ breakCode: {
 
   $(document).ready(function() {
     window.onload = function() {
-      
-      $('.timeline').myTimeLine({
-        href : "https://catdp37.blogspot.com/2019/07/pour-une-autre-politique-locale-tours.html",
-        year: 2013,
-        month: 'juin',
-        day: 15,
-        title: 'Pour une autre politique locale à tours et à tours + ',
-        summary: "Résumé de l'article"
-      });
+
+      // contruction des références d'article sur le TimeLine
+      /*$('.timeline').myTimeLine({
+        href: [
+          "https://catdp37.blogspot.com/2019/07/pour-une-autre-politique-locale-tours.html",
+          "https://catdp37.blogspot.com/2019/07/gratuite-des-transports-publics-dans-la.html",
+          "https://catdp37.blogspot.com/2016/11/communique-de-cest-au-tours-du-peuple.html"
+        ]
+      });*/
 
 
       loadFancyCATDPTimeLine()
@@ -358,29 +348,33 @@ breakCode: {
 
   $.fn.myTimeLine = function(options) {
 
-    var result = getMyInnerLinkContent(options.href);
+    for (var i = 0; i < options.href.length; i++) addHrefToTimeLine(this, options.href[i]);
 
-    var title = result.title.html();
+    function addHrefToTimeLine(_this, href) {
+      var result = getMyInnerLinkContent(href);
 
-    var date = result.header.find(".published").html();
-    date = date.split(' ');
-    var inpmonth = $.trim(date[0]);
-    var inpday = parseInt(date[1].split(',')[0]);
-    var inpyear = parseInt(date[2]);
+      var title = result.title.html();
 
-    var summary = result.body[0];
-    createSummaryAndThumbfromDiv(summary, false);
-    summary = summary.innerHTML;
+      var date = result.header.find(".published").html();
+      date = date.split(' ');
+      var inpmonth = $.trim(date[0]);
+      var inpday = parseInt(date[1].split(',')[0]);
+      var inpyear = parseInt(date[2]);
 
-    var item = $('<div class="evt"></div>').append(
-      $('<div class="in"></div>').append(
-        $('<span class="date"></span>').append(
-          $('<span class="day">' + inpday + '</span>'), $('<span class="month"> ' + inpmonth + '</span>')
-        ), $('<h2><a href="' + options.href + '">' + title + '</a></h2>'), $('<div class="data">' + summary + '</div>')
-      )
-    );
-    var year = getYear(this, inpyear);
-    addItem(year, item, inpmonth, inpday);
+      var summary = result.body[0];
+      createSummaryAndThumbfromDiv(summary, true);
+      summary = summary.innerHTML;
+
+      var item = $('<div class="evt"></div>').append(
+        $('<div class="in"></div>').append(
+          $('<span class="date"></span>').append(
+            $('<span class="day">' + inpday + '</span>'), $('<span class="month"> ' + inpmonth + '</span>')
+          ), $('<h2><a href="' + href + '">' + title + '</a></h2>'), $('<div class="data">' + summary + '</div>')
+        )
+      );
+      var year = getYear(_this, inpyear);
+      addItem(year, item, inpmonth, inpday);
+    }
 
     function addItem(year, item, month, day) {
       var itemIn = true;
@@ -393,33 +387,105 @@ breakCode: {
         }
         return itemIn;
       });
-      if(itemIn) {
-         year.append(item);
+      if (itemIn) {
+        year.append(item);
       }
     }
 
     function isGreaterDay(month, day, isMonth, isDay) {
-       if( (month2num(month) > month2num(isMonth)) || ( (month2num(month) == month2num(isMonth)) && ( day > isDay) ) ) {
-           return true;
-       } else {
-           return false;
-       }
+      if ((month2num(month) > month2num(isMonth)) || ((month2num(month) == month2num(isMonth)) && (day > isDay))) {
+        return true;
+      }
+      else {
+        return false;
+      }
 
-       function month2num(month)  {
-           var monthN;
-           switch (month) { 
-             case 'janvier' : monthN = 1;  break; case 'février' :  monthN = 2;  break; case 'mars' : monthN = 3; break; case 'avril' : monthN = 4; break; case 'mai' : monthN = 5; break; case 'juin' : monthN = 6; break; case 'juillet' : monthN = 7; break;  case 'août' : monthN = 8; break;  case 'septembre' : monthN = 9; break;  case 'octobre' : monthN = 10; break; case 'novembre' : monthN = 11; break;  case 'décembre' : monthN = 12; break;
+      function month2num(month) {
+        var monthN;
+        switch (month) {
+          case 'janvier':
+            monthN = 1;
+            break;
+          case 'février':
+            monthN = 2;
+            break;
+          case 'mars':
+            monthN = 3;
+            break;
+          case 'avril':
+            monthN = 4;
+            break;
+          case 'mai':
+            monthN = 5;
+            break;
+          case 'juin':
+            monthN = 6;
+            break;
+          case 'juillet':
+            monthN = 7;
+            break;
+          case 'août':
+            monthN = 8;
+            break;
+          case 'septembre':
+            monthN = 9;
+            break;
+          case 'octobre':
+            monthN = 10;
+            break;
+          case 'novembre':
+            monthN = 11;
+            break;
+          case 'décembre':
+            monthN = 12;
+            break;
 
-             case 'Janvier' : monthN = 1;  break; case 'Février' :  monthN = 2;  break; case 'Mars' : monthN = 3; break; case 'Avril' : monthN = 4; break; case 'Mai' : monthN = 5; break; case 'Juin' : monthN = 6; break; case 'Juillet' : monthN = 7; break;  case 'Août' : monthN = 8; break;  case 'Septembre' : monthN = 9; break;  case 'Octobre' : monthN = 10; break; case 'Novembre' : monthN = 11; break;  case 'Décembre' : monthN = 12; break;
+          case 'Janvier':
+            monthN = 1;
+            break;
+          case 'Février':
+            monthN = 2;
+            break;
+          case 'Mars':
+            monthN = 3;
+            break;
+          case 'Avril':
+            monthN = 4;
+            break;
+          case 'Mai':
+            monthN = 5;
+            break;
+          case 'Juin':
+            monthN = 6;
+            break;
+          case 'Juillet':
+            monthN = 7;
+            break;
+          case 'Août':
+            monthN = 8;
+            break;
+          case 'Septembre':
+            monthN = 9;
+            break;
+          case 'Octobre':
+            monthN = 10;
+            break;
+          case 'Novembre':
+            monthN = 11;
+            break;
+          case 'Décembre':
+            monthN = 12;
+            break;
 
-            default: monthN = 13;
-          }
+          default:
+            monthN = 13;
+        }
 
-          return monthN
+        return monthN
       }
 
     }
-    
+
     function getYear(_this, year) {
       var newyear = '';
       _this.find('.year').each(function() {
@@ -429,13 +495,13 @@ breakCode: {
           return false;
         }
         else if (year > isYear) {
-          newyear = $('<div class="year"></div>').append($('<h2>' + inpyear + '</h2>'))
+          newyear = $('<div class="year"></div>').append($('<h2>' + year + '</h2>'))
           $(this).before(newyear);
           return false;
         }
       });
       if (newyear == '') {
-        newyear = $('<div class="year"></div>').append($('<h2>' + inpyear + '</h2>'))
+        newyear = $('<div class="year"></div>').append($('<h2>' + year + '</h2>'))
         _this.append(newyear);
       }
       return newyear;
@@ -455,16 +521,15 @@ breakCode: {
         speed: 300,
         margin: [40, 20],
         buttons: false,
-        slideClass: 'customVid',
+        slideClass: 'customActions',
         afterLoad: function(instance, current) {
-
           $(function() {
-            $('.corpsFancy').scroll(function() {
+            $('.corpsACFancy').scroll(function() {
               $('.year').each(function() {
                 var year = $(this).find('h2').first().text();
                 if ($(this).offset().top < $(document).scrollTop() + 250) {
                   $(this).find('.date').addClass('activeYear');
-                  $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span>');
+                  $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » <span class="dispYearTitle">en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span></span>');
                 }
                 else {
                   $(this).find('.date').removeClass('activeYear');
@@ -474,7 +539,7 @@ breakCode: {
           });
           $(document).ready(function() {
             var year = $('.year').find('h2').first().text();
-            $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span>');
+            $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » <span class="dispYearTitle">en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span></span>');
             $('.year').first().find('.date').addClass('activeYear');
           });
 

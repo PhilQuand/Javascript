@@ -1,0 +1,488 @@
+<style>
+//https://codepen.io/frippa/pen/eIBJD
+.wrap{
+  margin:0px auto;
+  width:800px;
+}
+/*#dataYear{
+  position:absolute; 
+  background:#ED473B;
+  left:60%;
+  top:0px;
+  color:white;
+  padding:0px 10px;
+} 
+
+.header{ 
+  min-width:400px;
+  width:90%; 
+  position:fixed;
+  top:0px;
+  margin:0px auto; 
+  background:#fff;
+  z-index:1;
+  padding-left:15%;
+  padding-right:15%;
+  font-size:35px; 
+  color:#c9c9c9;
+  box-shadow:0 0 5px 0px #ccc; 
+}*/
+.timeline{
+  width:100%;
+  margin:10px 0px 300px 0px; 
+  padding-top:50px;
+  position: relative;
+  overflow:auto;
+  border-bottom:2px solid #f1f1f1;
+
+}
+.timeline:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 49.5%;
+  top: 120px;
+  width: 3px;
+  height: 92%;
+  background: #666;
+}
+.year{
+    transition: all 0.4s ease-in-out;
+
+  width:100%; 
+  margin-bottom:50px;
+  position: relative;
+  overflow:auto; 
+}
+.evt{
+  min-height:100px;
+  width:100%; 
+  margin-bottom:20px;
+  position:relative;
+}
+.evt:nth-child(even) .in{
+  float:left;
+}
+.evt:nth-child(odd) .in{
+float:right;
+}
+.in div, .in p {  
+  padding: 10px;
+  margin: 0;
+  font-size: 14px;
+  background: #f1f1f1;
+  color: #656565;
+}
+.in h2 {
+  padding: 15px;
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+  letter-spacing: -1px;
+  position: relative;
+}
+
+.in h2{
+  border-radius: 5px 5px 0 0;
+  background:#c1c1c1;
+
+}
+.date{
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 8%;
+  position: absolute;
+  top: 10px;
+  left: 45.7%;   
+  line-height:60px;
+  border-radius: 100%;
+  font-size: 16px;
+  background: #fff;
+  color:#333;
+  font-weight:900;
+  text-align:center;
+  border: 2px solid #fff;
+}
+.in{
+  width: 40%; 
+  float: left;
+  margin: 5px 0 0 0;
+}
+.activeYear{
+  background:#ED473B; 
+  color:#fff;
+  border-color:#fff;
+}
+@media screen and (max-width: 800px) {
+  .date {
+    width: 12%;
+    font-size: 12px;
+    left: 43.5%;   
+  }
+}
+@media screen and (max-width: 650px) {
+  .date {
+    width: 16%;
+    font-size: 8px;
+    left: 41%;   
+  }
+}
+</style>
+<style>
+.customVid {
+    overflow: hidden;
+}
+.customVid .fancybox-content {
+    background-color: #e8f6f8;
+    width: 100%;
+}
+.articleFancy {
+    padding: 0 0 0 0;
+    width: 80%;
+    height: 90vh;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    transition: box-shadow .2s;
+    display: none;
+}
+.fontFancy {
+    padding: 40px 20px 20px 20px;
+}
+.titreSummary, .titreFancy {
+    color: #762a83;
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 10px 10px 10px 0;
+    //margin: 10px 10px 0 0;
+}
+.titreFancy {
+   font-weight: bold;
+}
+.titreSummary, .titreFancy a:link {
+   color:inherit;
+}
+.maximeSummary, .maximeFancy {
+    color: blue;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+.fontSummary, .fontFancy {
+    max-width: 100% ;
+    font-weight: normal;
+    font-style: normal;
+    text-align: justify;
+    color: black;
+}
+.corpsFancy {
+    width: 100%;
+    //min-height: 90vh;
+    max-height: calc(90vh - 200px);
+    overflow: auto;
+    padding: 10px 15px 10px 15px;
+}
+.titreFancy, .maximeFancy {
+    text-align: center;
+}
+.engagementsFancy {
+    text-align: center;
+    color: blue;
+    text-decoration: underline;
+}
+@media screen and (max-width: 600px) {
+  .fontFancy, .articleFancy, .corpsFancy {
+    width: 100% ;
+    max-height: none;
+  }
+  .customVid {
+    overflow: auto;
+  }
+}
+</style>
+<!--a data-fancybox data-slide-class='myTimeLineVid' data-src="#myTimeLine" href="javascript:;">myTimeLine</a-->
+<div class="incrustation articleFancy" id='myTimeLine'>
+<div class="incrustation fontFancy">
+
+<center>
+<div class="titreFancy" id="dataYear">My Timeline...</div>
+</center>
+
+<div class="corpsFancy">
+
+<div class="wrap">
+  <div class="timeline">
+    <div class="year"><h2>2015</h2>
+      <div class="evt">
+        <div class="in">
+          <span class="date">
+            <span class="day">26</span> 
+            <span class="month">Mai</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">first</p> 
+      </div>
+      </div>
+      
+        <div class="evt">
+        <div class="in"> 
+          <span class="date">
+            <span class="day">02</span>
+            <span class="month">Janvier</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">Second</p>
+      </div>
+      </div>
+      
+    </div>
+    <div class="year">
+      <h2>2013</h2>
+      <div class="evt">
+        <div class="in">
+        <span class="date">
+            <span class="day">05</span>
+            <span class="month">Décembre</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">stuff</p>
+      </div>
+      </div>
+      <div class="evt">
+        <div class="in">
+         <span class="date">
+            <span class="day">04</span>
+            <span class="month">Novembre</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">data</p>
+        </div>
+      </div>
+      <div class="evt">
+       <span class="date">
+            <span class="day">25</span>
+            <span class="month">Juin</span>
+          </span>
+        <div class="in">
+        <h2>Title</h2>
+        <p class="data">yup</p>
+      </div>
+      </div>
+    </div>
+    
+    <div class="year"><h2>2012</h2>
+      <div class="evt">
+        <div class="in">
+          <span class="date">
+            <span class="day">15</span>
+            <span class="month">Août</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">first</p>
+      </div>
+      </div>
+      
+        <div class="evt">
+        <div class="in">
+          <span class="date">
+            <span class="day">11</span>
+            <span class="month">Févirier</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">first</p>
+      </div>
+      </div>
+      
+      <div class="evt">
+        <div class="in">
+          <span class="date">
+            <span class="day">20</span>
+            <span class="month">Janvier</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">first</p>
+      </div>
+      </div>
+    </div>
+    
+    <div class="year"><h2>2011</h2>
+      <div class="evt">
+        <div class="in">
+          <span class="date">
+            <span class="day">03</span>
+            <span class="month">Juillet</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">Some things</p>
+      </div>
+      </div>
+      
+        <div class="evt">
+        <div class="in"> 
+          <span class="date">
+            <span class="day">02</span>
+            <span class="month">Avril</span>
+          </span>
+        <h2>Title</h2>
+        <p class="data">Start</p>
+      </div>
+      </div>
+    </div>
+    
+  </div>
+<br/><br/><br/><br/>
+</div>
+
+</div></div></div>
+<script>
+breakCode: {
+  var href = "https://catdp37.blogspot.com/p/nos-actions_24.html";
+  var actHref = window.location.href;
+  if (actHref.indexOf(href) == -1) break breakCode;
+
+  $(document).ready(function() {
+    window.onload = function() {
+      
+      $('.timeline').myTimeLine({
+        href : "https://catdp37.blogspot.com/2019/07/pour-une-autre-politique-locale-tours.html",
+        year: 2013,
+        month: 'juin',
+        day: 15,
+        title: 'Pour une autre politique locale à tours et à tours + ',
+        summary: "Résumé de l'article"
+      });
+
+
+      loadFancyCATDPTimeLine()
+    }
+  });
+
+  $.fn.myTimeLine = function(options) {
+
+    var result = getMyInnerLinkContent(options.href);
+
+    var title = result.title.html();
+
+    var date = result.header.find(".published").html();
+    date = date.split(' ');
+    var inpmonth = $.trim(date[0]);
+    var inpday = parseInt(date[1].split(',')[0]);
+    var inpyear = parseInt(date[2]);
+
+    var summary = result.body[0];
+    createSummaryAndThumbfromDiv(summary, false);
+    summary = summary.innerHTML;
+
+    var item = $('<div class="evt"></div>').append(
+      $('<div class="in"></div>').append(
+        $('<span class="date"></span>').append(
+          $('<span class="day">' + inpday + '</span>'), $('<span class="month"> ' + inpmonth + '</span>')
+        ), $('<h2><a href="' + options.href + '">' + title + '</a></h2>'), $('<div class="data">' + summary + '</div>')
+      )
+    );
+    var year = getYear(this, inpyear);
+    addItem(year, item, inpmonth, inpday);
+
+    function addItem(year, item, month, day) {
+      var itemIn = true;
+      year.find('.evt').each(function() {
+        var isMonth = $(this).find('.month').html();
+        var isDay = $(this).find('.day').html();
+        if (isGreaterDay(month, day, isMonth, isDay)) {
+          $(this).before(item);
+          itemIn = false;
+        }
+        return itemIn;
+      });
+      if(itemIn) {
+         year.append(item);
+      }
+    }
+
+    function isGreaterDay(month, day, isMonth, isDay) {
+       if( (month2num(month) > month2num(isMonth)) || ( (month2num(month) == month2num(isMonth)) && ( day > isDay) ) ) {
+           return true;
+       } else {
+           return false;
+       }
+
+       function month2num(month)  {
+           var monthN;
+           switch (month) { 
+             case 'janvier' : monthN = 1;  break; case 'février' :  monthN = 2;  break; case 'mars' : monthN = 3; break; case 'avril' : monthN = 4; break; case 'mai' : monthN = 5; break; case 'juin' : monthN = 6; break; case 'juillet' : monthN = 7; break;  case 'août' : monthN = 8; break;  case 'septembre' : monthN = 9; break;  case 'octobre' : monthN = 10; break; case 'novembre' : monthN = 11; break;  case 'décembre' : monthN = 12; break;
+
+             case 'Janvier' : monthN = 1;  break; case 'Février' :  monthN = 2;  break; case 'Mars' : monthN = 3; break; case 'Avril' : monthN = 4; break; case 'Mai' : monthN = 5; break; case 'Juin' : monthN = 6; break; case 'Juillet' : monthN = 7; break;  case 'Août' : monthN = 8; break;  case 'Septembre' : monthN = 9; break;  case 'Octobre' : monthN = 10; break; case 'Novembre' : monthN = 11; break;  case 'Décembre' : monthN = 12; break;
+
+            default: monthN = 13;
+          }
+
+          return monthN
+      }
+
+    }
+    
+    function getYear(_this, year) {
+      var newyear = '';
+      _this.find('.year').each(function() {
+        var isYear = $(this).find('h2').html();
+        if (year == isYear) {
+          newyear = $(this);
+          return false;
+        }
+        else if (year > isYear) {
+          newyear = $('<div class="year"></div>').append($('<h2>' + inpyear + '</h2>'))
+          $(this).before(newyear);
+          return false;
+        }
+      });
+      if (newyear == '') {
+        newyear = $('<div class="year"></div>').append($('<h2>' + inpyear + '</h2>'))
+        _this.append(newyear);
+      }
+      return newyear;
+    }
+
+  }
+
+  function loadFancyCATDPTimeLine() {
+    $.fancybox.open({
+      src: "#myTimeLine",
+      type: "inline",
+      opts: {
+        infobar: true,
+        arrows: false,
+        animationEffect: "fade",
+        transitionEffect: "slide",
+        speed: 300,
+        margin: [40, 20],
+        buttons: false,
+        slideClass: 'customVid',
+        afterLoad: function(instance, current) {
+
+          $(function() {
+            $('.corpsFancy').scroll(function() {
+              $('.year').each(function() {
+                var year = $(this).find('h2').first().text();
+                if ($(this).offset().top < $(document).scrollTop() + 250) {
+                  $(this).find('.date').addClass('activeYear');
+                  $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span>');
+                }
+                else {
+                  $(this).find('.date').removeClass('activeYear');
+                }
+              });
+            });
+          });
+          $(document).ready(function() {
+            var year = $('.year').find('h2').first().text();
+            $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span>');
+            $('.year').first().find('.date').addClass('activeYear');
+          });
+
+        }
+
+      }
+    });
+  }
+
+}
+</script>

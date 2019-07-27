@@ -202,12 +202,16 @@ h6 {
 line-height: 1.6;
 }
 .mySumFeat {
-color: black;
-font-size: 125%;
+  color: black;
+  font-size: 125%;
+  margin: 1em 0 1em 0;
+  display: inline-block; 
 }
 .mySumReg {
 //line-height: 1.2;
-color: grey;
+  color: grey;
+  margin: 1em 0 1em 0;
+  display: inline-block; 
 }
 @media screen and (max-width: 425px) {
   .mySumReg div img {
@@ -412,6 +416,10 @@ summary_img_feat = 400; // Length of Summary Text if post has Image Thumbnail
 
 function createSummaryAndThumb(pID, isRegular) {
   var div = document.getElementById(pID);
+  createSummaryAndThumbfromDiv(div, isRegular);
+}
+function createSummaryAndThumbfromDiv(div, isRegular) {
+  //var div = document.getElementById(pID);
   var imgtag = "";
   var img = div.getElementsByTagName("img");
   var summ = summary_noimg;
@@ -436,10 +444,10 @@ function createSummaryAndThumb(pID, isRegular) {
   }
   var resul = compSumAndImg(div.innerHTML, summ, imgtag)
   var summary;
-  //if( isRegular ) summary = '<table><tr>' + imgtag + '<td valign="top"><div class="mySumReg">' + resul.summary + '</div></td></tr></table>';
-  //if( isRegular ) summary = imgtag + '<div class="mySumReg">' + resul.summary + '</div>';
-  if( isRegular ) summary = '<div style="position: 0;" class="mySumReg"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
-  else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
+  //if( isRegular ) summary = '<div style="position: 0;" class="mySumReg"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
+  //else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
+  if( isRegular ) summary = '<div style="position: 0;" class="mySumReg">' + imgtag + resul.summary + '</div>';
+  else summary = '<div style="position: 0;" class="mySumFeat">' + imgtag + resul.summary + '</div>';
   div.innerHTML = summary;
 }
 

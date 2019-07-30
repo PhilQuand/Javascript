@@ -93,6 +93,15 @@
 
     function ImagesGrid(opts) {
 
+        if( this.opts.fancybox && this.opts.element.length > 0 ) {
+          var element = this.opts.element.find("div");
+          var lastPicture = this.$element.find('.imgs-grid-image:last .image-wrap');
+          lastPicture.find('<span>').click(function(){ 
+            this.onImageClick.bind(this) }
+          )
+          return;
+        }
+        
         this.opts = opts || {};
 
         this.$window = $(window);

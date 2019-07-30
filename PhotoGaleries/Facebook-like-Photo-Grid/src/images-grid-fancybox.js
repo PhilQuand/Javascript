@@ -98,7 +98,9 @@
         if( this.opts.fancybox && this.opts.element.find('div').first().length > 0 ) {
           var element = this.opts.element.find("div");
           var lastPicture = element.find('.imgs-grid-image:last .image-wrap');
-          lastPicture.find('span').click( this.onImageClick.bind(this) );
+          lastPicture.find('span').click( 
+          this.onImageClick.bind(this) 
+          );
           return;
         }
         

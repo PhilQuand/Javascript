@@ -206,8 +206,7 @@
 
         if(opts.fancybox) {
             item = $('<div>', {
-                class: 'imgs-grid-image',
-                data: { index: index }
+                class: 'imgs-grid-image'
             });
             item.attr('data-index',index)
         } else {

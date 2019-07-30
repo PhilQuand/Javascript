@@ -207,13 +207,15 @@
         if(opts.fancybox) {
             item = $('<div>', {
                 class: 'imgs-grid-image',
-                data: { index: index }
+                data: { index: index },
+                data-index: index
             });
         } else {
             item = $('<div>', {
                 class: 'imgs-grid-image',
                 click: this.onImageClick,
-                data: { index: index }
+                data: { index: index },
+                data-index: index
             });
         }
 

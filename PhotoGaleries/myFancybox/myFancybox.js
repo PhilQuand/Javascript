@@ -50,7 +50,7 @@ $(document).ready(function() {
     buttons : [
       'thumbs'
     ],
-    baseClass : 'customInlineBaseCass',
+    baseClass : 'customInlineBaseClass',
     afterLoad: function(instance, current) {
       if (instance.group.length > 1 && current.$content) {
         if( current.index == 0 ) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');

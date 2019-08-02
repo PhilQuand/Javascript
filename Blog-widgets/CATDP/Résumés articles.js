@@ -3,25 +3,105 @@
 
 <!-- Add fancyBox 3 -->
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<!--link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.css" rel="stylesheet" type="text/css" /-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.js"></script>
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.js"--></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
 <!-- End FancyBox -->
 
 
 <style>
-/*.header-widget {
-  padding-bottom : 1em;
+.tractTableCATDP {
+  border-collapse: collapse;
+  width: 100%;
 }
-.header-widget div h1 {
-  line-height : 0.8;
-}*/
+
+.tractTableCATDP td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+//.tractTableCATDP tr:nth-child(even){background-color: #f2f2f2;}
+
+//.tractTableCATDP tr:hover {background-color: #ddd;}
+.tractTableCATDP tr:hover {color: white; background-color: #999933;}
+
+.tractTableCATDPTitle td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+@media screen and (max-width: 425px) {
+  ul{padding:20px;}
+  li{padding:0;}
+}
+</style>
+<style>
+.floatLeftImg {
+  float: left;
+  margin-top: 0.5em;
+  margin-right: 1vw;
+  width: 30%;
+}
+.floatRightImg {
+  float: right;
+  margin-top: 0.5em;
+  margin-left: 1vw;
+  width: 30%;
+}
+.centerImg50, .centerImg30 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.centerImg50 {
+  width: 50%;
+}
+.centerImg30 {
+  width: 30%;
+}
+.floatLeftImg img, .floatRightImg img, .centerImg50 img, .centerImg30 img {
+    width: 100%
+}
+@media screen and (max-width: 1000px) {
+  .floatLeftImg, .floatRightImg, .centerImg30 {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .floatLeftImg, .floatRightImg, .centerImg50, .centerImg30 {
+    width: 100%;
+  }
+  .floatLeftImg img, .floatRightImg img, .centerImg50 img, .centerImg30 img {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+}
+</style>
+<style>
+.rejoindreCATDP {
+  padding: 15px 0;
+}
+.rejoindreCATDP hr {
+  border-top: 1px dotted black;
+}
+.rejoindreCATDP p {
+  text-align: right;
+  font-style: italic;
+  font-weight: bold;
+}
+</style>
+<style>
 .Attribution {
   display: none;
 }
 #sidebar_bottom {
-  font-family: 'Crimson text';
+  //font-family: 'Crimson text';
   line-height: 0.8;
 }
 .archivedate a, .archivedate .post-count, .archivedate .post-count::before, .archivedate .post-count::after {
@@ -70,29 +150,46 @@
 //});
 </script>
 
-<script>
+<script type='text/javascript'>
 $(document).ready(function() {
+  breakCode: {
+    var href = "https://catdp37.blogspot.com/";
+    var actHref = window.location.href;
+    var s = actHref.indexOf(href + 'search');
+    if (href == actHref || actHref.indexOf(href + 'search') > -1) {
+      $('.blog-posts').find('.post-outer').each(function(){ 
+        $(this).append('<hr style="border-top: 1px dashed;">')
+      })
+      $('.FeaturedPost').find('.post').each(function(){ 
+        $(this).append('<hr style="border-top: 1px dashed;">')
+      })
+    };
+    $('.PopularPosts').find('.post').each(function(){ 
+      $(this).append('<hr style="border-top: 1px dashed;">')
+    })
+  }
+});
+</script>
+
+<script>
+/*$(document).ready(function() {
   $('.PageList').find('li').each(function() {
     var link = $(this).find('a')
     if (link.html() == 'Nos Actions') {
       var actHref = window.location.href;
       link.click(function(e) {
         e.preventDefault(); 
-        loadCATDPTimeLine()
+        //loadCATDPTimeLine()
+        $('#myTimeLineEntries').find('a').first().click();
         return false;
       });
     }
   });
-  /*window.onload = function() {
-    if (location.hash.indexOf("loadCATDPTimeLine") > -1) {
-      loadCATDPTimeLine()
-    }
-  };*/
-});
+});*/
 function loadCATDPTimeLine() {
   var href = "https://catdp37.blogspot.com/p/nos-actions_24.html";
   var result = getMyInnerLinkContent(href);
-  $('body').append(result.body.find('style'));
+  $('body').append(result.body.find('style').first());
   $('body').append(result.body.find('#myTimeLine'));
 
   $.fancybox.open({
@@ -106,7 +203,7 @@ function loadCATDPTimeLine() {
       speed: 300,
       margin: [40, 20],
       buttons: false,
-      slideClass: 'customVid',
+      slideClass: 'customActions',
       afterLoad: function(instance, current) {
 
         $(function() {
@@ -115,7 +212,7 @@ function loadCATDPTimeLine() {
               var year = $(this).find('h2').first().text();
               if ($(this).offset().top < $(document).scrollTop() + 250) {
                 $(this).find('.date').addClass('activeYear');
-                $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span>');
+                $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple »');
               }
               else {
                 $(this).find('.date').removeClass('activeYear');
@@ -125,7 +222,7 @@ function loadCATDPTimeLine() {
         });
         $(document).ready(function() {
           var year = $('.year').find('h2').first().text();
-          $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple » en <span style="background:#ED473B; color: white; padding: 10px;">' + year + '</span>');
+          $('#dataYear').html('Actions de « C’est au Tour(s) du Peuple »');
           $('.year').first().find('.date').addClass('activeYear');
         });
 
@@ -431,14 +528,14 @@ function createSummaryAndThumbfromDiv(div, isRegular) {
     if (isRegular) {
       //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-width:' + img_thumb_width_reg + 'px;height:auto;"><img src="' + img[0].src + '" height="' + img_thumb_height_reg + 'px" width="auto"/></span>';
       //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-width:' + img_thumb_width_reg + 'px;height:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/></span>';
-      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/>';
+      imgtag = '<img style="float:left; margin: 0.5em 1em 0 0;" src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/>';
       //imgtag = '<td valign="top" style="border: none; padding:0 15px 10px 0;" width="20%"" ><img src="' + img[0].src + '"/></td>';
       //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-height:' + img_thumb_height_reg + 'px;width:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/></span>';
       summ = summary_img_reg;
     }
     else {
       //imgtag = '<center><img src="' + img[0].src + '" width= 50%" height="auto"/></center>';
-      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_feat + 'px" height="auto"/>';
+      imgtag = '<img style="float:left; margin: 0.5em 1em 0 0;" src="' + img[0].src + '" width="' + img_thumb_width_feat + 'px" height="auto"/>';
       summ = summary_img_feat;
     }
   }

@@ -44,7 +44,9 @@ $(document).ready(function() {
     buttons: false,
     afterLoad: function(instance, current) {
       if (instance.group.length > 1 && current.$content) {
-        current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        if( current.index == 0 ) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+        else if( current.index == (instance.group.length - 1) ) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
       }
       /*if ( instance.group.length > 1 && current.$content ) {
         current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');

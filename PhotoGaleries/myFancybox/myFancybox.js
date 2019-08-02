@@ -35,6 +35,7 @@ $(document).ready(function() {
     margin: [40, 20]*/               
   });
   $(".data-fancybox-inline").fancybox({
+	  toolbar  : true,
     infobar: true,
     arrows: false,
     animationEffect: "fade",
@@ -42,6 +43,13 @@ $(document).ready(function() {
     speed: 300,
     margin: [40, 20],
     buttons: false,
+	  thumbs : {
+      autoStart   : false, // Display thumbnails on opening
+      hideOnClose : true   // Hide thumbnail grid when closing animation starts
+ 	  },
+    buttons : [
+      'thumbs'
+    ],
     afterLoad: function(instance, current) {
       if (instance.group.length > 1 && current.$content) {
         if( current.index == 0 ) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');

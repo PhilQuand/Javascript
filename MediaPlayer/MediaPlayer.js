@@ -1,3 +1,4 @@
+/* https://github.com/jonathantneal/media-player */
 var MediaPlayer = function() {
     function e(e, t, n, l) {
         var a, r, i, o = void 0 !== e.onpointerup,

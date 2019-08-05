@@ -1,5 +1,10 @@
+<!--a href="javascript:trigFancy('trigarticle-1');">test-div</a-->
 <div id='idNotreProgramme'></div>
 <script>
+breakCode: {
+  var href = "https://catdp37.blogspot.com/p/notre-programme.html";
+  var actHref = window.location.href;
+  if (actHref.indexOf(href) == -1) break breakCode;
 $(document).ready(function() {
   var href = "https://catdp37.blogspot.com/2019/07/notre-programme.html";
   var hrefNew = "https://catdp37.blogspot.com/p/notre-programme.html";
@@ -8,13 +13,14 @@ $(document).ready(function() {
   var contentBody = result.body.find('.programContent');
   var contentScript = result.body.find('script');
   var innerHTMLContentScript = contentScript.html();
-  var innerHTMLContentScriptNew = innerHTMLContentScript.replace(href,hrefNew);
+  var innerHTMLContentScriptNew = innerHTMLContentScript.replace(href, hrefNew);
   contentScript.html(innerHTMLContentScriptNew);
   $('#idNotreProgramme').append(contentStyle);
   $('#idNotreProgramme').append(contentBody);
-  $('#idNotreProgramme').append(contentScript);
+  //$('#idNotreProgramme').append(contentScript);
 
-  $(".data-fancybox-inline").fancybox({
+  myopts = {
+    toolbar: true,
     infobar: true,
     arrows: false,
     animationEffect: "fade",
@@ -22,9 +28,34 @@ $(document).ready(function() {
     speed: 300,
     margin: [40, 20],
     buttons: false,
+    thumbs: {
+      autoStart: false, // Display thumbnails on opening
+      hideOnClose: true // Hide thumbnail grid when closing animation starts
+    },
+    buttons: [
+      'thumbs'
+    ],
+    baseClass: 'customInlineBaseClass',
+
+    /*onInit: function(instance, current) {
+// When the modal is shown, we want a fixed body
+document.body.style.position = 'fixed';
+document.body.style.top = `-${window.scrollY}px`;
+    //location.reload();
+    },
+    afterClose: function(instance, current) {
+// When the modal is hidden...
+const top = document.body.style.top;
+document.body.style.position = '';
+document.body.style.top = '';
+window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    },*/
+
     afterLoad: function(instance, current) {
       if (instance.group.length > 1 && current.$content) {
-        current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
       }
       /*if ( instance.group.length > 1 && current.$content ) {
         current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
@@ -32,8 +63,93 @@ $(document).ready(function() {
 
       //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
     }
+  };
 
-  });
 
+  $(".data-fancybox-inline").fancybox(myopts);
 });
+}
+</script>
+<script src="https://philquand.github.io/Javascript/MediaPlayer/MediaPlayer.js"></script>
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/MediaPlayer/MediaPlayer.css" />
+<svg style="display:none">
+	<symbol id="symbol-play" viewBox="0 0 32 32">
+		<path d="M4 0l24 16L4 32"></path>
+	</symbol>
+	<symbol id="symbol-pause" viewBox="0 0 32 32">
+		<path d="M4 0h9v32H4M28 0h-9v32h9"></path>
+	</symbol>
+	<symbol id="symbol-mute" viewBox="0 0 32 32">
+		<path d="M0 11h6l10-8.5v27L6 21H0M22 6l10 10-10 10"></path>
+	</symbol>
+	<symbol id="symbol-unmute" viewBox="0 0 32 32">
+		<path d="M0 11h6l10-8.5v27L6 21H0"></path>
+	</symbol>
+	<symbol id="symbol-download" viewBox="0 0 32 32">
+		<path d="M20 2v12h4l-8 10-8-10h4V2M0 21h5v6h22v-6h5v11H0"></path>
+	</symbol>
+	<symbol id="symbol-enterFullscreen" viewBox="0 0 32 32">
+		<path d="M0 0h12L8 4l6 6-4 4-6-6-4 4M32 0H20l4 4-6 6 4 4 6-6 4 4M0 32V20l4 4 6-6 4 4-6 6 4 4m20 0V20l-4 4-6-6-4 4 6 6-4 4"></path>
+	</symbol>
+	<symbol id="symbol-leaveFullscreen" viewBox="0 0 32 32">
+		<path d="M0 4l4-4 6 6 4-4v12H2l4-4m26-6l-4-4-6 6-4-4v12h12l-4-4M0 28l4 4 6-6 4 4V18H2l4 4m26 6l-4 4-6-6-4 4V18h12l-4 4"></path>
+	</symbol>
+</svg>
+<style>
+.media-text {
+    font-size: 75%;
+    padding-left: .5em;
+    padding-right: .5em;
+    width: 5em
+}
+.media-fullscreen {
+    display: none;
+}
+</style>
+<script>
+breakCode: {
+  var href = "https://catdp37.blogspot.com/p/notre-programme.html";
+  var actHref = window.location.href;
+  if (actHref.indexOf(href) == -1) break breakCode;
+$(document).ready(function() {
+// get target from media with controls
+$('.programContent').find('audio').each(function() {
+// assign media player from target (all these options represent the defaults)
+//const $target = document.querySelector('audio[controls], video[controls]');
+const $target = this;
+const player = new MediaPlayer(
+  $target,
+  {
+    prefix: 'media',
+    lang: {
+      play: 'play',
+      pause: 'pause',
+      mute: 'mute',
+      unmute: 'unmute',
+      volume: 'volume',
+      currentTime: 'current time',
+      remainingTime: 'remaining time',
+      enterFullscreen: 'enter fullscreen',
+      leaveFullscreen: 'leave fullscreen',
+      download: 'download'
+    },
+    svgs: {
+      play: '#symbol-play',
+      pause: '#symbol-pause',
+      mute: '#symbol-mute',
+      unmute: '#symbol-unmute',
+      volume: '#symbol-volume',
+      currentTime: '#symbol-currentTime',
+      remainingTime: '#symbol-remainingTime',
+      enterFullscreen: '#symbol-enterFullscreen',
+      leaveFullscreen: '#symbol-leaveFullscreen',
+      download: '#symbol-download'
+    },
+    timeDir: 'ltr',
+    volumeDir: 'ltr'
+  }
+);
+});
+});
+}
 </script>

@@ -3,11 +3,11 @@
 
 <!-- Add fancyBox 3 -->
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-<!--link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" /-->
+<!--link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.css" rel="stylesheet" type="text/css" /-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.js"></script>
-<!--script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script-->
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.js"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
 <!-- End FancyBox -->
 
@@ -137,14 +137,14 @@
         plusP.remove();
       }
       var h1Title = blogTitle[0].children[0].children[0];
-    if (s[1] == '' || s[1] == '#loadCATDPTimeLine') {
-      blogTitle[0].style.paddingBottomt = "1em";
-      h1Title.style.lineHeight = "0.8";
-    } else {
-      var title = h1Title.children[0].innerHTML;
-      //title.replace(/br/gi, "");
-      h1Title.children[0].innerHTML = "C’est au Tour(s) du Peuple !<br>Municipales 2020";
-    }
+      if (s[1] == '' || s[1] == '#loadCATDPTimeLine') {
+        blogTitle[0].style.paddingBottomt = "1em";
+        h1Title.style.lineHeight = "0.8";
+      } else {
+        var title = h1Title.children[0].innerHTML;
+        //title.replace(/br/gi, "");
+        h1Title.children[0].innerHTML = "C’est au Tour(s) du Peuple !<br>Municipales 2020";
+      }
     };
   }
 //});

@@ -1,11 +1,44 @@
 <!--link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"-->
-
 <style>
-.customVid {
+  .customInlineBaseClass .fancybox-thumbs {
+    width: 190px; 
+  }
+  .customInlineBaseClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 190px; 
+  }
+  .customInlineBaseClass .fancybox-thumbs__list  a {
+    width: 5.8vw;
+    height: 6.0vw;
+    max-width: 87px;
+    max-height: 90px;
+    min-width: 58px;
+    min-height: 60px;
+    /*max-width: calc(100% - 10px);*/
+  }
+@media screen and (max-width: 1500px) {
+  .customInlineBaseClass .fancybox-thumbs {
+   //background-color: green;
+    width: 13vw; 
+  }
+  .customInlineBaseClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 13vw; 
+  }
+}
+@media screen and (max-width: 980px) {
+  .customInlineBaseClass .fancybox-thumbs {
+   //background-color: yellow;
+    width: 65px; 
+  }
+  .customInlineBaseClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 65px; 
+  }
+}
+.customVid, .customInlineBaseClass {
     overflow: hidden;
 }
 .customVid .fancybox-content {
-    background-color: #e8f6f8;
+    //background-color: #e8f6f8;
+    background-color: white;
 }
 .articleFancy {
     padding: 0 0 0 0;
@@ -19,7 +52,8 @@
     padding: 40px 20px 20px 20px;
 }
 .titreSummary, .titreFancy {
-    color: #762a83;
+    //color: #762a83;
+    color: #999933;
     font-size: 24px;
     line-height: 1.2;
     margin: 10px 10px 10px 0;
@@ -32,7 +66,7 @@
    color:inherit;
 }
 .maximeSummary, .maximeFancy {
-    color: blue;
+    color: #7a1e1e;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.2;
@@ -57,17 +91,33 @@
 }
 .engagementsFancy {
     text-align: center;
-    color: blue;
-    text-decoration: underline;
+    color: #7a1e1e;
+    //text-decoration: underline;
+    font-weight: bold;
 }
-
-@media screen and (max-width: 600px) {
+.audioFancy {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media screen and (max-width: 1000px) {
   .fontFancy, .articleFancy, .corpsFancy {
     width: 100% ;
     max-height: none;
   }
+  /* Move counter to the right */
+  .customInlineBaseClass .fancybox-infobar {
+    left: 0;
+    right: auto;
+  }
   .customVid {
     overflow: auto;
+  }
+  .customVid .fancybox-close-small {
+    right: 30px;    
+  }
+  .customVid .button-previous, .customVid .button-next {
+    display: none;
   }
 }
 </style>
@@ -84,7 +134,11 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 200px;
+}
+.incVote {
+  margin-top: 3em;
+  font-size: 24px;
 }
 </style>
 <style>
@@ -112,7 +166,7 @@
 </style>
 <!-- wkhtmltopdf-SF.css -->
 <!--link href="https://philquand.github.io/Javascript/Blog-widgets/Ressources-BBEdit/wkhtmltopdf/wkhtmltopdf-SF.css" rel="stylesheet" type="text/css" /-->
-<div class="html2pdf" data-summary="no"-->
+<div class="html2pdf" data-summary="no">
 <p class="html2pdf-post-title"><a href="https://catdp37.blogspot.com/2019/07/notre-programme.html">Notre Programme</a>
 </p>
 <p class="html2pdf-post-date">septembre 15, 2019</p>
@@ -120,306 +174,508 @@
 </div>
 <div class="programContent">
 <div  class="programIntro" style="position: 0;">
-<div style="display: inline-block; margin-top: 1em; width: 100%"><img style="float: left; margin-right: 1em;" border="0" data-original-height="400" data-original-width="400" src="https://1.bp.blogspot.com/-a9UGsDuhucc/XShTsPvs2jI/AAAAAAAAjc8/DKU14xyYMaMffeslXKF3GbuucF0_YgjSQCLcBGAs/s320/Sigle%2Bcarre%25CC%2581%2BCATDP%2Bde%25CC%2581toure%25CC%2581.png" width="20%" />
+<div style="display: inline-block; margin-top: 1em; width: 100%"><img style="float: left; margin-right: 1em;" border="0" data-original-height="400" data-original-width="400" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" width="20%" >
 Notre programme pour les élections municipales de 2020 se décline en 8 blocs thématiques, à la fois distincts et complémentaires. Chaque bloc se présente de la manière suivante : un titre, une citation en exergue, une introduction explicative de nos valeurs, nos engagements-phares, nos autres engagements, quelques phrases conclusives. Vous pouvez lire et télécharger chacun de ces blocs séparément ou télécharger l’ensemble du programme. Bonne lecture et réflexion à toutes et tous !</div></div>
 
 <div class="titreSummary" > 
-<a href="https://1.bp.blogspot.com/-jfHf6jIo-tI/XTv7Hz4NxqI/AAAAAAAAjoA/DQ7yQIanKf0d_0bLUW2BvyssW5Fatw_mgCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B01.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img class="azoicon" width="50" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-jfHf6jIo-tI/XTv7Hz4NxqI/AAAAAAAAjoA/DQ7yQIanKf0d_0bLUW2BvyssW5Fatw_mgCLcBGAs/s320/Programme%2B8%2Bvisuels%2B01.png" /></a>
-<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-slide-class='customVid' data-src="#article-1" href="javascript:;">1 – AYONS LE GOÛT DU RIC ! DÉMOCRATIE, EN AVANT TOUTE !</a>
+<a href="javascript:;" data-src="https://1.bp.blogspot.com/-oKvYKlpvs-Q/XUbRyFB_LVI/AAAAAAAAjs0/1CKb1U3pGkIpyLYiOlv8VtDZo_mspNstgCLcBGAs/s1600/Visuel%2BProgramme%2B01.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoicon" class="data-fancybox">
+<img class="azoicon" width="50" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-oKvYKlpvs-Q/XUbRyFB_LVI/AAAAAAAAjs0/1CKb1U3pGkIpyLYiOlv8VtDZo_mspNstgCLcBGAs/s1600/Visuel%2BProgramme%2B01.png" /></a>
+<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-slide-class='customVid' data-src="#article-1" href="javascript:;" data-thumb="https://1.bp.blogspot.com/-oKvYKlpvs-Q/XUbRyFB_LVI/AAAAAAAAjs0/1CKb1U3pGkIpyLYiOlv8VtDZo_mspNstgCLcBGAs/s1600/Visuel%2BProgramme%2B01.png" >1 – AYONS LE GOÛT DU RIC ! DÉMOCRATIE, EN AVANT TOUTE ! </a>
 </div>
 <div class="incrustation articleFancy" id="article-1" >
 <div class="incrustation fontFancy">
 <center>
-<a href="https://1.bp.blogspot.com/-jfHf6jIo-tI/XTv7Hz4NxqI/AAAAAAAAjoA/DQ7yQIanKf0d_0bLUW2BvyssW5Fatw_mgCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B01.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img class="azoiconmodal" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-jfHf6jIo-tI/XTv7Hz4NxqI/AAAAAAAAjoA/DQ7yQIanKf0d_0bLUW2BvyssW5Fatw_mgCLcBGAs/s320/Programme%2B8%2Bvisuels%2B01.png" /></a>
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-1-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">1 – AYONS LE GOÛT DU RIC ! DEMOCRATIE, EN AVANT TOUTE !</div>
-<div class="maximeFancy">L’une des marques de la liberté, c’est d’être tour à tour gouverné et gouvernant.</div></center>
+<!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-oKvYKlpvs-Q/XUbRyFB_LVI/AAAAAAAAjs0/1CKb1U3pGkIpyLYiOlv8VtDZo_mspNstgCLcBGAs/s1600/Visuel%2BProgramme%2B01.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
+<img class="azoiconmodal" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-oKvYKlpvs-Q/XUbRyFB_LVI/AAAAAAAAjs0/1CKb1U3pGkIpyLYiOlv8VtDZo_mspNstgCLcBGAs/s1600/Visuel%2BProgramme%2B01.png" />
+<!--/a-->
+<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-1-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">1 – AYONS LE GOÛT DU RIC ! DÉMOCRATIE, EN AVANT TOUTE ! </div>
+<div class="maximeFancy">L’une des marques de la liberté, c’est d’être tour à tour gouverné et gouvernant. </div></center>
 <div class="corpsFancy">
-<p>Chaque jour, la démocratie est vidée de son sens, à cause du pouvoir vorace et liberticide de quelques-uns. Chaque jour, certains esprits, par naïveté ou calcul clientéliste, imaginent que de simples mesurettes, « participatives » ou « de proximité », vont résoudre le problème. Nous pensons, pour notre part, que la gravité de la situation exige des changements en profondeur, plaçant résolument le peuple au centre des institutions. C’est à cette condition, mère de toutes les autres réformes, que sera surmontée la crise de la démocratie soi-disant représentative et que Tours et la Métropole deviendront les fers de lance du peuple enfin décisionnaire.</p>
+<p>Chaque jour, la démocratie est vidée de son sens, à cause du pouvoir vorace et liberticide de quelques-uns. Chaque jour, certains esprits, par naïveté ou calcul clientéliste, imaginent que de simples mesurettes, « participatives » ou « de proximité », vont résoudre le problème. Nous pensons, pour notre part, que la gravité de la situation exige des changements en profondeur, plaçant résolument le peuple au centre des institutions. C’est à cette condition, mère de toutes les autres réformes, que sera surmontée la crise de la démocratie soi-disant représentative et que Tours et la Métropole deviendront les fers de lance du peuple enfin décisionnaire. </p>
 <p class="engagementsFancy">Nos engagements-phares</p>
 <p>- Instaurer le <b>Référendum d’Initiative Citoyenne (RIC)</b>. Destiné à proposer ou abroger une décision municipale, il devra réunir au moins 1 400 signatures (1 % de la population de la ville) parmi les habitants de 18 ans et plus. Le conseil municipal devra alors se saisir de la demande et, s’il s’y oppose, organiser un référendum. Un RIC, à l’échelle métropolitaine, sera aussi mis en projet et proposé aux autres municipalités.</p>
-<p>- Mettre en œuvre le <b>Référendum d’Initiative Municipale (RIM)</b> pour tous les grands projets (urbanisme, transports, etc.).</p>
-<p>- Faire entrer<b> les citoyens dans tous les lieux-clés de la décision publique</b> (commissions de la Ville et de la Métropole, comités de projet, de pilotage ou de suivi, réunions préparatoires à l’attribution des subventions aux entreprises et associations...). Ainsi, grâce à leur présence, plus aucune décision ne sera prise dans l’entre-soi des grands élus affairistes, des lobbies et des « experts », et chacun se familiarisera avec la vie publique.</p>
-<p>- Pour rendre la parole et le pouvoir aux citoyens, il faut un lieu où la démocratie puisse vivre de façon permanente. Ce lieu sera <b>la Maison du peuple</b>. L’<b>Assemblée Citoyenne </b>qui y siégera travaillera en étroite relation avec<b> les 8 conseils de quartier et les 6 conseils citoyens</b> afin que tous les acteurs de la démocratie soient présents et agissants pour le bien commun de notre Ville, de la Métropole et des territoires environnants.</p>
+<p>- Mettre en œuvre le <b>Référendum d’Initiative Municipale (RIM)</b> pour tous les grands projets (urbanisme, transports, etc. ).</p>
+<p>- Faire entrer<b> les citoyens dans tous les lieux-clés de la décision publique</b> (commissions de la Ville et de la Métropole, comités de projet, de pilotage ou de suivi, réunions préparatoires à l’attribution des subventions aux entreprises et associations... ). Ainsi, grâce à leur présence, plus aucune décision ne sera prise dans l’entre-soi des grands élus affairistes, des lobbies et des « experts », et chacun se familiarisera avec la vie publique. </p>
+<p>- Pour rendre la parole et le pouvoir aux citoyens, il faut un lieu où la démocratie puisse vivre de façon permanente. Ce lieu sera <b>la Maison du peuple</b>. L’<b>Assemblée Citoyenne </b>qui y siégera travaillera en étroite relation avec<b> les 8 conseils de quartier et les 6 conseils citoyens</b> afin que tous les acteurs de la démocratie soient présents et agissants pour le bien commun de notre Ville, de la Métropole et des territoires environnants. </p>
 <p class="engagementsFancy">Nos autres engagements</p>
-<p>- Réaliser, immédiatement après l’élection, un <b>audit citoyen des finances publiques</b>, municipales et métropolitaines, et en diffuser les résultats auprès de la population.</p>
-<p>- Dresser la liste de tous les documents aujourd’hui tenus secrets ou très difficiles à obtenir et en <b>donner l’accès</b> à tous (conventions de délégation de service public, projets urbanistiques, études préparatoires…).</p>
-<p>- Ouvrir aux habitants un <b>temps de questions</b> <b>lors de chaque séance</b> du conseil municipal.</p>
+<p>- Réaliser, immédiatement après l’élection, un <b>audit citoyen des finances publiques</b>, municipales et métropolitaines, et en diffuser les résultats auprès de la population. </p>
+<p>- Dresser la liste de tous les documents aujourd’hui tenus secrets ou très difficiles à obtenir et en <b>donner l’accès</b> à tous (conventions de délégation de service public, projets urbanistiques, études préparatoires… ).</p>
+<p>- Ouvrir aux habitants un <b>temps de questions</b> <b>lors de chaque séance</b> du conseil municipal. </p>
 <!--br/><br/-->
-<p>- Organiser deux types de <b>débat public : </b>l’un,<b> annuel,</b> sur la politique de la Ville et de la Métropole, ses choix budgétaires, l’organisation et l’action des services... ; <b>un autre, à mi-mandat</b>, pour faire le point, corriger les erreurs, modifier les politiques et actions mises en œuvre.</p>
-<p>- Développer<b> les panneaux d’expression libre</b>, actuellement en nombre très insuffisant, et dédier le journal municipal et de la Métropole à l’expression collective des habitants plutôt que de laisser proliférer les campagnes de com’ et la publicité du maire.</p>
-<p>- Demander à chaque élu de remplir <b>une déclaration d’intérêts</b> sur le modèle de celle existant déjà pour les parlementaires.</p>
+<p>- Organiser deux types de <b>débat public : </b>l’un, <b> annuel, </b> sur la politique de la Ville et de la Métropole, ses choix budgétaires, l’organisation et l’action des services... ; <b>un autre, à mi-mandat</b>, pour faire le point, corriger les erreurs, modifier les politiques et actions mises en œuvre. </p>
+<p>- Développer<b> les panneaux d’expression libre</b>, actuellement en nombre très insuffisant, et dédier le journal municipal et de la Métropole à l’expression collective des habitants plutôt que de laisser proliférer les campagnes de com’ et la publicité du maire. </p>
+<p>- Demander à chaque élu de remplir <b>une déclaration d’intérêts</b> sur le modèle de celle existant déjà pour les parlementaires. </p>
 <p>- Enfin, opposés à la professionnalisation de la vie politique, nous nous interdisons <b>tout cumul</b> de mandat et nous nous engageons, en cas de démission du maire, à ne pas renouveler la <b>mascarade démocratique</b> Babary-Bouchet et donc à reprendre <b>le chemin des urnes </b>!</p>
-<center><p>Vous en avez assez de la <b>répétition du système</b><br/>Germain-Babary-Bouchet-Briand ?</p>
-<p>Vous voulez une véritable<b> démocratie</b><br/>où le peuple soit enfin décisionnaire ?</p>
-<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></center>
-<a href="https://1.bp.blogspot.com/-jfHf6jIo-tI/XTv7Hz4NxqI/AAAAAAAAjoA/DQ7yQIanKf0d_0bLUW2BvyssW5Fatw_mgCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B01.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-jfHf6jIo-tI/XTv7Hz4NxqI/AAAAAAAAjoA/DQ7yQIanKf0d_0bLUW2BvyssW5Fatw_mgCLcBGAs/s320/Programme%2B8%2Bvisuels%2B01.png" /></a>
+<center><div class="incVote"><p>Vous en avez assez de la <b>répétition du système</b><br/>Germain-Babary-Bouchet-Briand ? </p>
+<p>Vous voulez une véritable<b> démocratie</b><br/>où le peuple soit enfin décisionnaire ? </p>
+<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></div></center>
+<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" />
 </div>
 </div>
 </div>
 <div class="titreSummary" >
-<a href="https://1.bp.blogspot.com/-sE1RDw7IZ7A/XTv7HiQNxlI/AAAAAAAAjn8/3asC2Haeg3Qf5pbUrU4eHengjqWpmsNzwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B02.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img class="azoicon" width="50" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-sE1RDw7IZ7A/XTv7HiQNxlI/AAAAAAAAjn8/3asC2Haeg3Qf5pbUrU4eHengjqWpmsNzwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B02.png" /></a>
-<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-slide-class='customVid' data-src="#article-2" href="javascript:;">2 – STOP AUX PRIVATISATIONS ET RECONQUÊTE DE NOS BIENS PUBLICS !</a>
+<a href="javascript:;" data-src="https://1.bp.blogspot.com/-EuSey7Nvc9A/XUbRyB0WgGI/AAAAAAAAjss/Dj1m3mWCcjA5RjF5AO8NUDdZQzD-Aw9rgCLcBGAs/s1600/Visuel%2BProgramme%2B02.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoicon" class="data-fancybox" >
+<img class="azoicon" width="50" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-EuSey7Nvc9A/XUbRyB0WgGI/AAAAAAAAjss/Dj1m3mWCcjA5RjF5AO8NUDdZQzD-Aw9rgCLcBGAs/s1600/Visuel%2BProgramme%2B02.png"/></a>
+<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-slide-class='customVid' data-src="#article-2" href="javascript:;" data-thumb="https://1.bp.blogspot.com/-EuSey7Nvc9A/XUbRyB0WgGI/AAAAAAAAjss/Dj1m3mWCcjA5RjF5AO8NUDdZQzD-Aw9rgCLcBGAs/s1600/Visuel%2BProgramme%2B02.png" >2 – STOP AUX PRIVATISATIONS ET RECONQUÊTE DE NOS BIENS PUBLICS ! </a>
 </div>
 <div class="incrustation articleFancy" id="article-2">
 <div class="incrustation fontFancy">
 <center>
-<a href="https://1.bp.blogspot.com/-sE1RDw7IZ7A/XTv7HiQNxlI/AAAAAAAAjn8/3asC2Haeg3Qf5pbUrU4eHengjqWpmsNzwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B02.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img class="azoiconmodal" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-sE1RDw7IZ7A/XTv7HiQNxlI/AAAAAAAAjn8/3asC2Haeg3Qf5pbUrU4eHengjqWpmsNzwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B02.png" /></a>
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-2-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">2 – STOP AUX PRIVATISATIONS ET RECONQUÊTE DE NOS BIENS PUBLICS !</div>
-<div class="maximeFancy">Quand tout sera privé, on sera privé de tout.</div></center>
+<!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-EuSey7Nvc9A/XUbRyB0WgGI/AAAAAAAAjss/Dj1m3mWCcjA5RjF5AO8NUDdZQzD-Aw9rgCLcBGAs/s1600/Visuel%2BProgramme%2B02.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
+<img class="azoiconmodal" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-EuSey7Nvc9A/XUbRyB0WgGI/AAAAAAAAjss/Dj1m3mWCcjA5RjF5AO8NUDdZQzD-Aw9rgCLcBGAs/s1600/Visuel%2BProgramme%2B02.png" />
+<!--/a-->
+<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-2-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a>
+<div class="titreFancy">2 – STOP AUX PRIVATISATIONS ET RECONQUÊTE DE NOS BIENS PUBLICS ! </div>
+<div class="maximeFancy">Quand tout sera privé, on sera privé de tout. </div></center>
 <div class="corpsFancy">
-<p>La fin des privatisations, obstinément conduites par les majorités Germain-Babary-Bouchet-Briand, constitue l’une des priorités de notre programme. Nous en avons en effet assez que nos vies, du premier au dernier jour et en tout domaine, soient considérées comme la source du profit de quelques-uns, multinationales en tête. Le privé, dont on nous rabâche sur tous les tons et depuis des décennies la prétendue « efficacité », a fait les preuves de son injustice et de son incurie : il n’est pas démocratique dans son fonctionnement, il est coûteux pour le contribuable, inégalitaire pour le « client », dur au salarié, nuisible à la cohésion de la société. Il est donc temps, à Tours, dans la Métropole comme ailleurs, de dire stop au « tout-libéral » et de changer résolument de cap.</p>
+<p>La fin des privatisations, obstinément conduites par les majorités Germain-Babary-Bouchet-Briand, constitue l’une des priorités de notre programme. Nous en avons en effet assez que nos vies, du premier au dernier jour et en tout domaine, soient considérées comme la source du profit de quelques-uns, multinationales en tête. Le privé, dont on nous rabâche sur tous les tons et depuis des décennies la prétendue « efficacité », a fait les preuves de son injustice et de son incurie : il n’est pas démocratique dans son fonctionnement, il est coûteux pour le contribuable, inégalitaire pour le « client », dur au salarié, nuisible à la cohésion de la société. Il est donc temps, à Tours, dans la Métropole comme ailleurs, de dire stop au « tout-libéral » et de changer résolument de cap. </p>
 <p class="engagementsFancy">Nos engagements-phares</p>
-<p>- Dresser, dès les lendemains de l’élection, <b>l’inventaire complet des privatisations des services publics</b> déjà faites, en cours de négociation ou en projet.</p>
+<p>- Dresser, dès les lendemains de l’élection, <b>l’inventaire complet des privatisations des services publics</b> déjà faites, en cours de négociation ou en projet. </p>
 <p>Ce bilan portera sur tous les secteurs d’activité touchés (éducation, santé, logement social, transports publics et stationnement, gestion des déchets, équipements sportifs, culturels et de loisirs, tourisme, informatique, communication et publicité, maisons de retraite…) et il concernera les différents dispositifs juridiques utilisés (concession ou délégation de service public, partenariat public-privé, société ou syndicat d’économie mixte, passation de marchés…).</p>
-<p>Ce bilan sera porté à la connaissance de la population et les documents seront accessibles à tous. Ainsi <b>chacun pourra (enfin !) y voir clair</b> dans l’affairisme, les conflits d’intérêts aussi bien que dans les profits réalisés par Vinci, Kéolis, JCDecaux et tant d’autres…</p>
-<p>- Mettre fin à ces privatisations, au cas par cas et durant les six ans de mandature, et <b>passer en gestion publique et citoyenne</b> de l’ensemble des services à la population.</p>
-<p>Ce passage sera nécessairement étalé dans le temps en raison des engagements pris par la Ville ou la Métropole (dates d’expiration des conventions de délégation, possibilité ou non de les renégocier avant…) et des particularités propres à chaque service. Il sera forcément plus long de créer, sans Kéolis et en régie publique, la nouvelle organisation des transports publics métropolitains que de municipaliser, à Tours, le Centre Aquatique du Lac ou de reprendre le contrôle du stationnement aujourd’hui livré à la SAGS.</p>
-<p>Cette gestion publique et citoyenne pourra revêtir plusieurs formes juridiques (régies publiques municipales ou métropolitaines, sociétés coopératives…). Mais elle devra toujours <b>obéir aux règles suivantes </b>: réembauche de tous les salariés des sociétés privées, participation directe des syndicats, des associations d’usagers et des habitants à la gestion, gratuité du service ou tarifs en diminution, réinvestissement total des bénéfices dans la création d’emplois, l’amélioration de la situation du personnel et de la qualité du service rendu.</p>
+<p>Ce bilan sera porté à la connaissance de la population et les documents seront accessibles à tous. Ainsi <b>chacun pourra (enfin ! ) y voir clair</b> dans l’affairisme, les conflits d’intérêts aussi bien que dans les profits réalisés par Vinci, Kéolis, JCDecaux et tant d’autres… </p>
+<p>- Mettre fin à ces privatisations, au cas par cas et durant les six ans de mandature, et <b>passer en gestion publique et citoyenne</b> l’ensemble des services à la population. </p>
+<p>Ce passage sera nécessairement étalé dans le temps en raison des engagements pris par la Ville ou la Métropole (dates d’expiration des conventions de délégation, possibilité ou non de les renégocier avant… ) et des particularités propres à chaque service. Il sera forcément plus long de créer, sans Kéolis et en régie publique, la nouvelle organisation des transports publics métropolitains que de municipaliser, à Tours, le Centre Aquatique du Lac ou de reprendre le contrôle du stationnement aujourd’hui livré à la SAGS.</p>
+<p>Cette gestion publique et citoyenne pourra revêtir plusieurs formes juridiques (régies publiques municipales ou métropolitaines, sociétés coopératives… ). Mais elle devra toujours <b>obéir aux règles suivantes </b>: réembauche de tous les salariés des sociétés privées, participation directe des syndicats, des associations d’usagers et des habitants à la gestion, gratuité du service ou tarifs en diminution, réinvestissement total des bénéfices dans la création d’emplois, l’amélioration de la situation du personnel et de la qualité du service rendu. </p>
 <!--br/><br/-->
 <p class="engagementsFancy">Nos autres engagements</p>
-<p>- Revoir <b>l’ensemble de</b> <b>la</b> <b>politique d’aides et de subventions, </b>directes ou indirectes, de la Ville et de la Métropole. Nous conditionnerons les aides aux entreprises en fonction de différents critères (taille, emplois non délocalisables, situation faite aux salariés, vocation écologique), supprimerons la subvention allouée à la compagnie voyou Ryanair, déjà condamnée par la justice, et établirons la transparence et l’équité dans l’attribution des subventions aux associations.</p>
-<p>- Revoir <b>l’ensemble de la politique de communication</b> <b>et de publicité</b> de la Ville et de la Métropole. Stop aux publications coûteuses, aux événements « bling-bling » et à tous les gaspillages liés à la promotion personnelle des élus. Stop à la location de l’espace public pour des campagnes de promotion commerciale. Stop à l’invasion publicitaire qui fait aujourd’hui les profits de JCDecaux alors que les panneaux d’affichage libre manquent cruellement.</p>
-<p>- Créer, à la place de la Société d'équipement de la Touraine (SET), société anonyme d'économie mixte, une <b>régie publique foncière</b> qui interviendra dans les projets urbanistiques de la Ville et de la Métropole.</p>
-<p>- Enfin, nous nous engageons à <b>arrêter</b> tous ces grands, moyens ou petits projets urbanistiques et commerciaux qui servent les intérêts des multinationales (Bouygues, Eiffage, Citya, Hilton, Auchan, Carrefour, Leclerc, Starbuck, MacDo…) et nuisent gravement à l’immense majorité de la population : hausse du prix du m<sup>2</sup>, embourgeoisement du centre-ville et relégation des pauvres et de la classe moyenne en périphérie, insécurité de l’emploi, exploitation des travailleurs français et étrangers, bétonisation, disparition des artisans et des petits commerçants, surendettement de la Ville et de la Métropole…</p>
-<center><p>Vous en avez assez du <b>« tout-privé, tout-payant »</b> ?</p>
-<p>Vous voulez participer, à Tours et dans la Métropole,<br/>à la <b>reconquête du bien public </b>?</p>
-<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></center>
-<a href="https://1.bp.blogspot.com/-sE1RDw7IZ7A/XTv7HiQNxlI/AAAAAAAAjn8/3asC2Haeg3Qf5pbUrU4eHengjqWpmsNzwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B02.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-sE1RDw7IZ7A/XTv7HiQNxlI/AAAAAAAAjn8/3asC2Haeg3Qf5pbUrU4eHengjqWpmsNzwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B02.png" /></a>
+<p>- Revoir <b>l’ensemble de</b> <b>la</b> <b>politique d’aides et de subventions, </b>directes ou indirectes, de la Ville et de la Métropole. Nous conditionnerons les aides aux entreprises en fonction de différents critères (taille, emplois non délocalisables, situation faite aux salariés, vocation écologique), supprimerons la subvention allouée à la compagnie voyou Ryanair, déjà condamnée par la justice, et établirons la transparence et l’équité dans l’attribution des subventions aux associations. </p>
+<p>- Revoir <b>l’ensemble de la politique de communication</b> <b>et de publicité</b> de la Ville et de la Métropole. Stop aux publications coûteuses, aux événements « bling-bling » et à tous les gaspillages liés à la promotion personnelle des élus. Stop à la location de l’espace public pour des campagnes de promotion commerciale. Stop à l’invasion publicitaire qui fait aujourd’hui les profits de JCDecaux alors que les panneaux d’affichage libre manquent cruellement. </p>
+<p>- Créer, à la place de la Société d'équipement de la Touraine (SET), société anonyme d'économie mixte, une <b>régie publique foncière</b> qui interviendra dans les projets urbanistiques de la Ville et de la Métropole. </p>
+<p>- Enfin, nous nous engageons à <b>arrêter</b> tous ces grands, moyens ou petits projets urbanistiques et commerciaux qui servent les intérêts des multinationales (Bouygues, Eiffage, Citya, Hilton, Auchan, Carrefour, Leclerc, Starbuck, MacDo… ) et nuisent gravement à l’immense majorité de la population : hausse du prix du m<sup>2</sup>, embourgeoisement du centre-ville et relégation des pauvres et de la classe moyenne en périphérie, insécurité de l’emploi, exploitation des travailleurs français et étrangers, bétonisation, disparition des artisans et des petits commerçants, surendettement de la Ville et de la Métropole… </p>
+<center><div class="incVote"><p>Vous en avez assez du <b>« tout-privé, tout-payant »</b> ?</p>
+<p>Vous voulez participer, à Tours et dans la Métropole, <br/>à la <b>reconquête du bien public </b>?</p>
+<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></div></center>
+<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" />
 </div>
 </div>
 </div>
 <div class="titreSummary" >
-<a href="https://1.bp.blogspot.com/-8qQ1AypI5A4/XTv7HkunJUI/AAAAAAAAjn4/nxyPsBBkOGo8w5-0jI8XQikd6f20KOMwACLcBGAs/s1600/Programme%2B8%2Bvisuels%2B03.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoicon" width="50" border="0" data-original-height="732" data-original-width="728" src="https://1.bp.blogspot.com/-8qQ1AypI5A4/XTv7HkunJUI/AAAAAAAAjn4/nxyPsBBkOGo8w5-0jI8XQikd6f20KOMwACLcBGAs/s320/Programme%2B8%2Bvisuels%2B03.png" /></a>
-<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-3" href="javascript:;">3 – OUI À L’ÉCOLOGIE, NON AU CAPITALISME REPEINT EN VERT !</a>
+<a href="javascript:;" data-src="https://1.bp.blogspot.com/-n-MhXNhzItU/XUbRzHTrRSI/AAAAAAAAjs8/lqAQ1JSxOHM9w5Fo4kkSMsggOy-reIVeQCLcBGAs/s1600/Visuel%2BProgramme%2B03.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoicon" class="data-fancybox">
+<img class="azoicon" width="50" border="0" data-original-height="732" data-original-width="728" src="https://1.bp.blogspot.com/-n-MhXNhzItU/XUbRzHTrRSI/AAAAAAAAjs8/lqAQ1JSxOHM9w5Fo4kkSMsggOy-reIVeQCLcBGAs/s1600/Visuel%2BProgramme%2B03.png"/></a>
+<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-3" href="javascript:;" data-thumb="https://1.bp.blogspot.com/-n-MhXNhzItU/XUbRzHTrRSI/AAAAAAAAjs8/lqAQ1JSxOHM9w5Fo4kkSMsggOy-reIVeQCLcBGAs/s1600/Visuel%2BProgramme%2B03.png" >3 – OUI À L’ÉCOLOGIE, NON AU CAPITALISME REPEINT EN VERT ! </a>
 </div>
 <div class="incrustation articleFancy" id="article-3">
 <div class="incrustation fontFancy">
 <center>
-<a href="https://1.bp.blogspot.com/-8qQ1AypI5A4/XTv7HkunJUI/AAAAAAAAjn4/nxyPsBBkOGo8w5-0jI8XQikd6f20KOMwACLcBGAs/s1600/Programme%2B8%2Bvisuels%2B03.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconmodal" border="0" data-original-height="732" data-original-width="728" src="https://1.bp.blogspot.com/-8qQ1AypI5A4/XTv7HkunJUI/AAAAAAAAjn4/nxyPsBBkOGo8w5-0jI8XQikd6f20KOMwACLcBGAs/s320/Programme%2B8%2Bvisuels%2B03.png" /></a>
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-3-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">3 – OUI À L’ÉCOLOGIE, NON AU CAPITALISME REPEINT EN VERT !</div>
-<div class="maximeFancy">Si le climat était une banque, il serait déjà sauvé.</div></center>
+<!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-n-MhXNhzItU/XUbRzHTrRSI/AAAAAAAAjs8/lqAQ1JSxOHM9w5Fo4kkSMsggOy-reIVeQCLcBGAs/s1600/Visuel%2BProgramme%2B03.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
+<img class="azoiconmodal" border="0" data-original-height="732" data-original-width="728" src="https://1.bp.blogspot.com/-n-MhXNhzItU/XUbRzHTrRSI/AAAAAAAAjs8/lqAQ1JSxOHM9w5Fo4kkSMsggOy-reIVeQCLcBGAs/s1600/Visuel%2BProgramme%2B03.png" />
+<!--/a-->
+<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-3-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">3 – OUI À L’ÉCOLOGIE, NON AU CAPITALISME REPEINT EN VERT ! </div>
+<div class="maximeFancy">Si le climat était une banque, il serait déjà sauvé. </div>
+</center>
 <div class="corpsFancy">
-<p>Le dérèglement du climat à l'échelle de la planète entière, les pollutions massives et de tous ordres, l’extinction accélérée de dizaines de milliers d’espèces animales et végétales sont déjà là. La recherche du profit partout et en tout est la cause première des problèmes : même repeint en vert, le capitalisme est l’obstacle principal pour trouver les urgentes solutions nécessaires. L’écologie des petits gestes, indispensable pour aider à la prise de conscience de chacun et chacune, ne peut pas suffire. Tout le monde s’en rend compte : il faut des mesures fortes, à la fois écologiques et sociales, pour briser l’engrenage mortifère dans lequel nous sommes.</p>
+<figure class="audioFancy">
+    <!--figcaption>Lecture du block :</figcaption-->
+    <audio
+        controls
+        src="https://philquand.github.io/Javascript/Blog-widgets/CATDP/Programme%20audio/Block%203%20Ecologie%20PM.mp3"
+         data-options='{"prefix":"media","show":{"fullscreen":false}}' >
+            Votre navigateur ne prend pas en charge cet élément
+            <code>audio</code>.
+    </audio>
+</figure>
+<p>Le dérèglement du climat à l'échelle de la planète entière, les pollutions massives et de tous ordres, l’extinction accélérée de dizaines de milliers d’espèces animales et végétales sont déjà là. La recherche du profit partout et en tout est la cause première des problèmes : même repeint en vert, le capitalisme est l’obstacle principal pour trouver les urgentes solutions nécessaires. L’écologie des petits gestes, indispensable pour aider à la prise de conscience de chacun et chacune, ne peut pas suffire. Tout le monde s’en rend compte : il faut des mesures fortes, à la fois écologiques et sociales, pour briser l’engrenage mortifère dans lequel nous sommes. </p>
 <p class="engagementsFancy">Notre engagement-phare</p>
-<p>- Instaurer <b>la gratuité des transports en commun</b> dans le cadre d’une <b>régie publique métropolitaine</b> et développer<b> l'offre de déplacements alternatifs à la voiture</b>. Ces mesures permettront d’améliorer le service aux usagers, de réduire la pollution automobile et d’en finir avec les multiples tarifications qui dissuadent beaucoup d’habitants de prendre le tram ou le bus, stigmatisent les plus pauvres et compliquent la vie de tous.</p>
+<p>- Instaurer <b>la gratuité des transports en commun</b> dans le cadre d’une <b>régie publique métropolitaine</b> et développer<b> l'offre de déplacements alternatifs à la voiture</b>. Ces mesures permettront d’améliorer le service aux usagers, de réduire la pollution automobile et d’en finir avec les multiples tarifications qui dissuadent beaucoup d’habitants de prendre le tram ou le bus, stigmatisent les plus pauvres et compliquent la vie de tous. </p>
 <p>Le financement de cette mesure écologique et sociale, déjà expérimentée dans 23 autres agglomérations en France, est possible : affectation prioritaire de la dotation de l’État attribuée à la Métropole ; récupération des profits annuels de Kéolis ; utilisation d’une partie de la cotisation foncière d’entreprise (CFE), de la taxe de séjour payée par les touristes et des sommes collectées dans les parcmètres ; transfert des subventions aujourd’hui allouées à Ryanair.</p>
 <p class="engagementsFancy">Nos autres engagements</p>
-<p>- Abandonner le projet <b>de la 2<sup>e</sup> ligne de tramway</b>, au coût exorbitant (la première a coûté, intérêts des prêts inclus, 638 millions d’euros : deux fois le budget annuel de la Métropole !) et soumettre au vote des habitants, à travers un référendum d’initiative municipale (RIM), <b>l’alternative du « trambus »</b>, <b>cinq fois moins coûteuse</b> et plus modulable.</p>
-<p>- Réaliser le<b> 100 % bio</b> dans les cantines, restaurants publics et hôpitaux. Pour cela, l’achat de produits locaux sera favorisé et le projet de cuisine centrale unique sera remis en cause au profit de cuisines de proximité.</p>
-<p>- Développer les <b>cultures maraîchères</b> dans l’aire métropolitaine, les <b>circuits courts</b> et les <b>marchés locaux</b>, en prenant appui sur une régie publique métropolitaine des terres agricoles.</p>
-<p>- Mettre en œuvre un <b>« Plan Climat »</b> à l’échelle de la Ville et de la Métropole comprenant : </p>
-<!--p>1 – la prise en compte prioritaire des critères écologiques et sociaux dans la passation des marchés publics ;</p>
-<p>2 – la rénovation thermique et phonique des bâtiments publics et privés ;</p>
-<p>3 – la priorité absolue donnée aux énergies renouvelables, notamment pour les transports en commun et les véhicules communaux ;</p>
-<p>4 – la réalisation d'un nouveau plan d’ensemble de gestion des déchets à l’échelle de la métropole et du département ;</p>
-<p>5 – l’encouragement systématique des déplacements autres qu’en voitures individuelles ;</p>
-<p>6 – l’accroissement du nombre d’espaces verts, parcs et jardins, jardins partagés et familiaux et, plus largement, la végétalisation des espaces publics et des parkings.</p-->
+<p>- Abandonner le projet <b>de la 2<sup>e</sup> ligne de tramway</b>, au coût exorbitant (la première a coûté, intérêts des prêts inclus, 638 millions d’euros : deux fois le budget annuel de la Métropole ! ) et soumettre au vote des habitants, à travers un référendum d’initiative municipale (RIM), <b>l’alternative du « trambus »</b>, <b>cinq fois moins coûteuse</b> et plus modulable. </p>
+<p>- Réaliser le<b> 100% bio</b> dans les cantines, restaurants publics et hôpitaux. Pour cela, l’achat de produits locaux sera favorisé et le projet de cuisine centrale unique sera remis en cause au profit de cuisines de proximité. </p>
+<p>- Développer les <b>cultures maraîchères</b> dans l’aire métropolitaine, les <b>circuits courts</b> et les <b>marchés locaux</b>, en prenant appui sur une régie publique métropolitaine des terres agricoles. </p>
+<p>- Mettre en œuvre un <b>« Plan Climat »</b> à l’échelle de la Ville et de la Métropole comprenant : </p>
+<!--p>1 – la prise en compte prioritaire des critères écologiques et sociaux dans la passation des marchés publics ; </p>
+<p>2 – la rénovation thermique et phonique des bâtiments publics et privés ; </p>
+<p>3 – la priorité absolue donnée aux énergies renouvelables, notamment pour les transports en commun et les véhicules communaux ; </p>
+<p>4 – la réalisation d'un nouveau plan d’ensemble de gestion des déchets à l’échelle de la métropole et du département ; </p>
+<p>5 – l’encouragement systématique des déplacements autres qu’en voitures individuelles ; </p>
+<p>6 – l’accroissement du nombre d’espaces verts, parcs et jardins, jardins partagés et familiaux et, plus largement, la végétalisation des espaces publics et des parkings. </p-->
 <ol>
-<li>la prise en compte prioritaire des critères écologiques et sociaux dans la passation des marchés publics ;</li>
-<li>la rénovation thermique et phonique des bâtiments publics et privés ;</li>
-<li>la priorité absolue donnée aux énergies renouvelables, notamment pour les transports en commun et les véhicules communaux ;</li>
-<li>la réalisation d'un nouveau plan d’ensemble de gestion des déchets à l’échelle de la métropole et du département ;</li>
-<li>l’encouragement systématique des déplacements autres qu’en voitures individuelles ;</li>
-<li>l’accroissement du nombre d’espaces verts, parcs et jardins, jardins partagés et familiaux et, plus largement, la végétalisation des espaces publics et des parkings.</li>
+<li>la prise en compte prioritaire des critères écologiques et sociaux dans la passation des marchés publics ; </li>
+<li>la rénovation thermique et phonique des bâtiments publics et privés ; </li>
+<li>la priorité absolue donnée aux énergies renouvelables, notamment pour les transports en commun et les véhicules communaux ; </li>
+<li>la réalisation d'un nouveau plan d’ensemble de gestion des déchets à l’échelle de la métropole et du département ; </li>
+<li>l’encouragement systématique des déplacements autres qu’en voitures individuelles ; </li>
+<li>l’accroissement du nombre d’espaces verts, parcs et jardins, jardins partagés et familiaux et, plus largement, la végétalisation des espaces publics et des parkings. </li>
 </ol>
 <p>- Élaborer, en étroite concertation avec les habitants, un <b>plan métropolitain d’aménagement des déplacements sécurisés</b> des piétons et des cyclistes, en coordination avec les transports collectifs, dont la navette ferroviaire Tours / Saint-Pierre-des-Corps. La construction de pistes cyclables protégées et d’appui-vélos sera une priorité en lien avec l’accroissement du nombre de vélos en accès libre dans le cadre d’une régie ou d'une société coopérative.</p>
-<p>- Soutenir le réseau	de l'<b>Étoile ferroviaire</b>, et tout particulièrement les lignes <b>autres que le TGV</b> comme la liaison intercités Tours-Le Mans-Caen.</p>
-<p>- <b>Stop </b>aux compteurs Linky et Gazpar, au « tout wifi » et <b>aux réseaux soi-disant « intelligents »</b> qui sont autant de moyens de contrôler les individus, de les espionner et de les « marchandiser », sans parler des effets négatifs sur la santé. Nous réaliserons un <b>audit</b> sur l’exposition des habitants aux <b>ondes électromagnétiques</b>.</p>
-<p>- Enfin, nous combattrons, à Tours et dans la Métropole, les<b> pollutions sonores, lumineuses et esthétiques</b>, à commencer par celles dues à la publicité et aux installations commerciales hideuses.</p>
-<center><p>Vous en avez assez de la <b>pollution</b> et du <b>béton</b> ?</p>
-<p>Vous voulez vivre dans une<b> ville verte</b> où l’on respire,<br/>où l’on se déplace facilement et où l’on mange bien ?</p>
-<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></center>
-<a href="https://1.bp.blogspot.com/-8qQ1AypI5A4/XTv7HkunJUI/AAAAAAAAjn4/nxyPsBBkOGo8w5-0jI8XQikd6f20KOMwACLcBGAs/s1600/Programme%2B8%2Bvisuels%2B03.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconfull" border="0" data-original-height="732" data-original-width="728" src="https://1.bp.blogspot.com/-8qQ1AypI5A4/XTv7HkunJUI/AAAAAAAAjn4/nxyPsBBkOGo8w5-0jI8XQikd6f20KOMwACLcBGAs/s320/Programme%2B8%2Bvisuels%2B03.png" /></a>
+<p>- Soutenir le réseau	de l'<b>Étoile ferroviaire</b>, et tout particulièrement les lignes <b>autres que le TGV</b> comme la liaison intercités Tours-Le Mans-Caen. </p>
+<p>- <b>Stop </b>aux compteurs Linky et Gazpar, au « tout wifi » et <b>aux réseaux soi-disant « intelligents »</b> qui sont autant de moyens de contrôler les individus, de les espionner et de les « marchandiser », sans parler des effets négatifs sur la santé. Nous réaliserons un <b>audit</b> sur l’exposition des habitants aux <b>ondes électromagnétiques</b>.</p>
+<p>- Enfin, nous combattrons, à Tours et dans la Métropole, les<b> pollutions sonores, lumineuses et esthétiques</b>, à commencer par celles dues à la publicité et aux installations commerciales hideuses. </p>
+<center><div class="incVote"><p>Vous en avez assez de la <b>pollution</b> et du <b>béton</b> ?</p>
+<p>Vous voulez vivre dans une<b> ville verte</b> où l’on respire, <br/>où l’on se déplace facilement et où l’on mange bien ? </p>
+<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></div></center>
+<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" />
 </div>
 </div>
 </div>
 <div class="titreSummary" >
-<a href="https://1.bp.blogspot.com/-dlYV4HaxJ6k/XTv7ImcS1FI/AAAAAAAAjoE/iZdXuhGRYjIAVQxyCq4vDtxu0BR8ULHTwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B04.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoicon" width="50" border="0" data-original-data-original-width="724" src="https://1.bp.blogspot.com/-dlYV4HaxJ6k/XTv7ImcS1FI/AAAAAAAAjoE/iZdXuhGRYjIAVQxyCq4vDtxu0BR8ULHTwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B04.png" /></a>
-<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-4" href="javascript:;">4 – POUR DES EMPLOIS NOMBREUX ET DIGNES, DANS LE PRIVÉ ET LE PUBLIC</a>
+<a href="javascript:;" data-src="https://1.bp.blogspot.com/-3qvTiEMt7SE/XUbRzNIYjpI/AAAAAAAAjs4/tygheLKxA-IkUA_nvz-qYiVt-WyMEmP0wCLcBGAs/s1600/Visuel%2BProgramme%2B04.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoicon" class="data-fancybox">
+<img class="azoicon" width="50" border="0" data-original-data-original-width="724" src="https://1.bp.blogspot.com/-3qvTiEMt7SE/XUbRzNIYjpI/AAAAAAAAjs4/tygheLKxA-IkUA_nvz-qYiVt-WyMEmP0wCLcBGAs/s1600/Visuel%2BProgramme%2B04.png"/></a>
+<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-4" href="javascript:;" data-thumb="https://1.bp.blogspot.com/-3qvTiEMt7SE/XUbRzNIYjpI/AAAAAAAAjs4/tygheLKxA-IkUA_nvz-qYiVt-WyMEmP0wCLcBGAs/s1600/Visuel%2BProgramme%2B04.png" >4 – POUR DES EMPLOIS NOMBREUX ET DIGNES, DANS LE PRIVÉ ET LE PUBLIC</a>
 </div>
 <div class="incrustation articleFancy" id="article-4">
 <div class="incrustation fontFancy">
 <center>
-<a href="https://1.bp.blogspot.com/-dlYV4HaxJ6k/XTv7ImcS1FI/AAAAAAAAjoE/iZdXuhGRYjIAVQxyCq4vDtxu0BR8ULHTwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B04.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconmodal" border="0" data-original-data-original-width="724" src="https://1.bp.blogspot.com/-dlYV4HaxJ6k/XTv7ImcS1FI/AAAAAAAAjoE/iZdXuhGRYjIAVQxyCq4vDtxu0BR8ULHTwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B04.png" /></a>
+<!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-3qvTiEMt7SE/XUbRzNIYjpI/AAAAAAAAjs4/tygheLKxA-IkUA_nvz-qYiVt-WyMEmP0wCLcBGAs/s1600/Visuel%2BProgramme%2B04.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
+<img class="azoiconmodal" border="0" data-original-data-original-width="724" src="https://1.bp.blogspot.com/-3qvTiEMt7SE/XUbRzNIYjpI/AAAAAAAAjs4/tygheLKxA-IkUA_nvz-qYiVt-WyMEmP0wCLcBGAs/s1600/Visuel%2BProgramme%2B04.png" />
+<!--/a-->
 <a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-4-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">4 – POUR DES EMPLOIS NOMBREUX ET DIGNES, DANS LE PRIVÉ ET LE PUBLIC</div>
-<div class="maximeFancy">Dans la société à venir, le public et le privé ne seront pas opposés.<br/>Ils œuvreront ensemble afin que nous ne perdions pas notre vie à la gagner.</div></center>
+<div class="maximeFancy">Dans la société à venir, le public et le privé ne seront pas opposés. <br/>Ils œuvreront ensemble afin que nous ne perdions pas notre vie à la gagner. </div></center>
 <div class="corpsFancy">
-<p>À Tours comme ailleurs, la vie et l’économie locales sont le fruit de toutes et tous, quels que soient l’origine, la fonction, le secteur d’activité. Or, de Germain à Babary-Bouchet-Briand, que constate-t-on sinon une action qui privilégie certains au détriment des autres, et nuit en définitive à la prospérité et la dignité générales ? Il est urgentissime d’arrêter ces politiques injustes, à courte vue, et de forger de nouvelles règles qui, sans dogmatisme, multiplieront les emplois publics et privés, rééquilibreront les relations entre le fort et le faible, et assureront ainsi un développement harmonieux, solidaire, de la Ville, de la Métropole et des territoires voisins. La recherche du profit de quelques-uns est toujours néfaste à la cohésion de la société et à la vie de chacun.</p>
+<p>À Tours comme ailleurs, la vie et l’économie locales sont le fruit de toutes et tous, quels que soient l’origine, la fonction, le secteur d’activité. Or, de Germain à Babary-Bouchet-Briand, que constate-t-on sinon une action qui privilégie certains au détriment des autres, et nuit en définitive à la prospérité et la dignité générales ? Il est urgentissime d’arrêter ces politiques injustes, à courte vue, et de forger de nouvelles règles qui, sans dogmatisme, multiplieront les emplois publics et privés, rééquilibreront les relations entre le fort et le faible, et assureront ainsi un développement harmonieux, solidaire, de la Ville, de la Métropole et des territoires voisins. La recherche du profit de quelques-uns est toujours néfaste à la cohésion de la société et à la vie de chacun.</p>
 <p class="engagementsFancy">Nos engagements-phares</p>
 <p>- S’opposer, dans la Métropole et la ville de Tours, <b>à toute nouvelle implantation</b> de grandes surfaces, de magasins liés aux multinationales et <b>en réduire</b>, au contraire, progressivement <b>le nombre</b>.</p>
-<p>- Agir pour les <b>petits commerçants, les artisans, les petites et moyennes entreprises, les sociétés coopératives, les associations</b> qui, au lieu d’être livrés à une concurrence sans pitié, doivent devenir des acteurs essentiels de l’économie et de la vie locales. Leur contribution à la création de très nombreux emplois stables, décents, non-délocalisables et à vocation sociale ou écologique, doit être (enfin !) soutenue par tous les moyens à la disposition de la Ville et de la Métropole : investissements, subventions, conseils techniques et juridiques, marchés publics, droit de préemption urbain, locaux à loyer modéré...</p>
-<p>- Agir pour l’emploi public, grâce au <b>passage en régie publique municipale ou métropolitaine</b> de nombreux services aujourd’hui privatisés et d’autres mesures telles que la <b>titularisation</b> des contractuels, précaires et vacataires de la Ville et de la Métropole ou la <b>reprise en interne </b>de fonctions aujourd’hui livrées, à un coût élevé, à des prestataires privés.</p>
-<p>- Pratiquer une <b>politique d’emprunt citoyen et de financement participatif</b> qui mobilise l’épargne locale pour des investissements solidaires et d’avenir (logements sociaux, transports publics, transition écologique, équipements culturels et sportifs...). Mieux vaut s’endetter intelligemment auprès des habitants que de façon toxique auprès des banques !</p>
+<p>- Agir pour les <b>petits commerçants, les artisans, les petites et moyennes entreprises, les sociétés coopératives, les associations</b> qui, au lieu d’être livrés à une concurrence sans pitié, doivent devenir des acteurs essentiels de l’économie et de la vie locales. Leur contribution à la création de très nombreux emplois stables, décents, non-délocalisables et à vocation sociale ou écologique, doit être (enfin ! ) soutenue par tous les moyens à la disposition de la Ville et de la Métropole : investissements, subventions, conseils techniques et juridiques, marchés publics, droit de préemption urbain, locaux à loyer modéré... </p>
+<p>- Agir pour l’emploi public, grâce au <b>passage en régie publique municipale ou métropolitaine</b> de nombreux services aujourd’hui privatisés et d’autres mesures telles que la <b>titularisation</b> des contractuels, précaires et vacataires de la Ville et de la Métropole ou la <b>reprise en interne </b>de fonctions aujourd’hui livrées, à un coût élevé, à des prestataires privés. </p>
+<p>- Pratiquer une <b>politique d’emprunt citoyen et de financement participatif</b> qui mobilise l’épargne locale pour des investissements solidaires et d’avenir (logements sociaux, transports publics, transition écologique, équipements culturels et sportifs... ). Mieux vaut s’endetter intelligemment auprès des habitants que de façon toxique auprès des banques ! </p>
 <!--br/><br/><br/><br/><br/><br/-->
 <p class="engagementsFancy">Nos autres engagements</p>
-<p>- Lancer le programme <b>« Besoins sociaux de 0 à 100 ans et + »</b> destiné à répondre à des besoins qui sont aujourd’hui insatisfaits et très coûteux car livrés à l’appétit du privé. Nous ouvrirons ainsi de nouveaux lieux d’accueil pour la petite enfance, (crèches municipales, haltes-garderies, relais assistantes maternelles), rénoverons les écoles publiques en commençant par les plus dégradées, favoriserons la mixité sociale en développant le parc de logements sociaux dans tous les quartiers, construirons des résidences publiques pour personnes âgées (EHPAD, résidences-autonomies, résidences intergénérationnelles). Tout cela, bien entendu, ne se fera pas en un jour mais il est plus que temps d’inverser la vapeur !</p>
-<p>- Créer, à l’échelle communale, puis métropolitaine, une coopérative de <b>services à domicile</b> (garde d’enfants, aide au ménage, repassage, courses, bricolage et jardinage, formation et réparation informatiques…). Socialement utile et à but non lucratif, elle constituera une alternative aux nombreuses entreprises privées qui exploitent leur personnel et facturent leurs « services » au prix fort.</p>
-<p>- Agir en faveur d’une <b>« Guinguette pour Tous »</b>. Bénéficiant d’une subvention de 200 000 € allouée à une seule association culturelle, assurant à seulement deux restaurateurs de substantiels profits, la guinguette actuelle organise une <b>concurrence déloyale</b> à l’égard des restaurants, cafés du Vieux Tours et maltraite le tissu associatif. Nous en modifierons donc les principes de fonctionnement : l’argent public, pour l’animation culturelle, sera réparti entre plusieurs associations et la partie restauration sera confiée, chaque année, à des établissements différents.</p>
-<p>- Développer <b>le numérique avec précaution et sans les « GAFAM » </b>(Google, Apple, Facebook, Amazon, Microsoft). En plus des mesures déjà évoquées, nous passerons aux <b>matériels informatiques reconditionnés</b> et aux <b>logiciels libres</b> dans tous les services de la Ville et de la Métropole. Ce qui permettra de faire d’importantes économies sur les dépenses publiques locales tout en créant de nouveaux emplois publics et privés (formation des agents aux logiciels, installation et maintenance du matériel, achats auprès de petites entreprises locales…).</p>
-<p>- Enfin, nous nous engageons à combattre <b>toutes les formes d’ubérisation</b> de l’emploi et de la vie qu’on laisse aujourd’hui proliférer (cyclistes surexploités de Deliveroo, d’Uber Eats…) et nous encadrerons aussi les <b>usages abusifs des locations</b> via les plateformes du type Airbnb (multipropriétaires, locations permanentes et non saisonnières...).</p>
-<center><p>Vous en avez assez des <b>idéologues </b>du<b> « tout-marché »</b><br/>à la tête de la Ville et de la Métropole ? </p>
-<p>Vous voulez que le privé <b>et</b> le public<br/>contribuent ensemble à la prospérité et la dignité de tous ?</p>
-<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></center>
-<a href="https://1.bp.blogspot.com/-dlYV4HaxJ6k/XTv7ImcS1FI/AAAAAAAAjoE/iZdXuhGRYjIAVQxyCq4vDtxu0BR8ULHTwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B04.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconfull" border="0" data-original-data-original-width="724" src="https://1.bp.blogspot.com/-dlYV4HaxJ6k/XTv7ImcS1FI/AAAAAAAAjoE/iZdXuhGRYjIAVQxyCq4vDtxu0BR8ULHTwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B04.png" /></a>
+<p>- Lancer le programme <b>« Besoins sociaux de 0 à 100 ans et + »</b> destiné à répondre à des besoins qui sont aujourd’hui insatisfaits et très coûteux car livrés à l’appétit du privé. Nous ouvrirons ainsi de nouveaux lieux d’accueil pour la petite enfance, (crèches municipales, haltes-garderies, relais assistantes maternelles), rénoverons les écoles publiques en commençant par les plus dégradées, favoriserons la mixité sociale en développant le parc de logements sociaux dans tous les quartiers, construirons des résidences publiques pour personnes âgées (EHPAD, résidences-autonomies, résidences intergénérationnelles). Tout cela, bien entendu, ne se fera pas en un jour mais il est plus que temps d’inverser la vapeur ! </p>
+<p>- Créer, à l’échelle communale, puis métropolitaine, une coopérative de <b>services à domicile</b> (garde d’enfants, aide au ménage, repassage, courses, bricolage et jardinage, formation et réparation informatiques… ). Socialement utile et à but non lucratif, elle constituera une alternative aux nombreuses entreprises privées qui exploitent leur personnel et facturent leurs « services » au prix fort. </p>
+<p>- Agir en faveur d’une <b>« Guinguette pour Tous »</b>. Bénéficiant d’une subvention de 200 000 € allouée à une seule association culturelle, assurant à seulement deux restaurateurs de substantiels profits, la guinguette actuelle organise une <b>concurrence déloyale</b> à l’égard des restaurants, cafés du Vieux Tours et maltraite le tissu associatif. Nous en modifierons donc les principes de fonctionnement : l’argent public, pour l’animation culturelle, sera réparti entre plusieurs associations et la partie restauration sera confiée, chaque année, à des établissements différents. </p>
+<p>- Développer <b>le numérique avec précaution et sans les « GAFAM » </b>(Google, Apple, Facebook, Amazon, Microsoft). En plus des mesures déjà évoquées, nous passerons aux <b>matériels informatiques reconditionnés</b> et aux <b>logiciels libres</b> dans tous les services de la Ville et de la Métropole. Ce qui permettra de faire d’importantes économies sur les dépenses publiques locales tout en créant de nouveaux emplois publics et privés (formation des agents aux logiciels, installation et maintenance du matériel, achats auprès de petites entreprises locales… ).</p>
+<p>- Enfin, nous nous engageons à combattre <b>toutes les formes d’ubérisation</b> de l’emploi et de la vie qu’on laisse aujourd’hui proliférer (cyclistes surexploités de Deliveroo, d’Uber Eats… ) et nous encadrerons aussi les <b>usages abusifs des locations</b> via les plateformes du type Airbnb (multipropriétaires, locations permanentes et non saisonnières... ).</p>
+<center><div class="incVote"><p>Vous en avez assez des <b>idéologues </b>du<b> « tout-marché »</b><br/>à la tête de la Ville et de la Métropole ? </p>
+<p>Vous voulez que le privé <b>et</b> le public<br/>contribuent ensemble à la prospérité et la dignité de tous ? </p>
+<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></div></center>
+<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" />
 </div>
 </div>
 </div>
 <div class="titreSummary" >
-<a href="https://1.bp.blogspot.com/-NOS_oQcu7Kc/XTv7Iy93OtI/AAAAAAAAjoI/HYZRs7tjWZEW0TbR2daeeDJmKw5ez36HwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B05.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoicon" width="50" border="0" data-original-height="752" data-original-width="776" src="https://1.bp.blogspot.com/-NOS_oQcu7Kc/XTv7Iy93OtI/AAAAAAAAjoI/HYZRs7tjWZEW0TbR2daeeDJmKw5ez36HwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B05.png" /></a>
-<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-5" href="javascript:;">5 – VILLE DE FEMMES, VILLE POUR TOUS</a>
+<a href="javascript:;" data-src="https://1.bp.blogspot.com/-_5W7fDs2ONg/XUbRzbz5p1I/AAAAAAAAjtA/4UJXhZsYaeAufpBVKg8XmoifRZzm6Uy4QCLcBGAs/s1600/Visuel%2BProgramme%2B05.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoicon" class="data-fancybox">
+<img class="azoicon" width="50" border="0" data-original-height="752" data-original-width="776" src="https://1.bp.blogspot.com/-_5W7fDs2ONg/XUbRzbz5p1I/AAAAAAAAjtA/4UJXhZsYaeAufpBVKg8XmoifRZzm6Uy4QCLcBGAs/s1600/Visuel%2BProgramme%2B05.png"/></a>
+<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-5" href="javascript:;" data-thumb="https://1.bp.blogspot.com/-_5W7fDs2ONg/XUbRzbz5p1I/AAAAAAAAjtA/4UJXhZsYaeAufpBVKg8XmoifRZzm6Uy4QCLcBGAs/s1600/Visuel%2BProgramme%2B05.png" >5 – VILLE DE FEMMES, VILLE POUR TOUS</a>
 </div>
 <div class="incrustation articleFancy" id="article-5">
 <div class="incrustation fontFancy">
 <center>
-<a href="https://1.bp.blogspot.com/-NOS_oQcu7Kc/XTv7Iy93OtI/AAAAAAAAjoI/HYZRs7tjWZEW0TbR2daeeDJmKw5ez36HwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B05.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconmodal" border="0" data-original-height="752" data-original-width="776" src="https://1.bp.blogspot.com/-NOS_oQcu7Kc/XTv7Iy93OtI/AAAAAAAAjoI/HYZRs7tjWZEW0TbR2daeeDJmKw5ez36HwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B05.png" /></a>
+<!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-_5W7fDs2ONg/XUbRzbz5p1I/AAAAAAAAjtA/4UJXhZsYaeAufpBVKg8XmoifRZzm6Uy4QCLcBGAs/s1600/Visuel%2BProgramme%2B05.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
+<img class="azoiconmodal" border="0" data-original-height="752" data-original-width="776" src="https://1.bp.blogspot.com/-_5W7fDs2ONg/XUbRzbz5p1I/AAAAAAAAjtA/4UJXhZsYaeAufpBVKg8XmoifRZzm6Uy4QCLcBGAs/s1600/Visuel%2BProgramme%2B05.png" />
+<!--/a-->
 <a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-5-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">5 – VILLE DE FEMMES, VILLE POUR TOUS</div>
-<div class="maximeFancy">La situation faite aux femmes est le miroir de la société.</div></center>
+<div class="maximeFancy">La situation faite aux femmes est le miroir de la société. </div></center>
 <div class="corpsFancy">
-<p>Davantage concernées par la pauvreté et la précarité, exposées à de multiples violences sociales, physiques ou symboliques, les femmes cumulent injustices et inégalités. Il est essentiel, à Tours comme ailleurs, de combattre toutes les formes de domination et d’oppression dont elles sont spécifiquement victimes. Parce que mener une politique féministe, c’est agir dans l’intérêt de toute la population, nous ne nous contenterons pas de mesurettes et nous agirons dans tous les domaines de la vie des femmes pour créer une émancipation et une égalité réelles : éducation, santé, travail... </p>
+<p>Davantage concernées par la pauvreté et la précarité, exposées à de multiples violences sociales, physiques ou symboliques, les femmes cumulent injustices et inégalités. Il est essentiel, à Tours comme ailleurs, de combattre toutes les formes de domination et d’oppression dont elles sont spécifiquement victimes. Parce que mener une politique féministe, c’est agir dans l’intérêt de toute la population, nous ne nous contenterons pas de mesurettes et nous agirons dans tous les domaines de la vie des femmes pour créer une émancipation et une égalité réelles : éducation, santé, travail... </p>
 <p class="engagementsFancy">Nos engagements-phares</p>
-<p>- Donner l’exemple en réalisant<b> l’égalité femme/homme dans les services de la Ville et de la Métropole </b>à tous niveaux : recrutement, salaire, temps partiel imposé, primes, déroulement de carrière, mobilité professionnelle, postes à responsabilité.</p>
-<p>- Encourager les <b>employeurs privés</b> à atteindre ces mêmes objectifs, par des <b>campagnes d’information</b> répétées et, si besoin, en <b>conditionnant les aides</b> de la Ville et de la Métropole à leur réalisation.</p>
-<p>- Créer, dans les locaux de la Maison du Peuple, une <b>Maison des Femmes</b> leur donnant accès à l’ensemble des services et aides dont elles ont besoin, <b>tant au quotidien qu’en situation d’urgence</b>. Animée par des professionnels, publics et associatifs, cette antenne sera ouverte jour et nuit et interviendra sur tous les problèmes de la condition féminine : démarches administratives spécifiques, soutiens en matière d’éducation, de logement, de santé ou de travail, aides aux femmes isolées et monoparentales, pensions impayées, femmes harcelées, battues ou victimes de viol...</p>
+<p>- Donner l’exemple en réalisant<b> l’égalité femme/homme dans les services de la Ville et de la Métropole </b>à tous niveaux : recrutement, salaire, temps partiel imposé, primes, déroulement de carrière, mobilité professionnelle, postes à responsabilité. </p>
+<p>- Encourager les <b>employeurs privés</b> à atteindre ces mêmes objectifs, par des <b>campagnes d’information</b> répétées et, si besoin, en <b>conditionnant les aides</b> de la Ville et de la Métropole à leur réalisation. </p>
+<p>- Créer, dans les locaux de la Maison du Peuple, une <b>Maison des Femmes</b> leur donnant accès à l’ensemble des services et aides dont elles ont besoin, <b>tant au quotidien qu’en situation d’urgence</b>. Animée par des professionnels, publics et associatifs, cette antenne sera ouverte jour et nuit et interviendra sur tous les problèmes de la condition féminine : démarches administratives spécifiques, soutiens en matière d’éducation, de logement, de santé ou de travail, aides aux femmes isolées et monoparentales, pensions impayées, femmes harcelées, battues ou victimes de viol... </p>
 <p class="engagementsFancy">Nos autres engagements</p>
-<p>- Accroître <b>fortement les moyens</b> <b>matériels et humains</b> alloués aux <b>associations spécialisées</b> telles que Le Planning familial, le Centre d’information sur les droits des femmes et de la famille, Osez le féminisme !, Stop Harcèlement de Rue, Le Mouvement du Nid…</p>
-<p>- Agir, dans le cadre de la régie publique des transports gratuits, en faveur de <b>la sécurité des déplacements des femmes </b>: mise en place d’un service de transport à la demande qui, le soir, dépose la personne devant chez elle, multiplication des campagnes de prévention contre les incivilités et le harcèlement dans le tramway et les bus...</p>
-<p>- Agir, dans le cadre de la nouvelle police de proximité, en faveur des mêmes objectifs : inventaire des <b>lieux publics d’agression</b>, interventions en cas de <b>conflits domestiques</b>, <b>formation spécifique</b> des agents de la police de proximité aux violences à caractère sexiste ou à l’encontre des femmes âgées...</p>
+<p>- Accroître <b>fortement les moyens</b> <b>matériels et humains</b> alloués aux <b>associations spécialisées</b> telles que Le Planning familial, le Centre d’information sur les droits des femmes et de la famille, Osez le féminisme !, Stop Harcèlement de Rue, Le Mouvement du Nid… </p>
+<p>- Agir, dans le cadre de la régie publique des transports gratuits, en faveur de <b>la sécurité des déplacements des femmes </b>: mise en place d’un service de transport à la demande qui, le soir, dépose la personne devant chez elle, multiplication des campagnes de prévention contre les incivilités et le harcèlement dans le tramway et les bus... </p>
+<p>- Agir, dans le cadre de la nouvelle police de proximité, en faveur des mêmes objectifs : inventaire des <b>lieux publics d’agression</b>, interventions en cas de <b>conflits domestiques</b>, <b>formation spécifique</b> des agents de la police de proximité aux violences à caractère sexiste ou à l’encontre des femmes âgées... </p>
 <p>- Interdire l’affichage des <b>publicités portant atteinte à l’image des femmes</b>.</p>
-<p>- Faire de la <b>Journée internationale pour les droits des femmes</b> un événement à l’échelle de la Ville et de la Métropole, grâce à la mobilisation des services, des écoles publiques et privées, des médiathèques et centres socioculturels, des syndicats, des associations...</p>
-<p>- Enfin, nous ferons barrage à tous les projets et décisions de l’État ou de la Métropole Bouchet-Briand qui réduisent les services publics de santé offerts aux femmes et à tous, notamment les fermetures de l’hôpital <b>Clocheville</b>, de l’EHPAD <b>L’Ermitage</b> ou de certaines <b>crèches </b>municipales !</p>
-<center><p>Vous en avez assez, <b>toutes et tous</b>,<br/>des beaux discours « en faveur des femmes »<br/>suivis de<b> rien ou si peu</b> ?</p>
+<p>- Faire de la <b>Journée internationale pour les droits des femmes</b> un événement à l’échelle de la Ville et de la Métropole, grâce à la mobilisation des services, des écoles publiques et privées, des médiathèques et centres socioculturels, des syndicats, des associations... </p>
+<p>- Enfin, nous ferons barrage à tous les projets et décisions de l’État ou de la Métropole Bouchet-Briand qui réduisent les services publics de santé offerts aux femmes et à tous, notamment les fermetures de l’hôpital <b>Clocheville</b>, de l’EHPAD <b>L’Ermitage</b> ou de certaines <b>crèches </b>municipales ! </p>
+<center><div class="incVote"><p>Vous en avez assez, <b>toutes et tous</b>,<br/>des beaux discours « en faveur des femmes »<br/>suivis de<b> rien ou si peu</b> ?</p>
 <p>Vous voulez que la <b>situation des femmes</b><br/>soit prise en compte <b>dans toutes ses dimensions</b> ?</p>
-<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></center>
-<a href="https://1.bp.blogspot.com/-NOS_oQcu7Kc/XTv7Iy93OtI/AAAAAAAAjoI/HYZRs7tjWZEW0TbR2daeeDJmKw5ez36HwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B05.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconfull" border="0" data-original-height="752" data-original-width="776" src="https://1.bp.blogspot.com/-NOS_oQcu7Kc/XTv7Iy93OtI/AAAAAAAAjoI/HYZRs7tjWZEW0TbR2daeeDJmKw5ez36HwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B05.png" /></a>
+<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></div></center>
+<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" />
 </div>
 </div>
 </div>
 <div class="titreSummary" >
-<a href="https://1.bp.blogspot.com/-bgMdCA0io5o/XTv7JKEo0aI/AAAAAAAAjoM/eotrZXlY8J8XnrjivRRX2GAct5dy5XvKwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B06.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoicon" width="50" border="0" data-original-height="748" data-original-width="760" src="https://1.bp.blogspot.com/-bgMdCA0io5o/XTv7JKEo0aI/AAAAAAAAjoM/eotrZXlY8J8XnrjivRRX2GAct5dy5XvKwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B06.png" /></a>
-<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-6" href="javascript:;">6 – VILLE UNIE, VILLE SOLIDAIRE !</a>
+<a href="javascript:;" data-src="https://1.bp.blogspot.com/-H7rMeprDs3Y/XUbRz-ccGCI/AAAAAAAAjtE/aDCc0fouqeIhEyNFWJoi3WrfteF5lIKmACLcBGAs/s1600/Visuel%2BProgramme%2B06.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoicon" class="data-fancybox">
+<img class="azoicon" width="50" border="0" data-original-height="748" data-original-width="760" src="https://1.bp.blogspot.com/-H7rMeprDs3Y/XUbRz-ccGCI/AAAAAAAAjtE/aDCc0fouqeIhEyNFWJoi3WrfteF5lIKmACLcBGAs/s1600/Visuel%2BProgramme%2B06.png"/></a>
+<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-6" href="javascript:;" data-thumb="https://1.bp.blogspot.com/-H7rMeprDs3Y/XUbRz-ccGCI/AAAAAAAAjtE/aDCc0fouqeIhEyNFWJoi3WrfteF5lIKmACLcBGAs/s1600/Visuel%2BProgramme%2B06.png" >6 – VILLE UNIE, VILLE SOLIDAIRE ! </a>
 </div>
 <div class="incrustation articleFancy" id="article-6">
 <div class="incrustation fontFancy">
 <center>
-<a href="https://1.bp.blogspot.com/-bgMdCA0io5o/XTv7JKEo0aI/AAAAAAAAjoM/eotrZXlY8J8XnrjivRRX2GAct5dy5XvKwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B06.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconmodal" border="0" data-original-height="748" data-original-width="760" src="https://1.bp.blogspot.com/-bgMdCA0io5o/XTv7JKEo0aI/AAAAAAAAjoM/eotrZXlY8J8XnrjivRRX2GAct5dy5XvKwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B06.png" /></a>
+<!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-H7rMeprDs3Y/XUbRz-ccGCI/AAAAAAAAjtE/aDCc0fouqeIhEyNFWJoi3WrfteF5lIKmACLcBGAs/s1600/Visuel%2BProgramme%2B06.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
+<img class="azoiconmodal" border="0" data-original-height="748" data-original-width="760" src="https://1.bp.blogspot.com/-H7rMeprDs3Y/XUbRz-ccGCI/AAAAAAAAjtE/aDCc0fouqeIhEyNFWJoi3WrfteF5lIKmACLcBGAs/s1600/Visuel%2BProgramme%2B06.png" />
+<!--/a-->
 <a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-6-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a>
-<div class="titreFancy">6 – VILLE UNIE, VILLE SOLIDAIRE !</div>
-<div class="maximeFancy">La première règle avant d'agir consiste à se mettre à la place de l'autre.<br/>Nulle vraie recherche du bien commun ne sera possible hors de là.</div></center>
+<div class="titreFancy">6 – VILLE UNIE, VILLE SOLIDAIRE ! </div>
+<div class="maximeFancy">La première règle avant d'agir consiste à se mettre à la place de l'autre. <br/>Nulle vraie recherche du bien commun ne sera possible hors de là. </div></center>
 <div class="corpsFancy">
 <p>Nous vivons dans l’une des 21 métropoles que compte actuellement la France, pays classé cinquième puissance économique mondiale, juste derrière l’Allemagne et à égalité avec le Royaume-Uni. Et pourtant, près de 20 % des habitants de Tours se trouvent en-dessous du seuil de pauvreté ; un taux supérieur de cinq points au taux national moyen. Ainsi, plus de 23 000 personnes, dont plusieurs milliers d’enfants, sont officiellement reconnues comme pauvres, sans compter les milliers d’autres à peine au-dessus de ce seuil. Contre cette situation révoltante, nous agirons en menant une politique de solidarité tous azimuts dont le but premier sera de lutter contre la pauvreté et de réduire les inégalités sous toutes leurs formes.</p>
 <p class="engagementsFancy">Nos engagements-phares</p>
 <p>- <b>Zéro personne à la rue</b>.</p>
-<p>Il est insupportable de voir – et pire encore, de refuser de voir – que des centaines de personnes vivent à Tours dans les rues. Soit dans les halls d’immeubles, les hangars, les parcs. Soit dans des chambres d’hôtels souvent insalubres, octroyées par « le 115 » et où l’on ne peut faire ni la cuisine ni la lessive. Soit dans des centres d’hébergement d’où l’on est obligé de sortir dès le petit matin et où l’on ne peut rentrer que le soir, obligeant les personnes, y compris les enfants en bas âge, à errer dans les rues durant la journée, quel que soit le temps.</p>
-<p>Nous apporterons donc un soutien sans faille aux associations qui, chaque jour, agissent avec humanité et solidarité pour aider les personnes à la rue, françaises ou étrangères sans discrimination (Chrétiens migrants, La Table de Jeanne-Marie, Secours catholique, Secours populaire, Accueil sans frontières en Touraine...). Et nous interpellerons systématiquement la préfecture pour qu’elle réquisitionne les logements vides. Cette interpellation sera publique afin que la population puisse apporter son soutien à la lutte contre la misère. Toutes les expériences menées à ce jour montrent qu’un logement stable et un accompagnement médico-social assurent une insertion satisfaisante et coûte moins cher à la collectivité.</p>
-<p>- <b>Combattre toutes les discriminations</b>, qu’elles soient religieuses, ethniques, sexuelles…</p>
-<p>Tout doit être fait pour empêcher l’expression de la haine. Dans ce but, il faudra accroître les subventions aux associations spécialisées (Ligue des Droits de l’Homme, LGBTI-Touraine…), former la police municipale à la lutte contre les discriminations et multiplier les campagnes d’information contre les violences faites aux minorités.</p>
+<p>Il est insupportable de voir – et pire encore, de refuser de voir – que des centaines de personnes vivent à Tours dans les rues. Soit dans les halls d’immeubles, les hangars, les parcs. Soit dans des chambres d’hôtels souvent insalubres, octroyées par « le 115 » et où l’on ne peut faire ni la cuisine ni la lessive. Soit dans des centres d’hébergement d’où l’on est obligé de sortir dès le petit matin et où l’on ne peut rentrer que le soir, obligeant les personnes, y compris les enfants en bas âge, à errer dans les rues durant la journée, quel que soit le temps. </p>
+<p>Nous apporterons donc un soutien sans faille aux associations qui, chaque jour, agissent avec humanité et solidarité pour aider les personnes à la rue, françaises ou étrangères sans discrimination (Chrétiens migrants, La Table de Jeanne-Marie, Secours catholique, Secours populaire, Accueil sans frontières en Touraine... ). Et nous interpellerons systématiquement la préfecture pour qu’elle réquisitionne les logements vides. Cette interpellation sera publique afin que la population puisse apporter son soutien à la lutte contre la misère. Toutes les expériences menées à ce jour montrent qu’un logement stable et un accompagnement médico-social assurent une insertion satisfaisante et coûte moins cher à la collectivité. </p>
+<p>- <b>Combattre toutes les discriminations</b>, qu’elles soient religieuses, ethniques, sexuelles… </p>
+<p>Tout doit être fait pour empêcher l’expression de la haine. Dans ce but, il faudra accroître les subventions aux associations spécialisées (Ligue des Droits de l’Homme, LGBTI-Touraine… ), former la police municipale à la lutte contre les discriminations et multiplier les campagnes d’information contre les violences faites aux minorités. </p>
 <!--br/><br/><br/><br/><br/><br/-->
 <p class="engagementsFancy">Nos autres engagements</p>
-<p>- Lutter par tous les moyens existants <b>contre l’affairisme et la spéculation immobilière</b> qui dominent actuellement en matière de logement : construction prioritaire de logements sociaux, mécanismes d’encadrement des loyers, taxation des logements vacants plus d’un an, lutte contre les systèmes de location ubérisés qui échappent aux contrôles et aux impôts, soutien aux projets d’habitat participatif...</p>
-<p>Les organismes du logement social (Tours Habitat, La Tourangelle Immobilier...), au lieu d’être progressivement privatisés et poussés à la vente lucrative de leur patrimoine, seront encouragés, en lien avec les associations de locataires et les syndicats, à revenir à leur mission : garantir un logement accessible à tous et favoriser la mixité sociale partout, à commencer par le centre-ville.</p>
-<p>En matière de logements sociaux, <b>la réhabilitation du parc existant, notamment au Sanitas, sera privilégiée</b> plutôt que la destruction, en général suivie d’une reconstruction qui pousse toujours plus loin les plus pauvres. Il faudra aussi construire de nouveaux logements et favoriser partout la présence de commerces de proximité, d’artisans et de services publics.</p>
-<p>- Mener une politique de <b>justice sociale</b> et d’aide aux plus vulnérables et aux plus démunis :</p>
-<p>1 – Rendre <b>les premiers m³ d'eau, indispensables à la vie quotidienne, gratuits</b> et facturer les autres de façon progressive afin d’inciter à ne pas gaspiller une ressource fondamentale mais limitée et développer un nouveau rapport aux biens communs.</p>
-<p>2 – Prendre des <b>arrêtés municipaux contre les expulsions locatives</b> sans solution de relogement pérenne et lutter contre les marchands de sommeil.</p>
-<p>3 – Établir pour les handicapés, en concertation avec les intéressés, un<b> plan de</b> <b>mise aux normes et d’accessibilité des lieux publics et privés</b>. Nous soutiendrons par tous les moyens disponibles les associations d’aide aux personnes porteuses de handicaps et de services à la personne.</p>
-<p>4 – Revoir à la baisse pour les plus démunis le <b>tarif des prestations funéraires</b> (enterrement et crémation) assurées par les Pompes funèbres intercommunales.</p>
-<p>- Enfin, nous agirons pour la <b>solidarité internationale</b> en repensant notamment la politique des jumelages et des accords de coopération.</p>
-<center><p>Vous en avez assez des <b>inégalités</b>, des <b>discriminations</b><br/>et des personnes obligées de <b>vivre dans la rue</b> ?</p>
+<p>- Lutter par tous les moyens existants <b>contre l’affairisme et la spéculation immobilière</b> qui dominent actuellement en matière de logement : construction prioritaire de logements sociaux, mécanismes d’encadrement des loyers, taxation des logements vacants plus d’un an, lutte contre les systèmes de location ubérisés qui échappent aux contrôles et aux impôts, soutien aux projets d’habitat participatif... </p>
+<p>Les organismes du logement social (Tours Habitat, La Tourangelle Immobilier... ), au lieu d’être progressivement privatisés et poussés à la vente lucrative de leur patrimoine, seront encouragés, en lien avec les associations de locataires et les syndicats, à revenir à leur mission : garantir un logement accessible à tous et favoriser la mixité sociale partout, à commencer par le centre-ville. </p>
+<p>En matière de logements sociaux, <b>la réhabilitation du parc existant, notamment au Sanitas, sera privilégiée</b> plutôt que la destruction, en général suivie d’une reconstruction qui pousse toujours plus loin les plus pauvres. Il faudra aussi construire de nouveaux logements et favoriser partout la présence de commerces de proximité, d’artisans et de services publics. </p>
+<p>- Mener une politique de <b>justice sociale</b> et d’aide aux plus vulnérables et aux plus démunis : </p>
+<p>1 – Rendre <b>les premiers m³ d'eau, indispensables à la vie quotidienne, gratuits</b> et facturer les autres de façon progressive afin d’inciter à ne pas gaspiller une ressource fondamentale mais limitée et développer un nouveau rapport aux biens communs. </p>
+<p>2 – Prendre des <b>arrêtés municipaux contre les expulsions locatives</b> sans solution de relogement pérenne et lutter contre les marchands de sommeil. </p>
+<p>3 – Établir pour les handicapés, en concertation avec les intéressés, un<b> plan de</b> <b>mise aux normes et d’accessibilité des lieux publics et privés</b>. Nous soutiendrons par tous les moyens disponibles les associations d’aide aux personnes porteuses de handicaps et de services à la personne. </p>
+<p>4 – Revoir à la baisse pour les plus démunis le <b>tarif des prestations funéraires</b> (enterrement et crémation) assurées par les Pompes funèbres intercommunales. </p>
+<p>- Enfin, nous agirons pour la <b>solidarité internationale</b> en repensant notamment la politique des jumelages et des accords de coopération. </p>
+<center><div class="incVote"><p>Vous en avez assez des <b>inégalités</b>, des <b>discriminations</b><br/>et des personnes obligées de <b>vivre dans la rue</b> ?</p>
 <p>Vous voulez vivre dans une<b> ville solidaire</b> <b>et accueillante</b> ?</p>
-<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></center>
-<a href="https://1.bp.blogspot.com/-bgMdCA0io5o/XTv7JKEo0aI/AAAAAAAAjoM/eotrZXlY8J8XnrjivRRX2GAct5dy5XvKwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B06.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconfull" border="0" data-original-height="748" data-original-width="760" src="https://1.bp.blogspot.com/-bgMdCA0io5o/XTv7JKEo0aI/AAAAAAAAjoM/eotrZXlY8J8XnrjivRRX2GAct5dy5XvKwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B06.png" /></a>
+<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></div></center>
+<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" />
 </div>
 </div>
 </div>
 <div class="titreSummary" >
-<a href="https://1.bp.blogspot.com/-fzjXKn1DMSk/XTv7JYmcWJI/AAAAAAAAjoQ/p081q4nb2y0kUvtOUoIsIcRz28YiUM6zACLcBGAs/s1600/Programme%2B8%2Bvisuels%2B07.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoicon" width="50" border="0" data-original-height="744" data-original-width="776" src="https://1.bp.blogspot.com/-fzjXKn1DMSk/XTv7JYmcWJI/AAAAAAAAjoQ/p081q4nb2y0kUvtOUoIsIcRz28YiUM6zACLcBGAs/s320/Programme%2B8%2Bvisuels%2B07.png" /></a>
-<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-7" href="javascript:;">7 – CULTURES, SPORTS ET LOISIRS EN PARTAGE</a>
+<a href="javascript:;" data-src="https://1.bp.blogspot.com/-do3pCKmUaDU/XUbR0FI2GBI/AAAAAAAAjtI/dLmJeid9I7AeRPEBaC97_QzSn6n9uxjbQCLcBGAs/s1600/Visuel%2BProgramme%2B07.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoicon" class="data-fancybox">
+<img class="azoicon" width="50" border="0" data-original-height="744" data-original-width="776" src="https://1.bp.blogspot.com/-do3pCKmUaDU/XUbR0FI2GBI/AAAAAAAAjtI/dLmJeid9I7AeRPEBaC97_QzSn6n9uxjbQCLcBGAs/s1600/Visuel%2BProgramme%2B07.png"/></a>
+<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-7" href="javascript:;" data-thumb="https://1.bp.blogspot.com/-do3pCKmUaDU/XUbR0FI2GBI/AAAAAAAAjtI/dLmJeid9I7AeRPEBaC97_QzSn6n9uxjbQCLcBGAs/s1600/Visuel%2BProgramme%2B07.png" >7 – CULTURES, SPORTS ET LOISIRS EN PARTAGE</a>
 </div>
 <div class="incrustation articleFancy" id="article-7">
 <div class="incrustation fontFancy">
 <center>
-<a href="https://1.bp.blogspot.com/-fzjXKn1DMSk/XTv7JYmcWJI/AAAAAAAAjoQ/p081q4nb2y0kUvtOUoIsIcRz28YiUM6zACLcBGAs/s1600/Programme%2B8%2Bvisuels%2B07.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconmodal" border="0" data-original-height="744" data-original-width="776" src="https://1.bp.blogspot.com/-fzjXKn1DMSk/XTv7JYmcWJI/AAAAAAAAjoQ/p081q4nb2y0kUvtOUoIsIcRz28YiUM6zACLcBGAs/s320/Programme%2B8%2Bvisuels%2B07.png" /></a>
+<!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-do3pCKmUaDU/XUbR0FI2GBI/AAAAAAAAjtI/dLmJeid9I7AeRPEBaC97_QzSn6n9uxjbQCLcBGAs/s1600/Visuel%2BProgramme%2B07.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
+<img class="azoiconmodal" border="0" data-original-height="744" data-original-width="776" src="https://1.bp.blogspot.com/-do3pCKmUaDU/XUbR0FI2GBI/AAAAAAAAjtI/dLmJeid9I7AeRPEBaC97_QzSn6n9uxjbQCLcBGAs/s1600/Visuel%2BProgramme%2B07.png" />
+<!--/a-->
 <a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-7-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">7 – CULTURES, SPORTS ET LOISIRS EN PARTAGE</div>
-<div class="maximeFancy">Peuple crédule, chauvin et diverti crée souvent ses propres chaînes.</div></center>
+<div class="maximeFancy">Peuple crédule, chauvin et diverti crée souvent ses propres chaînes. </div></center>
 <div class="corpsFancy">
-<p>Tours et son agglomération sont au centre d’une région mondialement connue pour son patrimoine architectural et naturel, la vallée de la Loire ayant été classée au patrimoine mondial de l’UNESCO en 2000. La vie culturelle et associative y est d’une grande richesse : musique, cinéma, théâtre, danse, musées, etc. Pourtant, de profondes inégalités existent au sein de la population, tant du point de vue de la liberté de création que dans l’accès à toute cette richesse culturelle, artistique et patrimoniale. C’est donc au nom de l’égalité et du partage que nous conduirons durant les six ans à venir une politique culturelle, sportive et de loisirs émancipatrice et accessible à toutes et tous. Elle mettra l’accent sur les initiatives locales, la diversité et sera indépendante des forces de l’argent.</p>
+<figure class="audioFancy">
+    <!--figcaption>Lecture du block :</figcaption-->
+    <audio
+        controls
+        src="https://philquand.github.io/Javascript/Blog-widgets/CATDP/Programme audio/Block 7 Culture PQ.mp3"
+         data-options='{"prefix":"media","show":{"fullscreen":false}}' >
+            Votre navigateur ne prend pas en charge cet élément
+            <code>audio</code>.
+    </audio>
+</figure>
+<p>Tours et son agglomération sont au centre d’une région mondialement connue pour son patrimoine architectural et naturel, la vallée de la Loire ayant été classée au patrimoine mondial de l’UNESCO en 2000. La vie culturelle et associative y est d’une grande richesse : musique, cinéma, théâtre, danse, musées, etc. Pourtant, de profondes inégalités existent au sein de la population, tant du point de vue de la liberté de création que dans l’accès à toute cette richesse culturelle, artistique et patrimoniale. C’est donc au nom de l’égalité et du partage que nous conduirons durant les six ans à venir une politique culturelle, sportive et de loisirs émancipatrice et accessible à toutes et tous. Elle mettra l’accent sur les initiatives locales, la diversité et sera indépendante des forces de l’argent. </p>
 <p class="engagementsFancy">Nos engagements-phares</p>
-<p>- Créer un <b>grand événement culturel ligérien gratuit</b>, organisé chaque année, pour mieux mettre en valeur la Loire, ce fleuve qui contribue au premier chef à l’identité de Tours et qui est cher au cœur des Tourangeaux. Cela s’accompagnera d’un soutien résolu à la batellerie de Loire, en plein renouveau depuis quelques années.</p>
-<p>- Repenser toute la politique de <b>subventions de la Ville et de la Métropole</b> en matière de culture, de sport et de loisirs, avec pour principes la transparence, le partage et le souci de l’accueil des publics populaires. Nous diversifierons les aides, qui se limitent aujourd’hui presque uniquement aux subventions de fonctionnement et n’encouragent pas suffisamment la création artistique, et nous éviterons que le système des appels d’offre ou à projet conduise à une mise en concurrence exacerbée des associations.</p>
-<p>- Réorganiser le vaste secteur des <b>activités périscolaires</b> autour d’une régie publique municipale. Nous développerons les jumelages entre les structures associatives, culturelles et les crèches, les écoles, les centres de loisirs et nous encouragerons les ateliers artistiques et les résidences d’artistes en milieu scolaire.</p>
+<p>- Créer un <b>grand événement culturel ligérien gratuit</b>, organisé chaque année, pour mieux mettre en valeur la Loire, ce fleuve qui contribue au premier chef à l’identité de Tours et qui est cher au cœur des Tourangeaux. Cela s’accompagnera d’un soutien résolu à la batellerie de Loire, en plein renouveau depuis quelques années. </p>
+<p>- Repenser toute la politique de <b>subventions de la Ville et de la Métropole</b> en matière de culture, de sport et de loisirs, avec pour principes la transparence, le partage et le souci de l’accueil des publics populaires. Nous diversifierons les aides, qui se limitent aujourd’hui presque uniquement aux subventions de fonctionnement et n’encouragent pas suffisamment la création artistique, et nous éviterons que le système des appels d’offre ou à projet conduise à une mise en concurrence exacerbée des associations. </p>
+<p>- Réorganiser le vaste secteur des <b>activités périscolaires</b> autour d’une régie publique municipale. Nous développerons les jumelages entre les structures associatives, culturelles et les crèches, les écoles, les centres de loisirs et nous encouragerons les ateliers artistiques et les résidences d’artistes en milieu scolaire. </p>
 <p class="engagementsFancy">Nos autres engagements</p>
-<p>- Soutenir résolument, en matière sportive, les clubs et les associations qui développent la <b>pratique du sport amateur pour toutes et tous, sans discrimination</b> et sans faire de la compétition le but principal de leurs activités.</p>
-<p>Nous créerons une <b>grande salle populaire polyvalente</b> ainsi que des plateaux sportifs et des salles couvertes dans les quartiers qui n’en ont pas ; ceux et celles qui existent déjà seront rénovés. La gestion des salles de sport, dont la piscine du Lac et le golf de La Gloriette, sera confiée à une <b>régie publique métropolitaine des sports</b>.</p>
+<p>- Soutenir résolument, en matière sportive, les clubs et les associations qui développent la <b>pratique du sport amateur pour toutes et tous, sans discrimination</b> et sans faire de la compétition le but principal de leurs activités. </p>
+<p>Nous créerons une <b>grande salle populaire polyvalente</b> ainsi que des plateaux sportifs et des salles couvertes dans les quartiers qui n’en ont pas ; ceux et celles qui existent déjà seront rénovés. La gestion des salles de sport, dont la piscine du Lac et le golf de La Gloriette, sera confiée à une <b>régie publique métropolitaine des sports</b>.</p>
 <!--br/><br/><br/-->
-<p>- Créer, en concertation avec les intéressés, des <b>lieux d’exposition gratuits pour les artistes</b> et développer les lieux existants comme les salles des quartiers Sanitas ou Fontaines. Plus généralement, nous favoriserons les <b>« circuits courts » en matière artistique</b>, afin de contribuer à la promotion des peintres, plasticiens, musiciens, comédiens, danseurs locaux. Ces circuits courts seront aussi un moyen efficace de tisser des liens entre les artistes et l’ensemble de la population, et d’encourager les pratiques artistiques du plus grand nombre.</p>
-<p>- Soutenir de façon constante les grands lieux de culture associatifs, indépendants des forces de l’argent et soucieux de contrer l’uniformisation culturelle et commerciale induite par la culture marchande de masse. Notamment <b>« Le Bateau ivre »</b> (lieu artistique multiculturel autogéré) ou les cinémas <b>« Les Studio »</b> (le plus grand cinéma d’art et d’essai en Europe : 330 000 entrées en 2018 dans sept salles).</p>
-<p>- Rendre gratuit <b>l’accès aux musées</b> de la Ville (Musée des Beaux-Arts, Centre de création contemporaine Olivier Debré, Muséum d'histoire naturelle, Musée du Compagnonnage et Château : 230 000 entrées en 2018), ainsi qu’aux <b>bibliothèques et médiathèques</b>.</p>
-<p>- Rendre gratuit l’accès aux salles municipales pour toutes les associations tourangelles : stop au racket actuel ! Créer une véritable <b>Maison des associations</b> avec locaux et matériels mis gratuitement à disposition.</p>
-<p>- Soutenir toutes les initiatives qui visent à diffuser les connaissances et à <b>encourager le débat public</b> : cafés philosophiques ou historiques, université du temps libre, etc.</p>
-<p>- Enfin, nous aurons le souci du tourisme dans la métropole tourangelle, au centre d’un département qui accueille 4 millions de touristes chaque année. Il s’agira de <b>toujours mieux mettre en valeur son riche patrimoine architectural, artistique et gastronomique</b> en favorisant le tourisme respectueux des équilibres sociaux et écologiques, et en menant une lutte sans merci contre la marchandisation et l’ubérisation des pratiques touristiques de masse.</p>
-<center><p>Vous en avez assez d’une ville<br/>où culture, sport, loisirs et tourisme<br/>sont <b>trop souvent soumis</b> à <b>l’argent</b> ?</p>
+<p>- Créer, en concertation avec les intéressés, des <b>lieux d’exposition gratuits pour les artistes</b> et développer les lieux existants comme les salles des quartiers Sanitas ou Fontaines. Plus généralement, nous favoriserons les <b>« circuits courts » en matière artistique</b>, afin de contribuer à la promotion des peintres, plasticiens, musiciens, comédiens, danseurs locaux. Ces circuits courts seront aussi un moyen efficace de tisser des liens entre les artistes et l’ensemble de la population, et d’encourager les pratiques artistiques du plus grand nombre. </p>
+<p>- Soutenir de façon constante les grands lieux de culture associatifs, indépendants des forces de l’argent et soucieux de contrer l’uniformisation culturelle et commerciale induite par la culture marchande de masse. Notamment <b>« Le Bateau ivre »</b> (lieu artistique multiculturel autogéré) ou les cinémas <b>« Les Studio »</b> (le plus grand cinéma d’art et d’essai en Europe : 330 000 entrées en 2018 dans sept salles).</p>
+<p>- Rendre gratuit <b>l’accès aux musées</b> de la Ville (Musée des Beaux-Arts, Centre de création contemporaine Olivier Debré, Muséum d'histoire naturelle, Musée du Compagnonnage et Château : 230 000 entrées en 2018), ainsi qu’aux <b>bibliothèques et médiathèques</b>.</p>
+<p>- Rendre gratuit l’accès aux salles municipales pour toutes les associations tourangelles : stop au racket actuel ! Créer une véritable <b>Maison des associations</b> avec locaux et matériels mis gratuitement à disposition. </p>
+<p>- Soutenir toutes les initiatives qui visent à diffuser les connaissances et à <b>encourager le débat public</b> : cafés philosophiques ou historiques, université du temps libre, etc. </p>
+<p>- Enfin, nous aurons le souci du tourisme dans la métropole tourangelle, au centre d’un département qui accueille 4 millions de touristes chaque année. Il s’agira de <b>toujours mieux mettre en valeur son riche patrimoine architectural, artistique et gastronomique</b> en favorisant le tourisme respectueux des équilibres sociaux et écologiques, et en menant une lutte sans merci contre la marchandisation et l’ubérisation des pratiques touristiques de masse. </p>
+<center><div class="incVote"><p>Vous en avez assez d’une ville<br/>où culture, sport, loisirs et tourisme<br/>sont <b>trop souvent soumis</b> à <b>l’argent</b> ?</p>
 <p>Vous voulez vivre dans une ville<br/>où chacun puisse librement<br/>se cultiver, s’épanouir au <b>contact des autres</b> ?</p>
-<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></center>
-<a href="https://1.bp.blogspot.com/-fzjXKn1DMSk/XTv7JYmcWJI/AAAAAAAAjoQ/p081q4nb2y0kUvtOUoIsIcRz28YiUM6zACLcBGAs/s1600/Programme%2B8%2Bvisuels%2B07.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconfull" border="0" data-original-height="744" data-original-width="776" src="https://1.bp.blogspot.com/-fzjXKn1DMSk/XTv7JYmcWJI/AAAAAAAAjoQ/p081q4nb2y0kUvtOUoIsIcRz28YiUM6zACLcBGAs/s320/Programme%2B8%2Bvisuels%2B07.png" /></a>
+<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></div></center>
+<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" />
 </div>
 </div>
 </div>
 <div class="titreSummary" >
-<a href="https://1.bp.blogspot.com/-Wc-PXOW-A4U/XTv7JisVU1I/AAAAAAAAjoU/e7Jv0Qo0VDgY-v4I2TWGhrbkRwmaL1RkwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B08.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoicon" width="50" border="0" data-original-height="732" data-original-width="736" src="https://1.bp.blogspot.com/-Wc-PXOW-A4U/XTv7JisVU1I/AAAAAAAAjoU/e7Jv0Qo0VDgY-v4I2TWGhrbkRwmaL1RkwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B08.png" /></a>
-<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-8" href="javascript:;">8 – SÉCURITAIRE ? NON, LA SÉCURITÉ TOUT SIMPLEMENT !</a>
+<a href="javascript:;" data-src="https://1.bp.blogspot.com/-gOTNCwVU6WE/XUbR0fXyJlI/AAAAAAAAjtM/Zs-GpyUP5VwX9QeaRCx9Aw4ROhWCfUgNQCLcBGAs/s1600/Visuel%2BProgramme%2B08.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoicon" class="data-fancybox">
+<img class="azoicon" width="50" border="0" data-original-height="732" data-original-width="736" src="https://1.bp.blogspot.com/-gOTNCwVU6WE/XUbR0fXyJlI/AAAAAAAAjtM/Zs-GpyUP5VwX9QeaRCx9Aw4ROhWCfUgNQCLcBGAs/s1600/Visuel%2BProgramme%2B08.png"/></a>
+<a class="data-fancybox-inline" data-fancybox="inlineProgram" data-slide-class='customVid' data-src="#article-8" href="javascript:;" data-thumb="https://1.bp.blogspot.com/-gOTNCwVU6WE/XUbR0fXyJlI/AAAAAAAAjtM/Zs-GpyUP5VwX9QeaRCx9Aw4ROhWCfUgNQCLcBGAs/s1600/Visuel%2BProgramme%2B08.png" >8 – SÉCURITAIRE ? NON, LA SÉCURITÉ TOUT SIMPLEMENT ! </a>
 </div>
 <div class="incrustation articleFancy" id="article-8">
 <div class="incrustation fontFancy">
 <center>
-<a href="https://1.bp.blogspot.com/-Wc-PXOW-A4U/XTv7JisVU1I/AAAAAAAAjoU/e7Jv0Qo0VDgY-v4I2TWGhrbkRwmaL1RkwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B08.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconmodal" border="0" data-original-height="732" data-original-width="736" src="https://1.bp.blogspot.com/-Wc-PXOW-A4U/XTv7JisVU1I/AAAAAAAAjoU/e7Jv0Qo0VDgY-v4I2TWGhrbkRwmaL1RkwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B08.png" /></a>
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-8-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">8 – SÉCURITAIRE ? NON, LA SÉCURITÉ TOUT SIMPLEMENT !</div>
-<div class="maximeFancy">Pour se servir de sa raison, on a besoin de sécurité et de quiétude.</div></center>
+<!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-gOTNCwVU6WE/XUbR0fXyJlI/AAAAAAAAjtM/Zs-GpyUP5VwX9QeaRCx9Aw4ROhWCfUgNQCLcBGAs/s1600/Visuel%2BProgramme%2B08.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
+<img class="azoiconmodal" border="0" data-original-height="732" data-original-width="736" src="https://1.bp.blogspot.com/-gOTNCwVU6WE/XUbR0fXyJlI/AAAAAAAAjtM/Zs-GpyUP5VwX9QeaRCx9Aw4ROhWCfUgNQCLcBGAs/s1600/Visuel%2BProgramme%2B08.png" />
+<!--/a-->
+<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-8-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">8 – SÉCURITAIRE ? NON, LA SÉCURITÉ TOUT SIMPLEMENT ! </div>
+<div class="maximeFancy">Pour se servir de sa raison, on a besoin de sécurité et de quiétude. </div></center>
 <div class="corpsFancy">
-<p>L’insécurité sociale, liée au chômage de masse, à la précarisation croissante du travail et au gigantisme urbain, avive le sentiment d’isolement, abîme les liens sociaux, accroît les problèmes de sécurité. Bruit, incivilités, dégradations, vols, violences, etc., ces faits ne doivent pas être sous-estimés. Mais il ne faut pas non plus les amplifier et les instrumentaliser pour créer la peur, détourner la colère sociale, dresser les individus et les groupes les uns contre les autres. À l’évidence, les déploiements toujours plus massifs de forces de police (BAC, gendarmes mobiles, CRS…), loin de régler les problèmes, ne font que les accroître en attisant les rancœurs et les haines, et en faisant monter le niveau des violences. Comment répondre à la question de la sécurité de façon raisonnable, équilibrée et efficace ?</p>
+<figure class="audioFancy">
+    <!--figcaption>Lecture du block :</figcaption-->
+    <audio
+        controls
+        src="https://philquand.github.io/Javascript/Blog-widgets/CATDP/Programme audio/Block 8 Securite PM.mp3"
+         data-options='{"prefix":"media","show":{"fullscreen":false}}' >
+            Votre navigateur ne prend pas en charge cet élément
+            <code>audio</code>.
+    </audio>
+</figure>
+<p>L’insécurité sociale, liée au chômage de masse, à la précarisation croissante du travail et au gigantisme urbain, avive le sentiment d’isolement, abîme les liens sociaux, accroît les problèmes de sécurité. Bruit, incivilités, dégradations, vols, violences, etc., ces faits ne doivent pas être sous-estimés. Mais il ne faut pas non plus les amplifier et les instrumentaliser pour créer la peur, détourner la colère sociale, dresser les individus et les groupes les uns contre les autres. À l’évidence, les déploiements toujours plus massifs de forces de police (BAC, gendarmes mobiles, CRS… ), loin de régler les problèmes, ne font que les accroître en attisant les rancœurs et les haines, et en faisant monter le niveau des violences. Comment répondre à la question de la sécurité de façon raisonnable, équilibrée et efficace ? </p>
 <p class="engagementsFancy">Nos engagements-phares</p>
-<p>- Développer<b> une police municipale de proximité</b> bien intégrée dans tous les quartiers et <b>respectueuse de l’ensemble des habitants sans aucune discrimination</b>, qui travaille en étroite relation avec les éducateurs de rue, les différents services publics et la population.</p>
-<p>84 % des Françaises et des Français sont favorables à une police de proximité, capable d’anticiper et de prévenir les incivilités et la petite délinquance. Le ou la maire de Tours, en charge de la police municipale, est responsable de la tranquillité publique. Il s’agira donc de repenser l’action de la police municipale (95 policiers, 40 agents de surveillance de la voie publique [ASVP], 10 agents de la brigade verte et 12 agents du Centre de supervision de la vidéosurveillance) dans une optique avant tout préventive et non comme une force supplétive ou une réserve de la police nationale.</p>
+<p>- Développer<b> une police municipale de proximité</b> bien intégrée dans tous les quartiers et <b>respectueuse de l’ensemble des habitants sans aucune discrimination</b>, qui travaille en étroite relation avec les éducateurs de rue, les différents services publics et la population. </p>
+<p>84% des Françaises et des Français sont favorables à une police de proximité, capable d’anticiper et de prévenir les incivilités et la petite délinquance. Le ou la maire de Tours, en charge de la police municipale, est responsable de la tranquillité publique. Il s’agira donc de repenser l’action de la police municipale (95 policiers, 40 agents de surveillance de la voie publique [ASVP], 10 agents de la brigade verte et 12 agents du Centre de supervision de la vidéosurveillance) dans une optique avant tout préventive et non comme une force supplétive ou une réserve de la police nationale. </p>
 <p>- Supprimer <b>la vidéo-surveillance</b>, <b>inefficace et coûteuse</b>.</p>
 <p>En 2019, il y avait 340 caméras installées dans les rues, les bâtiments publics et sur le réseau Kéolis. Ces caméras coûtent cher (coût moyen d’installation d'une caméra, 14 000 euros) et n’aident à résoudre que 3 % des délits en moyenne. Pour les imposer malgré tout, l’État à travers le Fonds interministériel de prévention de la délinquance (FIDP) oblige les collectivités locales à utiliser 60 % des aides accordées à la vidéo-surveillance. Très peu efficaces, les caméras représentent en revanche un vrai danger pour les libertés individuelles et collectives.</p>
-<p>Plus largement, la croissance exponentielle de la vidéo-surveillance est le résultat d’une conception de la vie en société que nous rejetons absolument. Remplacer les êtres humains par des machines, les relations entre les individus par l’électronique, croire que la « technologisation » de la société résoudra les problèmes inhérents aux relations humaines, c’est faire complètement fausse route en déshumanisant le monde.</p>
-<p>Nous défendons au contraire le principe d'une réflexion collective et démocratique sur l'utilisation des évolutions techniques dans le sens du progrès social, de la transition écologique et de la tranquillité publique.</p>
+<p>Plus largement, la croissance exponentielle de la vidéo-surveillance est le résultat d’une conception de la vie en société que nous rejetons absolument. Remplacer les êtres humains par des machines, les relations entre les individus par l’électronique, croire que la « technologisation » de la société résoudra les problèmes inhérents aux relations humaines, c’est faire complètement fausse route en déshumanisant le monde. </p>
+<p>Nous défendons au contraire le principe d'une réflexion collective et démocratique sur l'utilisation des évolutions techniques dans le sens du progrès social, de la transition écologique et de la tranquillité publique. </p>
 <p class="engagementsFancy">Nos autres engagements</p>
-<p>- Demander l’expérimentation du <b>récépissé de contrôle d'identité</b> sur le territoire communal.</p>
-<p>- Conserver les<b> postes de gardiens dans les immeubles</b> qui dépendent des organismes de logements collectifs, et en recréer partout où ils ont été supprimés.</p>
-<p>- Agir résolument, en coopération avec tous les services publics, <b>contre la ghettoïsation de certains quartiers</b>. Pour cela, soutenir dans la durée<b> les </b>associations d’intérêt général, qu’elles soient centrées sur la défense des droits des personnes, culturelles, syndicales ou sportives, et <b>encourager par tous les moyens la mixité sociale</b>, c’est-à-dire les échanges, les rapprochements géographiques, la convivialité et l’interconnaissance entre les habitants, quels que soient les âges, les nationalités et les revenus.</p>
+<p>- Demander l’expérimentation du <b>récépissé de contrôle d'identité</b> sur le territoire communal. </p>
+<p>- Conserver les<b> postes de gardiens dans les immeubles</b> qui dépendent des organismes de logements collectifs, et en recréer partout où ils ont été supprimés. </p>
+<p>- Agir résolument, en coopération avec tous les services publics, <b>contre la ghettoïsation de certains quartiers</b>. Pour cela, soutenir dans la durée<b> les </b>associations d’intérêt général, qu’elles soient centrées sur la défense des droits des personnes, culturelles, syndicales ou sportives, et <b>encourager par tous les moyens la mixité sociale</b>, c’est-à-dire les échanges, les rapprochements géographiques, la convivialité et l’interconnaissance entre les habitants, quels que soient les âges, les nationalités et les revenus. </p>
 <p>- Proposer un plan d’accompagnement des <b>personnes toxicomanes</b> (désintoxication, relogement, réinsertion), en collaboration avec les associations et le Centre hospitalier régional universitaire (CHRU).</p>
-<p>- Enfin, nous créerons <b>dans le Vieux Tours un lieu d’accueil des personnes qui se sentent en insécurité</b>, dans un souci de médiation entre les intérêts parfois divergents des personnes qui travaillent, celles qui dorment et celles qui font la fête.</p>
-<center><p>Vous en avez assez du <b>« tout-sécuritaire »</b>,<br/>inefficace, coûteux et dangereux ?</p>
-<p>Vous voulez vivre dans une ville<br/>où <b>prévention, solidarité et respect des règles communes</b><br/>sont les meilleures garanties de la <b>tranquillité </b>de toutes et tous ?</p>
-<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></center>
-<a href="https://1.bp.blogspot.com/-Wc-PXOW-A4U/XTv7JisVU1I/AAAAAAAAjoU/e7Jv0Qo0VDgY-v4I2TWGhrbkRwmaL1RkwCLcBGAs/s1600/Programme%2B8%2Bvisuels%2B08.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img class="azoiconfull" border="0" data-original-height="732" data-original-width="736" src="https://1.bp.blogspot.com/-Wc-PXOW-A4U/XTv7JisVU1I/AAAAAAAAjoU/e7Jv0Qo0VDgY-v4I2TWGhrbkRwmaL1RkwCLcBGAs/s320/Programme%2B8%2Bvisuels%2B08.png" /></a>
+<p>- Enfin, nous créerons <b>dans le Vieux Tours un lieu d’accueil des personnes qui se sentent en insécurité</b>, dans un souci de médiation entre les intérêts parfois divergents des personnes qui travaillent, celles qui dorment et celles qui font la fête. </p>
+<center><div class="incVote"><p>Vous en avez assez du <b>« tout-sécuritaire »</b>,<br/>inefficace, coûteux et dangereux ? </p>
+<p>Vous voulez vivre dans une ville<br/>où <b>prévention, solidarité et respect des règles communes</b><br/>sont les meilleures garanties de la <b>tranquillité </b>de toutes et tous ? </p>
+<p>Votez pour la liste <b>« C’est au Tour(s) du Peuple »</b></p></div></center>
+<img class="azoiconfull" border="0" data-original-height="788" data-original-width="740" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" />
 </div>
 </div>
 </div>
-<div class="programTel" style="float: right; margin-bottom: 1em;">Vous pouvez également télécharger<br/>le <a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Program-NB-Pages.pdf">programme complet</a> au format PDF.</div>
+<div class="programTel" style="float: right; margin-bottom: 1em;">Vous pouvez également télécharger<br/>le <a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Program-NB-Pages.pdf">programme complet</a> au format PDF. </div>
 <div class="html2pdf" data-summary="no">
-<p class="html2pdf-post-signature" >publié sur: <a href="https://CATDP37.blogspot.com">https://CATDP37.blogspot.com</a></p>
+<p class="html2pdf-post-signature" >publié sur : <a href="https://CATDP37.blogspot.com">https : //CATDP37. blogspot. com</a></p>
 </div>
 </div>
+<script src="https://philquand.github.io/Javascript/MediaPlayer/MediaPlayer.js"></script>
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/MediaPlayer/MediaPlayer.css" />
+<svg style="display:none">
+	<symbol id="symbol-play" viewBox="0 0 32 32">
+		<path d="M4 0l24 16L4 32"></path>
+	</symbol>
+	<symbol id="symbol-pause" viewBox="0 0 32 32">
+		<path d="M4 0h9v32H4M28 0h-9v32h9"></path>
+	</symbol>
+	<symbol id="symbol-mute" viewBox="0 0 32 32">
+		<path d="M0 11h6l10-8.5v27L6 21H0M22 6l10 10-10 10"></path>
+	</symbol>
+	<symbol id="symbol-unmute" viewBox="0 0 32 32">
+		<path d="M0 11h6l10-8.5v27L6 21H0"></path>
+	</symbol>
+	<symbol id="symbol-download" viewBox="0 0 32 32">
+		<path d="M20 2v12h4l-8 10-8-10h4V2M0 21h5v6h22v-6h5v11H0"></path>
+	</symbol>
+	<symbol id="symbol-enterFullscreen" viewBox="0 0 32 32">
+		<path d="M0 0h12L8 4l6 6-4 4-6-6-4 4M32 0H20l4 4-6 6 4 4 6-6 4 4M0 32V20l4 4 6-6 4 4-6 6 4 4m20 0V20l-4 4-6-6-4 4 6 6-4 4"></path>
+	</symbol>
+	<symbol id="symbol-leaveFullscreen" viewBox="0 0 32 32">
+		<path d="M0 4l4-4 6 6 4-4v12H2l4-4m26-6l-4-4-6 6-4-4v12h12l-4-4M0 28l4 4 6-6 4 4V18H2l4 4m26 6l-4 4-6-6-4 4V18h12l-4 4"></path>
+	</symbol>
+</svg>
+<style>
+.media-text {
+    font-size: 75%;
+    padding-left: .5em;
+    padding-right: .5em;
+    width: 5em
+}
+.media-fullscreen {
+    display: none;
+}
+</style>
+<script>
+breakCode: {
+  var href = "https://catdp37.blogspot.com/2019/07/notre-programme.html";
+  var actHref = window.location.href;
+  if (actHref.indexOf(href) == -1) break breakCode;
+// get target from media with controls
+$('.programContent').find('audio').each(function() {
+// assign media player from target (all these options represent the defaults)
+//const $target = document.querySelector('audio[controls], video[controls]');
+const $target = this;
+const player = new MediaPlayer(
+  $target,
+  {
+    prefix: 'media',
+    lang: {
+      play: 'play',
+      pause: 'pause',
+      mute: 'mute',
+      unmute: 'unmute',
+      volume: 'volume',
+      currentTime: 'current time',
+      remainingTime: 'remaining time',
+      enterFullscreen: 'enter fullscreen',
+      leaveFullscreen: 'leave fullscreen',
+      download: 'download'
+    },
+    svgs: {
+      play: '#symbol-play',
+      pause: '#symbol-pause',
+      mute: '#symbol-mute',
+      unmute: '#symbol-unmute',
+      volume: '#symbol-volume',
+      currentTime: '#symbol-currentTime',
+      remainingTime: '#symbol-remainingTime',
+      enterFullscreen: '#symbol-enterFullscreen',
+      leaveFullscreen: '#symbol-leaveFullscreen',
+      download: '#symbol-download'
+    },
+    timeDir: 'ltr',
+    volumeDir: 'ltr'
+  }
+);
+});
+}
+</script>
+<!--script type='text/javascript'>
+breakCode: {
+  var href = "https://catdp37.blogspot.com/2019/07/notre-programme.html";
+  var actHref = window.location.href;
+  if (actHref.indexOf(href) == -1) break breakCode;
+  $(document).ready(function() {
+    myopts = {
+      toolbar: true,
+      infobar: true,
+      arrows: false,
+      animationEffect: "fade",
+      transitionEffect: "slide",
+      speed: 300,
+      margin: [40, 20],
+      buttons: false,
+      thumbs: {
+        autoStart: false, // Display thumbnails on opening
+        hideOnClose: true // Hide thumbnail grid when closing animation starts
+      },
+      buttons: [
+        'thumbs'
+      ],
+      baseClass: 'customInlineBaseCass',
+
+      afterClose: function(instance, current) {
+        // When the modal is hidden...
+        const top = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      },
+
+      afterLoad: function(instance, current) {
+        if (instance.group.length > 1 && current.$content) {
+          if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+          else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+          else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        }
+        /*if ( instance.group.length > 1 && current.$content ) {
+          current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
+        }*/
+
+        //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
+      }
+    };
+
+
+    $(".data-fancybox-inline").fancybox(myopts);
+  });
+
+  function trigFancy(trigarticle) {
+    //$(document).ready(function() {
+     // When the modal is shown, we want a fixed body
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${window.scrollY}px`;
+      $('#' + trigarticle).click();
+      return false;
+    //});
+  };
+}
+</script-->
+
 <!-- script de mise en couleur des articles -->
 <script type='text/javascript'>
-var allColors= ['rgba(190,201,228, .5)', 'rgba(218,218,227, .8)']; 
+/*var allColors= ['rgba(190,201,228, .5)', 'rgba(218,218,227, .8)']; 
 var prvColor = -1;
-/*var allArticles = document.getElementsByClassName('titreSummary');
-for( var i=0; i<allArticles.length; i++ ) {
-    if( allArticles[i].style.display != "none" ) { 
-        var newColor = prvColor + 1
-        if( newColor == allColors.length ) newColor = 0 
-        allArticles[i].style.background = allColors[newColor];
-        prvColor = newColor;
-    }
-}*/
 breakCode: {
   var href = "https://catdp37.blogspot.com/2019/07/notre-programme.html";
   var actHref = window.location.href;
@@ -432,5 +688,5 @@ breakCode: {
         prvColor = newColor;
     }
   });
-}
+}*/
 </script>

@@ -189,7 +189,7 @@ var MediaPlayer = function() {
                 canplaythrough: C
             }), l(u.download, {
                 href: i.src,
-                download: i.src
+                download: "test.mp3"
             }), k(), D(), R(), E()
         }
 

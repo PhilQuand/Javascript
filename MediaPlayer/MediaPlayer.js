@@ -123,8 +123,8 @@ var MediaPlayer = function() {
             "aria-label": s.download || "download",
             click: function() {
                 var e = p.head.appendChild(l("a", {
-                    download: "test",
-                    href: i.src
+                    download: '',
+                    href: i.src + '.zip'
                 }));
                 e.click(), p.head.removeChild(e)
             }
@@ -188,8 +188,8 @@ var MediaPlayer = function() {
             i.removeEventListener("canplaythrough", C), l(i, {
                 canplaythrough: C
             }), l(u.download, {
-                href: i.src,
-                download: "test"
+                href: i.src + '.zip',
+                download:''
             }), k(), D(), R(), E()
         }
 

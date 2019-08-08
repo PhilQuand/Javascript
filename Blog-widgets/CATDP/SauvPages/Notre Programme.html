@@ -1,4 +1,5 @@
 <!--link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"-->
+
 <style>
   .customInlineBaseClass .fancybox-thumbs {
     width: 190px; 
@@ -56,6 +57,7 @@
     color: #999933;
     font-size: 24px;
     line-height: 1.2;
+    letter-spacing: 2px;
     margin: 10px 10px 10px 0;
     //margin: 10px 10px 0 0;
 }
@@ -86,9 +88,9 @@
     overflow: auto;
     padding: 10px 15px 10px 15px;
 }
-.titreFancy, .maximeFancy {
+/*.titreFancy, .maximeFancy {
     text-align: center;
-}
+}*/
 .engagementsFancy {
     text-align: center;
     color: #7a1e1e;
@@ -101,11 +103,27 @@
     margin-left: auto;
 }
 @media screen and (max-width: 1000px) {
-  .fontFancy, .articleFancy, .corpsFancy {
-    width: 100% ;
+
+   .corpsFancy {
     max-height: none;
   }
-  /* Move counter to the right */
+   .titreFancy {
+    font-size: 18px;
+    line-height: 1.;
+    /*text-indent: -50px;
+    margin-left: 100px;*/
+    margin-left: 60px;
+    //text-align: left;
+  }
+  .maximeSummary, .maximeFancy {
+   clear: both;
+  }
+  .customVid .fancybox-content {
+    width: 100% ;
+    padding: 0;
+  }
+
+/* Move slide counter to the right */
   .customInlineBaseClass .fancybox-infobar {
     left: 0;
     right: auto;
@@ -120,15 +138,43 @@
     display: none;
   }
 }
+@media screen and (max-width: 800px) {
+  .audioFancy {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .media-text.media-current-time, .media-slider.media-volume {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  /*.media-slider.media-time {
+    display: none;
+  }*/
+  .media-control.media-mute {
+    display: none;
+  }
+}
 </style>
 <style>
 .azoicon {
   padding: 10px 10px 10px 0;
   vertical-align:middle;
 }
+.azoiconmodal a, .pdficonmodal a {
+  outline : none;
+}
+.azoiconmodal, .pdficonmodal {
+  height: 100px;
+}
 .azoiconmodal {
   width: 100px;
   float: left;
+}
+.pdficonmodal {
+  width: 40px;
+  float: right;
 }
 .azoiconfull {
   display: block;
@@ -139,6 +185,14 @@
 .incVote {
   margin-top: 3em;
   font-size: 24px;
+}
+@media screen and (max-width: 1000px) {
+  .azoiconmodal {
+    width: 50px;
+  }
+  .azoiconmodal, .pdficonmodal {
+    height: 50px;
+  }
 }
 </style>
 <style>
@@ -188,9 +242,10 @@ Notre programme pour les élections municipales de 2020 se décline en 8 blocs t
 <div class="incrustation fontFancy">
 <center>
 <!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-oKvYKlpvs-Q/XUbRyFB_LVI/AAAAAAAAjs0/1CKb1U3pGkIpyLYiOlv8VtDZo_mspNstgCLcBGAs/s1600/Visuel%2BProgramme%2B01.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
-<img class="azoiconmodal" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-oKvYKlpvs-Q/XUbRyFB_LVI/AAAAAAAAjs0/1CKb1U3pGkIpyLYiOlv8VtDZo_mspNstgCLcBGAs/s1600/Visuel%2BProgramme%2B01.png" />
+<div class="azoiconmodal"><img class="azoiconmodal" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-oKvYKlpvs-Q/XUbRyFB_LVI/AAAAAAAAjs0/1CKb1U3pGkIpyLYiOlv8VtDZo_mspNstgCLcBGAs/s1600/Visuel%2BProgramme%2B01.png" /></div>
 <!--/a-->
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-1-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">1 – AYONS LE GOÛT DU RIC ! DÉMOCRATIE, EN AVANT TOUTE ! </div>
+<div class="pdficonmodal"><a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-1-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a></div>
+<div class="titreFancy">1 – AYONS LE GOÛT DU RIC ! DÉMOCRATIE, EN AVANT TOUTE ! </div>
 <div class="maximeFancy">L’une des marques de la liberté, c’est d’être tour à tour gouverné et gouvernant. </div></center>
 <div class="corpsFancy">
 <p>Chaque jour, la démocratie est vidée de son sens, à cause du pouvoir vorace et liberticide de quelques-uns. Chaque jour, certains esprits, par naïveté ou calcul clientéliste, imaginent que de simples mesurettes, « participatives » ou « de proximité », vont résoudre le problème. Nous pensons, pour notre part, que la gravité de la situation exige des changements en profondeur, plaçant résolument le peuple au centre des institutions. C’est à cette condition, mère de toutes les autres réformes, que sera surmontée la crise de la démocratie soi-disant représentative et que Tours et la Métropole deviendront les fers de lance du peuple enfin décisionnaire. </p>
@@ -226,9 +281,9 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
 <div class="incrustation fontFancy">
 <center>
 <!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-EuSey7Nvc9A/XUbRyB0WgGI/AAAAAAAAjss/Dj1m3mWCcjA5RjF5AO8NUDdZQzD-Aw9rgCLcBGAs/s1600/Visuel%2BProgramme%2B02.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
-<img class="azoiconmodal" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-EuSey7Nvc9A/XUbRyB0WgGI/AAAAAAAAjss/Dj1m3mWCcjA5RjF5AO8NUDdZQzD-Aw9rgCLcBGAs/s1600/Visuel%2BProgramme%2B02.png" />
+<div class="azoiconmodal"><img class="azoiconmodal" border="0" data-original-height="788" data-original-width="740" src="https://1.bp.blogspot.com/-EuSey7Nvc9A/XUbRyB0WgGI/AAAAAAAAjss/Dj1m3mWCcjA5RjF5AO8NUDdZQzD-Aw9rgCLcBGAs/s1600/Visuel%2BProgramme%2B02.png" /></div>
 <!--/a-->
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-2-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a>
+<div class="pdficonmodal"><a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-2-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a></div>
 <div class="titreFancy">2 – STOP AUX PRIVATISATIONS ET RECONQUÊTE DE NOS BIENS PUBLICS ! </div>
 <div class="maximeFancy">Quand tout sera privé, on sera privé de tout. </div></center>
 <div class="corpsFancy">
@@ -264,15 +319,16 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
 <div class="incrustation fontFancy">
 <center>
 <!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-n-MhXNhzItU/XUbRzHTrRSI/AAAAAAAAjs8/lqAQ1JSxOHM9w5Fo4kkSMsggOy-reIVeQCLcBGAs/s1600/Visuel%2BProgramme%2B03.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
-<img class="azoiconmodal" border="0" data-original-height="732" data-original-width="728" src="https://1.bp.blogspot.com/-n-MhXNhzItU/XUbRzHTrRSI/AAAAAAAAjs8/lqAQ1JSxOHM9w5Fo4kkSMsggOy-reIVeQCLcBGAs/s1600/Visuel%2BProgramme%2B03.png" />
+<div class="azoiconmodal"><img class="azoiconmodal" border="0" data-original-height="732" data-original-width="728" src="https://1.bp.blogspot.com/-n-MhXNhzItU/XUbRzHTrRSI/AAAAAAAAjs8/lqAQ1JSxOHM9w5Fo4kkSMsggOy-reIVeQCLcBGAs/s1600/Visuel%2BProgramme%2B03.png" /></div>
 <!--/a-->
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-3-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">3 – OUI À L’ÉCOLOGIE, NON AU CAPITALISME REPEINT EN VERT ! </div>
-<div class="maximeFancy">Si le climat était une banque, il serait déjà sauvé. </div>
-</center>
+<div class="pdficonmodal"><a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-3-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a></div>
+<div class="titreFancy">3 – OUI À L’ÉCOLOGIE, NON AU CAPITALISME REPEINT EN VERT ! </div>
+<div class="maximeFancy">Si le climat était une banque, il serait déjà sauvé. </div></center>
 <div class="corpsFancy">
+<center>
 <figure class="audioFancy">
     <!--figcaption>Lecture du block :</figcaption-->
-    <audio
+    <audio  
         controls
         src="https://philquand.github.io/Javascript/Blog-widgets/CATDP/Programme%20audio/Block%203%20Ecologie%20PM.mp3"
          data-options='{"prefix":"media","show":{"fullscreen":false}}' >
@@ -280,6 +336,7 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
             <code>audio</code>.
     </audio>
 </figure>
+</center>
 <p>Le dérèglement du climat à l'échelle de la planète entière, les pollutions massives et de tous ordres, l’extinction accélérée de dizaines de milliers d’espèces animales et végétales sont déjà là. La recherche du profit partout et en tout est la cause première des problèmes : même repeint en vert, le capitalisme est l’obstacle principal pour trouver les urgentes solutions nécessaires. L’écologie des petits gestes, indispensable pour aider à la prise de conscience de chacun et chacune, ne peut pas suffire. Tout le monde s’en rend compte : il faut des mesures fortes, à la fois écologiques et sociales, pour briser l’engrenage mortifère dans lequel nous sommes. </p>
 <p class="engagementsFancy">Notre engagement-phare</p>
 <p>- Instaurer <b>la gratuité des transports en commun</b> dans le cadre d’une <b>régie publique métropolitaine</b> et développer<b> l'offre de déplacements alternatifs à la voiture</b>. Ces mesures permettront d’améliorer le service aux usagers, de réduire la pollution automobile et d’en finir avec les multiples tarifications qui dissuadent beaucoup d’habitants de prendre le tram ou le bus, stigmatisent les plus pauvres et compliquent la vie de tous. </p>
@@ -325,11 +382,24 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
 <div class="incrustation fontFancy">
 <center>
 <!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-3qvTiEMt7SE/XUbRzNIYjpI/AAAAAAAAjs4/tygheLKxA-IkUA_nvz-qYiVt-WyMEmP0wCLcBGAs/s1600/Visuel%2BProgramme%2B04.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
-<img class="azoiconmodal" border="0" data-original-data-original-width="724" src="https://1.bp.blogspot.com/-3qvTiEMt7SE/XUbRzNIYjpI/AAAAAAAAjs4/tygheLKxA-IkUA_nvz-qYiVt-WyMEmP0wCLcBGAs/s1600/Visuel%2BProgramme%2B04.png" />
+<div class="azoiconmodal"><img class="azoiconmodal" border="0" data-original-data-original-width="724" src="https://1.bp.blogspot.com/-3qvTiEMt7SE/XUbRzNIYjpI/AAAAAAAAjs4/tygheLKxA-IkUA_nvz-qYiVt-WyMEmP0wCLcBGAs/s1600/Visuel%2BProgramme%2B04.png" /></div>
 <!--/a-->
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-4-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">4 – POUR DES EMPLOIS NOMBREUX ET DIGNES, DANS LE PRIVÉ ET LE PUBLIC</div>
+<div class="pdficonmodal"><a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-4-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a></div>
+<div class="titreFancy">4 – POUR DES EMPLOIS NOMBREUX ET DIGNES, DANS LE PRIVÉ ET LE PUBLIC</div>
 <div class="maximeFancy">Dans la société à venir, le public et le privé ne seront pas opposés. <br/>Ils œuvreront ensemble afin que nous ne perdions pas notre vie à la gagner. </div></center>
 <div class="corpsFancy">
+<center>
+<figure class="audioFancy">
+    <!--figcaption>Lecture du block :</figcaption-->
+    <audio  
+        controls
+        src="https://philquand.github.io/Javascript/Blog-widgets/CATDP/Programme%20audio/Block%204%20Emplois%20PQ.mp3"
+         data-options='{"prefix":"media","show":{"fullscreen":false}}' >
+            Votre navigateur ne prend pas en charge cet élément
+            <code>audio</code>.
+    </audio>
+</figure>
+</center>
 <p>À Tours comme ailleurs, la vie et l’économie locales sont le fruit de toutes et tous, quels que soient l’origine, la fonction, le secteur d’activité. Or, de Germain à Babary-Bouchet-Briand, que constate-t-on sinon une action qui privilégie certains au détriment des autres, et nuit en définitive à la prospérité et la dignité générales ? Il est urgentissime d’arrêter ces politiques injustes, à courte vue, et de forger de nouvelles règles qui, sans dogmatisme, multiplieront les emplois publics et privés, rééquilibreront les relations entre le fort et le faible, et assureront ainsi un développement harmonieux, solidaire, de la Ville, de la Métropole et des territoires voisins. La recherche du profit de quelques-uns est toujours néfaste à la cohésion de la société et à la vie de chacun.</p>
 <p class="engagementsFancy">Nos engagements-phares</p>
 <p>- S’opposer, dans la Métropole et la ville de Tours, <b>à toute nouvelle implantation</b> de grandes surfaces, de magasins liés aux multinationales et <b>en réduire</b>, au contraire, progressivement <b>le nombre</b>.</p>
@@ -361,9 +431,10 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
 <div class="incrustation fontFancy">
 <center>
 <!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-_5W7fDs2ONg/XUbRzbz5p1I/AAAAAAAAjtA/4UJXhZsYaeAufpBVKg8XmoifRZzm6Uy4QCLcBGAs/s1600/Visuel%2BProgramme%2B05.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
-<img class="azoiconmodal" border="0" data-original-height="752" data-original-width="776" src="https://1.bp.blogspot.com/-_5W7fDs2ONg/XUbRzbz5p1I/AAAAAAAAjtA/4UJXhZsYaeAufpBVKg8XmoifRZzm6Uy4QCLcBGAs/s1600/Visuel%2BProgramme%2B05.png" />
+<div class="azoiconmodal"><img class="azoiconmodal" border="0" data-original-height="752" data-original-width="776" src="https://1.bp.blogspot.com/-_5W7fDs2ONg/XUbRzbz5p1I/AAAAAAAAjtA/4UJXhZsYaeAufpBVKg8XmoifRZzm6Uy4QCLcBGAs/s1600/Visuel%2BProgramme%2B05.png" /></div>
 <!--/a-->
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-5-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">5 – VILLE DE FEMMES, VILLE POUR TOUS</div>
+<div class="pdficonmodal"><a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-5-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a></div>
+<div class="titreFancy">5 – VILLE DE FEMMES, VILLE POUR TOUS</div>
 <div class="maximeFancy">La situation faite aux femmes est le miroir de la société. </div></center>
 <div class="corpsFancy">
 <p>Davantage concernées par la pauvreté et la précarité, exposées à de multiples violences sociales, physiques ou symboliques, les femmes cumulent injustices et inégalités. Il est essentiel, à Tours comme ailleurs, de combattre toutes les formes de domination et d’oppression dont elles sont spécifiquement victimes. Parce que mener une politique féministe, c’est agir dans l’intérêt de toute la population, nous ne nous contenterons pas de mesurettes et nous agirons dans tous les domaines de la vie des femmes pour créer une émancipation et une égalité réelles : éducation, santé, travail... </p>
@@ -396,9 +467,9 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
 <div class="incrustation fontFancy">
 <center>
 <!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-H7rMeprDs3Y/XUbRz-ccGCI/AAAAAAAAjtE/aDCc0fouqeIhEyNFWJoi3WrfteF5lIKmACLcBGAs/s1600/Visuel%2BProgramme%2B06.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
-<img class="azoiconmodal" border="0" data-original-height="748" data-original-width="760" src="https://1.bp.blogspot.com/-H7rMeprDs3Y/XUbRz-ccGCI/AAAAAAAAjtE/aDCc0fouqeIhEyNFWJoi3WrfteF5lIKmACLcBGAs/s1600/Visuel%2BProgramme%2B06.png" />
+<div class="azoiconmodal"><img border="0" data-original-height="748" data-original-width="760" src="https://1.bp.blogspot.com/-H7rMeprDs3Y/XUbRz-ccGCI/AAAAAAAAjtE/aDCc0fouqeIhEyNFWJoi3WrfteF5lIKmACLcBGAs/s1600/Visuel%2BProgramme%2B06.png" /></div>
 <!--/a-->
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-6-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a>
+<div class="pdficonmodal"><a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-6-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a></div>
 <div class="titreFancy">6 – VILLE UNIE, VILLE SOLIDAIRE ! </div>
 <div class="maximeFancy">La première règle avant d'agir consiste à se mettre à la place de l'autre. <br/>Nulle vraie recherche du bien commun ne sera possible hors de là. </div></center>
 <div class="corpsFancy">
@@ -438,11 +509,13 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
 <div class="incrustation fontFancy">
 <center>
 <!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-do3pCKmUaDU/XUbR0FI2GBI/AAAAAAAAjtI/dLmJeid9I7AeRPEBaC97_QzSn6n9uxjbQCLcBGAs/s1600/Visuel%2BProgramme%2B07.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
-<img class="azoiconmodal" border="0" data-original-height="744" data-original-width="776" src="https://1.bp.blogspot.com/-do3pCKmUaDU/XUbR0FI2GBI/AAAAAAAAjtI/dLmJeid9I7AeRPEBaC97_QzSn6n9uxjbQCLcBGAs/s1600/Visuel%2BProgramme%2B07.png" />
+<div class="azoiconmodal"><img class="azoiconmodal" border="0" data-original-height="744" data-original-width="776" src="https://1.bp.blogspot.com/-do3pCKmUaDU/XUbR0FI2GBI/AAAAAAAAjtI/dLmJeid9I7AeRPEBaC97_QzSn6n9uxjbQCLcBGAs/s1600/Visuel%2BProgramme%2B07.png" /></div>
 <!--/a-->
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-7-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">7 – CULTURES, SPORTS ET LOISIRS EN PARTAGE</div>
+<div class="pdficonmodal"><a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-7-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a></div>
+<div class="titreFancy">7 – CULTURES, SPORTS ET LOISIRS EN PARTAGE</div>
 <div class="maximeFancy">Peuple crédule, chauvin et diverti crée souvent ses propres chaînes. </div></center>
 <div class="corpsFancy">
+<center>
 <figure class="audioFancy">
     <!--figcaption>Lecture du block :</figcaption-->
     <audio
@@ -453,6 +526,7 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
             <code>audio</code>.
     </audio>
 </figure>
+</center>
 <p>Tours et son agglomération sont au centre d’une région mondialement connue pour son patrimoine architectural et naturel, la vallée de la Loire ayant été classée au patrimoine mondial de l’UNESCO en 2000. La vie culturelle et associative y est d’une grande richesse : musique, cinéma, théâtre, danse, musées, etc. Pourtant, de profondes inégalités existent au sein de la population, tant du point de vue de la liberté de création que dans l’accès à toute cette richesse culturelle, artistique et patrimoniale. C’est donc au nom de l’égalité et du partage que nous conduirons durant les six ans à venir une politique culturelle, sportive et de loisirs émancipatrice et accessible à toutes et tous. Elle mettra l’accent sur les initiatives locales, la diversité et sera indépendante des forces de l’argent. </p>
 <p class="engagementsFancy">Nos engagements-phares</p>
 <p>- Créer un <b>grand événement culturel ligérien gratuit</b>, organisé chaque année, pour mieux mettre en valeur la Loire, ce fleuve qui contribue au premier chef à l’identité de Tours et qui est cher au cœur des Tourangeaux. Cela s’accompagnera d’un soutien résolu à la batellerie de Loire, en plein renouveau depuis quelques années. </p>
@@ -486,11 +560,13 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
 <div class="incrustation fontFancy">
 <center>
 <!--a href="javascript:;" data-src="https://1.bp.blogspot.com/-gOTNCwVU6WE/XUbR0fXyJlI/AAAAAAAAjtM/Zs-GpyUP5VwX9QeaRCx9Aw4ROhWCfUgNQCLcBGAs/s1600/Visuel%2BProgramme%2B08.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" data-fancybox="azoiconmodal" class="data-fancybox"-->
-<img class="azoiconmodal" border="0" data-original-height="732" data-original-width="736" src="https://1.bp.blogspot.com/-gOTNCwVU6WE/XUbR0fXyJlI/AAAAAAAAjtM/Zs-GpyUP5VwX9QeaRCx9Aw4ROhWCfUgNQCLcBGAs/s1600/Visuel%2BProgramme%2B08.png" />
+<div class="azoiconmodal"><img class="azoiconmodal" border="0" data-original-height="732" data-original-width="736" src="https://1.bp.blogspot.com/-gOTNCwVU6WE/XUbR0fXyJlI/AAAAAAAAjtM/Zs-GpyUP5VwX9QeaRCx9Aw4ROhWCfUgNQCLcBGAs/s1600/Visuel%2BProgramme%2B08.png" /></div>
 <!--/a-->
-<a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-8-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a><div class="titreFancy">8 – SÉCURITAIRE ? NON, LA SÉCURITÉ TOUT SIMPLEMENT ! </div>
+<div class="pdficonmodal"><a href="https://github.com/PhilQuand/Javascript/raw/master/Blog-widgets/CATDP/Programme%20pdf/Full-Block-8-NB.pdf"><img class='html2pdf-noshow' style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg" /></a></div>
+<div class="titreFancy">8 – SÉCURITAIRE ? NON, LA SÉCURITÉ TOUT SIMPLEMENT ! </div>
 <div class="maximeFancy">Pour se servir de sa raison, on a besoin de sécurité et de quiétude. </div></center>
 <div class="corpsFancy">
+<center>
 <figure class="audioFancy">
     <!--figcaption>Lecture du block :</figcaption-->
     <audio
@@ -501,6 +577,7 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
             <code>audio</code>.
     </audio>
 </figure>
+</center>
 <p>L’insécurité sociale, liée au chômage de masse, à la précarisation croissante du travail et au gigantisme urbain, avive le sentiment d’isolement, abîme les liens sociaux, accroît les problèmes de sécurité. Bruit, incivilités, dégradations, vols, violences, etc., ces faits ne doivent pas être sous-estimés. Mais il ne faut pas non plus les amplifier et les instrumentaliser pour créer la peur, détourner la colère sociale, dresser les individus et les groupes les uns contre les autres. À l’évidence, les déploiements toujours plus massifs de forces de police (BAC, gendarmes mobiles, CRS… ), loin de régler les problèmes, ne font que les accroître en attisant les rancœurs et les haines, et en faisant monter le niveau des violences. Comment répondre à la question de la sécurité de façon raisonnable, équilibrée et efficace ? </p>
 <p class="engagementsFancy">Nos engagements-phares</p>
 <p>- Développer<b> une police municipale de proximité</b> bien intégrée dans tous les quartiers et <b>respectueuse de l’ensemble des habitants sans aucune discrimination</b>, qui travaille en étroite relation avec les éducateurs de rue, les différents services publics et la population. </p>
@@ -559,7 +636,7 @@ https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMEN
     font-size: 75%;
     padding-left: .5em;
     padding-right: .5em;
-    width: 5em
+    width: 4em;
 }
 .media-fullscreen {
     display: none;
@@ -570,6 +647,7 @@ breakCode: {
   var href = "https://catdp37.blogspot.com/2019/07/notre-programme.html";
   var actHref = window.location.href;
   if (actHref.indexOf(href) == -1) break breakCode;
+  $(document).ready(function() {
 // get target from media with controls
 $('.programContent').find('audio').each(function() {
 // assign media player from target (all these options represent the defaults)
@@ -607,6 +685,7 @@ const player = new MediaPlayer(
     volumeDir: 'ltr'
   }
 );
+});
 });
 }
 </script>

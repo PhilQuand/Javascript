@@ -13,6 +13,22 @@
 
 
 <style>
+.reprise {
+  /*background-color: #E6E6BE;*/
+  background-color: #F2F2C9;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+blockquote {
+   text-align: left;
+   font-size: 20px; 
+   line-height: 22pt;
+}
+
+
 .tractTableCATDP {
   border-collapse: collapse;
   width: 100%;

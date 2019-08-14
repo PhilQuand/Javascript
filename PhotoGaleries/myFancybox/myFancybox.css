@@ -141,3 +141,57 @@
       display: none;
   }
 }
+
+.customInlineBaseClass .fancybox-thumbs {
+    width: 190px; 
+  }
+.customInlineBaseClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 190px; 
+}
+.customInlineBaseClass .fancybox-thumbs__list  a {
+    width: 5.8vw;
+    height: 6.0vw;
+    max-width: 87px;
+    max-height: 90px;
+    min-width: 58px;
+    min-height: 60px;
+    /*max-width: calc(100% - 10px);*/
+}
+@media screen and (max-width: 1500px) {
+  .customInlineBaseClass .fancybox-thumbs {
+   //background-color: green;
+    width: 13vw; 
+  }
+  .customInlineBaseClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 13vw; 
+  }
+}
+@media screen and (max-width: 1100px) {
+  /*.customInlineBaseClass .fancybox-button.fancybox-button--arrow_left, .customInlineBaseClass .fancybox-button.fancybox-button--arrow_right {
+    display: none;
+  }*/
+  /* Move slide counter to the right */
+  .customInlineBaseClass .fancybox-infobar {
+    left: 0;
+    right: auto;
+  }
+  .customInlineBaseClass .fancybox-close-small {
+    right: 30px;    
+  }
+  .customInlineBaseClass .fancybox-thumbs {
+   //background-color: yellow;
+    width: 65px; 
+  }
+  .customInlineBaseClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 65px; 
+  }
+  .customInlineBaseClass .fancybox-content {
+    width: 100% ;
+    padding: 0;
+  }
+  .customInlineBaseClass .fancybox-inner .fancybox-slide--iframe {
+    left: 0;
+    right: 0;
+    padding: 0;
+  }
+}

@@ -27,6 +27,7 @@ $(document).ready(function() {
 function goFancy() {
   $(".data-fancybox").fancybox({
     buttons: [
+      'play',
       'download',
       'thumbs',
       'close'
@@ -52,6 +53,7 @@ function goFancy() {
       hideOnClose: true // Hide thumbnail grid when closing animation starts
     },
     buttons: [
+      'close',
       'thumbs'
     ],
     baseClass: 'customInlineBaseClass',

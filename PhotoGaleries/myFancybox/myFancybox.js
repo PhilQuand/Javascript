@@ -73,6 +73,7 @@ function goFancy() {
   });
 }
 
+<script src='https://philquand.github.io/Javascript/Hi-base64/hi-base64.js'></script>
 $.fn.iFrameGallery = function(options) {
 
   if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {

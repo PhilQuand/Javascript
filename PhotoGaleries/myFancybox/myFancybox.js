@@ -73,8 +73,7 @@ function goFancy() {
   });
 }
 
-<script src='https://philquand.github.io/Javascript/Hi-base64/hi-base64.js'></script>
-$.fn.iFrameGallery = function(options) {
+/*$.fn.iFrameGallery = function(options) {
 
   if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
 
@@ -119,4 +118,4 @@ $.fn.iFrameGallery = function(options) {
     else  divArchi.append('<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-type="inline" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img style="width: 5.8vw; height: 6.0vw; max-width: 87px; max-height: 90px; min-width: 58px; min-height: 60px;" src="' + imgBase64 + '" /></a>', '<br/>')
   }
 
-}
+}*/

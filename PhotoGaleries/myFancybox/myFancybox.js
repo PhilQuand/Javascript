@@ -71,8 +71,6 @@ function goFancy() {
     }
 
   });
-}
-
 $.getScript( "https://philquand.github.io/Javascript/Hi-base64/hi-base64.js", function() {
   $.fn.iFrameGallery = function(options) {
 
@@ -120,3 +118,6 @@ $.getScript( "https://philquand.github.io/Javascript/Hi-base64/hi-base64.js", fu
   }
 }
 });
+
+}
+

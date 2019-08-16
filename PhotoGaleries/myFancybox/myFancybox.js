@@ -71,53 +71,5 @@ function goFancy() {
     }
 
   });
-$.getScript( "https://philquand.github.io/Javascript/Hi-base64/hi-base64.js", function() {
-  $.fn.iFrameGallery = function(options) {
-
-  if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
-
-    var divArchi = $('<div id="divArchi" style="display: flex; flex-wrap: wrap;"></div>').insertAfter($(this))
-
-    for (i = 0; i < options.archi.length; i++) {
-      var svgInfos = options.archi[i].svgInfos;
-      var idG = options.archi[i].idG;
-      if (idG.split("id=").length > 1) {
-        idG = idG.split("id=")[1];
-        idG = "https://docs.google.com/file/d/" + idG + "/preview"
-      } else if (idG.split("file/d/").length > 1) {
-        idG = idG.split("file/d/")[1];
-        idG = idG.split("/view")[0];
-        idG = "https://docs.google.com/file/d/" + idG + "/preview"
-      }
-      addInfos(svgInfos, idG, divArchi);
-    }
-
-  }
-
-  if (typeof options !== 'undefined' && typeof options.accessmode !== 'undefined' && options.accessmode == 'link') {
-   	$(this).click(function(){$("#divArchi").find("a").first().trigger("click");});
-    	$(this).attr('href','javascript:;');
-      $("#divArchi").attr('style','display: none');
-  }
-
-  function addInfos(svgInfos, idG, divArchi) {
-     var svgTemp = $('<svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><rect x="10" y="10" width="100%" height="100%" stroke="blue" fill="#A2C4C9" stroke-opacity="1.0" fill-opacity="0.8"/> <g transform="matrix(0.622762,0,0,0.695394,-73.9671,-168.06)"> <text x="187.961px" y="471px" style="' + "font-family:'ArialMT', 'Arial', sans-serif;font-size:96px;fill:rgb(244,60,61);" + '" id="l1"></text> <text x="310.68px" y="549.099px" style="' + "font-family:'ArialMT', 'Arial', sans-serif;font-size:64px;fill:rgb(244,60,61);" + '" id="l2"></text> <text x="319.57px" y="615.193px" style="' + "font-family:'ArialMT', 'Arial', sans-serif;font-size:64px;fill:rgb(244,60,61);" + '" id="l3"></text> <text x="372.945px" y="693.292px" style="' + "font-family:'ArialMT', 'Arial', sans-serif;font-size:64px;fill:rgb(244,60,61);" + '" id="l4"></text> </g></svg>');
-    for (var i = 0; i < svgInfos.length; i++) {
-      svgTemp.find('#l' + (i+1).toString()).html(svgInfos[i]);
-    }
-    //divArchi.append(svgTemp, '<br/>');
-    var svgInfosstr = svgTemp.get(0).outerHTML;
-    //divArchi.append('<p>' + svgInfosstr + '</p>')
-    var svgInfosbase64r = base64.encode(svgInfosstr);
-    //divArchi.append('<p>' + svgInfosbase64r + '</p>')
-
-     var imgBase64 = 'data:image/svg+xml;base64,' + svgInfosbase64r;
-
-    if( idG[0] != '#')  divArchi.append('<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-type="iframe" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>', '<br/>')
-    else  divArchi.append('<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-type="inline" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>', '<br/>')
-  }
-}
-});
-
 }
 

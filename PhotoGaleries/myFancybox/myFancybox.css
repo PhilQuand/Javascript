@@ -134,13 +134,13 @@
   font-size: 22px;
   color: rgba(255,255,255,0.8);
 }
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {
   .button-close,
     .button-previous,
     .button-next {
       display: none;
   }
-}
+}*/
 
 .customInlineBaseClass .fancybox-thumbs {
     width: 190px; 
@@ -196,5 +196,10 @@
     left: 0;
     right: 0;
     padding: 0;
+  }
+  .customInlineBaseClass .button-close,
+  .customInlineBaseClass .button-previous,
+  .customInlineBaseClass .button-next {
+      display: none;
   }
 }

@@ -13,6 +13,10 @@
 
 
 <style>
+.show-more.pill-button,
+.show-less.pill-button {
+  color: white
+}
 .reprise {
   /*background-color: #E6E6BE;*/
   background-color: #F2F2C9;
@@ -464,7 +468,7 @@ function endDiv(s) {
   return false;
 }
 
-function getInnerLinkContent(theURL) {
+/*function getInnerLinkContent(theURL) {
   var xmlhttp = false;
   loadXMLDoc(theURL);
   if (xmlhttp == false) {
@@ -517,7 +521,7 @@ function getInnerLinkContent(theURL) {
     xmlhttp.open("GET", theURL, false);
     xmlhttp.send();
   }
-}
+}*/
 
 img_thumb_width_reg = 180; // Image Thumbnail Width
 img_thumb_height_reg = 180; // Image Thumbnail Height

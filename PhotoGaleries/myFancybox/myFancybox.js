@@ -1,11 +1,11 @@
-jQuery.fn.extend({
+/*jQuery.fn.extend({
     svgtobase64: function () {
       var svgInfosstr = $(this).get(0).outerHTML;
       var svgInfosbase64r = base64.encode(svgInfosstr);
       var imgBase64 = 'data:image/svg+xml;base64,' + svgInfosbase64r;
       return imgBase64;
    }
-});
+});*/
 $(document).ready(function() {
   $("#page_body").find("a img").each(function() {
     var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));

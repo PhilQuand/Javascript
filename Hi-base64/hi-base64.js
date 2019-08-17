@@ -7,7 +7,7 @@
  * @license MIT
  */
 /*jslint bitwise: true */
-(function () {
+(function ($) {
   'use strict';
 
   var root = typeof window === 'object' ? window : {};
@@ -373,6 +373,16 @@
     }
   };
 
+  jQuery.fn.extend({
+    svgtobase64: function () {
+      var svgInfosstr = $(this).get(0).outerHTML;
+      var svgInfosbase64r = base64.encode(svgInfosstr);
+      var imgBase64 = 'data:image/svg+xml;base64,' + svgInfosbase64r;
+      return imgBase64;
+    }
+  });
+
+
   var decode = function (base64Str, asciiOnly) {
     return asciiOnly ? atob(base64Str) : utf8Base64Decode(base64Str);
   };
@@ -396,4 +406,4 @@
       });
     }
   }
-})();
+})(jQuery);

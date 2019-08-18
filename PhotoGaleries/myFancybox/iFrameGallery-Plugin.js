@@ -15,6 +15,7 @@
       $(this).append(divArchi);
 
       for (i = 0; i < options.archi.length; i++) {
+      
         var svgID = options.archi[i].svgID;
         var svgInfos = options.archi[i].svgInfos;
         var idG = options.archi[i].idG;
@@ -22,6 +23,9 @@
         var idGlinkID = options.archi[i].idGlinkID;
         var idGExt = options.archi[i].idGExt;
         var pdfLink = options.archi[i].pdfLink;
+        var inlineProgram = options.archi[i].inlineProgram;
+        if (typeof inlineProgram === 'undefined') inlineProgram = 'inlineProgram';
+        
         if (idG.split("id=").length > 1) {
           idG = idG.split("id=")[1];
           idG = "https://docs.google.com/file/d/" + idG + "/preview"
@@ -31,12 +35,12 @@
           idG = idG.split("/view")[0];
           idG = "https://docs.google.com/file/d/" + idG + "/preview"
         }
-        addInfos(svgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID);
+        addInfos(svgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID, inlineProgram);
       }
 
     }
 
-    function addInfos(svgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID) {
+    function addInfos(svgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID, inlineProgram) {
       if (typeof svgID !== 'undefined') {
         var svgTemp = $("#" + svgID).html();
         svgTemp = $('<svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">' + svgTemp + '</svg>');
@@ -58,7 +62,7 @@
         if (indexInlineHTML == 0) divCont = $('<div id="contInlineHTML"></div>').insertAfter(divArchi);
         idG = inlineHTML(idG, divCont, pdfLink);
       }
-      var inputLink = linkBuild(idG, imgBase64);
+      var inputLink = linkBuild(idG, inlineProgram, imgBase64);
       if (typeof idGExt !== 'undefined') {
         var innerLink = inputLink.clone();
         divArchi.append(innerLink);
@@ -88,10 +92,10 @@
         if (typeof idGlinkID === 'undefined') divLinkidG.wrap('<div style="display: none"></div>')
       }
 
-      function linkBuild(idG, imgBase64) {
-        if (idG[0] != '#') var myLink = $('<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-type="iframe" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>')
+      function linkBuild(idG, inlineProgram, imgBase64) {
+        if (idG[0] != '#') var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '"  data-type="iframe" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>')
         else {
-          var myLink = $('<a class="data-fancybox-inline" data-fancybox="inlineProgram"  data-type="inline" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>');
+          var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '"  data-type="inline" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>');
         }
         return myLink;
       }

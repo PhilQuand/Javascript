@@ -21,6 +21,7 @@
         var idGtyp = options.archi[i].idGtyp;
         var idGlinkID = options.archi[i].idGlinkID;
         var idGExt = options.archi[i].idGExt;
+        var pdfLink = options.archi[i].pdfLink;
         if (idG.split("id=").length > 1) {
           idG = idG.split("id=")[1];
           idG = "https://docs.google.com/file/d/" + idG + "/preview"
@@ -30,12 +31,12 @@
           idG = idG.split("/view")[0];
           idG = "https://docs.google.com/file/d/" + idG + "/preview"
         }
-        addInfos(svgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, divArchi, divLinkID);
+        addInfos(svgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID);
       }
 
     }
 
-    function addInfos(svgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, divArchi, divLinkID) {
+    function addInfos(svgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID) {
       if (typeof svgID !== 'undefined') {
         var svgTemp = $("#" + svgID).html();
         svgTemp = $('<svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">' + svgTemp + '</svg>');
@@ -55,7 +56,7 @@
       var imgBase64 = 'data:image/svg+xml;base64,' + svgInfosbase64r;
       if (idGtyp == 'inlined') {
         if (indexInlineHTML == 0) divCont = $('<div id="contInlineHTML"></div>').insertAfter(divArchi);
-        idG = inlineHTML(idG, divCont);
+        idG = inlineHTML(idG, divCont, pdfLink);
       }
       var inputLink = linkBuild(idG, imgBase64);
       if (typeof idGExt !== 'undefined') {
@@ -95,7 +96,7 @@
         return myLink;
       }
 
-      function inlineHTML(idG, divCont) {
+      function inlineHTML(idG, divCont, pdfLink) {
         indexInlineHTML++;
         var article = 'article-' + indexInlineHTML;
         var result = getMyInnerLinkContent(idG);
@@ -104,7 +105,7 @@
         var item = $('<div class="incrustation articleFancy" id="' + article + '" ></div>').append(
           $('<div class="incrustation fontFancy"></div>').append(
             $('<center></center>').append(
-              $('<a href="' + pdfImage + '"><img style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="' + pdfImage + '" /></a>'), $('<div class="titreFancy" ></div>')
+              $('<a href="' + pdfLink + '"><img style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="' + pdfImage + '" /></a>'), $('<div class="titreFancy" ></div>')
             ), $('<div class="corpsFancy" ></div>')
           )
         );

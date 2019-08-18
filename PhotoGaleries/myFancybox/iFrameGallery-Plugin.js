@@ -93,9 +93,9 @@
       }
 
       function linkBuild(idG, inlineProgram, imgBase64) {
-        if (idG[0] != '#') var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '"  data-type="iframe" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>')
+        if (idG[0] != '#') var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '" data-slide-class="customVid" data-type="iframe" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>')
         else {
-          var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '"  data-type="inline" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>');
+          var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '" data-slide-class="customVid" data-type="inline" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase64 + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase64 + '" /></a>');
         }
         return myLink;
       }

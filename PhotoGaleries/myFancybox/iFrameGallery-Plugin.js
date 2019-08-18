@@ -109,7 +109,7 @@
         var item = $('<div class="incrustation articleFancy" id="' + article + '" ></div>').append(
           $('<div class="incrustation fontFancy"></div>').append(
             $('<center></center>').append(
-              $('<a href="' + pdfLink + '"><img style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="' + pdfImage + '" /></a>'), $('<div class="titreFancy" ></div>')
+              $('<a class="pdfref" href="' + pdfLink + '"><img style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="' + pdfImage + '" /></a>'), $('<div class="titreFancy" ></div>')
             ), $('<div class="corpsFancy" ></div>')
           )
         );

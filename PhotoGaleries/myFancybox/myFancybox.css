@@ -161,6 +161,13 @@
 .customInlineBaseClass .fancybox-content {
     background-color: white;
 }
+.customInlineBaseClass,
+.customInlineBaseClass .fancybox-slide {
+    overflow: hidden;
+}
+.customInlineBaseClass .fancybox-content {
+    background-color: white;
+}
 @media screen and (max-width: 1500px) {
   .customInlineBaseClass .fancybox-thumbs {
    //background-color: green;
@@ -202,5 +209,8 @@
   .customInlineBaseClass .button-previous,
   .customInlineBaseClass .button-next {
       display: none;
+  }
+  .customInlineBaseClass .fancybox-slide {
+    overflow: auto;
   }
 }

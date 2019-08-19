@@ -1,5 +1,5 @@
 /* Background color */
-.fancybox-bg {
+.customInlineBaseClass .fancybox-bg {
   background-color: #fff;
 }
 
@@ -9,29 +9,29 @@
   right: 0;
 }*/
 /* Move counter to the middle */
-.fancybox-infobar {
+.customInlineBaseClass .fancybox-infobar {
   left: auto;
   right: 48%;
 }
 
 /* Add shadow around image, but hide it while zooming */
-.fancybox-image {
+.customInlineBaseClass .fancybox-image {
   box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
   transition: box-shadow .2s;
 }
 
-.fancybox-is-scaling .fancybox-image {
+.customInlineBaseClass .fancybox-is-scaling .fancybox-image {
   box-shadow: none;
 }
 
 /* Hide elements while zooming or when zoomed-in */
-.fancybox-is-scaling .fancybox-item,
-.fancybox-can-drag .fancybox-item {
+.customInlineBaseClass .fancybox-is-scaling .fancybox-item,
+.customInlineBaseClass .fancybox-can-drag .fancybox-item {
   display: none !important;
 }
 
 /* Style close button */
-.fancybox-close {
+.customInlineBaseClass .fancybox-close {
   position: absolute;
   top: -18px;
   right: -18px;
@@ -42,7 +42,7 @@
 }
 
 /* Style navigation elements */
-.fancybox-nav {
+.customInlineBaseClass .fancybox-nav {
   position: absolute;
   top: 0;
   width: 25%;
@@ -52,15 +52,15 @@
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-.fancybox-prev {
+.customInlineBaseClass .fancybox-prev {
   left: 0;
 }
 
-.fancybox-next {
+.customInlineBaseClass .fancybox-next {
   right: 0;
 }
 
-.fancybox-nav span {
+.customInlineBaseClass .fancybox-nav span {
   position: absolute;
   top: 50%;
   width: 36px;
@@ -70,25 +70,25 @@
   visibility: hidden;
 }
 
-.fancybox-prev span, .fancybox-next span {
+.customInlineBaseClass .fancybox-prev span, .fancybox-next span {
   background-image : url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
 }
 
-.fancybox-prev span {
+.customInlineBaseClass .fancybox-prev span {
   left: 10px;
   background-position: 0 -36px;
 }
 
-.fancybox-next span {
+.customInlineBaseClass .fancybox-next span {
   right: 10px;
   background-position: 0 -72px;
 }
 
-.fancybox-nav:hover span {
+.customInlineBaseClass .fancybox-nav:hover span {
   visibility: visible;
 }
 
-.fancybox-content {
+.customInlineBaseClass .fancybox-content {
 	//width  : 800px;
 	//height : 600px;
 	//max-width  : 100%;
@@ -98,9 +98,9 @@
   background: #000;
 }
 
-.button-close,
-.button-previous,
-.button-next {
+.customInlineBaseClass .button-close,
+.customInlineBaseClass .button-previous,
+.customInlineBaseClass .button-next {
   position: absolute;
   width: 44px;
   height: 44px;
@@ -113,22 +113,22 @@
   font-size: 16px;
 }
 
-.button-previous,
-.button-next {
+.customInlineBaseClass .button-previous,
+.customInlineBaseClass .button-next {
   top: 50%;
   margin-top: -22px;
   line-height: 42px;
 }
 
-.button-previous {
+.customInlineBaseClass .button-previous {
     left: -50px;
 }
 
-.button-next {
+.customInlineBaseClass .button-next {
     right: -50px;
 }
 
-.button-close {
+.customInlineBaseClass .button-close {
   top: -44px;
   right: -44px;
   font-size: 22px;

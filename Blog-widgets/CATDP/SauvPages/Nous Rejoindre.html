@@ -1,0 +1,119 @@
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/tooltipster.bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css" />
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-noir.min.css" />
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-light.min.css" />
+<script type="text/javascript" src="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js"></script>
+<style>
+.tooltipStyle {
+  /*font-size: 0.75em;
+  line-height: 1.em;*/
+  font-size: 0.9em;
+  line-height: 1.2em;
+}
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-box {
+    /*border: none;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 10px 6px rgba(0, 0, 0, .1)*/
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    transition: box-shadow .2s;
+}
+
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-content {
+    background-color: #999933;
+    color: white;
+}
+.tooltipster-sidetip.tooltipster-light .tooltipster-box {
+    background-color: rgba(117, 190, 218, 0.0);
+    color: rgba(117, 190, 218, 0.0);
+    border: none;
+}
+</style>
+<style>
+#calender {
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: auto;
+  padding: 0 0 0 0;
+  -webkit-overflow-scrolling: touch;
+}
+#inline_content {
+  padding: 40px 0 0 0;
+}
+#iframe480 {
+    display: none;
+}
+.imgNousRejoindre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+.imgNousRejoindre img {
+    width: 100%
+}
+
+@media screen and (max-width: 850px) {
+    .imgNousRejoindre {
+      width: 50%
+     }
+     #iframe800 {
+         display: none;
+     }
+     #iframe480 {
+         display: block;
+     }
+}
+/*.calenderVid .fancybox-content {
+    width  : 100vmin;
+    height: 70vmin;
+    margin: 0;
+}*/
+</style>
+<a class="centerImg30" href="https://1.bp.blogspot.com/-ulguqy78oBY/XUAJtM02kjI/AAAAAAAAjqA/74wiW3efUWkg03jJvj7QBcXdILMtGohvwCLcBGAs/s320/Visuel%2BNous%2Brejoindre.png"><img border="0" data-original-height="854" data-original-width="1600" src="https://1.bp.blogspot.com/-ulguqy78oBY/XUAJtM02kjI/AAAAAAAAjqA/74wiW3efUWkg03jJvj7QBcXdILMtGohvwCLcBGAs/s320/Visuel%2BNous%2Brejoindre.png" /></a>
+<p>Si vous souhaitez rejoindre le collectif « C’est au Tour(s) du Peuple 2020 » (CATDP2020), vous pouvez envoyer un mail à <a href="mailto:catdp2020@gmail.com">catdp2020@gmail.com</a> ou, si besoin, prendre directement contact avec <a class="tooltipBourdin" data-tooltip-content="#bourdin_content"  href="javascript:return false;">Claude Bourdin</a> par téléphone : 06 85 12 03 71.</p>
+<p>Si vous souhaitez, avant de nous rejoindre, être tenu informé(e) de nos publications, réunions, actions, merci de vous abonner à notre lettre d’information (bouton « s’inscrire » en haut de la page d’accueil) et de consulter notre <a class="tooltipCalendrier" data-tooltip-content="#calender" href="javascript:;"><!--a data-fancybox data-slide-class='calenderVid' data-src="#calender" href="javascript:;"-->calendrier</a> régulièrement tenu à jour (dans la colonne gauche de la page d’accueil). Vous pouvez également consulter le <a href="https://www.catdp2020.com/p/flux-d-de-notre-page-facebook.html">fil d'actualité</a> de notre page Facebook, même si vous n'avez pas encore de compte sur ce réseau social.
+<p>Pour toute autre question, vous pouvez aussi utiliser les coordonnées ci-dessus.</p>
+<div style="position: 0;">
+<div style="display: inline-block; margin-top: 1em; width: 100%"><a href="https://www.facebook.com/cestautoursdupeuple"><img style="float: right" src="https://2.bp.blogspot.com/-ZkcrHoX1FFQ/W1SdQXbCWSI/AAAAAAAAhGI/xMfAHQwxm4wVGbQKzk1To5mvroZklzjVACLcBGAs/s1600/facebook-1%2B%2528glisse%25CC%2581es%2529.png"width="40" height="40" /></a><span style="float: right;">Suivez nous aussi sur </span></div></div>
+
+<!--div style='display:none' id='calender'>
+	<div id='inline_content' style='width: 100%; background:#fff;'-->
+<div style='display: none'>
+<div id='calender'>
+<iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZzRobXRsNml0bzRkam9ubTExZGw0bGVjNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23616161&amp;showTz=0&amp;showCalendars=0" style="border-width:0" width="500" height="400" frameborder="0" scrolling="no"></iframe>
+<!--iframe src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZzRobXRsNml0bzRkam9ubTExZGw0bGVjNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23616161" style="border-width:0" width="600" height="500" frameborder="0" scrolling="no"></iframe-->
+</div></div>
+
+<div style='display: none'>
+<span id='bourdin_content' class='tooltipStyle'><img src='https://1.bp.blogspot.com/-uquVNCO1m5s/XUcUBZH5EiI/AAAAAAAAjto/tvPjTSf8IdQTCy4NBAQjvzSZfGtxsXWzwCLcBGAs/s1600/photo%2BClaude.jpg' style='float: left; width: 20%; margin-right: 1em; margin-top: 0.5em' >Claude Bourdin est né à Tours il y a 54 ans. Il est père de 2 enfants étudiants et cadre commercial salarié du privé.<br/>Il est engagé pour Tours depuis de nombreuses années dans des associations citoyennes, culturelles, sportives et sociales. Il a été tête de liste aux municipales de 2014 avec « C'est au Tour(s) du Peuple », l'association créée en 2015 continuant de faire des propositions pour l'intérêt général des Tourangeaux.<br/>En 2017, il a été le candidat de La France Insoumise aux législatives à Tours pour une véritable alternative de gauche, démocratique, sociale, féministe et écologique.</span>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('.tooltipCalendrier').tooltipster({
+    trigger: 'click',
+    theme: 'tooltipster-light',
+    animation: 'grow',
+    //delay: 200,
+    interactive: true,
+    contentAsHTML: true,
+    //maxWidth: 400,
+    side: 'left'/*,
+    plugins: ['sideTip', 'scrollableTip']*/
+  });
+});
+$(document).ready(function() {
+  $('.tooltipBourdin').tooltipster({
+    trigger: 'click',
+    theme: 'tooltipster-shadow',
+    animation: 'grow',
+    //delay: 200,
+    interactive: true,
+    contentAsHTML: true,
+    maxWidth: 400,
+    side: 'right'
+  });
+});
+</script>
+<div class="blogger-post-footer">Lire la suite sur le blog...</div>

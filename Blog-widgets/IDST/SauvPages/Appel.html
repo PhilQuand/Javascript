@@ -1,0 +1,1928 @@
+<style>
+.butSignatures  {
+    max-width: 300px !important;   /* Largeur du formulaire */
+    border: 0;
+    padding: 6px 15px 6px 15px;
+    font-size: 1rem;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(131, 109, 107, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+#mapSignatures {
+    width: 70%;
+    /*width: 100%;*/
+    height: 800px;
+    float: left;
+    cursor: default;
+}
+.signatures-country-name-wrapper {
+  width: 29%;
+  float: right;
+}
+#mapSignatures .leaflet-grab {cursor: default;}
+#mapSignatures .leaflet-dragging .leaflet-grab {cursor: default;}
+#mapSignatures .leaflet-popup-tip {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+#selectcountry {
+  max-width: 360px;
+}
+.myCSSClassTooltip {
+  position: relative;
+  display: inline-block;
+  border: 1px double red;
+  background-color: yellow;
+  color: black;
+}
+.tableSignatures tbody {
+    height: 500px;
+    overflow-y: auto;
+    display: block;    
+}
+.signatures-country-name tbody {
+    height: 750px;
+    overflow-y: auto;
+    display: block;    
+}
+.tableSignatures tbody, 
+.signatures-country-name tbody, 
+.localTableSignatures tbody {
+   background: white;
+   color:black;
+}
+.tableSignatures,
+.signatures-country-name {
+  font-size: 18px;
+  line-height: 24px;
+}
+.tableSignatures thead th, 
+.signatures-country-name thead th,
+.localTableSignatures thead th {
+  background:#3E8F32;
+  color:white;
+  font-weight: bold;
+  width: 100%;
+}
+.tableSignatures tbody tr td, 
+.tableSignatures thead th,
+.signatures-country-name tbody tr td, 
+.signatures-country-name thead th,
+.localTableSignatures tbody tr td, 
+.localTableSignatures thead th {
+  border: thin solid black;
+  padding-left: 10px;
+  width: 33.333333%;
+}
+.tableSignatures tbody tr:nth-child(even), 
+.signatures-country-name tbody tr:nth-child(even), 
+.localTableSignatures tbody tr:nth-child(even){
+  background:#ECF0F1;
+}
+.tableSignatures, 
+.signatures-country-name, 
+.localTableSignatures {
+border-collapse: collapse; 
+width: 100%;
+}
+.tableSignatures tbody tr:hover, 
+.signatures-country-name tbody tr:hover, 
+.localTableSignatures tbody tr:hover {
+  background:#BDC3C7;
+  color:#FFFFFF;
+}
+@media screen and (max-width: 860px) {
+  .tableSignatures,
+  .signatures-country-name {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .tableSignatures,
+  .signatures-country-name {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+@media screen and (max-width: 580px) {
+   #mapSignatures {
+      width: 100%;
+  }
+  .leaflet-popup-content-wrapper, .leaflet-popup-content, .leaflet-popup-scrolled {
+     max-width: 450px;
+  }
+}
+@media screen and (max-width: 470px) {
+  .tableSignatures tbody tr td, .tableSignatures thead th {
+    font-size: 12Px;
+  }
+  .leaflet-popup-content-wrapper, .leaflet-popup-content, .leaflet-popup-scrolled {
+     max-width: 360px;
+  }
+}
+@media screen and (max-width: 380px) {
+  #selectcountry {
+    max-width: 280px;
+  }
+  .tableSignatures tbody tr td, .tableSignatures thead th {
+    font-size: 10px;
+  }
+  .leaflet-popup-content-wrapper, .leaflet-popup-content, .leaflet-popup-scrolled {
+     max-width: 280px;
+  }
+}
+</style>
+<div class="separator" style="clear: both; text-align: center;">
+  <img border="0" ata-original-height="516" data-original-width="800" width="50%" src="https://2.bp.blogspot.com/-S2Q4C1j8nBM/XAf7ErxMHVI/AAAAAAAAiA4/00GFdrlKzdsdFL2DKDkFcl76NLnqCMXCwCLcBGAs/s320/Biblioteca_dell%2527Universita_di_Bologna.jpg" /><br />
+<center><em><div data-summary="no">
+(Biblioteca dell’Università di Bologna)
+</div></em></center>
+</div>
+<br />
+<div lang="fr">
+  <p>Partout dans le monde, l'Enseignement Supérieur et la Recherche sont actuellement soumis à la doctrine de choc du
+    néolibéralisme, où la connaissance est perçue comme un simple moyen d'améliorer la compétitivité de l'économie,
+    comme une source possible de bénéfices et comme un outil de contrôle pour les gouvernements. Ce programme
+    néolibéral pour la science est mis en œuvre par un nouveau mode de gestion publique dans lequel les étudiants, les
+    enseignants et les chercheurs doivent devenir des entrepreneurs de leur capital cognitif et de leur réputation.
+    Loin des idéaux coopératifs de la science et de l’enseignement, les universités et les institutions de recherche
+    sont gérées comme des entreprises, en concurrence les unes avec les autres pour attirer les "meilleurs" étudiants
+    et chercheurs. Les groupes de recherche et les collectifs de travail sont presque systématiquement écrasés ou subvertis.
+    Les gestionnaires scientifiques sont censés chercher des fonds et des subventions pour employer une masse toujours
+    plus grande de personnel précaire, dont les bas salaires contrastent avec les revenus de plus en plus élevés d'une
+    nouvelle élite de gestion incarnée par les présidents et les vice-présidents d'université. La souffrance au
+    travail affecte la plupart de ces nouveaux prolétaires intellectuels. D'un autre côté, la folie de l'évaluation, la
+    pression pour "publier ou périr" et la privatisation de l'édition scientifique conduisent à un nombre croissant de
+    publications, ce qui menace à la fois la qualité de la recherche et la transmission ouverte du savoir. Cette guerre
+    matérielle dans laquelle l'austérité va de pair avec la privatisation s'accompagne d'une guerre idéologique
+    orwellienne où les mots, écrits dans un langage pauvre et mensonger, perdent leur sens. Le désir de reconnaissance
+    de chacun conduisant à la servitude de tous, les valeurs de compétition et d'utilitarisme gagnent du terrain dans
+    nos communautés scientifiques, où les individus sont de plus en plus isolés et craignent d'être exclus du jeu.</p>
+ <p>
+    Heureusement, des résistances sont apparues, tant dans les pays où l'application de ces politiques était la plus
+    développée (Grande-Bretagne ou Chili) que dans les pays où elles sont encore moins avancées (France, Allemagne ou
+    Canada, notamment la région du Québec). Partout, les mobilisations proposent des alternatives à ces politiques
+    néolibérales, très proches les unes des autres tant en termes de valeurs que de mesures concrètes. Plus important
+    encore, nous sommes tous d'avis que le savoir fait partie du patrimoine commun de l'humanité et que sa valeur
+    dépend de son partage avec le plus grand nombre. Les autres composantes de l'alternative à la science néolibérale
+    découlent de ce principe.</p>
+<p>
+    Premièrement, l'université doit être libre. Mais la lutte pour l'abolition effective des frais d'inscription exige
+    aussi que l'on reconnaisse aux étudiants le droit à une allocation financière substantielle qui garantirait leur
+    autonomie en leur donnant les moyens de faire face à la nourriture, au logement et d'avoir du temps pour étudier.</p>
+<p>
+    Deuxièmement, les universitaires et les chercheurs doivent non seulement avoir des salaires et des retraites
+    décents, mais aussi se voir accorder des postes à part entière avec de solides garanties d'indépendance. C'est une
+    condition nécessaire si nous voulons éviter les conflits d'intérêts entre l'éducation, la science et les pouvoirs
+    de l'argent et de la politique.</p>
+  <p>
+    Ils doivent également bénéficier de crédits à long terme, sans passer une grande partie de leur temps à demander un
+    nombre croissant de subventions et de projets par le biais de procédures bureaucratiques épouvantables ou à
+    justifier constamment l'utilisation scientifique des fonds qui leur sont alloués. Ce n'est qu'à ce prix qu'ils
+    pourront revendiquer leur droit au temps, sans lequel aucun progrès intellectuel réel, aucune science libre et
+    aucune éducation libre, solide et cohérente n'est possible.</p>
+  <p>
+    Enfin, la démocratie doit être au cœur des universités et des institutions de recherche. Le débat critique avec les
+    citoyens et la collégialité des décisions doivent remplacer la gestion de haut en bas venant de bureaucrates zélés
+    et incompétents qui ne s'intéressent qu'à stimuler la concurrence et la soi-disant "excellence".</p>
+  <p>
+    L'urgence sociale et écologique à laquelle le monde entier est actuellement confronté représente un intérêt général
+    commun qui devrait nous pousser à nous unir si nous voulons relever tous ces défis. Un développement massif des
+    connaissances scientifiques est aujourd'hui nécessaire pour assurer la transition écologique de nos sociétés et
+    échapper à la catastrophe imminente. Des investissements publics représentant 3% du PIB des nations doivent être
+    consacrés aux services publics de la recherche et de l'enseignement supérieur. Nous devons également riposter de
+    manière organisée : il est temps de construire une alternative mondiale dans laquelle les universitaires et les
+    scientifiques, les étudiants et les citoyens défendent les trois piliers de l'enseignement supérieur
+    et de la recherche : l'indépendance de la production scientifique et intellectuelle, la libre critique et la gratuité de la
+    transmission des connaissances.</p>
+  <p>
+    Nous, signataires de cet appel, membres de la communauté académique et de la recherche ou du mouvement social dans
+    son ensemble, nous venons du monde entier. Nous nous engageons ensemble à promouvoir les valeurs de la critique, de
+    la collégialité et de la coopération dans le domaine scientifique et universitaire. Nous défendons des universités
+    et des institutions de recherche bien dotées et libres d'intérêts privés. Nous luttons contre les conditions de
+    travail précaires et nous promouvons un système alternatif de publication scientifique dans lequel la connaissance
+    est libre et ouverte. Nous appelons à la constitution d'un réseau de solidarité internationale et au développement
+    du savoir pour tous.</p>
+</div>
+<div lang="en" style="display: none">
+  <p>All over the world, Higher Education and Research are currently subject to the shock doctrine of neoliberalism,
+    where knowledge is perceived as a mere way to improve competitivity of economy, as a possible source of benefits
+    and as a tool of control for governments. This neoliberal agenda for science is implemented through a new mode of
+    public management in which students, teachers and researchers have to become entrepreneurs of their cognitive
+    capital and reputation. Far from the co-operative ideals of science and academia, universities and research
+    institutions are managed like corporations, competing with one another to attract the "best" students and
+    researchers. Research groups and collective bodies of work are almost systematically crushed or subverted. Science managers are
+    supposed to look for funds and grants to employ an ever-larger mass of precarious staff, whose poor wages contrast
+    with increasingly high earnings of a new managerial elite embodied in university presidents or vice-chancellors.
+    Suffering at work affects most of a new intellectual proletariat. On another side, the madness of evaluation, the
+    pressure to "publish or perish" and the privatization of scientific publishing lead to a soaring number of
+    publications, which threatens both the quality of research and the open transmission of knowledge. This material
+    war in which austerity goes along with privatization stands with an Orwellian ideological war where words, written
+    in a poor and lying newspeak, lose their meaning. The desire for recognition of each leads to the servitude of all,
+    the values of competition and utilitarianism are gaining ground in our scientific communities, where individuals
+    are more and more isolated and dread being excluded from the game.</p>
+  <p>Fortunately, resistance has emerged, both in countries where the application of these policies was the most
+    developed (Great Britain or Chile for instance) and in countries where they are still less advanced (France,
+    Germany or Canada, especially the Quebec region). Everywhere, mobilizations propose alternatives to these
+    neoliberal policies, which are very close to one another both in terms of values and concrete measures. Most
+    crucially, we all share the view that knowledge is part of the commons of humankind, and that its value depends on
+    its being shared with the greatest number. The other components of the alternative to neoliberal science stem from
+    this principle.</p>
+  <p>
+    First, the university must be free. But the fight for the effective abolition of tuition fees also demands that
+    students be acknowledged the right to a substantial financial allowance which would guarantee their autonomy by
+    giving them the means to deal with board and accommodation and to spare time to study.</p>
+  <p>
+    Second, academics and researchers must not only have decent salaries and pensions, they must also be granted full
+    positions with strong independence guarantees. This is a necessary condition if we want to avoid conflicts of
+    interests between science, and the powers of money and politics.</p>
+  <p>
+    They must also benefit from long-term credits, without spending much of their time applying for an increasing
+    number of grants and projects through awful bureaucratic procedures or having to constantly justify the scientific
+    use of funds allocated to them. It is only at this price that they will be able to claim for their right to time,
+    without which no real intellectual progress, no free science and no free, solid and coherent education are
+    possible.</p>
+  <p>
+    Finally, democracy must be at the heart of universities and research institutions. The critical debate with the
+    citizens and the collegiality of decisions must replace the top-down management coming from incompetent zealous
+    bureaucrats only interested in stimulating competition and the so-called "excellence".</p>
+  <p>
+    The social and ecological emergency that the whole world currently faces represents a common general interest that
+    should push us to unite if we want to meet all these challenges. A massive development of scientific knowledge is
+    now necessary to ensure the ecological transition of our societies and escape the looming disaster. Public
+    investment amounting to 3% of the GDP of nations must be devoted to the public services of research and higher
+    education. We also have to fight back in an organized manner: it is time to construct a global alternative in which
+    scientists, students and citizens defend the three pillars of free higher education and research: independence of
+    scientific and intellectual production, free criticism, and unrestricted transmission of knowledge.</p>
+  <p>
+    The signatories of this call, whether members of the academic and research community or of the social movement as a
+    whole, come from all over the world. </p>
+  <p>We commit ourselves together to promote the values of criticism, collegiality and co-operation in science and
+    academia. We defend well-endowed universities and public research institutions that are free from private
+    interests. We fight against precarious working conditions and we promote an alternative system of scientific
+    publishing in which knowledge is free and open.</p>
+</div>
+<div lang="de" style="display: none">
+<p>Überall in der Welt werden Hochschulen und Wissenschaft der neoliberalen Schockdoktrine unterworfen. Erkenntnis gilt nur noch als Mittel, die Wettbewerbsfähigkeit einer Volkswirtschaft zu fördern, Profite zu erhöhen, und die Gesellschaftskontrolle durch Regierungen zu erleichtern. Die Verwirklichung der neoliberalen Wissenschaftsagenda geht auch mit der Verallgemeinerung des Weltbildes des New Public Management einher: Studierende und WissenschaftlerInnen in Hochschulen und Forschunsgeinrichtungen werden zu Ich-Unternehmern des eigenen kognitiven Kapitals und des eigenen Lebenslaufes. In scharfem Kontrast zum kooperativen Ideal der freien Wissenschaft werden Hochschulen und Forschungszentren wie Großunternehmen gelenkt, und stehen jetzt in einem Wettbewerb um die “besten” Studierenden und WissenschaftlerInnen. Forschungsgruppen und Gemeinschaften werden beinahe systematisch untergraben oder zersplittert. Von der neuen Gruppe der Wissenschaftsmanagers wird nunmehr erwartet, dass sie eine immer größere Anzahl an befristetem Personal einstellen und selber nur noch nach Stipendien und Grants suchen. Die miserablen Löhne des wissenschaftlichen Prekariats kontrastieren immer mehr mit den hohen Einkommen der neuen führenden Kaste, die allzu oft von den Rektoren verkörpert wird. Arbeitsbedingtes Leiden schließlich ist das neue Los des neuen wissenschaftlichen Proletariats.</p>
+<p>Entwickelt haben sich außerdem auch der Evaluationswahn, der Druck zum Publish or Perish und die latente Vereinnahmung der wisschenftlichen Edition durch kapitalitische Interessen. Die Folge ist eine immer höhere Anzahl an Publikationen. Dieser rasante Zuwachs stellt eine Bedrohung für die Qualität der Wissenschaft und die öffentliche Verbreitung des gemeinsamen Wissens dar. Dieser materielle Krieg, in dem Austerität und Privatisierung zusammenhängen, geht auch mit einem ideologischen Krieg einher: Wörter verlieren ihre Bedeutung, und wissenschaftspolitische Richtlinien folgen nur noch einem armen, trügerischen Neusprech Orwell’scher Prägung. Die Sehnsucht eines Jeden nach Anerkennung führt zur Unterwerfung aller, Wettbewerb und Utilitarismus prägen immer mehr das Weltbild der Wissenschaft. WissenschaftlerInnen als Personen drohen immer mehr, in die Isolierung oder gar in die Verbannung zu geraten.</p>
+<p>Zum Glück sind neue Widerstandsformen entstanden, sowohl in den Ländern, wo diese Wissenschaftpolitik am Weitesten verwirklicht wurde (Großbritannien, Chile...), als auch dort, wo sie noch nicht ganz vollzogen ist (Frankreich, Deutschland oder Canada, vor allem Quebec). Die Protestbewegungen entwerfen Alternativlösungen zu dieser Agenda. Diese Vorschläge ähneln sich, sowohl auf der Ebene der Prinzipien als auch auf der der konkreten Maßnahmen. Wir teilen namentlich die Überzeugung, dass Erkenntnis ein Gemeingut der Menschheit ist. Je mehr eine Erkenntnis geteilt ist, umso mehr Wert hat sie. Die anderen Aspekte dieser Alternativlösungen hängen alle mit dieser Grundüberzeugung zusammen.
+Erstens muss Hochschulbildung kostenfrei sein. Der Kampf um die Abschaffung von Studiengebühren verlangt auch nach der Einführung eines Studieneinkommens, das die Selbständigkeit der Studierenden gewähren würde, indem es für Kost und Logis sorgen würde und ihnen mehr Zeit fürs Studium lassen würde.</p>
+<p>Zweitens muss das Lehr- und Forschungspersonal nicht nur einen ordentlichen Lohn und eine gute Rente verdienen, es muss auch auf festen Stellen mit starken Unabhängigkeitsgarantien  beschäftigt sein. Das ist eine Voraussetzung für eine Entwicklung der Wissenschaft weit von allen Interessenkonflikten mit Politik und Wirtschaft.</p>
+<p>Garantierte stabile Forschungskredite sind ebenfalls erforderlich. Es ist nicht anzunehmen, dass WissenschaftlerInnen ihre Zeit manchmal größtenteils mit Anträgen für immer mehr Grants oder Stipendien verbringen, was öfter einem Marathonlauf durch endlose bürokratische Verfahren ähnelt, oder dass sie sich immer wieder für den wissenschaftlichen Gebrauch der kleinsten Summe rechtfertigen müssen, die ihrem eigenen Labor zuerkannt worden ist. Nur unter dieser Bedingung werden WissenschaftlerInnen ihr Recht auf Selbstbestimmung der eigenen Zeitlichkeit beanspruchen können, ohne welche keine freie Wissenschaft, kein geistiger Fortschritt und keine freie, solide Bildung möglich sind.</p>
+<p>Das Prinzip der kollektiven und demokratischen Selbstbestimmung muss wieder ins Zentrum der Lehr- und Forschungseinrichtungen rücken. “Top-Down Management”, also die Vollmacht bürokratischer Inkompetenten, die keine anderen Wörter als “Wettbewerb” und “Exzellenz” kennen, muss der kritischen Auseinandersetzung mit den BürgerInnen und der kollegialen Beschlussbildung weichen.</p>
+<p>Der soziale und ökologische Notstand, vor dem die ganze Welt steht, bildet die Grundlage eines konkreten Begriffes des universalen Gemeinwohls. Dies sollte uns zur internationalen Einheit zwingen, wenn wir diese Herausforderungen meistern wollen. Ein großer Sprung wissenschaftlicher Erkenntnisse ist nun erforderlich, wenn wir die ökologische Wende vollziehen wollen, und unsere Gesellschaften vor dem lauernden Untergang zu retten. Der öffentliche Dienst von Wissenschaft, Forschung und Akademia muss auf 3% des BIP gefördert werden. WissenschaftlerInnen, StudentInnen und BürgerInnen müssen auch gemeinsam für die drei Säulen der freien Lehre und Forschung kämpfen: Unabhängigkeit der geistigen und wissenschaftlichen Produktion, freie Kritik des jeweils aktuellen Erkenntnisstandes, und uneingeschränkten Zugang zur Erkenntnis.</p>
+<p>Wir, die UnterzeichnerInnen dieses Aufrufes, sind Mitglieder der akademischen bzw. wissenschaftlichen Gemeinschaft, oder AktivistInnen der sozialen Bewegung. Wir kommen aus der ganzen Welt. Wir versprechen, die Prinzipien der freien Kritikäußerung, der kollegialen Beschlussbildung und der Kooperation in Hochschulen und Wissenschaft zu verteidigen. Wir fordern, dass öffentliche Hochschulen und Forschungseinrichtungen über die notwendigen Mitteln verfügen und vor Privatinteressen geschützt sind. Wir bekämpfen prekäre Arbeitsbedingungen. Wir unterstützen ein neues wissenschaftliches Publikationssystem, in welchem Erkenntnisse frei und zugänglich sind.</p>
+</div>
+<div lang="it" style="display: none">
+  <p>In tutto il mondo, l'Insegnamento Superiore e la Ricerca sono attualmente soggette alla dottrina dello choc del
+    neoliberismo, in cui la conoscenza è vista come un semplice mezzo per migliorare la competitività dell'economia,
+    come potenziale fonte di profitto e come strumento di controllo da parte dei governi. L’agenda neoliberale
+    applicata alla scienza viene attuata attraverso una nuova modalità di gestione pubblica in cui studenti, insegnanti
+    e ricercatori devono diventare imprenditori del loro capitale cognitivo e della loro reputazione. Lontano dagli
+    ideali cooperativi della scienza e dell'insegnamento, le università e gli istituti di ricerca sono gestiti come
+    imprese in concorrenza tra loro per attirare i "migliori" studenti e ricercatori. I gruppi di ricerca e il lavoro
+    collettivo sono quasi sistematicamente eliminati o sovvertiti. Il personale dirigente e amministrativo delle istituzioni
+    scientifiche è tenuto a cercare fondi e sovvenzioni per assumere una massa sempre maggiore di personale precario, i
+    cui bassi salari contrastano con i redditi sempre più elevati di una nuova élite dirigenziale rappresentata da
+    rettori e vicerettori universitari. La sofferenza sul lavoro colpisce la maggior parte di questi nuovi proletari
+    intellettuali. Nello stesso tempo, la follia della valutazione, la pressione del "publish or perish" e la
+    privatizzazione dell'editoria scientifica determinano un numero sempre più crescente di pubblicazioni, il che
+    minaccia sia la qualità della ricerca che la trasmissione aperta del sapere. Questa guerra materiale in cui
+    l'austerità va di pari passo con la privatizzazione è accompagnata da una guerra ideologica orwelliana in cui le
+    parole, scritte in un linguaggio povero e fuorviante, perdono di significato. Il desiderio di riconoscimento di
+    ciascuno conduce alla servitù di tutti, mentre i valori della competizione e dell'utilitarismo stanno guadagnando
+    terreno nelle nostre comunità scientifiche, dove gli individui sono sempre più isolati e temono di essere esclusi
+    dal gioco.</p>
+  <p>Fortunatamente sono emerse delle resistenze, sia nei paesi dove l'applicazione di queste politiche è stata più
+    sviluppata (Gran Bretagna o Cile), sia nei paesi dove è ancora meno avanzata (Francia, Germania o Canada, in
+    particolare in Quebec). Ovunque le mobilitazioni propongono delle alternative a tali politiche neoliberali, molto
+    vicine tra loro sia in termini di valori che di misure concrete. Ancora più importante, tutti noi crediamo che la
+    conoscenza sia parte del patrimonio comune dell'umanità e che il suo valore dipenda dalla sua condivisione con il
+    maggior numero possibile di persone. Le altre componenti dell'alternativa alla scienza neoliberale derivano da
+    questo principio.</p>
+  <p>In primo luogo, l'università deve essere libera. Ma la lotta per l'effettiva abolizione delle tasse universitarie
+    richiede anche che agli studenti sia riconosciuto il diritto a un adeguato sostegno economico che garantisca loro
+    autonomia, vitto, alloggio e tempo per studiare.</p>
+  <p>In secondo luogo, gli accademici e i ricercatori non solo devono avere stipendi e pensioni dignitosi, ma anche
+    ottenere incarichi stabili e a tempo pieno con forti garanzie di indipendenza. Si tratta di una condizione
+    assolutamente necessaria se vogliamo evitare conflitti di interesse tra l'istruzione, la scienza e i poteri del
+    denaro e della politica.</p>
+  <p>Gli accademici e i ricercatori, inoltre, dovranno ricevere finanziamenti a lungo termine, senza spendere gran
+    parte del loro tempo nella ricerca di sovvenzioni e progetti attraverso spaventose procedure burocratiche, o nella
+    giustificazione costante dell'uso scientifico dei fondi loro assegnati. Solo a queste condizioni potranno
+    rivendicare il loro diritto al tempo, senza il quale non è possibile alcun reale progresso intellettuale, nessuna
+    scienza libera e nessuna formazione libera, solida e coerente.</p>
+  <p>Infine, la democrazia deve essere al centro delle università e degli istituti di ricerca. Il dibattito critico con
+    i cittadini e la collegialità del processo decisionale devono sostituire la gestione dall'alto verso il basso da
+    parte di burocrati zelanti e incompetenti, interessati solo a stimolare la concorrenza e la cosiddetta
+    "eccellenza".</p>
+  <p>L'emergenza sociale ed ecologica che il mondo intero sta affrontando rappresenta un interesse generale comune che
+    dovrebbe spingerci a unirci se vogliamo essere all’altezza di tutte queste sfide. Un massiccio sviluppo delle
+    conoscenze scientifiche è oggi necessario per assicurare la transizione ecologica delle nostre società e per
+    sfuggire all'imminente disastro. Gli investimenti pubblici che rappresentano il 3% del PIL delle nazioni devono
+    essere destinati alla ricerca pubblica e ai servizi di istruzione superiore. Dobbiamo rispondere all’offensiva
+    neoliberale in modo organizzato: è tempo di costruire un'alternativa globale in cui accademici e scienziati,
+    studenti e cittadini difendano i tre pilastri del libero insegnamento superiore e della libera ricerca:
+    l'indipendenza della produzione scientifica e intellettuale, la libera critica e la libera trasmissione della
+    conoscenza.</p>
+  <p>Noi, firmatari di questo appello, membri della comunità accademica e della ricerca o del movimento sociale nel suo
+    complesso, veniamo da tutto il mondo. Ci impegniamo insieme a promuovere i valori della critica, della collegialità
+    e della cooperazione in campo scientifico e accademico. Difendiamo università e istituti di ricerca ben attrezzati
+    e liberi da interessi privati. Lottiamo contro le condizioni di lavoro precarie e promuoviamo un sistema
+    alternativo di pubblicazione scientifica in cui la conoscenza sia libera e aperta. Facciamo appello alla creazione
+    di una rete di solidarietà internazionale e allo sviluppo della conoscenza per tutti.</p>
+</div>
+<div lang="pt" style="display: none">
+  <p>Em todo o mundo, o Ensino Superior e a Pesquisa estão atualmente sujeitos à doutrina de choque do neoliberalismo,
+    onde o conhecimento é percebido como uma mera forma de melhorar a competitividade da economia, como possível fonte
+    de benefícios e como ferramenta de controle dos governos. Essa agenda neoliberal para a ciência é implementada por
+    meio de um novo modo de gestão pública, no qual estudantes, professores e pesquisadores precisam se tornar
+    empreendedores de seu capital e reputação cognitivos. Longe dos ideais cooperativos da ciência e da academia,
+    universidades e instituições de pesquisa são administradas como corporações, competindo entre si para atrair os
+    "melhores" estudantes e pesquisadores. Grupos de pesquisa e órgãos coletivos de trabalho são quase sistematicamente
+    esmagados ou subvertidos. Os gerentes de ciência devem procurar fundos e doações para empregar uma massa cada vez maior de
+    funcionários precários, cujos baixos salários contrastam com ganhos cada vez maiores de uma nova elite gerencial
+    incorporada a presidentes de universidades ou vice-reitores. O sofrimento no trabalho afeta a maioria de um novo
+    proletariado intelectual. Por outro lado, a loucura da avaliação, a pressão para "publicar ou perecer" e a
+    privatização da publicação científica levam a um crescente número de publicações, o que ameaça tanto a qualidade da
+    pesquisa quanto a transmissão aberta do conhecimento. Essa guerra material, na qual a austeridade acompanha a
+    privatização, permanece com uma guerra ideológica orwelliana, na qual as palavras, escritas em uma fala pobre e
+    mentirosa, perdem o sentido. O desejo de reconhecimento de cada um que leva à servidão de todos, os valores da
+    competição e do utilitarismo estão ganhando terreno em nossas comunidades científicas, onde os indivíduos estão
+    cada vez mais isolados e temem ser excluídos do jogo.</p>
+  <p>
+    Felizmente, a resistência emergiu, tanto em países onde a aplicação dessas políticas era a mais desenvolvida
+    (Grã-Bretanha ou Chile) quanto em países onde eles ainda estão menos avançados (França, Alemanha ou Canadá,
+    especialmente a região de Quebec). Em todo lugar, as mobilizações propõem alternativas a essas políticas
+    neoliberais, muito próximas umas das outras, tanto em termos de valores quanto de medidas concretas. Mais
+    crucialmente, todos nós compartilhamos a visão de que o conhecimento é parte dos bens comuns da humanidade, e que
+    seu valor depende de ser compartilhado com o maior número. Os outros componentes da alternativa à ciência
+    neoliberal derivam desse princípio.</p>
+  <p>
+    Primeiro, a universidade deve ser livre. Mas a luta pela abolição efetiva das mensalidades exige também que se
+    reconheça aos estudantes o direito a um subsídio financeiro substancial que garanta sua autonomia, dando-lhes os
+    meios para lidar com o conselho e a acomodação e poupar tempo para estudar.</p>
+  <p>
+    Em segundo lugar, acadêmicos e pesquisadores devem não apenas ter salários e aposentadorias decentes, mas também
+    devem receber cargos cheios com fortes garantias de independência. Essa é uma condição necessária se quisermos
+    evitar conflitos de interesses entre educação, ciência e os poderes do dinheiro e da política. Eles também devem
+    se beneficiar de créditos de longo prazo, sem gastar muito tempo solicitando um número crescente de doações e
+    projetos por meio de procedimentos burocráticos terríveis ou justificando constantemente o uso científico dos
+    fundos alocados a eles. É somente a esse preço que eles poderão reivindicar seu direito ao tempo, sem o qual nenhum
+    progresso intelectual real, nenhuma ciência livre e nenhuma educação livre, sólida e coerente são possíveis.</p>
+  <p>
+    Finalmente, a democracia deve estar no centro das universidades e instituições de pesquisa. O debate crítico com os
+    cidadãos e a colegialidade das decisões devem substituir a gestão top-down, vinda de burocratas incompetentes e
+    incompetentes, interessados ​​apenas em estimular a concorrência e a chamada "excelência".</p>
+  <p>
+    A emergência social e ecológica que o mundo enfrenta atualmente representa um interesse geral comum que deve nos
+    impulsionar a unir se quisermos enfrentar todos esses desafios. Um enorme desenvolvimento do conhecimento
+    científico é agora necessário para garantir a transição ecológica de nossas sociedades e escapar do desastre
+    iminente. O investimento público no valor de 3% do PIB das nações deve ser dedicado aos serviços públicos de
+    pesquisa e ensino superior. Também temos que lutar de maneira organizada: é hora de construir uma alternativa
+    global em que acadêmicos e cientistas, estudantes e cidadãos defendam os três pilares do ensino superior e da
+    pesquisa: independência da produção científica e intelectual, crítica livre e transmissão irrestrita de
+    conhecimento.</p>
+  <p>
+    Nós, os signatários deste chamado, sejam membros da comunidade acadêmica e de pesquisa ou do movimento social como
+    um todo, vêm de todo o mundo. Comprometemo-nos a promover os valores da crítica, colegialidade e cooperação na
+    ciência e na academia. Defendemos universidades e instituições de pesquisa bem dotadas e livres de interesses
+    privados. Lutamos contra condições de trabalho precárias e promovemos um sistema alternativo de publicação
+    científica em que o conhecimento é livre e aberto. Apelamos à constituição de uma rede de solidariedade
+    internacional e ao desenvolvimento do conhecimento para todos.</p>
+</div>
+<div lang="es" style="display: none">
+  <p>En todo el mundo, la Educación Superior y la Investigación están sometidas actualmente a la doctrina de choque del
+    neoliberalismo, donde el conocimiento se percibe como una mera forma de mejorar la competitividad de la economía,
+    como una posible fuente de beneficios y como una herramienta de control para los gobiernos. Esta agenda neoliberal
+    de la ciencia se implementa a través de un nuevo modo de gestión pública en el que los estudiantes, docentes e
+    investigadores deben convertirse en emprendedores de su capital cognitivo y de su reputación. Lejos de los ideales
+    cooperativos de la ciencia y la educación, las universidades y las instituciones de investigación se manejan como
+    empresas, compitiendo entre sí para atraer a los "mejores" estudiantes e investigadores. Los grupos de
+    investigación y los cuerpos colectivos de trabajo son aplastados o subvertidos casi sistemáticamente. Se supone que los
+    administradores de la ciencia deben buscar fondos y subvenciones para emplear a una masa cada vez mayor de personal
+    precario, cuyos bajos salarios contrastan con los ingresos cada vez más altos de una nueva élite gerencial
+    encarnada en los rectores y vice-rectores de las universidades. El sufrimiento en el trabajo afecta a la
+    mayoría del nuevo proletariado intelectual. Por otro lado, la locura de la evaluación, la presión para "publicar o
+    perecer" y la privatización de la publicación científica conducen a un número creciente de publicaciones, lo que
+    amenaza tanto la calidad de la investigación como la transmisión abierta del conocimiento. Esta guerra material, en
+    la que la austeridad va de la mano con la privatización, está acompañada de una guerra ideológica orwelliana en la
+    que las palabras, escritas en un lenguaje pobre y mentiroso, pierden su significado. El deseo de reconocimiento de
+    cada uno conduciendo a la servidumbre de todos, los valores de la competencia y el utilitarismo están ganando
+    terreno en nuestras comunidades científicas, donde los individuos están cada vez más aislados y temen ser excluidos
+    del juego.</p>
+  <p>
+    Afortunadamente, han surgido resistencias, tanto en los países en los que la aplicación de estas políticas era la
+    más desarrollada (tal como Gran Bretaña o Chile) como en aquellos donde no lo están tanto (Francia, Alemania o
+    Canadá, especialmente la región de Quebec). En todas partes, las movilizaciones proponen alternativas a estas
+    políticas neoliberales, muy próximas entre sí, tanto en términos de valores como de medidas concretas. Lo más
+    importante es que todos compartimos la opinión de que el conocimiento forma parte del patrimonio común de la
+    humanidad y que su valor depende de que se comparta con el mayor número posible de personas. Los otros componentes
+    de la alternativa a la ciencia neoliberal provienen de este principio.</p>
+  <p>
+    Primero, la universidad debe ser libre. Pero la lucha por la abolición efectiva de los derechos de matrícula exige
+    también que se reconozca a los estudiantes el derecho a una asignación financiera sustancial que les garantice su
+    autonomía, ofreciéndoles los recursos para la comida y el alojamiento y tiempo libre para
+    estudiar.</p>
+  <p>
+    En segundo lugar, los profesores y los investigadores no sólo deben tener salarios y pensiones decentes, sino que
+    también se les deben conceder puestos plenos con fuertes garantías de independencia. Esta es una condición
+    necesaria si queremos evitar conflictos de intereses entre la educación, la ciencia y los poderes del dinero y la
+    política.</p>
+  <p>
+    También deben beneficiarse de créditos a largo plazo, sin tener que dedicar gran parte de su tiempo a solicitar un
+    número cada vez mayor de subvenciones y proyectos a través de procedimientos burocráticos espantosos ni tener que
+    justificar constantemente el uso científico de los fondos que se les asignan. Sólo a este precio podrán reivindicar
+    su derecho al tiempo, sin el cual no es posible ningún progreso intelectual real, ninguna ciencia libre y ninguna
+    educación libre, sólida y coherente.</p>
+  <p>
+    Por último, la democracia debe estar en el centro de las universidades y las instituciones de investigación. El
+    debate crítico con los ciudadanos y la colegialidad de las decisiones deben sustituir a la gestión de arriba hacia
+    abajo procedente de burócratas celosos e incompetentes interesados únicamente en estimular la competición y la
+    llamada "excelencia".</p>
+  <p>
+    La emergencia social y ecológica a la que se enfrenta actualmente todo el mundo representa un interés general común
+    que debería impulsarnos a unirnos si queremos hacer frente a todos estos retos. Ahora es necesario un desarrollo
+    masivo del conocimiento científico para garantizar la transición ecológica de nuestras sociedades y escapar de la
+    catástrofe que se avecina. La inversión pública, que tiene que ascender al 3% del PIB de las naciones, debe
+    dedicarse a los servicios públicos de investigación y educación superior. También tenemos que contraatacar de
+    manera organizada: es hora de construir una alternativa mundial en la que académicos y científicos, estudiantes y
+    ciudadanos defiendan los tres pilares de la educación superior y la investigación: independencia de la
+    producción científica e intelectual, crítica libre y transmisión ilimitada del conocimiento.</p>
+  <p>
+    Nosotros, los firmantes de este llamamiento, miembros de la comunidad académica y de investigación o del movimiento
+    social en su conjunto, venimos de todas partes del mundo. Nos comprometemos juntos a promover los valores de la
+    crítica, la colegialidad y la cooperación en la ciencia y la academia. Defendemos universidades e instituciones de
+    investigación bien dotadas y libres de intereses privados. Luchamos contra las precarias condiciones de trabajo y
+    promovemos un sistema alternativo de publicación científica en el que el conocimiento es libre y abierto. Pedimos
+    la constitución de una red de solidaridad internacional y del desarrollo del conocimiento para todos.</p>
+</div>
+<br />
+<div class="widget ContactForm" id="ContactForm1">
+  <div class="contact-form-widget">
+    <div class="form">
+      <form class="contact-form" name="contact-form">
+        <div lang="fr">
+          Prénom *<br />
+        </div>
+        <div lang="en" style="display: none">
+          First name *<br />
+        </div>
+        <div lang="de" style="display: none">
+          Vorname *<br />
+        </div>
+        <div lang="it" style="display: none">
+          Nome *<br />
+        </div>
+        <div lang="pt" style="display: none">
+          Nome *<br />
+        </div>
+        <div lang="es" style="display: none">
+          Nombre *<br />
+        </div>
+        <input class="contact-form-name" id="selectfirstname" name="name" placeholder="" type="text" value="" />
+        <br />
+        <div lang="fr">
+          Nom *<br />
+        </div>
+        <div lang="en" style="display: none">
+          Last name *<br />
+        </div>
+        <div lang="de" style="display: none">
+          Name *<br />
+        </div>
+        <div lang="it" style="display: none">
+          Cognome *<br />
+        </div>
+        <div lang="pt" style="display: none">
+          Sobrenome *<br />
+        </div>
+        <div lang="es" style="display: none">
+          Apellido *<br />
+        </div>
+        <input class="contact-form-name" id="selectname" name="name" placeholder="" type="text" value="" />
+        <input class="contact-form-name" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm1_contact-form-name"
+          name="name" placeholder="" type="text" value="" style="display: none;" /> <br />
+        <div>
+          <div style="display: inline-block">
+            <label id="selectactivitylabel">
+              <div lang="fr">
+                Activité *
+              </div>
+              <div lang="en" style="display: none">
+                Activity *
+              </div>
+              <div lang="de" style="display: none">
+                Beruf *
+              </div>
+              <div lang="it" style="display: none">
+                Attività *
+              </div>
+              <div lang="pt" style="display: none">
+                Actividade *
+              </div>
+              <div lang="es" style="display: none">
+                Actividad *
+              </div>
+              <select name="selectactivity" id="selectactivity" onchange="checkActivity()">
+                <option value="">-non-sélectionnée-</option>
+                <option value="student">étudiant</option>
+                <option value="phd">doctorant</option>
+                <option value="university">universitaire</option>
+                <option value="researcher">chercheur</option>
+                <option value="retired">retraité</option>
+                <option value="other">autre</option>
+              </select>
+            </label>
+          </div>
+          <div id="showprecisetactivity" style="display: none; ">
+            <div lang="fr">
+              Précisez s'il vous plaît *
+            </div>
+            <div lang="en" style="display: none">
+              please specify *
+            </div>
+            <div lang="de" style="display: none">
+              bitte ergänzen *>
+            </div>
+            <div lang="it" style="display: none">
+              si prega di specificare *
+            </div>
+            <div lang="pt" style="display: none">
+              por favor especifique *
+            </div>
+            <div lang="es" style="display: none">
+              por favor, especifique *
+            </div>
+            <input class="contact-form-name" id="preciseactivity" name="name" placeholder="" type="text" value="" size="34" />
+          </div>
+        </div>
+        <br />
+        <label id="selectcountrylabel">
+          <div lang="fr">
+            Pays *
+          </div>
+          <div lang="en" style="display: none">
+            Country *
+          </div>
+          <div lang="de" style="display: none">
+            Land *>
+          </div>
+          <div lang="it" style="display: none">
+            Paese *
+          </div>
+          <div lang="pt" style="display: none">
+            País *
+          </div>
+          <div lang="es" style="display: none">
+            País *
+          </div>
+        </label>
+        <select name="selectcountry" id="selectcountry">
+          <option value="">-non-sélectionné-</option>
+          <option value="AF">Afghanistan</option>
+          <option value="AX">Åland Islands</option>
+          <option value="AL">Albania</option>
+          <option value="DZ">Algeria</option>
+          <option value="AS">American Samoa</option>
+          <option value="AD">Andorra</option>
+          <option value="AO">Angola</option>
+          <option value="AI">Anguilla</option>
+          <option value="AQ">Antarctica</option>
+          <option value="AG">Antigua and Barbuda</option>
+          <option value="AR">Argentina</option>
+          <option value="AM">Armenia</option>
+          <option value="AW">Aruba</option>
+          <option value="AU">Australia</option>
+          <option value="AT">Austria</option>
+          <option value="AZ">Azerbaijan</option>
+          <option value="BS">Bahamas</option>
+          <option value="BH">Bahrain</option>
+          <option value="BD">Bangladesh</option>
+          <option value="BB">Barbados</option>
+          <option value="BY">Belarus</option>
+          <option value="BE">Belgium</option>
+          <option value="BZ">Belize</option>
+          <option value="BJ">Benin</option>
+          <option value="BM">Bermuda</option>
+          <option value="BT">Bhutan</option>
+          <option value="BO">Bolivia, Plurinational State of</option>
+          <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+          <option value="BA">Bosnia and Herzegovina</option>
+          <option value="BW">Botswana</option>
+          <option value="BV">Bouvet Island</option>
+          <option value="BR">Brazil</option>
+          <option value="IO">British Indian Ocean Territory</option>
+          <option value="BN">Brunei Darussalam</option>
+          <option value="BG">Bulgaria</option>
+          <option value="BF">Burkina Faso</option>
+          <option value="BI">Burundi</option>
+          <option value="KH">Cambodia</option>
+          <option value="CM">Cameroon</option>
+          <option value="CA">Canada</option>
+          <option value="CV">Cape Verde</option>
+          <option value="KY">Cayman Islands</option>
+          <option value="CF">Central African Republic</option>
+          <option value="TD">Chad</option>
+          <option value="CL">Chile</option>
+          <option value="CN">China</option>
+          <option value="CX">Christmas Island</option>
+          <option value="CC">Cocos (Keeling) Islands</option>
+          <option value="CO">Colombia</option>
+          <option value="KM">Comoros</option>
+          <option value="CG">Congo</option>
+          <option value="CD">Congo, the Democratic Republic of the</option>
+          <option value="CK">Cook Islands</option>
+          <option value="CR">Costa Rica</option>
+          <option value="CI">Côte d'Ivoire</option>
+          <option value="HR">Croatia</option>
+          <option value="CU">Cuba</option>
+          <option value="CW">Curaçao</option>
+          <option value="CY">Cyprus</option>
+          <option value="CZ">Czech Republic</option>
+          <option value="DK">Denmark</option>
+          <option value="DJ">Djibouti</option>
+          <option value="DM">Dominica</option>
+          <option value="DO">Dominican Republic</option>
+          <option value="EC">Ecuador</option>
+          <option value="EG">Egypt</option>
+          <option value="SV">El Salvador</option>
+          <option value="GQ">Equatorial Guinea</option>
+          <option value="ER">Eritrea</option>
+          <option value="EE">Estonia</option>
+          <option value="ET">Ethiopia</option>
+          <option value="FK">Falkland Islands (Malvinas)</option>
+          <option value="FO">Faroe Islands</option>
+          <option value="FJ">Fiji</option>
+          <option value="FI">Finland</option>
+          <option value="FR">France</option>
+          <option value="GF">French Guiana</option>
+          <option value="PF">French Polynesia</option>
+          <option value="TF">French Southern Territories</option>
+          <option value="GA">Gabon</option>
+          <option value="GM">Gambia</option>
+          <option value="GE">Georgia</option>
+          <option value="DE">Germany</option>
+          <option value="GH">Ghana</option>
+          <option value="GI">Gibraltar</option>
+          <option value="GR">Greece</option>
+          <option value="GL">Greenland</option>
+          <option value="GD">Grenada</option>
+          <option value="GP">Guadeloupe</option>
+          <option value="GU">Guam</option>
+          <option value="GT">Guatemala</option>
+          <option value="GG">Guernsey</option>
+          <option value="GN">Guinea</option>
+          <option value="GW">Guinea-Bissau</option>
+          <option value="GY">Guyana</option>
+          <option value="HT">Haiti</option>
+          <option value="HM">Heard Island and McDonald Islands</option>
+          <option value="VA">Holy See (Vatican City State)</option>
+          <option value="HN">Honduras</option>
+          <option value="HK">Hong Kong</option>
+          <option value="HU">Hungary</option>
+          <option value="IS">Iceland</option>
+          <option value="IN">India</option>
+          <option value="ID">Indonesia</option>
+          <option value="IR">Iran, Islamic Republic of</option>
+          <option value="IQ">Iraq</option>
+          <option value="IE">Ireland</option>
+          <option value="IM">Isle of Man</option>
+          <option value="IL">Israel</option>
+          <option value="IT">Italy</option>
+          <option value="JM">Jamaica</option>
+          <option value="JP">Japan</option>
+          <option value="JE">Jersey</option>
+          <option value="JO">Jordan</option>
+          <option value="KZ">Kazakhstan</option>
+          <option value="KE">Kenya</option>
+          <option value="KI">Kiribati</option>
+          <option value="KP">Korea, Democratic People's Republic of</option>
+          <option value="KR">Korea, Republic of</option>
+          <option value="KW">Kuwait</option>
+          <option value="KG">Kyrgyzstan</option>
+          <option value="LA">Lao People's Democratic Republic</option>
+          <option value="LV">Latvia</option>
+          <option value="LB">Lebanon</option>
+          <option value="LS">Lesotho</option>
+          <option value="LR">Liberia</option>
+          <option value="LY">Libya</option>
+          <option value="LI">Liechtenstein</option>
+          <option value="LT">Lithuania</option>
+          <option value="LU">Luxembourg</option>
+          <option value="MO">Macao</option>
+          <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+          <option value="MG">Madagascar</option>
+          <option value="MW">Malawi</option>
+          <option value="MY">Malaysia</option>
+          <option value="MV">Maldives</option>
+          <option value="ML">Mali</option>
+          <option value="MT">Malta</option>
+          <option value="MH">Marshall Islands</option>
+          <option value="MQ">Martinique</option>
+          <option value="MR">Mauritania</option>
+          <option value="MU">Mauritius</option>
+          <option value="YT">Mayotte</option>
+          <option value="MX">Mexico</option>
+          <option value="FM">Micronesia, Federated States of</option>
+          <option value="MD">Moldova, Republic of</option>
+          <option value="MC">Monaco</option>
+          <option value="MN">Mongolia</option>
+          <option value="ME">Montenegro</option>
+          <option value="MS">Montserrat</option>
+          <option value="MA">Morocco</option>
+          <option value="MZ">Mozambique</option>
+          <option value="MM">Myanmar</option>
+          <option value="NA">Namibia</option>
+          <option value="NR">Nauru</option>
+          <option value="NP">Nepal</option>
+          <option value="NL">Netherlands</option>
+          <option value="NC">New Caledonia</option>
+          <option value="NZ">New Zealand</option>
+          <option value="NI">Nicaragua</option>
+          <option value="NE">Niger</option>
+          <option value="NG">Nigeria</option>
+          <option value="NU">Niue</option>
+          <option value="NF">Norfolk Island</option>
+          <option value="MP">Northern Mariana Islands</option>
+          <option value="NO">Norway</option>
+          <option value="OM">Oman</option>
+          <option value="PK">Pakistan</option>
+          <option value="PW">Palau</option>
+          <option value="PS">Palestinian Territory, Occupied</option>
+          <option value="PA">Panama</option>
+          <option value="PG">Papua New Guinea</option>
+          <option value="PY">Paraguay</option>
+          <option value="PE">Peru</option>
+          <option value="PH">Philippines</option>
+          <option value="PN">Pitcairn</option>
+          <option value="PL">Poland</option>
+          <option value="PT">Portugal</option>
+          <option value="PR">Puerto Rico</option>
+          <option value="QA">Qatar</option>
+          <option value="RE">Réunion</option>
+          <option value="RO">Romania</option>
+          <option value="RU">Russian Federation</option>
+          <option value="RW">Rwanda</option>
+          <option value="BL">Saint Barthélemy</option>
+          <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+          <option value="KN">Saint Kitts and Nevis</option>
+          <option value="LC">Saint Lucia</option>
+          <option value="MF">Saint Martin (French part)</option>
+          <option value="PM">Saint Pierre and Miquelon</option>
+          <option value="VC">Saint Vincent and the Grenadines</option>
+          <option value="WS">Samoa</option>
+          <option value="SM">San Marino</option>
+          <option value="ST">Sao Tome and Principe</option>
+          <option value="SA">Saudi Arabia</option>
+          <option value="SN">Senegal</option>
+          <option value="RS">Serbia</option>
+          <option value="SC">Seychelles</option>
+          <option value="SL">Sierra Leone</option>
+          <option value="SG">Singapore</option>
+          <option value="SX">Sint Maarten (Dutch part)</option>
+          <option value="SK">Slovakia</option>
+          <option value="SI">Slovenia</option>
+          <option value="SB">Solomon Islands</option>
+          <option value="SO">Somalia</option>
+          <option value="ZA">South Africa</option>
+          <option value="GS">South Georgia and the South Sandwich Islands</option>
+          <option value="SS">South Sudan</option>
+          <option value="ES">Spain</option>
+          <option value="LK">Sri Lanka</option>
+          <option value="SD">Sudan</option>
+          <option value="SR">Suriname</option>
+          <option value="SJ">Svalbard and Jan Mayen</option>
+          <option value="SZ">Swaziland</option>
+          <option value="SE">Sweden</option>
+          <option value="CH">Switzerland</option>
+          <option value="SY">Syrian Arab Republic</option>
+          <option value="TW">Taiwan, Province of China</option>
+          <option value="TJ">Tajikistan</option>
+          <option value="TZ">Tanzania, United Republic of</option>
+          <option value="TH">Thailand</option>
+          <option value="TL">Timor-Leste</option>
+          <option value="TG">Togo</option>
+          <option value="TK">Tokelau</option>
+          <option value="TO">Tonga</option>
+          <option value="TT">Trinidad and Tobago</option>
+          <option value="TN">Tunisia</option>
+          <option value="TR">Turkey</option>
+          <option value="TM">Turkmenistan</option>
+          <option value="TC">Turks and Caicos Islands</option>
+          <option value="TV">Tuvalu</option>
+          <option value="UG">Uganda</option>
+          <option value="UA">Ukraine</option>
+          <option value="AE">United Arab Emirates</option>
+          <option value="GB">United Kingdom</option>
+          <option value="US">United States</option>
+          <option value="UM">United States Minor Outlying Islands</option>
+          <option value="UY">Uruguay</option>
+          <option value="UZ">Uzbekistan</option>
+          <option value="VU">Vanuatu</option>
+          <option value="VE">Venezuela, Bolivarian Republic of</option>
+          <option value="VN">Viet Nam</option>
+          <option value="VG">Virgin Islands, British</option>
+          <option value="VI">Virgin Islands, U.S.</option>
+          <option value="WF">Wallis and Futuna</option>
+          <option value="EH">Western Sahara</option>
+          <option value="YE">Yemen</option>
+          <option value="ZM">Zambia</option>
+          <option value="ZW">Zimbabwe</option>
+        </select>
+        <br /><br />
+        <div>
+          e-mail *
+        </div>
+        <input class="contact-form-email" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm1_contact-form-email"
+          name="email" placeholder="" type="text" value="" />
+        <br />
+        <textarea class="contact-form-email-message" cols="25" id="ContactForm1_contact-form-email-message" name="email-message"
+          placeholder="" rows="5" style="display: none;"></textarea>
+
+        <input class="contact-form-button contact-form-button-submit" id="ContactForm1_contact-form-submit" type="button"
+          value="Envoyer" style="display: none" />
+        <input class="contact-form-button contact-form-button-submit" id="auxContactForm1_contact-form-submit" type="button"
+          onclick="sendEmailMsg()" value="Envoyer" />
+        <br />
+        <div class="contact-form-error-message" id="ContactForm1_contact-form-error-message">
+        </div>
+        <div id="firstnamemissing" style="display: none;">
+          <div lang="fr">
+            Veuillez indiquer votre prénom.
+            <span onclick="hidediv('firstnamemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="en" style="display: none">
+            Give your first name.
+            <span onclick="hidediv('firstnamemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="de" style="display: none">
+            Vornamen bitte angeben.
+            <span onclick="hidediv('firstnamemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="it" style="display: none">
+            Indicare il vostro nome.
+            <span onclick="hidediv('firstnamemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="pt" style="display: none">
+            Por favor, indique o seu nome.
+            <span onclick="hidediv('firstnamemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="es" style="display: none">
+            Por favor, indique su nombre.
+            <span onclick="hidediv('firstnamemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+        </div>
+        <div id="namemissing" style="display: none;">
+          <div lang="fr">
+            Veuillez indiquer votre nom.
+            <span onclick="hidediv('namemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="en" style="display: none">
+            Give your last name.
+            <span onclick="hidediv('namemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="de" style="display: none">
+            Namen bitte angeben.
+            <span onclick="hidediv('namemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="it" style="display: none">
+            Indicare il vostro cognome.
+            <span onclick="hidediv('namemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="pt" style="display: none">
+            Por favor, indique o seu sobrenome.
+            <span onclick="hidediv('namemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="es" style="display: none">
+            Por favor, indique su apellido.
+            <span onclick="hidediv('namemissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+        </div>
+        <div id="activitymissing" style="display: none;">
+          <div lang="fr">
+            Veuillez sélectionner votre activité.
+            <span onclick="hidediv('activitymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="en" style="display: none">
+            Select your activity.
+            <span onclick="hidediv('activitymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="de" style="display: none">
+            Berufsfeld bitte auswählen.
+            <span onclick="hidediv('activitymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="it" style="display: none">
+            Selezionare l'attività.
+            <span onclick="hidediv('activitymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="pt" style="display: none">
+            Por favor, indique a sua actividade.
+            <span onclick="hidediv('activitymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="es" style="display: none">
+            Por favor, indique su actividad.
+            <span onclick="hidediv('activitymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+        </div>
+        <div id="activityprecisionmissing" style="display: none;">
+          <div lang="fr">
+            Veuillez préciser votre activité.
+            <span onclick="hidediv('activityprecisionmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="en" style="display: none">
+            Precise your activity.
+            <span onclick="hidediv('activityprecisionmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="de" style="display: none">
+            Bitte ergänzen.
+            <span onclick="hidediv('activityprecisionmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="it" style="display: none">
+            Specificare l'attività.
+            <span onclick="hidediv('activityprecisionmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="pt" style="display: none">
+            Por favor, especifique a sua actividade.
+            <span onclick="hidediv('activityprecisionmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="es" style="display: none">
+            Por favor, especifique su actividad.
+            <span onclick="hidediv('activityprecisionmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+        </div>
+        <div id="countrymissing" style="display: none;">
+          <div lang="fr">
+            Veuillez sélectionner votre pays.
+            <span onclick="hidediv('countrymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="en" style="display: none">
+            Select your country.
+            <span onclick="hidediv('countrymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="de" style="display: none">
+            Herkunftsland bitte angeben.
+            <span onclick="hidediv('countrymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="it" style="display: none">
+            Selezionare il paese.
+            <span onclick="hidediv('countrymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="pt" style="display: none">
+            Por favor, indique o seu país.
+            <span onclick="hidediv('countrymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="es" style="display: none">
+            Por favor, indique su país.
+            <span onclick="hidediv('countrymissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+        </div>
+        <div id="emailmissing" style="display: none;">
+          <div lang="fr">
+            Veuillez indiquer votre adresse e-mail.
+            <span onclick="hidediv('emailmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="en" style="display: none">
+            Your email is required.
+            <span onclick="hidediv('emailmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="de" style="display: none">
+            Vornamen email.
+            <span onclick="hidediv('emailmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="it" style="display: none">
+            Indicare il vostro email.
+            <span onclick="hidediv('emailmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="pt" style="display: none">
+            Por favor, indique o seu email.
+            <span onclick="hidediv('emailmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="es" style="display: none">
+            Por favor, indique su email.
+            <span onclick="hidediv('emailmissing');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+        </div>
+        <div id="invalidemail" style="display: none;">
+          <div lang="fr">
+            Veuillez indiquer une adresse e-mail valide.
+            <span onclick="hidediv('invalidemail');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="en" style="display: none">
+            A valid email is required.
+            <span onclick="hidediv('invalidemail');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="de" style="display: none">
+            Gültige Email-Adresse bitte angeben.
+            <span onclick="hidediv('invalidemail');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="it" style="display: none">
+            Inserisci un indirizzo email valido.
+            <span onclick="hidediv('invalidemail');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="pt" style="display: none">
+            É necessário um endereço de email válido.
+            <span onclick="hidediv('invalidemail');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="es" style="display: none">
+            Hay que escribir una dirección de correo electrónico válida.
+            <span onclick="hidediv('invalidemail');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+        </div>
+        <div id="successend" style="display: none;">
+          <div lang="fr">
+            Votre inscription a bien été envoyée.
+            <span onclick="hidediv('successend');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="en" style="display: none">
+           Your registration has been sent.
+            <span onclick="hidediv('successend');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="de" style="display: none">
+           Deine Anmeldung wurde gesendet.
+            <span onclick="hidediv('successend');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="it" style="display: none">
+           La tua registrazione è stata inviata.
+            <span onclick="hidediv('successend');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="pt" style="display: none">
+           O seu registo foi enviado.
+            <span onclick="hidediv('successend');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+          <div lang="es" style="display: none">
+           Su registro ha sido enviado.
+            <span onclick="hidediv('successend');">
+              <img src="https://lh3.googleusercontent.com/-lRqEuka4eEo/XApBChe3JTI/AAAAAAAAiBQ/NXm2BELlByYnBN4Q8b-Rxr8c_KBJ0BtrACHMYCw/s0/icon_contactform_cross.jpgf"
+                width="12" height="12" alt="Close" />
+            </span>
+          </div>
+        </div>
+        <div class="contact-form-success-message" id="ContactForm1_contact-form-success-message">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+var submitted=false;
+function subFormLoad() {
+        document.getElementById('successend').style.display = 'block';
+}
+</script>
+<center><div style="display:none">
+<!--iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {subFormLoad(); } return false;"></iframe-->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" ></iframe>
+<form  name='formSubmit' action="" method="post" target="hidden_iframe" onsubmit="submitted=true; return false;">
+<label>Prénom</label><br/>
+<input type="text" placeholder="FirstName" name="entry.2005620554" id="FirstName_formSubmit" required><br/>
+<label>Nom</label><br/>
+<input type="text" placeholder="Name" name="entry.1065046570" id="Name_formSubmit" required><br/>
+<label>Email</label><br/>
+<input type="text" placeholder="Email" name="entry.1045781291" id="Email_formSubmit" required><br/>
+<label>Activité</label><br/>
+<input type="text" placeholder="Activity" name="entry.1166974658" id="Activity_formSubmit" required><br/>
+<label>Pays</label><br/>
+<input type="text" placeholder="Country" name="entry.519263516" id="Country_formSubmit" required><br/>
+<!--label>Message</label><br/>
+<textarea rows="5" placeholder="Message" name="" required></textarea><br/-->
+<!--button type="submit">Send</button-->
+</form>
+</div></center>
+<p></p>
+<p></p>
+<div lang="fr">
+  <p style="text-align: right;">
+    <!--button class="styled" type="button" id='frbtalreadypublished' onclick="javascript:toggleButton(
+'frbtalreadypublished',
+'fralreadypublished',
+'Voir les signataires',
+'Cacher les signataires'
+)">
+      Voir les signataires
+    </button-->
+<a class="inline cboxElement butSignatures" href="#fralreadypublished" style="color: white;">Voir les signataires</a>
+</p>
+  <p></p>
+  <div style='display: none; width: 80%;'>
+  <div id='fralreadypublished' >
+    <!--center><iframe  id="form-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pubhtml?gid=1148188777&amp;single=false&amp;widget=false&amp;headers=false&amp;chrome=false"
+        style="width: 1090px; height: 2000px;" frameborder="0"></iframe></center-->
+  </div>
+</div>
+</div>
+<div lang="en" style="display: none">
+  <p style="text-align: right;">
+    <!--button class="styled" type="button" id='enbtalreadypublished' onclick="javascript:toggleButton(
+'enbtalreadypublished',
+'enalreadypublished',
+'See signatories',
+'Hide signatories'
+)">
+      See signatories
+    </button-->
+<a class="inline cboxElement butSignatures" href="#enalreadypublished" style="color: white;">See signatories</a>
+</p>
+  <p></p>
+  <div style='display: none; width: 80%;'>
+  <div id='enalreadypublished' >
+    <!--center><iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pubhtml?gid=729508517&amp;single=false&amp;widget=false&amp;headers=false&amp;chrome=false"
+        style="width: 1090px; height: 2000px;" frameborder="0"></iframe></center-->
+  </div>
+  </div>
+</div>
+<div lang="de" style="display: none">
+  <p style="text-align: right;">
+    <!--button class="styled" type="button" id='debtalreadypublished' onclick="javascript:toggleButton(
+'debtalreadypublished',
+'dealreadypublished',
+'Sehen Sie die Unterzeichner',
+'Verbergen Sie die Unterzeichner'
+)">
+      Unterzeichner anzeigen
+    </button-->
+<a class="inline cboxElement butSignatures" href="#dealreadypublished" style="color: white;">Unterzeichner anzeigen</a>
+</p>
+  <p></p>
+  <div style='display: none; width: 80%;'>
+  <div id='dealreadypublished'>
+    <!--center><iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pubhtml?gid=1380254629&amp;single=false&amp;widget=false&amp;headers=false&amp;chrome=false"
+        style="width: 1090px; height: 2000px;" frameborder="0"></iframe></center-->
+  </div>
+  </div>
+</div>
+<div lang="it" style="display: none">
+  <p style="text-align: right;">
+    <!--button class="styled" type="button" id='itbtalreadypublished' onclick="javascript:toggleButton(
+'itbtalreadypublished',
+'italreadypublished',
+'Vedere i firmatari',
+'Nascondi i firmatari'
+)">
+      Vedere i firmatari
+    </button-->
+<a class="inline cboxElement butSignatures" href="#italreadypublished" style="color: white;">Vedere i firmatari</a>
+</p>
+  <p></p>
+  <div style='display: none; width: 80%;'>
+  <div id='italreadypublished'>
+    <!--center><iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pubhtml?gid=1708432101&amp;single=false&amp;widget=false&amp;headers=false&amp;chrome=false"
+        style="width: 1090px; height: 2000px;" frameborder="0"></iframe></center-->
+  </div>
+  </div>
+</div>
+<div lang="pt" style="display: none">
+  <p style="text-align: right;">
+    <!--button class="styled" type="button" id='ptbtalreadypublished' onclick="javascript:toggleButton(
+'ptbtalreadypublished',
+'ptalreadypublished',
+'Ver signatários',
+'Ocultar signatários'
+)">
+      Ver signatários
+    </button-->
+<a class="inline cboxElement butSignatures" href="#ptalreadypublished" style="color: white;">Ver signatários</a>
+</p>
+  <p></p>
+  <div style='display: none; width: 80%;'>
+  <div id='ptalreadypublished'>
+    <!--center><iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pubhtml?gid=1134220747&amp;single=false&amp;widget=false&amp;headers=false&amp;chrome=false"
+        style="width: 1090px; height: 2000px;" frameborder="0"></iframe></center-->
+  </div>
+  </div>
+</div>
+<div lang="es" style="display: none">
+  <p style="text-align: right;">
+    <!--button class="styled" type="button" id='esbtalreadypublished' onclick="javascript:toggleButton(
+'esbtalreadypublished',
+'esalreadypublished',
+'Ver a los signatarios',
+'Ocultar a los signatarios'
+)">
+      Ver a los signatarios
+    </button-->
+<a class="inline cboxElement butSignatures" href="#esalreadypublished" style="color: white;">Ver a los signatarios</a>
+</p>
+  <p></p>
+  <div style='display: none; width: 80%;'>
+  <div id='esalreadypublished'>
+    <!--center><iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pubhtml?gid=12034407&amp;single=false&amp;widget=false&amp;headers=false&amp;chrome=false"
+        style="width: 1090px; height: 2000px;" frameborder="0"></iframe></center-->
+  </div>
+  </div>
+</div>
+<div style="position: 0;" id="idSignaturesBlock">
+<div style="display: inline-block; margin-top: 1em; width: 100%">
+  <div id="mapSignatures"></div>
+  <div id="signatures-country-name"  data-lang="en" data-country="" style="display: none"></div>
+</div>
+</div>
+<script type="text/javascript">
+breakCode : {
+var href = "https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html";
+var actHref = window.location.href;
+if( actHref.indexOf(href) == -1) break breakCode;
+
+  var frHandler = document.getElementById("frHandler");
+  frHandler.addEventListener("click", frLang, false);
+  var enHandler = document.getElementById("enHandler");
+  enHandler.addEventListener("click", enLang, false);
+  var deHandler = document.getElementById("deHandler");
+  deHandler.addEventListener("click", deLang, false);
+  var itHandler = document.getElementById("itHandler");
+  itHandler.addEventListener("click", itLang, false);
+  var ptHandler = document.getElementById("ptHandler");
+  ptHandler.addEventListener("click", ptLang, false);
+  var esHandler = document.getElementById("esHandler");
+  esHandler.addEventListener("click", esLang, false);
+
+  function frLang() {
+    setLangOther("fr");
+  }
+
+  function enLang() {
+    setLangOther("en");
+  }
+
+  function deLang() {
+    setLangOther("de");
+  }
+
+  function itLang() {
+    setLangOther("it");
+  }
+
+  function ptLang() {
+    setLangOther("pt");
+  }
+
+  function esLang() {
+    setLangOther("es");
+  }
+  var myLang;
+  var msgLang;
+  var contactFormMessageSendingMsg;
+  var contactFormMessageSentMsg;
+  var contactFormMessageNotSentMsg;
+  var contactFormInvalidEmailMsg;
+  var contactFormEmptyMessageMsg;
+
+  function setLangOther(Lang) {
+    var selectActivityItem = [];
+    var selectCountryItem = [];
+    var sendItem;
+    myLang = Lang;
+    switch (Lang) {
+      case "fr":
+        contactFormMessageSendingMsg = 'Envoi en cours...';
+        contactFormMessageSentMsg = 'Votre message a été envoyé.';
+        contactFormMessageNotSentMsg = 'Impossible d\x27envoyer le message. Veuillez réessayer ultérieurement.';
+        contactFormInvalidEmailMsg = 'Veuillez indiquer une adresse e-mail valide.';
+        contactFormEmptyMessageMsg = 'Le champ de message doit être renseigné.';
+        msgLang = "français";
+        selectActivityItem[0] = '-non-sélectionné-';
+        selectActivityItem[1] = 'étudiant';
+        selectActivityItem[2] = 'doctorant';
+        selectActivityItem[3] = 'universitaire';
+        selectActivityItem[4] = 'chercheur';
+        selectActivityItem[5] = 'retraité';
+        selectActivityItem[6] = 'autre';
+        selectCountryItem[0] = '-non-sélectionné-';
+        sendItem = "ENVOYER";
+        break;
+      case "en":
+        contactFormMessageSendingMsg = 'Sending...';
+        contactFormMessageSentMsg = 'Your message has been sent.';
+        contactFormMessageNotSentMsg = 'Message could not be sent. Please try again later.';
+        contactFormInvalidEmailMsg = 'A valid email is required.';
+        contactFormEmptyMessageMsg = 'Message field may not be empty.';
+        msgLang = "anglais";
+        selectActivityItem[0] = '-not-selected-';
+        selectActivityItem[1] = 'student';
+        selectActivityItem[2] = 'doctoral candidate';
+        selectActivityItem[3] = 'academic';
+        selectActivityItem[4] = 'researcher';
+        selectActivityItem[5] = 'retired';
+        selectActivityItem[6] = 'other';
+        selectCountryItem[0] = '-not-selected-';
+        sendItem = "SEND";
+        break;
+      case "de":
+        contactFormMessageSendingMsg = 'Sendung läuft...';
+        contactFormMessageSentMsg = 'Ihre Botschaft wurde erfolgreich verschickt.';
+        contactFormMessageNotSentMsg =
+          'Leider war es nicht unmöglich, Ihre Botschaft zu verschicken. Versuchen es bitte später !';
+        contactFormInvalidEmailMsg = 'Gültige Email-Adresse bitte angeben.';
+        contactFormEmptyMessageMsg = 'Das Nachrichtenfeld darf nicht leer sein.';
+        msgLang = "allemand";
+        selectActivityItem[0] = '-ohne-angabe-';
+        selectActivityItem[1] = 'student';
+        selectActivityItem[2] = 'doktorant';
+        selectActivityItem[3] = 'hochschullehrer';
+        selectActivityItem[4] = 'forscher';
+        selectActivityItem[5] = 'rentner';
+        selectActivityItem[6] = 'sonstiges';
+        selectCountryItem[0] = '-nicht-ausgewählt-';
+        sendItem = "SENDEN";
+        break;
+      case "it":
+        contactFormMessageSendingMsg = 'Invio in corso...';
+        contactFormMessageSentMsg = 'Il messaggio è stato inviato.';
+        contactFormMessageNotSentMsg = 'Impossibile inviare il messaggio. Riprova più tardi.';
+        contactFormInvalidEmailMsg = 'Inserisci un indirizzo email valido.';
+        contactFormEmptyMessageMsg = 'Il campo del messaggio deve essere compilato.';
+        msgLang = "italien";
+        selectActivityItem[0] = '-non-selezionato-';
+        selectActivityItem[1] = 'studente';
+        selectActivityItem[2] = 'dottore';
+        selectActivityItem[3] = 'accademico';
+        selectActivityItem[4] = 'ricercatore';
+        selectActivityItem[5] = 'pensionato';
+        selectActivityItem[6] = 'altro';
+        selectCountryItem[0] = '-non-selezionato-';
+        sendItem = "INVIO";
+        break;
+      case "pt":
+        contactFormMessageSendingMsg = 'Enviando...';
+        contactFormMessageSentMsg = 'A sua mensagem foi enviada';
+        contactFormMessageNotSentMsg = 'Não foi possível enviar a mensagem. Tente novamente mais tarde.';
+        contactFormInvalidEmailMsg = 'É necessário um endereço de email válido.';
+        contactFormEmptyMessageMsg = 'O campo mensagem não pode ficar vazio.';
+        msgLang = "portugais";
+        selectActivityItem[0] = '-não-selecionado-';
+        selectActivityItem[1] = 'estudante';
+        selectActivityItem[2] = 'doutorando';
+        selectActivityItem[3] = 'acadêmico';
+        selectActivityItem[4] = 'pesquisador';
+        selectActivityItem[5] = 'aposentado';
+        selectActivityItem[6] = 'outro';
+        selectCountryItem[0] = '-não-selecionado-';
+        sendItem = "ENVIAR";
+        break;
+      case "es":
+        contactFormMessageSendingMsg = 'Enviando...';
+        contactFormMessageSentMsg = 'Se ha enviado su mensaje.';
+        contactFormMessageNotSentMsg = 'No se ha podido enviar el mensaje. Vuelve a intentarlo dentro de un rato.';
+        contactFormInvalidEmailMsg = 'Hay que escribir una dirección de correo electrónico válida.';
+        contactFormEmptyMessageMsg = 'No puede dejar en blanco el cuerpo del mensaje.';
+        msgLang = "espagnol";
+        selectActivityItem[0] = '-no-seleccionado-';
+        selectActivityItem[1] = 'estudiante';
+        selectActivityItem[2] = 'doctorando';
+        selectActivityItem[3] = 'académico';
+        selectActivityItem[4] = 'investigador';
+        selectActivityItem[5] = 'jubilado';
+        selectActivityItem[6] = 'otro';
+        selectCountryItem[0] = '-no-seleccionado-';
+        sendItem = "ENVIAR";
+        break;
+      default:
+        contactFormMessageSendingMsg = 'Envoi en cours...';
+        contactFormMessageSentMsg = 'Votre message a été envoyé.';
+        contactFormMessageNotSentMsg = 'Impossible d\x27envoyer le message. Veuillez réessayer ultérieurement.';
+        contactFormInvalidEmailMsg = 'Veuillez indiquer une adresse e-mail valide.';
+        contactFormEmptyMessageMsg = 'Le champ de message doit être renseigné.';
+        msgLang = "français";
+        selectActivityItem[0] = '-non-sélectionné-';
+        selectActivityItem[1] = 'étudiant';
+        selectActivityItem[2] = 'doctorant';
+        selectActivityItem[3] = 'universitaire';
+        selectActivityItem[4] = 'chercheur';
+        selectActivityItem[5] = 'retraité';
+        selectActivityItem[6] = 'autre';
+        selectCountryItem[0] = '-non-sélectionné-';
+        sendItem = "Envoyer";
+    }
+    setSelectById('selectactivity', selectActivityItem);
+    setSelectById('selectcountry', selectCountryItem);
+    var mySelectId= document.getElementById("auxContactForm1_contact-form-submit");
+    if( mySelectId != null ) mySelectId.value = sendItem;
+  }
+
+  function setSelectById(SelectId, SelectItems) {
+      var mySelectId = document.getElementById(SelectId);          for (var i = 0; i < SelectItems.length; i++) {
+if( mySelectId != null ) mySelectId.options[i].innerHTML = SelectItems[i];
+    }
+  }
+
+  function getSelectedText(elementId) {
+    var elt = document.getElementById(elementId);
+    var eltTag = elt.tagName;
+    if (eltTag.toLowerCase() == "input") {
+      return elt.value
+    } else {
+      if (elt.selectedIndex == -1) return null;
+      return elt.options[elt.selectedIndex].text;
+    }
+  }
+
+  function getSelectedValue(elementId) {
+    var elt = document.getElementById(elementId);
+    var eltTag = elt.tagName;
+    if (eltTag.toLowerCase() == "input") {
+      return elt.value
+    } else {
+      if (elt.selectedIndex == -1) return null;
+      return elt.options[elt.selectedIndex].value;
+    }
+  }
+
+  function checkActivity() {
+    var elt = document.getElementById('selectactivity');
+    if (elt.options[elt.selectedIndex].value == "other") {
+      document.getElementById('showprecisetactivity').style.display = "inline-block";
+    } else {
+      document.getElementById('showprecisetactivity').style.display = "none";
+    }
+  }
+
+  function checkForm(errorLog) {
+    if (!checkEmailMsg(errorLog)) return false;
+    var email = getSelectedValue('ContactForm1_contact-form-email')
+    if (email == "") {
+      if(errorLog) document.getElementById('emailmissing').style.display = "block";
+      return false;
+    }
+    else {
+      if(errorLog) document.getElementById('emailmissing').style.display = "none";
+    }
+    if (!ValidateEmail(email)) {
+      if(errorLog) document.getElementById('invalidemail').style.display = "block";
+      return false;
+    }
+    else {
+      if(errorLog) document.getElementById('invalidemail').style.display = "none";
+    }
+    return true;
+
+    function ValidateEmail(email) {
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (email.match(mailformat)) {
+        return true;
+      }
+      //alert("You have entered an invalid email address!");
+      return false;
+    }
+  }
+
+  function checkEmailMsg(errorLog) {
+    if (getSelectedValue('selectfirstname') == "") {
+      if(errorLog) document.getElementById('firstnamemissing').style.display = "block";
+      return false;
+    } else {
+      if(errorLog) document.getElementById('firstnamemissing').style.display = "none";
+    }
+    if (getSelectedValue('selectname') == "") {
+      if(errorLog) document.getElementById('namemissing').style.display = "block";
+      return false;
+    } else {
+      if(errorLog) document.getElementById('namemissing').style.display = "none";
+    }
+    if (getSelectedValue('selectactivity') == "") {
+      if(errorLog) document.getElementById('activitymissing').style.display = "block";
+      return false;
+    } else {
+      if(errorLog) document.getElementById('activitymissing').style.display = "none";
+      if (getSelectedValue('selectactivity') == 'other') {
+        if (getSelectedText('preciseactivity') == "") {
+          if(errorLog) document.getElementById('activityprecisionmissing').style.display = "block";
+          return false;
+        } else {
+          if(errorLog) document.getElementById('activityprecisionmissing').style.display = "none";
+        }
+      }
+    }
+    if (getSelectedValue('selectcountry') == "") {
+      if(errorLog) document.getElementById('countrymissing').style.display = "block";
+      return false;
+    } else {
+      if(errorLog) document.getElementById('countrymissing').style.display = "none";
+    }
+    return true;
+  }
+
+  function sendForm() {
+
+    if (!checkForm(true)) return false;
+    
+   feedForm();
+    
+   document.formSubmit.submit();
+   document.getElementById('successend').style.display = 'block';
+
+  }
+
+ function feedForm() {
+    var firstname = getSelectedText('selectfirstname');
+    var name = getSelectedText('selectname');
+    var email = document.getElementById('ContactForm1_contact-form-email').value;
+    var activity = '';
+    if (getSelectedValue('selectactivity') != 'other') {
+      var activity = getSelectedText('selectactivity');
+    } else {
+      var activity = getSelectedText('preciseactivity');
+    }
+    var country = getSelectedText('selectcountry');
+
+    document.getElementById('FirstName_formSubmit').value = firstname;
+    document.getElementById('Name_formSubmit').value = name;
+    document.getElementById('Email_formSubmit').value = email;
+    document.getElementById('Activity_formSubmit').value = activity;
+    document.getElementById('Country_formSubmit').value = country;
+
+    // IST form access
+    document.formSubmit.action = "https://docs.google.com/forms/d/e/1FAIpQLSfmBN9NDn8Bp6vNM_DsiRB84VpxSmikmf9myWbOF1El4-dD4g/formResponse";
+    // BROUILLON form access
+    //document.formSubmit.action = "https://docs.google.com/forms/d/e/1FAIpQLSfL6nPOnKzL0-TIQ0Cu9t2Pbtw9REcEsDa2m3F6PxiidFimJw/formResponse";
+}
+ function sendEmailMsg() {
+    if (!checkEmailMsg(true)) return false;
+    var blogId = "6090626128626142224";
+    var fullName = getSelectedText('selectfirstname') + ' ' + getSelectedText('selectname');
+    document.getElementById('ContactForm1_contact-form-name').value = fullName;
+    var msgTextAera = "Réponse à l'appel de l'Internationale des Savoirs Pour Tous, à partir du formulaire en "
+    msgTextAera = msgTextAera + msgLang;
+    /*var name = getSelectedText('selectname');
+    msgTextAera = msgTextAera+"\nNom : "+name;
+    var firstname = getSelectedText('selectfirstname');
+    msgTextAera = msgTextAera+"\nPrénom : "+firstname;*/
+    var activity = getSelectedText('selectactivity');
+    if (getSelectedValue('selectactivity') != 'other') {
+      var activity = getSelectedText('selectactivity');
+    } else {
+      var activity = getSelectedText('preciseactivity');
+    }
+    msgTextAera = msgTextAera + "\nActivité : " + activity;
+    var country = getSelectedText('selectcountry');
+    msgTextAera = msgTextAera + "\nPays : " + country;
+    document.getElementById('ContactForm1_contact-form-email-message').value = msgTextAera;
+    
+    // feed Form for Google Form
+    var Form2Send =  checkForm(false);
+    if( Form2Send ) feedForm();
+
+    _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm1', 'sidebar_bottom', document.getElementById(
+      'ContactForm1'), {
+      'contactFormMessageSendingMsg': contactFormMessageSendingMsg,
+      'contactFormMessageSentMsg': contactFormMessageSentMsg,
+      'contactFormMessageNotSentMsg': contactFormMessageNotSentMsg,
+      'contactFormInvalidEmailMsg': contactFormInvalidEmailMsg,
+      'contactFormEmptyMessageMsg': contactFormEmptyMessageMsg,
+      'title': 'Contact Form',
+      'blogId': blogId,
+      'contactFormNameMsg': 'Name',
+      'contactFormEmailMsg': 'Email',
+      'contactFormMessageMsg': 'Message',
+      'contactFormSendMsg': 'Send',
+      'submitUrl': 'https://www.blogger.com/contact-form.do'
+    }, 'displayModeFull'));
+    document.getElementById('ContactForm1_contact-form-submit').click();
+
+    // submit Form for Google Form
+    if( Form2Send ) document.formSubmit.submit();
+
+    return true;
+  }
+
+  function replaceButtonText(buttonId, text) {
+    if (document.getElementById) {
+      var button = document.getElementById(buttonId);
+      if (button) {
+        if (button.childNodes[0]) {
+          button.childNodes[0].textContent = text;
+        } else if (button.value) {
+          button.value = text;
+        } else //if (button.innerHTML)
+        {
+          button.innerHTML = text;
+        }
+      }
+    }
+  }
+
+  function hidediv(myDiv) {
+    document.getElementById(myDiv).style.display = 'none';
+  }
+
+  function toggleButton(btLabel, idLabel, msgShow, msgHide) {
+    var tableID = document.getElementById(idLabel);
+    if (tableID.parentNode.style.display == 'block') {
+      replaceButtonText(btLabel, msgShow);
+      tableID.parentNode.style.display = 'none';
+    } else {
+      replaceButtonText(btLabel, msgHide);
+      tableID.parentNode.style.display = 'block';
+    }
+  }
+
+  function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+      vars[key] = value;
+    });
+    return vars;
+  }
+
+  function getUrlParam(parameter, defaultvalue) {
+    var urlparameter = defaultvalue;
+    if (window.location.href.indexOf(parameter) > -1) {
+      urlparameter = getUrlVars()[parameter];
+    }
+    return urlparameter;
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    var myLang = getUrlParam('lang', 'fr');
+    switch (myLang) {
+      case "fr":
+        frLang();
+        break;
+      case "en":
+        enLang();
+        break;
+      case "de":
+        deLang();
+        break;
+      case "it":
+        itLang();
+        break;
+      case "pt":
+        ptLang();
+        break;
+      case "es":
+        esLang();
+        break;
+      default:
+        frLang();
+    }
+
+    var iFrame = document.getElementById( 'form-iframe' );
+    resizeIFrameToFitContent( iFrame );
+
+    // or, to resize all iframes:
+    var iframes = document.querySelectorAll("iframe");
+    for( var i = 0; i < iframes.length; i++) {
+        resizeIFrameToFitContent( iframes[i] );
+    }
+
+    function resizeIFrameToFitContent( iFrame ) {
+        if( iFrame != null) {
+            iFrame.style.backgroundColor = '#F4F43E';
+            //for security reasons, iframe auto resize only works when containing a document from the same domain
+            /*iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+            iFrame.height = iFrame.contentWindow.document.body.scrollHeight;*/
+        }
+   }
+    
+
+} );
+}
+
+</script>
+<script>
+  (function() {
+
+    'use strict'
+
+    var map = loadMap('mapSignatures');
+    // ajout de la planisphère openstreet
+    loadOpenStreetWorld(map);
+
+    // ajout de la carte interactive des signatures
+    var grades = [0, 1, 2, 5, 10, 15, 20, 25];
+
+    //var divCountryName = document.getElementsByClassName('signatures-country-name');
+    var divCountryName = document.getElementById('signatures-country-name');
+        
+    var tableSignatures = {divFR : '', divEN : '', divDE : '', divES : '', divIT : '', divPT : ''  };
+    if( document.getElementById('fralreadypublished').children.length == 0) tableSignatures.divFR = 'fralreadypublished';
+    if( document.getElementById('enalreadypublished').children.length == 0) tableSignatures.divEN = 'enalreadypublished';
+    if( document.getElementById('dealreadypublished').children.length == 0) tableSignatures.divDE = 'dealreadypublished';
+    if( document.getElementById('esalreadypublished').children.length == 0) tableSignatures.divES = 'esalreadypublished';
+    if( document.getElementById('italreadypublished').children.length == 0) tableSignatures.divIT = 'italreadypublished';
+    if( document.getElementById('ptalreadypublished').children.length == 0) tableSignatures.divPT = 'ptalreadypublished';
+    var mapId = document.getElementById("mapSignatures");
+    var mapWidth = mapId.offsetWidth / mapId.offsetParent.offsetWidth;
+    if (mapWidth < 0.95) {
+      if(mapId.offsetWidth > 580) {
+        loadMapTopoJSONSignatures(map, grades, '#D5E3FF', '#003171', '#555', divCountryName, tableSignatures, setMapViewLarge, setMapViewSmall);
+      } else {
+        loadMapTopoJSONSignatures(map, grades, '#D5E3FF', '#003171', '#555', divCountryName, tableSignatures, setMapViewLarge, setMapViewSmall);
+      }
+    } else {
+      loadMapTopoJSONSignatures(map, grades, '#D5E3FF', '#003171', '#555', divCountryName, tableSignatures, setMapViewLarge, setMapViewSmall);
+    }
+
+    //zoomRemove(map);
+    map.options.minZoom = 2;
+    map.options.maxZoom = 4;
+
+    function setMapViewLarge() {
+      map.setView({
+        lat: 20.,
+        lng: -43.
+      }, 2.5);
+    };
+    function setMapViewSmall() {
+      map.setView({
+        lat: 48.,
+        lng: 2.
+      }, 2.5);
+    };
+    function setMap() { 
+       var mapId = document.getElementById("mapSignatures");
+       var mapWidth = mapId.offsetWidth / mapId.offsetParent.offsetWidth;
+       if (mapWidth < 0.95) {
+         if(mapId.offsetWidth > 580) {
+           setMapViewLarge();
+         } else {
+           setMapViewSmall();
+         }
+       } else {
+         if (divCountryName.parentNode.children.length == 3) divCountryName.parentNode.removeChild(divCountryName.parentNode.children[2]);
+         divCountryName.setAttribute("data-country-view", "");
+         setMapViewSmall();
+       }
+    };
+    setMap();
+    window.addEventListener('resize', function() {
+      // clear the timeout
+      clearTimeout(timeout);
+      // start timing for event "completion"
+      //timeout = setTimeout(getDimensions, delay);
+      timeout = setTimeout(setMap, delay);
+    });
+    // definition du groupe météo des luttes
+    /*var meteoLuttes = L.layerGroup();
+
+    add2Layer(meteoLuttes, meteoLuttesPopUps, setMapView, [30, 20]);
+
+    meteoLuttes.addTo(map);*/
+
+  }());
+</script>
+<link rel="Stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PhotoGaleries/colorbox-master/example1/colorbox.css" />
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script-->
+<script src="https://philquand.github.io/Javascript/PhotoGaleries/colorbox-master/jquery.colorbox-min.js" type="text/javascript"></script> 
+<script>
+breakCode: {
+  var href = "https://www.linternationaledessavoirspourtous.org/p/la-science-pour-le-plus-grand-nombre.html";
+  var actHref = window.location.href;
+  if (actHref.indexOf(href) == -1) break breakCode;
+  $(document).ready(function() {
+    $(".inline").colorbox({
+      inline: true,
+      width: "80%"
+    });
+  });
+}
+</script>

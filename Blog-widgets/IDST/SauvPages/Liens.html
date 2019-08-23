@@ -1,0 +1,56 @@
+<!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script-->
+<style>
+.myA { display: block; text-decoration: none; padding: 5px; }
+</style>
+<div id='externalLinks'>
+<div lang='fr'><h2>Nos membres</h2></div>
+<div lang='en'><h2>Our members</h2></div>
+<div lang='de'><h2>Unsere Mitglieder</h2></div>
+<div lang='it'><h2>Nostri membri</h2></div>
+<div lang='pt'><h2>Nossos membros</h2></div>
+<div lang='es'><h2>Nuestros socios</h2></div>
+<ul>
+<li><a href=http://www.adiuna.com.ar class='myA'>ADIUNA</a></li>
+<li><a href=https://fedun.com.ar  class='myA'>FEDUN</a></li>
+<li><a href=http://www.fesiduas.com.ar  class='myA'>FESIDUAS</a></li>
+<li><a href=http://izquierda-unida.es class='myA'>IZQUIERDA UNIDA</a></li>
+<li><a href=https://upop.info class='myA'>Université populaire de Marseille</a></li>
+</ul>
+<div lang='fr'><h2>Autres</h2></div>
+<div lang='en'><h2>Others</h2></div>
+<div lang='de'><h2>Weitere</h2></div>
+<div lang='it'><h2>Altri</h2></div>
+<div lang='pt'><h2>Outros</h2></div>
+<div lang='es'><h2>Otros</h2></div>
+<ul>
+<li><a href=http://aitec.reseau-ipam.org   class='myA'>AITEC</a></li>
+<li><a href=https://www.alternativesurbaines.org class='myA'>Alternatives Urbaines</a></li>
+<li><a href=http://excellagence.fr class='myA'>ANES</a></li>
+<li><a href=https://berthoalain.com/ class='myA'>Anthropologie du présent</a></li>
+<li><a href=https://fmts-wfsw.org/ class='myA'>FMTS</a></li>
+<li><a href=https://www.infolibre.es/ class='myA'>InfoLibre</a></li>
+<li><a href=https://intercoll.net  class='myA'>Intercoll</a></li>
+<li><a href=http://lac.ulb.ac.be/LAC/home.html class='myA'>L’Atelier des Chercheurs</a></li>
+<li><a href=https://avenirencommun.fr/ class='myA'>L'Avenir en Commun</a></li>
+<li><a href=https://viacampesina.org/fr/ class='myA'>La Via Campesina</a></li>
+<li><a href="https://precairesesr.fr">Le Collectif des travailleur-e-s précaires de l'Enseignement Supérieur et de la Recherche (ESR)</a></li>
+<li><a href=https://www.lemediatv.fr/ class='myA'>Le Media</a></li>
+<li><a href=https://www.nakedcapitalism.com class='myA'>Naked capitalism</a></li>
+<li><a href=http://www.rogueesr.fr class='myA'>RogueESR</a></li>
+<li><a href=http://uccsnal.org/ class='myA'>UCCNSAL</a></li>
+<li><a href=https://lasonrisadeunpais.es/ class='myA'>Unidos Podemos</a></li>
+<li><a href=https://universiteouverte.org class='myA'>Université ouverte</a></li>
+<li><a href=http://www.universitespopulairesdefrance.fr class='myA'>Universités populaires de France</a></li>
+</ul>
+</div>
+
+<script>
+/*breakCode : {
+var href = "https://www.linternationaledessavoirspourtous.org/p/liens.html";
+var actHref = window.location.href;
+if( actHref.indexOf(href) == -1) break breakCode;*/
+  $("#externalLinks a[href^='http']").each(function() {
+   $(this).prepend('<img src="https://www.google.com/s2/favicons?domain=' + this.href + '" width="30px">      ');
+  });
+//}
+</script>

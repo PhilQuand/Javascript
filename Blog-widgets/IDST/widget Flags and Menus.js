@@ -932,7 +932,7 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
     document.getElementById("searchButton").onclick = doSearch;
 
     var mySignatures = document.getElementById("signatures-country-name");
-    if( typeof mySignatures !== 'undefined') mySignatures.setAttribute("data-lang", Lang);
+    if( typeof mySignatures !== 'undefined' && mySignatures !== null) mySignatures.setAttribute("data-lang", Lang);
 
     function doSearch() {
     var searchText = document.getElementById("searchText");

@@ -1,5 +1,8 @@
-<!--a href="javascript:trigFancy('trigarticle-1');">test-div</a-->
-<div id='idNotreProgramme'></div>
+<div style="display: none"><img border="0" data-original-height="400" data-original-width="400" src="
+https://1.bp.blogspot.com/-lmcr1pOo2KM/XUbRyGPRfKI/AAAAAAAAjsw/F0Fjcq60SW4cehMENMqnPwskaZrnzIS_ACLcBGAs/s1600/CATDP%2Blogo.png
+" style="float: left; margin-right: 1em;" width="20%">
+Notre programme pour les élections municipales de 2020 se décline en 8 blocs thématiques, à la fois distincts et complémentaires. Chaque bloc se présente de la manière suivante&nbsp;: un titre, une citation en exergue, une introduction explicative de nos valeurs, nos engagements-phares, nos autres engagements, quelques phrases conclusives. Vous pouvez lire, écouter et télécharger chacun de ces blocs séparément ou télécharger l’ensemble du programme au format pdf. Bonne lecture, écoute et réflexion à toutes et tous&nbsp;!</div>
+<div id="idNotreProgramme"></div>
 <script>
 breakCode: {
   var href = "https://www.catdp2020.com/2019/07/notre-programme.html";
@@ -17,59 +20,9 @@ breakCode: {
   $('#idNotreProgramme').append(contentStyle);
   $('#idNotreProgramme').append(contentBody);
   //$('#idNotreProgramme').append(contentScript);
-
-  myopts = {
-    toolbar: true,
-    infobar: true,
-    arrows: false,
-    animationEffect: "fade",
-    transitionEffect: "slide",
-    speed: 300,
-    margin: [40, 20],
-    buttons: false,
-    thumbs: {
-      autoStart: false, // Display thumbnails on opening
-      hideOnClose: true // Hide thumbnail grid when closing animation starts
-    },
-    buttons: [
-      'thumbs'
-    ],
-    baseClass: 'customInlineBaseClass',
-
-    /*onInit: function(instance, current) {
-// When the modal is shown, we want a fixed body
-document.body.style.position = 'fixed';
-document.body.style.top = `-${window.scrollY}px`;
-    //location.reload();
-    },
-    afterClose: function(instance, current) {
-// When the modal is hidden...
-const top = document.body.style.top;
-document.body.style.position = '';
-document.body.style.top = '';
-window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    },*/
-
-    afterLoad: function(instance, current) {
-      if (instance.group.length > 1 && current.$content) {
-        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-      }
-      /*if ( instance.group.length > 1 && current.$content ) {
-        current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
-      }*/
-
-      //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
-    }
-  };
-
-
-$(document).ready(function() {
-  $(".data-fancybox-inline").fancybox(myopts);
-});
 }
 </script>
+
 <script src="https://philquand.github.io/Javascript/MediaPlayer/MediaPlayer.js"></script>
 <link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/MediaPlayer/MediaPlayer.css" />
 <svg style="display:none">
@@ -100,7 +53,7 @@ $(document).ready(function() {
     font-size: 75%;
     padding-left: .5em;
     padding-right: .5em;
-    width: 5em
+    width: 4em;
 }
 .media-fullscreen {
     display: none;
@@ -111,7 +64,7 @@ breakCode: {
   var href = "https://www.catdp2020.com/2019/07/notre-programme.html";
   var actHref = window.location.href;
   if (actHref.indexOf(href) == -1) break breakCode;
-$(document).ready(function() {
+  $(document).ready(function() {
 // get target from media with controls
 $('.programContent').find('audio').each(function() {
 // assign media player from target (all these options represent the defaults)
@@ -152,5 +105,22 @@ const player = new MediaPlayer(
 });
 });
 }
+</script>
+<script type='text/javascript'>
+/*var allColors= ['rgba(190,201,228, .5)', 'rgba(218,218,227, .8)']; 
+var prvColor = -1;
+breakCode: {
+  var href = "https://www.catdp2020.com/p/notre-programme.html";
+  var actHref = window.location.href;
+  if (actHref.indexOf(href) == -1) break breakCode;
+  $('body').find('.titreSummary').each(function(){
+    if( $(this).css("display") != "none" ) { 
+        var newColor = prvColor + 1
+        if( newColor == allColors.length ) newColor = 0;
+        $(this).css("background",allColors[newColor]);
+        prvColor = newColor;
+    }
+  });
+}*/
 </script>
 <div class="blogger-post-footer">Lire la suite sur le blog...</div>

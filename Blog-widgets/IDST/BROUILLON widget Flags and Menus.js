@@ -3376,41 +3376,61 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
 $.fn.SummaryGallery = function(options) {
 
   if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
-    if ($("#testTranslate").length == 0) {
-      $(this).prepend('<p id="testTranslate" style="display: none"></p>');
-    }
-    for (i = options.archi.length - 1; i >= 0; i--) {
-      //for (i = 0; i < options.archi.length; i++) {
+
+    var extHrefList = [];
+    var extArtList = [];
+    $(this).find('article').each(function() {
+      var href = $(this).find('.item-content').first().find('a').attr('href');
+      if (href.split("?").length > 0) href = href.split("?")[0];
+      extHrefList.push(href);
+      extArtList.push($(this).detach())
+    });
+    var archi = [];
+
+    for (i = 0; i < options.archi.length; i++) {
       var href = checkOption(options.archi[i].href);
       if (href == '') {
         console.log('SummaryGallery plugin: href is undefined for summary number ' + (i + 1).toString());
-        continue;
       }
-      var articleId = 'article-' + i;
-      var article = $('<article id=' + articleId + '></article>');
-      article.append($('<div class="item-content float-container res-title"></div>')
-        .append($('<h3 style="display: block;" ></h3>')
-          .append($('<a href=""></a>')), $('<h3 style="display: none;"></h3>'), $('<h2 class="authors post-authors"></h2>'), $('<img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)"/>')
-        ), $('<div style="display: block"></div>')
-        .append($('<div class="post-header item-content float-container"></div>')
-          .append($('<span class="imgSum"><img data-img="yes" src="" width="180px" height="auto" ></img></span>'), $('<div class="incrustation"></div>'), $('<div style="text-align: right; display: none;">')
-            .append($('<a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html" title="À l’origine de notre Internationale" >Lire la suite</a>'))
+      else {
+        var actHref = $.inArray(href, extHrefList);
+        if (actHref > -1) {
+          $(this).append(extArtList[actHref]);
+        }
+        else {
+          archi.push(i);
+          var articleId = 'article-' + i;
+          var article = $('<article id=' + articleId + '></article>');
+          article.append($('<div class="item-content float-container res-title"></div>')
+            .append($('<h3 style="display: block;" ></h3>')
+              .append($('<a href=""></a>')), $('<h3 style="display: none;"></h3>'), $('<h2 class="authors post-authors"></h2>'), $('<img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)"/>')
+            ), $('<div style="display: block"></div>')
+            .append($('<div class="post-header item-content float-container"></div>')
+              .append($('<span class="imgSum"><img data-img="yes" src="" width="180px" height="auto" ></img></span>'), $('<div class="incrustation"></div>'), $('<div style="text-align: right; display: none;">')
+                .append($('<a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html" title="À l’origine de notre Internationale" >Lire la suite</a>'))
+              )
+            )
           )
-        )
-      )
-      $(this).prepend(article);
+          $(this).append(article);
+        }
+      }
+    }
+
+
+    if ($("#testTranslate").length == 0) {
+      $(this).prepend('<p id="testTranslate" style="display: none"></p>');
     }
     $(document).ready(function() {
-      for (i = options.archi.length - 1; i >= 0; i--) {
-        //for (i = 0; i < options.archi.length; i++) {
-        var articleId = 'article-' + i;
-        var href = checkOption(options.archi[i].href);
+      //for( i =  options.archi.length-1; i>= 0 ; i--){
+      for (i = 0; i < archi.length; i++) {
+        var articleId = 'article-' + archi[i];
+        var href = checkOption(options.archi[archi[i]].href);
         if (href == '') continue;
-        var lang = checkOption(options.archi[i].lang);
-        var title = checkOption(options.archi[i].title);
-        var auteurs = checkOption(options.archi[i].auteurs);
-        var sumImg = checkOption(options.archi[i].sumImg);
-        var sumContent = checkOption(options.archi[i].sumContent);
+        var lang = checkOption(options.archi[archi[i]].lang);
+        var title = checkOption(options.archi[archi[i]].title);
+        var auteurs = checkOption(options.archi[archi[i]].auteurs);
+        var sumImg = checkOption(options.archi[archi[i]].sumImg);
+        var sumContent = checkOption(options.archi[archi[i]].sumContent);
         setArticle(articleId, href, lang, title, auteurs, sumImg, sumContent);
         //setArticle(articleId, href, "", "", "", "", "");
         $('#' + articleId).removeAttr('id');

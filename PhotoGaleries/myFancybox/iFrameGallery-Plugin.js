@@ -184,9 +184,9 @@
           'prev',
           'next'
         ],
-        iframe: {
+        /*iframe: {
           preload: false
-        },
+        },*/
         baseClass: 'customInlineBaseClass',
 
         afterLoad: function(instance, current) {

@@ -50,7 +50,7 @@ function goFancy() {
   $(".data-fancybox-inline").fancybox({
     toolbar: true,
     infobar: true,
-    arrows: false,
+    arrows: true,
     animationEffect: "fade",
     transitionEffect: "slide",
     speed: 300,

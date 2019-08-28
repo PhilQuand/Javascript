@@ -1952,46 +1952,46 @@ function getLinkContent(theURL) {
   }
 
   function getBody(content) {
-    var élément; var result = {title: '', authors: '',body: ''};
-    var élément = '// Fin des scripts, à ne pas supprimer (voir) getBody';
-    content = getPart(content, élément, 1, 'no') ;
-    élément = 'post-lang';
-    result.lang = getPart(content, élément, 0, 'no').split("<")[0];
+    var element; var result = {title: '', authors: '',body: ''};
+    var element = '// Fin des scripts, à ne pas supprimer (voir) getBody';
+    content = getPart(content, element, 1, 'no') ;
+    element = 'post-lang';
+    result.lang = getPart(content, element, 0, 'no').split("<")[0];
     var langs = result.lang.split(' ');
-    /*élément = 'post-title entry-title';
-    result.title = getPart(content, élément, 0, 'no').split("<")[0];
-    élément = 'post-authors';
-    result.authors = getPart(content, élément, 0, 'yes').split("<")[0];*/
+    /*element = 'post-title entry-title';
+    result.title = getPart(content, element, 0, 'no').split("<")[0];
+    element = 'post-authors';
+    result.authors = getPart(content, element, 0, 'yes').split("<")[0];*/
     var title = '';
     var authors ='';
     if( langs.length == 1) {
-      élément = 'post-title entry-title';
-      title = getPart(content, élément, 0, 'no').split("<")[0];
-      élément = 'post-authors';
-      authors = getPart(content, élément, 0, 'no').split("<")[0];
+      element = 'post-title entry-title';
+      title = getPart(content, element, 0, 'no').split("<")[0];
+      element = 'post-authors';
+      authors = getPart(content, element, 0, 'no').split("<")[0];
     } else {
     for( var i=0; i < langs.length; i++ ) {
-      élément = 'html2pdf-post-title ' + langs[i];
-      //title.push( getPart(content, élément, 0, 'no').split("<")[1].split(">")[1] );
-      title += '<div class="local-lang ' + langs[i] + '">' + getPart(content, élément, 0, 'no').split("<")[1].split(">")[1] + '</div>';
-      élément = 'authors-in-post post-authors ' + langs[i];
-      //authors.push( getPart(content, élément, 0, 'no').split("<")[0] );
-      authors += '<div class="local-lang ' + langs[i] + '">' + getPart(content, élément, 0, 'no').split("<")[0] + '</div>';
+      element = 'html2pdf-post-title ' + langs[i];
+      //title.push( getPart(content, element, 0, 'no').split("<")[1].split(">")[1] );
+      title += '<div class="local-lang ' + langs[i] + '">' + getPart(content, element, 0, 'no').split("<")[1].split(">")[1] + '</div>';
+      element = 'authors-in-post post-authors ' + langs[i];
+      //authors.push( getPart(content, element, 0, 'no').split("<")[0] );
+      authors += '<div class="local-lang ' + langs[i] + '">' + getPart(content, element, 0, 'no').split("<")[0] + '</div>';
     }
     }
     result.title = title;
     result.authors = authors;
-    var élément = 'post-body entry-content float-container';
-    result.body = getPart(content, élément, 0, 'no') ;
+    var element = 'post-body entry-content float-container';
+    result.body = getPart(content, element, 0, 'no') ;
     return result;
   }
 
-  function getPart(content, élément, iIndex, iShow) {
+  function getPart(content, element, iIndex, iShow) {
     var indices = [];
-    var idx = content.indexOf(élément);
+    var idx = content.indexOf(element);
     while (idx != -1) {
       indices.push(idx);
-      idx = content.indexOf(élément, idx + 1);
+      idx = content.indexOf(element, idx + 1);
     }
     if( iShow == 'yes' ) {
       for (var i = 0; i < indices.length; i++) {
@@ -1999,7 +1999,7 @@ function getLinkContent(theURL) {
         x = content.indexOf(">", x + 1);
         var y = content.lastIndexOf("</body>");
         var z = content.slice(x + 1, y);
-        alert('getBody for ' + élément + ' :\ni = ' + i + '\n' + z);
+        alert('getBody for ' + element + ' :\ni = ' + i + '\n' + z);
       }
     }
     var x = indices[iIndex];

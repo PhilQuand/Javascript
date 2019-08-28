@@ -96,7 +96,7 @@
 	//max-height : calc( 100% - 100px );
   margin: 50px 0;
   overflow: visible;
-  background: #000;
+  background: white;
 }
 
 .customInlineBaseClass .button-close,
@@ -162,15 +162,9 @@
     min-height: 60px;
     /*max-width: calc(100% - 10px);*/
 }
-.customInlineBaseClass .fancybox-content {
-    background-color: white;
-}
 .customInlineBaseClass,
 .customInlineBaseClass .fancybox-slide {
     overflow: hidden;
-}
-.customInlineBaseClass .fancybox-content {
-    background-color: white;
 }
 @media screen and (max-width: 1500px) {
   .customInlineBaseClass .fancybox-thumbs {

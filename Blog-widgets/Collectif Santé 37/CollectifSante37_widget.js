@@ -333,12 +333,12 @@ function getMyInnerLinkContent(theURL) {
   }
 
 
-  function getPart(content, élément, iIndex, iShow) {
+  function getPart(content, element, iIndex, iShow) {
     var indices = [];
-    var idx = content.indexOf(élément);
+    var idx = content.indexOf(element);
     while (idx != -1) {
       indices.push(idx);
-      idx = content.indexOf(élément, idx + 1);
+      idx = content.indexOf(element, idx + 1);
     }
     if( iShow == 'yes' ) {
       for (var i = 0; i < indices.length; i++) {
@@ -346,7 +346,7 @@ function getMyInnerLinkContent(theURL) {
         x = content.indexOf(">", x + 1);
         var y = content.lastIndexOf("</body>");
         var z = content.slice(x + 1, y);
-        alert('getBody for ' + élément + ' :\ni = ' + i + '\n' + z);
+        alert('getBody for ' + element + ' :\ni = ' + i + '\n' + z);
       }
     }
     var x = indices[iIndex];

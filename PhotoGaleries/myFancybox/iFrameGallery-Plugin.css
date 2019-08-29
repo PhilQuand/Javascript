@@ -1,0 +1,218 @@
+/* Background color */
+.iFrameGalleryClass .fancybox-bg {
+  background-color: #fff;
+}
+
+/* Move counter to the right */
+/*.fancybox-infobar {
+  left: auto;
+  right: 0;
+}*/
+/* Move counter to the middle */
+.iFrameGalleryClass .fancybox-infobar {
+  left: auto;
+  right: 48%;
+}
+
+/* Add shadow around image, but hide it while zooming */
+.iFrameGalleryClass .fancybox-image {
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+  transition: box-shadow .2s;
+}
+
+.iFrameGalleryClass .fancybox-is-scaling .fancybox-image {
+  box-shadow: none;
+}
+
+/* Hide elements while zooming or when zoomed-in */
+.iFrameGalleryClass .fancybox-is-scaling .fancybox-item,
+.iFrameGalleryClass .fancybox-can-drag .fancybox-item {
+  display: none !important;
+}
+
+/* Style close button */
+.iFrameGalleryClass .fancybox-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 36px;
+  height: 36px;
+  background-image: url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
+  z-index: 2;
+}
+
+/* Style navigation elements */
+.iFrameGalleryClass .fancybox-nav {
+  position: absolute;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.iFrameGalleryClass .fancybox-prev {
+  left: 0;
+}
+
+.iFrameGalleryClass .fancybox-next {
+  right: 0;
+}
+
+.iFrameGalleryClass .fancybox-nav span {
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 34px;
+  margin-top: -18px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.iFrameGalleryClass .fancybox-prev span,
+.iFrameGalleryClass .fancybox-next span {
+  background-image : url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
+}
+
+.iFrameGalleryClass .fancybox-prev span {
+  left: 10px;
+  background-position: 0 -36px;
+}
+
+.iFrameGalleryClass .fancybox-next span {
+  right: 10px;
+  background-position: 0 -72px;
+}
+
+.iFrameGalleryClass .fancybox-nav:hover span {
+  visibility: visible;
+}
+
+.iFrameGalleryClass .fancybox-content {
+	//width  : 800px;
+	//height : 600px;
+	//max-width  : 100%;
+	max-height : calc( 100% - 100px );
+  margin: 50px 0;
+  overflow: visible;
+  background: white;
+}
+
+.iFrameGalleryClass .button-close,
+.iFrameGalleryClass .button-previous,
+.iFrameGalleryClass .button-next {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: #C2C2C2;
+  text-align: center;
+  line-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.iFrameGalleryClass .button-previous,
+.iFrameGalleryClass .button-next {
+  top: 50%;
+  margin-top: -22px;
+  line-height: 42px;
+}
+
+.iFrameGalleryClass .button-previous {
+    left: -50px;
+}
+
+.iFrameGalleryClass .button-next {
+    right: -50px;
+}
+
+.iFrameGalleryClass .button-close {
+  top: -44px;
+  right: -44px;
+  font-size: 22px;
+  color: rgba(255,255,255,0.8);
+}
+/*@media screen and (max-width: 600px) {
+  .button-close,
+    .button-previous,
+    .button-next {
+      display: none;
+  }
+}*/
+
+.iFrameGalleryClass .fancybox-button.fancybox-button--arrow_left,
+.iFrameGalleryClass .fancybox-button.fancybox-button--arrow_right {
+    display: none;
+}
+.iFrameGalleryClass .fancybox-thumbs {
+    width: 190px; 
+  }
+.iFrameGalleryClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 190px; 
+}
+.iFrameGalleryClass .fancybox-thumbs__list  a {
+    width: 5.8vw;
+    height: 6.0vw;
+    max-width: 87px;
+    max-height: 90px;
+    min-width: 58px;
+    min-height: 60px;
+    /*max-width: calc(100% - 10px);*/
+}
+.iFrameGalleryClass,
+.iFrameGalleryClass .fancybox-slide {
+    overflow: hidden;
+}
+@media screen and (max-width: 1500px) {
+  .iFrameGalleryClass .fancybox-thumbs {
+   //background-color: green;
+    width: 13vw; 
+  }
+  .iFrameGalleryClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 13vw; 
+  }
+}
+@media screen and (max-width: 1100px) {
+  /*.iFrameGalleryClass .fancybox-button.fancybox-button--arrow_left, .iFrameGalleryClass .fancybox-button.fancybox-button--arrow_right {
+    display: none;
+  }*/
+  /* Move slide counter to the right */
+  .iFrameGalleryClass .fancybox-infobar {
+    left: 0;
+    right: auto;
+  }
+  .iFrameGalleryClass .fancybox-close-small {
+        display:none;    
+  }
+  .iFrameGalleryClass .fancybox-thumbs {
+   //background-color: yellow;
+    width: 65px; 
+  }
+  .iFrameGalleryClass.fancybox-show-thumbs  .fancybox-inner {
+    right: 65px; 
+  }
+  .iFrameGalleryClass .fancybox-content {
+    width: 100% ;
+    padding: 0;
+  }
+  .iFrameGalleryClass .fancybox-inner .fancybox-slide--iframe {
+    left: 0;
+    right: 0;
+    padding: 0;
+  }
+  .iFrameGalleryClass .button-close,
+  .iFrameGalleryClass .button-previous,
+  .iFrameGalleryClass .button-next {
+      display: none;
+  }
+  .iFrameGalleryClass .fancybox-button.fancybox-button--arrow_left,
+  .iFrameGalleryClass .fancybox-button.fancybox-button--arrow_right {
+      display: block;
+  }
+  .iFrameGalleryClass .fancybox-slide {
+    overflow: auto;
+  }
+}

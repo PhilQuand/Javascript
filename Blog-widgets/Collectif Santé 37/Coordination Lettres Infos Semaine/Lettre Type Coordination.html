@@ -222,10 +222,14 @@ includeHTML();
   .customInlineBaseClass .fancybox-inner {
     background-color: white;
   }
-  /*.customInlineBaseClass .fancybox-slide {
-    overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  }*/
+  .customInlineBaseClass .button-previous,
+  .customInlineBaseClass .button-next {
+      display: none;
+  }
+  .customInlineBaseClass .fancybox-button.fancybox-button--arrow_left,
+  .customInlineBaseClass .fancybox-button.fancybox-button--arrow_right {
+      display: block;
+  }
 }
 </style>
 <script>

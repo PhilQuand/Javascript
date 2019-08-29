@@ -12,35 +12,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
 <!-- End FancyBox -->
-<!--script>
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /*loop through a collection of all HTML elements:*/
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-      /*make an HTTP request using the attribute value as the file name:*/
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-          /*remove the attribute, and call this function once more:*/
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-        }
-      }      
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /*exit the function:*/
-      return;
-    }
-  }
-};
-</script-->
+<!-- Add my iFrameGallery -->
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.css" rel="stylesheet" type="text/css" />
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script>
+<!-- End iFralmeGallery -->
 </head>
 <body>
 <p><img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
@@ -197,15 +172,7 @@ function includeHTML() {
 </svg>
 </div>
 <div id="CoordInfos"></div>
-<!--link href="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/CollectifSante37_widget.js" rel="import" type="text/html" /-->
-<!--div w3-include-html="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/CollectifSante37_widget.js"></div> 
-<script>
-includeHTML();
-</script-->
 <style>
-.customInlineBaseClass .fancybox-content .fancybox-close-small {
-    display:none;
-}
 #PreviousLetters { 
     width:10vw; 
     max-width: 100px; 
@@ -214,22 +181,6 @@ includeHTML();
    margin-top: 2.0em;
    margin-left: 10%;
    margin-right: 0;
-}
-/*.customInlineBaseClass .fancybox-content {
-	max-height : calc( 100% - 100px );
-}*/
-@media screen and (max-width: 1100px) {
-  .customInlineBaseClass .fancybox-inner {
-    background-color: white;
-  }
-  .customInlineBaseClass .button-previous,
-  .customInlineBaseClass .button-next {
-      display: none;
-  }
-  .customInlineBaseClass .fancybox-button.fancybox-button--arrow_left,
-  .customInlineBaseClass .fancybox-button.fancybox-button--arrow_right {
-      display: block;
-  }
 }
 </style>
 <script>
@@ -300,10 +251,6 @@ $(document).ready(function() {
   });
   $('<div id="autre" style="display:none">Vous pouvez consulter les bulletins précédents sur <br/>le <a style="outline : none;" href="http://coordination-defense-sante.org/bulletin-hebdomadaire/">site de la Coordination Nationale des Hôpitaux et Maternités de Proximité</a>.</div>').insertAfter($('#CoordInfos'))
 });
-/*$(document).ready(function() {
-  goFancy();
-});*/
 </script>
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script>
 </body>
 </html>

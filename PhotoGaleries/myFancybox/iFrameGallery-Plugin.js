@@ -199,7 +199,15 @@
             });
             elements.css("display", "none");
           });
-          /*if (instance.group.length > 1 && current.$content) {
+          if (instance.group.length > 1 && current.$content) {
+            var  arrow_left = $(".iFrameGalleryClass .fancybox-button.fancybox-button--arrow_left");
+            arrow_left.css("display","block");
+            var  arrow_right = $(".iFrameGalleryClass .fancybox-button.fancybox-button--arrow_right");
+            arrow_right.css("display","block");
+            if (current.index == 0) arrow_left.css("display","none");
+            else if (current.index == (instance.group.length - 1)) arrow_right.css("display","none");
+          }
+          /*if ( instance.group.length > 1 && current.$content ) {
             if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
             else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
             else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');

@@ -193,7 +193,7 @@
           //console.info( instance.Thumbs );
           //console.info( instance.Thumbs.$button[0]  );
           $("button.fancybox-button.fancybox-button--thumbs").click(function() {
-            var elements = $(".customInlineBaseClass .fancybox-thumbs__list").find("a").filter(function() {
+            var elements = $(".iFrameGalleryClass .fancybox-thumbs__list").find("a").filter(function() {
               // only keep the elements that have the correct background image
               return $(this).css("backgroundImage").indexOf(noneBgImage) > -1;
             });

@@ -166,6 +166,10 @@
 .iFrameGalleryClass .fancybox-slide {
     overflow: hidden;
 }
+.iFrameGalleryClass .fancybox-infobar {
+    left: 0;
+    right: auto;
+}
 @media screen and (max-width: 1500px) {
   .iFrameGalleryClass .fancybox-thumbs {
    //background-color: green;
@@ -180,10 +184,6 @@
     display: none;
   }*/
   /* Move slide counter to the right */
-  .iFrameGalleryClass .fancybox-infobar {
-    left: 0;
-    right: auto;
-  }
   .iFrameGalleryClass .fancybox-close-small {
         display:none;    
   }

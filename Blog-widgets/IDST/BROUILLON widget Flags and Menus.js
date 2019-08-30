@@ -5,16 +5,19 @@
 <link href='https://philquand.github.io/Javascript/FloatingShareBar/css/jquery-social-share-bar.css' rel='stylesheet' type='text/css'/>
 <script src='https://philquand.github.io/Javascript/FloatingShareBar/js/jquery-social-share-bar.js' type='text/javascript'></script>
 
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/tooltipster.bundle.min.css" />
+<script type="text/javascript" src="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js"></script>
+
 <div data-caption='' data-lang='' data-url='' id='postBodyforSocialNetworks' style='display:none'></div>
 <div id='showBodyforSocialNetworks'></div>
 <div class='myShareBar' id='share-bar'></div>
 
 <script>
-$(document).ready(function() {
+/*$(document).ready(function() {
   $('#share-bar').share({
     'channels': ['facebook', 'twitter', 'linkedin', 'pdf', 'email']
   });
-});
+});*/
 </script>
 <style>
 header.centered-top-container.sticky.animating div div nav #page_list_top #HTML2 div #share-bar{

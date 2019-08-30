@@ -14,6 +14,7 @@
 
     var helpers = {
       channels: {
+        calendar: {url: ''},
         facebook: {url: 'https://www.facebook.com/share.php?u=|u|'},
         twitter: {url: 'https://twitter.com/share?url=|u|&text=|140|'},
         linkedin: {url: 'https://www.linkedin.com/shareArticle?mini=true&url=|u|&title=|t|&summary=|d|'},
@@ -94,7 +95,7 @@
   $.fn.share.defaults = {
     popupWidth: 640,
     popupHeight: 528,
-    channels: ['facebook', 'twitter', 'linkedin', 'googleplus', 'pdf', 'email'],
+    channels: ['calendar', 'facebook', 'twitter', 'linkedin', 'googleplus', 'pdf', 'email'],
     itemTriggerClass: 'js-share',
     containerTemplate: function (props) {
       return '<ul class="sharing-providers"></ul>';
@@ -102,6 +103,7 @@
 
     itemTemplate: function (props) {
       var iconClasses = {
+        'calendar': 'far fa-calendar-alt',
         'facebook': 'fab fa-facebook-f',
         'twitter': 'fab fa-twitter',
         'linkedin': 'fab fa-linkedin-in',
@@ -118,7 +120,13 @@
       // Special handling for email and Google+
       var providerName = props.provider === 'email' ? 'email' : props.provider === 'googleplus' ? 'Google+' : props.provider.charAt(0).toUpperCase() + props.provider.slice(1);
 
-      if( props.provider === 'pdf') {
+      if( props.provider === 'calendar') {
+          return '<li class="' + props.provider + '">' +
+            '<a class="tooltipCalendar" data-tooltip-content="#calendar_content"  href="#" title="flash info">' +
+            '<i class="' + iconClasses[props.provider] + '"></i>' +
+            '</a>' +
+            '</li>';
+       } else if( props.provider === 'pdf') {
         var pdfRef = document.getElementById('pdf-ref');
         if( pdfRef !== null ) {
           return '<li class="' + props.provider + '">' +
@@ -159,10 +167,28 @@
 
 })(jQuery, window);
 
-  function goToPdf() {
-    var pdfRef = document.getElementById('pdf-ref');
-    if( pdfRef !== null ) {
-      window.location.href = pdfRef.href;
-    }
-    return false;
+function goToPdf() {
+  var pdfRef = document.getElementById('pdf-ref');
+  if( pdfRef !== null ) {
+    window.location.href = pdfRef.href;
   }
+  return false;
+}
+$(document).ready(function() {
+  $('.tooltipCalendar').tooltipster({
+    trigger: 'click',
+    theme: 'tooltipster-myshadow',
+    animation: 'grow',
+    //delay: 200,
+    interactive: true,
+    contentAsHTML: true,
+    maxWidth: 400,
+    side: 'right',
+    functionPosition: function(instance, helper, position){
+        position.coord.top += 100;
+        position.coord.left += 100;
+        return position;
+    }
+  });
+});
+

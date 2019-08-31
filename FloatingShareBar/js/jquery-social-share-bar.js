@@ -178,7 +178,7 @@
         var pdfRef = document.getElementById('pdf-ref');
         if (pdfRef !== null) {
           return '<li class="' + props.provider + '">' +
-            '<a href="javascript: function() { var pdfRef = document.getElementById(' + "pdf-ref" + '); if (pdfRef !== null) { window.location.href = pdfRef.href; } return false; };" title="pdf version" id="pdf-icon">' +
+            '<a href="javascript: function() { var pdfRef = document.getElementById(' + "'pdf-ref'" + '); if (pdfRef !== null) { window.location.href = pdfRef.href; } return false; };" title="pdf version" id="pdf-icon">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';

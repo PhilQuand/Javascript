@@ -97,13 +97,6 @@
             })).appendTo($element);
           }
 
-          function goToPdf() {
-            var pdfRef = document.getElementById('pdf-ref');
-            if (pdfRef !== null) {
-              window.location.href = pdfRef.href;
-            }
-            return false;
-          }
           $(document).ready(function() {
             $('.tooltipCalendar').tooltipster({
               trigger: 'click',
@@ -185,7 +178,13 @@
         var pdfRef = document.getElementById('pdf-ref');
         if (pdfRef !== null) {
           return '<li class="' + props.provider + '">' +
-            '<a href="#" title="pdf version" id="pdf-icon" onclick="return goToPdf()">' +
+            '<a href="#" title="pdf version" id="pdf-icon" onclick="return function(){
+            var pdfRef = document.getElementById('pdf-ref');
+            if (pdfRef !== null) {
+              window.location.href = pdfRef.href;
+            }
+            return false;
+          }">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';

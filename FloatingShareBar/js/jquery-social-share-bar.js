@@ -113,12 +113,12 @@
               interactive: true,
               contentAsHTML: true,
               maxWidth: 400,
-              side: 'right',
+              side: 'right'/*,
               functionPosition: function(instance, helper, position) {
                 position.coord.top += 100;
                 position.coord.left += 100;
                 return position;
-              }
+              }*/
             });
           });
           // Bind click

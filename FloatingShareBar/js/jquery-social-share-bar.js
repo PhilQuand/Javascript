@@ -14,6 +14,9 @@
 
     var helpers = {
       channels: {
+        calendarFancy: {
+          url: ''
+        },
         calendar: {
           url: ''
         },
@@ -98,6 +101,7 @@
           }
 
           $(document).ready(function() {
+            $(".calendarFancy").fancybox({});
             $('.tooltipCalendar').tooltipster({
               trigger: 'click',
               theme: 'tooltipster-calendar',
@@ -142,7 +146,7 @@
   $.fn.share.defaults = {
     popupWidth: 640,
     popupHeight: 528,
-    channels: ['calendar', 'facebook', 'twitter', 'linkedin', 'googleplus', 'pdf', 'email'],
+    channels: ['facebook', 'twitter', 'linkedin', 'googleplus', 'pdf', 'email'],
     itemTriggerClass: 'js-share',
     containerTemplate: function(props) {
       return '<ul class="sharing-providers"></ul>';
@@ -150,6 +154,7 @@
 
     itemTemplate: function(props) {
       var iconClasses = {
+        'calendarFancy': 'far fa-calendar-alt',
         'calendar': 'far fa-calendar-alt',
         'facebook': 'fab fa-facebook-f',
         'twitter': 'fab fa-twitter',
@@ -167,6 +172,13 @@
       // Special handling for email and Google+
       var providerName = props.provider === 'email' ? 'email' : props.provider === 'googleplus' ? 'Google+' : props.provider.charAt(0).toUpperCase() + props.provider.slice(1);
 
+      if (props.provider === 'calendarFancy') {
+        return '<li class="' + props.provider + '">' +
+          '<a class="calendarFancy" data-fancybox="inlineCalendar" data-src="#calendar_content" href="javascript:;">' +
+          '<i class="' + iconClasses[props.provider] + '"></i>' +
+          '</a>' +
+          '</li>';
+      }
       if (props.provider === 'calendar') {
         return '<li class="' + props.provider + '">' +
           '<a class="tooltipCalendar" data-tooltip-content="#calendar_content"  href="#" title="flash info">' +

@@ -9,6 +9,12 @@
 <script type="text/javascript" src="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/Blog-widgets/IDST/tooltipster-sideTip-calendar.css" />
+<!--style>
+.tooltipster-sidetip.tooltipster-calendar .tooltipStyle {
+  font-size: 0.9em;
+  line-height: 1.4em;
+}
+</style-->
 <div data-caption='' data-lang='' data-url='' id='postBodyforSocialNetworks' style='display:none'></div>
 <div id='showBodyforSocialNetworks'></div>
 <div class='myShareBar' id='share-bar'></div>
@@ -20,7 +26,7 @@
 <script>
 $(document).ready(function() {
   $('#share-bar').share({
-    'channels': ['facebook', 'twitter', 'linkedin', 'pdf', 'email']
+    'channels': ['calendar', 'facebook', 'twitter', 'linkedin', 'pdf', 'email']
   });
 });
 </script>

@@ -101,7 +101,9 @@
           }
 
           $(document).ready(function() {
-            $(".calendarFancy").fancybox({});
+            $(".calendarFancy").fancybox({
+                baseClass: 'calendarFancyClass'
+            });
 
             $('.tooltipCalendar').tooltipster({
               trigger: 'click',

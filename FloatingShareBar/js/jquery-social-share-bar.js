@@ -177,7 +177,7 @@ function goToPdf() {
 $(document).ready(function() {
   $('.tooltipCalendar').tooltipster({
     trigger: 'click',
-    theme: 'tooltipster-myshadow',
+    theme: 'tooltipster-calendar',
     animation: 'grow',
     //delay: 200,
     interactive: true,

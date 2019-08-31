@@ -5,14 +5,17 @@
 <link href='https://philquand.github.io/Javascript/FloatingShareBar/css/jquery-social-share-bar.css' rel='stylesheet' type='text/css'/>
 <script src='https://philquand.github.io/Javascript/FloatingShareBar/js/jquery-social-share-bar.js' type='text/javascript'></script>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+
 <link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/tooltipster.bundle.min.css" />
-<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/Blog-widgets/IDST/tooltipster-sideTip-calendar.css" />
-<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css" />
 <script type="text/javascript" src="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/Blog-widgets/IDST/tooltipster-sideTip-calendar.css" />
 <div data-caption='' data-lang='' data-url='' id='postBodyforSocialNetworks' style='display:none'></div>
 <div id='showBodyforSocialNetworks'></div>
 <div class='myShareBar' id='share-bar'></div>
+
 <div style='display: none'>
 <span id='calendar_content' class='tooltipStyle'><img src='https://lh3.googleusercontent.com/-17vvRlfB3bY/W79GQDW1YLI/AAAAAAAAhrs/LyvfFvISfrcNf7cji09SpQt2qHWreQZGACHMYCw/s0/pierre-bitoun-1.jpg' style='float: left; width: 50%; margin-right: 1em; margin-top: 0.5em' ><a class='iframe cboxElement' href="https://fr.wikipedia.org/wiki/Pierre_Bitoun">Pierre Bitoun</a> est sociologue à l’Institut National de la Recherche Agronomique.<br/>Il est l'auteur de plusieurs livres dont le dernier, le « <a class='iframe cboxElement' href="https://fr.wikipedia.org/wiki/Le_Sacrifice_des_paysans">Sacrifice des Paysans</a> », coécrit avec Yves Dupont, est paru en 2016 aux éditions L’échappée.</span>
 </div>
@@ -20,7 +23,7 @@
 <script>
 $(document).ready(function() {
   $('#share-bar').share({
-    'channels': ['calendar', 'facebook', 'twitter', 'linkedin', 'pdf', 'email']
+    'channels': ['calendarFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email']
   });
 });
 </script>

@@ -102,6 +102,7 @@
 
           $(document).ready(function() {
             $(".calendarFancy").fancybox({});
+
             $('.tooltipCalendar').tooltipster({
               trigger: 'click',
               theme: 'tooltipster-calendar',
@@ -174,7 +175,7 @@
 
       if (props.provider === 'calendarFancy') {
         return '<li class="' + props.provider + '">' +
-          '<a class="calendarFancy" data-fancybox="inlineCalendar" data-src="#calendar_content" href="javascript:;">' +
+          '<a class="calendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';

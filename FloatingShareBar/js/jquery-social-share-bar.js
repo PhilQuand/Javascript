@@ -157,7 +157,7 @@
 
     itemTemplate: function(props) {
       var iconClasses = {
-        'calendarFancy': 'far fa-calendar-alt',
+        'calendarFancy': 'far fa-calendar-check',
         'calendar': 'far fa-calendar-alt',
         'facebook': 'fab fa-facebook-f',
         'twitter': 'fab fa-twitter',

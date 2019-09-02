@@ -178,7 +178,7 @@
       if (props.provider === 'calendarFancy') {
         return '<li class="' + props.provider + '">' +
           '<a class="calendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
-          '<i class="' + iconClasses[props.provider] + '"></i>' +
+          '<i></i>' +
           '</a>' +
           '</li>';
       }

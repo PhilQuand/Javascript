@@ -70,9 +70,15 @@
 }
 
 .sharing-providers > li.calendar, .sharing-providers > li.calendarFancy {
+  width: 90px;
   margin-bottom: 2em;
 }
-.sharing-providers > li.calendar:hover, .sharing-providers > li.calendarFancy:hover {
+.sharing-providers > li.calendarFancy {
+  //background: #DE0107;
+  //background: #999933;
+}
+
+.sharing-providers > li.calendar:hover {
   //background: #DE0107;
   background: #999933;
 }

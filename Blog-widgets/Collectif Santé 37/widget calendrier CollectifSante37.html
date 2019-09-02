@@ -1,0 +1,65 @@
+<h3 class="title">Calendrier
+<a class="tooltipCalendrier" data-tooltip-content="#calenderBL" href="javascript:;">
+<img style="float: right" src="https://1.bp.blogspot.com/-iNtjnB0uqYg/XVu65XdrzaI/AAAAAAAAjyw/6qJf24L2E-AKar5wzZoCQHV8htLnAPMtACLcBGAs/s1600/calendar-icon_34471.png"width="40" height="40" /></a></h3>
+
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/tooltipster.bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css" />
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-noir.min.css" />
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-light.min.css" />
+<script type="text/javascript" src="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js"></script>
+<div style='display: none'>
+<script type="text/javascript" src="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js"></script>
+<style>
+.tooltipStyle {
+  /*font-size: 0.75em;
+  line-height: 1.em;*/
+  font-size: 0.9em;
+  line-height: 1.2em;
+}
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-box {
+    /*border: none;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 10px 6px rgba(0, 0, 0, .1)*/
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    transition: box-shadow .2s;
+}
+
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-content {
+    background-color: #999933;
+    color: white;
+}
+.tooltipster-sidetip.tooltipster-light .tooltipster-box {
+    background-color: rgba(117, 190, 218, 0.0);
+    color: rgba(117, 190, 218, 0.0);
+    border: none;
+}
+</style>
+<style>
+#calenderBL {
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: auto;
+  padding: 0 0 0 0;
+  -webkit-overflow-scrolling: touch;
+}
+</style>
+<div style='display: none'>
+<div id='calenderBL'>
+<iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;showCalendars=0&amp;showTz=0&amp;src=Y212NHU2bWkwZ2tjczkxcWYzczNyc2pnMmNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23cc003c" style="border-width:0" width="500" height="400" frameborder="0" scrolling="no"></iframe>
+</div></div>
+<script>
+$(document).ready(function() {
+  $('.tooltipCalendrier').tooltipster({
+    trigger: 'click',
+    theme: 'tooltipster-light',
+    animation: 'grow',
+    //delay: 200,
+    interactive: true,
+    contentAsHTML: true,
+    //maxWidth: 100,
+    side: 'left'/*,
+    plugins: ['sideTip', 'scrollableTip']*/
+  });
+});
+</script></div>

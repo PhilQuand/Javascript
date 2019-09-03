@@ -101,7 +101,7 @@
           }
 
           $(document).ready(function() {
-            $(".calendarFancy").fancybox({
+            $(".trgCalendarFancy").fancybox({
                 baseClass: 'calendarFancyClass'
             });
 
@@ -177,7 +177,7 @@
 
       if (props.provider === 'calendarFancy') {
         return '<li class="' + props.provider + '">' +
-          '<a class="calendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
+          '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
           '<i></i>' +
           '</a>' +
           '</li>';

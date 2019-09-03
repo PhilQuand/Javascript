@@ -76,18 +76,13 @@
   transform: translateX(-5px);
 }
 
-.sharing-providers > li.calendar, .sharing-providers > li.calendarFancy {
+.sharing-providers > li.calendarTooltipster, .sharing-providers > li.calendarFancy {
   margin-bottom: 2em;
 }
-.sharing-providers > li.calendarFancy {
+.sharing-providers > li.calendarTooltipster, .sharing-providers > li.calendarFancy {
   //background: #999933;
   background: url("https://1.bp.blogspot.com/-ENTWjtaqKJk/XW1QBX5vGhI/AAAAAAAAj3o/KRFNKfFA4MciHj7WlX2YVeJCH-EJLvyygCLcBGAs/s1600/image-6.png");
   background-size: 45px;
-}
-
-.sharing-providers > li.calendar:hover {
-  //background: #DE0107;
-  background: #999933;
 }
 
 .sharing-providers > li.facebook:hover {
@@ -153,7 +148,7 @@
     transform: translateX(0px) !important;
     transform: translateY(-5px) !important;
   }
-  .sharing-providers > li.calendar, .sharing-providers > li.calendarFancy {
+  .sharing-providers > li.calendarTooltipster, .sharing-providers > li.calendarFancy {
     margin-bottom: 2px;
   }
 }

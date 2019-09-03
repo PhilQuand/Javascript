@@ -128,6 +128,17 @@
 .sharing-providers > li.email:hover {
   background: #E3A129;
 }
+.calendarFancyClass .fancybox-content {
+    background-color: #999933;
+    color: white;
+    width: 80vw;
+    max-width: 900px;
+    max-height: 80vh;
+}
+.calendarFancyClass.fancybox-is-open .fancybox-bg {
+    opacity: 0;
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+}
 
 @media (max-width: 800px) {
   .myShareBar {
@@ -150,5 +161,15 @@
   }
   .sharing-providers > li.calendarTooltipster, .sharing-providers > li.calendarFancy {
     margin-bottom: 2px;
+  }
+  .calendarFancyClass .fancybox-content {
+      padding: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .calendarFancyClass .fancybox-content {
+    width: 100vw;
+    max-height: 100vh;
   }
 }

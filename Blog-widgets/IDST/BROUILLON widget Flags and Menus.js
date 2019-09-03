@@ -17,7 +17,34 @@
 <div class='myShareBar' id='share-bar'></div>
 
 <div style='display: none'>
-<span id='calendar_content' class='tooltipStyle'><img src='https://lh3.googleusercontent.com/-17vvRlfB3bY/W79GQDW1YLI/AAAAAAAAhrs/LyvfFvISfrcNf7cji09SpQt2qHWreQZGACHMYCw/s0/pierre-bitoun-1.jpg' style='float: left; width: 50%; margin-right: 1em; margin-top: 0.5em' ><a class='iframe cboxElement' href="https://fr.wikipedia.org/wiki/Pierre_Bitoun">Pierre Bitoun</a> est sociologue à l’Institut National de la Recherche Agronomique.<br/>Il est l'auteur de plusieurs livres dont le dernier, le « <a class='iframe cboxElement' href="https://fr.wikipedia.org/wiki/Le_Sacrifice_des_paysans">Sacrifice des Paysans</a> », coécrit avec Yves Dupont, est paru en 2016 aux éditions L’échappée.</span>
+<span id='calendarFancy_content'>
+<div lang="fr">
+Venez à notre congrès, à Marseille, les 22-23 novembre 2019…</div>
+<div lang="en" style="display: none">
+Come to our congress, in Marseille (France), on November 22-23, 2019...</div>
+<div lang="es" style="display: none">
+Venga a nuestro congreso, en Marsella (Francia), los días 22 y 23 de noviembre de 2019...</div>
+<div lang="de" style="display: none">
+Kommen Sie zu unserem Kongress in Marseille (Frankreich), vom 22. bis 23. November 2019...</div>
+<div lang="pt" style="display: none">
+Venha ao nosso congresso, em Marselha (França), de 22 a 23 de novembro de 2019....</div>
+<div lang="it" style="display: none">
+Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</div>
+</span>
+<!--span id='calendarTooltipster_content' class='tooltipStyle'>
+<div lang="fr">
+Venez à notre congrès, à Marseille, les 22-23 novembre 2019…</div>
+<div lang="en" style="display: none">
+Come to our congress, in Marseille (France), on November 22-23, 2019...</div>
+<div lang="es" style="display: none">
+Venga a nuestro congreso, en Marsella (Francia), los días 22 y 23 de noviembre de 2019...</div>
+<div lang="de" style="display: none">
+Kommen Sie zu unserem Kongress in Marseille (Frankreich), vom 22. bis 23. November 2019...</div>
+<div lang="pt" style="display: none">
+Venha ao nosso congresso, em Marselha (França), de 22 a 23 de novembro de 2019....</div>
+<div lang="it" style="display: none">
+Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</div>
+</span-->
 </div>
 
 <script>

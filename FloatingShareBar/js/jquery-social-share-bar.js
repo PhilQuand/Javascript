@@ -17,7 +17,7 @@
         calendarFancy: {
           url: ''
         },
-        calendar: {
+        calendarTooltipster: {
           url: ''
         },
         facebook: {
@@ -67,6 +67,7 @@
           pageDesc = settings.pageDesc || $('head > meta[name="description"]').attr("content") || '',
           position = settings.position || 'left',
           theme = settings.theme || 'circle',
+          calendarBg = settings.calendarBg || 'https://1.bp.blogspot.com/-ENTWjtaqKJk/XW1QBX5vGhI/AAAAAAAAj3o/KRFNKfFA4MciHj7WlX2YVeJCH-EJLvyygCLcBGAs/s1600/image-6.png',
           animate = settings.animate === false ? false : true,
           u = encodeURIComponent(pageUrl),
           t = encodeURIComponent(pageTitle);
@@ -85,7 +86,7 @@
           }
 
           // Add class for theming the widget
-          $element.addClass(theme);
+          //$element.addClass(theme);
 
           // Append HTML for each network button
           for (var item in settings.channels) {
@@ -96,6 +97,8 @@
             $(settings.itemTemplate({
               provider: item,
               href: href,
+              theme: theme,
+              calendarBg: calendarBg,
               itemTriggerClass: settings.itemTriggerClass
             })).appendTo($element);
           }
@@ -157,8 +160,8 @@
 
     itemTemplate: function(props) {
       var iconClasses = {
-        'calendarFancy': 'far fa-calendar-check',
-        'calendar': 'far fa-calendar-alt',
+        'calendarFancy': 'far',
+        'calendarTooltipster': 'far',
         'facebook': 'fab fa-facebook-f',
         'twitter': 'fab fa-twitter',
         'linkedin': 'fab fa-linkedin-in',
@@ -176,15 +179,15 @@
       var providerName = props.provider === 'email' ? 'email' : props.provider === 'googleplus' ? 'Google+' : props.provider.charAt(0).toUpperCase() + props.provider.slice(1);
 
       if (props.provider === 'calendarFancy') {
-        return '<li class="' + props.provider + '">' +
+        return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
           '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
-          '<i></i>' +
+          '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';
       }
-      if (props.provider === 'calendar') {
-        return '<li class="' + props.provider + '">' +
-          '<a class="tooltipCalendar" data-tooltip-content="#calendar_content"  href="#" title="flash info">' +
+      if (props.provider === 'calendarTooltipster') {
+        return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
+          '<a class="tooltipCalendar" data-tooltip-content="#calendarTooltipster_content"  href="#" title="flash info">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';
@@ -192,7 +195,7 @@
       else if (props.provider === 'pdf') {
         var pdfRef = document.getElementById('pdf-ref');
         if (pdfRef !== null) {
-          return '<li class="' + props.provider + '">' +
+          return '<li class="' + props.provider + ' ' + props.theme + '">' +
             '<a href="#" onclick="javascript: var pdfRef = document.getElementById(' + "'pdf-ref'" + '); if (pdfRef !== null) window.location.href = pdfRef.href;" title="pdf version" id="pdf-icon">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
@@ -200,21 +203,21 @@
         }
       }
       else if (props.provider === 'facebook') {
-        return '<li class="' + props.provider + '">' +
+        return '<li class="' + props.provider + ' ' + props.theme + '">' +
           '<a href="#" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '" onclick="fbSummarize(); return false;">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';
       }
       else if (props.provider === 'email') {
-        return '<li class="' + props.provider + '">' +
+        return '<li class="' + props.provider + ' ' + props.theme +  '">' +
           '<a href="' + props.href + '" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';
       }
       else {
-        return '<li class="' + props.provider + '">' +
+        return '<li class="' + props.provider + ' ' + props.theme +  '">' +
           '<a href="#" data-href="' + props.href + '" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '" class="' + props.itemTriggerClass + ' ' + props.provider + '">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +

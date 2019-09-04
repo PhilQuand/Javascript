@@ -23,7 +23,7 @@
 <div class='myShareBar' id='share-bar'></div>
 
 <div style='display: none'>
-<span id='calendarFancy_content'>
+<div id='calendarFancy_content' style='margin-left: auto; margin-right: 0;'>
 <center>
 <img border="0" style="display: block;" src="https://1.bp.blogspot.com/-fiZ2hS4XPeg/XW58GM9JRAI/AAAAAAAAj4E/tePKkDnxCggaD4xxD9geKLMIVKe3SpQYQCLcBGAs/s1600/Vieuxport2.jpg" alt="NewImage" width="100%" border="0" /><br/>
 <div lang="fr">
@@ -39,7 +39,7 @@
 <div lang="it" style="display: none">
 <a href="https://www.linternationaledessavoirspourtous.org/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</a></div>
 </center>
-</span>
+</div>
 <!--span id='calendarTooltipster_content' class='tooltipStyle'>
 <center>
 <img border="0" style="display: block; margin: 1em auto 1em auto;" src="https://1.bp.blogspot.com/-fiZ2hS4XPeg/XW58GM9JRAI/AAAAAAAAj4E/tePKkDnxCggaD4xxD9geKLMIVKe3SpQYQCLcBGAs/s1600/Vieuxport2.jpg" alt="NewImage" width="100%" border="0" />

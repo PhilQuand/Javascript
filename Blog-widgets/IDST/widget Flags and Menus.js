@@ -59,6 +59,15 @@ Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</di
 </span-->
 </div>
 
+<style>
+// a supprimer par la suite
+/*.calendarFancyClass .fancybox-content {
+    background-color: white;
+}
+.calendarFancyClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.5;
+}*/
+</style>
 <script>
 $(document).ready(function() {
   $('#share-bar').share({
@@ -71,6 +80,17 @@ $(document).ready(function() {
       $('.sharing-providers .calendarFancy').css('display','none');
   }
 });
+</script>
+<script>
+// a supprimer par la suite
+/*$(document).ready(function() {
+            $(".trgCalendarFancy").fancybox({
+                baseClass: 'calendarFancyClass',
+    afterLoad: function(instance, current) {
+      current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
+    }
+            });
+});*/
 </script>
 <style>
 header.centered-top-container.sticky.animating div div nav #page_list_top #HTML2 div #share-bar{

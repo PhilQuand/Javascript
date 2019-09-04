@@ -130,13 +130,12 @@
 }
 .calendarFancyClass .fancybox-content {
     background-color: white;
-    color: white;
     width: 80vw;
     max-width: 900px;
     max-height: 80vh;
 }
 .calendarFancyClass.fancybox-is-open .fancybox-bg {
-    opacity: 0;
+    opacity: 0.5;
     transition-timing-function: cubic-bezier(.22, .61, .36, 1);
 }
 

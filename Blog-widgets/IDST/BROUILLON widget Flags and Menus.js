@@ -18,40 +18,57 @@
 
 <div style='display: none'>
 <span id='calendarFancy_content'>
+<center>
+<img border="0" style="display: block;" src="https://1.bp.blogspot.com/-fiZ2hS4XPeg/XW58GM9JRAI/AAAAAAAAj4E/tePKkDnxCggaD4xxD9geKLMIVKe3SpQYQCLcBGAs/s1600/Vieuxport2.jpg" alt="NewImage" width="100%" border="0" /><br/>
 <div lang="fr">
-Venez à notre congrès, à Marseille, les 22-23 novembre 2019…</div>
+<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venez à notre congrès, à Marseille, les 22-23 novembre 2019…</a></div>
 <div lang="en" style="display: none">
-Come to our congress, in Marseille (France), on November 22-23, 2019...</div>
+<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Come to our congress, in Marseille (France), on November 22-23, 2019...</a></div>
 <div lang="es" style="display: none">
-Venga a nuestro congreso, en Marsella (Francia), los días 22 y 23 de noviembre de 2019...</div>
+<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venga a nuestro congreso, en Marsella (Francia), los días 22 y 23 de noviembre de 2019...</a></div>
 <div lang="de" style="display: none">
-Kommen Sie zu unserem Kongress in Marseille (Frankreich), vom 22. bis 23. November 2019...</div>
+<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Kommen Sie zu unserem Kongress in Marseille (Frankreich), vom 22. bis 23. November 2019...</a></div>
 <div lang="pt" style="display: none">
-Venha ao nosso congresso, em Marselha (França), de 22 a 23 de novembro de 2019....</div>
+<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venha ao nosso congresso, em Marselha (França), de 22 a 23 de novembro de 2019....</a></div>
 <div lang="it" style="display: none">
-Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</div>
+<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</a></div>
+</center>
 </span>
 <!--span id='calendarTooltipster_content' class='tooltipStyle'>
-<div lang="fr">
+<center>
+<img border="0" style="display: block; margin: 1em auto 1em auto;" src="https://1.bp.blogspot.com/-fiZ2hS4XPeg/XW58GM9JRAI/AAAAAAAAj4E/tePKkDnxCggaD4xxD9geKLMIVKe3SpQYQCLcBGAs/s1600/Vieuxport2.jpg" alt="NewImage" width="100%" border="0" />
+<div class="local-lang fr-FR" lang="fr">
 Venez à notre congrès, à Marseille, les 22-23 novembre 2019…</div>
-<div lang="en" style="display: none">
+<div class="local-lang en-EN" lang="en" style="display: none">
 Come to our congress, in Marseille (France), on November 22-23, 2019...</div>
-<div lang="es" style="display: none">
+<div class="local-lang es-ES" lang="es" style="display: none">
 Venga a nuestro congreso, en Marsella (Francia), los días 22 y 23 de noviembre de 2019...</div>
-<div lang="de" style="display: none">
+<div class="local-lang de-DE" lang="de" style="display: none">
 Kommen Sie zu unserem Kongress in Marseille (Frankreich), vom 22. bis 23. November 2019...</div>
-<div lang="pt" style="display: none">
+<div class="local-lang pt-PT" lang="pt" style="display: none">
 Venha ao nosso congresso, em Marselha (França), de 22 a 23 de novembro de 2019....</div>
-<div lang="it" style="display: none">
+<div class="local-lang it-IT" lang="it" style="display: none">
 Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</div>
+</center>
 </span-->
 </div>
 
+<style>
+.calendarFancyClass .fancybox-content {
+    background-color: white;
+}
+</style>
 <script>
 $(document).ready(function() {
   $('#share-bar').share({
     'channels': ['calendarFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email']
   });
+});
+$(document).ready(function() {
+  var pathname = window.location.pathname;
+  if ((pathname != "/") && (pathname != "/search") && (pathname.indexOf("/p/") == -1)) {
+      $('.sharing-providers .calendarFancy').css('display','none');
+  }
 });
 </script>
 <style>

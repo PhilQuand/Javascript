@@ -287,7 +287,8 @@
             })
             .text(input.adresse)
             .run(function(error, results, response) {
-              console.log("results:", results);
+              console.log('input adresse:', input.adresse);
+              console.log('results:', results);
               console.log('first result lat', results.results[0].latlng.lat);
               console.log('first result lng', results.results[0].latlng.lng);
               input = {

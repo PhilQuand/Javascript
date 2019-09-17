@@ -66,6 +66,7 @@ function goFancy() {
     ],
     baseClass: 'customInlineBaseClass',
     afterLoad: function(instance, current) {
+      $(".getFancyFocus").focus();
       if (instance.group.length > 1 && current.$content) {
         if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
         else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');

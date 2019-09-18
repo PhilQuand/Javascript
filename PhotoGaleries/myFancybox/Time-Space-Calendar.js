@@ -1,8 +1,13 @@
 (function($) {
   $.fn.myGoogleCalendar = function(options) {
+    if (typeof options === 'undefined' || typeof options.calendar === 'undefined' || options.calendar.length == 0) return;
     var d = new Date();
     var strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
-    var calendarMapWrap = $('<div id="calendarMap-wrapper"><div class="DateRange-wrapper"><label for="from"> Entre :</label><input type="text" class="datepick" id="from" name="from" value="' + strDate + '"> <label for="to"> et :</label><input type="text" class="datepick" id="to" name="to"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
+    var strMapTitle = '';
+    if( typeof options.mapTitle !== 'undefined' ) strMapTitle = options.mapTitle;
+    var strCalendarTitle = '';
+    if( typeof options.calendarTitle !== 'undefined' ) strCalendarTitle = options.calendarTitle;
+    var calendarMapWrap = $('<div id="calendarMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> entre : </label><input type="text" class="datepick" id="from" name="from" value="' + strDate + '"> <label for="to"> et : </label><input type="text" class="datepick" id="to" name="to" value="indéfini"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
     var calendarRows = $('<div class="calendarEvents-wrapper"></div>');
     //$(this).append(calendarMapWrap, calendarRows);
     var calendarTime = setCalendarTime(options);
@@ -35,7 +40,6 @@
      * We will make use of "Option 1: Load the API discovery document, then assemble the request."
      * as described in https://developers.google.com/api-client-library/javascript/start/start-js
      */
-    if (typeof options === 'undefined' || typeof options.calendar === 'undefined' || options.calendar.length == 0) return;
     loadCalendar(timeMin, timeMax);
 
     function loadCalendar(timeMin, timeMax) {
@@ -234,7 +238,7 @@
         dateFormat: 'yy-mm-dd',
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 3
+        numberOfMonths: 1
       })
       .on("change", function() {
         to.datepicker("option", "minDate", getDate(this));
@@ -255,7 +259,7 @@
         dateFormat: 'yy-mm-dd',
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 3
+        numberOfMonths: 1
       })
       .on("change", function() {
         from.datepicker("option", "maxDate", getDate(this));
@@ -420,7 +424,7 @@
     }
 
     function setCalendarTime(options) {
-      var calendarTime = $('<div id="calendarTime"></div>');
+      var calendarTime = $('<div id="calendarTime"><center>' + strCalendarTitle + '</center></div>');
       calendarTime.append('<div class="big-container"><iframe src="' + options.iframe.big + '" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe></div>');
       calendarTime.append('<div class="medium-container"><iframe src="' + options.iframe.medium + '" style="border-width:0" width="500" height="400" frameborder="0" scrolling="no"></iframe></div>');
       calendarTime.append('<div class="small-container"><iframe src="' + options.iframe.small + '" style="border-width:0" width="400" height="400" frameborder="0" scrolling="no"></iframe></div>');

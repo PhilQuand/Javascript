@@ -956,87 +956,6 @@ var load = (function() {
 
 };*/
 
-function add2Layer(myLayer, inputCollection, setCallBack, iconColor) {
-
-  /*// définition de la classe FlagIcon
-  var FlagIcon = L.Icon.extend({
-    options: {
-      iconSize: iconSize, // size of the icon
-      iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
-      popupAnchor: [-3, -15] // point from which the popup should open relative to the iconAnchor
-    }
-  });*/
-
-  var output = [];
-  for (var i = 0; i < inputCollection.length; i++) {
-    var input = inputCollection[i];
-
-    //if( Object.prototype.toString.call(input) == '[object String]' ) {
-    if( typeof input.adresse !== 'undefined'  ) {
-        L.esri.Geocoding.geocode({
-            requestParams: {
-            maxLocations: 1
-            }
-        })
-          .text(input.adresse)
-          .run(function(error, results, response) {
-             console.log("results:", results);
-             console.log('first result lat', results.results[0].latlng.lat);
-             console.log('first result lng', results.results[0].latlng.lng);
-             input = {lat: results.results[0].latlng.lat, lng: results.results[0].latlng.lng, doc: input.doc}
-             makePopUp(myLayer, input, setCallBack, iconColor);
-          });
-    } else makePopUp(myLayer, input, setCallBack, iconColor);
-    output.push(input);
-  }
-  return output;
-};
-
-function makePopUp(myLayer, input, setCallBack, iconColor) {
- var blueIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
-var greenIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
-var yellowIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
-
-   if( iconColor == 'green') var marker = L.marker([input.lat, input.lng], {icon: greenIcon}).addTo(myLayer);
-   else if( iconColor == 'yellow') var marker = L.marker([input.lat, input.lng], {icon: yellowIcon}).addTo(myLayer);
-   else if( iconColor == 'blue') var marker = L.marker([input.lat, input.lng], {icon: blueIcon}).addTo(myLayer);
-   else var marker = L.marker([input.lat, input.lng]).addTo(myLayer);
-
-    //marker.bindPopup(input.doc).openPopup();
-    marker.bindPopup(input.doc, {
-          maxWidth: 400, 
-          minWidth: 250, 
-          maxHeight: 160, 
-          className: 'popupCustom',
-          autoPan: true, 
-          closeButton: true, 
-          autoPanPadding: [5, 5]
-          });
-    marker.getPopup().on('remove', function() {
-      setCallBack();
-    });
-}
 
 function zoomRemove( map ) {
   //remove zoom functions
@@ -1211,3 +1130,69 @@ function loadDeptFranceJSONN(map, getColor, getFilter) {
   });
 };
 </script>
+<style>
+.customVid .fancybox-button.fancybox-close-small {
+  display: none;
+}
+@media screen and (max-width: 500px) {
+    .popupCustom {
+        max-width: 300px; 
+    }
+}
+@media screen and (max-width: 400px) {
+    .popupCustom {
+        max-width: 250px; 
+    }
+}
+</style>
+<div id="myCalendar"></div>
+<!-- For google calendar integration -->
+<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+    <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+    <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+
+  <link rel="stylesheet" href="https://philquand.github.io/Javascript/jquery-ui/jquery-ui.css" type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/jquery-ui/jquery-ui.js"></script>
+<!--Load my Time-Space-Calendar -->
+    <link href='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/Time-Space-Calendar.css' rel='stylesheet' type='text/css'/>
+    <!--script src="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/Time-Space-Calendar.js" type='text/javascript'></script-->
+    <script src="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/Time-Space-Calendar-Address.js" type='text/javascript'></script>
+
+<!--script>
+$(document).ready(function() {
+  $('#myCalendar').myGoogleCalendar({
+    calendar: [{
+        ID: 'tv6kte34tohi4h8rf0gh963rdc@group.calendar.google.com',
+        color: 'yellow',
+        legend: 'actions'
+      },
+      {
+        ID: 'g4hmtl6ito4djonm11dl4lec4k@group.calendar.google.com',
+        color: 'blue',
+        legend: 'réunions'
+      }
+    ],
+    iframe: {
+      big: "https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZzRobXRsNml0bzRkam9ubTExZGw0bGVjNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dHY2a3RlMzR0b2hpNGg4cmYwZ2g5NjNyZGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%234285F4&amp;color=%23E4C441&amp;showTz=0&amp;showCalendars=0&amp;showPrint=0&amp;mode=MONTH&amp;showTabs=1",
+      medium: "https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZzRobXRsNml0bzRkam9ubTExZGw0bGVjNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dHY2a3RlMzR0b2hpNGg4cmYwZ2g5NjNyZGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%234285F4&amp;color=%23E4C441&amp;showTz=0&amp;showCalendars=0&amp;showPrint=0",
+      small: "https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZzRobXRsNml0bzRkam9ubTExZGw0bGVjNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dHY2a3RlMzR0b2hpNGg4cmYwZ2g5NjNyZGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%234285F4&amp;color=%23E4C441&amp;showTz=0&amp;showCalendars=0&amp;showPrint=0&amp;mode=AGENDA&amp;showTabs=0"
+    }
+  });
+  $('#myCalendar').css('display', 'none');
+});
+</script-->

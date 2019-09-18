@@ -1,5 +1,6 @@
 (function($) {
   $.fn.myGoogleCalendar = function(options) {
+
     if (typeof options === 'undefined' || typeof options.calendar === 'undefined' || options.calendar.length == 0) return;
     var d = new Date();
     var strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
@@ -430,5 +431,6 @@
       calendarTime.append('<div class="small-container"><iframe src="' + options.iframe.small + '" style="border-width:0" width="400" height="400" frameborder="0" scrolling="no"></iframe></div>');
       return calendarTime;
     }
+
   };
 })(jQuery);

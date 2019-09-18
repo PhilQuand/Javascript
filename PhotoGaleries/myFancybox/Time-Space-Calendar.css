@@ -75,19 +75,6 @@
 .datepick {
    position: relative; z-index: 100000;
 }
-.DateRange-wrapper {
-    background:white;
-    padding: 3px;
-}
-.DateRange-wrapper input {
-    padding: 5px 5px 5px 10px;
-    width: 120px;
-    height: 30px;
-}
-.DateRange-wrapper button {
-    padding: 2px;
-    height: 30px;
-}
 .getFancyFocus:focus {
   outline: none;
 }
@@ -103,11 +90,17 @@
 .DateRange-wrapper  {
     display: flex;
     justify-content: flex-end;
+    background:white;
+    padding: 3px;
 }
 .DateRange-wrapper input {
-    padding: 0px;
+    padding: 5px 5px 5px 10px;
     width: 120px;
     height: 25px;
+}
+.DateRange-wrapper button {
+    padding: 2px;
+    height: 30px;
 }
 @media (max-width: 550px) {
    .DateRange-wrapper span {

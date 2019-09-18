@@ -8,7 +8,7 @@
     if( typeof options.mapTitle !== 'undefined' ) strMapTitle = options.mapTitle;
     var strCalendarTitle = '';
     if( typeof options.calendarTitle !== 'undefined' ) strCalendarTitle = options.calendarTitle;
-    var calendarMapWrap = $('<div id="calendarMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> entre : </label><input type="text" class="datepick" id="from" name="from" value="' + strDate + '"> <label for="to"> et : </label><input type="text" class="datepick" id="to" name="to" value="indéfini"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
+    var calendarMapWrap = $('<div id="calendarMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> de : </label><input type="text" class="datepick" id="from" name="from" value="' + strDate + '"> <label for="to"> à : </label><input type="text" class="datepick" id="to" name="to" value="indéfini"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
     var calendarRows = $('<div class="calendarEvents-wrapper"></div>');
     //$(this).append(calendarMapWrap, calendarRows);
     var calendarTime = setCalendarTime(options);

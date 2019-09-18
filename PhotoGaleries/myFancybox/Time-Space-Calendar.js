@@ -4,6 +4,7 @@
     if (typeof options === 'undefined' || typeof options.calendar === 'undefined' || options.calendar.length == 0) return;
     var d = new Date();
     var strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+    if( typeof options.strDate !== 'undefined' ) strDate = options.strDate;
     var strMapTitle = '';
     if( typeof options.mapTitle !== 'undefined' ) strMapTitle = options.mapTitle;
     var strCalendarTitle = '';
@@ -28,7 +29,9 @@
     ];
     var divLegend, markers, calendarLegend, greenIcon, yellowIcon, blueIcon;
     var timeMax = '';
-    var timeMin = (new Date()).toISOString();
+    //var timeMin = (new Date()).toISOString();
+    var timeMin = strDate;
+    timeMin += 'T10:00:00-07:00';
     var indexCal = 0;
 
     /* This solution makes use of "simple access" to google, providing only an API Key.

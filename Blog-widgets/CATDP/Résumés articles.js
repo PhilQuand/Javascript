@@ -863,3 +863,107 @@ $.fn.myTimeLine = function(options) {
   }
 }
 </script>
+<!-- Début Calendrier spatio-temporel -->
+<div id="myCalendar"></div>
+<style>
+.customVid .fancybox-button.fancybox-close-small {
+  display: none;
+}
+@media screen and (max-width: 500px) {
+    .popupCustom {
+        max-width: 300px; 
+    }
+}
+@media screen and (max-width: 400px) {
+    .popupCustom {
+        max-width: 250px; 
+    }
+}
+</style>
+<!-- Load Leaflet -->
+<link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+<script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<script>
+// Constructeur de la carte LeafLet
+function loadMap(idMap) {
+  L.map(idMap).remove();
+  var map = L.map(idMap);
+
+  map.createPane('labels');
+
+  // This pane is above markers but below popups
+  map.getPane('labels').style.zIndex = 650;
+
+  // Layers in this pane are non-interactive and do not obscure mouse/touch events
+  map.getPane('labels').style.pointerEvents = 'none';
+
+
+  return map;
+
+};
+
+function zoomRemove( map ) {
+  //remove zoom functions
+  map.removeControl(map.zoomControl);
+  map.touchZoom.disable();
+  map.doubleClickZoom.disable();
+  map.scrollWheelZoom.disable();
+  map.boxZoom.disable();
+  map.keyboard.disable();
+}
+
+</script>
+<!-- For google calendar integration -->
+<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+    <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+    <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+
+  <link rel="stylesheet" href="https://philquand.github.io/Javascript/jquery-ui/jquery-ui.css" type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/jquery-ui/jquery-ui.js"></script>
+<!--Load my Time-Space-Calendar -->
+    <link href='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/Time-Space-Calendar.css' rel='stylesheet' type='text/css'/>
+    <script src="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/Time-Space-Calendar.js" type='text/javascript'></script>
+    <script src="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/Time-Space-Calendar-Address.js" type='text/javascript'></script>
+
+<script>
+$(document).ready(function() {
+  $('#myCalendar').myGoogleCalendar({
+    calendar: [{
+        ID: 'tv6kte34tohi4h8rf0gh963rdc@group.calendar.google.com',
+        color: 'yellow',
+        legend: 'actions'
+      },
+      {
+        ID: 'g4hmtl6ito4djonm11dl4lec4k@group.calendar.google.com',
+        color: 'blue',
+        legend: 'réunions'
+      }
+    ],
+    iframe: {
+      big: "https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZzRobXRsNml0bzRkam9ubTExZGw0bGVjNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dHY2a3RlMzR0b2hpNGg4cmYwZ2g5NjNyZGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%234285F4&amp;color=%23E4C441&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0",
+      medium: "https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZzRobXRsNml0bzRkam9ubTExZGw0bGVjNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dHY2a3RlMzR0b2hpNGg4cmYwZ2g5NjNyZGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%234285F4&amp;color=%23E4C441&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0",
+      small: "https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FParis&amp;src=ZzRobXRsNml0bzRkam9ubTExZGw0bGVjNGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dHY2a3RlMzR0b2hpNGg4cmYwZ2g5NjNyZGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%234285F4&amp;color=%23E4C441&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;showTabs=0"
+   },
+    mapTitle: 'Actions et réunions',
+    calendarTitle: 'Actions et réunions',
+    strDate: '2019-09-01'
+  });
+  $('#myCalendar').css('display', 'none');
+});
+</script>
+<!-- Fin Calendrier spatio-temporel -->

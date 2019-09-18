@@ -100,3 +100,17 @@
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
 }
+.DateRange-wrapper  {
+    display: flex;
+    justify-content: flex-end;
+}
+.DateRange-wrapper input {
+    padding: 0px;
+    width: 120px;
+    height: 25px;
+}
+@media (max-width: 550px) {
+   .DateRange-wrapper span {
+       display: none;
+   }
+}

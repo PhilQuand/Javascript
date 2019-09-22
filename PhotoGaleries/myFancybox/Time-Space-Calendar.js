@@ -3,13 +3,13 @@
 
     if (typeof options === 'undefined' || typeof options.calendar === 'undefined' || options.calendar.length == 0) return;
     var d = new Date();
-    var strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
-    if( typeof options.strDate !== 'undefined' ) strDate = options.strDate;
+    var strDate = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+    if (typeof options.strDate !== 'undefined') strDate = options.strDate;
     var strMapTitle = '';
-    if( typeof options.mapTitle !== 'undefined' ) strMapTitle = options.mapTitle;
+    if (typeof options.mapTitle !== 'undefined') strMapTitle = options.mapTitle;
     var strCalendarTitle = '';
-    if( typeof options.calendarTitle !== 'undefined' ) strCalendarTitle = options.calendarTitle;
-    var calendarMapWrap = $('<div id="calendarMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> de : </label><input type="text" class="datepick" id="from" name="from" value="' + strDate + '"> <label for="to"> à : </label><input type="text" class="datepick" id="to" name="to" value="indéfini"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
+    if (typeof options.calendarTitle !== 'undefined') strCalendarTitle = options.calendarTitle;
+    var calendarMapWrap = $('<div id="calendarMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> de : </label><input type="text" class="datepick" id="from" name="from" value="indéfini"> <label for="to"> à : </label><input type="text" class="datepick" id="to" name="to" value="indéfini"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
     var calendarRows = $('<div class="calendarEvents-wrapper"></div>');
     //$(this).append(calendarMapWrap, calendarRows);
     var calendarTime = setCalendarTime(options);
@@ -28,10 +28,12 @@
       []
     ];
     var divLegend, markers, calendarLegend, greenIcon, yellowIcon, blueIcon;
-    var timeMax = '';
+    var defTimeMax = '2059-09-01T23:59:00-07:00';
+    var timeMax = defTimeMax;
     //var timeMin = (new Date()).toISOString();
     var timeMin = strDate;
-    timeMin += 'T10:00:00-07:00';
+    timeMin += 'T00:00:00-07:00';
+    var timeEntryMax = timeMin;
     var indexCal = 0;
 
     /* This solution makes use of "simple access" to google, providing only an API Key.
@@ -44,9 +46,9 @@
      * We will make use of "Option 1: Load the API discovery document, then assemble the request."
      * as described in https://developers.google.com/api-client-library/javascript/start/start-js
      */
-    loadCalendar(timeMin, timeMax);
+    loadCalendar();
 
-    function loadCalendar(timeMin, timeMax) {
+    function loadCalendar() {
       // The "Calendar ID" from your calendar settings page, "Calendar Integration" secion:
       var calendarId = options.calendar[indexCal].ID;
       var calendarColor = ''
@@ -67,7 +69,6 @@
         var apiKey = 'AIzaSyA325-RxDsfV-YMIcPSvCwbSzqowjzjHJ0';
         // You can get a list of time zones from here: http://www.timezoneconverter.com/cgi-bin/zonehelp
         var userTimeZone = "Europe/Paris";
-        if (timeMax == '') timeMax = '2059-09-01T10:00:00-07:00';
 
         // Initializes the client with the API key and the Translate API.
         gapi.client.init({
@@ -89,15 +90,26 @@
           });
         }).then(function(response) {
           if (response.result.items) {
-            response.result.items.forEach(function(entry) {
-              var newItem = $('<div class="calendarEvent"></div>');
-              calendarRows.append(newItem);
-              var newItemPopup = $('<div class="markerPopUp"></div>');
-              var newItemLocation = $('<div class="markerLocation"></div>');
-              newItem.append(newItemPopup, newItemLocation);
-              var doc = setMarkerPopup(newItemPopup, entry);
-              getLocationCoord(entry.location, doc, newItemLocation, options.calendar.length, response.result.items.length);
-            });
+            if (response.result.items.length > 0) {
+              response.result.items.forEach(function(entry) {
+                var newItem = $('<div class="calendarEvent"></div>');
+                calendarRows.append(newItem);
+                var newItemPopup = $('<div class="markerPopUp"></div>');
+                var newItemLocation = $('<div class="markerLocation"></div>');
+                newItem.append(newItemPopup, newItemLocation);
+                var doc = setMarkerPopup(newItemPopup, entry);
+                if (entry.start.dateTime > timeEntryMax) timeEntryMax = entry.start.dateTime;
+                getLocationCoord(entry.location, doc, newItemLocation, options.calendar.length, response.result.items.length);
+              });
+            }
+            else {
+              if (indexCal < (options.calendar.length - 1)) {
+                indexEvent.push([]);
+                indexCal++;
+                loadCalendar();
+              }
+              endMarkerBuild(indexEvent, setMapView);
+            }
           }
         }, function(reason) {
           console.log('Error: ' + reason.result.error.message);
@@ -235,21 +247,25 @@
 
     $("button").click(function(event) {
       event.preventDefault();
-      var timeMin = from.datepicker({
+      timeMin = from.datepicker({
         dateFormat: 'yy-mm-dd'
       }).val();
-      timeMin += 'T10:00:00-07:00';
-      var timeMax = to.datepicker({
+      timeMin += 'T00:00:00-07:00';
+      timeMax = to.datepicker({
         dateFormat: 'yy-mm-dd'
       }).val();
-      if (timeMax != '') timeMax += 'T10:00:00-07:00';
+      if (timeMax != '') timeMax += 'T23:59:00-07:00';
       console.log("A new date selection was made: " + timeMin + ' to ' + timeMax);
       map.removeLayer(markers)
       indexEvent = [
         []
       ];
+      divLegend.innerHTML = '';
+      for (i = 0; i < calendarLegend.length; i++) {
+        divLegend.innerHTML += '<img src="' + calendarLegend[i].iconUrl + '"> 0 ' + calendarLegend[i].iconLegend + '<br>'
+      }
       indexCal = 0;
-      loadCalendar(timeMin, timeMax);
+      loadCalendar();
     });
     var dateFormat = "yy-mm-dd",
       from = $("#from")
@@ -339,7 +355,7 @@
               if (indexCal < (calendarLength - 1)) {
                 indexEvent.push([]);
                 indexCal++;
-                loadCalendar(timeMin, timeMax);
+                loadCalendar();
                 return output;
               }
               endMarkerBuild(indexEvent, setCallBack);
@@ -355,7 +371,7 @@
           if (indexCal < (calendarLength - 1)) {
             indexEvent.push([]);
             indexCal++;
-            loadCalendar(timeMin, timeMax);
+            loadCalendar();
             return output;
           }
           endMarkerBuild(indexEvent, setCallBack);
@@ -367,6 +383,16 @@
     };
 
     function endMarkerBuild(indexEvent, setCallBack) {
+      if (from[0].value == "indéfini") {
+        from.datepicker("option", "minDate", new Date(strDate));
+        from.datepicker("option", "maxDate", new Date(timeEntryMax));
+        from[0].value = strDate.split("T")[0];
+      }
+      if (to[0].value == "indéfini") {
+        to.datepicker("option", "minDate", new Date(strDate));
+        to.datepicker("option", "maxDate", new Date(timeEntryMax));
+        to[0].value = timeEntryMax.split("T")[0];
+      }
       blueIcon = new L.Icon({
         iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',

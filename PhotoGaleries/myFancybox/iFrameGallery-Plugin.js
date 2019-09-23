@@ -7,10 +7,10 @@
       var divLinkID = 'none';
       var divCont;
       var thumbs;
-      if (options.accessmode == 'linkID') {
-        var divLinkID = $('#linkID').clone();
+      if (options.accessmode !== 'undefined') {
+        var divLinkID = $('#' + options.accessmode).clone();
         $(this).append(divLinkID);
-        $('#linkID').removeAttr('id');
+        $('#' + options.accessmode).removeAttr('id');
       }
       var noneBgImage = 'none';
       if (typeof options.noneBgImage !== 'undefined') noneBgImage = options.noneBgImage;

@@ -270,7 +270,7 @@
             markers.addLayer(marker);
           }
         }
-        divLegend.innerHTML = '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + nbMapEvents + ' « flash infos »'
+        divLegend.innerHTML = '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + nbMapEvents + ' « échos »'
       };
 
       function makePopUp(input, setCallBack) {
@@ -424,7 +424,7 @@
         dateFormat: 'yy-mm-dd'
       }).val());
       console.log("A new date selection was made: " + timeMin + ' to ' + timeMax);
-      divLegend.innerHTML = '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + nbMapEvents + ' « flash infos »'
+      divLegend.innerHTML = '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + nbMapEvents + ' « échos »'
       for (i = 0; i < hrefLength; i++) {
         if (timeMin <= href[i].dateFin) {
           indexEnd = i;

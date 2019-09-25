@@ -26,6 +26,7 @@
     var strDeb = href[hrefAfDeb].dateDeb.getFullYear() + "-" + ("0" + (href[hrefAfDeb].dateDeb.getMonth() + 1)).slice(-2) + "-" + ("0" + href[hrefAfDeb].dateDeb.getDate()).slice(-2);
     var dateFin = href[0].dateFin;
     var strFin = href[0].dateFin.getFullYear() + "-" + ("0" + (href[0].dateFin.getMonth() + 1)).slice(-2) + "-" + ("0" + href[0].dateFin.getDate()).slice(-2);
+    var dateDeb = href[hrefLength - 1].dateDeb;
     var infoMapWrap = $('<div id="infoMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
     var infoRows = $(this).find('.infoEvents-wrapper');
     if (infoRows.length == 0) {

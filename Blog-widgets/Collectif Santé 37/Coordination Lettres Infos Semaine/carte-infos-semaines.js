@@ -44,8 +44,8 @@
 
     function setMapView() {
       map.setView({
-        lat: 47.390,
-        lng: 0.689
+        lat: 46.390,
+        lng: 1.689
       }, 6);
     }
     var indexEvent = [
@@ -348,8 +348,8 @@
 
       function setMapView() {
         map.setView({
-          lat: 47.390,
-          lng: 0.689
+          lat: 46.390,
+          lng: 1.689
         }, 6);
       }
       setMapView();

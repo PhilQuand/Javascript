@@ -50,11 +50,12 @@
     var indexEvent = [
       []
     ];
-    var indexCal = hrefAfDeb;
-    var indexEnd = href.length - 1;
+    var indexCal = 0;
+    var indexEnd = href.length - hrefAfDeb;
     var indIndex = [];
-    for(i=hrefAfDeb; i<href.length; i++) {
-      indIndex.push(i);
+    for(i=0; i<=indexEnd; i++) {
+      var myindIndex = i+hrefAfDeb;
+      indIndex.push(myindIndex);
     }
     var nbMapEvents = 0;
     var divLegend;

@@ -6,11 +6,9 @@
     var strMapTitle = '';
     if (typeof options.mapTitle !== 'undefined') strMapTitle = options.mapTitle;
     var hrefLength = href.length;
-    var indIndex = [];
     var iFrameGalleryOpt = {};
     iFrameGalleryOpt.archi = [];
     for (i = 0; i < hrefLength; i++) {
-      indIndex.push(i);
       href[i].weekInfos = href[i].svgInfos[0] + ', ' + href[i].svgInfos[1] + ' ' + href[i].svgInfos[2] + ' ' + href[i].svgInfos[3];
       href[i].dateDeb = getDateDeb(href[i].weekInfos);
       href[i].dateFin = getDateFin(href[i].weekInfos);
@@ -52,8 +50,12 @@
     var indexEvent = [
       []
     ];
-    var indexCal = 0;
+    var indexCal = hrefAfDeb;
     var indexEnd = href.length - 1;
+    var indIndex = [];
+    for(i=hrefAfDeb; i<href.length; i++) {
+      indIndex.push(i);
+    }
     var nbMapEvents = 0;
     var divLegend;
     var result = getMyInnerLinkContent();

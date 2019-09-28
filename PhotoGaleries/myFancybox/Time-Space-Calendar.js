@@ -1,6 +1,5 @@
 (function($) {
   $.fn.myGoogleCalendar = function(options) {
-
     if (typeof options === 'undefined' || typeof options.calendar === 'undefined' || options.calendar.length == 0) return;
     var d = new Date();
     var strDate = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
@@ -9,11 +8,11 @@
     if (typeof options.mapTitle !== 'undefined') strMapTitle = options.mapTitle;
     var strCalendarTitle = '';
     if (typeof options.calendarTitle !== 'undefined') strCalendarTitle = options.calendarTitle;
-    var calendarMapWrap = $('<div id="calendarMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> de : </label><input type="text" class="datepick" id="from" name="from" value="indéfini"> <label for="to"> à : </label><input type="text" class="datepick" id="to" name="to" value="indéfini"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
+    var calendarMapWrap = $('<div id="calendarMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> de : </label><input type="text" class="datepick" id="from" name="from" value="indéfini"> <label for="to"> à : </label><input type="text" class="datepick" id="to" name="to" value="indéfini"> <button class="getFancyFocus ui-button ui-widget ui-corner-all">OK</button></div></div>');
     var calendarRows = $('<div class="calendarEvents-wrapper"></div>');
-    //$(this).append(calendarMapWrap, calendarRows);
+    $(this).append(calendarMapWrap, calendarRows);
     var calendarTime = setCalendarTime(options);
-    $(this).append(calendarMapWrap, calendarRows, calendarTime);
+    $(this).append(calendarTime);
     var calendarMap = $('<div id="calendarMap"></div>');
     calendarMapWrap.append(calendarMap);
     var map = initMap('calendarMap');
@@ -36,24 +35,96 @@
     var timeEntryMax = timeMin;
     var indexCal = 0;
 
-    /* This solution makes use of "simple access" to google, providing only an API Key.
-     * This way we can only get access to public calendars. To access a private calendar,
-     * we would need to use OAuth 2.0 access.
-     *
-     * "Simple" vs. "Authorized" access: https://developers.google.com/api-client-library/javascript/features/authentication
-     * Examples of "simple" vs OAuth 2.0 access: https://developers.google.com/api-client-library/javascript/samples/samples#authorizing-and-making-authorized-requests
-     *
-     * We will make use of "Option 1: Load the API discovery document, then assemble the request."
-     * as described in https://developers.google.com/api-client-library/javascript/start/start-js
-     */
     loadCalendar();
 
+    function initMap(idMap) {
+
+      'use strict'
+
+      var map = loadMap(idMap);
+
+      //zoomRemove(map);
+      map.options.minZoom = 13;
+      map.options.maxZoom = 16;
+
+      function setMapView() {
+        map.setView({
+          lat: 47.390,
+          lng: 0.689
+        }, 14);
+      }
+      setMapView();
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+
+      var results = L.layerGroup().addTo(map);
+
+      var redIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      searchControl.on('results', function(data) {
+        results.clearLayers();
+        for (var i = data.results.length - 1; i >= 0; i--) {
+          results.addLayer(L.marker(data.results[i].latlng, {
+            icon: redIcon
+          }));
+        }
+      });
+      var legend = L.control({
+        position: 'bottomright'
+      });
+
+      legend.onAdd = function(map) {
+        divLegend = L.DomUtil.create('div', 'legend');
+        return divLegend;
+      };
+
+      legend.addTo(map);
+
+      return map;
+      // Constructeur de la carte LeafLet
+      function loadMap(idMap) {
+        L.map(idMap).remove();
+        var map = L.map(idMap);
+
+        map.createPane('labels');
+
+        // This pane is above markers but below popups
+        map.getPane('labels').style.zIndex = 650;
+
+        // Layers in this pane are non-interactive and do not obscure mouse/touch events
+        map.getPane('labels').style.pointerEvents = 'none';
+
+
+        return map;
+
+      };
+
+      function zoomRemove(map) {
+        //remove zoom functions
+        map.removeControl(map.zoomControl);
+        map.touchZoom.disable();
+        map.doubleClickZoom.disable();
+        map.scrollWheelZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+      }
+    }
     function loadCalendar() {
       // The "Calendar ID" from your calendar settings page, "Calendar Integration" secion:
       var calendarId = options.calendar[indexCal].ID;
       var calendarColor = ''
       if (options.calendar[indexCal].color !== 'undefined') calendarColor = options.calendar[indexCal].color;
-      var calendarLegend = ''
+      calendarLegend = ''
       if (options.calendar[indexCal].legend !== 'undefined') calendarLegend = options.calendar[indexCal].legend;
       // Loads the JavaScript client library and invokes `start` afterwards.
       gapi.load('client', printCalendar);
@@ -159,171 +230,6 @@
           newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div clas="latitude">${output[0].lat}</div>`, `<div clas="longitude">${output[0].lng}</div>`);
         };
       };
-
-    }
-
-    function initMap(idMap) {
-
-      'use strict'
-
-      var map = loadMap(idMap);
-
-      //zoomRemove(map);
-      map.options.minZoom = 13;
-      map.options.maxZoom = 16;
-
-      function setMapView() {
-        map.setView({
-          lat: 47.390,
-          lng: 0.689
-        }, 14);
-      }
-      setMapView();
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-
-      var searchControl = L.esri.Geocoding.geosearch().addTo(map);
-
-      var results = L.layerGroup().addTo(map);
-
-      var redIcon = new L.Icon({
-        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
-      searchControl.on('results', function(data) {
-        results.clearLayers();
-        for (var i = data.results.length - 1; i >= 0; i--) {
-          results.addLayer(L.marker(data.results[i].latlng, {
-            icon: redIcon
-          }));
-        }
-      });
-      var legend = L.control({
-        position: 'bottomright'
-      });
-
-      legend.onAdd = function(map) {
-        divLegend = L.DomUtil.create('div', 'legend');
-        return divLegend;
-      };
-
-      legend.addTo(map);
-
-      return map;
-      // Constructeur de la carte LeafLet
-      function loadMap(idMap) {
-        L.map(idMap).remove();
-        var map = L.map(idMap);
-
-        map.createPane('labels');
-
-        // This pane is above markers but below popups
-        map.getPane('labels').style.zIndex = 650;
-
-        // Layers in this pane are non-interactive and do not obscure mouse/touch events
-        map.getPane('labels').style.pointerEvents = 'none';
-
-
-        return map;
-
-      };
-
-      function zoomRemove(map) {
-        //remove zoom functions
-        map.removeControl(map.zoomControl);
-        map.touchZoom.disable();
-        map.doubleClickZoom.disable();
-        map.scrollWheelZoom.disable();
-        map.boxZoom.disable();
-        map.keyboard.disable();
-      }
-    }
-
-    $("button").click(function(event) {
-      event.preventDefault();
-      timeMin = from.datepicker({
-        dateFormat: 'yy-mm-dd'
-      }).val();
-      timeMin += 'T00:00:00-07:00';
-      timeMax = to.datepicker({
-        dateFormat: 'yy-mm-dd'
-      }).val();
-      if (timeMax != '') timeMax += 'T23:59:00-07:00';
-      console.log("A new date selection was made: " + timeMin + ' to ' + timeMax);
-      map.removeLayer(markers)
-      indexEvent = [
-        []
-      ];
-      divLegend.innerHTML = '';
-      for (i = 0; i < calendarLegend.length; i++) {
-        divLegend.innerHTML += '<img src="' + calendarLegend[i].iconUrl + '"> 0 ' + calendarLegend[i].iconLegend + '<br>'
-      }
-      indexCal = 0;
-      loadCalendar();
-    });
-    var dateFormat = "yy-mm-dd",
-      from = $("#from")
-      .datepicker({
-        autoOpen: false,
-        altField: ".datepicker",
-        closeText: 'Fermer',
-        prevText: 'Précédent',
-        nextText: 'Suivant',
-        currentText: 'Aujourd\'hui',
-        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-        weekHeader: 'Sem.',
-        dateFormat: 'yy-mm-dd',
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1
-      })
-      .on("change", function() {
-        to.datepicker("option", "minDate", getDate(this));
-      }),
-      to = $("#to").datepicker({
-        autoOpen: false,
-        altField: ".datepicker",
-        closeText: 'Fermer',
-        prevText: 'Précédent',
-        nextText: 'Suivant',
-        currentText: 'Aujourd\'hui',
-        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-        weekHeader: 'Sem.',
-        dateFormat: 'yy-mm-dd',
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1
-      })
-      .on("change", function() {
-        from.datepicker("option", "maxDate", getDate(this));
-      });
-    $("button").focus();
-
-    function getDate(element) {
-      var date;
-      try {
-        date = $.datepicker.parseDate(dateFormat, element.value);
-      }
-      catch (error) {
-        date = null;
-      }
-
-      return date;
-    }
 
     function add2Layer(inputCollection, setCallBack, iconColor, iconLegend, calendarLength, itemsLength) {
 
@@ -480,13 +386,92 @@
       return marker;
     }
 
-    function setCalendarTime(options) {
+    }
+    $(".DateRange-wrapper button").click(function(event) {
+      event.preventDefault();
+      timeMin = from.datepicker({
+        dateFormat: 'yy-mm-dd'
+      }).val();
+      timeMin += 'T00:00:00-07:00';
+      timeMax = to.datepicker({
+        dateFormat: 'yy-mm-dd'
+      }).val();
+      if (timeMax != '') timeMax += 'T23:59:00-07:00';
+      console.log("A new date selection was made: " + timeMin + ' to ' + timeMax);
+      map.removeLayer(markers)
+      indexEvent = [
+        []
+      ];
+      divLegend.innerHTML = '';
+      for (i = 0; i < calendarLegend.length; i++) {
+        divLegend.innerHTML += '<img src="' + calendarLegend[i].iconUrl + '"> 0 ' + calendarLegend[i].iconLegend + '<br>'
+      }
+      indexCal = 0;
+      loadCalendar();
+    });
+    var dateFormat = "yy-mm-dd",
+      from = $(".DateRange-wrapper #from")
+      .datepicker({
+        autoOpen: false,
+        altField: ".datepicker",
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+        weekHeader: 'Sem.',
+        dateFormat: 'yy-mm-dd',
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on("change", function() {
+        to.datepicker("option", "minDate", getDate(this));
+      }),
+      to = $(".DateRange-wrapper #to").datepicker({
+        autoOpen: false,
+        altField: ".datepicker",
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+        weekHeader: 'Sem.',
+        dateFormat: 'yy-mm-dd',
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on("change", function() {
+        from.datepicker("option", "maxDate", getDate(this));
+      });
+    //$("button").focus();
+
+    function getDate(element) {
+      var date;
+      try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+      }
+      catch (error) {
+        date = null;
+      }
+
+      return date;
+    }
+     function setCalendarTime(options) {
       var calendarTime = $('<div id="calendarTime"><center>' + strCalendarTitle + '</center></div>');
       calendarTime.append('<div class="big-container"><iframe src="' + options.iframe.big + '" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe></div>');
       calendarTime.append('<div class="medium-container"><iframe src="' + options.iframe.medium + '" style="border-width:0" width="500" height="400" frameborder="0" scrolling="no"></iframe></div>');
       calendarTime.append('<div class="small-container"><iframe src="' + options.iframe.small + '" style="border-width:0" width="400" height="400" frameborder="0" scrolling="no"></iframe></div>');
       return calendarTime;
     }
-
-  };
+ };
 })(jQuery);

@@ -32,15 +32,14 @@
 .markerPopUp .popupCol2 {
   flex: 78%;
 }
-/*.calendarEvent {
-  display: none;
-}*/
 .bannerCoord {
+    display: flex
     width: 60vw;
     max-width: 300px;
+    background:white;
 }
 .bannerCoord img {
-    width: 49%;
+    align-items: stretch;
 }
 .legend {
     padding:.5em .75em;

@@ -3,11 +3,14 @@
 
     if (typeof options === 'undefined' || typeof options.href === 'undefined') return;
     var href = options.href;
-    var strMapTitle = '';
-    if (typeof options.mapTitle !== 'undefined') strMapTitle = options.mapTitle;
     var hrefLength = href.length;
     var iFrameGalleryOpt = {};
     iFrameGalleryOpt.archi = [];
+    var infoRows = $(this).find('.infoEvents-wrapper');
+    if (infoRows.length == 0) {
+      var infoRows = $('<div class="infoEvents-wrapper"></div>');
+      $(this).append(infoRows);
+    }
     for (i = 0; i < hrefLength; i++) {
       href[i].weekInfos = href[i].svgInfos[0] + ', ' + href[i].svgInfos[1] + ' ' + href[i].svgInfos[2] + ' ' + href[i].svgInfos[3];
       href[i].dateDeb = getDateDeb(href[i].weekInfos);
@@ -20,23 +23,28 @@
     }
     if (iFrameGalleryOpt.archi.length > 0) iFrameGalleryOpt.archi[0].idGlinkID = 'MapLetters';
     iFrameGalleryOpt.accessmode = 'linkMapID';
-    var hrefAfDeb = 3;
-    if( hrefLength < 4) hrefAfDeb = hrefLength - 1;
-    var dateDeb = href[hrefAfDeb].dateDeb;
-    var strDeb = href[hrefAfDeb].dateDeb.getFullYear() + "-" + ("0" + (href[hrefAfDeb].dateDeb.getMonth() + 1)).slice(-2) + "-" + ("0" + href[hrefAfDeb].dateDeb.getDate()).slice(-2);
-    var dateFin = href[0].dateFin;
-    var strFin = href[0].dateFin.getFullYear() + "-" + ("0" + (href[0].dateFin.getMonth() + 1)).slice(-2) + "-" + ("0" + href[0].dateFin.getDate()).slice(-2);
-    var dateDeb = href[hrefLength - 1].dateDeb;
-    var infoMapWrap = $('<div id="infoMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
-    var infoRows = $(this).find('.infoEvents-wrapper');
-    if (infoRows.length == 0) {
-      var infoRows = $('<div class="infoEvents-wrapper"></div>');
-      $(this).append(infoRows);
-    }
+    var infoMapWrap = $('<div id="infoMap-wrapper">');
     $(this).append(infoMapWrap);
-    $(this).append('<div id="CoordMapInfos"><div style="display: none;"><div id="linkMapID"><div id="MapLetters"><svg width="100%" height="100%" viewBox="0 0 650 621" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="https://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><g transform="matrix(1,0,0,1,-316.691,-56.7425)"><g transform="matrix(0.90598,0,0,0.985225,85.301,2.32331)"><path d="M967.734,669.87L966.823,338.503L904.275,367.365L891.997,380.877L890.514,446.137" style="fill:none;stroke:black;stroke-width:7.4px;"/></g><g transform="matrix(0.0273775,0.771394,-0.714296,0.025351,1171.36,221.814)"><path d="M135.195,299.497L164.379,370.473L89.913,370.473L135.195,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:5.38px;"/></g><g transform="matrix(-0.00462607,-0.775534,0.628174,-0.00374707,134.852,433.178)"><path d="M127.146,299.497L164.379,370.473L89.913,370.473L127.146,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:5.67px;"/></g><g transform="matrix(1.91433,0.0348383,-0.0180636,0.992577,405.386,-242.96)"><path d="M127.146,299.497L164.379,370.473L89.913,370.473L127.146,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:2.62px;"/></g><g transform="matrix(0.983677,0,0,1.01056,7.35674,-8.77642)"><path d="M318.537,665.59L341.569,449.785L947.575,448.054L970.947,674.897L318.025,672.194L320.629,341.979L378.463,371.661L388.558,380.433L392.425,390.996L394.731,449.633" style="fill:none;stroke:black;stroke-width:7.02px;"/></g><path d="M368.563,354.974L369.883,140.556L380.152,130.651L772.218,130.703L907.865,266.05L910.49,357.604" style="fill:none;stroke:black;stroke-width:7px;"/><g transform="matrix(0.877185,0,0,0.877185,465.273,148.966)"><text x="51.233px" y="240.544px" style="font-family:' + "' ArialMT', 'Arial'" + ', sans-serif;font-size:288px;">@</text></g><g transform="matrix(1,0,0,1,-68.7214,27.1855)"><text x="573.93px" y="506.263px" style="font-family:' + "'ArialMT', 'Arial'" + ', sans-serif;font-size:96px;fill:rgb(197,33,33);">Accès</text><text x="456.485px" y="605.403px" style="font-family:' + "'ArialMT', 'Arial'" + ', sans-serif;font-size:96px;fill:rgb(197,33,33);">aux lettres</text></g></g></svg></div></div></div></div>');
+    var hrefAfDeb = 3;
+    if (hrefLength < 4) hrefAfDeb = hrefLength - 1;
+    if (hrefLength > 1) {
+      var strMapTitle = '';
+      if (typeof options.mapTitle !== 'undefined') strMapTitle = options.mapTitle;
+      var dateDeb = href[hrefAfDeb].dateDeb;
+      var strDeb = href[hrefAfDeb].dateDeb.getFullYear() + "-" + ("0" + (href[hrefAfDeb].dateDeb.getMonth() + 1)).slice(-2) + "-" + ("0" + href[hrefAfDeb].dateDeb.getDate()).slice(-2);
+      var dateFin = href[0].dateFin;
+      var strFin = href[0].dateFin.getFullYear() + "-" + ("0" + (href[0].dateFin.getMonth() + 1)).slice(-2) + "-" + ("0" + href[0].dateFin.getDate()).slice(-2);
+      var dateDeb = href[hrefLength - 1].dateDeb;
+      infoMapWrap.append('<div id="infoMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
+    }
+    var iFrameGallery = true;
+    if (typeof options.iFrameGallery !== 'undefined') iFrameGallery = options.iFrameGallery;
 
-    setCoordMapInfos("CoordMapInfos", iFrameGalleryOpt);
+    if (iFrameGallery) {
+      $(this).append('<div id="CoordMapInfos"><div style="display: none;"><div id="linkMapID"><div id="MapLetters"><svg width="100%" height="100%" viewBox="0 0 650 621" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="https://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><g transform="matrix(1,0,0,1,-316.691,-56.7425)"><g transform="matrix(0.90598,0,0,0.985225,85.301,2.32331)"><path d="M967.734,669.87L966.823,338.503L904.275,367.365L891.997,380.877L890.514,446.137" style="fill:none;stroke:black;stroke-width:7.4px;"/></g><g transform="matrix(0.0273775,0.771394,-0.714296,0.025351,1171.36,221.814)"><path d="M135.195,299.497L164.379,370.473L89.913,370.473L135.195,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:5.38px;"/></g><g transform="matrix(-0.00462607,-0.775534,0.628174,-0.00374707,134.852,433.178)"><path d="M127.146,299.497L164.379,370.473L89.913,370.473L127.146,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:5.67px;"/></g><g transform="matrix(1.91433,0.0348383,-0.0180636,0.992577,405.386,-242.96)"><path d="M127.146,299.497L164.379,370.473L89.913,370.473L127.146,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:2.62px;"/></g><g transform="matrix(0.983677,0,0,1.01056,7.35674,-8.77642)"><path d="M318.537,665.59L341.569,449.785L947.575,448.054L970.947,674.897L318.025,672.194L320.629,341.979L378.463,371.661L388.558,380.433L392.425,390.996L394.731,449.633" style="fill:none;stroke:black;stroke-width:7.02px;"/></g><path d="M368.563,354.974L369.883,140.556L380.152,130.651L772.218,130.703L907.865,266.05L910.49,357.604" style="fill:none;stroke:black;stroke-width:7px;"/><g transform="matrix(0.877185,0,0,0.877185,465.273,148.966)"><text x="51.233px" y="240.544px" style="font-family:' + "' ArialMT', 'Arial'" + ', sans-serif;font-size:288px;">@</text></g><g transform="matrix(1,0,0,1,-68.7214,27.1855)"><text x="573.93px" y="506.263px" style="font-family:' + "'ArialMT', 'Arial'" + ', sans-serif;font-size:96px;fill:rgb(197,33,33);">Accès</text><text x="456.485px" y="605.403px" style="font-family:' + "'ArialMT', 'Arial'" + ', sans-serif;font-size:96px;fill:rgb(197,33,33);">aux lettres</text></g></g></svg></div></div></div></div>');
+
+      setCoordMapInfos("CoordMapInfos", iFrameGalleryOpt);
+    }
 
     var infoMap = $('<div id="infoMap"></div>');
     infoMapWrap.append(infoMap);
@@ -54,7 +62,7 @@
     var indexCal = 0;
     var indexEnd = hrefAfDeb;
     var indIndex = [];
-    for(i=0; i<=hrefAfDeb; i++) {
+    for (i = 0; i <= hrefAfDeb; i++) {
       indIndex.push(i);
     }
     var nbMapEvents = 0;
@@ -432,100 +440,100 @@
         map.keyboard.disable();
       }
     }
-    //$(document).ready(function() {
-    $("button").click(function(event) {
-      event.preventDefault();
-      var timeMin = new Date(from.datepicker({
-        dateFormat: 'yy-mm-dd'
-      }).val());
-      var timeMax = new Date(to.datepicker({
-        dateFormat: 'yy-mm-dd'
-      }).val());
-      console.log("A new date selection was made: " + timeMin + ' to ' + timeMax);
-      divLegend.innerHTML = '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + nbMapEvents + ' « échos »'
-      divBannerCoord.innerHTML = '<img border="0" data-original-height="510" data-original-width="1246" src="https://1.bp.blogspot.com/-xZr9da-vFx4/XZCsqI4CqMI/AAAAAAAAkBk/ohNk8U3SAjMs_Ab4tVLg_fN1TyT_wRzRwCLcBGAsYHQ/s320/Bannie%25CC%2580re%2BCoordination%2BNationale.png" width="320" /><img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>';
-      for (i = 0; i < hrefLength; i++) {
-        if (timeMin <= href[i].dateFin) {
-          indexEnd = i;
+    if (hrefLength > 1) {
+      $(".DateRange-wrapper button").click(function(event) {
+        event.preventDefault();
+        var timeMin = new Date(from.datepicker({
+          dateFormat: 'yy-mm-dd'
+        }).val());
+        var timeMax = new Date(to.datepicker({
+          dateFormat: 'yy-mm-dd'
+        }).val());
+        console.log("A new date selection was made: " + timeMin + ' to ' + timeMax);
+        divLegend.innerHTML = '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + nbMapEvents + ' « échos »'
+        divBannerCoord.innerHTML = '<img border="0" data-original-height="510" data-original-width="1246" src="https://1.bp.blogspot.com/-xZr9da-vFx4/XZCsqI4CqMI/AAAAAAAAkBk/ohNk8U3SAjMs_Ab4tVLg_fN1TyT_wRzRwCLcBGAsYHQ/s320/Bannie%25CC%2580re%2BCoordination%2BNationale.png" width="320" /><img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>';
+        for (i = 0; i < hrefLength; i++) {
+          if (timeMin <= href[i].dateFin) {
+            indexEnd = i;
+          }
         }
-      }
-      for (i = hrefLength - 1; i >= 0; i--) {
-        if (timeMax >= href[i].dateDeb) {
-          indexCal = i;
+        for (i = hrefLength - 1; i >= 0; i--) {
+          if (timeMax >= href[i].dateDeb) {
+            indexCal = i;
+          }
         }
-      }
-      indIndex = []
-      for (i = indexCal; i <= indexEnd; i++) {
-        indIndex.push(i);
-      }
-      indexCal = 0;
-      indexEnd = indIndex.length - 1;
-      map.removeLayer(markers)
-      indexEvent = [
-        []
-      ];
-      nbMapEvents = 0;
-      var result = getMyInnerLinkContent();
-    });
-
-    var dateFormat = "yy-mm-dd",
-      from = $("#from")
-      .datepicker({
-        autoOpen: false,
-        altField: ".datepicker",
-        closeText: 'Fermer',
-        prevText: 'Précédent',
-        nextText: 'Suivant',
-        currentText: 'Aujourd\'hui',
-        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-        weekHeader: 'Sem.',
-        dateFormat: 'yy-mm-dd',
-        showWeek: true,
-        firstDay: 1,
-        defaultDate: "+1w",
-        changeMonth: true,
-        minDate: dateDeb,
-        maxDate: dateFin,
-        numberOfMonths: 1
-      })
-      .on("change", function() {
-        to.datepicker("option", "minDate", getDate(this));
-        var firstDate = new Date(moment(getDate(this), 'yy-mm-dd').day(1));
-        from.val(firstDate.getFullYear() + "-" + ("0" + (firstDate.getMonth() + 1)).slice(-2) + "-" + ("0" + firstDate.getDate()).slice(-2));
-      }),
-      to = $("#to").datepicker({
-        autoOpen: false,
-        altField: ".datepicker",
-        closeText: 'Fermer',
-        prevText: 'Précédent',
-        nextText: 'Suivant',
-        currentText: 'Aujourd\'hui',
-        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
-        weekHeader: 'Sem.',
-        dateFormat: 'yy-mm-dd',
-        showWeek: true,
-        firstDay: 1,
-        defaultDate: "+1w",
-        changeMonth: true,
-        minDate: dateDeb,
-        maxDate: dateFin,
-        numberOfMonths: 1
-      })
-      .on("change", function() {
-        from.datepicker("option", "maxDate", getDate(this));
-        var lastDate = new Date(moment(getDate(this), 'yy-mm-dd').day(7));
-        to.val(lastDate.getFullYear() + "-" + ("0" + (lastDate.getMonth() + 1)).slice(-2) + "-" + ("0" + lastDate.getDate()).slice(-2));
+        indIndex = []
+        for (i = indexCal; i <= indexEnd; i++) {
+          indIndex.push(i);
+        }
+        indexCal = 0;
+        indexEnd = indIndex.length - 1;
+        map.removeLayer(markers)
+        indexEvent = [
+          []
+        ];
+        nbMapEvents = 0;
+        var result = getMyInnerLinkContent();
       });
-    $("button").focus();
-    //});
+
+      var dateFormat = "yy-mm-dd",
+        from = $(".DateRange-wrapper #from")
+        .datepicker({
+          autoOpen: false,
+          altField: ".datepicker",
+          closeText: 'Fermer',
+          prevText: 'Précédent',
+          nextText: 'Suivant',
+          currentText: 'Aujourd\'hui',
+          monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+          monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+          dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+          dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+          dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+          weekHeader: 'Sem.',
+          dateFormat: 'yy-mm-dd',
+          showWeek: true,
+          firstDay: 1,
+          defaultDate: "+1w",
+          changeMonth: true,
+          minDate: dateDeb,
+          maxDate: dateFin,
+          numberOfMonths: 1
+        })
+        .on("change", function() {
+          to.datepicker("option", "minDate", getDate(this));
+          var firstDate = new Date(moment(getDate(this), 'yy-mm-dd').day(1));
+          from.val(firstDate.getFullYear() + "-" + ("0" + (firstDate.getMonth() + 1)).slice(-2) + "-" + ("0" + firstDate.getDate()).slice(-2));
+        }),
+        to = $(".DateRange-wrapper #to").datepicker({
+          autoOpen: false,
+          altField: ".datepicker",
+          closeText: 'Fermer',
+          prevText: 'Précédent',
+          nextText: 'Suivant',
+          currentText: 'Aujourd\'hui',
+          monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+          monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+          dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+          dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+          dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+          weekHeader: 'Sem.',
+          dateFormat: 'yy-mm-dd',
+          showWeek: true,
+          firstDay: 1,
+          defaultDate: "+1w",
+          changeMonth: true,
+          minDate: dateDeb,
+          maxDate: dateFin,
+          numberOfMonths: 1
+        })
+        .on("change", function() {
+          from.datepicker("option", "maxDate", getDate(this));
+          var lastDate = new Date(moment(getDate(this), 'yy-mm-dd').day(7));
+          to.val(lastDate.getFullYear() + "-" + ("0" + (lastDate.getMonth() + 1)).slice(-2) + "-" + ("0" + lastDate.getDate()).slice(-2));
+        });
+      //$(".DateRange-wrapper button").focus();
+    }
 
     function maxDate(element) {
       var elDate = getDate(element);

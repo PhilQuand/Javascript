@@ -108,6 +108,7 @@
 
     function getMyInnerLinkContent() {
       if( hrefLength == 0 ) {
+        if (isLinkContent('')) return;
         var allText  = $('.corpsLettre');
         var allText  = $('.corpsLettre')[0].innerHTML;
         return getBody(allText);
@@ -128,7 +129,7 @@
       function isLinkContent(weekInfos) {
         var retVal = false;
         $('.infoEvents-wrapper').find('.inforWeek').each(function() {
-          if (weekInfos == $(this).attr('data-weekInfos')) {
+          if (weekInfos == '' || weekInfos == $(this).attr('data-weekInfos')) {
             var result = $(this).find('.inforEvent');
             var itemsLength = result.length
             if (itemsLength > 0) {

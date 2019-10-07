@@ -52,7 +52,7 @@ var inpAddress = [
 { inpText: "LANNION",
   lat: 48.756327, lng:  -3.451123},
 { inpText: "GUINGAMP",
-  lat: 48.56279, lng:  3.14948},
+  lat: 48.56279, lng:  -3.14948},
 { inpText: "MULHOUSE",
   lat: 47.7517, lng:  7.34367},
 { inpText: "ROUVRAY",
@@ -107,5 +107,7 @@ var inpAddress = [
   lat: 45.6, lng:  4.05},
 { inpText: "SAINT CLAUDE",
   lat: 46.3929, lng:  5.86449},
+{ inpText: "QUIMPER",
+  lat: 47.9947, lng:  -4.1079},
 ];
 

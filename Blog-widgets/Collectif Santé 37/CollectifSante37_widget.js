@@ -12,6 +12,12 @@
 
 <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
 <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<style>
+.post-body img {
+    background: transparent !important;
+    /*box-shadow: none !important;*/ /*this remove shadow*/
+}
+</style>
 <script>
 // Ressources pour cartes LeafLet
 var load = (function() {
@@ -290,26 +296,6 @@ function loadDeptFranceJSONN(map, getColor, getFilter) {
   });
 };
 
-/*function loadDeptFranceJSONN(map, getColor, getFilter) {
-    function styleReg(feature) {
-      return {
-        fillColor: getColor(feature.properties.nom),
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        fillOpacity: 0.5
-      };
-    }
-
-    function filterReg(feature, layer) {
-      return getFilter(feature.properties.nom);
-    }
-
-    L.geoJson(deptsFranceData, {
-      style: styleReg,
-      filter: filterReg
-    }).addTo(map);
-};*/
 function getMyInnerLinkContent(theURL) {
   var xmlhttp = false;
   loadXMLDoc(theURL);

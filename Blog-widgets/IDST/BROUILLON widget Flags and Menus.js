@@ -245,19 +245,34 @@ color: grey;
 .blogger, .image-attribution {
 display: none
 }
+/*Legend specific*/
 .legend {
+    //width: 70px;
     padding:.5em .75em;
     line-height: 18px;
     color: #555;
     background:white;
 }
+/*.legend {
+  padding: 6px 8px;
+  //font: 14px;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  line-height: 24px;
+  color: #555;
+}*/
+
+.legend span {
+  position: relative;
+  bottom: 3px;
+}
+
 .legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    //margin-right: 1em;
-    opacity: 0.7;
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin: 0 8px 0 0;
+  opacity: 0.7;
 }
 
 .leaflet-container.default-cursor-enabled {
@@ -3038,8 +3053,8 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
             for (var i = grades.length - 1; i >= 0; i--) {
             //for (var i = 0; i < grades.length; i++) {
               div.innerHTML +=
-                '<i style="background:' + thisColor(grades[i] + 1) + '"></i> ' +
-                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+<br>');
+                '<i style="background:' + thisColor(grades[i] + 1) + '"></i><span>' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
             }
 
             return div;

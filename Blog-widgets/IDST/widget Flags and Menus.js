@@ -258,10 +258,14 @@ color: grey;
 display: none
 }
 .legend {
+    //line-height: 18px;
     padding:.5em .75em;
-    line-height: 18px;
     color: #555;
     background:white;
+}
+.legend span {
+  position: relative;
+  bottom: 3px;
 }
 .legend i {
     width: 18px;
@@ -3028,14 +3032,15 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
           legend.onAdd = function(map) {
 
             var div = L.DomUtil.create('div', 'info legend'),
-              labels = [];
+
+             labels = [];
 
             // loop through our density intervals and generate a label with a colored square for each interval
             for (var i = grades.length - 1; i >= 0; i--) {
             //for (var i = 0; i < grades.length; i++) {
               div.innerHTML +=
-                '<i style="background:' + thisColor(grades[i] + 1) + '"></i> ' +
-                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+<br>');
+                '<i style="background:' + thisColor(grades[i] + 1) + '"></i><span>' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
             }
 
             return div;

@@ -129,5 +129,15 @@ var inpAddress = [
   lat: 50.72236, lng: 3.15946},
 { inpText: "ANGERS",
   lat: 47.47069, lng: -0.55325},
+{ inpText: "MONTECH",
+  lat: 43.95715, lng: 1.2321},
+{ inpText: "RODEZ",
+  lat: 44.34972, lng: 2.57287},
+{ inpText: "DOLE",
+  lat: 47.08973, lng: 5.49009},
+{ inpText: "CAHORS",
+  lat: 44.44669, lng: 1.44075},
+{ inpText: "AGEN",
+  lat: 44.20213, lng: 0.62055},
 ];
 

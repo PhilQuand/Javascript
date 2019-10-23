@@ -190,6 +190,11 @@
         },*/
         baseClass: 'iFrameGalleryClass',
 
+        afterShow: function(instance, current) {
+          var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
+          //fancybox_content.css("width","");
+          fancybox_content.prop("style", "");
+        },
         afterLoad: function(instance, current) {
           //console.info( instance.Thumbs );
           //console.info( instance.Thumbs.$button[0]  );

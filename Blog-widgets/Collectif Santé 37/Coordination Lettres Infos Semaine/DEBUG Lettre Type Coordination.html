@@ -595,9 +595,9 @@
         baseClass: 'iFrameGalleryClass',
 
         afterLoad: function(instance, current) {
-          var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
-          //fancybox_content.css("width","");
-          fancybox_content.css("height","800px");
+          var  fancybox_iframe = $(".iFrameGalleryClass .fancybox-content iframe");
+          //fancybox_iframe.css("width","");
+          fancybox_iframe.css("height","800px");
           //console.info( instance.Thumbs );
           //console.info( instance.Thumbs.$button[0]  );
           $("button.fancybox-button.fancybox-button--thumbs").click(function() {

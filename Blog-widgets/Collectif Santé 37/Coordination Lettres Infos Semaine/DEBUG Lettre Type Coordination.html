@@ -611,7 +611,12 @@
         },*/
         baseClass: 'iFrameGalleryClass',
 
-        beforeLoad: function(instance, current) {
+        beforeShow: function(instance, current) {
+          var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
+          //fancybox_content.css("width","");
+          fancybox_content.prop("style", "");
+        },
+        afterShow: function(instance, current) {
           var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
           //fancybox_content.css("width","");
           fancybox_content.prop("style", "");

@@ -29,6 +29,7 @@
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 36.html'
       },
        {
+        imgID: 'svgBlue',
         svgInfos: ["Moi d'août", '2019'],
         //svgInfos: ['Semaine 35', 'du 26 août', 'au 30 août', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 35.html'
@@ -46,6 +47,7 @@
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 32.html'
       },
      {
+        imgID: 'svgBlue',
         svgInfos: ['Moi de juillet', '2019'],
         //svgInfos: ['Semaine 31', 'du 29 juillet', 'au 2 août', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 31.html'

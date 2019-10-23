@@ -595,6 +595,9 @@
         baseClass: 'iFrameGalleryClass',
 
         afterLoad: function(instance, current) {
+          var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
+          fancybox_content.css("width","");
+          fancybox_content.css("height","");
           //console.info( instance.Thumbs );
           //console.info( instance.Thumbs.$button[0]  );
           $("button.fancybox-button.fancybox-button--thumbs").click(function() {
@@ -605,9 +608,6 @@
             elements.css("display", "none");
           });
           if (instance.group.length > 1 && current.$content) {
-            var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
-            fancybox_content.css("width","");
-            fancybox_content.css("height","");
             var  arrow_left = $(".iFrameGalleryClass .fancybox-button.fancybox-button--arrow_left");
             arrow_left.css("display","block");
             var  arrow_right = $(".iFrameGalleryClass .fancybox-button.fancybox-button--arrow_right");

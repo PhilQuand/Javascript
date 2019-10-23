@@ -47,6 +47,7 @@
 <!--Load carte-infos-semaines -->
  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
+ <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
 </head>
 <body>
@@ -422,7 +423,8 @@ $(document).ready(function() {
       $('.sumComité').css('display', 'none');
   }
   $('#CoordInfos').iFrameGallery ({
-    archi: [
+    archi: archi
+    */[
          {
         svgInfos: ['Semaine 42', 'du 14 octobre', 'au 18 octobre', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 42.html',
@@ -514,7 +516,7 @@ $(document).ready(function() {
         idG: '#autre'/*,
         idGExt: 'http://coordination-defense-sante.org/bulletin-hebdomadaire/'*/
       }
-    ],
+    ]*/,
    accessmode: 'linkID',
    noneBgImage: 'https://2.bp.blogspot.com/-64U_JLskrVA/WmxwnA_jwMI/AAAAAAAAABY/WT3LOvFML3wJi0UvnvN2u6cz0NJsuZfqQCK4BGAYYCw/s1600/logo%2BNSED%2B100kb%2Bsans%2Bfond%2B311p%2BRec.png'
   });

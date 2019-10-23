@@ -594,6 +594,11 @@
         },*/
         baseClass: 'iFrameGalleryClass',
 
+        beforeLoad: function(instance, current) {
+          var  fancybox_iframe = $(".iFrameGalleryClass .fancybox-content iframe");
+          //fancybox_iframe.css("width","");
+          fancybox_iframe.css("height","800px");
+        },
         afterLoad: function(instance, current) {
           var  fancybox_iframe = $(".iFrameGalleryClass .fancybox-content iframe");
           //fancybox_iframe.css("width","");

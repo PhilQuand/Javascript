@@ -418,7 +418,7 @@
   background: white;*/
 }
 </style>
-<!--script>
+<script>
 (function($) {
   $.fn.iFrameGallery = function(options) {
 
@@ -612,14 +612,14 @@
         baseClass: 'iFrameGalleryClass',
 
         beforeLoad: function(instance, current) {
-          var  fancybox_iframe = $(".iFrameGalleryClass .fancybox-content iframe");
-          //fancybox_iframe.css("width","");
-          fancybox_iframe.css("height","680px");
+          var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
+          //fancybox_content.css("width","");
+          fancybox_content.prop("style", "");
         },
         afterLoad: function(instance, current) {
-          var  fancybox_iframe = $(".iFrameGalleryClass .fancybox-content iframe");
-          //fancybox_iframe.css("width","");
-          fancybox_iframe.css("height","680px");
+          var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
+          //fancybox_content.css("width","");
+          fancybox_content.prop("style", "");
           //console.info( instance.Thumbs );
           //console.info( instance.Thumbs.$button[0]  );
           $("button.fancybox-button.fancybox-button--thumbs").click(function() {
@@ -1061,7 +1061,7 @@
     }
   }
 })(jQuery);
-</script-->
+</script>
 <script>
 // construction de l'archive des Infos de la Coordination
 $(document).ready(function() {

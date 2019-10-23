@@ -1,0 +1,93 @@
+    var archi = [
+         {
+        svgInfos: ['Semaine 42', 'du 14 octobre', 'au 18 octobre', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 42.html',
+        idGlinkID: 'PreviousLetters'
+       },
+         {
+        svgInfos: ['Semaine 41', 'du 07 octobre', 'au 11 octobre', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 41.html',
+       },
+         {
+        svgInfos: ['Semaine 40', 'du 30 septembre', 'au 04 octobre', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 40.html',
+       },
+         {
+        svgInfos: ['Semaine 39', 'du 23 septembre', 'au 27 septembre', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 39.html',
+       },
+         {
+        svgInfos: ['Semaine 38', 'du 16 septembre', 'au 20 septembre', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 38.html',
+       },
+         {
+        svgInfos: ['Semaine 37', 'du 9 septembre', 'au 13 septembre', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 37.html'
+       },
+        {
+        svgInfos: ['Semaine 36', 'du 2 septembre', 'au 6 septembre', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 36.html'
+      },
+       {
+        svgInfos: ["Moi d'août", '2019'],
+        //svgInfos: ['Semaine 35', 'du 26 août', 'au 30 août', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 35.html'
+      },
+        {
+        //svgInfos: ['Semaine 34', 'du 19 août', 'au 25 août', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 34.html'
+      },
+      {
+        //svgInfos: ['Semaine 33', 'du 12 août', 'au 18 août', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 33.html'
+      },
+      {
+        //svgInfos: ['Semaine 32', 'du 5 août', 'au 9 août', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 32.html'
+      },
+     {
+        svgInfos: ['Moi de juillet', '2019'],
+        //svgInfos: ['Semaine 31', 'du 29 juillet', 'au 2 août', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 31.html'
+      },
+      {
+        //svgInfos: ['Semaine 30', 'du 22 juillet', 'au 26 juillet', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 30.html'
+      },
+      {
+        //svgInfos: ['Semaine 29', 'du 15 juillet', 'au 19 juillet', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 29.html'
+      },
+       {
+        //svgInfos: ['Semaine 28', 'du 8 juillet', 'au 12 juillet', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 28.html'
+      },
+       {
+        //svgInfos: ['Semaine 27', 'du 1 juillet', 'au 5 juillet', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 27.html'
+      },
+       {
+        imgID: 'svgBlue',
+        svgInfos: ['Moi de juin', '2019'],
+        //svgInfos: ['Semaine 26', 'du 24 juin', 'au 28 juin', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 26.html'
+      },
+      {
+        //svgInfos: ['Semaine 25', 'du 17 juin', 'au 21 juin', '2019'],
+        idG: 'https://docs.google.com/gview?url=https://coordination-defense-sante.org/wp-content/uploads/2019/06/Infos-semaine-25-au-17-au-21-Juin-2019-1.pdf&embedded=true',
+      },
+       {
+        //svgInfos: ['Semaine 24', 'du 11 juin', 'au 14 juin', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 24.html'
+      },
+       {
+        //svgInfos: ['Semaine 23', 'du 03 juin', 'au 07 juin', '2019'],
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 23 bis.html'
+      },
+      {
+        imgID: 'svgGreen',
+        svgInfos: ['Autres'],
+        idG: '#autre'/*,
+        idGExt: 'http://coordination-defense-sante.org/bulletin-hebdomadaire/'*/
+      }
+    ]

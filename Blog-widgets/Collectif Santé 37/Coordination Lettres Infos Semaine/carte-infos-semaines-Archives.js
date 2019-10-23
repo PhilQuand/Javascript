@@ -1,31 +1,31 @@
     var archi = [
          {
-        svgInfos: ['Semaine 42', 'du 14 octobre', 'au 18 octobre', '2019'],
+        svgInfos: ['Semaine 42', 'du 14 oct.', 'au 18 oct.', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 42.html',
         idGlinkID: 'PreviousLetters'
        },
          {
-        svgInfos: ['Semaine 41', 'du 07 octobre', 'au 11 octobre', '2019'],
+        svgInfos: ['Semaine 41', 'du 07 oct.', 'au 11 oct.e', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 41.html',
        },
          {
-        svgInfos: ['Semaine 40', 'du 30 septembre', 'au 04 octobre', '2019'],
+        svgInfos: ['Semaine 40', 'du 30 sept.', 'au 04 oct.', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 40.html',
        },
          {
-        svgInfos: ['Semaine 39', 'du 23 septembre', 'au 27 septembre', '2019'],
+        svgInfos: ['Semaine 39', 'du 23 sept.', 'au 27 sept.', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 39.html',
        },
          {
-        svgInfos: ['Semaine 38', 'du 16 septembre', 'au 20 septembre', '2019'],
+        svgInfos: ['Semaine 38', 'du 16 sept.', 'au 20 sept.', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 38.html',
        },
          {
-        svgInfos: ['Semaine 37', 'du 9 septembre', 'au 13 septembre', '2019'],
+        svgInfos: ['Semaine 37', 'du 9 sept.', 'au 13 sept.', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 37.html'
        },
         {
-        svgInfos: ['Semaine 36', 'du 2 septembre', 'au 6 septembre', '2019'],
+        svgInfos: ['Semaine 36', 'du 2 sept.', 'au 6 sept.', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 36.html'
       },
        {

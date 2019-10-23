@@ -8,9 +8,10 @@
       var divCont;
       var thumbs;
       if (options.accessmode !== 'undefined') {
-        var divLinkID = $('#' + options.accessmode).clone();
+        var divLinkID = $('#' + options.accessmode);
+        /*var divLinkID = $('#' + options.accessmode).clone();
         $(this).append(divLinkID);
-        $('#' + options.accessmode).removeAttr('id');
+        $('#' + options.accessmode).removeAttr('id');*/
       }
       var noneBgImage = 'none';
       if (typeof options.noneBgImage !== 'undefined') noneBgImage = options.noneBgImage;

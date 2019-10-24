@@ -7,6 +7,7 @@
     } else  {
         var href = options.href;
         var hrefLength = href.length;
+        if(typeof href[hrefLength - 1].svgInfosCarte === 'undefined' && href[hrefLength - 1].svgInfos.length < 4) hrefLength--
     }
     var iFrameGalleryOpt = {};
     iFrameGalleryOpt.archi = [];
@@ -16,7 +17,10 @@
       $(this).append(infoRows);
     }
     for (i = 0; i < hrefLength; i++) {
-      href[i].weekInfos = href[i].svgInfos[0] + ', ' + href[i].svgInfos[1] + ' ' + href[i].svgInfos[2] + ' ' + href[i].svgInfos[3];
+      if(typeof href[i].svgInfosCarte === 'undefined') href[i].weekInfos = href[i].svgInfos[0] + ', ' + href[i].svgInfos[1] + ' ' + href[i].svgInfos[2] + ' ' + href[i].svgInfos[3];
+      else href[i].weekInfos = href[i].svgInfosCarte[0] + ', ' + href[i].svgInfosCarte[1] + ' ' + href[i].svgInfosCarte[2] + ' ' + href[i].svgInfosCarte[3];
+    }
+    for (i = 0; i < hrefLength; i++) {
       href[i].dateDeb = getDateDeb(href[i].weekInfos);
       href[i].dateFin = getDateFin(href[i].weekInfos);
       iFrameGalleryOpt.archi.push({

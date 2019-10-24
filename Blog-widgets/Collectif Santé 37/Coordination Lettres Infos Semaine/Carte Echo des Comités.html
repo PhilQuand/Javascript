@@ -44,7 +44,9 @@
 <!--Load carte-infos-semaines -->
  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
+ <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
+
 </head>
 <body>
 <img style="display: none;" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s1600/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
@@ -879,68 +881,7 @@
 <script>
 $(document).ready(function() {
   $('#idInfosComités').InfosComités({
-    href: [
-         {
-        svgInfos: ['Semaine 41', 'du 07 octobre', 'au 11 octobre', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 41.html',
-       },
-         {
-        svgInfos: ['Semaine 40', 'du 30 septembre', 'au 04 octobre', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 40.html',
-       },
-         {
-        svgInfos: ['Semaine 39', 'du 23 septembre', 'au 27 septembre', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 39.html',
-       },
-         {
-        svgInfos: ['Semaine 38', 'du 16 septembre', 'au 20 septembre', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 38.html'
-       },
-      {
-        svgInfos: ['Semaine 37', 'du 9 septembre', 'au 13 septembre', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 37.html'
-      },
-       {
-        svgInfos: ['Semaine 36', 'du 2 septembre', 'au 6 septembre', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 36.html'
-      },
-       {
-        svgInfos: ['Semaine 35', 'du 26 août', 'au 30 août', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 35.html'
-      },
-        {
-        svgInfos: ['Semaine 34', 'du 19 août', 'au 25 août', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 34.html'
-      },
-      {
-        svgInfos: ['Semaine 33', 'du 12 août', 'au 18 août', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 33.html'
-      },
-      {
-        svgInfos: ['Semaine 32', 'du 5 août', 'au 9 août', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 32.html'
-      },
-      {
-        svgInfos: ['Semaine 31', 'du 29 juillet', 'au 2 août', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 31.html'
-      },
-      {
-        svgInfos: ['Semaine 30', 'du 22 juillet', 'au 26 juillet', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 30.html'
-      },
-      {
-        svgInfos: ['Semaine 29', 'du 15 juillet', 'au 19 juillet', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 29.html'
-      },
-       {
-        svgInfos: ['Semaine 28', 'du 8 juillet', 'au 12 juillet', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 28.html'
-      },
-       {
-        svgInfos: ['Semaine 27', 'du 1 juillet', 'au 5 juillet', '2019'],
-        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 27.html'
-      },
-    ],
+    href: archi,
     iFrameGallery: false,
     mapTitle: 'Infos des comités locaux',
   });

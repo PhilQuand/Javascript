@@ -1100,6 +1100,12 @@ $(document).ready(function() {
     ],
    accessmode: 'linkID',
   });
+if ('parentIFrame' in window) {
+parentIFrame.autoResize(false);
+  parentIFrame.size(3400); // Set height to 400px
+//parentIFrame.scrollToOffset(0,0);
+parentIFrame.scrollTo(0,0);
+}
 });
 </script>
 </body>

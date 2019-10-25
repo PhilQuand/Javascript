@@ -604,7 +604,7 @@
 
         afterClose: function(instance, current) {
 if ('parentIFrame' in window) {
-parentIFrame.scrollToOffset(0,0);
+parentIFrame.scrollTo(0,0);
 }
         },
         beforeClose: function(instance, current) {
@@ -620,7 +620,8 @@ parentIFrame.autoResize(true);
 if ('parentIFrame' in window) {
 parentIFrame.autoResize(false);
   parentIFrame.size(800); // Set height to 400px
-parentIFrame.scrollToOffset(0,0);
+//parentIFrame.scrollToOffset(0,0);
+parentIFrame.scrollTo(0,0);
 }
           //console.info( instance.Thumbs );
           //console.info( instance.Thumbs.$button[0]  );

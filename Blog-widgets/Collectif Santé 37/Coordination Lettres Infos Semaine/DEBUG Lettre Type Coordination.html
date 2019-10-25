@@ -602,6 +602,11 @@
         },*/
         baseClass: 'iFrameGalleryClass',
 
+        afterClose: function(instance, current) {
+if ('parentIFrame' in window) {
+parentIFrame.autoResize(true);
+parentIFrame.scrollToOffset(0,0);
+},
         beforeClose: function(instance, current) {
 if ('parentIFrame' in window) {
 parentIFrame.autoResize(true);

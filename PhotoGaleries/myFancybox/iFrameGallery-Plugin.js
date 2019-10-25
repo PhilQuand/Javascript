@@ -192,8 +192,10 @@
 
         afterShow: function(instance, current) {
           var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
-          //fancybox_content.css("width","");
           fancybox_content.prop("style", "");
+          $(".iFrameGalleryClass .fancybox-thumbs__list").find("a").each(function() {
+              $(this).prop("target", "_self");
+          });
         },
         afterLoad: function(instance, current) {
           //console.info( instance.Thumbs );

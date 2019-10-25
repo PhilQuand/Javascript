@@ -31,7 +31,7 @@
     }
     if (iFrameGalleryOpt.archi.length > 0) iFrameGalleryOpt.archi[0].idGlinkID = 'MapLetters';
     iFrameGalleryOpt.accessmode = 'linkMapID';
-    var infoMapWrap = $('<div id="infoMap-wrapper">');
+    var infoMapWrap = $('<div id="infoMap-wrapper" height="600">');
     $(this).append(infoMapWrap);
     var hrefAfDeb = 3;
     if (hrefLength < 4) hrefAfDeb = hrefLength - 1;

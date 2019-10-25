@@ -1106,6 +1106,9 @@ $(document).ready(function() {
   window.iFrameResizer = {
     heightCalculationMethod: function() { return 3400 }
   }
+if ('parentIFrame' in window) {
+parentIFrame.scrollTo(0,0);
+}
 </script>
 </body>
 </html>

@@ -39,13 +39,17 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Add my iFrameGallery -->
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.css" rel="stylesheet" type="text/css" />
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script>
+<!--script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script-->
 <!-- End iFralmeGallery -->
 <!--Load carte-infos-semaines -->
  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
+<!--Load iframeResizer -->
+ <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+<base target="_blank">
+
 </head>
 <body>
 <img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
@@ -405,7 +409,7 @@
    height: calc( 100vh - 100px );
 }
 </style>
-<!--script>
+<script>
 (function($) {
   $.fn.iFrameGallery = function(options) {
 
@@ -598,24 +602,19 @@
         },*/
         baseClass: 'iFrameGalleryClass',
 
-        /*beforeShow: function(instance, current) {
-          var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
-          //fancybox_content.css("width","");
-          fancybox_content.prop("style", "");
-        },*/
         afterShow: function(instance, current) {
           var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
-          //fancybox_content.css("width","");
           fancybox_content.prop("style", "");
         },
         afterLoad: function(instance, current) {
-          //var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
-          //fancybox_content.css("width","");
-          //fancybox_content.prop("style", "");
+if ('parentIFrame' in window) {
+  parentIFrame.size(400); // Set height to 400px
+}
           //console.info( instance.Thumbs );
           //console.info( instance.Thumbs.$button[0]  );
           $("button.fancybox-button.fancybox-button--thumbs").click(function() {
             var elements = $(".iFrameGalleryClass .fancybox-thumbs__list").find("a").filter(function() {
+              $(this).prop("target", "_self");
               // only keep the elements that have the correct background image
               return $(this).css("backgroundImage").indexOf(noneBgImage) > -1;
             });
@@ -1053,7 +1052,7 @@
     }
   }
 })(jQuery);
-</script-->
+</script>
 <script>
 // construction de l'archive des Infos de la Coordination
 $(document).ready(function() {

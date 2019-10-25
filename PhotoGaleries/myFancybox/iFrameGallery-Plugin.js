@@ -193,15 +193,13 @@
         afterShow: function(instance, current) {
           var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
           fancybox_content.prop("style", "");
-          $(".iFrameGalleryClass .fancybox-thumbs__list").find("a").each(function() {
-              $(this).prop("target", "_self");
-          });
         },
         afterLoad: function(instance, current) {
           //console.info( instance.Thumbs );
           //console.info( instance.Thumbs.$button[0]  );
           $("button.fancybox-button.fancybox-button--thumbs").click(function() {
             var elements = $(".iFrameGalleryClass .fancybox-thumbs__list").find("a").filter(function() {
+              $(this).prop("target", "_self");
               // only keep the elements that have the correct background image
               return $(this).css("backgroundImage").indexOf(noneBgImage) > -1;
             });

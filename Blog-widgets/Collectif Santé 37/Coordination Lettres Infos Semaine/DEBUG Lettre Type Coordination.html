@@ -605,6 +605,9 @@
         afterShow: function(instance, current) {
           var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
           fancybox_content.prop("style", "");
+if ('parentIFrame' in window) {
+  parentIFrame.size(400); // Set height to 400px
+}
         },
         afterLoad: function(instance, current) {
 if ('parentIFrame' in window) {

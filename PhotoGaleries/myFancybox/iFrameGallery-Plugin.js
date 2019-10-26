@@ -190,12 +190,27 @@
         },*/
         baseClass: 'iFrameGalleryClass',
 
+        afterClose: function(instance, current) {
+if ('parentIFrame' in window) {
+parentIFrame.scrollTo(0,0);
+}
+        },
+        beforeClose: function(instance, current) {
+if ('parentIFrame' in window) {
+parentIFrame.autoResize(true);
+}
+        },
         afterShow: function(instance, current) {
           var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
           fancybox_content.prop("style", "");
         },
         afterLoad: function(instance, current) {
-          //console.info( instance.Thumbs );
+if ('parentIFrame' in window) {
+parentIFrame.autoResize(false);
+  parentIFrame.size(1000); // Set height to 400px
+//parentIFrame.scrollToOffset(0,0);
+parentIFrame.scrollTo(0,0);
+}
           //console.info( instance.Thumbs.$button[0]  );
           $("button.fancybox-button.fancybox-button--thumbs").click(function() {
             var elements = $(".iFrameGalleryClass .fancybox-thumbs__list").find("a").filter(function() {

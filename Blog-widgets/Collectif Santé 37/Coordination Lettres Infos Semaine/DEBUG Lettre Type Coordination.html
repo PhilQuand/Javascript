@@ -39,7 +39,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Add my iFrameGallery -->
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.css" rel="stylesheet" type="text/css" />
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script>
+<!--script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script-->
 <!-- End iFralmeGallery -->
 <!--Load carte-infos-semaines -->
  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
@@ -409,12 +409,13 @@
    height: calc( 100vh - 100px );
 }
 </style>
-<!--script>
+<script>
 (function($) {
   $.fn.iFrameGallery = function(options) {
 
     if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
 
+      var parentIFrameSize = 400;
       var indexInlineHTML = 0;
       var divLinkID = 'none';
       var divCont;
@@ -619,7 +620,7 @@ parentIFrame.autoResize(true);
         afterLoad: function(instance, current) {
 if ('parentIFrame' in window) {
 parentIFrame.autoResize(false);
-  parentIFrame.size(1000); // Set height to 400px
+  parentIFrame.size(parentIFrameSize); // Set height to 400px
 //parentIFrame.scrollToOffset(0,0);
 parentIFrame.scrollTo(0,0);
 }
@@ -1065,7 +1066,7 @@ parentIFrame.scrollTo(0,0);
     }
   }
 })(jQuery);
-</script-->
+</script>
 <script>
 // construction de l'archive des Infos de la Coordination
 $(document).ready(function() {

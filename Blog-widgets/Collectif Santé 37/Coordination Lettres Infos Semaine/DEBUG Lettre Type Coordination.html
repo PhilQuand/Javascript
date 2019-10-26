@@ -416,7 +416,7 @@
     if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
 
       var parentIFrameSize = 0;
-      if (options.parentIFrameSize !== 'undefined') parentIFrameSize = options.parentIFrameSize;
+      if (options.parentIFrameSize !== 'undefined') parentIFrameSize = parseInt(options.parentIFrameSize);
       var indexInlineHTML = 0;
       var divLinkID = 'none';
       var divCont;

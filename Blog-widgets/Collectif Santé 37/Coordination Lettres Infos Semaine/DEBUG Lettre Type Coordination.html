@@ -623,7 +623,7 @@ if ('parentIFrame' in window) {
   if(parentIFrameSize > 0) {
       parentIFrame.autoResize(false);
       parentIFrame.size(parentIFrameSize); // Set height to parentIFrameSize
-  }
+  } else parentIFrame.resize();
   //parentIFrame.scrollToOffset(0,0);
   parentIFrame.scrollTo(0,0);
 }

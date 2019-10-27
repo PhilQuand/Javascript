@@ -447,11 +447,11 @@
         var pdfLink = options.archi[i].pdfLink;
         var inlineProgram = options.archi[i].inlineProgram;
         if (typeof inlineProgram === 'undefined') inlineProgram = 'inlineProgram';
-        if (typeof iFrameNum.inlineProgram === 'undefined') iFrameNum.inlineProgram = 1;
-        inlineProgramIndex = inlineProgram + '-' + iFrameNum.inlineProgram++;
+        if (typeof iFrameNum.inlineProgram === 'undefined') iFrameNum.inlineProgram = 0;
+        var inlineProgramIndex = inlineProgram + '-' + ++iFrameNum.inlineProgram;
         if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgramIndex] = parseInt(options.parentIFrameSize);
         if (typeof options.archi[i].parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgramIndex] = parseInt(options.archi[i].parentIFrameSize);
-        if( i == 0 ) parentIFrameSize[inlineProgram] = parentIFrameSize[inlineProgramIndex];
+        if( iFrameNum.inlineProgram == 1 ) parentIFrameSize[inlineProgram] = parentIFrameSize[inlineProgramIndex];
 
         if (idG.split("id=").length > 1) {
           idG = idG.split("id=")[1];

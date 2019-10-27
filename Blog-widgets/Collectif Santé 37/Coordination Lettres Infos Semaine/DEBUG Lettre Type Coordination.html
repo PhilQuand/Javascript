@@ -415,9 +415,6 @@
 
     if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
 
-      if (typeof parentIFrameSize === 'undefined') parentIFrameSize = {};
-      var parentIFrameSize = 0;
-      if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize = parseInt(options.parentIFrameSize);
       var indexInlineHTML = 0;
       var divLinkID = 'none';
       var divCont;
@@ -448,6 +445,7 @@
         var pdfLink = options.archi[i].pdfLink;
         var inlineProgram = options.archi[i].inlineProgram;
         if (typeof inlineProgram === 'undefined') inlineProgram = 'inlineProgram';
+        if (typeof parentIFrameSize === 'undefined') var parentIFrameSize = {};
         parentIFrameSize[inlineProgram] = 0;
         if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgram] = parseInt(options.parentIFrameSize);
 

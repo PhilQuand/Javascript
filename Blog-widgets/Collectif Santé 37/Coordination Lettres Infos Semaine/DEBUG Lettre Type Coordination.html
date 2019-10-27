@@ -415,6 +415,7 @@
 
     if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
 
+      if (typeof parentIFrameSize === 'undefined') parentIFrameSize = {};
       var parentIFrameSize = 0;
       if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize = parseInt(options.parentIFrameSize);
       var indexInlineHTML = 0;
@@ -447,6 +448,8 @@
         var pdfLink = options.archi[i].pdfLink;
         var inlineProgram = options.archi[i].inlineProgram;
         if (typeof inlineProgram === 'undefined') inlineProgram = 'inlineProgram';
+        parentIFrameSize[inlineProgram] = 0;
+        if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgram] = parseInt(options.parentIFrameSize);
 
         if (idG.split("id=").length > 1) {
           idG = idG.split("id=")[1];

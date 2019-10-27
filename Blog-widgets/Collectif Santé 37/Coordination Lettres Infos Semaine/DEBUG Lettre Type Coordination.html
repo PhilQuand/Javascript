@@ -450,7 +450,9 @@
         if (typeof iFrameNum.inlineProgram === 'undefined') iFrameNum[inlineProgram] = 0;
         var inlineProgramIndex = inlineProgram + '-' + ++iFrameNum[inlineProgram];
         if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgramIndex] = parseInt(options.parentIFrameSize);
-        if (typeof options.archi[i].parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgramIndex] = parseInt(options.archi[i].parentIFrameSize);
+        if (typeof options.archi[i].parentIFrameSize !== 'undefined') {
+        parentIFrameSize[inlineProgramIndex] = parseInt(options.archi[i].parentIFrameSize);
+        }
         if( iFrameNum[inlineProgram] == 1 ) parentIFrameSize[inlineProgram] = parentIFrameSize[inlineProgramIndex];
 
         if (idG.split("id=").length > 1) {

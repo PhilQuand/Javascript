@@ -434,6 +434,7 @@
       var divArchi = $('<div id="divArchi" style="display: flex; flex-wrap: wrap;"></div>');
       $(this).append(divArchi);
 
+      var parentIFrameSize = {};
       for (i = 0; i < options.archi.length; i++) {
 
         var imgID = options.archi[i].imgID;
@@ -445,7 +446,6 @@
         var pdfLink = options.archi[i].pdfLink;
         var inlineProgram = options.archi[i].inlineProgram;
         if (typeof inlineProgram === 'undefined') inlineProgram = 'inlineProgram';
-        if (typeof parentIFrameSize === 'undefined') var parentIFrameSize = {};
         parentIFrameSize[inlineProgram] = 0;
         if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgram] = parseInt(options.parentIFrameSize);
         if (typeof options.archi[i].parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgram] = parseInt(options.archi[i].parentIFrameSize);
@@ -622,10 +622,10 @@ parentIFrame.autoResize(true);
         },
         afterLoad: function(instance, current) {
 if ('parentIFrame' in window) {
-  /*if(parentIFrameSize > 0) {
+  if(parentIFrameSize > 0) {
       parentIFrame.autoResize(false);
       parentIFrame.size(parentIFrameSize); // Set height to parentIFrameSize
-  } else parentIFrame.size();*/
+  } else parentIFrame.size();
   //parentIFrame.scrollToOffset(0,0);
   parentIFrame.scrollTo(0,0);
 }

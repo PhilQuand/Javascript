@@ -416,7 +416,7 @@
     if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
 
       var parentIFrameSize = 0;
-      if (options.parentIFrameSize !== 'undefined') parentIFrameSize = parseInt(options.parentIFrameSize);
+      if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize = parseInt(options.parentIFrameSize);
       var indexInlineHTML = 0;
       var divLinkID = 'none';
       var divCont;
@@ -623,7 +623,7 @@ if ('parentIFrame' in window) {
   if(parentIFrameSize > 0) {
       parentIFrame.autoResize(false);
       parentIFrame.size(parentIFrameSize); // Set height to parentIFrameSize
-  } else parentIFrame.resize();
+  } else parentIFrame.size();
   //parentIFrame.scrollToOffset(0,0);
   parentIFrame.scrollTo(0,0);
 }

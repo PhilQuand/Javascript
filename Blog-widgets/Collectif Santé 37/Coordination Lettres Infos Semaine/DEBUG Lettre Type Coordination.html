@@ -621,10 +621,10 @@ parentIFrame.autoResize(true);
         },
         afterLoad: function(instance, current) {
 if ('parentIFrame' in window) {
-  if(parentIFrameSize > 0) {
+  /*if(parentIFrameSize > 0) {
       parentIFrame.autoResize(false);
       parentIFrame.size(parentIFrameSize); // Set height to parentIFrameSize
-  } else parentIFrame.size();
+  } else parentIFrame.size();*/
   //parentIFrame.scrollToOffset(0,0);
   parentIFrame.scrollTo(0,0);
 }
@@ -1089,6 +1089,12 @@ $(document).ready(function() {
       $('.corpsLettre > .infosComités').css('display', 'none');
       $('.sumComité').css('display', 'none');
   }
+  archi.push({
+        idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Santé%2037/Coordination%20Lettres%20Infos%20Semaine/Carte%20Echo%20des%20Comités.html',
+        inlineProgram: "inlineEchos",
+        idGlinkID: 'PreviousEchos',
+        parentIFrameSize: 1000
+       });
   $('#CoordInfos').iFrameGallery ({
     archi: archi,
     accessmode: 'linkID',
@@ -1097,7 +1103,7 @@ $(document).ready(function() {
     //noneBgImage: 'https://2.bp.blogspot.com/-64U_JLskrVA/WmxwnA_jwMI/AAAAAAAAABY/WT3LOvFML3wJi0UvnvN2u6cz0NJsuZfqQCK4BGAYYCw/s1600/logo%2BNSED%2B100kb%2Bsans%2Bfond%2B311p%2BRec.png'
   });
   $('<div id="autre" style="display:none">Vous pouvez consulter les bulletins précédents sur <br/>le <a style="outline : none;" href="http://coordination-defense-sante.org/bulletin-hebdomadaire/">site de la Coordination Nationale des Hôpitaux et Maternités de Proximité</a>.</div>').insertAfter($('#CoordInfos'))
-  $('#CoordMapInfos').iFrameGallery ({
+  /*$('#CoordMapInfos').iFrameGallery ({
     archi: [
          {
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Santé%2037/Coordination%20Lettres%20Infos%20Semaine/Carte%20Echo%20des%20Comités.html',
@@ -1107,7 +1113,7 @@ $(document).ready(function() {
     ],
    accessmode: 'linkID',
     /*parentIFrameSize: 1000,*/
-  });
+  });*/
 });
 </script>
 <script>

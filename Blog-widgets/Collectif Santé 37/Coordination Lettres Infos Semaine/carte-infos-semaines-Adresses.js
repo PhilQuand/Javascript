@@ -139,5 +139,15 @@ var inpAddress = [
   lat: 44.44669, lng: 1.44075},
 { inpText: "AGEN",
   lat: 44.20213, lng: 0.62055},
+{ inpText: "RUFFEC",
+  lat: 46.0280, lng: 0.19725},
+{ inpText: "SEDAN",
+  lat: 49.70229, lng: 4.94398},
+{ inpText: "GRANVILLE",
+  lat: 48.64367, lng: 1.82650},
+{ inpText: "Rambouillet",
+  lat: 48.64367, lng: 1.82650},
+{ inpText: "LORIENT",
+  lat: 47.75017, lng: -3.36685},
 ];
 

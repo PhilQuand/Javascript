@@ -147,5 +147,7 @@ var inpAddress = [
   lat: 48.64367, lng: 1.82650},
 { inpText: "LORIENT",
   lat: 47.75017, lng: -3.36685},
+{ inpText: "GRANVILLE",
+  lat: 48.8387, lng: -1.59837},
 ];
 

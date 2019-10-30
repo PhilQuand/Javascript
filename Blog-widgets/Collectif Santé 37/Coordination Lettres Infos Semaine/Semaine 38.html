@@ -2,12 +2,64 @@
 <html>
 <head>
 	<title>Semaine 38 CNHMP</title>
+<!-- jQuery for FancyBox 3-->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
+<!-- Add fancyBox 3 -->
+<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
+<!-- End FancyBox -->
+<!-- Load Leaflet -->
+<link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+<script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- For google calendar integration -->
+<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+    <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+    <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Add my iFrameGallery -->
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.css" rel="stylesheet" type="text/css" />
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script>
+<!-- End iFralmeGallery -->
+<!--Load carte-infos-semaines -->
+ <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+ <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
+ <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
+ <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+ <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
 <base target="_blank">
 
 </head>
 <body>
-<p><img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" /></p>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<div class="corpsLettre">
 <a href="http://coordination-defense-sante.org/wp-content/uploads/2019/09/Infos-semaine-38-du-16-au-20-Septembre-2019.pdf"><img border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" style="float: right; width: 40px;"/></a>
 <div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;"><img class="banInfos" id="&lt;part2.5B86D51B.704AEBC0@wanadoo.fr&gt;" style="width: 400px; max-width: 40%;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" alt="image001.png" width="400px" border="0" /> <img id="&lt;part2.5B86D51B.704AEBC0@wanadoo.fr&gt;" style="width: 280px; max-width: 28%;" src="https://1.bp.blogspot.com/-323_QAksN4s/XYnOOh1rsAI/AAAAAAAAj90/lwgfJpJLYJ8Ahe2epusPIo2Mds1006lOQCLcBGAsYHQ/s1600/image002.png" border="0" /></div>
 <p><b style="font-family: Calibri, sans-serif; font-size: 11pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito :</span></b></p>
@@ -17,8 +69,8 @@
 <p>À quelques jours de la présentation du projet de loi de financement de la sécurité sociale 2020, qui va cadrer les dépenses de santé, les arbitrages pour la Ministre sont sans doute difficiles : la semaine sera chaude ! Sans oublier les retraites et la journée d’action du 24. La protection sociale est un choix de sociét.</p>
 </div>
 <p> </p>
-<div style="font-size: 18px; line-height: 1.2;">
-<div style="line-height: 1.2;">
+<!--more-->
+<div class="sumComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Sommaire :                                     </span></b></p>
 <p class="MsoListParagraphCxSpFirst" style="margin: 0cm 0cm 0.0001pt 18pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">L’écho des comités : page 2, 3 et 4</span></b></p>
 <p class="MsoListParagraphCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 18pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Autres infos locales : page 5</span></b></p>
@@ -27,10 +79,12 @@
 <p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: 18pt;"><b><span style="font-size: 18pt; line-height: 25.440000534057617px; font-family: Arial, sans-serif;">- La psychiatrie : page 8</span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: 18pt;"><b><span style="font-size: 18pt; line-height: 25.440000534057617px; font-family: Arial, sans-serif;">- Le business caché d’Happytal : page 8</span></b></p>
 <p class="MsoListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">         </span></span><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Culture et santé : page 9</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
+</div>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">L’écho des comités :</span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<div id="idInfosComités"></div>
+<div class="infosComités">
 <div class="infoComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif; color: white;">FEURS - 42</span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
@@ -118,6 +172,7 @@
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.lalsace.fr/haut-rhin/2019/09/21/urgences-de-mulhouse-une-fermeture-temporaire-est-desormais-anticipee"><span class="LienInternet" style="color: blue;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif; color: black;">L’article de l’Alsace du 21 septembre</span></b></span></a></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
 </div>
+</div>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">Dossier :</span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
@@ -187,14 +242,15 @@
 <p class="MsoNormal" style="margin: 0cm 0cm 10pt; line-height: 14pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 12pt; font-family: 'Times New Roman', serif;">« Toutes les infos sur le site de la Coordination Nationale »</span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 10pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 10pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><span class="ListLabel13" style="font-family: Arial, sans-serif; color: blue;"><b><span style="font-size: 12pt; line-height: 18.399999618530273px;">http://coordination-defense-sante.org/</span></b></span></a></p>
+<br/><center><a href="http://coordination-defense-sante.org"><img style="width: 640px; max-width: 90%;" border="0" data-original-width="898" src="https://3.bp.blogspot.com/-gV9Rd9DeDIM/WsTSYw10rpI/AAAAAAAAAUU/lfF3Y2wpMwQvFT2QoVe9b6xHKEqzqFIYwCEwYBhgL/s640/FCC811CB-E915-40E2-A3BB-561EF07C8E89-1028-0000936D9A73B8FD.png" data-original-height="349"/></a></center>
 </div>
-</div>
-<p> </p>
-<div class="m_3618130546097666366m_4285983811211523811Standard" style="margin-bottom: 0.0001pt; text-align: center;" align="center">
-<div style="text-align: start;">
-<div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="https://3.bp.blogspot.com/-gV9Rd9DeDIM/WsTSYw10rpI/AAAAAAAAAUU/lfF3Y2wpMwQvFT2QoVe9b6xHKEqzqFIYwCEwYBhgL/s1600/FCC811CB-E915-40E2-A3BB-561EF07C8E89-1028-0000936D9A73B8FD.png"><img style="width: 640; max-width: 90%;" src="https://3.bp.blogspot.com/-gV9Rd9DeDIM/WsTSYw10rpI/AAAAAAAAAUU/lfF3Y2wpMwQvFT2QoVe9b6xHKEqzqFIYwCEwYBhgL/s640/FCC811CB-E915-40E2-A3BB-561EF07C8E89-1028-0000936D9A73B8FD.png" border="0" data-original-height="349" data-original-width="898" /></a></div>
-</div>
-</div>
-<!--p style="text-align: right;">accès à la <a href="http://coordination-defense-sante.org/wp-content/uploads/2019/09/Infos-semaine-38-du-16-au-20-Septembre-2019.pdf">version pdf </a></p-->
-</body>
+<script>
+$(document).ready(function() {
+  if( $("#idInfosComités").length ) {
+      $('#idInfosComités').InfosComités();
+      $('.corpsLettre > .infosComités').css('display', 'none');
+      $('.sumComité').css('display', 'none');
+  }
+});
+</script>
 </html>

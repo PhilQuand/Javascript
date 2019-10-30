@@ -1,5 +1,102 @@
 <!DOCTYPE html>
-argin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Procès gagné !</span></b></p>
+<html>
+<head>
+	<title>Lettre Type Coordination </title>
+<!-- jQuery for FancyBox 3-->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Add fancyBox 3 -->
+<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
+<!-- End FancyBox -->
+<link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+<script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- For google calendar integration -->
+<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+    <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+    <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Add my iFrameGallery -->
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.css" rel="stylesheet" type="text/css" />
+<!--script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script-->
+<!-- End iFralmeGallery -->
+<!--Load carte-infos-semaines -->
+ <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+ <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
+ <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
+ <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+ <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<!-- Load Leaflet -->
+<div class="corpsLettre">
+<!--a href="http://coordination-defense-sante.org/wp-content/uploads/2019/10/Infos-semaine-42-du-14-au-18-Octobre-2019.pdf"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a-->
+<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;" data-summary="no"><img border="0" style="width: 400px; max-width: 40%;" id="<part2.5B86D51B.704AEBC0@wanadoo.fr>" alt="image001.png" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" class="banInfos" width="400px"/>
+<div>
+<p style="text-align: center;"><span style="font-size: 24pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">L’INFO</span><br/><span style="font-size: 20pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">Semaine 43</span><br/><span style="font-size: 20pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">du 21 au 25/10/2019</span></p>
+</div>
+</div>
+<p><b style="font-family: Calibri, sans-serif; font-size: 11pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito :</span></b></p>
+<p> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="<image004.jpg@01D58D9D.743993D0>" style="opacity: 1;" alt="image004.jpg" class="Apple-web-attachment Singleton" src="https://1.bp.blogspot.com/-ew0CvWB8ww0/Xbb3Qr3f7hI/AAAAAAAAkTA/E1yPq8Pm4go8leB4JAws4M9HXrkjF5pggCLcBGAsYHQ/s1600/image004.jpg" border="0"/></p>
+<p> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;">Ce dessin résume la politique du gouvernement en matière de santé publique. La casse de l'hôpital public fait le lit des cliniques, des hospitels privés, c'est à dire que la voie est libérée pour les dépassements d'honoraires, l'augmentation des restes à charges , la flambée des cotisations des mutuelles et assurances, l' accroissement des inégalités en santé et de l'accès aux soins.  L'outil de la casse c'est la  limitation de l'objectif des dépenses de l'assurance maladie ( ODAM) à 2,3% .<b><i> Ce que nous voulons</i></b>, avec de nombreuses autres  organisations,  pour garantir la proximité des hôpitaux avec urgences, SMUR, chirurgie et maternités, l'arrêt de toutes les suppressions de lits d'hospitalisation, <b><i>c'est un ONDAM à 5%.</i></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;">Pour convaincre nos concitoyen.nes , pour  l'obtenir,  organisons et participons aux mobilisations des  29 octobre et 14 novembre . </p>
+<!--more-->
+<div class="sumComité">
+<p class="MsoNormal" style="margin: 0cm 0cm 5pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b style="font-size: 11pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Sommaire :</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol;">· </span><b style="font-size: 11pt; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">L’écho des comités : pages 2 à 4</span></b></p>
+<p class="MsoListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span class="Policepardfaut1"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">    </span></span></span><span class="Policepardfaut1"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Autres infos locales : pages 5 à 6</span></b></span></p>
+<p class="MsoListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span class="Policepardfaut1"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span></span><span class="Policepardfaut1"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Dossiers : 7 à 8</span></b></span></p>
+<p class="MsoListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol; color: #7030a0;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span><span class="Policepardfaut1"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Culture et santé : page 9</span></b></span></p>
+</div>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités :</span></b></p>
+<br/>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">LES RENCONTRES DANS LA PRESSE </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://centre-presse.fr/article-707158-ils-se-mobilisent-pour-defendre-les-hopitaux-de-proximite.html?"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Les rencontres</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<div id="idInfosComités"> </div>
+<div class="refComiteTours"><center><i>carte développée en collaboration avec le <a href="https://collectifsante37.blogspot.com">comité de Tours</a></i></center></div>
+<div class="infosComités">
+<div class="infoComité">
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">SARLAT - </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Lettre d’information N°19</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="<image005.jpg@01D58D9D.743993D0>" style="opacity: 1;" alt="image005.jpg" class="Apple-web-attachment Singleton" src="https://1.bp.blogspot.com/-ox16pBpnqps/Xbb3RDg888I/AAAAAAAAkTE/WmYthybT-pcCLEzGUMZX8W8kF1VFF5TPACLcBGAsYHQ/s1600/image005.jpg" border="0"/></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2019/10/sarlat-lettre-dinformations-du-mois-doctobre-2019/"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">La lettre d’information</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+</div>
+<div class="infoComité">
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">GRANVILLE - 50</span></b></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Procès gagné !</span></b></p>
 <p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
 <p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le comité de Granville gagne son procès contre la direction de l'hôpital, mais le SMUR secondaire reste fermé!</span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>

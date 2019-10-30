@@ -1,118 +1,21 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Lettre Type Coordination </title>
-<!-- jQuery for FancyBox 3-->
-<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-
-<!-- Add fancyBox 3 -->
-<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
-<!-- End FancyBox -->
-<link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
-<script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
-<!-- For google calendar integration -->
-<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
-<script src="https://apis.google.com/js/api.js"></script>
-  <!-- Load Esri Leaflet from CDN -->
-  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
-  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
-  crossorigin=""></script>
-  <!-- Load Esri Leaflet Geocoder from CDN -->
-  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
-    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
-    crossorigin="">
-  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
-    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
-    crossorigin=""></script>
-<!--Load markerclusters -->
-    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
-    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
-    <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
-    <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
-
-<!--Load datepicker -->
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- Add my iFrameGallery -->
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.css" rel="stylesheet" type="text/css" />
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script>
-<!-- End iFralmeGallery -->
-<!--Load carte-infos-semaines -->
- <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
- <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
- <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
- <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
-<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
- <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
-<base target="_blank">
-
-</head>
-<body>
-<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
-<!-- Load Leaflet -->
-<div class="corpsLettre">
-<!--a href="http://coordination-defense-sante.org/wp-content/uploads/2019/10/Infos-semaine-42-du-14-au-18-Octobre-2019.pdf"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a-->
-<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;" data-summary="no"><img border="0" style="width: 400px; max-width: 40%;" id="<part2.5B86D51B.704AEBC0@wanadoo.fr>" alt="image001.png" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" class="banInfos" width="400px"/>
-<div>
-<p style="text-align: center;"><span style="font-size: 24pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">L’INFO</span><br/><span style="font-size: 20pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">Semaine 43</span><br/><span style="font-size: 20pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">du 21 au 25/10/2019</span></p>
-</div>
-</div>
-<p><b style="font-family: Calibri, sans-serif; font-size: 11pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito :</span></b></p>
-<p> </p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="<image004.jpg@01D58D9D.743993D0>" style="opacity: 1;" alt="image004.jpg" class="Apple-web-attachment Singleton" src="https://1.bp.blogspot.com/-ew0CvWB8ww0/Xbb3Qr3f7hI/AAAAAAAAkTA/E1yPq8Pm4go8leB4JAws4M9HXrkjF5pggCLcBGAsYHQ/s1600/image004.jpg" border="0"/></p>
-<p> </p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;">Ce dessin résume la politique du gouvernement en matière de santé publique. La casse de l'hôpital public fait le lit des cliniques, des hospitels privés, c'est à dire que la voie est libérée pour les dépassements d'honoraires, l'augmentation des restes à charges , la flambée des cotisations des mutuelles et assurances, l' accroissement des inégalités en santé et de l'accès aux soins.  L'outil de la casse c'est la  limitation de l'objectif des dépenses de l'assurance maladie ( ODAM) à 2,3% .<b><i> Ce que nous voulons</i></b>, avec de nombreuses autres  organisations,  pour garantir la proximité des hôpitaux avec urgences, SMUR, chirurgie et maternités, l'arrêt de toutes les suppressions de lits d'hospitalisation, <b><i>c'est un ONDAM à 5%.</i></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;">Pour convaincre nos concitoyen.nes , pour  l'obtenir,  organisons et participons aux mobilisations des  29 octobre et 14 novembre . </p>
-<!--more-->
-<div class="sumComité">
-<p class="MsoNormal" style="margin: 0cm 0cm 5pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b style="font-size: 11pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Sommaire :</span></b></p>
-<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol;">· </span><b style="font-size: 11pt; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">L’écho des comités : pages 2 à 4</span></b></p>
-<p class="MsoListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span class="Policepardfaut1"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">    </span></span></span><span class="Policepardfaut1"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Autres infos locales : pages 5 à 6</span></b></span></p>
-<p class="MsoListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span class="Policepardfaut1"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span></span><span class="Policepardfaut1"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Dossiers : 7 à 8</span></b></span></p>
-<p class="MsoListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol; color: #7030a0;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span><span class="Policepardfaut1"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Culture et santé : page 9</span></b></span></p>
-</div>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités :</span></b></p>
-<br/>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">LES RENCONTRES DANS LA PRESSE </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"> </p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://centre-presse.fr/article-707158-ils-se-mobilisent-pour-defendre-les-hopitaux-de-proximite.html?"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Les rencontres</span></b></a></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
-<div id="idInfosComités"> </div>
-<div class="refComiteTours"><center><i>carte développée en collaboration avec le <a href="https://collectifsante37.blogspot.com">comité de Tours</a></i></center></div>
-<div class="infosComités">
-<div class="infoComité">
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">SARLAT - </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Lettre d’information N°19</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="<image005.jpg@01D58D9D.743993D0>" style="opacity: 1;" alt="image005.jpg" class="Apple-web-attachment Singleton" src="https://1.bp.blogspot.com/-ox16pBpnqps/Xbb3RDg888I/AAAAAAAAkTE/WmYthybT-pcCLEzGUMZX8W8kF1VFF5TPACLcBGAsYHQ/s1600/image005.jpg" border="0"/></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2019/10/sarlat-lettre-dinformations-du-mois-doctobre-2019/"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">La lettre d’information</span></a></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
-</div>
-<div class="infoComité">
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">GRANVILLE - 50</span></b></p>
-<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Procès gagné !</span></b></p>
-<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+argin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Procès gagné !</span></b></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
 <p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le comité de Granville gagne son procès contre la direction de l'hôpital, mais le SMUR secondaire reste fermé!</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif; color: blue;"><a style="color: #954f72;" href="https://www.lamanchelibre.fr/actualite-786687-sud-manche-suppression-du-smur-2-le-centre-hospitalier-avranches-granville-condamne?">L’article</a></span></b></p>
 </div>
 <div class="infoComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #00b0f0;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">SEDAN</span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">50 personnes demandent au député Warsmann de ne pas voter le projet de financement de la Sécurité Sociale en l'état</span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif; color: blue;"><a style="color: #954f72;" href="http://sauvegardehopital.over-blog.com/2019/10/ne-votez-pas-le-projet-de-loi-de-financement-de-la-securite-sociale-en-l-etat.html">L’article</a></span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="<image006.jpg@01D58D9D.743993D0>" style="opacity: 1;" alt="image006.jpg" class="Apple-web-attachment Singleton" src="https://1.bp.blogspot.com/-ohlIeUn7VJk/Xbb3Rg-b8HI/AAAAAAAAkTI/lJPc2e6EA-UvVqceu3d7-jRVuA6U6aCuQCLcBGAsYHQ/s1600/image006.jpg" border="0"/></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif; background-color: #00cc33;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif; background-color: #00cc33;"> </span></b></p>
 </div>
 <div class="infoComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #00cc33;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">CONCARNEAU</span></b></p>
-<p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">29 octobre à 18H., rassemblement place Terre au Duc à Quimper <br/>pour exiger des moyens pour la santé</span></b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> <br/><b>rendez-vous à 17H.15 sur la parking de la gare de Concarneau <br/>pour un départ en covoiturage</b></span></p>
+<p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">29 octobre à 18H., rassemblement place Terre au Duc à Quimper <br/>pour exiger des moyens pour la santé</span></b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> <br/><b>rendez-vous à 17H.15 sur la parking de la gare de Concarneau <br/>pour un départ en covoiturage</b></span></p>
 <p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Mesdames et Messieurs les Députés, il faut des moyens pour notre santé</span></p>
 <p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">La grève des personnels des urgences et les autres mobilisations dans les hôpitaux et les EHPAD sont le témoin d'un système de santé qui va mal, avec une aggravation des difficultés pour accéder aux soins, avec des délais d'attente inadmissibles, avec la perte de la proximité, et des obstacles financiers, notamment avec les dépassements d'honoraires.</span></p>
 <p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Notre territoire n'est pas épargné : recentrage des lignes de SMUR de Douarnenez et Concarneau sur Quimper la nuit, manque de médecins urgentistes et de certains spécialistes à l'hôpital, délais trop longs pour certains examens, EHPAD en difficulté, fermetures de structures de Psychiatrie...</span></p>
@@ -121,70 +24,70 @@
 <p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">C'est pourquoi nous vous invitons à venir nombreux -ses le 29 octobre à 18H.,<br/>Place Terre au Duc à Quimper.</span></p>
 <p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Ce jour-là, les Députés voteront le projet de loi de financement de la Sécurité Sociale (PLFSS) qui doit être débattu ensuite au Sénat avant de repasser à l'Assemblée Nationale pour le vote définitif ; rappelons-leur que la santé est un droit inscrit dans le préambule de la Constitution.</span></p>
 <p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Nous rendrons publics les votes des députés de nos circonscriptions</span></p>
-<p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 9pt; line-height: 12.600000381469727px; font-family: 'Noto Sans'; color: #333333;"> </span></p>
+<p class="MsoQuote" style="margin: 0cm 1cm 14.15pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 9pt; line-height: 12.600000381469727px; font-family: 'Noto Sans'; color: #333333;"> </span></p>
 </div>
 <div class="infoComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ccff66;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">RUFFEC</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Lettre aux parlementaires</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: 'Arial Black', sans-serif;"> </span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">A  Mesdames et Messieurs les député-e-s</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">A  Mesdames et Messieurs les Sénateur-trice-s</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: right;" align="right"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: 'Arial Black', sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">A  Mesdames et Messieurs les député-e-s</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">A  Mesdames et Messieurs les Sénateur-trice-s</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: right;" align="right"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Madame, Monsieur,</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;"> </span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Les réformes et lois multiples (dont la dernière en date est « Ma Santé 2022 ») de notre système de santé ont conduit l'Hôpital Public à la catastrophe d'aujourd'hui avec des milliers de lits fermés, nombre de services de proximité disparus, des populations qui n'ont plus de réponse sanitaire satisfaisante, des professionnels au bout du rouleau (les mouvements actuels dans le monde hospitalier en sont l'illustration) … etc … </span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Aujourd'hui, malgré la détresse des soignants et des populations qui s'exprime depuis des mois, le gouvernement présente aux parlementaires que vous êtes, un projet de loi de financement de la Sécurité Sociale avec un ONDAM général à 2,3% et un ONDAM hospitalier à 2,1% (plus faible que l'an dernier) exigeant de fait 4 milliards d'euros d'économies supplémentaires à faire. </span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">C'est une véritable provocation !</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Les réformes et lois multiples (dont la dernière en date est « Ma Santé 2022 ») de notre système de santé ont conduit l'Hôpital Public à la catastrophe d'aujourd'hui avec des milliers de lits fermés, nombre de services de proximité disparus, des populations qui n'ont plus de réponse sanitaire satisfaisante, des professionnels au bout du rouleau (les mouvements actuels dans le monde hospitalier en sont l'illustration) … etc … </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Aujourd'hui, malgré la détresse des soignants et des populations qui s'exprime depuis des mois, le gouvernement présente aux parlementaires que vous êtes, un projet de loi de financement de la Sécurité Sociale avec un ONDAM général à 2,3% et un ONDAM hospitalier à 2,1% (plus faible que l'an dernier) exigeant de fait 4 milliards d'euros d'économies supplémentaires à faire. </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">C'est une véritable provocation !</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">La France dépense 20% de moins que l'Allemagne par habitant pour la santé, elle est au 11e rang des pays de l'OCDE. Même la Cour des Comptes chiffre la croissance spontanée des dépenses hospitalières à 4,4%. Augmenter le budget de l'assurance maladie est légitime et nécessaire pour sortir de la crise sanitaire actuelle et répondre aux besoins de la population quels que soit l'âge, le lieu de vie ou le milieu social.</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Il y a urgence :</span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à arrêter toutes les fermetures programmées de services et de lits. </span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à arrêter toutes les fermetures de structures ambulatoires et fusions de secteurs en psychiatrie.</span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à ré-ouvrir des lits et des services déjà fermés, et ce tout particulièrement dans les hôpitaux de proximité.</span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à créer des postes de personnels médicaux, paramédicaux et d'accompagnement dans les Hôpitaux et les EHPAD ainsi que la revalorisation de ces métiers. </span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à créer des centres de santé publics.</span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à financer un véritable plan de formation pluridisciplinaire. </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Il y a urgence :</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à arrêter toutes les fermetures programmées de services et de lits. </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à arrêter toutes les fermetures de structures ambulatoires et fusions de secteurs en psychiatrie.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à ré-ouvrir des lits et des services déjà fermés, et ce tout particulièrement dans les hôpitaux de proximité.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à créer des postes de personnels médicaux, paramédicaux et d'accompagnement dans les Hôpitaux et les EHPAD ainsi que la revalorisation de ces métiers. </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à créer des centres de santé publics.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-left: 18pt; text-align: justify; text-indent: -18pt; line-height: 12.720000267028809px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">  </span></span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">à financer un véritable plan de formation pluridisciplinaire. </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Sur notre territoire aussi, comme partout en France, la population rencontre des difficultés d'accès aux soins et les professionnels travaillent dans des conditions inacceptables.</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Pour tous ces motifs, il y a urgence à augmenter l'ONDAM du projet de loi de financement de la Sécurité Sociale au minimum de 5% dès 2020.</span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Par la présente, lors des débats parlementaires, nous vous demandons de faire évoluer le projet de loi de financement de la Sécurité Sociale présenté par le gouvernement pour qu'il intègre une augmentation minimum de 5% de l'ONDAM et de vous engager à voter contre si cette augmentation minimum n'est pas intégrée.</span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Veuillez croire, Madame, Monsieur, en l'expression de nos salutations les meilleures.</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><i><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Pour le collectif de travail de l'association</span></i></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><i><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Edith POT, porte parole de l'association</span></i></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.546667098999023px; font-size: 11pt; font-family: Calibri, sans-serif;"><i><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Edith POT, porte parole de l'association</span></i></p>
 </div>
-<p> </p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;">Autres infos locales :</span></b></p>
-<p> </p>
+<p> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;">Autres infos locales :</span></b></p>
+<p> </p>
 <div class="infoComité">
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #002060;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif; color: white;">Rambouillet </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #002060;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif; color: white;">Rambouillet </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Opération choc des urgentistes de Rambouillet</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Jeudi soir, une vingtaine d’entre eux a mené une opération choc pour alerter la population sur la situation des urgences. Comme d’autres services des urgences en France, les agents sont en grève à Rambouillet. Ils réclament à leur ministre de la santé, les moyens d’exercer leur métier.</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="https://actu.fr/ile-de-france/rambouillet_78517/images-yvelines-operation-choc-urgentistes-rambouillet_28368541.html?"><span style="color: #0186ba;">L’article</span></a></span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
 </div>
 <div class="infoComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">SISTERON - 04</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Vidéos de la mobilisation du 14 Octobre 2019</span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2019/10/sisteron-videos-de-la-mobilisations-du-14-octobre-2019/"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Les vidéos</span></b></a></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Vidéo de la mobilisation du 21 Octobre 2019</span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2019/10/19811/"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">La vidéo</span></b></a></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 </div>
 <div class="infoComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">NANTES - 44</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="<image007.jpg@01D58D9D.743993D0>" style="opacity: 1;" alt="image007.jpg" class="Apple-web-attachment Singleton" src="https://1.bp.blogspot.com/-gGmli6D_YGQ/Xbb3SPqfa4I/AAAAAAAAkTM/ovhxKyA6POclkLfbWa1VenszpW5VZe-UACLcBGAsYHQ/s1600/image007.jpg" border="0"/></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2019/10/debat-a-nantes-et-si-la-secu-disparaissait/"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Le tract</span></b></a></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 </div>
 <div class="infoComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">LORIENT</span></b></p>
@@ -192,57 +95,57 @@
 <p><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Débat le 30 octobre avec Christophe Prudhomme</span></b></p>
 </center></div>
 </div>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>Dossiers :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>Dossiers :</span></b></p>
 <br/>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Complément d'enquête</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Les dessous de l'hôpital public révélé par les personnels soignants et médicaux </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Les dessous de l'hôpital public révélé par les personnels soignants et médicaux </span></b></p>
 <p class="MsoBodyText" style="margin: 0cm 0cm 6pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: blue;"><a style="color: #954f72;" href="https://www.france.tv/france-2/complement-d-enquete/1084997-danger-a-l-hopital-quand-les-medecins-balancent.html">L’article</a></span></b></p>
-<p class="MsoBodyText" style="margin: 0cm 0cm 6pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
-<p class="MsoBodyText" style="margin: 0cm 0cm 6pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Fermeture des maternités : les questions et le point de vue duCIANE </span></b></p>
-<p class="MsoBodyText" style="margin: 0cm 0cm 6pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 6pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 6pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Fermeture des maternités : les questions et le point de vue duCIANE </span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 6pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoBodyText" style="margin: 0cm 0cm 6pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif; color: blue;"><a style="color: #954f72;" href="https://ciane.net/2019/09/restructuration-des-maternites-trop-de-questions-sans-reponse/?">L’article</a></span></b></p>
-<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
-<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
 <p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le privé dans l'action</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Après <a style="color: #954f72;" href="https://www.ladepeche.fr/2019/10/11/cliniques-de-lunion-et-croix-du-sud-meme-combat,8472750.php">le service des urgences qui s’était mis en grève jeudi</a>, la moitié du personnel de la clinique Croix du Sud (entre 46 % et 50 % de grévistes selon la direction) s’est arrêtée ce lundi 14 octobre. Des salariés ont manifesté leur colère dès le matin devant l’entrée de l’établissement à Quint-Fonsegrives, propriété du groupe Ramsay Générale de Santé depuis le rachat de Capio en novembre 2018. </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Après <a style="color: #954f72;" href="https://www.ladepeche.fr/2019/10/11/cliniques-de-lunion-et-croix-du-sud-meme-combat,8472750.php">le service des urgences qui s’était mis en grève jeudi</a>, la moitié du personnel de la clinique Croix du Sud (entre 46 % et 50 % de grévistes selon la direction) s’est arrêtée ce lundi 14 octobre. Des salariés ont manifesté leur colère dès le matin devant l’entrée de l’établissement à Quint-Fonsegrives, propriété du groupe Ramsay Générale de Santé depuis le rachat de Capio en novembre 2018. </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="https://www.ladepeche.fr/2019/10/14/clinique-croix-du-sud-la-greve-gagne-tous-les-services-la-moitie-des-operations-annulees,8479562.php"><b>L’article</b></a></span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">CHU de Poitiers : le cri d'alarme du service bionettoyage</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">C’est une lettre anonyme qui a alerté la CGT du CHU de Poitiers : <em>« Merci à la direction d’avoir détruit ma famille parce que, oui, c’est à cause de ce que vous nous faites vivre depuis un an que les nerfs lâchent… »</em> Au sein du service bionettoyage, le malaise semble avoir atteint un point de non-retour dans les relations entre les salariés et leurs supérieurs. Le syndicat est allé il y a deux jours à la rencontre du maire Alain Claeys, président du conseil de surveillance du CHU, pour trouver une issue à une situation inquiétante.</span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">C’est une lettre anonyme qui a alerté la CGT du CHU de Poitiers : <em>« Merci à la direction d’avoir détruit ma famille parce que, oui, c’est à cause de ce que vous nous faites vivre depuis un an que les nerfs lâchent… »</em> Au sein du service bionettoyage, le malaise semble avoir atteint un point de non-retour dans les relations entre les salariés et leurs supérieurs. Le syndicat est allé il y a deux jours à la rencontre du maire Alain Claeys, président du conseil de surveillance du CHU, pour trouver une issue à une situation inquiétante.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="https://www.lanouvellerepublique.fr/poitiers/chu-de-poitiers-le-cri-d-alarme-du-service-bionettoyage"><b>L’article</b></a></span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
 <p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le privé n'est pas social</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
 <p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Nous, personnels ou non du Centre Hospitalier de Longué, dénonçons le projet de privatisation de l'Hôpital de Longué.</span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Nous demandons à l' ARS et Conseil Départemental de Maine et Loire de maintenir le Centre Hospitalier dans le secteur Public qui est le garant de l'équité pour les patients et résidents du Longuéen et des autres territoires limitrophes.</span><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Nous demandons à l' ARS et Conseil Départemental de Maine et Loire de maintenir le Centre Hospitalier dans le secteur Public qui est le garant de l'équité pour les patients et résidents du Longuéen et des autres territoires limitrophes.</span><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="https://www.change.org/p/syndicat-cgt-de-longu%C3%A9-jumelles-d%C3%A9fendons-le-service-public-du-centre-hospitalier-de-longue-non-%C3%A0-la-privatisation"><b>L’article</b></a></span></p>
-<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 5pt; margin-left: 0cm; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">17 500 lits de nuit fermés en six ans</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">La suppression de lits à l'hôpital est depuis plusieurs mois au cœur des conflits qui agitent le monde de la santé. <a style="color: #954f72;" href="http://www.leparisien.fr/societe/sante/greve-des-urgences-on-a-ferme-100-000-lits-en-20-ans-24-04-2019-8059401.php"><span style="color: windowtext; text-decoration: none;">Trop de lits ont été supprimés</span></a>, dénoncent certains; on manque de lits d'aval pour accueillir les patients des urgences, enchérissent d'autres. Qu'en est-il en réalité? La Direction des études et des statistiques du ministère de la Santé (Drees) a analysé les données en remontant jusqu'en 2013. La surprise n'est pas mince.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">La suppression de lits à l'hôpital est depuis plusieurs mois au cœur des conflits qui agitent le monde de la santé. <a style="color: #954f72;" href="http://www.leparisien.fr/societe/sante/greve-des-urgences-on-a-ferme-100-000-lits-en-20-ans-24-04-2019-8059401.php"><span style="color: windowtext; text-decoration: none;">Trop de lits ont été supprimés</span></a>, dénoncent certains; on manque de lits d'aval pour accueillir les patients des urgences, enchérissent d'autres. Qu'en est-il en réalité? La Direction des études et des statistiques du ministère de la Santé (Drees) a analysé les données en remontant jusqu'en 2013. La surprise n'est pas mince.</span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="http://www.leparisien.fr/economie/hopital-17-500-lits-de-nuit-fermes-en-six-ans-17-10-2019-8174565.php#xtor=EREC-109-[NLalaune]---${_id_connect_hash}@1"><b>L’article</b></a></span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
 <p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">LA COLÈRE DES HOSPITALIERS EN CHANSON</span></b></p>
-<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"> </p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"> </p>
 <p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="http://coordination-defense-sante.org/documents-et-ressources/videotheque/"><b>L’article</b></a></span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">LE SNPHAR-E SE MET EN MOUVEMENT </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">LE SNPHAR-E SE MET EN MOUVEMENT </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"> </p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="https://snphare.fr/fr/blog/posts/sauvons-lhopital-public--le-snphare-depose-deux-preavis-de-greve?"><b>L’article</b></a></span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">UNE FORME D'ACTION DES MÉDECINS DES HÔPITAUX :</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">LA GRÈVE DU CODAGE DES ACTES</span></b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">UNE FORME D'ACTION DES MÉDECINS DES HÔPITAUX :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">LA GRÈVE DU CODAGE DES ACTES</span></b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="https://www.liberation.fr/france/2019/10/22/hopital-la-greve-du-codage-des-actes-medicaux-s-etend_1759069?"><b>L’article</b></a></span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;">Culture et santé :</span></b></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Nicole Ferroni et la proximité </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;">Culture et santé :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Nicole Ferroni et la proximité </span></b></p>
 <p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.facebook.com/franceinter/videos/448651715762052/"><span style="font-size: 9pt; line-height: 12.600000381469727px; font-family: 'Courier New'; color: #0186ba;">https://www.facebook.com/franceinter/videos/448651715762052/</span></a></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
-<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
 <p class="MsoNormalCxSpFirst" style="font-family: Helvetica; font-size: 12px; margin-bottom: 10pt; text-align: center; line-height: 14pt; background-color: yellow;" align="center"><b><span style="font-size: 12pt; font-family: 'Times New Roman', serif;">« Toutes les infos sur le site de la Coordination Nationale »</span></b></p>
 <p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 10pt; text-align: center; line-height: 13.800000190734863px;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">http://coordination-defense-sante.org/</span></a></p>
 <br/><center><a href="http://coordination-defense-sante.org"><img style="width: 640px; max-width: 90%;" border="0" data-original-width="898" src="https://3.bp.blogspot.com/-gV9Rd9DeDIM/WsTSYw10rpI/AAAAAAAAAUU/lfF3Y2wpMwQvFT2QoVe9b6xHKEqzqFIYwCEwYBhgL/s640/FCC811CB-E915-40E2-A3BB-561EF07C8E89-1028-0000936D9A73B8FD.png" data-original-height="349"/></a></center>
@@ -303,8 +206,8 @@
     </g>
 </svg>
 </div>
-<div id="CoordInfos"> </div>
-<div id="CoordMapInfos"> </div>
+<div id="CoordInfos"> </div>
+<div id="CoordMapInfos"> </div>
 <style>
 #PreviousLetters  { 
     width:10vw; 
@@ -328,6 +231,632 @@
    height: calc( 100vh - 100px );
 }
 </style>
+<script>
+(function($) {
+  $.fn.iFrameGallery = function(options) {
+    if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
+      var indexInlineHTML = 0;
+      var divLinkID = 'none';
+      var divCont;
+      var thumbs;
+      if (options.accessmode !== 'undefined') {
+        var divLinkID = $('#' + options.accessmode);
+        /*var divLinkID = $('#' + options.accessmode).clone();
+        $(this).append(divLinkID);
+        $('#' + options.accessmode).removeAttr('id');*/
+      }
+      var noneBgImage = 'none';
+      if (typeof options.noneBgImage !== 'undefined') noneBgImage = options.noneBgImage;
+      if (typeof options.thumbs === 'undefined') thumbs = true;
+      else thumbs = options.thumbs;
+      var divArchi = $('<div id="divArchi" style="display: flex; flex-wrap: wrap;"></div>');
+      $(this).append(divArchi);
+      var parentIFrameSize = {};
+      var iFrameNum = {};
+      for (i = 0; i < options.archi.length; i++) {
+        var imgID = options.archi[i].imgID;
+        var svgInfos = options.archi[i].svgInfos;
+        var idG = options.archi[i].idG;
+        var idGtyp = options.archi[i].idGtyp;
+        var idGlinkID = options.archi[i].idGlinkID;
+        var idGExt = options.archi[i].idGExt;
+        var pdfLink = options.archi[i].pdfLink;
+        var inlineProgram = options.archi[i].inlineProgram;
+        if (typeof inlineProgram === 'undefined') inlineProgram = 'inlineProgram';
+        if (typeof iFrameNum[inlineProgram] === 'undefined') iFrameNum[inlineProgram] = 0;
+        var inlineProgramIndex = inlineProgram + '-' + ++iFrameNum[inlineProgram];
+        if (typeof options.parentIFrameSize !== 'undefined') parentIFrameSize[inlineProgramIndex] = parseInt(options.parentIFrameSize);
+        if (typeof options.archi[i].parentIFrameSize !== 'undefined') {
+        parentIFrameSize[inlineProgramIndex] = parseInt(options.archi[i].parentIFrameSize);
+        }
+        if( iFrameNum[inlineProgram] == 1 ) parentIFrameSize[inlineProgram] = parentIFrameSize[inlineProgramIndex];
+        if (idG.split("id=").length > 1) {
+          idG = idG.split("id=")[1];
+          idG = "https://docs.google.com/file/d/" + idG + "/preview"
+        }
+        else if (idG.split("file/d/").length > 1) {
+          idG = idG.split("file/d/")[1];
+          idG = idG.split("/view")[0];
+          idG = "https://docs.google.com/file/d/" + idG + "/preview"
+        }
+        addInfos(imgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID, inlineProgram, thumbs);
+      }
+    }
+    function addInfos(imgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID, inlineProgram, thumbs) {
+      imgBase = getIMG(imgID, svgInfos);
+      if (idGtyp == 'inlined') {
+        if (indexInlineHTML == 0) divCont = $('<div id="contInlineHTML"></div>').insertAfter(divArchi);
+        idG = inlineHTML(idG, divCont, pdfLink);
+      }
+      var inputLink = linkBuild(idG, inlineProgram, imgBase, thumbs);
+      if (typeof idGExt !== 'undefined') {
+        var innerLink = inputLink.clone();
+        divArchi.append(innerLink);
+        innerLink.wrap('<div style="display: none"></div>');
+        inputLink = $('<a href="' + idGExt + '">' + inputLink.html() + '</a>');
+      }
+      if (divLinkID != 'none') {
+        var IDlink = divLinkID.find('#' + idGlinkID);
+        if (IDlink.length > 0) {
+          inputLink.html(IDlink.html());
+          IDlink.html('');
+          IDlink.append(inputLink);
+        }
+        else {
+          inputLink.insertBefore(divArchi);
+          inputLink.wrap('<div style="display: none"></div>')
+        }
+      }
+      else {
+        if (typeof idGlinkID !== 'undefined') {
+          if (idGlinkID.length > 4 && idGlinkID.substring(0, 4) == 'http') {
+            inputLink.find("img").attr("src", idGlinkID);
+          }
+          else {
+            inputLink.find("img").attr("src", $("#" + idGlinkID).attr("src"));
+          }
+        }
+        divArchi.append(inputLink, '<br/>');
+      }
+      if (idGtyp != 'inlined' && idG[0] == '#') {
+        var inpLinkidG = $(idG);
+        var divLinkidG = inpLinkidG.clone();
+        divArchi.append(divLinkidG);
+        inpLinkidG.removeAttr('id');
+        if (typeof idGlinkID === 'undefined') divLinkidG.wrap('<div style="display: none"></div>')
+      }
+      function getIMG(imgID, svgInfos) {
+        if (typeof imgID !== 'undefined') {
+          if (imgID.length > 4 && imgID.substring(0, 4) == 'http') {
+            return imgID;
+          }
+          else {
+            imgTag = $("#" + imgID);
+            if (imgTag.is('img')) {
+              imgBase = $("#" + imgID).attr('src');
+              return imgBase;
+            }
+            else {
+              var svgTemp = imgTag.html();
+              svgTemp = $('<svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">' + svgTemp + '</svg>');
+            }
+          }
+        }
+        else if (typeof svgInfos === 'undefined') return noneBgImage;
+        else {
+          var svgTemp = $('<svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><rect x="10" y="10" width="100%" height="100%" stroke="blue" fill=white stroke-opacity="1.0" fill-opacity="0.8"/> <g transform="matrix(0.622762,0,0,0.695394,-73.9671,-168.06)"> <text x="187.961px" y="471px" style="' + "font-family:'ArialMT', 'Arial', sans-serif;font-size:96px;fill:rgb(244,60,61);" + '" id="l1"></text> <text x="310.68px" y="549.099px" style="' + "font-family:'ArialMT', 'Arial', sans-serif;font-size:64px;fill:rgb(244,60,61);" + '" id="l2"></text> <text x="319.57px" y="615.193px" style="' + "font-family:'ArialMT', 'Arial', sans-serif;font-size:64px;fill:rgb(244,60,61);" + '" id="l3"></text> <text x="372.945px" y="693.292px" style="' + "font-family:'ArialMT', 'Arial', sans-serif;font-size:64px;fill:rgb(244,60,61);" + '" id="l4"></text> </g></svg>');
+        }
+        if (typeof svgInfos !== 'undefined') {
+          for (var i = 0; i < svgInfos.length; i++) {
+            svgTemp.find('#l' + (i + 1).toString()).html(svgInfos[i]);
+          }
+        }
+        //divArchi.append(svgTemp, '<br/>');
+        var svgInfosstr = svgTemp.get(0).outerHTML;
+        //divArchi.append('<p>' + svgInfosstr + '</p>')
+        var svgInfosbase64r = base64.encode(svgInfosstr);
+        //divArchi.append('<p>' + svgInfosbase64r + '</p>')
+        var imgBase = 'data:image/svg+xml;base64,' + svgInfosbase64r;
+        return imgBase;
+      }
+      function linkBuild(idG, inlineProgram, imgBase, thumbs) {
+        if (thumbs) {
+          if (idG[0] != '#') var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '" data-slide-class="customVid" data-type="iframe" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase + '" /></a>')
+          else {
+            var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '" data-slide-class="customVid" data-type="inline" data-src="' + idG + '" href="javascript:;" data-thumb=' + "'" + '&#39;' + imgBase + '&#39;' + "'" + '><img class="iFrameGalleryIMG" src="' + imgBase + '" /></a>');
+          }
+        }
+        else {
+          if (idG[0] != '#') var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '" data-slide-class="customVid" data-type="iframe" data-src="' + idG + '" href="javascript:;" ><img class="iFrameGalleryIMG" src="' + imgBase + '" /></a>')
+          else {
+            var myLink = $('<a class="data-fancybox-inline" data-fancybox="' + inlineProgram + '" data-slide-class="customVid" data-type="inline" data-src="' + idG + '" href="javascript:;" ><img class="iFrameGalleryIMG" src="' + imgBase + '" /></a>');
+          }
+        }
+        return myLink;
+      }
+      function inlineHTML(idG, divCont, pdfLink) {
+        indexInlineHTML++;
+        var article = 'article-' + indexInlineHTML;
+        var result = getMyInnerLinkContent(idG);
+        var title = $.trim(result.title.html());
+        var pdfImage = "https://1.bp.blogspot.com/-TI4G_l6BEOc/XSdAHVMoDPI/AAAAAAAAjck/DBWbre-z2mk3QLeZ1xUwUsJO4ofxFjURwCLcBGAs/s1600/pdf%2Bicon.jpg";
+        var item = $('<div class="incrustation articleFancy" id="' + article + '" ></div>').append(
+          $('<div class="incrustation fontFancy"></div>').append(
+            $('<center></center>').append(
+              $('<a class="pdfref" href="' + pdfLink + '"><img style="float: right; width: 40px;" border="0" data-original-height="122" data-original-width="98" src="' + pdfImage + '" /></a>'), $('<div class="titreFancy" ></div>')
+            ), $('<div class="corpsFancy" ></div>')
+          )
+        );
+        item.find('.titreFancy').html(title);
+        item.find('.corpsFancy').append(result.body);
+        item.find('.fancyNotInlined').css('display', 'none');
+        divCont.append(item);
+        return '#' + article;
+      }
+    }
+    $(document).ready(function() {
+      $(".data-fancybox-inline").fancybox({
+        toolbar: true,
+        infobar: true,
+        arrows: true,
+        animationEffect: "fade",
+        transitionEffect: "slide",
+        speed: 300,
+        margin: [40, 20],
+        buttons: false,
+        thumbs: {
+          autoStart: false, // Display thumbnails on opening
+          hideOnClose: true // Hide thumbnail grid when closing animation starts
+        },
+        buttons: [
+          'close',
+          'thumbs',
+          'prev',
+          'next'
+        ],
+        /*iframe: {
+          preload: false
+        },*/
+        baseClass: 'iFrameGalleryClass',
+        afterClose: function(instance, current) {
+if ('parentIFrame' in window) {
+parentIFrame.scrollTo(0,0);
+}
+        },
+        beforeClose: function(instance, current) {
+if ('parentIFrame' in window) {
+parentIFrame.autoResize(true);
+}
+        },
+        afterShow: function(instance, current) {
+          var  fancybox_content = $(".iFrameGalleryClass .fancybox-content");
+          fancybox_content.prop("style", "");
+        },
+        afterLoad: function(instance, current) {
+if ('parentIFrame' in window) {
+  if(parentIFrameSize[instance.currentHash] > 0) {
+      parentIFrame.autoResize(false);
+      parentIFrame.size(parentIFrameSize[instance.currentHash]); // Set height to parentIFrameSize
+  } else parentIFrame.size();
+  //parentIFrame.scrollToOffset(0,0);
+  parentIFrame.scrollTo(0,0);
+}
+          //console.info( instance.Thumbs );
+          //console.info( instance.Thumbs.$button[0]  );
+          $("button.fancybox-button.fancybox-button--thumbs").click(function() {
+            var elements = $(".iFrameGalleryClass .fancybox-thumbs__list").find("a").filter(function() {
+              $(this).prop("target", "_self");
+              // only keep the elements that have the correct background image
+              return $(this).css("backgroundImage").indexOf(noneBgImage) > -1;
+            });
+            elements.css("display", "none");
+          });
+          if (instance.group.length > 1 && current.$content) {
+            var  arrow_left = $(".iFrameGalleryClass .fancybox-button.fancybox-button--arrow_left");
+            arrow_left.css("display","block");
+            var  arrow_right = $(".iFrameGalleryClass .fancybox-button.fancybox-button--arrow_right");
+            arrow_right.css("display","block");
+            if (current.index == 0) arrow_left.css("display","none");
+            else if (current.index == (instance.group.length - 1)) arrow_right.css("display","none");
+          }
+          /*if ( instance.group.length > 1 && current.$content ) {
+            if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+            else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+            else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+          }*/
+          /*if ( instance.group.length > 1 && current.$content ) {
+            current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
+          }*/
+          //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
+        }
+      });
+    });
+  };
+})(jQuery);
+/*
+ * [hi-base64]{@link https://github.com/emn178/hi-base64}
+ *
+ * @version 0.2.1
+ * @author Chen, Yi-Cyuan [emn178@gmail.com]
+ * @copyright Chen, Yi-Cyuan 2014-2017
+ * @license MIT
+ */
+/*jslint bitwise: true */
+(function ($) {
+  'use strict';
+  var root = typeof window === 'object' ? window : {};
+  var NODE_JS = !root.HI_BASE64_NO_NODE_JS && typeof process === 'object' && process.versions && process.versions.node;
+  if (NODE_JS) {
+    root = global;
+  }
+  var COMMON_JS = !root.HI_BASE64_NO_COMMON_JS && typeof module === 'object' && module.exports;
+  var AMD = typeof define === 'function' && define.amd;
+  var BASE64_ENCODE_CHAR = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'.split('');
+  var BASE64_DECODE_CHAR = {
+    'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8,
+    'J': 9, 'K': 10, 'L': 11, 'M': 12, 'N': 13, 'O': 14, 'P': 15, 'Q': 16, 
+    'R': 17, 'S': 18, 'T': 19, 'U': 20, 'V': 21, 'W': 22, 'X': 23, 'Y': 24, 
+    'Z': 25, 'a': 26, 'b': 27, 'c': 28, 'd': 29, 'e': 30, 'f': 31, 'g': 32, 
+    'h': 33, 'i': 34, 'j': 35, 'k': 36, 'l': 37, 'm': 38, 'n': 39, 'o': 40, 
+    'p': 41, 'q': 42, 'r': 43, 's': 44, 't': 45, 'u': 46, 'v': 47, 'w': 48, 
+    'x': 49, 'y': 50, 'z': 51, '0': 52, '1': 53, '2': 54, '3': 55, '4': 56, 
+    '5': 57, '6': 58, '7': 59, '8': 60, '9': 61, '+': 62, '/': 63, '-': 62,
+    '_': 63
+  };
+  var utf8ToBytes = function (str) {
+    var bytes = [];
+    for (var i = 0; i < str.length; i++) {
+      var c = str.charCodeAt(i);
+      if (c < 0x80) {
+        bytes[bytes.length] = c;
+      } else if (c < 0x800) {
+        bytes[bytes.length] = 0xc0 | (c >> 6);
+        bytes[bytes.length] = 0x80 | (c & 0x3f);
+      } else if (c < 0xd800 || c >= 0xe000) {
+        bytes[bytes.length] = 0xe0 | (c >> 12);
+        bytes[bytes.length] = 0x80 | ((c >> 6) & 0x3f);
+        bytes[bytes.length] = 0x80 | (c & 0x3f);
+      } else {
+        c = 0x10000 + (((c & 0x3ff) << 10) | (str.charCodeAt(++i) & 0x3ff));
+        bytes[bytes.length] = 0xf0 | (c >> 18);
+        bytes[bytes.length] = 0x80 | ((c >> 12) & 0x3f);
+        bytes[bytes.length] = 0x80 | ((c >> 6) & 0x3f);
+        bytes[bytes.length] = 0x80 | (c & 0x3f);
+      }
+    }
+    return bytes;
+  };
+  var decodeAsBytes = function (base64Str) {
+    var v1, v2, v3, v4, bytes = [], index = 0, length = base64Str.length;
+    if (base64Str.charAt(length - 2) === '=') {
+      length -= 2;
+    } else if (base64Str.charAt(length - 1) === '=') {
+      length -= 1;
+    }
+    // 4 char to 3 bytes
+    for (var i = 0, count = length >> 2 << 2; i < count;) {
+      v1 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      v2 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      v3 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      v4 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      bytes[index++] = (v1 << 2 | v2 >>> 4) & 255;
+      bytes[index++] = (v2 << 4 | v3 >>> 2) & 255;
+      bytes[index++] = (v3 << 6 | v4) & 255;
+    }
+    // remain bytes
+    var remain = length - count;
+    if (remain === 2) {
+      v1 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      v2 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      bytes[index++] = (v1 << 2 | v2 >>> 4) & 255;
+    } else if (remain === 3) {
+      v1 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      v2 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      v3 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+      bytes[index++] = (v1 << 2 | v2 >>> 4) & 255;
+      bytes[index++] = (v2 << 4 | v3 >>> 2) & 255;
+    }
+    return bytes;
+  };
+  var encodeFromBytes = function (bytes) {
+    var v1, v2, v3, base64Str = '', length = bytes.length;
+    for (var i = 0, count = parseInt(length / 3) * 3; i < count;) {
+      v1 = bytes[i++];
+      v2 = bytes[i++];
+      v3 = bytes[i++];
+      base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+        BASE64_ENCODE_CHAR[(v1 << 4 | v2 >>> 4) & 63] +
+        BASE64_ENCODE_CHAR[(v2 << 2 | v3 >>> 6) & 63] +
+        BASE64_ENCODE_CHAR[v3 & 63];
+    }
+    
+    // remain char
+    var remain = length - count;
+    if (remain === 1) {
+      v1 = bytes[i];
+      base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+        BASE64_ENCODE_CHAR[(v1 << 4) & 63] +
+        '==';
+    } else if (remain === 2) {
+      v1 = bytes[i++];
+      v2 = bytes[i];
+      base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+        BASE64_ENCODE_CHAR[(v1 << 4 | v2 >>> 4) & 63] +
+        BASE64_ENCODE_CHAR[(v2 << 2) & 63] +
+        '=';
+    }
+    return base64Str;
+  };
+  var btoa = root.btoa, atob = root.atob, utf8Base64Encode, utf8Base64Decode;
+  if (NODE_JS) {
+    var Buffer = require('buffer').Buffer;
+    btoa = function (str) {
+      return new Buffer(str, 'ascii').toString('base64');
+    };
+    utf8Base64Encode = function (str) {
+      return new Buffer(str).toString('base64');
+    };
+    encodeFromBytes = utf8Base64Encode;
+    atob = function (base64Str) {
+      return new Buffer(base64Str, 'base64').toString('ascii');
+    };
+    utf8Base64Decode = function (base64Str) {
+      return new Buffer(base64Str, 'base64').toString();
+    };
+  } else if (!btoa) {
+    btoa = function (str) {
+      var v1, v2, v3, base64Str = '', length = str.length;
+      for (var i = 0, count = parseInt(length / 3) * 3; i < count;) {
+        v1 = str.charCodeAt(i++);
+        v2 = str.charCodeAt(i++);
+        v3 = str.charCodeAt(i++);
+        base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+          BASE64_ENCODE_CHAR[(v1 << 4 | v2 >>> 4) & 63] +
+          BASE64_ENCODE_CHAR[(v2 << 2 | v3 >>> 6) & 63] +
+          BASE64_ENCODE_CHAR[v3 & 63];
+      }
+      
+      // remain char
+      var remain = length - count;
+      if (remain === 1) {
+        v1 = str.charCodeAt(i);
+        base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+          BASE64_ENCODE_CHAR[(v1 << 4) & 63] +
+          '==';
+      } else if (remain === 2) {
+        v1 = str.charCodeAt(i++);
+        v2 = str.charCodeAt(i);
+        base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+          BASE64_ENCODE_CHAR[(v1 << 4 | v2 >>> 4) & 63] +
+          BASE64_ENCODE_CHAR[(v2 << 2) & 63] +
+          '=';
+      }
+      return base64Str;
+    };
+    utf8Base64Encode = function (str) {
+      var v1, v2, v3, base64Str = '', bytes = utf8ToBytes(str), length = bytes.length;
+      for (var i = 0, count = parseInt(length / 3) * 3; i < count;) {
+        v1 = bytes[i++];
+        v2 = bytes[i++];
+        v3 = bytes[i++];
+        base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+          BASE64_ENCODE_CHAR[(v1 << 4 | v2 >>> 4) & 63] +
+          BASE64_ENCODE_CHAR[(v2 << 2 | v3 >>> 6) & 63] +
+          BASE64_ENCODE_CHAR[v3 & 63];
+      }
+      
+      // remain char
+      var remain = length - count;
+      if (remain === 1) {
+        v1 = bytes[i];
+        base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+          BASE64_ENCODE_CHAR[(v1 << 4) & 63] +
+          '==';
+      } else if (remain === 2) {
+        v1 = bytes[i++];
+        v2 = bytes[i];
+        base64Str += BASE64_ENCODE_CHAR[v1 >>> 2] +
+          BASE64_ENCODE_CHAR[(v1 << 4 | v2 >>> 4) & 63] +
+          BASE64_ENCODE_CHAR[(v2 << 2) & 63] +
+          '=';
+      }
+      return base64Str;
+    };
+    atob = function (base64Str) {
+      var v1, v2, v3, v4, str = '', length = base64Str.length;
+      if (base64Str.charAt(length - 2) === '=') {
+        length -= 2;
+      } else if (base64Str.charAt(length - 1) === '=') {
+        length -= 1;
+      }
+      // 4 char to 3 bytes
+      for (var i = 0, count = length >> 2 << 2; i < count;) {
+        v1 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        v2 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        v3 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        v4 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        str += String.fromCharCode((v1 << 2 | v2 >>> 4) & 255) +
+          String.fromCharCode((v2 << 4 | v3 >>> 2) & 255) +
+          String.fromCharCode((v3 << 6 | v4) & 255);
+      }
+      // remain bytes
+      var remain = length - count;
+      if (remain === 2) {
+        v1 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        v2 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        str += String.fromCharCode((v1 << 2 | v2 >>> 4) & 255);
+      } else if (remain === 3) {
+        v1 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        v2 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        v3 = BASE64_DECODE_CHAR[base64Str.charAt(i++)];
+        str += String.fromCharCode((v1 << 2 | v2 >>> 4) & 255) +
+               String.fromCharCode((v2 << 4 | v3 >>> 2) & 255);
+      }
+      return str;
+    };
+    utf8Base64Decode = function (base64Str) {
+      var str = '', bytes = decodeAsBytes(base64Str), length = bytes.length;
+      var i = 0, followingChars = 0, b, c;
+      while (i < length) {
+        b = bytes[i++];
+        if (b <= 0x7F) {
+          str += String.fromCharCode(b);
+          continue;
+        } else if (b > 0xBF && b <= 0xDF) {
+          c = b & 0x1F;
+          followingChars = 1;
+        } else if (b <= 0xEF) {
+          c = b & 0x0F;
+          followingChars = 2;
+        } else if (b <= 0xF7) {
+          c = b & 0x07;
+          followingChars = 3;
+        } else {
+          throw 'not a UTF-8 string';
+        }
+        for (var j = 0; j < followingChars; ++j) {
+          b = bytes[i++];
+          if (b < 0x80 || b > 0xBF) {
+            throw 'not a UTF-8 string';
+          }
+          c <<= 6;
+          c += b & 0x3F;
+        }
+        if (c >= 0xD800 && c <= 0xDFFF) {
+          throw 'not a UTF-8 string';
+        }
+        if (c > 0x10FFFF) {
+          throw 'not a UTF-8 string';
+        }
+        if (c <= 0xFFFF) {
+          str += String.fromCharCode(c);
+        } else {
+          c -= 0x10000;
+          str += String.fromCharCode((c >> 10) + 0xD800);
+          str += String.fromCharCode((c & 0x3FF) + 0xDC00);
+        }
+      }
+      return str;
+    };
+  } else {
+    utf8Base64Encode = function (str) {
+      var result = '';
+      for (var i = 0; i < str.length; i++) {
+        var charcode = str.charCodeAt(i);
+        if (charcode < 0x80) {
+          result += String.fromCharCode(charcode);
+        } else if (charcode < 0x800) {
+          result += String.fromCharCode(0xc0 | (charcode >> 6)) +
+            String.fromCharCode(0x80 | (charcode & 0x3f));
+        } else if (charcode < 0xd800 || charcode >= 0xe000) {
+          result += String.fromCharCode(0xe0 | (charcode >> 12)) +
+            String.fromCharCode(0x80 | ((charcode >> 6) & 0x3f)) +
+            String.fromCharCode(0x80 | (charcode & 0x3f));
+        } else {
+          charcode = 0x10000 + (((charcode & 0x3ff) << 10) | (str.charCodeAt(++i) & 0x3ff));
+          result += String.fromCharCode(0xf0 | (charcode >> 18)) +
+            String.fromCharCode(0x80 | ((charcode >> 12) & 0x3f)) +
+            String.fromCharCode(0x80 | ((charcode >> 6) & 0x3f)) +
+            String.fromCharCode(0x80 | (charcode & 0x3f));
+        }
+      }
+      return btoa(result);
+    };
+    utf8Base64Decode = function (base64Str) {
+      var tmpStr = atob(base64Str.trim('=').replace(/-/g, '+').replace(/_/g, '/'));
+      if (!/[^\x00-\x7F]/.test(tmpStr)) {
+        return tmpStr;
+      }
+      var str = '', i = 0, length = tmpStr.length, followingChars = 0, b, c;
+      while (i < length) {
+        b = tmpStr.charCodeAt(i++);
+        if (b <= 0x7F) {
+          str += String.fromCharCode(b);
+          continue;
+        } else if (b > 0xBF && b <= 0xDF) {
+          c = b & 0x1F;
+          followingChars = 1;
+        } else if (b <= 0xEF) {
+          c = b & 0x0F;
+          followingChars = 2;
+        } else if (b <= 0xF7) {
+          c = b & 0x07;
+          followingChars = 3;
+        } else {
+          throw 'not a UTF-8 string';
+        }
+        for (var j = 0; j < followingChars; ++j) {
+          b = tmpStr.charCodeAt(i++);
+          if (b < 0x80 || b > 0xBF) {
+            throw 'not a UTF-8 string';
+          }
+          c <<= 6;
+          c += b & 0x3F;
+        }
+        if (c >= 0xD800 && c <= 0xDFFF) {
+          throw 'not a UTF-8 string'; 
+        }
+        if (c > 0x10FFFF) {
+          throw 'not a UTF-8 string';
+        }
+        if (c <= 0xFFFF) {
+          str += String.fromCharCode(c);
+        } else {
+          c -= 0x10000;
+          str += String.fromCharCode((c >> 10) + 0xD800);
+          str += String.fromCharCode((c & 0x3FF) + 0xDC00);
+        }
+      }
+      return str;
+    };
+  }
+  
+  var encode = function (str, asciiOnly) {
+    var notString = typeof(str) != 'string';
+    if (notString && str.constructor === root.ArrayBuffer) {
+      str = new Uint8Array(str);
+    }
+    if (notString) {
+      return encodeFromBytes(str);
+    } else {
+      if (!asciiOnly && /[^\x00-\x7F]/.test(str)) {
+        return utf8Base64Encode(str);
+      } else {
+        return btoa(str);
+      }
+    }
+  };
+  jQuery.fn.extend({
+    svgtobase64: function () {
+      var svgInfosstr = $(this).get(0).outerHTML;
+      var svgInfosbase64r = base64.encode(svgInfosstr);
+      var imgBase64 = 'data:image/svg+xml;base64,' + svgInfosbase64r;
+      return imgBase64;
+    }
+  });
+  var decode = function (base64Str, asciiOnly) {
+    return asciiOnly ? atob(base64Str) : utf8Base64Decode(base64Str);
+  };
+  var exports = {
+    encode: encode,
+    decode: decode,
+    atob: atob,
+    btoa: btoa
+  };
+  decode.bytes = decodeAsBytes;
+  decode.string = decode;
+  if (COMMON_JS) {
+    module.exports = exports;
+  } else {
+    root.base64 = exports;
+    if(AMD) {
+      define(function() {
+        return exports;
+      });
+    }
+  }
+})(jQuery);
+</script>
 <script>
 // construction de l'archive des Infos de la Coordination
 $(document).ready(function() {

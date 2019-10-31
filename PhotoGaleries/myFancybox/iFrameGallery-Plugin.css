@@ -153,6 +153,11 @@
 .iFrameGalleryClass.fancybox-show-thumbs  .fancybox-inner {
     right: 190px; 
 }
+.iFrameGalleryClass .fancybox-thumbs__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+}
 .iFrameGalleryClass .fancybox-thumbs__list  a {
     width: 5.8vw;
     height: 6.0vw;

@@ -176,6 +176,9 @@
     right: auto;
 }
 @media screen and (max-width: 1500px) {
+  .iFrameGalleryClass .fancybox-thumbs__list {
+    display: block
+  }
   .iFrameGalleryClass .fancybox-thumbs {
    //background-color: green;
     width: 13vw; 

@@ -2,23 +2,14 @@
 <html>
 <head>
 	<title>CNHMP Semaine 39</title>
-<!-- jQuery for FancyBox 3-->
-<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-<!-- Add fancyBox 3 -->
-<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
-<!-- End FancyBox -->
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
 <!-- Load Leaflet -->
-<link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
-<script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
-<!-- For google calendar integration -->
-<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
-<script src="https://apis.google.com/js/api.js"></script>
-  <!-- Load Esri Leaflet from CDN -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
   <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
   integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
   crossorigin=""></script>
@@ -30,25 +21,22 @@
     integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
     crossorigin=""></script>
 <!--Load markerclusters -->
-    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
-    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
-    <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
-    <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
-
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
 <!--Load datepicker -->
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- Add my iFrameGallery -->
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.css" rel="stylesheet" type="text/css" />
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script>
-<!-- End iFralmeGallery -->
 <!--Load carte-infos-semaines -->
- <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
- <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
- <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
- <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
+
 <!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
- <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
 <base target="_blank">
 
 </head>

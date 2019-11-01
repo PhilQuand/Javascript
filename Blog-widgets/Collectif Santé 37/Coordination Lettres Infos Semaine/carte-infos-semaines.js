@@ -190,10 +190,12 @@
             indexEvent.push([]);
             indexCal++;
             var result = getMyInnerLinkContent();
-            return output;
+            //return output;
+            return;
           }
           endMarkerBuild(indexEvent, setMapView);
-          return output;
+          //return output;
+          return;
         }
       }
 

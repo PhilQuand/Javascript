@@ -155,7 +155,7 @@
                 retVal = true;
               }
               else {
-                endMarkerBuild(indexEvent, setCallBack);
+                endMarkerBuild(indexEvent, setMapView);
               }
             }
             retVal = true;
@@ -192,7 +192,7 @@
             var result = getMyInnerLinkContent();
             return output;
           }
-          endMarkerBuild(indexEvent, setCallBack);
+          endMarkerBuild(indexEvent, setMapView);
           return output;
         }
       }

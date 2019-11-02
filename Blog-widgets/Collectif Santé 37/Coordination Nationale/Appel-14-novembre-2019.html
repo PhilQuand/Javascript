@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP PLFSS</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.incrustation {
+  background-color: #e8f6f8;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+</style>
+<div class="corpsLettre">
+
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2019/10/Infos-semaine-42-du-14-au-18-Octobre-2019.pdf"><img border="0" data-original-height="122" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" style="float: right; width: 40px;"/></a>
+<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;" data-summary="no"><img class="banInfos" id="<part2.5B86D51B.704AEBC0@wanadoo.fr>" style="width: 400px; max-width: 40%;" alt="image001.png" width="400px" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" border="0"/>
+<div>
+<p style="text-align: center;"><span style="font-size: 36pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">L’INFO</span><br/><span style="font-size: 24pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">Semaine 42</span><br/><span style="font-size: 24pt; font-family: 'Century Schoolbook', serif; color: #0070c0;">du 14 au 18/10/2019</span></p>
+</div>
+</div>
+<p><b style="font-family: Calibri, sans-serif; font-size: 11pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">La Coordination Nationale des comités de défense des hôpitaux et maternités de proximité a tenu ce week end ses 32èmes rencontres à Ruffec.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’après midi de samedi fut un temps fort dans la Convergence des luttes, avec les invités de la Coordination : Gilles Noël, représentant l’Association des Maires Ruraux de France, Christophe Prudhomme, porte parole de l’AMUF, Mireille Stivala, secrétaire générale de la Fédération CGT santé et action sociale, Jean-Marc Devauchelle, Hakim Baya et Caroline Avril, Sud Santé Sociaux.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Merci à eux, comme à tous les invités du département ou de la région, en particulier à la représentante de la Ligue des Droits de l’Homme.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Merci au comité de Ruffec pour l’excellence de l’organisation.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">La Coordination Nationale et ses comités sont parties prenantes des mobilisations à venir, le 29 octobre, le 14 novembre.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2019/10/CN_D%C3%A9claration-finale-des-rencontres-20-10-19.pdf"><span class="LienInternet" style="color: blue;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">La déclaration adoptée à l’issue des rencontres</span></b></span></a></p>
+<!--more-->
+<div id="idInfosComités"> </div>
+<div class="infosComités">
+
+<div class="infoComité">
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">QUIMPER</span></b></p>
+<p>Voici une <a href="https://www.ouest-france.fr/bretagne/quimper-29000/video-rassemblement-pour-la-defense-de-l-hopital-quimper-6587925">vidéo</a> du rassemblement du 29 octobre</p>
+<p>et voici notre communiqué de presse envoyé le 2 novembre pour faire connaître le vote des parlementaires du Finistère </p>
+<div class="incrustation">
+<p align="center"><strong>PLFSS 2020 : ILS L’ONT VOTÉ !</strong></p>
+<p align="justify">Les 7 députés du Finistère ont voté le Projet de Loi de Financement de la Sécurité Sociale (PLFSS) 2020 ; Richard Ferrand, en tant que Président de l'Assemblée Nationale était non votant.</p>
+<p align="justify">Ils ont donc validé les économies que les hôpitaux devront réaliser encore en 2020 en fermant des lits et en supprimant des postes.</p>
+<p align="justify">Les personnels en lutte à l’hôpital de Quimper apprécieront sans doute !</p>
+<p align="justify">Notre département est décidément bien mal représenté et nous ne pouvons donc compter que sur nous-mêmes pour défendre nos hôpitaux, nos maternités, nos services d'urgences, nos SMUR, nos EHPAD, nos services de Psychiatrie, bref, pour défendre l'accès aux soins pour toutes et tous sur notre territoire.</p>
+<p align="justify">Alors oui, il faudra beaucoup de monde le 14 novembre, journée nationale d’action dans la santé et l’action sociale : retrouvons-nous à 18H. place St Corentin à Quimper : personnels, usagers, élus, pour exiger les moyens d’une politique de santé qui réponde à nos besoins.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+  if( $("#idInfosComités").length ) {
+      $('#idInfosComités').InfosComités();
+      $('.corpsLettre > .infosComités').css('display', 'none');
+      $('.sumComité').css('display', 'none');
+  }
+});
+</script>
+</body>
+</html>

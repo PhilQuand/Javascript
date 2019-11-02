@@ -75,7 +75,7 @@
 <div id="idInfosComités"> </div>
 <div class="infosComités">
 
-<div class="infoComité">
+<!--div class="infoComité">
 <p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">QUIMPER</span></b></p>
 <p>Voici une <a href="https://www.ouest-france.fr/bretagne/quimper-29000/video-rassemblement-pour-la-defense-de-l-hopital-quimper-6587925">vidéo</a> du rassemblement du 29 octobre</p>
 <p>et voici notre communiqué de presse envoyé le 2 novembre pour faire connaître le vote des parlementaires du Finistère </p>
@@ -86,7 +86,7 @@
 <p align="justify">Les personnels en lutte à l’hôpital de Quimper apprécieront sans doute !</p>
 <p align="justify">Notre département est décidément bien mal représenté et nous ne pouvons donc compter que sur nous-mêmes pour défendre nos hôpitaux, nos maternités, nos services d'urgences, nos SMUR, nos EHPAD, nos services de Psychiatrie, bref, pour défendre l'accès aux soins pour toutes et tous sur notre territoire.</p>
 <p align="justify">Alors oui, il faudra beaucoup de monde le 14 novembre, journée nationale d’action dans la santé et l’action sociale : retrouvons-nous à 18H. place St Corentin à Quimper : personnels, usagers, élus, pour exiger les moyens d’une politique de santé qui réponde à nos besoins.</p>
-</div>
+</div-->
 </div>
 
 </div>
@@ -102,15 +102,13 @@
        }
     },
     onMessage: function(message){ 
-    var messageData = JSON.parse(message);
+    //var messageData = JSON.parse(message);
 
-    if( messageData.bodyClass.length ) {
-      $('body').addClass( messageData.bodyClass );
-  if( $("#idInfosComités").length ) {
+      $('.infosComités').html( message );
+  if( $('#idInfosComités').length ) {
       $('#idInfosComités').InfosComités();
       $('.corpsLettre > .infosComités').css('display', 'none');
       $('.sumComité').css('display', 'none');
-  }
     }
     //$('.infosComités').html(message);
     }

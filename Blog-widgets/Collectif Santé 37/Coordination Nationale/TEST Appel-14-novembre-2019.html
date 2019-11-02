@@ -93,15 +93,6 @@
 
 </div>
 <script>
-$(document).ready(function() {
-  if( $("#idInfosComités").length ) {
-      $('#idInfosComités').InfosComités();
-      $('.corpsLettre > .infosComités').css('display', 'none');
-      $('.sumComité').css('display', 'none');
-  }
-});
-</script>
-<script>
   window.iFrameResizer = {
     //heightCalculationMethod: function() { return 3400 },
     onReady: function() { 
@@ -114,6 +105,15 @@ $(document).ready(function() {
       $('.infosComités').html(message);
     }
   }
+</script>
+<script>
+$(document).ready(function() {
+  if( $("#idInfosComités").length ) {
+      $('#idInfosComités').InfosComités();
+      $('.corpsLettre > .infosComités').css('display', 'none');
+      $('.sumComité').css('display', 'none');
+  }
+});
 </script>
 </body>
 </html>

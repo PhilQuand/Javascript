@@ -64,7 +64,7 @@
 
 <div class="container">
 <div class="alert alert-primary text-center">
-  <h3>NOTRE SANTÉ EN GRAND DANGER :</h3>
+  <h3>NOTRE SANTÉ EN GRAND DANGER</h3>
   <h4>Les usagers dans l’action le 14 Novembre</h4>
 </div>
 <p>Le refus du gouvernement de prendre en compte les besoins des hôpitaux et des EHPAD dans le Projet de Loi de Financement de la Sécurité Sociale 2020 mène à une véritable catastrophe sanitaire.</p>
@@ -100,6 +100,24 @@ $(document).ready(function() {
       $('.sumComité').css('display', 'none');
   }
 });
+</script>
+<script>
+  window.iFrameResizer = {
+    //heightCalculationMethod: function() { return 3400 },
+    onReady: function() { 
+       if ('parentIFrame' in window) {
+         parentIFrame.scrollTo(0,0);
+         //parentIFrame.autoResize(true);
+       }
+    },
+    onMessage: function(message){ 
+      var messageData = JSON.parse(message);
+
+      if( messageData.bodyClass.length ) {
+        $('body').addClass( messageData.bodyClass );
+      }
+    }
+  }
 </script>
 </body>
 </html>

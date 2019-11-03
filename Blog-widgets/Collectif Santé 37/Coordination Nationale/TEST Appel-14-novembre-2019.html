@@ -144,6 +144,9 @@
     infoMapWrap.append(infoMap);
     var map = initMap('infoMap');
 
+    if (typeof options === 'undefined' || typeof options.inpLocationClass === 'undefined') var inpLocationClass = '';
+    else var inpLocationClass = options.inpLocationClass;
+
     function setMapView() {
       map.setView({
         lat: 46.390,
@@ -262,7 +265,11 @@
             var newItemLocation = $('<div class="markerLocation"></div>');
             newItem.append(newItemPopup, newItemLocation);
             newItemPopup.append($(this));
-            var inpLocation = $(this).find('.widget-title').first().html();
+            if( inpLocationClass == '' ) {
+              var inpLocation = $(this).find('span').first().html();
+            } else {
+              var inpLocation = $(this).find('.' + inpLocationClass).first().html();
+            }
             var doc = setMarkerPopup($(this))
             getLocationCoord(inpLocation, doc, newItemLocation, result.length);
           });
@@ -699,7 +706,7 @@
             $(this).html('<span>' + $(this).find('h3').html() + '</span>');
       });*/
       if( $('#idInfosComités').length ) {
-        $('#idInfosComités').InfosComités();
+        $('#idInfosComités').InfosComités({ inpLocationClass: "widget-title"});
         $('.corpsLettre > .infosComités').css('display', 'none');
         $('.sumComité').css('display', 'none');
       }

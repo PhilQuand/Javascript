@@ -97,13 +97,11 @@
       $('.infosComités').find( '.infoComité > h3' ).each(function() {
             $(this).html('<span>' + $(this).find('h3').html() + '</span>');
       });
-      $('.so-widget-sow-editor.so-widget-sow-editor-base').addclass('infoComité');
-      $('.infosComité').html( message );
-  if( $('#idInfosComités').length ) {
-      $('#idInfosComités').InfosComités();
-      $('.corpsLettre > .infosComités').css('display', 'none');
-      $('.sumComité').css('display', 'none');
-    }
+      if( $('#idInfosComités').length ) {
+        $('#idInfosComités').InfosComités();
+        $('.corpsLettre > .infosComités').css('display', 'none');
+        $('.sumComité').css('display', 'none');
+      }
     //$('.infosComités').html(message);
     }
   }

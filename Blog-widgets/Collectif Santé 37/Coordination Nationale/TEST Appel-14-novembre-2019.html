@@ -94,9 +94,10 @@
 
       $('.infosComités').html( message );
       $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base').addClass('infoComité');
-      $('.infosComités').find( '.infoComité > h3' ).each(function() {
+      $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base > h3').wrap('<span></span>');
+      /*$('.infosComités').find( '.infoComité > h3' ).each(function() {
             $(this).html('<span>' + $(this).find('h3').html() + '</span>');
-      });
+      });*/
       if( $('#idInfosComités').length ) {
         $('#idInfosComités').InfosComités();
         $('.corpsLettre > .infosComités').css('display', 'none');

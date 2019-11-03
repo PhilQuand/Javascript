@@ -71,7 +71,7 @@ var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
 
     function setMapView() {
       map.setView({
-        lat: 46.390,
+        lat: 47,
         lng: 1.689
       }, 6);
     }

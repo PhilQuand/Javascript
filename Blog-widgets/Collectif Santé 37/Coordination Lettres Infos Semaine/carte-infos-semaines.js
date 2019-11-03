@@ -67,7 +67,10 @@
     //if (typeof options === 'undefined' || typeof options.divBannerCoordHTML === 'undefined') var divBannerCoordHTML = '<img border="0" data-original-height="510" data-original-width="1246" src="https://1.bp.blogspot.com/-xZr9da-vFx4/XZCsqI4CqMI/AAAAAAAAkBk/ohNk8U3SAjMs_Ab4tVLg_fN1TyT_wRzRwCLcBGAsYHQ/s320/Bannie%25CC%2580re%2BCoordination%2BNationale.png" width="320" /><img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>';
     if (typeof options === 'undefined' || typeof options.divBannerCoordHTML === 'undefined') var divBannerCoordHTML = '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>';
     else var divBannerCoordHTML = options.divBannerCoordHTML;
-var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
+    var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
+
+    if (typeof options === 'undefined' || typeof options.popupHeadClass === 'undefined') var popupHeadClass = '';
+    else var popupHeadClass = options.popupHeadClass;
 
     function setMapView() {
       map.setView({
@@ -210,7 +213,7 @@ var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
 
       function setMarkerPopup(_this) {
         _this.wrap($('<div class="popup-wrapper"></div>'));
-        var popupHead = $('<div class="popupHead"></div>');
+        var popupHead = $('<div class="popupHead ' + popupHeadClass +'"></div>');
         _this.before(popupHead);
         popupHead.append(_this.find('p').first());
         if( hrefLength > 0 ) {

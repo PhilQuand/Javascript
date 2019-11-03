@@ -57,6 +57,12 @@
 </div>
 
 </div>
+<style>
+.popupHead {
+    font-size: 1.7em;
+    padding-bottom: 0;
+}
+</style>
 <script>
   window.iFrameResizer = {
     //heightCalculationMethod: function() { return 3400 },
@@ -77,10 +83,10 @@
             $(this).remove();
       });
       if( $('#idInfosComités').length ) {
-        /*$('#idInfosComités').InfosComités({ 
-            inpLocationClass: "widget-title"
-        });*/
-        $('#idInfosComités').InfosComités(); 
+        $('#idInfosComités').InfosComités({ 
+            popupHead: "alert alert-primary text-center"
+        });
+        //$('#idInfosComités').InfosComités(); 
         $('.corpsLettre > .infosComités').css('display', 'none');
         $('.sumComité').css('display', 'none');
       }

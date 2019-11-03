@@ -93,9 +93,9 @@
     //var messageData = JSON.parse(message);
 
       $('.infosComités').html( message );
-      $('.infosComités').find( '.so-widget-sow-editor.so-widget-sow-editor-base' ).each(function() {
-          $(this).addClass('infoComité');
-          $(this).find('h3').html('<span>' + $(this).find('h3').html() + '</span>');
+      $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base').addClass('infoComité');
+      $('.infosComités').find( '.infoComité > h3' ).each(function() {
+            $(this).html('<span>' + $(this).find('h3').html() + '</span>');
       });
       $('.so-widget-sow-editor.so-widget-sow-editor-base').addclass('infoComité');
       $('.infosComité').html( message );

@@ -71,14 +71,16 @@
 
       $('.infosComités').html( message );
       $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base').addClass('infoComité');
-      $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base > h3').wrap('<p></p>');
-      /*$('.infosComités').find( '.infoComité > h3' ).each(function() {
-            $(this).html('<span>' + $(this).find('h3').html() + '</span>');
-      });*/
+      //$('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base > h3').wrap('<p></p>');
+      $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base > h3' ).each(function() {
+            $(this).before('<p><span>' + $(this).html() + '</span></p>');
+            $(this).remove();
+      });
       if( $('#idInfosComités').length ) {
-        $('#idInfosComités').InfosComités({ 
+        /*$('#idInfosComités').InfosComités({ 
             inpLocationClass: "widget-title"
-        });
+        });*/
+        $('#idInfosComités').InfosComités(); 
         $('.corpsLettre > .infosComités').css('display', 'none');
         $('.sumComité').css('display', 'none');
       }

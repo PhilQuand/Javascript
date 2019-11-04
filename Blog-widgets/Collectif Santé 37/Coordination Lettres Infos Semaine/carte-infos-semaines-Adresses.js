@@ -149,5 +149,11 @@ var inpAddress = [
   lat: 47.75017, lng: -3.36685},
 { inpText: "GRANVILLE",
   lat: 48.8387, lng: -1.59837},
+{ inpText: "VICHY",
+  lat: 46.11667, lng: 3.41667},
+{ inpText: "CLICHY",
+  lat: 48.9001, lng: 2.30646},
+{ inpText: "EAUBONNE",
+  lat: 48.9911, lng: 2.27863},
 ];
 

@@ -60,7 +60,7 @@ var inpAddress = [
 { inpText: "REMIREMONT",
   lat: 48.01729, lng:  6.58987},
 { inpText: "MORLAIX",
-  lat: 48.57706, lng:  3.82618},
+  lat: 48.57706, lng:  -3.82618},
 { inpText: "TOURS",
   lat: 47.38846, lng:  0.68957},
 { inpText: "TOULOUSE",

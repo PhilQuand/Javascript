@@ -225,9 +225,10 @@
       }
 
       function getLocationCoord(inpLocation, doc, newItemLocation, itemsLength) {
+        var inpLocationUP = inpLocation.toUpperCase();
         for (i = 0; i < inpAddress.length; i++) {
           //if (inpAddress[i].inpText.indexOf(inpLocation) > -1) {
-          if (inpLocation.indexOf(inpAddress[i].inpText) > -1) {
+          if (inpLocationUP.indexOf(inpAddress[i].inpText.toUpperCase()) > -1) {
             newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${inpAddress[i].lat}</div>`, `<div class="longitude">${inpAddress[i].lng}</div>`);
             var infoPopUps = [{
               lat: inpAddress[i].lat,

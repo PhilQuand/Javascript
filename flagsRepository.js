@@ -43,7 +43,7 @@ var flagsRepository = {
       lat: -15.7 , 
       lng: -48 },
     Burundi : 
-    { img :"https://philquand.github.io/Javascript/flagsRepository/Brazil.png",
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Burundi.png",
       lat: -3.31 , 
       lng: 29.85 },
     Californie  : 

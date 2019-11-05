@@ -1863,7 +1863,16 @@ function setLocalFlagsOnClick(e) {
     day: "numeric"
   });
 
-  var currentDiv = e.parentNode.parentNode.parentNode.getElementsByTagName("div");
+  $(".post-body.entry-content.float-container").find("div").each(function() {
+    var className = this.className;
+    if (typeof className !== 'undefined') {
+      if (this.className.indexOf('local-lang') > -1) {
+        if (this.className.split(' ')[1] == localLang) this.style.display = 'block';
+        else this.style.display = 'none';
+      }
+    }
+  });
+  /*var currentDiv = e.parentNode.parentNode.parentNode.getElementsByTagName("div");
   for (var i = 0; i < currentDiv.length; i++) {
     if (currentDiv[i].className.indexOf('local-lang') > -1) {
       currentDiv[i].style.display = 'none';
@@ -1873,8 +1882,7 @@ function setLocalFlagsOnClick(e) {
     if (currentDiv[i].className.indexOf('local-lang') > -1) {
       if (currentDiv[i].className.split(' ')[1] == localLang) currentDiv[i].style.display = 'block ';
     }
-  }
-
+  }*/
   var pdfRef = document.getElementById("pdf-ref");
   if (pdfRef != null) {
     var href = pdfRef.href;
@@ -1912,7 +1920,16 @@ function setSumFlagsOnClick(e) {
   href = href.substring(0, href.length - 5) + localLang;
   e.parentNode.parentNode.children[0].href = href;*/
   e.parentNode.children[0].setAttribute("data-lngloc", localLang);
-  var currentDiv = e.parentNode.parentNode.parentNode.getElementsByTagName("div");
+  $(".post-body.entry-content.float-container").find("div").each(function() {
+    var className = this.className;
+    if (typeof className !== 'undefined') {
+      if (this.className.indexOf('local-lang') > -1) {
+        if (this.className.split(' ')[1] == localLang) this.style.display = 'block';
+        else this.style.display = 'none';
+      }
+    }
+  });
+  /*var currentDiv = e.parentNode.parentNode.parentNode.getElementsByTagName("div");
   for (var i = 0; i < currentDiv.length; i++) {
     if (currentDiv[i].className.indexOf('local-lang') > -1) {
       currentDiv[i].style.display = 'none';
@@ -1922,7 +1939,7 @@ function setSumFlagsOnClick(e) {
     if (currentDiv[i].className.indexOf('local-lang') > -1) {
       if (currentDiv[i].className.split(' ')[1] == localLang) currentDiv[i].style.display = 'block ';
     }
-  }
+  }*/
   return false;
 }
 

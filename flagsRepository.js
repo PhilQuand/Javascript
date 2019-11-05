@@ -114,6 +114,10 @@ var flagsRepository = {
     { img : "https://philquand.github.io/Javascript/flagsRepository/Maroc.png",
     lat: 33.48,
     lng: -4.91 },
+    Mauritanie      : 
+    { img : "https://philquand.github.io/Javascript/flagsRepository/Mauritanie.png",
+    lat: 19.38,
+    lng: -10.60 },
     Mississippi      : 
     { 
     //img : "https://philquand.github.io/Javascript/flagsRepository/Mississippi.png",

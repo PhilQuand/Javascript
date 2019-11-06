@@ -88,6 +88,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Honduras.png",
     lat: 14.87,
     lng: -87.22 },
+    HongKong      : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/HongKong.png",
+    lat: 22.44,
+    lng: 114.13 },
     Illinois      : 
     { 
     //img :"https://philquand.github.io/Javascript/flagsRepository/Illinois.png",

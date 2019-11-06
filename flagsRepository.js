@@ -172,6 +172,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Portugal.png",
     lat: 41,
     lng: -8.2 },
+    Pérou    : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Perou.png",
+    lat: -12.09,
+    lng:  -77.05 },
     Québec      : 
     { img :'https://philquand.github.io/Javascript/flagsRepository/Québec.png',
       lat: 46.829656,

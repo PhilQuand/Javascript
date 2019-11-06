@@ -106,6 +106,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Italie.png",
     lat: 41.3,
     lng: 15 },
+    Jordanie      : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Jordanie.png",
+    lat: 30.80,
+    lng: 36.42 },
     Kentucky      : 
     { img : "https://philquand.github.io/Javascript/flagsRepository/USA.png",
     lat: 36.63,

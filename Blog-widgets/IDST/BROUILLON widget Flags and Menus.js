@@ -2273,7 +2273,7 @@ function debDivToDelete(s, Lang, preLang) {
     return true;
   }
   if ( myTag.indexOf('style') == 0 ) {
-    return true;
+    //return true;
   }
   return false;
 }

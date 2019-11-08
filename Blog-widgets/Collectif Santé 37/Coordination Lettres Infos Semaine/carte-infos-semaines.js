@@ -2,12 +2,17 @@
   $.fn.InfosComités = function(options) {
 
     //if (typeof options === 'undefined' || typeof options.href === 'undefined') return;
+
+    var strMapTitle = '';
+    if (typeof options !== 'undefined' && typeof options.mapTitle !== 'undefined') strMapTitle = options.mapTitle;
+
     if (typeof options === 'undefined' || typeof options.href === 'undefined') {
-        var hrefLength = 0;
-    } else  {
-        var href = options.href;
-        var hrefLength = href.length;
-        if(typeof href[hrefLength - 1].svgInfosCarte === 'undefined' && href[hrefLength - 1].svgInfos.length < 4) hrefLength--
+      var hrefLength = 0;
+    }
+    else {
+      var href = options.href;
+      var hrefLength = href.length;
+      if (typeof href[hrefLength - 1].svgInfosCarte === 'undefined' && href[hrefLength - 1].svgInfos.length < 4) hrefLength--
     }
     var iFrameGalleryOpt = {};
     iFrameGalleryOpt.archi = [];
@@ -17,7 +22,7 @@
       $(this).append(infoRows);
     }
     for (i = 0; i < hrefLength; i++) {
-      if(typeof href[i].svgInfosCarte === 'undefined') href[i].weekInfos = href[i].svgInfos[0] + ', ' + href[i].svgInfos[1] + ' ' + href[i].svgInfos[2] + ' ' + href[i].svgInfos[3];
+      if (typeof href[i].svgInfosCarte === 'undefined') href[i].weekInfos = href[i].svgInfos[0] + ', ' + href[i].svgInfos[1] + ' ' + href[i].svgInfos[2] + ' ' + href[i].svgInfos[3];
       else href[i].weekInfos = href[i].svgInfosCarte[0] + ', ' + href[i].svgInfosCarte[1] + ' ' + href[i].svgInfosCarte[2] + ' ' + href[i].svgInfosCarte[3];
     }
     for (i = 0; i < hrefLength; i++) {
@@ -36,20 +41,22 @@
     var hrefAfDeb = 3;
     if (hrefLength < 4) hrefAfDeb = hrefLength - 1;
     if (hrefLength > 1) {
-      var strMapTitle = '';
-      if (typeof options.mapTitle !== 'undefined') strMapTitle = options.mapTitle;
       var dateDeb = href[hrefAfDeb].dateDeb;
       var strDeb = href[hrefAfDeb].dateDeb.getFullYear() + "-" + ("0" + (href[hrefAfDeb].dateDeb.getMonth() + 1)).slice(-2) + "-" + ("0" + href[hrefAfDeb].dateDeb.getDate()).slice(-2);
       var dateFin = href[0].dateFin;
       var strFin = href[0].dateFin.getFullYear() + "-" + ("0" + (href[0].dateFin.getMonth() + 1)).slice(-2) + "-" + ("0" + href[0].dateFin.getDate()).slice(-2);
       var dateDeb = href[hrefLength - 1].dateDeb;
-      infoMapWrap.append('<div id="infoMap-wrapper"><div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div></div>');
+      infoMapWrap.append('<div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div>');
+    }
+    else {
+      infoMapWrap.append('<div class="mapTitle">' + strMapTitle + '</div>');
     }
 
     if (typeof options === 'undefined' || typeof options.iFrameGallery === 'undefined') {
-        if(  hrefLength == 0 ) var iFrameGallery = false;
-        else var iFrameGallery = true;
-    } else iFrameGallery = options.iFrameGallery;
+      if (hrefLength == 0) var iFrameGallery = false;
+      else var iFrameGallery = true;
+    }
+    else iFrameGallery = options.iFrameGallery;
 
     if (iFrameGallery) {
       $(this).append('<div id="linkMapID"><div id="MapLetters"><svg width="100%" height="100%" viewBox="0 0 650 621" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="https://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><g transform="matrix(1,0,0,1,-316.691,-56.7425)"><g transform="matrix(0.90598,0,0,0.985225,85.301,2.32331)"><path d="M967.734,669.87L966.823,338.503L904.275,367.365L891.997,380.877L890.514,446.137" style="fill:none;stroke:black;stroke-width:7.4px;"/></g><g transform="matrix(0.0273775,0.771394,-0.714296,0.025351,1171.36,221.814)"><path d="M135.195,299.497L164.379,370.473L89.913,370.473L135.195,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:5.38px;"/></g><g transform="matrix(-0.00462607,-0.775534,0.628174,-0.00374707,134.852,433.178)"><path d="M127.146,299.497L164.379,370.473L89.913,370.473L127.146,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:5.67px;"/></g><g transform="matrix(1.91433,0.0348383,-0.0180636,0.992577,405.386,-242.96)"><path d="M127.146,299.497L164.379,370.473L89.913,370.473L127.146,299.497Z" style="fill:rgb(33,10,10);stroke:black;stroke-width:2.62px;"/></g><g transform="matrix(0.983677,0,0,1.01056,7.35674,-8.77642)"><path d="M318.537,665.59L341.569,449.785L947.575,448.054L970.947,674.897L318.025,672.194L320.629,341.979L378.463,371.661L388.558,380.433L392.425,390.996L394.731,449.633" style="fill:none;stroke:black;stroke-width:7.02px;"/></g><path d="M368.563,354.974L369.883,140.556L380.152,130.651L772.218,130.703L907.865,266.05L910.49,357.604" style="fill:none;stroke:black;stroke-width:7px;"/><g transform="matrix(0.877185,0,0,0.877185,465.273,148.966)"><text x="51.233px" y="240.544px" style="font-family:' + "' ArialMT', 'Arial'" + ', sans-serif;font-size:288px;">@</text></g><g transform="matrix(1,0,0,1,-68.7214,27.1855)"><text x="573.93px" y="506.263px" style="font-family:' + "'ArialMT', 'Arial'" + ', sans-serif;font-size:96px;fill:rgb(197,33,33);">Accès</text><text x="456.485px" y="605.403px" style="font-family:' + "'ArialMT', 'Arial'" + ', sans-serif;font-size:96px;fill:rgb(197,33,33);">aux lettres</text></g></g></svg></div></div></div></div>');
@@ -65,12 +72,20 @@
     else var inpLocationClass = options.inpLocationClass;
 
     //if (typeof options === 'undefined' || typeof options.divBannerCoordHTML === 'undefined') var divBannerCoordHTML = '<img border="0" data-original-height="510" data-original-width="1246" src="https://1.bp.blogspot.com/-xZr9da-vFx4/XZCsqI4CqMI/AAAAAAAAkBk/ohNk8U3SAjMs_Ab4tVLg_fN1TyT_wRzRwCLcBGAsYHQ/s320/Bannie%25CC%2580re%2BCoordination%2BNationale.png" width="320" /><img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>';
-    if (typeof options === 'undefined' || typeof options.divBannerCoordHTML === 'undefined') var divBannerCoordHTML = '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>';
-    else var divBannerCoordHTML = options.divBannerCoordHTML;
+    var divBannerCoordHTML = '';
+    if (typeof options !== 'undefined' && typeof options.divBannerCoordHTML !== 'undefined') var divBannerCoordHTML = options.divBannerCoordHTML;
     var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
 
     if (typeof options === 'undefined' || typeof options.popupHeadClass === 'undefined') var popupHeadClass = '';
     else var popupHeadClass = options.popupHeadClass;
+
+    if (typeof options === 'undefined' || typeof options.iconMarkers === 'undefined') {
+      var iconMarkersLength = 0;
+    }
+    else {
+      var iconMarkers = options.iconMarkers;
+      var iconMarkersLength = iconMarkers.length;
+    }
 
     function setMapView() {
       map.setView({
@@ -87,7 +102,9 @@
     for (i = 0; i <= hrefAfDeb; i++) {
       indIndex.push(i);
     }
-    var nbMapEvents = 0;
+    for (i = 0; i < iconMarkersLength; i++) {
+      iconMarkers[i].nbMapEvents = 0;
+    }
     var divBannerCoord, divLegend;
     var result = getMyInnerLinkContent();
 
@@ -122,10 +139,10 @@
     }
 
     function getMyInnerLinkContent() {
-      if( hrefLength == 0 ) {
+      if (hrefLength == 0) {
         if (isLinkContent('')) return;
-        var allText  = $('.corpsLettre');
-        var allText  = $('.corpsLettre')[0].innerHTML;
+        var allText = $('.corpsLettre');
+        var allText = $('.corpsLettre')[0].innerHTML;
         return getBody(allText);
       }
       if (isLinkContent(href[indIndex[indexCal]].weekInfos)) return;
@@ -181,7 +198,7 @@
         var result = post.find('.infoComité');
         if (result.length > 0) {
           var newWeek = $('<div class="inforWeek"></div>');
-          if( hrefLength > 0 ) newWeek.attr('data-weekInfos', href[indIndex[indexCal]].weekInfos)
+          if (hrefLength > 0) newWeek.attr('data-weekInfos', href[indIndex[indexCal]].weekInfos)
           infoRows.append(newWeek);
           result.each(function() {
             var newItem = $('<div class="inforEvent"></div>');
@@ -190,10 +207,16 @@
             var newItemLocation = $('<div class="markerLocation"></div>');
             newItem.append(newItemPopup, newItemLocation);
             newItemPopup.append($(this));
-            if( inpLocationClass == '' ) var inpLocation = $(this).find('span').first().html();
+            if (inpLocationClass == '') var inpLocation = $(this).find('span').first().html();
             else var inpLocation = $(this).find('.' + inpLocationClass).first().html();
+            var iconMarker = '';
+            for (i = 0; i < iconMarkersLength; i++) {
+              if ($(this).hasClass(iconMarkers[i].class)) {
+                iconMarker = iconMarkers[i];
+              }
+            }
             var doc = setMarkerPopup($(this))
-            getLocationCoord(inpLocation, doc, newItemLocation, result.length);
+            getLocationCoord(inpLocation, doc, iconMarker, newItemLocation, result.length);
           });
           return result;
         }
@@ -213,18 +236,18 @@
 
       function setMarkerPopup(_this) {
         _this.wrap($('<div class="popup-wrapper"></div>'));
-        var popupHead = $('<div class="popupHead ' + popupHeadClass +'"></div>');
+        var popupHead = $('<div class="popupHead ' + popupHeadClass + '"></div>');
         _this.before(popupHead);
         popupHead.append(_this.find('p').first());
-        if( hrefLength > 0 ) {
-            var weekInfos = $('<center>' + href[indIndex[indexCal]].weekInfos + '</center>');
-            popupHead.append(weekInfos);
+        if (hrefLength > 0) {
+          var weekInfos = $('<center>' + href[indIndex[indexCal]].weekInfos + '</center>');
+          popupHead.append(weekInfos);
         }
-         _this.addClass('popupBody');
+        _this.addClass('popupBody');
         return _this.parent().html();
       }
 
-      function getLocationCoord(inpLocation, doc, newItemLocation, itemsLength) {
+      function getLocationCoord(inpLocation, doc, iconMarker, newItemLocation, itemsLength) {
         var inpLocationUP = inpLocation.toUpperCase();
         for (i = 0; i < inpAddress.length; i++) {
           //if (inpAddress[i].inpText.indexOf(inpLocation) > -1) {
@@ -233,7 +256,8 @@
             var infoPopUps = [{
               lat: inpAddress[i].lat,
               lng: inpAddress[i].lng,
-              doc: doc
+              doc: doc,
+              iconMarker: iconMarker,
             }];
             var output = add2Layer(infoPopUps, setMapView, itemsLength);
             return;
@@ -241,7 +265,8 @@
         }
         var infoPopUps = [{
           adresse: inpLocation,
-          doc: doc
+          doc: doc,
+          iconMarker: iconMarker
         }];
         var output = add2Layer(infoPopUps, setMapView, itemsLength);
         newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${output[0].lat}</div>`, `<div class="longitude">${output[0].lng}</div>`);
@@ -272,6 +297,7 @@
                   lat: results.results[0].latlng.lat,
                   lng: results.results[0].latlng.lng,
                   doc: input.doc,
+                  iconMarker: input.iconMarker,
                 }
                 indexEvent[indexCal].push(input);
                 output.push(input);
@@ -313,20 +339,41 @@
           console.log('href n°', i, " n° events ", indexEvent[i].length);
 
           for (j = 0; j < indexEvent[i].length; j++) {
-            nbMapEvents++;
+            for (k = 0; k < iconMarkersLength; k++) {
+              if (indexEvent[i][j].iconMarker === iconMarkers[k]) {
+                iconMarkers[k].nbMapEvents++;
+              }
+            }
             marker = makePopUp(indexEvent[i][j], setCallBack);
             markers.addLayer(marker);
           }
         }
-        divLegend.innerHTML = '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + nbMapEvents + ' « échos »'
+        divLegend.innerHTML = '';
+        for (k = 0; k < iconMarkersLength; k++) {
+          if (typeof iconMarkers[k].title !== 'undefined') {
+            if (typeof iconMarkers[k].icon === 'undefined') {
+              divLegend.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+            }
+            else {
+              divLegend.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+            }
+          }
+        }
+        if(divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
         divBannerCoord.innerHTML = divBannerCoordHTML;
-       $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
+        $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
       };
 
       function makePopUp(input, setCallBack) {
 
-        var marker = L.marker([input.lat, input.lng]);
-
+        if (typeof input.iconMarker === 'undefined' || typeof input.iconMarker.icon === 'undefined' || input.iconMarker.icon == '') {
+          var marker = L.marker([input.lat, input.lng]);
+        }
+        else {
+          var marker = L.marker([input.lat, input.lng], {
+            icon: input.iconMarker.icon
+          });
+        }
         marker.bindPopup(input.doc, {
           maxWidth: 400,
           minWidth: 250,
@@ -486,7 +533,18 @@
           dateFormat: 'yy-mm-dd'
         }).val());
         console.log("A new date selection was made: " + timeMin + ' to ' + timeMax);
-        divLegend.innerHTML = '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + nbMapEvents + ' « échos »'
+        divLegend.innerHTML = '';
+        for (k = 0; k < iconMarkersLength; k++) {
+          if (typeof iconMarkers[k].title !== 'undefined') {
+            if (typeof iconMarkers[k].icon === 'undefined') {
+              divLegend.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+            }
+            else {
+              divLegend.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+            }
+          }
+        }
+        if(divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
         divBannerCoord.innerHTML = divBannerCoordHTML;
         $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
         for (i = 0; i < hrefLength; i++) {
@@ -509,7 +567,9 @@
         indexEvent = [
           []
         ];
-        nbMapEvents = 0;
+        for (i = 0; i < iconMarkersLength; i++) {
+          iconMarkers[i].nbMapEvents = 0;
+        }
         var result = getMyInnerLinkContent();
       });
 

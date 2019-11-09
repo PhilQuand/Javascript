@@ -50,26 +50,26 @@
       var dateDeb = href[hrefLength - 1].dateDeb;
       infoMapWrap.append('<div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div>');
     }
-    } else {
-      infoMapWrap.append('<button type="button" class="styled" id="btData">Données</button></p>','<div class="dispInfoMap">' + strMapTitle + '</div>');
+    else {
+      infoMapWrap.append('<button type="button" class="styled" id="btData">Données</button></p>', '<div class="dispInfoMap">' + strMapTitle + '</div>');
     }
 
-$(document).ready(function() {
+    $(document).ready(function() {
       $('.infosComités').css('display', 'none');
-$('#btData').click(function(e){
-   var blockData =   $('.infosComités').css('display');
-   if (blockData == 'block')
-   {
-      $('#btData').html('Données');
-      $('.dispInfoMap').css('display','block')
-      $('.infosComités').css('display','none')
-   } else {
-      $('#btData').html('Carte');
-      $('.dispInfoMap').css('display','none')
-      $('.infosComités').css('display','block')
-   }
-});
-});
+      $('#btData').click(function(e) {
+        var blockData = $('.infosComités').css('display');
+        if (blockData == 'block') {
+          $('#btData').html('Données');
+          $('.dispInfoMap').css('display', 'block')
+          $('.infosComités').css('display', 'none')
+        }
+        else {
+          $('#btData').html('Carte');
+          $('.dispInfoMap').css('display', 'none')
+          $('.infosComités').css('display', 'block')
+        }
+      });
+    });
 
     if (typeof options === 'undefined' || typeof options.iFrameGallery === 'undefined') {
       if (hrefLength == 0) var iFrameGallery = false;
@@ -86,7 +86,7 @@ $('#btData').click(function(e){
     var infoMap = $('<div id="infoMap class="dispInfoMap""></div>');
     infoMapWrap.append(infoMap);
     var map = initMap('infoMap');
-    if( strMapRef != '') infoMapWrap.append('<div class="dispInfoMap">' + strMapRef + '</div>');
+    if (strMapRef != '') infoMapWrap.append('<div class="dispInfoMap">' + strMapRef + '</div>');
 
     if (typeof options === 'undefined' || typeof options.inpLocationClass === 'undefined') var inpLocationClass = '';
     else var inpLocationClass = options.inpLocationClass;
@@ -379,7 +379,7 @@ $('#btData').click(function(e){
             }
           }
         }
-        if(divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
+        if (divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
         divBannerCoord.innerHTML = divBannerCoordHTML;
         $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
       };
@@ -564,7 +564,7 @@ $('#btData').click(function(e){
             }
           }
         }
-        if(divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
+        if (divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
         divBannerCoord.innerHTML = divBannerCoordHTML;
         $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
         for (i = 0; i < hrefLength; i++) {

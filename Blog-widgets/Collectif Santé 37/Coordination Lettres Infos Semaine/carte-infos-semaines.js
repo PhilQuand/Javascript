@@ -83,7 +83,7 @@
       setCoordMapInfos("CoordMapInfos", iFrameGalleryOpt);
     }
 
-    var infoMap = $('<div id="infoMap class="dispInfoMap""></div>');
+    var infoMap = $('<div id="infoMap" class="dispInfoMap"></div>');
     infoMapWrap.append(infoMap);
     var map = initMap('infoMap');
     if (strMapRef != '') infoMapWrap.append('<div class="dispInfoMap">' + strMapRef + '</div>');

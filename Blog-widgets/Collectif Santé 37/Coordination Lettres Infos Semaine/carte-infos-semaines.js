@@ -5,6 +5,8 @@
 
     var strMapTitle = '';
     if (typeof options !== 'undefined' && typeof options.mapTitle !== 'undefined') strMapTitle = options.mapTitle;
+    var strMapRef = '<div class="refComiteTours"><center><i>carte développée en collaboration avec le <a href="https://collectifsante37.blogspot.com">comité de Tours</a></i></center></div>';
+    //if (typeof options !== 'undefined' && typeof options.mapRef !== 'undefined') strMapRef = options.mapRef;*/
 
     if (typeof options === 'undefined' || typeof options.href === 'undefined') {
       var hrefLength = 0;
@@ -67,6 +69,7 @@
     var infoMap = $('<div id="infoMap"></div>');
     infoMapWrap.append(infoMap);
     var map = initMap('infoMap');
+    if( strMapRef != '') infoMapWrap.append('<div class="mapTitle">' + strMapRef + '</div>');
 
     if (typeof options === 'undefined' || typeof options.inpLocationClass === 'undefined') var inpLocationClass = '';
     else var inpLocationClass = options.inpLocationClass;

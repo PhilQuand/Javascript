@@ -51,7 +51,7 @@
       infoMapWrap.append('<div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div>');
     }
     } else {
-      infoMapWrap.append('<button style="float: right" type="button" class="styled" id="btData">Données</button></p>','<div class="dispInfoMap">' + strMapTitle + '</div>');
+      infoMapWrap.append('<button type="button" class="styled" id="btData">Données</button></p>','<div class="dispInfoMap">' + strMapTitle + '</div>');
     }
 
 $(document).ready(function() {

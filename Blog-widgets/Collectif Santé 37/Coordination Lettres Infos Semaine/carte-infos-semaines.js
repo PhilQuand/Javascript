@@ -690,4 +690,171 @@
       //});
     }
   }
+  
+  $.fn.CNLetterParser = function(options) {
+
+    $(this).addClass('corpsLettre');
+
+    // structuration de corpsLettre
+    var corpsLettre = $('.corpsLettre');
+
+    if (corpsLettre.find('html').length > 0) {
+      var contBody = corpsLettre.find('body').html();
+      corpsLettre.html(contBody);
+    }
+
+    var curElem = corpsLettre.children().first();
+
+    var banDiv = $('<div class="allBans"/>')
+    corpsLettre.prepend(banDiv)
+    curElem = fillBan(banDiv, curElem, 'Édito');
+
+    var banDiv = $('<div class="Edito" />').insertAfter(banDiv);
+    curElem = fillDiv(banDiv, curElem, 'Sommaire');
+
+    var banDiv = $('<div class="sumComité" />').insertAfter(banDiv);
+    curElem = fillDiv(banDiv, curElem, 'écho des comités');
+
+    var banDiv = $('<div id="idInfosComités" />').insertAfter(banDiv);
+
+    var banDiv = $('<div class="infosComités" />').insertAfter(banDiv);
+    curElem = fillDiv(banDiv, curElem, 'Dossier');
+
+    var banDiv = $('<div class="infoDoc" />').insertAfter(banDiv);
+    curElem = fillDiv(banDiv, curElem, '');
+
+    // structuration de infosComités
+    var infosComités = $('.infosComités');
+    var curElem = infosComités.children().first();
+
+    var banDiv = $('<div class="echoCom" />').insertAfter(curElem);
+    curElem = banDiv.next();
+    curElem = fillDiv(banDiv, curElem, 'Autres infos locales');
+
+    var banDiv = $('<div class="autresInfo" />').insertAfter(curElem)
+    curElem = banDiv.next();
+    curElem = fillDiv(banDiv, curElem, '');
+
+    // structuration de echoCom
+    fillComitéDiv($('.echoCom'), "infoComité marker-1");
+
+    // structuration de autresInfo
+    fillComitéDiv($('.autresInfo'), "infoComité marker-2");
+
+    // ajout des images
+    fillPictures();
+
+    $('sdfield').css('display', 'none')
+
+    function fillDiv(curDiv, curElem, strKey) {
+      var strKeyComp = strKey.replace(/[\n\r]+/g, '').replace(/\s/g, '');
+      var curNextAll = curElem.nextAll();
+      curElem.appendTo(curDiv);
+      curNextAll.each(function() {
+        var curHtmk = $(this).html().replace(/[\n\r]+/g, '').replace(/\s/g, '')
+        if (strKey != '' && $(this).prop("tagName") != "UL" && curHtmk.search(strKeyComp) > -1) {
+          curElem = $(this);
+          return false;
+        };
+        $(this).appendTo(curDiv);
+      });
+      curDiv.find('br').each(function() { // For each element
+        if ($(this).text().trim() === '')
+          $(this).remove(); // is it is empty, it removes it
+      });
+      return curElem;
+    };
+
+    function fillBan(curDiv, curElem, strKey) {
+
+      var nextElem = fillDiv(curDiv, curElem, strKey);
+
+      var infoWeek = [];
+      curDiv.find('b').each(function() { // For each element
+        if ($(this).text().trim() !== '')
+          infoWeek.push($(this).text());
+      });
+
+      if ($('.corpsLettrePDF  a').length > 0) {
+        var curHTML = '<a href="' + $('.corpsLettrePDF  a').attr('href') + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';
+        $('.corpsLettrePDF').css('display', 'none');
+      }
+      else var curHTML = '';
+      if (infoWeek.length == 3) curHTML += '<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;" data-summary="no"><img border="0" style="width: 400px; max-width: 40%;" id="banCoord" alt="banCoord.png" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" class="banInfos" width="400px"/><div><p style="text-align: center;"><span style="font-size: 24pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">L’INFO</span><br/><span style="font-size: 20pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">' + infoWeek[1] + '</span><br/><span style="font-size: 20pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">' + infoWeek[2] + '</span></p></div></div>';
+
+      curDiv.html(curHTML);
+
+      return nextElem;
+    };
+
+    function fillComitéDiv(curDiv, curClass) {
+      var curCity = '';
+      var curNextAll = curDiv.children().first().nextAll();
+      curNextAll.each(function() {
+        if ((($(this).html().search('background:') > -1) || (typeof $(this).attr("style") !== 'undefined' && ~$(this).attr("style").indexOf("background:"))) && $(this).find('b').length > 0) {
+          //console.log($(this).find('b').html());
+          $(this).find('b').wrap('<span />');
+          curCity = $(this).wrap('<div class="' + curClass + '" />').parent();
+          formCurCity(curCity);
+        }
+        else if (curCity !== '') $(this).appendTo(curCity);
+      });
+
+      function formCurCity(curCity) {
+        var cityName = curCity.find('b').html();
+        var cityColor = curCity.html().split('background:');
+        if (cityColor.length == 1) cityColor = curCity.html().split('background-color:');
+        //cityColor= cityColor[cityColor.length-1].split(';')[0];
+        cityColor = cityColor[1].split(';')[0];
+        cityColor = cityColor.split('"')[0];
+        /*curCity.html('<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; background: ' +  cityColor + '; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>' + cityName + '</b></span></span></p>');*/
+        curCity.html('<p class="western" style="paddin: 5px; background: ' + cityColor + ';" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
+      }
+    };
+
+    function fillPictures() {
+      var pictures = $('.corpsLettrePictures img')
+      if (pictures.length > 0) {
+        var hrefImg;
+        pictures.each(function() {
+          var textPicture = $(this).prev().text().split(" ");
+          textPicture = textPicture[textPicture.length - 1];
+          hrefImg = $(this).attr('src');
+          $('.corpsLettre img').each(function() {
+            if (~$(this).attr('src').indexOf(textPicture)) {
+              console.log(hrefImg);
+              /*$(this).after('<img src="' + hrefImg + '" style="width: 640px; max-width: 90%;" />');
+              $(this).remove();*/
+              $(this).attr('src', hrefImg);
+            }
+          });
+        });
+        var lastIMG = $('.corpsLettre img').last();
+        lastIMG.after('<img src="' + hrefImg + '" style="width: 640px; max-width: 90%;" />');
+        lastIMG.remove();
+        $('.corpsLettrePictures').css('display', 'none');
+      }
+    }
+    $(document).ready(function() {
+      if ($("#idInfosComités").length) {
+        $('#idInfosComités').InfosComités({
+          iconMarkers: [{
+            class: "marker-1",
+            title: 'Échos'
+          }, {
+            class: "marker-2",
+            icon: simpleGreenIcon,
+            title: 'Autres Infos'
+          }],
+          //iconMarkers: [{class: "infoComité", title: 'Échos'}],
+          mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
+          //divBannerCoordHTML: '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>'
+        });
+        $('.corpsLettre > .infosComités').css('display', 'none');
+        $('.sumComité').css('display', 'none');
+      }
+    });
+
+  }
+
 })(jQuery);

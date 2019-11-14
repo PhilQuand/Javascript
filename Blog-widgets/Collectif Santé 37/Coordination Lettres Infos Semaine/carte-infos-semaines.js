@@ -842,7 +842,7 @@
 
     $(this).CNLetterParser();
 
-    $(document).ready(function() {
+    //$(document).ready(function() {
       if ($("#idInfosComités").length) {
         $('#idInfosComités').InfosComités({
           iconMarkers: [{
@@ -860,7 +860,7 @@
         $('.corpsLettre > .infosComités').css('display', 'none');
         $('.sumComité').css('display', 'none');
       }
-    });
+    //});
 
   }
 

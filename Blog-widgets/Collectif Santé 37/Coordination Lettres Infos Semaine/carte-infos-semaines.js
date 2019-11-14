@@ -835,6 +835,13 @@
         $('.corpsLettrePictures').css('display', 'none');
       }
     }
+
+  }
+
+  $.fn.CNLetter = function(options) {
+
+    $(this).CNLetterParser();
+
     $(document).ready(function() {
       if ($("#idInfosComités").length) {
         $('#idInfosComités').InfosComités({

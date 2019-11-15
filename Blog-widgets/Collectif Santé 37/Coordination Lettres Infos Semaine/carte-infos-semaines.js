@@ -284,9 +284,6 @@
           //if (inpAddress[i].inpText.indexOf(inpLocation) > -1) {
           if (inpLocationUP.indexOf(inpAddress[i].inpText.toUpperCase()) > -1) {
             newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${inpAddress[i].lat}</div>`, `<div class="longitude">${inpAddress[i].lng}</div>`, `<div class="iconMarker">${JSON.stringify(iconMarker)}</div>`);
-            if( typeof iconMarker.icon !== 'undefined' ) {
-                newItemLocation.append(`<div class="iconMarker-icon">${iconMarker.icon}</div>`);
-            }
             var infoPopUps = [{
               lat: inpAddress[i].lat,
               lng: inpAddress[i].lng,
@@ -303,10 +300,7 @@
           iconMarker: iconMarker
         }];
         var output = add2Layer(infoPopUps, setMapView, itemsLength);
-            newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${inpAddress[i].lat}</div>`, `<div class="longitude">${inpAddress[i].lng}</div>`, `<div class="iconMarker">${JSON.stringify(iconMarker)}</div>`);
-            if( typeof iconMarker.icon !== 'undefined' ) {
-                newItemLocation.append(`<div class="iconMarker-icon">${iconMarker.icon}</div>`);
-            }
+        newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${output[0].lat}</div>`, `<div class="longitude">${output[0].lng}</div>`, `<div class="iconMarker">${JSON.stringify(iconMarker)}</div>`);
       };
 
 

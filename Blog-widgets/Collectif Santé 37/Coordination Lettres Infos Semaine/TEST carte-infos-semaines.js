@@ -223,7 +223,6 @@
         var post = $("<div>").append(other);
         var result = post.find('.infoComité');
         if( result.length == 0) {
-            other = $("<div>").html(content);
             other.CNLetterParser();
             post = $("<div>").append(other);
             result = post.find('.infoComité');

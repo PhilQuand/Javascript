@@ -37,6 +37,7 @@
   <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
   <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
   <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Icons.js"></script>
   <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
 
 <!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
@@ -46,11 +47,15 @@
 
 </head>
 <body>
-<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div class="corpsLettre">
+
+<div id="idInfosComités"></div>
+<div class="infosComités"></div>
+
+</div>
+
+</div>
 <style>
-.banInfos {
-    visibility: hidden;
-}
 .incrustation {
   background-color: #e8f6f8;
   padding-top: 0.5em;
@@ -58,29 +63,18 @@
   padding-left: 1em;
   padding-right: 1em;
 }
+.popupHead {
+    font-size: 1.7em;
+    padding: 0;
+    max-height: 60px;
+}
+.popupBody {
+    max-height: calc(100% - 80px);
+}
+.styled {
+    display: none;
+}
 </style>
-
-<div class="corpsLettre">
-
-<!--div class="container">
-<div class="alert alert-primary text-center">
-  <h3>NOTRE SANTÉ EN GRAND DANGER</h3>
-  <h4>Les usagers dans l’action le 14 Novembre</h4>
-</div>
-<p>Le refus du gouvernement de prendre en compte les besoins des hôpitaux et des EHPAD dans le Projet de Loi de Financement de la Sécurité Sociale 2020 mène à une véritable catastrophe sanitaire.</p>
-<p>La Coordination Nationale des Comités de défense des hôpitaux et maternités de proximité témoigne de son soutien à tous les personnels en lutte, à leurs organisations syndicales, à leurs collectifs (Collectif Inter Urgences, Collectif Inter Hôpitaux, Collectif inter-blocs), au printemps de la psychiatrie... Ces luttes sont celles des usagers qui ont besoin d'un service public hospitalier et d'EHPAD (Établissement d'hébergement de personnes âgées dépendantes) publics répondant à leurs besoins. Cela passe par l'arrêt des fermetures de lits, services et SMUR et des réouvertures, des embauches de personnels et une reconnaissance et revalorisation des métiers.</p>
-<p>La Coordination Nationale est partie prenante de la journée d'action du 14 novembre. Elle appelle ses comités à organiser une participation massive à la manifestation parisienne et à contribuer à la mobilisation de toutes celles et ceux qui ne pourraient se rendre à Paris en prenant contact avec toutes les organisations des personnels dans leur territoire et toutes les organisations signataires de l'appel "Madame Buzyn, il faut donner plus de moyens pour notre santé".</p>
-</div-->
-
-<div id="idInfosComités"></div>
-<div class="refComiteTours"><center><i>carte développée en collaboration avec le <a href="https://collectifsante37.blogspot.com">comité de Tours</a></i></center></div>
-<div class="infosComités">
-
-</div>
-
-</div>
-
-</div>
 <script>
   window.iFrameResizer = {
     //heightCalculationMethod: function() { return 3400 },
@@ -95,14 +89,19 @@
 
       $('.infosComités').html( message );
       $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base').addClass('infoComité');
-      $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base > h3').wrap('<p></p>');
-      /*$('.infosComités').find( '.infoComité > h3' ).each(function() {
-            $(this).html('<span>' + $(this).find('h3').html() + '</span>');
-      });*/
+      //$('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base > h3').wrap('<p></p>');
+      $('.infosComités .so-widget-sow-editor.so-widget-sow-editor-base > h3' ).each(function() {
+            $(this).before('<p><span>' + $(this).html() + '</span></p>');
+            $(this).remove();
+      });
       if( $('#idInfosComités').length ) {
         $('#idInfosComités').InfosComités({ 
-            inpLocationClass: "widget-title"
+            iconMarkers: [{class: "infoComité", title: 'Échos'}],
+            //mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
+            divBannerCoordHTML: '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>',
+            popupHeadClass: "alert alert-primary text-center"
         });
+        //$('#idInfosComités').InfosComités(); 
         $('.corpsLettre > .infosComités').css('display', 'none');
         $('.sumComité').css('display', 'none');
       }
@@ -110,14 +109,5 @@
     }
   }
 </script>
-<!--script>
-$(document).ready(function() {
-  if( $("#idInfosComités").length ) {
-      $('#idInfosComités').InfosComités();
-      $('.corpsLettre > .infosComités').css('display', 'none');
-      $('.sumComité').css('display', 'none');
-  }
-});
-</script-->
 </body>
 </html>

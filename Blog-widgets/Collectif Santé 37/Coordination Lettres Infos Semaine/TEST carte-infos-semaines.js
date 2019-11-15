@@ -220,7 +220,6 @@
 
       function getBody(content) {
         var other = $("<div>").html(content);
-        other.CNLetterParser();
         var post = $("<div>").append(other);
         var result = post.find('.infoComité');
         if (result.length > 0) {

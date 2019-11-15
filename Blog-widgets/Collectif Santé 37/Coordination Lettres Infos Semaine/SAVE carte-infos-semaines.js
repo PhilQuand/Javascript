@@ -48,7 +48,7 @@
       var dateFin = href[0].dateFin;
       var strFin = href[0].dateFin.getFullYear() + "-" + ("0" + (href[0].dateFin.getMonth() + 1)).slice(-2) + "-" + ("0" + href[0].dateFin.getDate()).slice(-2);
       var dateDeb = href[hrefLength - 1].dateDeb;
-      infoMapWrap.append('<div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div>');
+      infoMapWrap.append('<div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div>');
     }
     else {
       infoMapWrap.append('<button type="button" class="styled" id="btData">Données</button></p>', '<div class="dispInfoMap">' + strMapTitle + '</div>');
@@ -161,9 +161,8 @@
     function getMyInnerLinkContent() {
       if (hrefLength == 0) {
         if (isLinkContent('')) return;
-        /*var allText = $('.corpsLettre');
-        var allText = $('.corpsLettre')[0].innerHTML;*/
-        var allText = $('.corpsLettre').html();
+        var allText = $('.corpsLettre');
+        var allText = $('.corpsLettre')[0].innerHTML;
         return getBody(allText);
       }
       if (isLinkContent(href[indIndex[indexCal]].weekInfos)) return;
@@ -186,17 +185,12 @@
             var result = $(this).find('.inforEvent');
             var itemsLength = result.length
             if (itemsLength > 0) {
-              result.each(function() { 
-                //var doc = $(this).find('.markerPopUp').html();
-                var iconMarker = JSON.parse($(this).find('.iconMarker').html());
-                if(  typeof iconMarker.icon !== 'undefined' ) {
-                    iconMarker.icon = new L.Icon(iconMarker.icon.options);
-                }
+              result.each(function() {
+                var doc = $(this).find('.markerPopUp').html();
                 var infoPopUps = [{
                   lat: $(this).find('.latitude').html(),
                   lng: $(this).find('.longitude').html(),
-                  doc: $(this).find('.markerPopUp').html(),
-                  iconMarker: iconMarker
+                  doc: doc
                 }];
                 var output = add2Layer(infoPopUps, setMapView, itemsLength);
               });
@@ -220,7 +214,6 @@
 
       function getBody(content) {
         var other = $("<div>").html(content);
-        other.CNLetterParser();
         var post = $("<div>").append(other);
         var result = post.find('.infoComité');
         if (result.length > 0) {
@@ -279,10 +272,7 @@
         for (i = 0; i < inpAddress.length; i++) {
           //if (inpAddress[i].inpText.indexOf(inpLocation) > -1) {
           if (inpLocationUP.indexOf(inpAddress[i].inpText.toUpperCase()) > -1) {
-            newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${inpAddress[i].lat}</div>`, `<div class="longitude">${inpAddress[i].lng}</div>`, `<div class="iconMarker">${JSON.stringify(iconMarker)}</div>`);
-            if( typeof iconMarker.icon !== 'undefined' ) {
-                newItemLocation.append(`<div class="iconMarker-icon">${iconMarker.icon}</div>`);
-            }
+            newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${inpAddress[i].lat}</div>`, `<div class="longitude">${inpAddress[i].lng}</div>`);
             var infoPopUps = [{
               lat: inpAddress[i].lat,
               lng: inpAddress[i].lng,
@@ -299,10 +289,7 @@
           iconMarker: iconMarker
         }];
         var output = add2Layer(infoPopUps, setMapView, itemsLength);
-            newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${inpAddress[i].lat}</div>`, `<div class="longitude">${inpAddress[i].lng}</div>`, `<div class="iconMarker">${JSON.stringify(iconMarker)}</div>`);
-            if( typeof iconMarker.icon !== 'undefined' ) {
-                newItemLocation.append(`<div class="iconMarker-icon">${iconMarker.icon}</div>`);
-            }
+        newItemLocation.append(`<div class="inpLoc">${inpLocation}</div>`, `<div class="latitude">${output[0].lat}</div>`, `<div class="longitude">${output[0].lng}</div>`);
       };
 
 
@@ -373,7 +360,7 @@
 
           for (j = 0; j < indexEvent[i].length; j++) {
             for (k = 0; k < iconMarkersLength; k++) {
-              if (indexEvent[i][j].iconMarker.class == iconMarkers[k].class) {
+              if (indexEvent[i][j].iconMarker === iconMarkers[k]) {
                 iconMarkers[k].nbMapEvents++;
               }
             }
@@ -632,9 +619,7 @@
         })
         .on("change", function() {
           to.datepicker("option", "minDate", getDate(this));
-          //var firstDate = new Date(moment(getDate(this), 'yy-mm-dd').day(1));
-          if( getDate(this).getDay() ) var firstDate = new Date(moment(getDate(this), 'yy-mm-dd').day(1));
-          else var firstDate = new Date(moment(getDate(this), 'yy-mm-dd').day(-6));
+          var firstDate = new Date(moment(getDate(this), 'yy-mm-dd').day(1));
           from.val(firstDate.getFullYear() + "-" + ("0" + (firstDate.getMonth() + 1)).slice(-2) + "-" + ("0" + firstDate.getDate()).slice(-2));
         }),
         to = $(".DateRange-wrapper #to").datepicker({
@@ -661,9 +646,7 @@
         })
         .on("change", function() {
           from.datepicker("option", "maxDate", getDate(this));
-          //var lastDate = new Date(moment(getDate(this), 'yy-mm-dd').day(7));
-          if( getDate(this).getDay() ) var lastDate = new Date(moment(getDate(this), 'yy-mm-dd').day(7));
-          else var lastDate = new Date(moment(getDate(this), 'yy-mm-dd').day(0));
+          var lastDate = new Date(moment(getDate(this), 'yy-mm-dd').day(7));
           to.val(lastDate.getFullYear() + "-" + ("0" + (lastDate.getMonth() + 1)).slice(-2) + "-" + ("0" + lastDate.getDate()).slice(-2));
         });
       //$(".DateRange-wrapper button").focus();
@@ -710,13 +693,10 @@
   
   $.fn.CNLetterParser = function(options) {
 
-    // structuration de corpsLettre
-    if( $(this).find('.corpsLettre').length > 0) {
-        var corpsLettre = $(this).find('.corpsLettre').first();
-        $(this).html(corpsLettre.html());        
-    }
     $(this).addClass('corpsLettre');
-    var corpsLettre = $(this);
+
+    // structuration de corpsLettre
+    var corpsLettre = $('.corpsLettre');
 
     if (corpsLettre.find('html').length > 0) {
       var contBody = corpsLettre.find('body').html();
@@ -744,7 +724,7 @@
     curElem = fillDiv(banDiv, curElem, '');
 
     // structuration de infosComités
-    var infosComités = $(this).find('.infosComités').first();
+    var infosComités = $('.infosComités');
     var curElem = infosComités.children().first();
 
     var banDiv = $('<div class="echoCom" />').insertAfter(curElem);
@@ -756,15 +736,15 @@
     curElem = fillDiv(banDiv, curElem, '');
 
     // structuration de echoCom
-    fillComitéDiv($(this).find('.echoCom').first(), "infoComité marker-1");
+    fillComitéDiv($('.echoCom'), "infoComité marker-1");
 
     // structuration de autresInfo
-    fillComitéDiv($(this).find('.autresInfo').first(), "infoComité marker-2");
+    fillComitéDiv($('.autresInfo'), "infoComité marker-2");
 
     // ajout des images
     fillPictures();
 
-    $(this).find('sdfield').first().css('display', 'none')
+    $('sdfield').css('display', 'none')
 
     function fillDiv(curDiv, curElem, strKey) {
       var strKeyComp = strKey.replace(/[\n\r]+/g, '').replace(/\s/g, '');
@@ -874,7 +854,7 @@
             title: 'Autres Infos'
           }],
           //iconMarkers: [{class: "infoComité", title: 'Échos'}],
-          mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
+          mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
           //divBannerCoordHTML: '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>'
         });
         $('.corpsLettre > .infosComités').css('display', 'none');

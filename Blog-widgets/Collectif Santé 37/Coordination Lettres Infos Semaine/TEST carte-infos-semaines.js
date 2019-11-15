@@ -220,9 +220,13 @@
 
       function getBody(content) {
         var other = $("<div>").html(content);
-        if( other.search('id="idInfosComités"') == -1) other.CNLetterParser();;
         var post = $("<div>").append(other);
         var result = post.find('.infoComité');
+        if( result.length == 0) {
+            other.CNLetterParser();
+            post = $("<div>").append(other);
+            result = post.find('.infoComité');
+        }
         if (result.length > 0) {
           var newWeek = $('<div class="inforWeek"></div>');
           if (hrefLength > 0) newWeek.attr('data-weekInfos', href[indIndex[indexCal]].weekInfos)

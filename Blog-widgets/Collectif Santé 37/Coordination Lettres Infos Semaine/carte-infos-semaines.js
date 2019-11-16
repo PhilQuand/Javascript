@@ -187,13 +187,13 @@
             var itemsLength = result.length
             if (itemsLength > 0) {
               result.each(function() {
-                var infoPopUps = JSON.parse($(this).find('.infoPopUps').html());
+                var infoPopUps = JSON.parse($(this).find('.markerLocation').html());
                 var iconMarker = infoPopUps.iconMarker
                 if (typeof iconMarker.icon !== 'undefined') {
                   iconMarker.icon = new L.Icon(iconMarker.icon.options);
                 }
                 infoPopUps.doc = $(this).find('.markerPopUp').html()
-                infoPopUps = [infoPopUps];
+                infoPopUps  = [infoPopUps];
                 var output = add2Layer(infoPopUps, setMapView, itemsLength);
               });
             }
@@ -286,12 +286,8 @@
               iconMarker: iconMarker,
             }];
             var output = add2Layer(infoPopUps, setMapView, itemsLength);
-            infoPopUps = {
-              lat: inpAddress[i].lat,
-              lng: inpAddress[i].lng,
-              iconMarker: iconMarker
-            };
-            newItemLocation.append(`<div class="infoPopUps">${JSON.stringify(infoPopUps)}</div>`);
+            infoPopUps = { lat: inpAddress[i].lat, lng: inpAddress[i].lng, iconMarker: iconMarker };
+            newItemLocation.html(JSON.stringify(infoPopUps));
             return;
           }
         }
@@ -301,12 +297,8 @@
           iconMarker: iconMarker
         }];
         var output = add2Layer(infoPopUps, setMapView, itemsLength);
-        infoPopUps = {
-          lat: output[0].lat,
-          lng: output[0].lng,
-          iconMarker: iconMarker
-        };
-        newItemLocation.append(`<div class="infoPopUps">${JSON.stringify(infoPopUps)}</div>`);
+        infoPopUps = { lat: output[0].lat, lng: output[0].lng, iconMarker: iconMarker };
+        newItemLocation.html(JSON.stringify(infoPopUps));
       };
 
 

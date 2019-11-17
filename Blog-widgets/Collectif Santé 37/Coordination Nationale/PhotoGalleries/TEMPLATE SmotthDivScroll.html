@@ -117,13 +117,13 @@ $(document).ready(function() {
     manualContinuousScrolling: true,
     autoScrollingMode: "onStart"
   });
-    if ('parentIFrame' in window) {
+    /*if ('parentIFrame' in window) {
             if (parentIFrameSize[instance.currentHash] > 0) {
               parentIFrame.autoResize(false);
               parentIFrame.size(parentIFrameSize[instance.currentHash]); // Set height to parentIFrameSize
             }
             else parentIFrame.size();
-    }
+    }*/
   $("#makeMeScrollable").find("a img").each(function() {
     var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 

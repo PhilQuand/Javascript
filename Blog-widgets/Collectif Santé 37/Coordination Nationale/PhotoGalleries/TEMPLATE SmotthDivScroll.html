@@ -99,9 +99,6 @@ window.iFrameResizer = {
     manualContinuousScrolling: true,
     autoScrollingMode: "onStart"
   });
-  }
-}
-$(document).ready(function() {
   $("#makeMeScrollable").find("a img").each(function() {
     var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 
@@ -125,5 +122,6 @@ $(document).ready(function() {
     else {}
   });
   goFancy();
-});
+  }
+}
 </script>

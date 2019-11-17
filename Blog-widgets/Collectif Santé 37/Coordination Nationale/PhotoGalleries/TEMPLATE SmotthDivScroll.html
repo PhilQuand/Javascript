@@ -94,36 +94,48 @@
 	<!--script src="https://philquand.github.io/Javascript/PhotoGaleries/colorbox-master/jquery.colorbox-min.js" type="text/javascript"></script-->	
 <!-- Plugin initialization -->
 <script type="text/javascript">
-$(document).ready(function() {
-  $("#makeMeScrollable").smoothDivScroll({
-    mousewheelScrolling: "allDirections",
-    manualContinuousScrolling: true,
-    autoScrollingMode: "onStart"
-  });
-
-  $("#makeMeScrollable").find("a img").each(function() {
-    var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
-
-    if (isImage) {
-      var aFancy = $(this).parent("a").attr('data-fancybox');
-      //var aClass = $(this).parent("a").attr('class');
-      //var aId = $(this).parent("a").attr('id');
-      //if((typeof aClass ==='undefined') && (typeof aId ==='undefined') && (typeof aFancy ==='undefined')) {
-      if (typeof aFancy === 'undefined') {
-        $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
-        $(this).parent("a").attr('data-fancybox', 'fancy-box');
-        $(this).parent("a").attr('href', 'javascript:;');
-      }
-      var hasDataFancybox = $(this).parent("a").hasClass('data-fancybox');
-      var hasDataFancyboxInline = $(this).parent("a").hasClass('data-fancybox-inline');
-      if ((!hasDataFancybox) && (!(hasDataFancyboxInline))) {
-        $(this).parent("a").addClass('data-fancybox');
-      }
+//$(document).ready(function() {
+window.iFrameResizer = {
+  //heightCalculationMethod: function() { return 3400 },
+  onReady: function() {
+    if ('parentIFrame' in window) {
+      parentIFrame.scrollTo(0, 0);
+      //parentIFrame.autoResize(true);
     }
+  },
+  onMessage: function(message) {
+    //var messageData = JSON.parse(message);
+    $("#makeMeScrollable").smoothDivScroll({
+      mousewheelScrolling: "allDirections",
+      manualContinuousScrolling: true,
+      autoScrollingMode: "onStart"
+    });
 
-    else {}
-  });
-  goFancy();
+    $("#makeMeScrollable").find("a img").each(function() {
+      var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 
-});
+      if (isImage) {
+        var aFancy = $(this).parent("a").attr('data-fancybox');
+        //var aClass = $(this).parent("a").attr('class');
+        //var aId = $(this).parent("a").attr('id');
+        //if((typeof aClass ==='undefined') && (typeof aId ==='undefined') && (typeof aFancy ==='undefined')) {
+        if (typeof aFancy === 'undefined') {
+          $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
+          $(this).parent("a").attr('data-fancybox', 'fancy-box');
+          $(this).parent("a").attr('href', 'javascript:;');
+        }
+        var hasDataFancybox = $(this).parent("a").hasClass('data-fancybox');
+        var hasDataFancyboxInline = $(this).parent("a").hasClass('data-fancybox-inline');
+        if ((!hasDataFancybox) && (!(hasDataFancyboxInline))) {
+          $(this).parent("a").addClass('data-fancybox');
+        }
+      }
+
+      else {}
+    });
+    goFancy();
+
+  }
+}
+//});
 </script>

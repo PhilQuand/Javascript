@@ -93,15 +93,15 @@ window.iFrameResizer = {
   },
   onMessage: function(message) {
       $("#makeMeScrollable").html(message);
-  }
-}
-$(document).ready(function() {
   //var messageData = JSON.parse(message);
-  /*$("#makeMeScrollable").smoothDivScroll({
+  $("#makeMeScrollable").smoothDivScroll({
     mousewheelScrolling: "allDirections",
     manualContinuousScrolling: true,
     autoScrollingMode: "onStart"
-  });*/
+  });
+  }
+}
+$(document).ready(function() {
   $("#makeMeScrollable").find("a img").each(function() {
     var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 

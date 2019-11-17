@@ -94,6 +94,7 @@ window.iFrameResizer = {
   onMessage: function(message) {
       $("#makeMeScrollable").html(message);
   //var messageData = JSON.parse(message);
+  parentIFrame.autoResize(false);
   $("#makeMeScrollable").smoothDivScroll({
     mousewheelScrolling: "allDirections",
     manualContinuousScrolling: true,

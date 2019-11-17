@@ -99,7 +99,7 @@ window.iFrameResizer = {
   onReady: function() {
     if ('parentIFrame' in window) {
       parentIFrame.scrollTo(0, 0);
-      //parentIFrame.autoResize(true);
+      parentIFrame.autoResize(true);
     }
   },
   onMessage: function(message) {
@@ -114,8 +114,11 @@ $(document).ready(function() {
     autoScrollingMode: "onStart"
   });
     if ('parentIFrame' in window) {
-      //parentIFrame.scrollTo(0, 0);
-      parentIFrame.autoResize(true);
+            if (parentIFrameSize[instance.currentHash] > 0) {
+              parentIFrame.autoResize(false);
+              parentIFrame.size(parentIFrameSize[instance.currentHash]); // Set height to parentIFrameSize
+            }
+            else parentIFrame.size();
     }
   $("#makeMeScrollable").find("a img").each(function() {
     var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));

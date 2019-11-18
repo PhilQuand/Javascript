@@ -805,9 +805,10 @@
 
     function fillComitéDiv(curDiv, curClass) {
       var curCity = '';
-      var curNextAll = curDiv.children().first().nextAll();
+      //var curNextAll = curDiv.children().first().nextAll();
+      var curNextAll = curDiv.children();
       curNextAll.each(function() {
-        if ((($(this).html().search('background:') > -1) || (typeof $(this).attr("style") !== 'undefined' && ~$(this).attr("style").indexOf("background:"))) && $(this).find('b').length > 0) {
+        if ((($(this).html().search('background') > -1) || (typeof $(this).attr("style") !== 'undefined' && ~$(this).attr("style").indexOf("background"))) && $(this).find('b').length > 0) {
           //console.log($(this).find('b').html());
           $(this).find('b').wrap('<span />');
           curCity = $(this).wrap('<div class="' + curClass + '" />').parent();

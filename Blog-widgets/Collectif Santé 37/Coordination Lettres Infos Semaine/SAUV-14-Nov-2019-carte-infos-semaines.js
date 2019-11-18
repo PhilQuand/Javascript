@@ -847,8 +847,11 @@
       if (pictures.length > 0) {
         var hrefImg;
         pictures.each(function() {
-          var textPicture = $(this).prev().text().split(" ");
-          textPicture = textPicture[textPicture.length - 1];
+          var textPicture = $(this).prev().text();
+          if( textPicture.indexOf(" ") > -1 ) {
+            textPicture = $(this).prev().text().split(" ");
+            textPicture = textPicture[textPicture.length - 1];
+          }
           hrefImg = $(this).attr('src');
           $('.corpsLettre img').each(function() {
             if (~$(this).attr('src').indexOf(textPicture)) {

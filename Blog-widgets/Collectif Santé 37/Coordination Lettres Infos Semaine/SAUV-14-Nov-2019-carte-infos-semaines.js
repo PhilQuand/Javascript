@@ -51,7 +51,7 @@
       infoMapWrap.append('<div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div>');
     }
     else {
-      infoMapWrap.append('<button type="button" class="styled" id="btData">Données</button></p>', '<div class="dispInfoMap">' + strMapTitle + '</div>');
+      infoMapWrap.append('<div class="dispInfoMap">' + strMapTitle + '</div>','<button type="button" class="styled" id="btData">Données</button>');
     }
 
     $(document).ready(function() {
@@ -847,11 +847,9 @@
       if (pictures.length > 0) {
         var hrefImg;
         pictures.each(function() {
-          var textPicture = $(this).prev().text();
-          if( textPicture.indexOf(" ") > -1 ) {
-            textPicture = $(this).prev().text().split(" ");
-            textPicture = textPicture[textPicture.length - 1];
-          }
+          var textPicture = $(this).prev().text().split(" ");
+          if( textPicture == "" ) textPicture = $(this).parent().prev().text().split(" ");
+          textPicture = textPicture[textPicture.length - 1];
           hrefImg = $(this).attr('src');
           $('.corpsLettre img').each(function() {
             if (~$(this).attr('src').indexOf(textPicture)) {

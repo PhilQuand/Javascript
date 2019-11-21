@@ -846,7 +846,7 @@
           if( textPicture == "" ) textPicture = $(this).parent().prev().text().split(" ");
           textPicture = textPicture[textPicture.length - 1];
           hrefImg = $(this).attr('src');
-          console.log('hrefImg : ' + hrefImg);
+          console.log('textPicture : ' + textPicture + 'hrefImg : ' + hrefImg);
           $('.corpsLettre img').each(function() {
            if (~$(this).attr('src').indexOf(textPicture)) {
               console.log('.corpsLettre img : ' + $(this).attr('src') + ' trouvée...');

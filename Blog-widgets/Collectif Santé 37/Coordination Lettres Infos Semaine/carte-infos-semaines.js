@@ -850,8 +850,6 @@
           $('.corpsLettre img').each(function() {
            if (~$(this).attr('src').indexOf(textPicture)) {
               console.log('.corpsLettre img : ' + $(this).attr('src') + ' trouvée...');
-              /*$(this).after('<img src="' + hrefImg + '" style="width: 640px; max-width: 90%;" />');
-              $(this).remove();*/
               $(this).attr('src', hrefImg);
             } else console.log('.corpsLettre img : ' + $(this).attr('src'));
           });

@@ -790,6 +790,14 @@
         if ($(this).text().trim() !== '')
           infoWeek.push($(this).text());
       });
+      if (infoWeek.length != 3) {
+          infoWeek = [];
+          infoWeek.push("L'INFO");
+          var num = $('.corpsLettreWeek li:contains(Semaine:)');
+          if (num.length > 0) infoWeek.push('Semaine' + num.text().substr(8))
+          var dates = $('.corpsLettreWeek li:contains(Dates:)');
+          if (dates.length > 0) infoWeek.push(dates.text().substr(6))
+      }
 
       if ($('.corpsLettrePDF  a').length > 0) {
         var curHTML = '<a href="' + $('.corpsLettrePDF  a').attr('href') + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';

@@ -848,7 +848,6 @@
           hrefImg = $(this).attr('src');
           console.log('hrefImg : ' + hrefImg);
           $('.corpsLettre img').each(function() {
-           console.log('.corpsLettre img : '$(this).attr('src'));
            if (~$(this).attr('src').indexOf(textPicture)) {
               console.log('.corpsLettre img : ' + $(this).attr('src') + ' trouvée...');
               /*$(this).after('<img src="' + hrefImg + '" style="width: 640px; max-width: 90%;" />');

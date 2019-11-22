@@ -38,7 +38,7 @@
   <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Adresses.js"></script>
   <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Archives.js"></script>
   <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines-Icons.js"></script>
-  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/TEST carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/carte-infos-semaines.js"></script>
 
 <!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
   <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
@@ -71,12 +71,33 @@
 .popupBody {
     max-height: calc(100% - 80px);
 }
-.styled {
+/*.styled {
     display: none;
-}
+}*/
 </style>
 <script>
-  window.iFrameResizer = {
+function receiveMessage(event)
+{
+  // Do we trust the event's origin
+  /*if ( ! trustedOrigins.includes(event.origin) )
+    return;*/
+    console.log(event.data);
+
+  // event.source is window.opener
+  // event.data is "hello there!"
+
+  // Assuming you've verified the origin of the received message (which
+  // you must do in any case), a convenient idiom for replying to a
+  // message is to call postMessage on event.source and provide
+  // event.origin as the targetOrigin.
+  event.source.postMessage("hi there yourself!  the secret response " +
+                           "is: rheeeeet!",
+                           event.origin);
+}
+
+window.addEventListener("message", receiveMessage, false);
+
+window.iFrameResizer = {
     //heightCalculationMethod: function() { return 3400 },
     onReady: function() { 
        if ('parentIFrame' in window) {

@@ -838,6 +838,9 @@
     };
 
     function fillPictures() {
+      $('.corpsLettre img').each(function() {
+        console.log('.corpsLettre img : ' + $(this).attr('src'));
+      });
       var pictures = $('.corpsLettrePictures img')
       if (pictures.length > 0) {
         var hrefImg;
@@ -851,7 +854,7 @@
            if (~$(this).attr('src').indexOf(textPicture)) {
               console.log('.corpsLettre img : ' + $(this).attr('src') + ' trouvée...');
               $(this).attr('src', hrefImg);
-            } else console.log('.corpsLettre img : ' + $(this).attr('src'));
+            };
           });
         });
         var lastIMG = $('.corpsLettre img').last();

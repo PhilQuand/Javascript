@@ -81,7 +81,8 @@ function receiveMessage(event)
   // Do we trust the event's origin
   /*if ( ! trustedOrigins.includes(event.origin) )
     return;*/
-    console.log(event.data);
+    console.log('origin : ' + event.origin);
+    console.log('data : ' + event.data);
 
   // event.source is window.opener
   // event.data is "hello there!"

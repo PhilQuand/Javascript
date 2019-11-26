@@ -1,0 +1,92 @@
+<!-- jQuery for FancyBox 3-->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://philquand.github.io/Javascript/MediaPlayer/MediaPlayer.js"></script>
+<link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/MediaPlayer/MediaPlayer.css" />
+<svg style="display:none">
+	<symbol id="symbol-play" viewBox="0 0 32 32" fill="white" >
+		<path d="M4 0l24 16L4 32"></path>
+	</symbol>
+	<symbol id="symbol-pause" viewBox="0 0 32 32"  fill="white" >
+		<path d="M4 0h9v32H4M28 0h-9v32h9"></path>
+	</symbol>
+	<symbol id="symbol-mute" viewBox="0 0 32 32" fill="white" >
+		<path d="M0 11h6l10-8.5v27L6 21H0M22 6l10 10-10 10"></path>
+	</symbol>
+	<symbol id="symbol-unmute" viewBox="0 0 32 32" fill="white" >
+		<path d="M0 11h6l10-8.5v27L6 21H0"></path>
+	</symbol>
+	<symbol id="symbol-download" viewBox="0 0 32 32" fill="white" >
+		<path d="M20 2v12h4l-8 10-8-10h4V2M0 21h5v6h22v-6h5v11H0"></path>
+	</symbol>
+	<symbol id="symbol-enterFullscreen" viewBox="0 0 32 32" fill="white" >
+		<path d="M0 0h12L8 4l6 6-4 4-6-6-4 4M32 0H20l4 4-6 6 4 4 6-6 4 4M0 32V20l4 4 6-6 4 4-6 6 4 4m20 0V20l-4 4-6-6-4 4 6 6-4 4"></path>
+	</symbol>
+	<symbol id="symbol-leaveFullscreen" viewBox="0 0 32 32" fill="white" >
+		<path d="M0 4l4-4 6 6 4-4v12H2l4-4m26-6l-4-4-6 6-4-4v12h12l-4-4M0 28l4 4 6-6 4 4V18H2l4 4m26 6l-4 4-6-6-4 4V18h12l-4 4"></path>
+	</symbol>
+</svg>
+<style>
+.media-text {
+    font-size: 75%;
+    padding-left: .5em;
+    padding-right: .5em;
+    width: 4em;
+}
+.media-fullscreen {
+    display: none;
+}
+</style>
+<script>
+  $(document).ready(function() {
+// get target from media with controls
+$('audio').each(function() {
+// assign media player from target (all these options represent the defaults)
+//const $target = document.querySelector('audio[controls], video[controls]');
+const $target = this;
+const player = new MediaPlayer(
+  $target,
+  {
+    prefix: 'media',
+    lang: {
+      play: 'play',
+      pause: 'pause',
+      mute: 'mute',
+      unmute: 'unmute',
+      volume: 'volume',
+      currentTime: 'current time',
+      remainingTime: 'remaining time',
+      enterFullscreen: 'enter fullscreen',
+      leaveFullscreen: 'leave fullscreen',
+      download: 'download'
+    },
+    svgs: {
+      play: '#symbol-play',
+      pause: '#symbol-pause',
+      mute: '#symbol-mute',
+      unmute: '#symbol-unmute',
+      volume: '#symbol-volume',
+      currentTime: '#symbol-currentTime',
+      remainingTime: '#symbol-remainingTime',
+      enterFullscreen: '#symbol-enterFullscreen',
+      leaveFullscreen: '#symbol-leaveFullscreen',
+      download: '#symbol-download'
+    },
+    timeDir: 'ltr',
+    volumeDir: 'ltr'
+  }
+);
+});
+});
+</script>
+<center>
+<figure class="audioFancy">
+    <!--figcaption>Lecture du block :</figcaption-->
+    <audio
+        controls
+        src="https://philquand.github.io/Javascript/Blog-widgets/IDST/Congrès-IDST-Nov-2019/2019-11-25 22.21.48.mp3"
+         data-options='{"prefix":"media","show":{"fullscreen":false}}' >
+            Votre navigateur ne prend pas en charge cet élément
+            <code>audio</code>.
+    </audio>
+</figure>
+</center>

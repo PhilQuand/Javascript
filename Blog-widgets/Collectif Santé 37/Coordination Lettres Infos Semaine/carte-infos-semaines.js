@@ -857,9 +857,9 @@
             };
           });
         });
-        var lastIMG = $('.corpsLettre img').last();
+        /*var lastIMG = $('.corpsLettre img').last();
         lastIMG.after('<img src="' + hrefImg + '" style="width: 640px; max-width: 90%;" />');
-        lastIMG.remove();
+        lastIMG.remove();*/
         $('.corpsLettrePictures').css('display', 'none');
       }
     }

@@ -60,18 +60,17 @@ Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</di
 </div>
 
 <style>
-// a supprimer par la suite
-/*.calendarFancyClass .fancybox-content {
-    background-color: white;
+.calendarFancyClass .fancybox-content {
+    width: 600px;
+    height: 400px;
 }
-.calendarFancyClass.fancybox-is-open .fancybox-bg {
-    opacity: 0.5;
-}*/
 </style>
 <script>
 $(document).ready(function() {
+// if calendarFancy defined, it's the url of an iFrame fancyox otherwise fancybox is of div with div id as #calendarFancy_content
   $('#share-bar').share({
-    'channels': ['calendarFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email']
+    'channels': ['calendarFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email'],
+    calendarFancy: 'https://philquand.github.io/Javascript/Blog-widgets/IDST/Congrès-IDST-Nov-2019/CongresIDST.html'
   });
 });
 $(document).ready(function() {

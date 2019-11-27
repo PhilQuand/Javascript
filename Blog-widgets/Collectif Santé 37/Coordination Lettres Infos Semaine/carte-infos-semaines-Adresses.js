@@ -43,6 +43,8 @@ var inpAddress = [
   lat: 46.822673, lng: 0.510379 },
 { inpText: "BEAUMONT SUR OISE",
   lat: 49.317270, lng: 2.283072 },
+{ inpText: "Le tract BEAUMONT",
+  lat: 49.317270, lng: 2.283072 },
 { inpText: "THOUARS",
   lat: 46.985362, lng: -0.210241 },
 { inpText: "FINISTÈRE",
@@ -171,5 +173,9 @@ var inpAddress = [
   lat: 50.69143, lng: 3.17318},
 { inpText: "Marseille",
   lat: 43.29337, lng: 5.3713},
+{ inpText: "CHEZAL BENOIT",
+  lat: 46.82664, lng: 2.11360},
+{ inpText: "ALTKIRCH",
+  lat: 47.6260, lng: 7.24011},
 ];
 

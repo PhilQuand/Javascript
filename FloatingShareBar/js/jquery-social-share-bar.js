@@ -106,7 +106,6 @@
           $(document).ready(function() {
             $(".trgCalendarFancy").fancybox({
                 baseClass: 'calendarFancyClass',
-                preload: false,
             });
 
             $('.tooltipCalendar').tooltipster({

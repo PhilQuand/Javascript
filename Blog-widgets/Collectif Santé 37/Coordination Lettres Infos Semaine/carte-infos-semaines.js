@@ -737,6 +737,9 @@
     curElem = fillDiv(banDiv, curElem, 'Dossier');
 
     var banDiv = $('<div class="infoDoc" />').insertAfter(banDiv);
+    curElem = fillDiv(banDiv, curElem, 'Toutes les infos sur le site de la Coordination Nationale');
+
+    var banDiv = $('<div class="coordCN" />').insertAfter(banDiv);
     curElem = fillDiv(banDiv, curElem, '');
 
     // structuration de infosComités

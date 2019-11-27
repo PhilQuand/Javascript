@@ -1,8 +1,12 @@
     var archi = [
         {
-          svgInfos: ['Semaine 46', 'du 11 nov..', 'au 15 nov.', '2019'],
+          svgInfos: ['Semaine 47', 'du 18 nov..', 'au 22 nov.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 46.html',
           idGlinkID: 'PreviousLetters'
+        },
+        {
+          svgInfos: ['Semaine 46', 'du 11 nov..', 'au 15 nov.', '2019'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 46.html',
         },
         {
           svgInfos: ['Semaine 45', 'du 04 nov..', 'au 08 nov.', '2019'],

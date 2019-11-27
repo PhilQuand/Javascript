@@ -68,6 +68,7 @@
           position = settings.position || 'left',
           theme = settings.theme || 'circle',
           calendarBg = settings.calendarBg || 'https://1.bp.blogspot.com/-ENTWjtaqKJk/XW1QBX5vGhI/AAAAAAAAj3o/KRFNKfFA4MciHj7WlX2YVeJCH-EJLvyygCLcBGAs/s1600/image-6.png',
+          calendarFancy = settings.calendarFancy || '',
           animate = settings.animate === false ? false : true,
           u = encodeURIComponent(pageUrl),
           t = encodeURIComponent(pageTitle);
@@ -98,6 +99,7 @@
               provider: item,
               href: href,
               theme: theme,
+              calendarFancy: calendarFancy,
               calendarBg: calendarBg,
               itemTriggerClass: settings.itemTriggerClass
             })).appendTo($element);
@@ -105,9 +107,12 @@
 
           $(document).ready(function() {
             $(".trgCalendarFancy").fancybox({
-                baseClass: 'calendarFancyClass',
+              baseClass: 'calendarFancyClass',
+              toolbar: false,
+              afterLoad: function(instance, current) {
+                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"></a>');
+              }
             });
-
             $('.tooltipCalendar').tooltipster({
               trigger: 'click',
               theme: 'tooltipster-calendar',
@@ -116,12 +121,13 @@
               interactive: true,
               contentAsHTML: true,
               maxWidth: 400,
-              side: 'right'/*,
-              functionPosition: function(instance, helper, position) {
-                position.coord.top += 100;
-                position.coord.left += 100;
-                return position;
-              }*/
+              side: 'right'
+              /*,
+                            functionPosition: function(instance, helper, position) {
+                              position.coord.top += 100;
+                              position.coord.left += 100;
+                              return position;
+                            }*/
             });
           });
           // Bind click
@@ -179,11 +185,18 @@
       var providerName = props.provider === 'email' ? 'email' : props.provider === 'googleplus' ? 'Google+' : props.provider.charAt(0).toUpperCase() + props.provider.slice(1);
 
       if (props.provider === 'calendarFancy') {
-        return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
-          '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
-          '<i class="' + iconClasses[props.provider] + '"></i>' +
-          '</a>' +
-          '</li>';
+        if (props.calendarFancy != '')
+          return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
+            '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-type="iframe" data-src="' + props.calendarFancy + '">' +
+            '<i class="' + iconClasses[props.provider] + '"></i>' +
+            '</a>' +
+            '</li>';
+        else
+          return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
+            '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
+            '<i class="' + iconClasses[props.provider] + '"></i>' +
+            '</a>' +
+            '</li>';
       }
       if (props.provider === 'calendarTooltipster') {
         return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
@@ -210,14 +223,14 @@
           '</li>';
       }
       else if (props.provider === 'email') {
-        return '<li class="' + props.provider + ' ' + props.theme +  '">' +
+        return '<li class="' + props.provider + ' ' + props.theme + '">' +
           '<a href="' + props.href + '" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';
       }
       else {
-        return '<li class="' + props.provider + ' ' + props.theme +  '">' +
+        return '<li class="' + props.provider + ' ' + props.theme + '">' +
           '<a href="#" data-href="' + props.href + '" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '" class="' + props.itemTriggerClass + ' ' + props.provider + '">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
@@ -228,19 +241,4 @@
 
   $.fn.share.settings = {};
 
-  /*var pdfRef = document.getElementById('pdf-ref');
-  if( pdfRef !== null ) {
-    var pdfIcon = document.getElementById('pdf-icon');
-    pdfIcon.style.visibility='visible';
-  }*/
-
 })(jQuery, window);
-
-// onclick="return goToPDF()"
- /*function goToPDF() {
-  var pdfRef = document.getElementById('pdf-ref');
-  if (pdfRef !== null) {
-    window.location.href = pdfRef.href;
-  }
-  return false;
-}*/

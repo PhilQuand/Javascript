@@ -139,6 +139,17 @@
     transition-timing-function: cubic-bezier(.22, .61, .36, 1);
 }
 
+/* Style close button */
+.calendarFancyClass .button-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 36px;
+  height: 36px;
+  background-image: url(https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/images/fancybox/fancybox_sprite.png);
+  z-index: 2;
+}
+
 @media (max-width: 800px) {
   .myShareBar {
     bottom: 0;

@@ -14,6 +14,9 @@
 
     var helpers = {
       channels: {
+        epingleFancy: {
+          url: ''
+        },
         calendarFancy: {
           url: ''
         },
@@ -69,6 +72,8 @@
           theme = settings.theme || 'circle',
           calendarBg = settings.calendarBg || 'https://1.bp.blogspot.com/-ENTWjtaqKJk/XW1QBX5vGhI/AAAAAAAAj3o/KRFNKfFA4MciHj7WlX2YVeJCH-EJLvyygCLcBGAs/s1600/image-6.png',
           calendarFancy = settings.calendarFancy || '',
+          epingleFancy = settings.epingleFancy || '',
+          epingleIcon = settings.epingleIcon || 'fa fa-heart faa-pulse animated',
           animate = settings.animate === false ? false : true,
           u = encodeURIComponent(pageUrl),
           t = encodeURIComponent(pageTitle);
@@ -99,6 +104,8 @@
               provider: item,
               href: href,
               theme: theme,
+              epingleFancy: epingleFancy,
+              epingleIcon: epingleIcon,
               calendarFancy: calendarFancy,
               calendarBg: calendarBg,
               itemTriggerClass: settings.itemTriggerClass
@@ -106,6 +113,13 @@
           }
 
           $(document).ready(function() {
+            $(".trgEpingleFancy").fancybox({
+              baseClass: 'epingleFancyClass',
+              toolbar: false,
+              afterLoad: function(instance, current) {
+                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"></a>');
+              }
+            });
             $(".trgCalendarFancy").fancybox({
               baseClass: 'calendarFancyClass',
               toolbar: false,
@@ -166,6 +180,8 @@
 
     itemTemplate: function(props) {
       var iconClasses = {
+        //'epingleFancy': 'fa fa-heart faa-pulse animated',
+        'epingleFancy': props.epingleIcon,
         'calendarFancy': 'far',
         'calendarTooltipster': 'far',
         'facebook': 'fab fa-facebook-f',
@@ -184,6 +200,20 @@
       // Special handling for email and Google+
       var providerName = props.provider === 'email' ? 'email' : props.provider === 'googleplus' ? 'Google+' : props.provider.charAt(0).toUpperCase() + props.provider.slice(1);
 
+      if (props.provider === 'epingleFancy') {
+        if (props.epingleFancy != '')
+          return '<li class="' + props.provider + ' ' + props.theme + '">' +
+            '<a class="trgEpingleFancy" data-fancybox="inlineEpingle" data-type="iframe" data-src="' + props.epingleFancy + '">' +
+            '<i class="' + iconClasses[props.provider] + '"></i>' +
+            '</a>' +
+            '</li>';
+        else
+          return '<li class="' + props.provider + ' ' + props.theme + '">' +
+            '<a class="trgEpingleFancy" data-fancybox="inlineCalendar" data-src="#epingleFancy_content" href="javascript:;">' +
+            '<i class="' + iconClasses[props.provider] + '"></i>' +
+            '</a>' +
+            '</li>';
+      }
       if (props.provider === 'calendarFancy') {
         if (props.calendarFancy != '')
           return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +

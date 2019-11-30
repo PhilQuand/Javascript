@@ -464,7 +464,7 @@
       var map = loadMap(idMap);
 
       //zoomRemove(map);
-      map.options.minZoom = 6;
+      map.options.minZoom = 5;
       map.options.maxZoom = 9;
 
       function setMapView() {

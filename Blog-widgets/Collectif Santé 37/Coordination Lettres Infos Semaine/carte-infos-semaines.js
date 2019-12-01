@@ -108,10 +108,19 @@
     }
 
     function setMapView() {
-      map.setView({
+      /*map.setView({
         lat: 47,
         lng: 1.689
-      }, 6);
+      }, 6);*/
+      map.fitBounds([
+        [51.10, 2.47],
+        [48.37, -5.16],
+        [43.38, -1.85],
+        [42.47, 3.16],
+        [43.80, 7.96],
+        [49.03, 8.08],
+        [49.03, 8.08]
+      ]);
     }
     var indexEvent = [
       []
@@ -465,13 +474,22 @@
 
       //zoomRemove(map);
       map.options.minZoom = 5;
-      map.options.maxZoom = 9;
+      map.options.maxZoom = 8;
 
       function setMapView() {
-        map.setView({
+        /*map.setView({
           lat: 47,
           lng: 1.689
-        }, 6);
+        }, 6);*/
+        map.fitBounds([
+          [51.10, 2.47],
+          [48.37, -5.16],
+          [43.38, -1.85],
+          [42.47, 3.16],
+          [43.80, 7.96],
+          [49.03, 8.08],
+          [49.03, 8.08]
+        ]);
       }
       setMapView();
 

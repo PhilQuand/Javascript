@@ -177,5 +177,11 @@ var inpAddress = [
   lat: 46.82664, lng: 2.11360},
 { inpText: "ALTKIRCH",
   lat: 47.6260, lng: 7.24011},
+{ inpText: "Loiret",
+  lat: 47.960, lng: 2.248},
+{ inpText: "SAINT GAUDENS",
+  lat: 43.1092, lng: 0.7283},
+{ inpText: "LE MANS",
+  lat: 48.0083, lng: 0.1974},
 ];
 

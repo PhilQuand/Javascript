@@ -784,7 +784,7 @@
     $(this).find('sdfield').first().css('display', 'none')
 
     function fillDiv(curDiv, curElem, strKey) {
-      var strKeyComp = strKey.replace(/[\n\r]+/g, '').replace(/\s/g, '');
+      var strKeyComp = strKey.replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
       var curNextAll = curElem.nextAll();
       curElem.appendTo(curDiv);
       curNextAll.each(function() {

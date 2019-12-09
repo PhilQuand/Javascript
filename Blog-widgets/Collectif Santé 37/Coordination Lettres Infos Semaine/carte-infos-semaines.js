@@ -788,7 +788,7 @@
       var curNextAll = curElem.nextAll();
       curElem.appendTo(curDiv);
       curNextAll.each(function() {
-        var curHtmk = $(this).html().replace(/[\n\r]+/g, '').replace(/\s/g, '')
+        var curHtmk = $(this).html().replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
         if (strKey != '' && $(this).prop("tagName") != "UL" && curHtmk.search(strKeyComp) > -1  && curHtmk.search("page") == -1) {
           curElem = $(this);
           return false;

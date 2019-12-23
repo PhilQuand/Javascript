@@ -55,18 +55,6 @@
     }
 
     $(document).ready(function() {
-      //$('.infosComités').css('display', 'none');
-        var blockData = $('.infosComités').css('display');
-        if (blockData == 'block') {
-          $('#btData').html('Données');
-          $('.dispInfoMap').css('display', 'block')
-          $('.infosComités').css('display', 'none')
-        }
-        else {
-          $('#btData').html('Carte');
-          $('.dispInfoMap').css('display', 'none')
-          $('.infosComités').css('display', 'block')
-        }
       $('#btData').click(function(e) {
         var blockData = $('.infosComités').css('display');
         if (blockData == 'block') {

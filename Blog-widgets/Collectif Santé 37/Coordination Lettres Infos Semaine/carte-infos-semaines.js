@@ -48,14 +48,14 @@
       var dateFin = href[0].dateFin;
       var strFin = href[0].dateFin.getFullYear() + "-" + ("0" + (href[0].dateFin.getMonth() + 1)).slice(-2) + "-" + ("0" + href[0].dateFin.getDate()).slice(-2);
       var dateDeb = href[hrefLength - 1].dateDeb;
-      infoMapWrap.append('<div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div>');
+      infoMapWrap.append('<div class="DateRange-wrapper"><span>' + strMapTitle + '</span><label for="from"> du : </label><input type="text" class="datepick" id="from" name="from" value="' + strDeb + '"> <label for="to"> au : </label><input type="text" class="datepick" id="to" name="to" value="' + strFin + '"> <button class="getFancyFocus  ui-button ui-widget ui-corner-all">OK</button></div>');
     }
     else {
       infoMapWrap.append('<div class="dispInfoMap">' + strMapTitle + '</div>','<button type="button" class="styled" id="btData">Données</button>');
     }
 
     $(document).ready(function() {
-      $('.infosComités').css('display', 'none');
+      //$('.infosComités').css('display', 'none');
       $('#btData').click(function(e) {
         var blockData = $('.infosComités').css('display');
         if (blockData == 'block') {
@@ -69,7 +69,6 @@
           $('.infosComités').css('display', 'block')
         }
       });
-      //$('#btData').trigger( "click" );
     });
 
     if (typeof options === 'undefined' || typeof options.iFrameGallery === 'undefined') {
@@ -906,7 +905,7 @@
           title: 'Autres Infos'
         }],
         //iconMarkers: [{class: "infoComité", title: 'Échos'}],
-        mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
+        mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
         //divBannerCoordHTML: '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>'
       });
       $('.corpsLettre > .infosComités').css('display', 'none');

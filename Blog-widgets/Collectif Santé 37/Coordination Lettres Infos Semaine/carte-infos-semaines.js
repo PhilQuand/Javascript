@@ -69,7 +69,7 @@
           $('.infosComités').css('display', 'block')
         }
       });
-      $('#btData').trigger( "click" );
+      //$('#btData').trigger( "click" );
     });
 
     if (typeof options === 'undefined' || typeof options.iFrameGallery === 'undefined') {

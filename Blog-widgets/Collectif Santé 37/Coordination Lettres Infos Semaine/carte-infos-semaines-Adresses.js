@@ -1,4 +1,6 @@
 var inpAddress = [
+{ inpText: "NORMANDIE",
+  lat: 48.989, lng: 0.215},
 { inpText: "DECAZEVILLE",
   lat: 44.56252, lng: 2.24881 },
 { inpText: "PRIVAS",
@@ -193,7 +195,5 @@ var inpAddress = [
   lat: 43.876, lng: 5.395},
 { inpText: "FALAISE",
   lat: 48.898, lng: -0.199},
-{ inpText: "NORMANDIE",
-  lat: 48.989, lng: 0.215},
 ];
 

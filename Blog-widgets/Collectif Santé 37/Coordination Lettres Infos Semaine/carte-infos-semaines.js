@@ -909,6 +909,7 @@
         //divBannerCoordHTML: '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>'
       });
       //$('.corpsLettre > .infosComités').css('display', 'none');
+      $('#btData').click();
       $('.sumComité').css('display', 'none');
     }
     //});

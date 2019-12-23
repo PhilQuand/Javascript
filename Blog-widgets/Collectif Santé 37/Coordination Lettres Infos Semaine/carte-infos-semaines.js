@@ -55,7 +55,7 @@
     }
 
     $(document).ready(function() {
-      $('.infosComités').css('display', 'none');
+      //$('.infosComités').css('display', 'none');
       $('#btData').click(function(e) {
         var blockData = $('.infosComités').css('display');
         if (blockData == 'block') {

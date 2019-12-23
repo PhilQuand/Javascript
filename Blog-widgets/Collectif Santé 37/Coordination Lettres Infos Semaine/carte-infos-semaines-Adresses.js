@@ -183,5 +183,15 @@ var inpAddress = [
   lat: 43.1092, lng: 0.7283},
 { inpText: "LE MANS",
   lat: 48.0083, lng: 0.1974},
+{ inpText: "LA CHATRE",
+  lat: 46.580, lng: 1.985},
+{ inpText: "METZ",
+  lat: 49.115, lng: 6.171},
+{ inpText: "APT",
+  lat: 43.876, lng: 5.395},
+{ inpText: "FALAISE",
+  lat: 48.898, lng: -0.199},
+{ inpText: "NORMANDIE",
+  lat: 48.989, lng: 0.215},
 ];
 

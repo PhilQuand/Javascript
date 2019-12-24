@@ -60,6 +60,7 @@
         if (blockData == 'block') {
           $('#btData').html('Données');
           $('.dispInfoMap').css('display', 'block')
+          map.invalidateSize();
           $('.infosComités').css('display', 'none')
         }
         else {
@@ -68,6 +69,7 @@
           $('.infosComités').css('display', 'block')
         }
       });
+      $('#btData').trigger("click");
     });
 
     if (typeof options === 'undefined' || typeof options.iFrameGallery === 'undefined') {
@@ -907,7 +909,7 @@
         mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
         //divBannerCoordHTML: '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>'
       });
-      $('.corpsLettre > .infosComités').css('display', 'none');
+      //$('.corpsLettre > .infosComités').css('display', 'none');
       $('.sumComité').css('display', 'none');
     }
     //});

@@ -278,7 +278,7 @@ function createSummaryAndThumb(pID, isRegular) {
 </script>
 <style>
 .bg-photo-overlay {
-    background-image: url("https://1.bp.blogspot.com/-QD4dQx3x7Ng/XgNBvRU-NMI/AAAAAAAAkqs/Xbn5wuovarExrRkTa7PX89eg63gxcCF7wCLcBGAsYHQ/s1600/Bord%2Bde%2BLoire.jpg");
+    background-image: url("https://1.bp.blogspot.com/-opaaRwNbCfA/XgNT-fyxG8I/AAAAAAAAkrk/TDWOtKZ4BoU__SfluVUzrYej6tKInUzoQCLcBGAsYHQ/s1600/Bord%2Bde%2BLoire%2B1200.png");
 //background-color: #FFFCE5;
 }
 .header-widget {

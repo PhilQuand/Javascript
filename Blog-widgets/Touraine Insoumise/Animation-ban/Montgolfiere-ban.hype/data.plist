@@ -78,17 +78,17 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2019-12-25T19:11:33Z</date>
+	<date>2019-12-25T20:40:05Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
 			<string>{{0, 0}, {1680, 991}}</string>
 			<key>identifier</key>
-			<string>container 9</string>
+			<string>container 31</string>
 			<key>isCustomizableViewContainer</key>
 			<true/>
 			<key>isCustomizableViewWrapper</key>
@@ -101,81 +101,43 @@
 					<key>frame</key>
 					<string>{{0, 0}, {1409, 991}}</string>
 					<key>identifier</key>
-					<string>container 31</string>
+					<string>container 5</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
 					<false/>
 					<key>isVertical</key>
-					<true/>
+					<false/>
 					<key>subviews</key>
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 0}, {1138, 991}}</string>
+							<string>{{0, 0}, {1409, 425}}</string>
 							<key>identifier</key>
-							<string>container 5</string>
+							<string>container 4</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
-							<false/>
+							<true/>
 							<key>isVertical</key>
-							<false/>
+							<true/>
 							<key>subviews</key>
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{0, 0}, {1138, 577.60546875}}</string>
+									<string>{{0, 0}, {1409, 425}}</string>
 									<key>identifier</key>
-									<string>container 4</string>
+									<string>timelineCustomizableContainer</string>
 									<key>isCustomizableViewContainer</key>
-									<true/>
-									<key>isCustomizableViewWrapper</key>
-									<true/>
-									<key>isVertical</key>
-									<true/>
-									<key>subviews</key>
-									<array>
-										<dict>
-											<key>frame</key>
-											<string>{{0, 0}, {1138, 577.60546875}}</string>
-											<key>identifier</key>
-											<string>timelineCustomizableContainer</string>
-											<key>isCustomizableViewContainer</key>
-											<false/>
-										</dict>
-									</array>
-								</dict>
-								<dict>
-									<key>frame</key>
-									<string>{{0, 578.60546875}, {1138, 412.39453125}}</string>
-									<key>identifier</key>
-									<string>container 3</string>
-									<key>isCustomizableViewContainer</key>
-									<true/>
-									<key>isCustomizableViewWrapper</key>
-									<true/>
-									<key>isVertical</key>
-									<true/>
-									<key>subviews</key>
-									<array>
-										<dict>
-											<key>frame</key>
-											<string>{{0, 578.60546875}, {1138, 412.39453125}}</string>
-											<key>identifier</key>
-											<string>sceneEditorCustomizableContainer</string>
-											<key>isCustomizableViewContainer</key>
-											<false/>
-										</dict>
-									</array>
+									<false/>
 								</dict>
 							</array>
 						</dict>
 						<dict>
 							<key>frame</key>
-							<string>{{1139, 0}, {270, 991}}</string>
+							<string>{{0, 426}, {1409, 565}}</string>
 							<key>identifier</key>
-							<string>container 21</string>
+							<string>container 3</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
@@ -186,9 +148,9 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{1139, 0}, {270, 991}}</string>
+									<string>{{0, 426}, {1409, 565}}</string>
 									<key>identifier</key>
-									<string>inspectorCustomizableContainer</string>
+									<string>sceneEditorCustomizableContainer</string>
 									<key>isCustomizableViewContainer</key>
 									<false/>
 								</dict>
@@ -200,7 +162,7 @@
 					<key>frame</key>
 					<string>{{1410, 0}, {270, 991}}</string>
 					<key>identifier</key>
-					<string>container 30</string>
+					<string>container 21</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -213,7 +175,7 @@
 							<key>frame</key>
 							<string>{{1410, 0}, {270, 991}}</string>
 							<key>identifier</key>
-							<string>resourcesCustomizableContainer</string>
+							<string>inspectorCustomizableContainer</string>
 							<key>isCustomizableViewContainer</key>
 							<false/>
 						</dict>
@@ -232,7 +194,7 @@
 		<key>showInspectorView</key>
 		<true/>
 		<key>showResourcesView</key>
-		<true/>
+		<false/>
 		<key>showSceneSelectorView</key>
 		<false/>
 		<key>showSceneVariantSelectorView</key>
@@ -435,19 +397,19 @@
 						<key>timeCursors</key>
 						<dict>
 							<key>kTimelineDefaultIdentifier</key>
-							<real>0.0</real>
+							<real>10.033333778381348</real>
 						</dict>
 						<key>timescale</key>
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{910, 330}</string>
+					<string>{1878, 753}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
 						<string>#FFF</string>
 						<key>breakpointWidth</key>
-						<real>600</real>
+						<real>1800</real>
 						<key>name</key>
 						<string>Taille sans titre</string>
 						<key>perspective</key>
@@ -455,20 +417,20 @@
 						<key>sceneScalePercentageSize</key>
 						<string>{1, 1}</string>
 						<key>sceneSize</key>
-						<string>{600, 150}</string>
+						<string>{1800, 462}</string>
 						<key>shouldScaleSceneHeight</key>
-						<true/>
+						<false/>
 						<key>shouldScaleSceneWidth</key>
-						<true/>
+						<false/>
 					</dict>
 					<key>oid</key>
 					<string>3</string>
 					<key>rootSymbolControllerOid</key>
 					<string>2</string>
 					<key>scrollViewOffset</key>
-					<string>{0, 0.10546875}</string>
+					<string>{0, 0}</string>
 					<key>zoomFactor</key>
-					<real>1.25</real>
+					<real>0.75</real>
 				</dict>
 			</array>
 		</dict>
@@ -497,7 +459,9 @@
 			<key>documentIdentifier</key>
 			<string>91477E66-1B02-4DB8-9204-D24926F8C890-70198-0000C54A3BE02465</string>
 			<key>selectedObjects</key>
-			<array/>
+			<array>
+				<string>6</string>
+			</array>
 			<key>symbol</key>
 			<dict>
 				<key>addToNewSceneControllers</key>
@@ -650,7 +614,7 @@
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -725,7 +689,7 @@
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>154px</string>
+							<string>462px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -767,7 +731,7 @@
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
-							<string>600px</string>
+							<string>1800px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -785,7 +749,7 @@
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>

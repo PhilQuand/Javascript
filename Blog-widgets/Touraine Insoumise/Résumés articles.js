@@ -287,15 +287,28 @@ function createSummaryAndThumb(pID, isRegular) {
     justify-content: center;
     width: 100%; 
 }
-.header-widget  img {
+.header-widget img {
     max-width: 60px; 
     width: 30%; 
     margin-right: 0.5em;
     margin-bottom: 1em;
 }
-.header-widget  div {
+.header-widget div {
     max-width: 500px; 
     width: 70%; 
+}
+/*.header-widget div h1, .header-widget div p{
+    color: #BA150E;
+}*/
+/*.header-widget div h1 {
+  text-decoration-line: underline;
+  text-decoration-color: #3FF60A;
+  text-decoration-thickness: 5px;
+}*/
+.header-widget div h1 span {
+  padding-bottom: 10px;
+  border-bottom: thick solid #3FF60A;
+  line-height: 48px;
 }
 @media (max-width: 1100px) {
     .header-widget {
@@ -313,7 +326,8 @@ function createSummaryAndThumb(pID, isRegular) {
 }
 </style>
 <script>
-$('.header-widget > div').append($('.header-widget > p'))
-$('.header-widget').prepend('<img src="https://1.bp.blogspot.com/-hgS0-K--PJE/XgNFQtTNYYI/AAAAAAAAkrE/PjnnPSEnYO0972X8Dag7QqY_5rxPWhpywCLcBGAsYHQ/s1600/Double%2BPhi.png"/>');
+$('.header-widget h1').wrapInner('<span />');
+$('.header-widget > div').append($('.header-widget > p'));
+$('.header-widget').prepend('<img src="https://1.bp.blogspot.com/-q3glREgFdhc/XgNs4Ds753I/AAAAAAAAkrw/BMiVS8ldeIgFST_88L5A5mlL-XvVZkEOgCLcBGAsYHQ/s1600/Double%2BPHI%2Bclair.png"/>');
 $('.bg-photo').remove();
 </script>

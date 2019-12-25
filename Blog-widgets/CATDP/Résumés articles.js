@@ -938,3 +938,9 @@ $(document).ready(function() {
 });
 </script>
 <!-- Fin Calendrier spatio-temporel -->
+<style>
+.bg-photo-overlay {
+background-image: url("https://1.bp.blogspot.com/-3oX1E78ddIA/XSYspRHPw0I/AAAAAAAAjb8/rTqL35gvE7cvsb8E5f7d3htvQQEfj2Q5wCPcBGAYYCw/s1600/IMG_3574%2BBlog.png");
+//background-color: #FFFCE5;
+}
+</style>

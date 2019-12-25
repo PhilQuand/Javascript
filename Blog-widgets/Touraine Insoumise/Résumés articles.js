@@ -9,6 +9,81 @@
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
 <!-- End FancyBox -->
 
+<!-- Add a modal window -->
+<div class="articleFancy" id="hidden-content-1">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-hQwJFeC-ncU/Xd-JPD7ZEFI/AAAAAAAAkjI/-zBgSYCKR9Qgj4d-lz814YdzCpa1mhMpACLcBGAsYHQ/s1600/76646845_1690669684403742_3913454117124571136_o.jpg" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<div class="articleFancy" id="hidden-content-2">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
+<style>
+.articleFancy {
+    padding: 0 0 0 0;
+    //min-width: 80%;
+    min-width: 800px;
+    height: 90vh;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    transition: box-shadow .2s;
+    display: none;
+}
+.corpsFancy {
+    width: 100%;
+    //max-height: calc(80vh - 140px);
+    max-height: 100%;
+    overflow: auto;
+    padding: 10px 15px 10px 15px;
+}
+.corpsFancy > img {
+    width: 100%;
+}
+.customInlineBaseClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.1;
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+}
+
+.customInlineBaseClass .button-close,
+.customInlineBaseClass .button-previous,
+.customInlineBaseClass .button-next {
+  background: black;
+}
+@media screen and (max-width: 1100px) {
+  .articleFancy {
+    min-width: 90%;
+  }
+}
+</style>
+<script>
+// pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
+$('.trgImgUL').fancybox({
+    baseClass: 'customInlineBaseClass',
+    smallBtn: false,
+    toolbar: false,
+    afterLoad : function(instance, current) {
+        
+        var pixelRatio = window.devicePixelRatio || 1;
+
+        if ( pixelRatio > 1.5 ) {
+            current.width  = current.width  / pixelRatio;
+            current.height = current.height / pixelRatio;
+        }
+        
+        if (instance.group.length > 1 && current.$content) {
+          if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+          else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+          else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        }
+        current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+    }
+});
+</script>
+<!-- End of modal window -->
 <style>
 .mySumFeat, .mySumReg {
 line-height: 1.6;

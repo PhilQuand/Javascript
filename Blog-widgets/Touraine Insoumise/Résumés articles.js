@@ -12,13 +12,15 @@
 <!-- Add a modal window -->
 <div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-hQwJFeC-ncU/Xd-JPD7ZEFI/AAAAAAAAkjI/-zBgSYCKR9Qgj4d-lz814YdzCpa1mhMpACLcBGAsYHQ/s1600/76646845_1690669684403742_3913454117124571136_o.jpg" />
+<!--img src="https://1.bp.blogspot.com/-hQwJFeC-ncU/Xd-JPD7ZEFI/AAAAAAAAkjI/-zBgSYCKR9Qgj4d-lz814YdzCpa1mhMpACLcBGAsYHQ/s1600/76646845_1690669684403742_3913454117124571136_o.jpg" /-->
+<img src="https://1.bp.blogspot.com/-BdLFiwH5jes/XgM-KcHMp2I/AAAAAAAAkqM/OjrrBrQGtTAIIqqZFrHYkmD_5QHpsvwAACLcBGAsYHQ/s1600/Manifeste%2BCATDP2020.jpeg" />
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
 <div class="articleFancy" id="hidden-content-2">
 <div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" />
+<!--img src="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" /-->
+<img src="https://1.bp.blogspot.com/-_JLf5kaM85s/XgM-LpS6OjI/AAAAAAAAkqQ/cqGBAqkHnQEQbrHDjGJ1jdXQO7M-oDYzwCLcBGAsYHQ/s1600/Points%2Bclefs%2BCATDP2020.jpg" />
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
@@ -273,4 +275,45 @@ function createSummaryAndThumb(pID, isRegular) {
   else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   div.innerHTML = summary;
 }
+</script>
+<style>
+.bg-photo-overlay {
+    background-image: url("https://1.bp.blogspot.com/-QD4dQx3x7Ng/XgNBvRU-NMI/AAAAAAAAkqs/Xbn5wuovarExrRkTa7PX89eg63gxcCF7wCLcBGAsYHQ/s1600/Bord%2Bde%2BLoire.jpg");
+//background-color: #FFFCE5;
+}
+.header-widget {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 100%; 
+}
+.header-widget  img {
+    max-width: 60px; 
+    width: 30%; 
+    margin-right: 0.5em;
+    margin-bottom: 1em;
+}
+.header-widget  div {
+    max-width: 500px; 
+    width: 70%; 
+}
+@media (max-width: 1100px) {
+    .header-widget {
+        display: block; 
+    }
+    .header-widget img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .header-widget div {
+        max-width: 100%;
+        width: 100%; 
+    }
+}
+</style>
+<script>
+$('.header-widget > div').append($('.header-widget > p'))
+$('.header-widget').prepend('<img src="https://1.bp.blogspot.com/-hgS0-K--PJE/XgNFQtTNYYI/AAAAAAAAkrE/PjnnPSEnYO0972X8Dag7QqY_5rxPWhpywCLcBGAsYHQ/s1600/Double%2BPhi.png"/>');
+$('.bg-photo').remove();
 </script>

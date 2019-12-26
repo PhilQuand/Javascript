@@ -281,53 +281,60 @@ function createSummaryAndThumb(pID, isRegular) {
     background-image: url("https://1.bp.blogspot.com/-opaaRwNbCfA/XgNT-fyxG8I/AAAAAAAAkrk/TDWOtKZ4BoU__SfluVUzrYej6tKInUzoQCLcBGAsYHQ/s1600/Bord%2Bde%2BLoire%2B1200.png");
 //background-color: #FFFCE5;
 }
-.header-widget {
+</style>
+<style>
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.header-widget-home {
     display: flex;
     align-items: center; 
     justify-content: center;
     width: 100%; 
 }
-.header-widget img {
+.header-widget-home img {
     max-width: 60px; 
     width: 30%; 
     margin-right: 0.5em;
     margin-bottom: 1em;
 }
-.header-widget div {
+.header-widget-home div {
     max-width: 500px; 
     width: 70%; 
 }
-/*.header-widget div h1, .header-widget div p{
-    color: #BA150E;
-}*/
-/*.header-widget div h1 {
-  text-decoration-line: underline;
-  text-decoration-color: #3FF60A;
-  text-decoration-thickness: 5px;
-}*/
-.header-widget div h1 span {
+.header-widget-home div h1 span {
   padding-bottom: 10px;
   border-bottom: thick solid #3FF60A;
   line-height: 48px;
 }
 @media (max-width: 1100px) {
-    .header-widget {
+    .header-widget-home {
         display: block; 
     }
-    .header-widget img {
+    .header-widget-home img {
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
-    .header-widget div {
+    .header-widget-home div {
         max-width: 100%;
         width: 100%; 
     }
 }
 </style>
 <script>
-$('.header-widget h1').wrapInner('<span />');
-$('.header-widget > div').append($('.header-widget > p'));
-$('.header-widget').prepend('<img src="https://1.bp.blogspot.com/-q3glREgFdhc/XgNs4Ds753I/AAAAAAAAkrw/BMiVS8ldeIgFST_88L5A5mlL-XvVZkEOgCLcBGAsYHQ/s1600/Double%2BPHI%2Bclair.png"/>');
-$('.bg-photo').remove();
+if ( window.location.pathname == '/' ){
+  //$('.bg-photo-overlay').append('<div class="video-background"><div class="video-foreground"><iframe src="https://philquand.github.io/Javascript/Blog-widgets/Touraine%20Insoumise/Animation-ban/Montgolfiere-ban.html" frameborder="0" allowfullscreen></iframe></div></div>');
+  $('.header-widget').addClass('header-widget-home');
+  $('.header-widget h1').wrapInner('<span />');
+  $('.header-widget > div').append($('.header-widget > p'));
+  $('.header-widget').prepend('<img src="https://1.bp.blogspot.com/-q3glREgFdhc/XgNs4Ds753I/AAAAAAAAkrw/BMiVS8ldeIgFST_88L5A5mlL-XvVZkEOgCLcBGAsYHQ/s1600/Double%2BPHI%2Bclair.png"/>');
+  $('.bg-photo').remove();
+}
 </script>

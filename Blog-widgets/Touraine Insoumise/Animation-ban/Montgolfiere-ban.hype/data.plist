@@ -77,12 +77,18 @@
 	<true/>
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
+	<key>headHtml</key>
+	<string>	
+	&lt;!-- jQuery for FancyBox 3--&gt;
+&lt;script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'&gt;&lt;/script&gt;
+
+	</string>
 	<key>lastCheckDate</key>
-	<date>2019-12-26T08:55:17Z</date>
+	<date>2019-12-26T09:00:06Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>1</integer>
+		<integer>0</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
@@ -233,9 +239,13 @@
 				<key>oid</key>
 				<string>14</string>
 			</dict>
+			<dict>
+				<key>className</key>
+				<string>HeadHTMLEditor</string>
+			</dict>
 		</array>
 		<key>selectedTabIndex</key>
-		<integer>0</integer>
+		<integer>2</integer>
 		<key>showInspectorView</key>
 		<true/>
 		<key>showResourcesView</key>
@@ -3589,7 +3599,7 @@ setTimeout(function(){
 		</dict>
 	</array>
 	<key>useCSSPositioning</key>
-	<false/>
+	<true/>
 	<key>useCSSReset</key>
 	<true/>
 	<key>useGraphicsAcceleration</key>

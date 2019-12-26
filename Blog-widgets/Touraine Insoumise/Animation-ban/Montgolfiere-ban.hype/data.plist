@@ -78,7 +78,7 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2019-12-25T20:40:05Z</date>
+	<date>2019-12-26T08:55:17Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
@@ -86,9 +86,9 @@
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
-			<string>{{0, 0}, {1680, 991}}</string>
+			<string>{{0, 0}, {1680, 969}}</string>
 			<key>identifier</key>
-			<string>container 31</string>
+			<string>container 40</string>
 			<key>isCustomizableViewContainer</key>
 			<true/>
 			<key>isCustomizableViewWrapper</key>
@@ -99,45 +99,83 @@
 			<array>
 				<dict>
 					<key>frame</key>
-					<string>{{0, 0}, {1409, 991}}</string>
+					<string>{{0, 0}, {1409, 969}}</string>
 					<key>identifier</key>
-					<string>container 5</string>
+					<string>container 49</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
 					<false/>
 					<key>isVertical</key>
-					<false/>
+					<true/>
 					<key>subviews</key>
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 0}, {1409, 425}}</string>
+							<string>{{0, 0}, {1138, 969}}</string>
 							<key>identifier</key>
-							<string>container 4</string>
+							<string>container 5</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
-							<true/>
+							<false/>
 							<key>isVertical</key>
-							<true/>
+							<false/>
 							<key>subviews</key>
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{0, 0}, {1409, 425}}</string>
+									<string>{{0, 0}, {1138, 457}}</string>
 									<key>identifier</key>
-									<string>timelineCustomizableContainer</string>
+									<string>container 4</string>
 									<key>isCustomizableViewContainer</key>
-									<false/>
+									<true/>
+									<key>isCustomizableViewWrapper</key>
+									<true/>
+									<key>isVertical</key>
+									<true/>
+									<key>subviews</key>
+									<array>
+										<dict>
+											<key>frame</key>
+											<string>{{0, 0}, {1138, 457}}</string>
+											<key>identifier</key>
+											<string>timelineCustomizableContainer</string>
+											<key>isCustomizableViewContainer</key>
+											<false/>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>frame</key>
+									<string>{{0, 458}, {1138, 511}}</string>
+									<key>identifier</key>
+									<string>container 3</string>
+									<key>isCustomizableViewContainer</key>
+									<true/>
+									<key>isCustomizableViewWrapper</key>
+									<true/>
+									<key>isVertical</key>
+									<true/>
+									<key>subviews</key>
+									<array>
+										<dict>
+											<key>frame</key>
+											<string>{{0, 458}, {1138, 511}}</string>
+											<key>identifier</key>
+											<string>sceneEditorCustomizableContainer</string>
+											<key>isCustomizableViewContainer</key>
+											<false/>
+										</dict>
+									</array>
 								</dict>
 							</array>
 						</dict>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 426}, {1409, 565}}</string>
+							<string>{{1139, 0}, {270, 969}}</string>
 							<key>identifier</key>
-							<string>container 3</string>
+							<string>container 21</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
@@ -148,9 +186,9 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{0, 426}, {1409, 565}}</string>
+									<string>{{1139, 0}, {270, 969}}</string>
 									<key>identifier</key>
-									<string>sceneEditorCustomizableContainer</string>
+									<string>inspectorCustomizableContainer</string>
 									<key>isCustomizableViewContainer</key>
 									<false/>
 								</dict>
@@ -160,9 +198,9 @@
 				</dict>
 				<dict>
 					<key>frame</key>
-					<string>{{1410, 0}, {270, 991}}</string>
+					<string>{{1410, 0}, {270, 969}}</string>
 					<key>identifier</key>
-					<string>container 21</string>
+					<string>container 48</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -173,9 +211,9 @@
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{1410, 0}, {270, 991}}</string>
+							<string>{{1410, 0}, {270, 969}}</string>
 							<key>identifier</key>
-							<string>inspectorCustomizableContainer</string>
+							<string>resourcesCustomizableContainer</string>
 							<key>isCustomizableViewContainer</key>
 							<false/>
 						</dict>
@@ -188,13 +226,20 @@
 		<key>mainWindowFrame</key>
 		<string>95 260 1218 748 0 0 1680 1050 </string>
 		<key>openTabs</key>
-		<array/>
+		<array>
+			<dict>
+				<key>className</key>
+				<string>HypeJavascript</string>
+				<key>oid</key>
+				<string>14</string>
+			</dict>
+		</array>
 		<key>selectedTabIndex</key>
 		<integer>0</integer>
 		<key>showInspectorView</key>
 		<true/>
 		<key>showResourcesView</key>
-		<false/>
+		<true/>
 		<key>showSceneSelectorView</key>
 		<false/>
 		<key>showSceneVariantSelectorView</key>
@@ -230,7 +275,7 @@
 	<key>monotypeProjectID</key>
 	<string>9D2C31A5-9A20-4E08-9913-33A536169986-70198-0000C573E8B5B011</string>
 	<key>oidCounter</key>
-	<integer>10</integer>
+	<integer>14</integer>
 	<key>resourcesInfo</key>
 	<dict>
 		<key>groups</key>
@@ -397,13 +442,13 @@
 						<key>timeCursors</key>
 						<dict>
 							<key>kTimelineDefaultIdentifier</key>
-							<real>10.033333778381348</real>
+							<real>1</real>
 						</dict>
 						<key>timescale</key>
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1878, 753}</string>
+					<string>{1840, 681}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -440,7 +485,24 @@
 	<key>sceneExportSlicesBySceneContainerOid</key>
 	<dict/>
 	<key>scripts</key>
-	<array/>
+	<array>
+		<dict>
+			<key>oid</key>
+			<string>14</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function showBan(hypeDocument, element, event) {
+
+setTimeout(function(){
+  $('.header-widget').css('display','block');
+  $('.subscribe-section-container').css('display','block');
+ }, 500);	
+	
+}
+</string>
+		</dict>
+	</array>
 	<key>shouldApplySizeChangesToAllScenes</key>
 	<true/>
 	<key>showAnyTimelineCompleteActionHandler</key>
@@ -459,9 +521,7 @@
 			<key>documentIdentifier</key>
 			<string>91477E66-1B02-4DB8-9204-D24926F8C890-70198-0000C54A3BE02465</string>
 			<key>selectedObjects</key>
-			<array>
-				<string>6</string>
-			</array>
+			<array/>
 			<key>symbol</key>
 			<dict>
 				<key>addToNewSceneControllers</key>
@@ -777,6 +837,18 @@
 				<string>Symbole de scène</string>
 				<key>oid</key>
 				<string>2</string>
+				<key>onSceneLoadActionHandler</key>
+				<dict>
+					<key>actions</key>
+					<array>
+						<dict>
+							<key>javascriptOid</key>
+							<string>14</string>
+							<key>type</key>
+							<integer>4</integer>
+						</dict>
+					</array>
+				</dict>
 				<key>onTopDuringSceneTransition</key>
 				<true/>
 				<key>properties</key>

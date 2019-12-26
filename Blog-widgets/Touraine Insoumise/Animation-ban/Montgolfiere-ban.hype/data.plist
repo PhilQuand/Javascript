@@ -60,7 +60,7 @@
 	<key>documentationVerticalSplitViewPosition</key>
 	<real>325</real>
 	<key>drawSceneBackgrounds</key>
-	<true/>
+	<false/>
 	<key>exportScriptArgumentsInspectorHeight</key>
 	<real>0.0</real>
 	<key>exportScriptDocumentArguments</key>
@@ -81,18 +81,23 @@
 	<string>	
 	&lt;!-- jQuery for FancyBox 3--&gt;
 &lt;script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'&gt;&lt;/script&gt;
+&lt;style&gt;
+body {
+background-color: transparent;
+}
+&lt;/style&gt;
 
 	</string>
 	<key>lastCheckDate</key>
-	<date>2019-12-26T12:35:31Z</date>
+	<date>2019-12-26T12:43:47Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>1</integer>
+		<integer>0</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
-			<string>{{0, 0}, {1680, 991}}</string>
+			<string>{{0, 0}, {1680, 969}}</string>
 			<key>identifier</key>
 			<string>container 76</string>
 			<key>isCustomizableViewContainer</key>
@@ -105,7 +110,7 @@
 			<array>
 				<dict>
 					<key>frame</key>
-					<string>{{0, 0}, {1409, 991}}</string>
+					<string>{{0, 0}, {1409, 969}}</string>
 					<key>identifier</key>
 					<string>container 5</string>
 					<key>isCustomizableViewContainer</key>
@@ -118,7 +123,7 @@
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 0}, {1409, 488}}</string>
+							<string>{{0, 0}, {1409, 466}}</string>
 							<key>identifier</key>
 							<string>container 4</string>
 							<key>isCustomizableViewContainer</key>
@@ -131,7 +136,7 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{0, 0}, {1409, 488}}</string>
+									<string>{{0, 0}, {1409, 466}}</string>
 									<key>identifier</key>
 									<string>timelineCustomizableContainer</string>
 									<key>isCustomizableViewContainer</key>
@@ -141,7 +146,7 @@
 						</dict>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 489}, {1409, 502}}</string>
+							<string>{{0, 467}, {1409, 502}}</string>
 							<key>identifier</key>
 							<string>container 3</string>
 							<key>isCustomizableViewContainer</key>
@@ -154,7 +159,7 @@
 							<array>
 								<dict>
 									<key>frame</key>
-									<string>{{0, 489}, {1409, 502}}</string>
+									<string>{{0, 467}, {1409, 502}}</string>
 									<key>identifier</key>
 									<string>sceneEditorCustomizableContainer</string>
 									<key>isCustomizableViewContainer</key>
@@ -166,7 +171,7 @@
 				</dict>
 				<dict>
 					<key>frame</key>
-					<string>{{1410, 0}, {270, 991}}</string>
+					<string>{{1410, 0}, {270, 969}}</string>
 					<key>identifier</key>
 					<string>container 21</string>
 					<key>isCustomizableViewContainer</key>
@@ -179,7 +184,7 @@
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{1410, 0}, {270, 991}}</string>
+							<string>{{1410, 0}, {270, 969}}</string>
 							<key>identifier</key>
 							<string>inspectorCustomizableContainer</string>
 							<key>isCustomizableViewContainer</key>
@@ -194,7 +199,12 @@
 		<key>mainWindowFrame</key>
 		<string>95 259 1218 749 0 0 1680 1050 </string>
 		<key>openTabs</key>
-		<array/>
+		<array>
+			<dict>
+				<key>className</key>
+				<string>HeadHTMLEditor</string>
+			</dict>
+		</array>
 		<key>selectedTabIndex</key>
 		<integer>0</integer>
 		<key>showInspectorView</key>
@@ -468,7 +478,7 @@
 			<string>A1BE9521-E4B0-4F90-B1C4-C5D55DC36C5D-82439-0000E44C0C50B047</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>6</string>
+				<string>16</string>
 			</array>
 			<key>symbol</key>
 			<dict>
@@ -675,7 +685,7 @@
 							<key>identifier</key>
 							<string>Display</string>
 							<key>objectValue</key>
-							<string>inline</string>
+							<string>none</string>
 						</dict>
 						<dict>
 							<key>identifier</key>

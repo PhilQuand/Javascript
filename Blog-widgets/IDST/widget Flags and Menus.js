@@ -1697,14 +1697,17 @@ function setArticle(article, href, lang, title, authors, sumImg, sumContent) {
     var result = getLinkContent(href);
     div.innerHTML = result.lang;
     lang = div.innerHTML;
+    //title = $(result.title).html();
     div.innerHTML = result.title;
     title = div.innerHTML;
+    //authors = $(result.authors).html();
     div.innerHTML = result.authors;
     authors = div.innerHTML;
     div.innerHTML = result.body;
     result = removeHtmlTagforAllLangs(div.innerHTML, 400, lang.split(' '), 'class="local-lang ', 'no');
     div.innerHTML = '';
     // remplace le code ASCII de l'espace insécable par son code HTML
+    //sumContent = $(result.summary.replace(/\&nbsp\;/g, "&#160;")).html();
     sumContent = result.summary.replace(/\&nbsp\;/g, "&#160;");
     sumImg = result.img;
   }
@@ -1928,7 +1931,11 @@ function setSumFlagsOnClick(e) {
   href = href.substring(0, href.length - 5) + localLang;
   e.parentNode.parentNode.children[0].href = href;*/
   e.parentNode.children[0].setAttribute("data-lngloc", localLang);
-  $(".post-body.entry-content.float-container").find("div").each(function() {
+  //var myRoot = $(".post-body.entry-content.float-container")
+  var myRoot = $(e.closest('article'));
+  //var myRoot = e.parentNode.parents('article');
+  //var myRoot = $(e.parentNode.parentNode.parentNode);
+  myRoot.find("div").each(function() {
     var className = this.className;
     if (typeof className !== 'undefined') {
       if (this.className.indexOf('local-lang') > -1) {
@@ -2061,12 +2068,12 @@ function getLinkContent(theURL) {
     result.authors = getPart(content, element, 0, 'yes').split("<")[0];*/
     var title = '';
     var authors ='';
-    if( langs.length == 1) {
+    /*if( langs.length == 1) {
       element = 'post-title entry-title';
       title = getPart(content, element, 0, 'no').split("<")[0];
       element = 'post-authors';
       authors = getPart(content, element, 0, 'no').split("<")[0];
-    } else {
+    } else {*/
     for( var i=0; i < langs.length; i++ ) {
       element = 'html2pdf-post-title ' + langs[i];
       //title.push( getPart(content, element, 0, 'no').split("<")[1].split(">")[1] );
@@ -2075,7 +2082,7 @@ function getLinkContent(theURL) {
       //authors.push( getPart(content, element, 0, 'no').split("<")[0] );
       authors += '<div class="local-lang ' + langs[i] + '">' + getPart(content, element, 0, 'no').split("<")[0] + '</div>';
     }
-    }
+    //}
     result.title = title;
     result.authors = authors;
     var element = 'post-body entry-content float-container';
@@ -2128,7 +2135,9 @@ function removeHtmlTagforAllLangs(strxInput, chopInput, LangForSummary, preLang,
   for (var iLang = 0; iLang < LangForSummary.length; iLang++) {
     var Lang = LangForSummary[iLang];
     var resul = compSumAndImg(strxInput, chopInput, Lang, preLang, isFB);
-    strxOutput += '<div ' + preLang + Lang + '">' + resul.summary + '... </div>';
+    var curSummary = '<span>' + resul.summary + '</span>';
+    curSummary = $(curSummary).html();
+    strxOutput += '<div ' + preLang + Lang + '">' + curSummary + '... </div>';
     if( img == '' ) img = resul.img;
   }
   var result = {
@@ -2255,10 +2264,10 @@ function SummaryOn(s) {
 function isTagtoSum(s,i) {
   //if(s[i][0] == 'a' || s[i].indexOf('/a>') > -1) {
   if( s[i][0] == 'a' && s[i+1].indexOf('img') != 0 ) {
-      return true; 
+    return true; 
   } 
   if( s[i].indexOf('/a>') > -1 && s[i-1].indexOf('img') != 0 ) {
-      return true; 
+    return true; 
   } 
   if( s[i].indexOf('strong') > -1 ) {
     return true;

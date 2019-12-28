@@ -892,6 +892,7 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
    var rootSite = curRootSite();
 
    setLangByTagNameTB(Lang, "div");
+   setLangByLocalFlagonTagTB(msgLangInscription.setLocforDates, "article");
 
    navIDSauv = navID;
    sauvMenuBarTyp = { navID : 0, DrpTyp : "" }
@@ -1203,6 +1204,13 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
          }
       }
    }
+  }
+  function setLangByLocalFlagonTagTB(Lang, TagName) {
+    $(TagName + ' .local-flags').each(function() {
+      if ($(this).hasClass(Lang) || (Lang == 'en-US' && $(this).hasClass('en-EN'))) {
+        $(this).click();
+      }
+    })
   }
 }
 

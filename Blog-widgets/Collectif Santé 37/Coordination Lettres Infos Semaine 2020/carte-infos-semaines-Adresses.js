@@ -195,5 +195,13 @@ var inpAddress = [
   lat: 43.876, lng: 5.395},
 { inpText: "FALAISE",
   lat: 48.898, lng: -0.199},
+{ inpText: "LES SABLES D’OLONNE",
+  lat: 46.498, lng: -1.782},
+{ inpText: "SUD AVEYRON",
+  lat: 44.463, lng: 1.970},
+{ inpText: "CHERBOURG",
+  lat: 49.640, lng: -1.616},
+{ inpText: "BLOIS",
+  lat: 47.587, lng: 1.332},
 ];
 

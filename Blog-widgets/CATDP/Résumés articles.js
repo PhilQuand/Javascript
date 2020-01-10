@@ -938,9 +938,149 @@ $(document).ready(function() {
 });
 </script>
 <!-- Fin Calendrier spatio-temporel -->
+<!-- Add a modal window -->
+<div class="articleFancy" id="hidden-content-1">
+<div class="corpsFancy">
+<!--img src="https://1.bp.blogspot.com/-hQwJFeC-ncU/Xd-JPD7ZEFI/AAAAAAAAkjI/-zBgSYCKR9Qgj4d-lz814YdzCpa1mhMpACLcBGAsYHQ/s1600/76646845_1690669684403742_3913454117124571136_o.jpg" /-->
+<img src="https://1.bp.blogspot.com/-W4BC27ezHMQ/Xgy3WHXB83I/AAAAAAAAkuY/SntigKtQ-Z0upyNuhKltAQfeRcgxR7YJgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2Bnouveau%2Blogo.png" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<div class="articleFancy" id="hidden-content-2">
+<div class="corpsFancy">
+<!--img src="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" /-->
+<img src="https://1.bp.blogspot.com/-pG00GC5ChPE/Xgy3WGbmBXI/AAAAAAAAkuU/ZurJEhIK5o0vwhGJg6iSx4ocz2bSLWXsgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2B10%2Bengagements%2Bnouveau%2B%2Blogo.png" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
 <style>
-.bg-photo-overlay {
-background-image: url("https://1.bp.blogspot.com/-3oX1E78ddIA/XSYspRHPw0I/AAAAAAAAjb8/rTqL35gvE7cvsb8E5f7d3htvQQEfj2Q5wCPcBGAYYCw/s1600/IMG_3574%2BBlog.png");
-//background-color: #FFFCE5;
+.articleFancy {
+    padding: 0 0 0 0;
+    //min-width: 80%;
+    min-width: 800px;
+    height: 90vh;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    transition: box-shadow .2s;
+    display: none;
+}
+.corpsFancy {
+    width: 100%;
+    //max-height: calc(80vh - 140px);
+    max-height: 100%;
+    overflow: auto;
+    padding: 10px 15px 10px 15px;
+}
+.corpsFancy > img {
+    width: 100%;
+}
+.customInlineBaseClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.1;
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+}
+
+.customInlineBaseClass .button-close,
+.customInlineBaseClass .button-previous,
+.customInlineBaseClass .button-next {
+  background: black;
+}
+@media screen and (max-width: 1100px) {
+  .articleFancy {
+    min-width: 90%;
+  }
 }
 </style>
+<script>
+// pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
+$('.trgImgUL').fancybox({
+    baseClass: 'customInlineBaseClass',
+    smallBtn: false,
+    toolbar: false,
+    afterLoad : function(instance, current) {
+        
+        var pixelRatio = window.devicePixelRatio || 1;
+
+        if ( pixelRatio > 1.5 ) {
+            current.width  = current.width  / pixelRatio;
+            current.height = current.height / pixelRatio;
+        }
+        
+        if (instance.group.length > 1 && current.$content) {
+          if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+          else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+          else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        }
+        current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+    }
+});
+</script>
+<!-- End of modal window -->
+<style>
+.bg-photo-overlay {
+  background-image: url("https://1.bp.blogspot.com/-3oX1E78ddIA/XSYspRHPw0I/AAAAAAAAjb8/rTqL35gvE7cvsb8E5f7d3htvQQEfj2Q5wCPcBGAYYCw/s1600/IMG_3574%2BBlog.png");
+}
+</style>
+<style>
+.img-foreground {
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  width: 20%;
+  max-width: 300px;
+  //height: 100%;
+  //pointer-events: none;
+  cursor:pointer;
+}
+/*.img-foreground {
+  animation: pulse 5s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
+.img-foreground:hover {
+    transform: scale(1.3);
+    box-shadow: 1px 1px  10px 2px  rgba(0,0,0,0.2);  
+
+}*/
+.img-foreground {
+  //background-color: red;
+  animation-name: stretch;
+  animation-duration: 2.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(.3);
+    //background-color: red;
+    border-radius: 100%;
+  }
+  10% {
+    transform: scale(1.);
+    border-radius: 0%;
+    //background-color: orange;
+  }
+  100% {
+    //transform: scale(1.2);
+    transform: scale(1.2);
+    //background-color: yellow;
+  }
+}
+</style>
+<script>
+if ( window.location.pathname == '/' ){
+  //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>');
+  $('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-IndPpM6qHrA/XhZWwC_67tI/AAAAAAAAkz0/DFIZHf5qtDsV36A5WYBoMI5fIRXSpOHDACLcBGAsYHQ/s1600/Voeux%2BCATDP2020.jpg" /></a>');
+  //$('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>').insertAfter('.bg-photo-container');
+}
+</script>

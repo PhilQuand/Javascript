@@ -213,5 +213,7 @@ var inpAddress = [
   lat: 45.6492, lng: 0.1570},
 { inpText: "MONTARGIS",
   lat: 48.0000, lng: 2.7500},
+{ inpText: "VALOGNES",
+  lat: 49.5088, lng: -1.4685},
 ];
 

@@ -215,5 +215,11 @@ var inpAddress = [
   lat: 48.0000, lng: 2.7500},
 { inpText: "VALOGNES",
   lat: 49.5088, lng: -1.4685},
+{ inpText: "CREIL",
+  lat: 49.260, lng: 2.475},
+{ inpText: "COUSERANS",
+  lat: 42.935, lng: 0.997},
+{ inpText: "CHATEAUROUX",
+  lat: 46.8125, lng: 1.696},
 ];
 

@@ -117,14 +117,14 @@
               baseClass: 'epingleFancyClass',
               toolbar: false,
               afterLoad: function(instance, current) {
-                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"></a>');
+                if(current.contentType == 'iframe") current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"></a>');
               }
             });
             $(".trgCalendarFancy").fancybox({
               baseClass: 'calendarFancyClass',
               toolbar: false,
               afterLoad: function(instance, current) {
-                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"></a>');
+                if(current.contentType == 'iframe") current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"></a>');
               }
             });
             $('.tooltipCalendar').tooltipster({

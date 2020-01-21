@@ -209,7 +209,7 @@
             '</li>';
         else
           return '<li class="' + props.provider + ' ' + props.theme + '">' +
-            '<a class="trgEpingleFancy" data-fancybox="inlineCalendar" data-src="#epingleFancy_content" href="javascript:;">' +
+            '<a class="trgEpingleFancy" data-fancybox="inlineEpingle" data-src="#epingleFancy_content" href="javascript:;">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';

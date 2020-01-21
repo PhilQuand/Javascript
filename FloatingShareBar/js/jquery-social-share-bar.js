@@ -71,6 +71,7 @@
           position = settings.position || 'left',
           theme = settings.theme || 'circle',
           calendarBg = settings.calendarBg || 'https://1.bp.blogspot.com/-ENTWjtaqKJk/XW1QBX5vGhI/AAAAAAAAj3o/KRFNKfFA4MciHj7WlX2YVeJCH-EJLvyygCLcBGAs/s1600/image-6.png',
+          epingleBg = settings.epingleBg || 'https://1.bp.blogspot.com/-MMKekE9ZC4M/XidQUDk7OPI/AAAAAAAAk4Y/EtTXBZttL1ECrEH9LpQyAJHG-X-bHLMrgCLcBGAsYHQ/s1600/IDST%2Btransparent.png',
           calendarFancy = settings.calendarFancy || '',
           epingleFancy = settings.epingleFancy || '',
           epingleIcon = settings.epingleIcon || 'fa fa-heart faa-pulse animated',
@@ -108,6 +109,7 @@
               epingleIcon: epingleIcon,
               calendarFancy: calendarFancy,
               calendarBg: calendarBg,
+              epingleBg: epingleBg,
               itemTriggerClass: settings.itemTriggerClass
             })).appendTo($element);
           }
@@ -202,13 +204,13 @@
 
       if (props.provider === 'epingleFancy') {
         if (props.epingleFancy != '')
-          return '<li class="' + props.provider + ' ' + props.theme + '">' +
+          return '<li class="' + props.provider + '" style="background: url(' + "'" + props.epingleBg + "'" + '); background-size: 45px;">' +
             '<a class="trgEpingleFancy" data-fancybox="inlineEpingle" data-type="iframe" data-src="' + props.epingleFancy + '">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';
         else
-          return '<li class="' + props.provider + ' ' + props.theme + '">' +
+          return '<li class="' + props.provider + '" style="background: url(' + "'" + props.epingleBg + "'" + '); background-size: 45px;">' +
             '<a class="trgEpingleFancy" data-fancybox="inlineEpingle" data-src="#epingleFancy_content" href="javascript:;">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +

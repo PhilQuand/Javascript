@@ -59,7 +59,7 @@
         viewAllStartIndex: 'auto',
         loading: 'loading...',
         getViewAllText: function(imagesCount) {
-            return 'View all ' + imagesCount + ' images';
+            return 'Voir les ' + imagesCount + ' images';
         },
         onGridRendered: $.noop,
         onGridItemRendered: $.noop,
@@ -300,15 +300,11 @@
                 }),
                 $('<span>', {
                     class: 'view-all-text',
-                    click: this.onImageClick,
+                    click:  function(event) {$("[data-fancybox='fancy-box-" + opts.element.attr('id') + "']").eq(0).find("img").trigger("click");},
                     text: opts.getViewAllText(opts.images.length)
                 })
             )
         );
-       if(opts.fancybox) {
-           lastPicture.find(".view-all-cover").wrap('<a  href="javascript:;" data-src="' + src + '" data-fancybox="fancy-box-' + opts.element.attr("id") + '" data-caption="' + title + '"></a>') 
-           lastPicture.find(".view-all-text").wrap('<a  href="javascript:;" data-src="' + src + '" data-fancybox="fancy-box-' + opts.element.attr("id") + '" data-caption="' + title + '"></a>') 
-       }
     }
 
     ImagesGrid.prototype.onWindowResize = function(event) {
@@ -332,9 +328,8 @@
         }
 
         if(opts.fancybox) {
-            var fancybox1 = $("[data-fancybox='fancy-box']");
-            var fancybox1 = $("[data-fancybox]");
-            $("[data-fancybox='fancy-box']").eq(imageIndex).find("img").trigger("click");
+            //var fancybox1 = $("[data-fancybox='fancy-box-" + opts.element.attr('id') + "']");
+            $("[data-fancybox='fancy-box-" + opts.element.attr('id') + "']").eq(imageIndex).find("img").trigger("click");
         }
         else this.modal.open(imageIndex);
     }

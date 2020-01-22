@@ -70,8 +70,6 @@
           pageDesc = settings.pageDesc || $('head > meta[name="description"]').attr("content") || '',
           position = settings.position || 'left',
           theme = settings.theme || 'circle',
-          calendarBg = settings.calendarBg || 'https://1.bp.blogspot.com/-ENTWjtaqKJk/XW1QBX5vGhI/AAAAAAAAj3o/KRFNKfFA4MciHj7WlX2YVeJCH-EJLvyygCLcBGAs/s1600/image-6.png',
-          epingleBg = settings.epingleBg || 'https://1.bp.blogspot.com/-8DiSCZoz8PY/Xif8dCfCsBI/AAAAAAAAk4w/JnJqgl_r90IDmvQrr4dmc5kzEX8-6fMzwCLcBGAsYHQ/s320/A%2Bla%2BUne%2BIDST%2Btransparent.png',
           calendarFancy = settings.calendarFancy || '',
           epingleFancy = settings.epingleFancy || '',
           epingleIcon = settings.epingleIcon || 'far',
@@ -107,8 +105,6 @@
               theme: theme,
               epingleFancy: epingleFancy,
               epingleIcon: epingleIcon,
-              calendarFancy: calendarFancy,
-              calendarBg: calendarBg,
               epingleBg: epingleBg,
               itemTriggerClass: settings.itemTriggerClass
             })).appendTo($element);

@@ -70,24 +70,29 @@
 
 .myShareBar.animate .sharing-providers > li:hover {
   transform: translateX(5px);
+  cursor: grab;
 }
 
 .myShareBar.right.animate .sharing-providers > li:hover {
   transform: translateX(-5px);
+  cursor: grab;
 }
 
-.sharing-providers > li.calendarTooltipster, .sharing-providers > li.calendarFancy, .sharing-providers > li.epingleFancy {
+.sharing-providers > li.calendarTooltipster, .sharing-providers > li.calendarFancy {
   margin-bottom: 4em;
 }
 .sharing-providers > li.epingleFancy {
-  width: 60px;
-  height: 60px;
+  margin-bottom: 2em;
+}
+.sharing-providers > li.epingleFancy {
+  width: 150px;
+  height: 100px;
   background: #7A1F1E;
 }
 .sharing-providers > li.epingleFancy > a {
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
+  width: 150px;
+  height: 100px;
+  //line-height: 60px;
 }
 .sharing-providers > li.calendarTooltipster, .sharing-providers > li.calendarFancy {
   //background: #999933;

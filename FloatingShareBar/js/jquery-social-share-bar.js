@@ -205,14 +205,12 @@
       if (props.provider === 'epingleFancy') {
         if (props.epingleFancy != '')
           return '<li class="' + props.provider + '">' +
-          //return '<li class="' + props.provider + '" style="background: url(' + "'" + props.epingleBg + "'" + '); background-size: 150px;  width: 150px; height: 100px">' +
             '<a class="trgEpingleFancy" data-fancybox="inlineEpingle" data-type="iframe" data-src="' + props.epingleFancy + '">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';
         else
           return '<li class="' + props.provider + '">' +
-          //return '<li class="' + props.provider + '" style="background: url(' + "'" + props.epingleBg + "'" + '); background-size: 150px;  width: 150px; height: 100px">' +
             '<a class="trgEpingleFancy" data-fancybox="inlineEpingle" data-src="#epingleFancy_content" href="javascript:;">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
@@ -220,20 +218,20 @@
       }
       if (props.provider === 'calendarFancy') {
         if (props.calendarFancy != '')
-          return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
+          return '<li class="' + props.provider + '">' +
             '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-type="iframe" data-src="' + props.calendarFancy + '">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';
         else
-          return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
+          return '<li class="' + props.provider + '">' +
             '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';
       }
       if (props.provider === 'calendarTooltipster') {
-        return '<li class="' + props.provider + '" style="background: url(' + "'" + props.calendarBg + "'" + '); background-size: 45px;">' +
+        return '<li class="' + props.provider + '">' +
           '<a class="tooltipCalendar" data-tooltip-content="#calendarTooltipster_content"  href="#" title="flash info">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +

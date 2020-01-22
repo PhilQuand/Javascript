@@ -105,7 +105,7 @@
               theme: theme,
               epingleFancy: epingleFancy,
               epingleIcon: epingleIcon,
-              epingleBg: epingleBg,
+              calendarFancy: calendarFancy,
               itemTriggerClass: settings.itemTriggerClass
             })).appendTo($element);
           }

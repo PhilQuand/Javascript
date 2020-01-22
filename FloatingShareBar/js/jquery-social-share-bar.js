@@ -204,13 +204,15 @@
 
       if (props.provider === 'epingleFancy') {
         if (props.epingleFancy != '')
-          return '<li class="' + props.provider + '" style="background: url(' + "'" + props.epingleBg + "'" + '); background-size: 150px;  width: 150px; height: 100px">' +
+          return '<li class="' + props.provider + '">' +
+          //return '<li class="' + props.provider + '" style="background: url(' + "'" + props.epingleBg + "'" + '); background-size: 150px;  width: 150px; height: 100px">' +
             '<a class="trgEpingleFancy" data-fancybox="inlineEpingle" data-type="iframe" data-src="' + props.epingleFancy + '">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';
         else
-          return '<li class="' + props.provider + '" style="background: url(' + "'" + props.epingleBg + "'" + '); background-size: 150px;  width: 150px; height: 100px">' +
+          return '<li class="' + props.provider + '">' +
+          //return '<li class="' + props.provider + '" style="background: url(' + "'" + props.epingleBg + "'" + '); background-size: 150px;  width: 150px; height: 100px">' +
             '<a class="trgEpingleFancy" data-fancybox="inlineEpingle" data-src="#epingleFancy_content" href="javascript:;">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +

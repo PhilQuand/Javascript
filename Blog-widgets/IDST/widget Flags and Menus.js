@@ -31,7 +31,14 @@
   //alert(e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;));
   window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;);
   return false;
-}(this);" data-lngloc="fr-FR"><div class="local-lang fr-FR" style="display: block;">Notre congrès à Marseille&nbsp;des 22 et 23 novembre 2019&nbsp;: le compte rendu</div><div class="local-lang en-EN" style="display: none;">Our congress in Marseille on November 22 and 23, 2019: the minutes</div><div class="local-lang es-ES" style="display: none;">Nuestro congreso en Marsella los días 22 y 23 de noviembre de 2019: las actas</div></a><img src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png" width="32" height="32" alt="es-ES" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags es-ES"><img src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png" width="32" height="32" alt="en-EN" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags en-EN"><img src="https://philquand.github.io/Javascript/flagsRepository/France.png" width="32" height="32" alt="fr-FR" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags fr-FR"></h3><h3 style="display: none;"><div class="local-lang fr-FR" style="display: block;">Notre congrès à Marseille&nbsp;des 22 et 23 novembre 2019&nbsp;: le compte rendu</div><div class="local-lang en-EN" style="display: none;">Our congress in Marseille on November 22 and 23, 2019: the minutes</div><div class="local-lang es-ES" style="display: none;">Nuestro congreso en Marsella los días 22 y 23 de noviembre de 2019: las actas</div></h3><h2 class="authors post-authors"><div class="local-lang fr-FR" style="display: block;">La Rédaction du blog</div><div class="local-lang en-EN" style="display: none;">Blog editorial team</div><div class="local-lang es-ES" style="display: none;">La redacción del blog</div></h2><img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)"></div><div style="display: block"><div class="post-header item-content float-container"><span class="imgSum"><img data-img="yes" src="https://1.bp.blogspot.com/-Xwfy_uMmuz4/Xh7Kwa2VG9I/AAAAAAAAk1Y/A3KGEPzE7BYMFQHNhJzao6bJwGnDRWbMgCLcBGAsYHQ/s320/DSC09279_2x.jpg" width="180px" height="auto"></span><div class="incrustation"><div class="local-lang fr-FR" style="display: block;">
+}(this);" data-lngloc="fr-FR"><div class="local-lang fr-FR" style="display: block;">Notre congrès à Marseille&nbsp;des 22 et 23 novembre 2019&nbsp;: le compte rendu</div><div class="local-lang en-EN" style="display: none;">Our congress in Marseille on November 22 and 23, 2019: the minutes</div><div class="local-lang es-ES" style="display: none;">Nuestro congreso en Marsella los días 22 y 23 de noviembre de 2019: las actas</div></a>
+<img src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png" width="32" height="32" alt="es-ES" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags es-ES"><img src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png" width="32" height="32" alt="en-EN" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags en-EN"><img src="https://philquand.github.io/Javascript/flagsRepository/France.png" width="32" height="32" alt="fr-FR" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags fr-FR"></h3><h3 style="display: none;"><div class="local-lang fr-FR" style="display: block;">Notre congrès à Marseille&nbsp;des 22 et 23 novembre 2019&nbsp;: le compte rendu</div><div class="local-lang en-EN" style="display: none;">Our congress in Marseille on November 22 and 23, 2019: the minutes</div><div class="local-lang es-ES" style="display: none;">Nuestro congreso en Marsella los días 22 y 23 de noviembre de 2019: las actas</div></h3>
+<h2 class="authors">
+<div class="local-lang fr-FR" style="display: block;">La Rédaction du blog</div>
+<div class="local-lang en-EN" style="display: none;">Blog editorial team</div>
+<div class="local-lang es-ES" style="display: none;">La redacción del blog</div>
+</h2>
+<img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)"></div><div style="display: block"><div class="post-header item-content float-container"><span class="imgSum"><img data-img="yes" src="https://1.bp.blogspot.com/-Xwfy_uMmuz4/Xh7Kwa2VG9I/AAAAAAAAk1Y/A3KGEPzE7BYMFQHNhJzao6bJwGnDRWbMgCLcBGAsYHQ/s320/DSC09279_2x.jpg" width="180px" height="auto"></span><div class="incrustation"><div class="local-lang fr-FR" style="display: block;">
 Quelques
 remerciements tout d’abord&nbsp;:
 au journal La Marseillaise qui nous a
@@ -49,7 +56,9 @@ to the editorial team of the International of Knowledge for All (IKA) and its bl
 En primer lugar, unas palabras de agradecimiento:
 al periódico La Marsellesa que nos acogió en sus instalaciones, 
 a Jean-Pierre Brundu, responsable de la Universidad popular de Marsella-Métropole (UPOP) y a Boris Humbert por el hermoso <a href="https://drive.google.com/file/d/1PN955UOts1jZSRzjyU9Znk5gdsFRQXwi/view?usp=sharing">folleto</a> que ha realizado,
-al equipo editorial de la Internacional del Saber para Todos... </div></div><div style="text-align: right; display: none;"><a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=fr" title="À l’origine de notre Internationale">Lire la suite</a></div></div></div></article>
+al equipo editorial de la Internacional del Saber para Todos... </div></div><div style="text-align: right; display: none;"><a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=fr" title="À l’origine de notre Internationale">Lire la suite</a></div></div>
+</div>
+</article>
 </div>
 </div>
 
@@ -95,21 +104,33 @@ Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</di
     max-width: 600px;
     height: 400px;
 }
+@media (max-width: 800px) {
+.sharing-providers > li.epingleFancy {
+  background-size: 90px;
+  width: 90px;
+  height: 60px;
+}
+.sharing-providers > li.epingleFancy > a {
+  width: 90px;
+  height: 60px;
+}
+}
 </style>
 <script>
 $(document).ready(function() {
 // if calendarFancy defined, it's the url of an iFrame fancyox otherwise fancybox is of div with div id as #calendarFancy_content
   $('#share-bar').share({
-    //'channels': ['calendarFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email'],
-    //calendarFancy: 'https://philquand.github.io/Javascript/Blog-widgets/IDST/Congrès-IDST-Nov-2019/CongresIDST.html'
+    //'channels': ['facebook', 'twitter', 'linkedin', 'pdf', 'email'],
     'channels': ['epingleFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email'],
     //epingleFancy: 'https://philquand.github.io/Javascript/Blog-widgets/IDST/Congrès-IDST-Nov-2019/CongresIDST.html'
   });
   var pathname = window.location.pathname;
   if ((pathname != "/") && (pathname != "/search") && (pathname.indexOf("/p/la-science-pour-le-plus-grand-nombre") == -1)) {
       $('.sharing-providers .calendarFancy').css('display','none');
+      //$('#calendarFancy_content').remove();
       $('.sharing-providers .epingleFancy').css('display','none');
- }
+      //$('#epingleFancy_content').remove();
+}
 });
 </script>
 <script>
@@ -3500,6 +3521,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
 };
 $.fn.SummaryGallery = function(options) {
 
+  var myRoot = $(this);
   if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
 
     var extHrefList = [];
@@ -3528,7 +3550,7 @@ $.fn.SummaryGallery = function(options) {
           var article = $('<article id=' + articleId + '></article>');
           article.append($('<div class="item-content float-container res-title"></div>')
             .append($('<h3 style="display: block;" ></h3>')
-              .append($('<a href=""></a>')), $('<h3 style="display: none;"></h3>'), $('<h2 class="authors post-authors"></h2>'), $('<img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)"/>')
+              .append($('<a href=""></a>')), $('<h3 style="display: none;"></h3>'), $('<h2 class="authors"></h2>'), $('<img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)"/>')
             ), $('<div style="display: block"></div>')
             .append($('<div class="post-header item-content float-container"></div>')
               .append($('<span class="imgSum"><img data-img="yes" src="" width="180px" height="auto" ></img></span>'), $('<div class="incrustation"></div>'), $('<div style="text-align: right; display: none;">')
@@ -3564,13 +3586,14 @@ $.fn.SummaryGallery = function(options) {
   }
   $(document).ready(function() {
     //var allArticles = document.getElementById("tous les articles").children;
-    var allArticles = document.getElementsByTagName('article');
+    //var allArticles = document.getElementsByTagName('article');
+    var allArticles = myRoot.find('article');
     //var allColors= ['rgba(208,225,226, .12)', 'rgba(208,225,226, .4)']; 
     //var allColors= ['#DBCEE4', '#C6D0E4']; 
     //var allColors= ['#BEC9E4', '#DADAE3']; 
     var allColors = ['rgba(190,201,228, .5)', 'rgba(218,218,227, .8)'];
     var prvColor = -1;
-    for (var i = 1; i < allArticles.length; i++) {
+    for (var i = 0; i < allArticles.length; i++) {
       if (allArticles[i].style.display != "none") {
         var newColor = prvColor + 1
         if (newColor == allColors.length) newColor = 0

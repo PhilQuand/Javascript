@@ -71,10 +71,10 @@
           position = settings.position || 'left',
           theme = settings.theme || 'circle',
           calendarBg = settings.calendarBg || 'https://1.bp.blogspot.com/-ENTWjtaqKJk/XW1QBX5vGhI/AAAAAAAAj3o/KRFNKfFA4MciHj7WlX2YVeJCH-EJLvyygCLcBGAs/s1600/image-6.png',
-          epingleBg = settings.epingleBg || 'https://1.bp.blogspot.com/-MMKekE9ZC4M/XidQUDk7OPI/AAAAAAAAk4Y/EtTXBZttL1ECrEH9LpQyAJHG-X-bHLMrgCLcBGAsYHQ/s1600/IDST%2Btransparent.png',
+          epingleBg = settings.epingleBg || 'https://1.bp.blogspot.com/-763jrjSWNxA/XifscgvGykI/AAAAAAAAk4k/f9_-dimzGiIBGAHNNlciqae9YYA2y-6WACLcBGAsYHQ/s1600/A%2Bla%2BUne%2BIDST%2Btransparent.png',
           calendarFancy = settings.calendarFancy || '',
           epingleFancy = settings.epingleFancy || '',
-          epingleIcon = settings.epingleIcon || 'fa fa-heart faa-pulse animated',
+          epingleIcon = settings.epingleIcon || 'far',
           animate = settings.animate === false ? false : true,
           u = encodeURIComponent(pageUrl),
           t = encodeURIComponent(pageTitle);

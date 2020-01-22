@@ -305,6 +305,10 @@
                 })
             )
         );
+       if(opts.fancybox) {
+           lastPicture.find(".view-all-cover").wrap('<a  href="javascript:;" data-src="' + src + '" data-fancybox="fancy-box-' + opts.element.attr("id") + '" data-caption="' + title + '"></a>') 
+           lastPicture.find(".view-all-text").wrap('<a  href="javascript:;" data-src="' + src + '" data-fancybox="fancy-box-' + opts.element.attr("id") + '" data-caption="' + title + '"></a>') 
+       }
     }
 
     ImagesGrid.prototype.onWindowResize = function(event) {

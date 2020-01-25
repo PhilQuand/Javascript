@@ -214,20 +214,20 @@
       }
       if (props.provider === 'calendarFancy') {
         if (props.calendarFancy != '')
-          return '<li class="' + props.provider + '">' +
+          return '<li class="transl ' + props.provider + '">' +
             '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-type="iframe" data-src="' + props.calendarFancy + '">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';
         else
-          return '<li class="' + props.provider + '">' +
+          return '<li class="transl ' + props.provider + '">' +
             '<a class="trgCalendarFancy" data-fancybox="inlineCalendar" data-src="#calendarFancy_content" href="javascript:;">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
             '</li>';
       }
       if (props.provider === 'calendarTooltipster') {
-        return '<li class="' + props.provider + '">' +
+        return '<li class="transl ' + props.provider + '">' +
           '<a class="tooltipCalendar" data-tooltip-content="#calendarTooltipster_content"  href="#" title="flash info">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
@@ -236,7 +236,7 @@
       else if (props.provider === 'pdf') {
         var pdfRef = document.getElementById('pdf-ref');
         if (pdfRef !== null) {
-          return '<li class="' + props.provider + ' ' + props.theme + '">' +
+          return '<li class="transl ' + props.provider + ' ' + props.theme + '">' +
             '<a href="#" onclick="javascript: var pdfRef = document.getElementById(' + "'pdf-ref'" + '); if (pdfRef !== null) window.location.href = pdfRef.href;" title="pdf version" id="pdf-icon">' +
             '<i class="' + iconClasses[props.provider] + '"></i>' +
             '</a>' +
@@ -244,21 +244,21 @@
         }
       }
       else if (props.provider === 'facebook') {
-        return '<li class="' + props.provider + ' ' + props.theme + '">' +
+        return '<li class="transl ' + props.provider + ' ' + props.theme + '">' +
           '<a href="#" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '" onclick="fbSummarize(); return false;">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';
       }
       else if (props.provider === 'email') {
-        return '<li class="' + props.provider + ' ' + props.theme + '">' +
+        return '<li class="transl ' + props.provider + ' ' + props.theme + '">' +
           '<a href="' + props.href + '" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';
       }
       else {
-        return '<li class="' + props.provider + ' ' + props.theme + '">' +
+        return '<li class="transl ' + props.provider + ' ' + props.theme + '">' +
           '<a href="#" data-href="' + props.href + '" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '" class="' + props.itemTriggerClass + ' ' + props.provider + '">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +

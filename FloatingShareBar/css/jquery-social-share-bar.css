@@ -63,17 +63,17 @@
   color: white;
   font-size: 25px;
 }
-.sharing-providers > li > a,
-.sharing-providers > li > a:hover {
+.sharing-providers > .transl > a,
+.sharing-providers > .transl > a:hover {
   text-decoration: none;
 }
 
-.myShareBar.animate .sharing-providers > li:hover {
+.myShareBar.animate .sharing-providers > .transl:hover {
   transform: translateX(5px);
   //cursor: grab;
 }
 
-.myShareBar.right.animate .sharing-providers > li:hover {
+.myShareBar.right.animate .sharing-providers > .transl:hover {
   transform: translateX(-5px);
   //cursor: grab;
 }
@@ -176,7 +176,7 @@
   .myShareBar .sharing-providers > li {
     display: inline-block;
   }
-  .myShareBar.animate .sharing-providers > li:hover {
+  .myShareBar.animate .sharing-providers > .transl:hover {
     transform: translateX(0px) !important;
     transform: translateY(-5px) !important;
   }

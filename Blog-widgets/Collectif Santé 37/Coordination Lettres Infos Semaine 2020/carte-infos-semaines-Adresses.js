@@ -111,6 +111,8 @@ var inpAddress = [
   lat: 45.6, lng:  4.05},
 { inpText: "SAINT CLAUDE",
   lat: 46.3929, lng:  5.86449},
+{ inpText: "VALENCE",
+  lat: 44.931, lng:  4.891},
 { inpText: "QUIMPER",
   lat: 47.9947, lng:  -4.1079},
 { inpText: "SAINT AGRÈVE",
@@ -221,5 +223,7 @@ var inpAddress = [
   lat: 42.935, lng: 0.997},
 { inpText: "CHATEAUROUX",
   lat: 46.8125, lng: 1.696},
+{ inpText: "COORDINATION NATIONALE",
+  lat: 47.687	, lng: 6.495},
 ];
 

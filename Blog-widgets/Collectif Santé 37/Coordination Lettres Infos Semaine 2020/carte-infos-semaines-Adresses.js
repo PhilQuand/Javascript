@@ -224,6 +224,6 @@ var inpAddress = [
 { inpText: "CHATEAUROUX",
   lat: 46.8125, lng: 1.696},
 { inpText: "COORDINATION NATIONALE",
-  lat: 47.687	, lng: 6.495},
+  lat: 47.687, lng: 6.495},
 ];
 

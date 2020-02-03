@@ -389,7 +389,7 @@
         }
         divLegend.innerHTML = '';
         for (k = 0; k < iconMarkersLength; k++) {
-          if (typeof iconMarkers[k].title !== 'undefined') {
+          if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
             if (typeof iconMarkers[k].icon === 'undefined') {
               divLegend.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
             }
@@ -583,7 +583,7 @@
         console.log("A new date selection was made: " + timeMin + ' to ' + timeMax);
         divLegend.innerHTML = '';
         for (k = 0; k < iconMarkersLength; k++) {
-          if (typeof iconMarkers[k].title !== 'undefined') {
+          if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
             if (typeof iconMarkers[k].icon === 'undefined') {
               divLegend.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
             }

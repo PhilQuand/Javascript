@@ -1,8 +1,12 @@
     var archi = [
-         {
+          {
+          svgInfos: ['Semaine 05', 'du 27 jan.', 'au 31 jan.', '2020'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 05.html',
+          idGlinkID: 'PreviousLetters'
+        },
+        {
           svgInfos: ['Semaine 04', 'du 20 jan.', 'au 24 jan.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 04.html',
-          idGlinkID: 'PreviousLetters'
         },
          {
           svgInfos: ['Semaine 03', 'du 13 jan.', 'au 17 jan.', '2020'],

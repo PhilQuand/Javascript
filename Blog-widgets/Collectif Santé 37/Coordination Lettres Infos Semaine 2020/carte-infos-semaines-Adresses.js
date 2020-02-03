@@ -209,6 +209,8 @@ var inpAddress = [
   lat: 47.274, lng: -2.258},
 { inpText: "SAINT AFFRIQUE",
   lat: 43.9574, lng: 2.8816},
+{ inpText: "SAINT-AFFRIQUE",
+  lat: 43.9574, lng: 2.8816},
 { inpText: "LES SABLES D'OLONNE",
   lat: 46.4979, lng: -1.782},
 { inpText: "ANGOULEME",

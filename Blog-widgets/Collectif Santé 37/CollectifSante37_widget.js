@@ -94,7 +94,7 @@ function loadMap() {
 
 function add2Layer(myLayer, inputCollection, setCallBack, iconSize) {
 
-  // définition de la classe FlagIcon
+  // d√©finition de la classe FlagIcon
   var FlagIcon = L.Icon.extend({
     options: {
       iconSize: iconSize, // size of the icon
@@ -106,12 +106,12 @@ function add2Layer(myLayer, inputCollection, setCallBack, iconSize) {
   for (var i = 0; i < inputCollection.length; i++) {
     var input = inputCollection[i];
 
-    // définition des lieux (icons)
+    // d√©finition des lieux (icons)
     var myIcon = new FlagIcon({
       iconUrl: input.flag
     });
 
-    // définition des markers associés au groupe météo des luttes
+    // d√©finition des markers associ√©s au groupe m√©t√©o des luttes
     var marker = L.marker([input.lat, input.lng], {
       icon: myIcon
     }).addTo(myLayer);
@@ -157,16 +157,16 @@ function loadMapTopoJSON(map, colorDeb, colorFin, colorStyle) {
     //load.img('images/logo.png')
     //load.js('lib/main.js'), 
 
-    // Début ressources utilisées pour construire la carte mondiale colorée TopoJSON
-    // ressources chroma.js utilisées pour construire la carte TopoJSON colorée
+    // D√©but ressources utilis√©es pour construire la carte mondiale color√©e TopoJSON
+    // ressources chroma.js utilis√©es pour construire la carte TopoJSON color√©e
     //load.js('https://drive.google.com/uc?export=download&id=1vAhVcT9intE5QEkcuu3UQOBEutYjKtaO'),
     load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
-    // ressources utilisées pour construire la carte TopoSJON
+    // ressources utilis√©es pour construire la carte TopoSJON
     load.js('https://d3js.org/topojson.v1.min.js'),
-    // données de la carte TopoSJON
+    // donn√©es de la carte TopoSJON
     //load.js('https://drive.google.com/uc?export=download&id=1WZyHrCgJmR3mCAdQMHicqT0yjKASiJpE')
     load.js('https://philquand.github.io/Javascript/LeafLet/countries.topo.json')
-    // Fint ressources utilisées pour construire la carte mondiale colorée TopoJSON
+    // Fint ressources utilis√©es pour construire la carte mondiale color√©e TopoJSON
 
   ]).then(function() {
     console.log('Everything has loaded!');
@@ -203,7 +203,7 @@ function loadMapTopoJSON(map, colorDeb, colorFin, colorStyle) {
   });
 };
 
-// Constructeur de la planisphère openstreetmap pour LeafLet
+// Constructeur de la planisph√®re openstreetmap pour LeafLet
 function loadOpenStreetWorld(map) {
 
   var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
@@ -224,7 +224,7 @@ function loadMapBox(map) {
   var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNqcmZlOWFwMjBuMnQ0NW1qN3VhczNhMW4ifQ.OSyAGC_JQQUISRiSuc8ghg';
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery ¬© <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     //id: 'mapbox.light',
@@ -233,11 +233,11 @@ function loadMapBox(map) {
 
 };
 
-// Constructeur de la carte GeoJSON des régions françaises pour LeafLet
+// Constructeur de la carte GeoJSON des r√©gions fran√ßaises pour LeafLet
 function loadRegFranceJSONN(map, getColor) {
   // Usage:  Load different file types with one callback
   Promise.all([
-    // GeoJSON des régions françaises
+    // GeoJSON des r√©gions fran√ßaises
     //load.js('https://drive.google.com/uc?export=download&id=1hrJGwENimzW4gmf812yAZQk1z1KivZSU')
     load.js('https://philquand.github.io/Javascript/LeafLet/regionsFranceData.js')
   ]).then(function() {
@@ -262,11 +262,11 @@ function loadRegFranceJSONN(map, getColor) {
   });
 };
 
-// Constructeur de la carte GeoJSON des départements françaises pour LeafLet
+// Constructeur de la carte GeoJSON des d√©partements fran√ßaises pour LeafLet
 function loadDeptFranceJSONN(map, getColor, getFilter) {
   // Usage:  Load different file types with one callback
   Promise.all([
-    // GeoJSON des régions françaises
+    // GeoJSON des r√©gions fran√ßaises
     //load.js('https://drive.google.com/uc?export=download&id=1D_ajtPoOkMWqaz8o8LkKPYjRd-LuxjJw')
     load.js('https://philquand.github.io/Javascript/LeafLet/deptsFranceData.js')
   ]).then(function() {
@@ -546,5 +546,134 @@ function createSummaryAndThumb(pID, isRegular) {
   if( isRegular ) summary = '<div style="position: 0;" class="mySumReg"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   div.innerHTML = summary;
+}
+</script>
+
+<!-- Add a modal window -->
+<div class="articleFancy" id="hidden-content-1">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-iqvg5_HOcwY/Xj-5ymWizjI/AAAAAAAAk8U/Hd-Wbtd6Z3AfuzWr2kfvduaWY_QklozxACLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-09%2Ba%25CC%2580%2B08.50.02.png" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<!--div class="articleFancy" id="hidden-content-2">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-pG00GC5ChPE/Xgy3WGbmBXI/AAAAAAAAkuU/ZurJEhIK5o0vwhGJg6iSx4ocz2bSLWXsgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2B10%2Bengagements%2Bnouveau%2B%2Blogo.png" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
+<!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
+<style>
+.articleFancy {
+    padding: 0 0 0 0;
+    //min-width: 80%;
+    min-width: 800px;
+    height: 90vh;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    transition: box-shadow .2s;
+    display: none;
+}
+.corpsFancy {
+    width: 100%;
+    //max-height: calc(80vh - 140px);
+    max-height: 100%;
+    overflow: auto;
+    padding: 10px 15px 10px 15px;
+}
+.corpsFancy > img {
+    width: 100%;
+}
+.customInlineBaseClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.1;
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+}
+
+.customInlineBaseClass .button-close,
+.customInlineBaseClass .button-previous,
+.customInlineBaseClass .button-next {
+  background: black;
+}
+@media screen and (max-width: 1100px) {
+  .articleFancy {
+    min-width: 90%;
+  }
+}
+</style>
+<script>
+// pour d√©clencher: https://latouraineinsoumise.blogspot.com/#images-1
+$('.trgImgUL').fancybox({
+    baseClass: 'customInlineBaseClass',
+    smallBtn: false,
+    toolbar: false,
+    afterLoad : function(instance, current) {
+        
+        var pixelRatio = window.devicePixelRatio || 1;
+
+        if ( pixelRatio > 1.5 ) {
+            current.width  = current.width  / pixelRatio;
+            current.height = current.height / pixelRatio;
+        }
+        
+        if (instance.group.length > 1 && current.$content) {
+          if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">‚Üí</a>');
+          else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">‚Üê</a>');
+          else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">‚Üí</a><a data-fancybox-prev class="button-previous" href="javascript:;">‚Üê</a>');
+        }
+        current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+    }
+});
+</script>
+<!-- End of modal window -->
+<style>
+.bg-photo-overlay {
+  background-image: url("https://1.bp.blogspot.com/-irCxDcyeGC4/XZXsscPP4kI/AAAAAAAAkKM/8rvF00Lvr1Y_iF5BOWT7hOXoqeaXvRJogCPcBGAYYCw/s320/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-10-03%2Ba%25CC%2580%2B14.41.46.png");
+}
+</style>
+<style>
+.img-foreground {
+  position: absolute;
+  top: 75px;
+  left: 1em;
+  width: 20%;
+  max-width: 300px;
+  //height: 100%;
+  //pointer-events: none;
+  cursor:pointer;
+}
+.img-foreground {
+  //background-color: red;
+  animation-name: stretch;
+  animation-duration: 2.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(.2);
+    //background-color: red;
+    border-radius: 100%;
+  }
+  10% {
+    transform: scale(1.);
+    border-radius: 0%;
+    //background-color: orange;
+  }
+  100% {
+    //transform: scale(1.2);
+    transform: scale(0.5);
+    //background-color: yellow;
+  }
+}
+</style>
+<script>
+if ( window.location.pathname == '/' ){
+  // p√©tition change.org sur la r√©animation p√©diatrie
+  //$('.page_body').append('<a href="https://www.change.org/p/emmanuel-macron-agn%C3%A8s-buzyn-sauvons-la-r%C3%A9animation-p%C3%A9diatrique-l-appel-des-parents"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://4.bp.blogspot.com/-oAseGH4-Rmg/XjbyJbrWCvI/AAAAAAAAk7I/1vgAZGlYieAsQ9j9lz5mETgq60UGBo8nACLcBGAsYHQ/s1600/Pe%25CC%2581tition%2BPe%25CC%2581diatrie.jpg" /></a>');
+  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images"><img class="img-foreground" src="https://1.bp.blogspot.com/-iqvg5_HOcwY/Xj-5ymWizjI/AAAAAAAAk8U/Hd-Wbtd6Z3AfuzWr2kfvduaWY_QklozxACLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-09%2Ba%25CC%2580%2B08.50.02.png" /></a>');
 }
 </script>

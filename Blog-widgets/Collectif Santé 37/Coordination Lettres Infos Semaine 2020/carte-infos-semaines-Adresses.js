@@ -229,7 +229,7 @@ var inpAddress = [
   lat: 46.455, lng: -1.167},
 { inpText: "PORT LOUIS RIANTEC",
   lat: 47.714, lng: -3.309},
-{ inpText: "PORT LOUIS RIANTEC",
+{ inpText: "CRETEIL",
   lat: 48.777, lng: 2.455},
 { inpText: "COORDINATION NATIONALE",
   lat: 47.687, lng: 6.495},

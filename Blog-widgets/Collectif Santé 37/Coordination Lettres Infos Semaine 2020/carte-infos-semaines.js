@@ -56,8 +56,8 @@
 
     $(document).ready(function() {
       $('#btData').click(function(e) {
-        var blockData = $('.infosComités').css('display');
-        if (blockData == 'block') {
+        var blockData = $('.infosComités');
+        if (blockData.css('display') == 'block') {
           $('#btData').html('Données');
           $('.dispInfoMap').css('display', 'block')
           map.invalidateSize();

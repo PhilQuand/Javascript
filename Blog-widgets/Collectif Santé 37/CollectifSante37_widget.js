@@ -556,12 +556,12 @@ function createSummaryAndThumb(pID, isRegular) {
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<!--div class="articleFancy" id="hidden-content-2">
+<div class="articleFancy" id="hidden-content-2">
 <div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-pG00GC5ChPE/Xgy3WGbmBXI/AAAAAAAAkuU/ZurJEhIK5o0vwhGJg6iSx4ocz2bSLWXsgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2B10%2Bengagements%2Bnouveau%2B%2Blogo.png" />
+<img src="https://1.bp.blogspot.com/-cQBPDO49Fbc/XkW-2ty-LaI/AAAAAAAAk-A/F1AzzrIy4d8x1qVH3xadXYKsPLwXZTA2gCLcBGAsYHQ/s1600/image%2B14-02.png" />
 </div>
 </div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
 <!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
 <style>
 .articleFancy {
@@ -665,7 +665,7 @@ $('.trgImgUL').fancybox({
   }
   100% {
     //transform: scale(1.2);
-    transform: scale(0.5);
+    transform: scale(1.0);
     //background-color: yellow;
   }
 }
@@ -674,6 +674,6 @@ $('.trgImgUL').fancybox({
 if ( window.location.pathname == '/' ){
   // pétition change.org sur la réanimation pédiatrie
   //$('.page_body').append('<a href="https://www.change.org/p/emmanuel-macron-agn%C3%A8s-buzyn-sauvons-la-r%C3%A9animation-p%C3%A9diatrique-l-appel-des-parents"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://4.bp.blogspot.com/-oAseGH4-Rmg/XjbyJbrWCvI/AAAAAAAAk7I/1vgAZGlYieAsQ9j9lz5mETgq60UGBo8nACLcBGAsYHQ/s1600/Pe%25CC%2581tition%2BPe%25CC%2581diatrie.jpg" /></a>');
-  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images"><img class="img-foreground" src="https://1.bp.blogspot.com/-iqvg5_HOcwY/Xj-5ymWizjI/AAAAAAAAk8U/Hd-Wbtd6Z3AfuzWr2kfvduaWY_QklozxACLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-09%2Ba%25CC%2580%2B08.50.02.png" /></a>');
+  $('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-4c9MRQiEeb8/Xka1VOFAoFI/AAAAAAAAk-c/j8BJiF1bV1wABPVcnicsgbs9ouZ2nKMVwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.png" /></a>');
 }
 </script>

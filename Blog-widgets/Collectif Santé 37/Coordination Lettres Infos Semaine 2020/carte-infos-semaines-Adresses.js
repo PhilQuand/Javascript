@@ -271,6 +271,10 @@ var inpAddress = [
   lat: 47.0192, lng: 4.8355},
 { inpText: "Brest",
   lat: 48.3904, lng: -4.4865},
+{ inpText: "MERIGNAC",
+  lat: 45.4756, lng: 0.0621},
+{ inpText: "LURE",
+  lat: 47.687, lng: 6.495},
 { inpText: "COORDINATION NATIONALE",
   lat: 47.687, lng: 6.495},
 ];

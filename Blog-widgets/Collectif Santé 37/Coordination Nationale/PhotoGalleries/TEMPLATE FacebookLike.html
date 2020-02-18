@@ -6,140 +6,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-<!--script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script-->
-<script>
-/*jQuery.fn.extend({
-    svgtobase64: function () {
-      var svgInfosstr = $(this).get(0).outerHTML;
-      var svgInfosbase64r = base64.encode(svgInfosstr);
-      var imgBase64 = 'data:image/svg+xml;base64,' + svgInfosbase64r;
-      return imgBase64;
-   }
-});*/
-$(document).ready(function() {
-  $("#page_body").find("a img").each(function() {
-    var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
-
-    if (isImage) {
-      var aFancy = $(this).parent("a").attr('data-fancybox');
-      //var aClass = $(this).parent("a").attr('class');
-      //var aId = $(this).parent("a").attr('id');
-      //if((typeof aClass ==='undefined') && (typeof aId ==='undefined') && (typeof aFancy ==='undefined')) {
-      if (typeof aFancy === 'undefined') {
-        $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
-        $(this).parent("a").attr('data-fancybox', 'fancy-box');
-        $(this).parent("a").attr('href', 'javascript:;');
-      }
-      var hasDataFancybox = $(this).parent("a").hasClass('data-fancybox');
-      var hasDataFancyboxInline = $(this).parent("a").hasClass('data-fancybox-inline');
-      if ((!hasDataFancybox) && (!(hasDataFancyboxInline))) {
-        $(this).parent("a").addClass('data-fancybox');
-      }
-    }
-
-    else {}
-  });
-  goFancy();
-});
-
-function goFancy() {
-  $(".data-fancybox").fancybox({
-    buttons: [
-      'play',
-      'download',
-      'thumbs',
-      'close'
-    ],
-        afterClose: function(instance, current) {
-          if ('parentIFrame' in window) {
-            parentIFrame.scrollTo(0, 0);
-          }
-        },
-        beforeClose: function(instance, current) {
-          if ('parentIFrame' in window) {
-            parentIFrame.autoResize(true);
-          }
-        },
-        afterShow: function(instance, current) {
-          var fancybox_content = $(".iFrameGalleryClass .fancybox-content");
-          fancybox_content.prop("style", "");
-        },
-        afterLoad: function(instance, current) {
-          if ('parentIFrame' in window) {
-            /*if (parentIFrameSize[instance.currentHash] > 0) {
-              parentIFrame.autoResize(false);
-              parentIFrame.size(parentIFrameSize[instance.currentHash]); // Set height to parentIFrameSize
-            }
-            else parentIFrame.size();*/
-            parentIFrame.size(800)
-            //parentIFrame.scrollToOffset(0,0);
-            parentIFrame.scrollTo(0, 0);
-          }
-          //console.info( instance.Thumbs );
-          //console.info( instance.Thumbs.$button[0]  );
-          $("button.fancybox-button.fancybox-button--thumbs").click(function() {
-            var elements = $(".iFrameGalleryClass .fancybox-thumbs__list").find("a").filter(function() {
-              $(this).prop("target", "_self");
-              // only keep the elements that have the correct background image
-              return $(this).css("backgroundImage").indexOf(noneBgImage) > -1;
-            });
-            elements.css("display", "none");
-          });
-          if (instance.group.length > 1 && current.$content) {
-            var arrow_left = $(".iFrameGalleryClass .fancybox-button.fancybox-button--arrow_left");
-            arrow_left.css("display", "block");
-            var arrow_right = $(".iFrameGalleryClass .fancybox-button.fancybox-button--arrow_right");
-            arrow_right.css("display", "block");
-            if (current.index == 0) arrow_left.css("display", "none");
-            else if (current.index == (instance.group.length - 1)) arrow_right.css("display", "none");
-          }
-          /*if ( instance.group.length > 1 && current.$content ) {
-            if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-            else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-            else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-          }*/
-          /*if ( instance.group.length > 1 && current.$content ) {
-            current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
-          }*/
-
-          //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
-        }
-  });
-  $(".data-fancybox-inline").fancybox({
-    toolbar: true,
-    infobar: true,
-    arrows: true,
-    animationEffect: "fade",
-    transitionEffect: "slide",
-    speed: 300,
-    margin: [40, 20],
-    buttons: false,
-    thumbs: {
-      autoStart: false, // Display thumbnails on opening
-      hideOnClose: true // Hide thumbnail grid when closing animation starts
-    },
-    buttons: [
-      'close',
-      'thumbs'
-    ],
-    baseClass: 'customInlineBaseClass',
-    afterLoad: function(instance, current) {
-      $(".getFancyFocus").focus();
-      if (instance.group.length > 1 && current.$content) {
-        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-      }
-      /*if ( instance.group.length > 1 && current.$content ) {
-        current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
-      }*/
-
-      //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
-    }
-
-  });
-}
-</script>
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
 <!-- End FancyBox -->
 
 <!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
@@ -160,7 +27,8 @@ function goFancy() {
 <script type="text/javascript">
 window.iFrameResizer = {
   heightCalculationMethod: function() {
-    return 3400
+    //return 3400
+    return 800
   },
   onReady: function() {
     if ('parentIFrame' in window) {

@@ -38,11 +38,6 @@ window.iFrameResizer = {
     $("#makeMeFacebookLike").html(message);
     //var messageData = JSON.parse(message);
     //parentIFrame.autoResize(false);
-    $("#makeMeFacebookLike").smoothDivScroll({
-      mousewheelScrolling: "allDirections",
-      manualContinuousScrolling: true,
-      autoScrollingMode: "onStart"
-    });
     var images = [];
     $('#makeMeFacebookLike img').each(function() {
       images.push($(this).attr('src'));

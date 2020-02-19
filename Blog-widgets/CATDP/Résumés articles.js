@@ -941,18 +941,23 @@ $(document).ready(function() {
 <!-- Add a modal window -->
 <div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
-<!--img src="https://1.bp.blogspot.com/-hQwJFeC-ncU/Xd-JPD7ZEFI/AAAAAAAAkjI/-zBgSYCKR9Qgj4d-lz814YdzCpa1mhMpACLcBGAsYHQ/s1600/76646845_1690669684403742_3913454117124571136_o.jpg" /-->
-<img src="https://1.bp.blogspot.com/-W4BC27ezHMQ/Xgy3WHXB83I/AAAAAAAAkuY/SntigKtQ-Z0upyNuhKltAQfeRcgxR7YJgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2Bnouveau%2Blogo.png" />
+<img src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" />
+<!--img src="https://1.bp.blogspot.com/-W4BC27ezHMQ/Xgy3WHXB83I/AAAAAAAAkuY/SntigKtQ-Z0upyNuhKltAQfeRcgxR7YJgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2Bnouveau%2Blogo.png" /-->
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<div class="articleFancy" id="hidden-content-2">
+<!--div class="articleFancy" id="hidden-content-2">
 <div class="corpsFancy">
-<!--img src="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" /-->
-<img src="https://1.bp.blogspot.com/-pG00GC5ChPE/Xgy3WGbmBXI/AAAAAAAAkuU/ZurJEhIK5o0vwhGJg6iSx4ocz2bSLWXsgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2B10%2Bengagements%2Bnouveau%2B%2Blogo.png" />
+<img src="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" />
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<div class="articleFancy" id="hidden-content-3">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-pG00GC5ChPE/Xgy3WGbmBXI/AAAAAAAAkuU/ZurJEhIK5o0vwhGJg6iSx4ocz2bSLWXsgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2B10%2Bengagements%2Bnouveau%2B%2Blogo.png" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
 <!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
 <style>
 .articleFancy {
@@ -1017,36 +1022,24 @@ $('.trgImgUL').fancybox({
 <!-- End of modal window -->
 <style>
 .bg-photo-overlay {
-  background-image: url("https://1.bp.blogspot.com/-3oX1E78ddIA/XSYspRHPw0I/AAAAAAAAjb8/rTqL35gvE7cvsb8E5f7d3htvQQEfj2Q5wCPcBGAYYCw/s1600/IMG_3574%2BBlog.png");
+  //background-image: url("https://1.bp.blogspot.com/-3oX1E78ddIA/XSYspRHPw0I/AAAAAAAAjb8/rTqL35gvE7cvsb8E5f7d3htvQQEfj2Q5wCPcBGAYYCw/s1600/IMG_3574%2BBlog.png");
+  //background-image: url("https://1.bp.blogspot.com/-wJIM1s2IfOY/XkA-pwODE4I/AAAAAAAAk80/hktT5pDB2O42bTZFQppkkIa55RjJqG1ZgCLcBGAsYHQ/s1600/Liste%2BCARDP2020.png");
+  //background-image: url("https://1.bp.blogspot.com/-FNjD_efIqhs/XkWKmYGhSaI/AAAAAAAAk9c/NIn8-IPppVMqkJMrilQYGwydAOV-2G2DQCLcBGAsYHQ/s1600/IMG_3008.png");
+  background: url("https://1.bp.blogspot.com/-PabyVfPipwc/XkgiDH7kEeI/AAAAAAAAk-o/LL6N6fbWDggaO4t9uR5Ls5tLS6_I-1pkgCLcBGAsYHQ/s1600/IMG_3008.jpg");
 }
 </style>
 <style>
 .img-foreground {
   position: absolute;
   top: 10px;
-  left: 10%;
+  //left: 10%;
+  left: 0;
   width: 20%;
   max-width: 300px;
   //height: 100%;
   //pointer-events: none;
   cursor:pointer;
 }
-/*.img-foreground {
-  animation: pulse 5s infinite;
-}
-@keyframes pulse {
-  0% {
-    transform: scale(1.0);
-  }
-  100% {
-    transform: scale(1.3);
-  }
-}
-.img-foreground:hover {
-    transform: scale(1.3);
-    box-shadow: 1px 1px  10px 2px  rgba(0,0,0,0.2);  
-
-}*/
 .img-foreground {
   //background-color: red;
   animation-name: stretch;
@@ -1061,27 +1054,46 @@ $('.trgImgUL').fancybox({
 
 @keyframes stretch {
   0% {
-    transform: scale(.3);
+    transform: scale(0.001);
     //background-color: red;
     border-radius: 100%;
   }
-  10% {
+  30% {
+    transform: scale(0.001);
+    //background-color: red;
+    border-radius: 100%;
+  }
+  40% {
+    transform: scale(.1);
+    //background-color: red;
+    border-radius: 100%;
+  }
+  50% {
     transform: scale(1.);
     border-radius: 0%;
     //background-color: orange;
   }
   100% {
     //transform: scale(1.2);
-    transform: scale(1.0);
+    transform: scale(0.8);
     //background-color: yellow;
   }
 }
+.blog-name.container {
+    margin: 0;
+    padding: 0;
+}
+/*.centered-top-container {
+    min-height: 350px;
+    //max-height: 350px;
+}*/
 </style>
 <script>
 if ( window.location.pathname == '/' ){
-  //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>');
-  $('.page_body').append('<a href="https://drive.google.com/file/d/1T-GQdnkDMyR8TP_tlcVMXIXMyPhdfaJ2/view?usp=sharing"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-Hb2A-BmVso4/XjcFoSaRO3I/AAAAAAAAk7U/dSYFyLCVbmsFSZRw0X9mA_qyqonkvs30QCLcBGAsYHQ/s1600/Action%2BStop%2BTraminator.png" /></a>');
+  $('.page_body').append('<a href="https://www.catdp2020.com/#images"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" /></a>');
+  //$('.page_body').append('<a href="https://drive.google.com/file/d/1T-GQdnkDMyR8TP_tlcVMXIXMyPhdfaJ2/view?usp=sharing"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-9pS5hl9D1ZA/XkW6Bq58M-I/AAAAAAAAk90/_aNKxSxRmS0qovhlRKrK2_XPFIVHzg_xQCLcBGAsYHQ/s1600/86185907_852785498494274_5150774147164405760_o.png" /></a>');
   //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-Q_tTp_aWd_U/Xh9WRNE9R8I/AAAAAAAAk2M/AXsk07zTCzQzxfq4Z-3p06D4zvTm4fKuwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-01-15%2Ba%25CC%2580%2B19.12.51.png" /></a>');
   //$('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>').insertAfter('.bg-photo-container');
+  $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/>Municipales 2020<br/></h1>")
 }
 </script>

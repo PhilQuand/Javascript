@@ -1,3 +1,4 @@
+(function($) {
 /*jQuery.fn.extend({
     svgtobase64: function () {
       var svgInfosstr = $(this).get(0).outerHTML;
@@ -82,3 +83,4 @@ function goFancy() {
   });
 }
 
+})(jQuery);

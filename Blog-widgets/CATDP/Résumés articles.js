@@ -940,8 +940,10 @@ $(document).ready(function() {
 <!-- Fin Calendrier spatio-temporel -->
 <!-- Add a modal window -->
 <div class="articleFancy">
-<a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://youtu.be/kGdrBv1r_ss?autoplay=1&wmode=opaque">Video #2</a-->
-<a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg">Video #1</a>
+<div class="corpsFancy">
+<a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://youtu.be/dm421yernpA?autoplay=1&wmode=opaque">Video #1</a>
+<!--a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg">Video #2</a>
+</div>
 </div>
 <!--div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
@@ -995,6 +997,11 @@ $(document).ready(function() {
 @media screen and (max-width: 1100px) {
   .articleFancy {
     min-width: 90%;
+  }
+  .customInlineBaseClass .button-close,
+  .customInlineBaseClass .button-previous,
+  .customInlineBaseClass .button-next {
+      display: block;
   }
 }
 </style>
@@ -1051,8 +1058,9 @@ $('.fancybox')
   //background-image: url("https://1.bp.blogspot.com/-3oX1E78ddIA/XSYspRHPw0I/AAAAAAAAjb8/rTqL35gvE7cvsb8E5f7d3htvQQEfj2Q5wCPcBGAYYCw/s1600/IMG_3574%2BBlog.png");
   //background-image: url("https://1.bp.blogspot.com/-wJIM1s2IfOY/XkA-pwODE4I/AAAAAAAAk80/hktT5pDB2O42bTZFQppkkIa55RjJqG1ZgCLcBGAsYHQ/s1600/Liste%2BCARDP2020.png");
   //background-image: url("https://1.bp.blogspot.com/-FNjD_efIqhs/XkWKmYGhSaI/AAAAAAAAk9c/NIn8-IPppVMqkJMrilQYGwydAOV-2G2DQCLcBGAsYHQ/s1600/IMG_3008.png");
-  background: url("https://1.bp.blogspot.com/-PabyVfPipwc/XkgiDH7kEeI/AAAAAAAAk-o/LL6N6fbWDggaO4t9uR5Ls5tLS6_I-1pkgCLcBGAsYHQ/s1600/IMG_3008.jpg");
-}
+  background: url("https://1.bp.blogspot.com/-PabyVfPipwc/XkgiDH7kEeI/AAAAAAAAk-s/0h4VxPkZop4YxwCVnkTpL6tPRj-NGLzKACPcBGAYYCw/s1600/IMG_3008.jpg");
+  background-size: cover;
+  }
 </style>
 <style>
 .img-foreground {
@@ -1101,7 +1109,7 @@ $('.fancybox')
   }
   100% {
     //transform: scale(1.2);
-    transform: scale(0.8);
+    transform: scale(0.5);
     //background-color: yellow;
   }
 }
@@ -1117,7 +1125,7 @@ $('.fancybox')
 <script>
 if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://www.catdp2020.com/#images"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" /></a>');
-  $('.page_body').append('<a href="https://www.catdp2020.com/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" /></a>');
+  $('.page_body').append('<a href="https://www.catdp2020.com/#videos"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Ru3APT121xw/XlPcPftIJaI/AAAAAAAAlFA/hOSll_WRZ2IvUyUr01YmBJY4asA3nHjVACLcBGAsYHQ/s1600/86831332_858753717897452_6176428490821206016_o.jpg" /></a>');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1T-GQdnkDMyR8TP_tlcVMXIXMyPhdfaJ2/view?usp=sharing"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-9pS5hl9D1ZA/XkW6Bq58M-I/AAAAAAAAk90/_aNKxSxRmS0qovhlRKrK2_XPFIVHzg_xQCLcBGAsYHQ/s1600/86185907_852785498494274_5150774147164405760_o.png" /></a>');
   //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-Q_tTp_aWd_U/Xh9WRNE9R8I/AAAAAAAAk2M/AXsk07zTCzQzxfq4Z-3p06D4zvTm4fKuwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-01-15%2Ba%25CC%2580%2B19.12.51.png" /></a>');
   //$('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>').insertAfter('.bg-photo-container');

@@ -145,8 +145,9 @@
       var frDate = new Date(date);
       if(weekDateFin < frDate) {
           var frDateYear = frDate.getFullYear(); 
-          frDateYear--;
-          frDate = frDate.setFullYear(frDateYear);
+          var dateMod = date.replace(frDateYear,frDateYear--);
+          //frDate = frDate.setFullYear(frDateYear);
+          frDate = new Date(dateMod);
       }
       return frDate;
     }

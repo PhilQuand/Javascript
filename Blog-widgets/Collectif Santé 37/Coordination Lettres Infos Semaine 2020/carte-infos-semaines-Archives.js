@@ -51,5 +51,5 @@
         {
           svgInfos: ['Semaine 49', 'du 02 dec.', 'au 06 dec.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 49.html',
-        },*/
+        },
     ]

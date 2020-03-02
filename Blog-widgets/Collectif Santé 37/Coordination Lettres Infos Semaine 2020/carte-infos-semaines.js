@@ -30,11 +30,6 @@
     for (i = 0; i < hrefLength; i++) {
       href[i].dateDeb = getDateDeb(href[i].weekInfos);
       href[i].dateFin = getDateFin(href[i].weekInfos);
-      if(href[i].dateFin < href[i].dateDeb) {
-          dateDebYear = href[i].dateDeb.getFullYear();    
-          dateDebYear--;
-          href[i].dateDeb = href[i].dateDeb.setFullYear(dateDebYear);    
-      }
       iFrameGalleryOpt.archi.push({
         svgInfos: href[i].svgInfos,
         idG: href[i].idG,
@@ -144,9 +139,15 @@
     var result = getMyInnerLinkContent();
 
     function getDateDeb(weekInfos) {
+      var weekDateFin = getDateFin(weekInfos);
       var date = weekInfos.split("du")[1].split("au")[0] + weekInfos.substr(weekInfos.length - 5, weekInfos.length - 1);
       date = monthFR2EN(date);
       var frDate = new Date(date);
+      if(weekDateFin < frDate) {
+          var frDateYear = frDate.getFullYear(); 
+          frDateYear--;
+          frDate = frDate.setFullYear(frDateYear);
+      }
       return frDate;
     }
 

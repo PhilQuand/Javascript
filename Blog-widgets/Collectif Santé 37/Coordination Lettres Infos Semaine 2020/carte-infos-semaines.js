@@ -30,6 +30,9 @@
     for (i = 0; i < hrefLength; i++) {
       href[i].dateDeb = getDateDeb(href[i].weekInfos);
       href[i].dateFin = getDateFin(href[i].weekInfos);
+      if(href[i].dateFin < href[i].dateDeb) {
+          href[i].dateDeb = href[i].dateDeb.setFullYear(href[i].dateDeb.getFullYear()-1);    
+      }
       iFrameGalleryOpt.archi.push({
         svgInfos: href[i].svgInfos,
         idG: href[i].idG,

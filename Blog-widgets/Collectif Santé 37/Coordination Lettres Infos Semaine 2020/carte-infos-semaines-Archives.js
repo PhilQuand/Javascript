@@ -15,7 +15,7 @@
          {
           svgInfos: ['Semaine 06', 'du 03 feb.', 'au 07 feb.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 06.html',
-        },
+        },*/
           {
           svgInfos: ['Semaine 05', 'du 27 jan.', 'au 31 jan.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 05.html',
@@ -31,7 +31,7 @@
          {
           svgInfos: ['Semaine 02', 'du 06 jan.', 'au 10 jan.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 02.html',
-        },*/
+        },
          {
           svgInfos: ['Semaine 01', 'du 30 dec.', 'au 03 jan.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 01.html',

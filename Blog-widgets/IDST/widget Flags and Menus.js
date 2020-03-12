@@ -26,37 +26,32 @@
 <!--div id='calendarFancy_content' style='margin-left: auto; margin-right: 0;'-->
 <div id='epingleFancy_content' style='margin-left: auto; margin-right: 0;'>
 <div style="width: 100%; margin: 0;">
-<article style="background-color: rgba(190, 201, 228, 0.498039); background-position: initial initial; background-repeat: initial initial;">
-<div class="item-content float-container res-title"><h3 style="display: block;"><a href="https://www.linternationaledessavoirspourtous.org/2020/01/notre-congres-marseilledes-22-et-23.html?lang=fr" onclick="return function gotoOnClick(e) {
+<article style="background-color: rgba(190, 201, 228, 0.498039); background-position: initial initial; background-repeat: initial initial;"><div class="item-content float-container res-title"><h3 style="display: block;"><a href="https://www.linternationaledessavoirspourtous.org/2020/03/apres-marseille-retrouvons-nous-rome.html?lang=fr" onclick="return function gotoOnClick(e) {
   //alert(e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;));
   window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;);
   return false;
-}(this);" data-lngloc="fr-FR"><div class="local-lang fr-FR" style="display: block;">Notre congrès à Marseille&nbsp;des 22 et 23 novembre 2019&nbsp;: le compte rendu</div><div class="local-lang en-EN" style="display: none;">Our congress in Marseille on November 22 and 23, 2019: the minutes</div><div class="local-lang es-ES" style="display: none;">Nuestro congreso en Marsella los días 22 y 23 de noviembre de 2019: las actas</div></a>
-<img src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png" width="32" height="32" alt="es-ES" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags es-ES"><img src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png" width="32" height="32" alt="en-EN" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags en-EN"><img src="https://philquand.github.io/Javascript/flagsRepository/France.png" width="32" height="32" alt="fr-FR" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags fr-FR"></h3><h3 style="display: none;"><div class="local-lang fr-FR" style="display: block;">Notre congrès à Marseille&nbsp;des 22 et 23 novembre 2019&nbsp;: le compte rendu</div><div class="local-lang en-EN" style="display: none;">Our congress in Marseille on November 22 and 23, 2019: the minutes</div><div class="local-lang es-ES" style="display: none;">Nuestro congreso en Marsella los días 22 y 23 de noviembre de 2019: las actas</div></h3>
-<h2 class="authors">
-<div class="local-lang fr-FR" style="display: block;">La Rédaction du blog</div>
-<div class="local-lang en-EN" style="display: none;">Blog editorial team</div>
-<div class="local-lang es-ES" style="display: none;">La redacción del blog</div>
-</h2>
-<img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)"></div><div style="display: block"><div class="post-header item-content float-container"><span class="imgSum"><img data-img="yes" src="https://1.bp.blogspot.com/-Xwfy_uMmuz4/Xh7Kwa2VG9I/AAAAAAAAk1Y/A3KGEPzE7BYMFQHNhJzao6bJwGnDRWbMgCLcBGAsYHQ/s320/DSC09279_2x.jpg" width="180px" height="auto"></span><div class="incrustation"><div class="local-lang fr-FR" style="display: block;">
-Quelques
-remerciements tout d’abord&nbsp;:
-au journal La Marseillaise qui nous a
-	accueillis dans ses locaux, 
-à Jean-Pierre Brundu responsable de
-	l’Université populaire de Marseille-Métropole et Boris Humbert
-	pour la belle <a href="https://drive.google.com/file/d/1PN955UOts1jZSRzjyU9Znk5gdsFRQXwi/view?usp=sharing">plaquette</a> qu’il a réalisée,
-à l’équipe de rédaction de
-	l’Internationale des Savoirs pour Tous (IDST) et de son blog,
-	Patricia Pol,... </div><div class="local-lang en-EN" style="display: none;">
-First of all, a few words of thanks:
-to the newspaper La Marseillaise who welcomed us in its building, 
-to Jean-Pierre Brundu in charge of the Université Populaire de Marseille-Métropole (UPOP) and Boris Humbert for the beautiful <a href="https://drive.google.com/file/d/1PN955UOts1jZSRzjyU9Znk5gdsFRQXwi/view?usp=sharing">brochure</a> he produced,
-to the editorial team of the International of Knowledge for All (IKA) and its blog,... </div><div class="local-lang es-ES" style="display: none;">
-En primer lugar, unas palabras de agradecimiento:
-al periódico La Marsellesa que nos acogió en sus instalaciones, 
-a Jean-Pierre Brundu, responsable de la Universidad popular de Marsella-Métropole (UPOP) y a Boris Humbert por el hermoso <a href="https://drive.google.com/file/d/1PN955UOts1jZSRzjyU9Znk5gdsFRQXwi/view?usp=sharing">folleto</a> que ha realizado,
-al equipo editorial de la Internacional del Saber para Todos... </div></div><div style="text-align: right; display: none;"><a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=fr" title="À l’origine de notre Internationale">Lire la suite</a></div></div>
+}(this);" data-lngloc="fr-FR"><div class="local-lang fr-FR" style="display: block;">Après Marseille, retrouvons-nous à Rome les 24 et 25 juin 2020&nbsp;!</div><div class="local-lang en-EN" style="display: none;">After Marseille, let's meet in Rome on June 24 and 25, 2020! </div><div class="local-lang de-DE" style="display: none;">Treffen wir uns nach Marseille am 24. und 25. Juni 2020 in Rom! </div><div class="local-lang es-ES" style="display: none;">¡Después de Marsella, reunámonos en Roma el 24 y 25 de junio de 2020! </div><div class="local-lang it-IT" style="display: none;">Dopo Marsiglia, incontriamoci a Roma il 24 e 25 giugno 2020!</div></a><img alt="it-IT" border="0" class="local-flags it-IT" height="32" onclick="return setSumFlagsOnClick(this);" src="https://philquand.github.io/Javascript/flagsRepository/Italie.png" style="cursor:pointer; margin-left: 5px; float: right;" width="32"><img alt="es-ES" border="0" class="local-flags es-ES" height="32" onclick="return setSumFlagsOnClick(this);" src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png" style="cursor:pointer; margin-left: 5px; float: right;" width="32"><img alt="de-DE" border="0" class="local-flags de-DE" height="32" onclick="return setSumFlagsOnClick(this);" src="https://philquand.github.io/Javascript/flagsRepository/Allemagne.png" style="cursor:pointer; margin-left: 5px; float: right;" width="32"><img alt="en-EN" border="0" class="local-flags en-EN" height="32" onclick="return setSumFlagsOnClick(this);" src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png" style="cursor:pointer; margin-left: 5px; float: right;" width="32"><img alt="fr-FR" border="0" class="local-flags fr-FR" height="32" onclick="return setSumFlagsOnClick(this);" src="https://philquand.github.io/Javascript/flagsRepository/France.png" style="cursor:pointer; margin-left: 5px; float: right;" width="32"></h3><h3 style="display: none;"><div class="local-lang fr-FR" style="display: block;">Après Marseille, retrouvons-nous à Rome les 24 et 25 juin 2020&nbsp;!</div><div class="local-lang en-EN" style="display: none;">After Marseille, let's meet in Rome on June 24 and 25, 2020! </div><div class="local-lang de-DE" style="display: none;">Treffen wir uns nach Marseille am 24. und 25. Juni 2020 in Rom! </div><div class="local-lang es-ES" style="display: none;">¡Después de Marsella, reunámonos en Roma el 24 y 25 de junio de 2020! </div><div class="local-lang it-IT" style="display: none;">Dopo Marsiglia, incontriamoci a Roma il 24 e 25 giugno 2020!</div></h3><h2 class="authors"><div class="local-lang fr-FR" style="display: block;">La Rédaction du blog</div><div class="local-lang en-EN" style="display: none;">Blog editorial team</div><div class="local-lang de-DE" style="display: none;">Blogredaktion</div><div class="local-lang es-ES" style="display: none;">La redacción del blog</div><div class="local-lang it-IT" style="display: none;">La redazione del blog</div></h2><img border="0" class="res-img" onclick="showSummary(this)" src="" style="display: none;" width="40px"></div><div style="display: block"><div class="post-header item-content float-container"><span class="imgSum"><img data-img="yes" height="auto" src="https://1.bp.blogspot.com/-STyu1-_TmZ8/XmPcML99bUI/AAAAAAAAlKo/THUCHh05ZbsAHQb5UruBDHuD29mHQcz_gCLcBGAsYHQ/s1600/ImagePiazzaNavona.JPG" width="180px"></span><div class="incrustation"><div class="local-lang fr-FR" style="display: block;">
+Valeria Pinto, membre de l’IDST, a lancé en compagnie d’autres universitaires un appel intitulé «&nbsp;Désintoxiquons-nous. Le Savoir pour le futur&nbsp;», déjà soutenu par plus de 1300 signataires.
+L’un des objectifs de cet appel est d’organiser une rencontre à Rome les 24 et 25 juin 2020, au moment même où se tiendra dans la capitale italienne... </div><div class="local-lang en-EN" style="display: none;">
+La Rédaction du blog
+Valeria Pinto, member of the International of Knowledge for All (IKA), together with other academics, launched a call entitled "Let's detoxify ourselves. Knowledge for the future", already supported by more than 1300 signatories.
+One of the objectives of this call is to organize a meeting in Rome on 24 and 25 June... </div><div class="local-lang de-DE" style="display: none;">
+La Rédaction du blog
+Blog Editorial Team
+Valeria Pinto, Mitglied des «&nbsp;Internationales Netzwerk Wissen für Alle&nbsp;» (INWA), hat zusammen mit anderen Akademikern einen Aufruf mit dem Titel “Entgiften wir uns – Wissen für die Zukunft”&nbsp;, das bereits von mehr als 1300 Unterzeichnern unterstützt wird.
+Eines der... </div><div class="local-lang es-ES" style="display: none;">
+La Rédaction du blog
+Blog Editorial Team
+Blogredaktion
+Valeria Pinto, miembro de la IDST, junto con otros académicos, lanzó un llamamiento titulado "Desintoxiquémonos". Conocimiento para el futuro", ya apoyado por más de 1300 firmantes.
+Uno de los objetivos de esta convocatoria es organizar una reunión en Roma... </div><div class="local-lang it-IT" style="display: none;">
+La Rédaction du blog
+Blog Editorial Team
+Blogredaktion
+La redacción del blog
+Valeria Pinto, membro dell’ L'Internazionale della Conoscenza per Tutti (ICT), ha lanciato, insieme ad altri universitari, un appello dal titolo “Disintossichiamoci. Sapere per il futuro”, già sostenuto da più di 1300... </div></div><div style="text-align: right; display: none;"><a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=fr" title="À l’origine de notre Internationale">Lire la suite</a>
+</div>
+</div>
 </div>
 </article>
 </div>

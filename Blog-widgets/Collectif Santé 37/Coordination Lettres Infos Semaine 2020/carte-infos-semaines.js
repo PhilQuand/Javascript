@@ -748,7 +748,10 @@
 
     $.fn.CNLetterParser = function(options) {
 
-      // structuration de corpsLettre
+       // ajout des images
+      fillPictures($(this));
+
+     // structuration de corpsLettre
       if ($(this).find('.corpsLettre').length > 0) {
         var corpsLettre = $(this).find('.corpsLettre').first();
         $(this).html(corpsLettre.html());
@@ -801,9 +804,6 @@
 
       // structuration de autresInfo
       fillComitéDiv($(this).find('.autresInfo').first(), "infoComité marker-2");
-
-      // ajout des images
-      fillPictures();
 
       $(this).find('sdfield').first().css('display', 'none')
 
@@ -884,11 +884,11 @@
         }
       };
 
-      function fillPictures() {
-        $('.corpsLettre img').each(function() {
+      function fillPictures(_this) {
+        _this.find('.corpsLettre img').each(function() {
           console.log('.corpsLettre img : ' + $(this).attr('src'));
         });
-        var pictures = $('.corpsLettrePictures img')
+        var pictures = _this.find('.corpsLettrePictures img')
         if (pictures.length > 0) {
           var hrefImg;
           pictures.each(function() {
@@ -897,7 +897,7 @@
             textPicture = textPicture[textPicture.length - 1];
             hrefImg = $(this).attr('src');
             console.log('textPicture : ' + textPicture + 'hrefImg : ' + hrefImg);
-            $('.corpsLettre img').each(function() {
+            _this.find('.corpsLettre img').each(function() {
               if (~$(this).attr('src').indexOf(textPicture)) {
                 console.log('.corpsLettre img : ' + $(this).attr('src') + ' trouvée...');
                 $(this).attr('src', hrefImg);
@@ -907,7 +907,7 @@
           /*var lastIMG = $('.corpsLettre img').last();
           lastIMG.after('<img src="' + hrefImg + '" style="width: 640px; max-width: 90%;" />');
           lastIMG.remove();*/
-          $('.corpsLettrePictures').css('display', 'none');
+          _this.find('.corpsLettrePictures').css('display', 'none');
         }
       }
 

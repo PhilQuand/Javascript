@@ -907,7 +907,7 @@
           /*var lastIMG = $('.corpsLettre img').last();
           lastIMG.after('<img src="' + hrefImg + '" style="width: 640px; max-width: 90%;" />');
           lastIMG.remove();*/
-          _this.find('.corpsLettrePictures').css('display', 'none');
+          $('.corpsLettrePictures').css('display', 'none');
         }
       }
 

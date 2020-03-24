@@ -832,15 +832,22 @@
       $(this).find('sdfield').first().css('display', 'none')
 
       function fillDiv(curDiv, curElem, strKey) {
+        if( strKey != '') strKeyElem = $('.' + strKey.replace(/\s/g, '.'));
         var strKeyComp = strKey.replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
         var curNextAll = curElem.nextAll();
         curElem.appendTo(curDiv);
         curNextAll.each(function() {
-          var curHtmk = $(this).html().replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
-          if (strKey != '' && $(this).prop("tagName") != "UL" && curHtmk.search(strKeyComp) > -1 && curHtmk.search("page") == -1) {
-            curElem = $(this);
-            return false;
-          };
+          //if( typeof strKeyElem === 'undefined' || typeof strKeyElem === 'object') {
+          if( strKeyElem.length  == 0) {
+            var curHtmk = $(this).html().replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
+            if (strKey != '' && $(this).prop("tagName") != "UL" && curHtmk.search(strKeyComp) > -1 && curHtmk.search("page") == -1) {
+              curElem = $(this);
+              return false;
+            };           
+          } else if ($(this).hasClass(strKey)) {
+              curElem = $(this);
+              return false;
+          }
           $(this).appendTo(curDiv);
         });
         curDiv.find('br').each(function() { // For each element

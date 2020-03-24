@@ -823,8 +823,8 @@
       fillComitéDiv($(this).find('.autresInfo').first(), "infoComité marker-2");
 
        // marker-3  pour Coordination
-      changeMarker('Coordination','marker-1','marker-3');
-      changeMarker('Coordination','marker-2','marker-3');
+      changeMarker('Coordination','marker-1','marker-3', $(this));
+      changeMarker('Coordination','marker-2','marker-3', $(this));
 
        // ajout des images
       fillPictures();
@@ -915,8 +915,8 @@
         }
       };
 
-      function changeMarker(criteria,markerIN,markerOUT){
-        $('.' + markerIN).each(function() {
+      function changeMarker(criteria,markerIN,markerOUT,_this){
+        _this.find('.' + markerIN).each(function() {
           var popupHead = $(this).children(':first-child').html().toUpperCase();
           if( popupHead.indexOf(criteria.toUpperCase()) > -1 ) {
             $(this).removeClass(markerIN);

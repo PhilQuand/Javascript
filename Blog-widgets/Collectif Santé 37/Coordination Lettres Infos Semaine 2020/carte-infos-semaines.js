@@ -1,4 +1,4 @@
-  (function($) {
+(function($) {
     $.fn.InfosComités = function(options) {
 
       //if (typeof options === 'undefined' || typeof options.href === 'undefined') return;
@@ -768,7 +768,7 @@
 
     $.fn.CNLetterParser = function(options) {
 
-     // structuration de corpsLettre
+      // structuration de corpsLettre
       if ($(this).find('.corpsLettre').length > 0) {
         var corpsLettre = $(this).find('.corpsLettre').first();
         $(this).html(corpsLettre.html());
@@ -785,24 +785,24 @@
 
       var banDiv = $('<div class="allBans"/>')
       corpsLettre.prepend(banDiv)
-      curElem = fillBan(banDiv, curElem, 'Édito');
+      curElem = fillBan(banDiv, curElem, 'Édito', $(this));
 
       var banDiv = $('<div class="Edito" />').insertAfter(banDiv);
-      curElem = fillDiv(banDiv, curElem, 'Sommaire');
+      curElem = fillDiv(banDiv, curElem, 'Sommaire', $(this));
 
       var banDiv = $('<div class="sumComité" />').insertAfter(banDiv);
-      curElem = fillDiv(banDiv, curElem, 'écho des comités');
+      curElem = fillDiv(banDiv, curElem, 'écho des comités', $(this));
 
       var banDiv = $('<div id="idInfosComités" />').insertAfter(banDiv);
 
       var banDiv = $('<div class="infosComités" />').insertAfter(banDiv);
-      curElem = fillDiv(banDiv, curElem, 'Dossier');
+      curElem = fillDiv(banDiv, curElem, 'Dossier', $(this));
 
       var banDiv = $('<div class="infoDoc" />').insertAfter(banDiv);
-      curElem = fillDiv(banDiv, curElem, 'Toutes les infos sur le site de la Coordination Nationale');
+      curElem = fillDiv(banDiv, curElem, 'Toutes les infos sur le site de la Coordination Nationale', $(this));
 
       var banDiv = $('<div class="coordCN" />').insertAfter(banDiv);
-      curElem = fillDiv(banDiv, curElem, '');
+      curElem = fillDiv(banDiv, curElem, '', $(this));
 
       // structuration de infosComités
       var infosComités = $(this).find('.infosComités').first();
@@ -810,11 +810,11 @@
 
       var banDiv = $('<div class="echoCom" />').insertAfter(curElem);
       curElem = banDiv.next();
-      curElem = fillDiv(banDiv, curElem, 'Autres infos locales');
+      curElem = fillDiv(banDiv, curElem, 'Autres infos locales', $(this));
 
       var banDiv = $('<div class="autresInfo" />').insertAfter(curElem)
       curElem = banDiv.next();
-      curElem = fillDiv(banDiv, curElem, '');
+      curElem = fillDiv(banDiv, curElem, '', $(this));
 
       // structuration de echoCom
       fillComitéDiv($(this).find('.echoCom').first(), "infoComité marker-1");
@@ -831,8 +831,8 @@
 
       $(this).find('sdfield').first().css('display', 'none')
 
-      function fillDiv(curDiv, curElem, strKey) {
-        if( strKey != '') strKeyElem = $('.' + strKey.replace(/\s/g, '.'));
+      function fillDiv(curDiv, curElem, strKey, _this) {
+        if( strKey != '') strKeyElem = _this.find('.' + strKey.replace(/\s/g, '.'));
         var strKeyComp = strKey.replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
         var curNextAll = curElem.nextAll();
         curElem.appendTo(curDiv);
@@ -857,9 +857,9 @@
         return curElem;
       };
 
-      function fillBan(curDiv, curElem, strKey) {
+      function fillBan(curDiv, curElem, strKey, _this) {
 
-        var nextElem = fillDiv(curDiv, curElem, strKey);
+        var nextElem = fillDiv(curDiv, curElem, strKey, _this);
 
         var infoWeek = [];
         curDiv.find('b').each(function() { // For each element

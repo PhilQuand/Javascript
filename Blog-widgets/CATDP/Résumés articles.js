@@ -939,31 +939,32 @@ $(document).ready(function() {
 </script>
 <!-- Fin Calendrier spatio-temporel -->
 <!-- Add a modal window -->
-<div class="articleFancy">
+<!--div class="articleFancy">
 <div class="corpsFancy">
-<a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://www.youtube.com/watch?v=498sdm3lsfk&feature=youtu.be&autoplay=1&wmode=opaque">Video #1</a>
-<a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://1.bp.blogspot.com/-Ru3APT121xw/XlPcPftIJaI/AAAAAAAAlFA/hOSll_WRZ2IvUyUr01YmBJY4asA3nHjVACLcBGAsYHQ/s1600/86831332_858753717897452_6176428490821206016_o.jpg">Video #2</a>
+<a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://1.bp.blogspot.com/-2wKSPxbziCk/Xl_5OknlmVI/AAAAAAAAlJ0/camgUD9oSw8txkPUeXRoAEOq1IUJt-LcgCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.12.51.jpg">Video #1</a>
+<a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://1.bp.blogspot.com/-duAUPmBAR7I/Xl_5Os2_gmI/AAAAAAAAlJw/A8Zn7egll_YoWd8J0pApmEJxo47ZVC0WQCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.12.26.jpg">Video #2</a>
+<a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://1.bp.blogspot.com/-N9IXDRQEJbU/Xl_5O67lFHI/AAAAAAAAlJ4/Q1ExMMsgCigMr1UhnDzvqRj98GBvjtRdwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.13.19.jpg">Video #2</a>
 </div>
-</div>
-<!--div class="articleFancy" id="hidden-content-1">
+</div-->
+<div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" />
+<a href="https://drive.google.com/open?id=1EFLyVsvQuawzRxT6WNVTC0BWYhI1KdWa"><img src="https://1.bp.blogspot.com/-duAUPmBAR7I/Xl_5Os2_gmI/AAAAAAAAlJw/A8Zn7egll_YoWd8J0pApmEJxo47ZVC0WQCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.12.26.jpg" /></a>
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
 <div class="articleFancy" id="hidden-content-2">
 <div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" />
+<a href="https://drive.google.com/open?id=1EFLyVsvQuawzRxT6WNVTC0BWYhI1KdWa"><img src="https://1.bp.blogspot.com/-2wKSPxbziCk/Xl_5OknlmVI/AAAAAAAAlJ0/camgUD9oSw8txkPUeXRoAEOq1IUJt-LcgCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.12.51.jpg" /></a>
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
 <div class="articleFancy" id="hidden-content-3">
 <div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-pG00GC5ChPE/Xgy3WGbmBXI/AAAAAAAAkuU/ZurJEhIK5o0vwhGJg6iSx4ocz2bSLWXsgCLcBGAsYHQ/s1600/Manifeste%2Bde%2BC%2527est%2Bau%2BTour%2528s%2529%2Bdu%2BPeuple%2B2020%2B10%2Bengagements%2Bnouveau%2B%2Blogo.png" />
+<a href="https://drive.google.com/open?id=1EFLyVsvQuawzRxT6WNVTC0BWYhI1KdWa"><img src="https://1.bp.blogspot.com/-N9IXDRQEJbU/Xl_5O67lFHI/AAAAAAAAlJ4/Q1ExMMsgCigMr1UhnDzvqRj98GBvjtRdwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.13.19.jpg" /></a>
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
+<!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
 <style>
 .articleFancy {
     padding: 0 0 0 0;
@@ -987,6 +988,10 @@ $(document).ready(function() {
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {
     opacity: 0.1;
     transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+}
+
+.customInlineBaseClass.fancybox-is-open .fancybox-content {
+    height: 100vh;
 }
 
 .customInlineBaseClass .button-close,
@@ -1113,8 +1118,8 @@ $('.fancybox')
     //background-color: orange;
   }
   100% {
-    //transform: scale(1.2);
-    transform: scale(0.4);
+    transform: scale(1.8);
+    //transform: scale(0.4);
     //background-color: yellow;
   }
 }
@@ -1130,7 +1135,9 @@ $('.fancybox')
 <script>
 if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://www.catdp2020.com/#images"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" /></a>');
-  $('.page_body').append('<a href="https://www.catdp2020.com/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Ru3APT121xw/XlPcPftIJaI/AAAAAAAAlFA/hOSll_WRZ2IvUyUr01YmBJY4asA3nHjVACLcBGAsYHQ/s1600/86831332_858753717897452_6176428490821206016_o.jpg" /></a>');
+  //$('.page_body').append('<a href="https://www.catdp2020.com/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Ru3APT121xw/XlPcPftIJaI/AAAAAAAAlFA/hOSll_WRZ2IvUyUr01YmBJY4asA3nHjVACLcBGAsYHQ/s1600/86831332_858753717897452_6176428490821206016_o.jpg" /></a>');
+  $('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
+  //$('.page_body').append('<a href="https://www.catdp2020.com/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1T-GQdnkDMyR8TP_tlcVMXIXMyPhdfaJ2/view?usp=sharing"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-9pS5hl9D1ZA/XkW6Bq58M-I/AAAAAAAAk90/_aNKxSxRmS0qovhlRKrK2_XPFIVHzg_xQCLcBGAsYHQ/s1600/86185907_852785498494274_5150774147164405760_o.png" /></a>');
   //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-Q_tTp_aWd_U/Xh9WRNE9R8I/AAAAAAAAk2M/AXsk07zTCzQzxfq4Z-3p06D4zvTm4fKuwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-01-15%2Ba%25CC%2580%2B19.12.51.png" /></a>');
   //$('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>').insertAfter('.bg-photo-container');

@@ -391,3 +391,6 @@ class ShadersGallery {
         this.renderer.render(this.scene, this.camera);
     }
 }
+
+
+export default ShadersGallery;

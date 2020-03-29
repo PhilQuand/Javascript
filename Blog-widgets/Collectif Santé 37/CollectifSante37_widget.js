@@ -330,14 +330,14 @@ function getMyInnerLinkContent(theURL) {
       for (var i = 0; i < indices.length; i++) {
         var x = indices[i];
         x = content.indexOf(">", x + 1);
-        var y = content.lastIndexOf("</body>");
+        var y = content.lastIndexOf("</"  + 'body' + ">");
         var z = content.slice(x + 1, y);
         alert('getBody for ' + element + ' :\ni = ' + i + '\n' + z);
       }
     }
     var x = indices[iIndex];
     x = content.indexOf(">", x + 1);
-    var y = content.lastIndexOf("</body>");
+    var y = content.lastIndexOf("</"  + 'body' + ">");
     return content.slice(x + 1, y);
   }
 
@@ -550,6 +550,12 @@ function createSummaryAndThumb(pID, isRegular) {
 </script>
 
 <!-- Add a modal window -->
+
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2" href="javascript:;" >iframe 1</a>
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rea&t=a01&view=map2" href="javascript:;" >iframe 2</a>
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.dc&t=a01&view=map2" href="javascript:;" >iframe 3</a>
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rad&t=a01&view=map2" href="javascript:;" >iframe 4</a>
+
 <div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
 <img src="https://1.bp.blogspot.com/-VCDexq9MrH8/Xkq4sM0dhaI/AAAAAAAAlBc/ocJhIWyYNtg696SW-TTqvTooN8wCmakUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.58.57.png" />
@@ -575,7 +581,11 @@ function createSummaryAndThumb(pID, isRegular) {
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-4" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
 <!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
+
 <style>
+.customIframeBaseClass .fancybox-button.fancybox-button--close{
+    display: none;
+}
 .articleFancy {
     padding: 0 0 0 0;
     //min-width: 80%;
@@ -609,6 +619,16 @@ function createSummaryAndThumb(pID, isRegular) {
   .articleFancy {
     min-width: 90%;
   }
+  .customIframeBaseClass .button-close,
+  .customIframeBaseClass .button-previous,
+  .customIframeBaseClass .button-next {
+      display: none;
+  }
+  .customIframeBaseClass .fancybox-button.fancybox-button--close,
+  .customIframeBaseClass .fancybox-button.fancybox-button--arrow_left,
+  .customIframeBaseClass .fancybox-button.fancybox-button--arrow_right {
+    display: block;
+  }
 }
 </style>
 <script>
@@ -634,6 +654,38 @@ $('.trgImgUL').fancybox({
         current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
     }
 });
+$('.fancybox')
+.attr('rel', 'gallery')
+.fancybox({
+    baseClass: 'customIframeBaseClass customInlineBaseClass',
+    //arrows: true,
+    smallBtn: false,
+    toolbar: true,
+    buttons: [
+      'close'
+    ],
+    afterLoad : function(instance, current) {
+        
+        var pixelRatio = window.devicePixelRatio || 1;
+
+        if ( pixelRatio > 1.5 ) {
+            current.width  = current.width  / pixelRatio;
+            current.height = current.height / pixelRatio;
+        }
+        
+        if (instance.group.length > 1 && current.$content) {
+          if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+          else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+          else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        }
+        var url = window.location.href;
+        indexFancy = url.indexOf('#');
+        if( indexFancy > 1 ) {
+          var url = url.substr(0, indexFancy-1);
+        }
+        current.$content.append('<a data-fancybox-close class="button-close" href="' + url + '">x</a>');
+    }
+})
 </script>
 <!-- End of modal window -->
 <style>
@@ -688,6 +740,7 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://www.change.org/p/emmanuel-macron-agn%C3%A8s-buzyn-sauvons-la-r%C3%A9animation-p%C3%A9diatrique-l-appel-des-parents"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://4.bp.blogspot.com/-oAseGH4-Rmg/XjbyJbrWCvI/AAAAAAAAk7I/1vgAZGlYieAsQ9j9lz5mETgq60UGBo8nACLcBGAsYHQ/s1600/Pe%25CC%2581tition%2BPe%25CC%2581diatrie.jpg" /></a>');
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-4c9MRQiEeb8/Xka1VOFAoFI/AAAAAAAAk-c/j8BJiF1bV1wABPVcnicsgbs9ouZ2nKMVwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.png" /></a>');
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-hxTYiKnKI1A/XklzVPvsmJI/AAAAAAAAk_g/8vb0ElqOgdgLKvjT17apdQ9CP779ZtPlwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.jpg" /></a>');
-  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-VCDexq9MrH8/Xkq4sM0dhaI/AAAAAAAAlBM/JHEKfBv2bTA9PAYA0Og5LDxluAUsmsPrACLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.58.57.png" /></a>');
+  
+  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-6e3T4rwu5UA/XnxLsV_VyiI/AAAAAAAAlNA/WgQMxopOdZw3608csfdd08SWhzp9VtUhgCLcBGAsYHQ/s1600/covid-19-eu-policy.jpg" /></a>');
 }
 </script>

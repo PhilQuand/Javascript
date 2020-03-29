@@ -373,10 +373,12 @@ class ShadersGallery {
             this.updateUniforms();
             this.render();
 
-            requestAnimationFrame(loop);
+            //requestAnimationFrame(loop);
+            this.goToNextSlide();
         };
 
-        requestAnimationFrame(loop);
+        //requestAnimationFrame(loop);
+        this.goToNextSlide();
     }
 
 

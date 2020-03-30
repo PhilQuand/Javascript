@@ -285,6 +285,10 @@ var inpAddress = [
   lat: 48.968, lng: 6.289},
 { inpText: "LILLE",
   lat: 50.6282, lng: 3.0688},
+{ inpText: "DIGNE",
+  lat: 44.092, lng: 6.234},
+{ inpText: "NICE",
+  lat: 43.694, lng: 7.241},
 { inpText: "COORDINATION NATIONALE",
   lat: 47.687, lng: 6.495},
 ];

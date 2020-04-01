@@ -330,11 +330,20 @@ function createSummaryAndThumb(pID, isRegular) {
 </style>
 <script>
 if ( window.location.pathname == '/' ){
-  //$('.bg-photo-overlay').append('<div class="video-background"><div class="video-foreground"><iframe src="https://philquand.github.io/Javascript/Blog-widgets/Touraine%20Insoumise/Animation-ban/Montgolfiere-ban.html" frameborder="0" allowfullscreen></iframe></div></div>');
+  banAnim();
   $('.header-widget').addClass('header-widget-home');
   $('.header-widget h1').wrapInner('<span />');
   $('.header-widget > div').append($('.header-widget > p'));
   $('.header-widget').prepend('<img src="https://1.bp.blogspot.com/-q3glREgFdhc/XgNs4Ds753I/AAAAAAAAkrw/BMiVS8ldeIgFST_88L5A5mlL-XvVZkEOgCLcBGAsYHQ/s1600/Double%2BPHI%2Bclair.png"/>');
   $('.bg-photo').remove();
-}
+  function banAnim() {
+    //$('.bg-photo-overlay').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="https://philquand.github.io/Javascript/Blog-widgets/Touraine%20Insoumise/Animation-ban/Montgolfiere-ban.html" frameborder="0" allowfullscreen></iframe></div></div>');
+    $('.page_body').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="https://philquand.github.io/Javascript/Blog-widgets/Touraine%20Insoumise/Animation-ban/Montgolfiere-ban.html" frameborder="0" allowfullscreen></iframe></div></div>');
+    /*$('.header-widget').css('visibility', 'hidden');
+    $('.subscribe-section-container').css('visibility', 'hidden');
+    setTimeout(function() {
+      $('.header-widget').css('visibility', 'visible');
+      $('.subscribe-section-container').css('visibility', 'visible');
+    }, 5000);*/
+  }}
 </script>

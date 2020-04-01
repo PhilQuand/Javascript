@@ -555,8 +555,10 @@ function createSummaryAndThumb(pID, isRegular) {
 <a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rea&t=a01&view=map2" href="javascript:;" >iframe 2</a>
 <a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.dc&t=a01&view=map2" href="javascript:;" >iframe 3</a>
 <a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rad&t=a01&view=map2" href="javascript:;" >iframe 4</a>
+<!--a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Santé%2037/Ressources/COVID19-International.html" href="javascript:;" >iframe 5</a-->
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://thevirustracker.com/" href="javascript:;" >iframe 5</a>
 
-<div class="articleFancy" id="hidden-content-1">
+<!--div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
 <img src="https://1.bp.blogspot.com/-VCDexq9MrH8/Xkq4sM0dhaI/AAAAAAAAlBc/ocJhIWyYNtg696SW-TTqvTooN8wCmakUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.58.57.png" />
 </div>
@@ -578,7 +580,7 @@ function createSummaryAndThumb(pID, isRegular) {
 <div class="corpsFancy">
 <img src="https://1.bp.blogspot.com/-r4UZygiIxfo/Xkq4rkiwgUI/AAAAAAAAlBY/IBOahb50pnUBYAM37xxp3VO3WO6tpsRGACPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.59.39.png" />
 </div>
-</div>
+</div-->
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-4" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
 <!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
 
@@ -741,6 +743,6 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-4c9MRQiEeb8/Xka1VOFAoFI/AAAAAAAAk-c/j8BJiF1bV1wABPVcnicsgbs9ouZ2nKMVwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.png" /></a>');
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-hxTYiKnKI1A/XklzVPvsmJI/AAAAAAAAk_g/8vb0ElqOgdgLKvjT17apdQ9CP779ZtPlwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.jpg" /></a>');
   
-  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-6e3T4rwu5UA/XnxLsV_VyiI/AAAAAAAAlNA/WgQMxopOdZw3608csfdd08SWhzp9VtUhgCLcBGAsYHQ/s1600/covid-19-eu-policy.jpg" /></a>');
+  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
 }
 </script>

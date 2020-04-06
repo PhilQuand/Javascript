@@ -291,7 +291,7 @@ var inpAddress = [
   lat: 44.092, lng: 6.234},
 { inpText: "NICE",
   lat: 43.694, lng: 7.241},
-{ inpText: "NORD ESSONE",
+{ inpText: "NORD ESSONNE",
   lat: 48.6926, lng: 2.2911},
 { inpText: "VILLE-EVRARD",
   lat: 48.8629, lng: 2.5454},

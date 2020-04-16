@@ -808,24 +808,26 @@
       var infosComités = $(this).find('.infosComités').first();
       var curElem = infosComités.children().first();
 
-      var banDiv = $('<div class="echoCom" />').insertAfter(curElem);
-      curElem = banDiv.next();
-      curElem = fillDiv(banDiv, curElem, 'Autres infos locales', $(this));
-
-      var banDiv = $('<div class="autresInfo" />').insertAfter(curElem)
-      curElem = banDiv.next();
-      curElem = fillDiv(banDiv, curElem, '', $(this));
-
-      // structuration de echoCom
-      fillComitéDiv($(this).find('.echoCom').first(), "infoComité marker-1");
-
-      // structuration de autresInfo
-      fillComitéDiv($(this).find('.autresInfo').first(), "infoComité marker-2");
-
-       // marker-3  pour Coordination
-      changeMarker('Coordination','marker-1','marker-3', $(this));
-      changeMarker('Coordination','marker-2','marker-3', $(this));
-
+      for (i = 1; i < options.length; i++) {
+        var banDiv = $('<div class="groupmarker-' + i.toString() + '" />').insertAfter(curElem);
+        curElem = banDiv.next();
+        var keyStr = 'markerGroupDeb';
+        if (i == 1) {
+          keyStr = 'Autres infos locales';
+          curElem.nextAll().each(function() {
+            if ($(this).hasClass('markerGroupDeb')) keyStr = 'markerGroupDeb';
+          });
+        }
+        curElem = fillDiv(banDiv, curElem, keyStr, infosComités);
+        // structuration de echoCom
+        fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString());
+        // marker-0  pour Coordination
+        changeMarker('Coordination', 'marker-' + i.toString(), 'marker-0', infosComités);
+        var curLast = curElem.nextAll().last();
+        var curLastIsMarker = curLast.hasClass("marker-" + i.toString());
+        if (curLastIsMarker) break;
+      };
+      
        // ajout des images
       fillPictures();
 
@@ -834,6 +836,7 @@
       function fillDiv(curDiv, curElem, strKey, _this) {
         if( strKey != '') strKeyElem = _this.find('.' + strKey.replace(/\s/g, '.'));
         var strKeyComp = strKey.replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
+        //var curNextAll = curElem.nextUntil(_this.last());
         var curNextAll = curElem.nextAll();
         curElem.appendTo(curDiv);
         curNextAll.each(function() {
@@ -956,24 +959,14 @@
 
     $.fn.CNLetter = function(options) {
 
-      $(this).CNLetterParser();
+      var iconMarkers = iconMarkersBuilder(options);
+
+      $(this).CNLetterParser(iconMarkers);
 
       //$(document).ready(function() {
       if ($("#idInfosComités").length) {
         $('#idInfosComités').InfosComités({
-          iconMarkers: [{
-            class: "marker-1",
-            title: 'Échos'
-          }, {
-            class: "marker-2",
-            icon: simpleGreenIcon,
-            title: 'Autres Infos'
-          }, {
-            class: "marker-3",
-            icon: simpleRedIcon,
-            title: 'Coordination'
-          }
-          ],
+          iconMarkers: iconMarkers,
           //iconMarkers: [{class: "infoComité", title: 'Échos'}],
           mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
           //divBannerCoordHTML: '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>'
@@ -983,6 +976,38 @@
       }
       //});
 
+      function iconMarkersBuilder(iconMarkersOptions) {
+        var iconMarkers = [{
+          class: "marker-0",
+          icon: simpleRedIcon,
+          title: 'Coordination'
+        }, {
+          class: "marker-1",
+          title: 'Échos'
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Autres Infos'
+        }];
+        if (typeof iconMarkersOptions !== 'undefined') {
+          j = 2;
+          for (i = 0; i < iconMarkersOptions.length; i++) {
+            if (typeof iconMarkersOptions[i].class !== 'undefined') {
+              switch (iconMarkersOptions[i].class) {
+                case "marker-1":
+                  iconMarkers[1] = iconMarkersOptions[i];
+                  break;
+                case "marker-2":
+                  iconMarkers[2] = iconMarkersOptions[i];
+                  break;
+                default:
+                  iconMarkers[++j] = iconMarkersOptions[i];
+              }
+            }
+          }
+        }
+        return iconMarkers;
+      };
     }
 
   })(jQuery);

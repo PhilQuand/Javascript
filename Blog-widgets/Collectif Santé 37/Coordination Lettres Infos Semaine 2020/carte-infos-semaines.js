@@ -808,27 +808,42 @@
       var infosComités = $(this).find('.infosComités').first();
       var curElem = infosComités.children().first();
 
-      for (i = 1; i < options.length; i++) {
-        var banDiv = $('<div class="groupmarker-' + i.toString() + '" />').insertAfter(curElem);
-        curElem = banDiv.next();
-        var keyStr = 'markerGroupDeb';
-        if (i == 1) {
-          keyStr = 'Autres infos locales';
-          curElem.nextAll().each(function() {
-            if ($(this).hasClass('markerGroupDeb')) keyStr = 'markerGroupDeb';
-          });
-        }
-        curElem = fillDiv(banDiv, curElem, keyStr, infosComités);
-        // structuration de echoCom
-        fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString());
-        // marker-0  pour Coordination
-        changeMarker('Coordination', 'marker-' + i.toString(), 'marker-0', infosComités);
-        var curLast = curElem.nextAll().last();
-        var curLastIsMarker = curLast.hasClass("marker-" + i.toString());
-        if (curLastIsMarker) break;
-      };
+      if (typeof options === 'undefined') {
+        for (i = 1; i <= 2; i++) {
+          var banDiv = $('<div class="groupmarker-' + i.toString() + '" />').insertAfter(curElem);
+          curElem = banDiv.next();
+          var keyStr = '';
+          if (i == 1) keyStr = 'Autres infos locales';
+          curElem = fillDiv(banDiv, curElem, keyStr, infosComités);
+          // structuration de echoCom
+          fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString());
+          // marker-0  pour Coordination
+          changeMarker('Coordination', 'marker-' + i.toString(), 'marker-0', infosComités);
+        };
+      }
+      else {
+        for (i = 1; i < options.length; i++) {
+          var banDiv = $('<div class="groupmarker-' + i.toString() + '" />').insertAfter(curElem);
+          curElem = banDiv.next();
+          var keyStr = 'markerGroupDeb';
+          if (i == 1) {
+            keyStr = 'Autres infos locales';
+            curElem.nextAll().each(function() {
+              if ($(this).hasClass('markerGroupDeb')) keyStr = 'markerGroupDeb';
+            });
+          }
+          curElem = fillDiv(banDiv, curElem, keyStr, infosComités);
+          // structuration de echoCom
+          fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString());
+          // marker-0  pour Coordination
+          changeMarker('Coordination', 'marker-' + i.toString(), 'marker-0', infosComités);
+          var curLast = curElem.nextAll().last();
+          var curLastIsMarker = curLast.hasClass("marker-" + i.toString());
+          if (curLastIsMarker) break;
+        };
+      }
       
-       // ajout des images
+      // ajout des images
       fillPictures();
 
       $(this).find('sdfield').first().css('display', 'none')

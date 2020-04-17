@@ -812,9 +812,9 @@
         for (i = 1; i <= 2; i++) {
           var banDiv = $('<div class="groupmarker-' + i.toString() + '" />').insertAfter(curElem);
           curElem = banDiv.next();
-          var keyStr = '';
-          if (i == 1) keyStr = 'Autres infos locales';
-          curElem = fillDiv(banDiv, curElem, keyStr, infosComités);
+          //var keyStr = '';
+          //if (i == 1) keyStr = 'Autres infos locales';
+          curElem = fillDiv(banDiv, curElem, 'Autres infos locales', infosComités);
           // structuration de echoCom
           fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString());
           // marker-0  pour Coordination
@@ -825,14 +825,8 @@
         for (i = 1; i < options.length; i++) {
           var banDiv = $('<div class="groupmarker-' + i.toString() + '" />').insertAfter(curElem);
           curElem = banDiv.next();
-          var keyStr = 'markerGroupDeb';
-          if (i == 1) {
-            keyStr = 'Autres infos locales';
-            curElem.nextAll().each(function() {
-              if ($(this).hasClass('markerGroupDeb')) keyStr = 'markerGroupDeb';
-            });
-          }
-          curElem = fillDiv(banDiv, curElem, keyStr, infosComités);
+          //var keyStr = 'markerGroupDeb';
+          curElem = fillDiv(banDiv, curElem, 'markerGroupDeb', infosComités);
           // structuration de echoCom
           fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString());
           // marker-0  pour Coordination

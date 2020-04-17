@@ -968,16 +968,11 @@
 
     $.fn.CNLetter = function(options) {
 
-      if (typeof options === 'undefined') {
+      var iconMarkers = iconMarkersBuilder(options);
 
-        $(this).CNLetterParser();
+      if (typeof options === 'undefined') $(this).CNLetterParser();
+      else $(this).CNLetterParser(iconMarkers);
 
-      } else {
-
-        var iconMarkers = iconMarkersBuilder(options);
-        $(this).CNLetterParser(iconMarkers);
-
-      }
       //$(document).ready(function() {
       if ($("#idInfosComités").length) {
         $('#idInfosComités').InfosComités({

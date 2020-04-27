@@ -906,7 +906,7 @@
         //var curNextAll = curDiv.children().first().nextAll();
         var curNextAll = curDiv.children();
         curNextAll.each(function() {
-          if((($(this).html().search('background:') > -1) || ($(this).html().search('background-color:') > -1) || (typeof $(this).attr("style") !== 'undefined' && (~$(this).attr("style").indexOf("background:") || ~$(this).attr("style").indexOf("background-color:")))) && $(this).find('b').length > 0 && !$(this).is("div")) {
+          if(isCurCity($(this))) {
             //console.log($(this).find('b').html());
             $(this).find('b').wrap('<span />');
             curCity = $(this).wrap('<div class="' + curClass + '" />').parent();
@@ -914,6 +914,15 @@
           }
           else if (curCity !== '') $(this).appendTo(curCity);
         });
+
+        function isCurCity(curTest) {
+          var htmlTest = curTest.html();
+          var attrTest = curTest.attr("style");
+          var htmlTestIs = (htmlTest.search('background:') > -1 && htmlTest.search('background: transparent') == -1 && htmlTest.search('background:  transparent') == -1) || (htmlTest.search('background-color:') > -1 && htmlTest.search('background-color: transparent') == -1 && htmlTest.search('background-color:  transparent') == -1)
+          var attrTestIs = typeof attrTest !== 'undefined' && (((attrTest.indexOf("background:") > -1 && attrTest.indexOf("background: transparent") == -1 && attrTest.indexOf("background:  transparent") == -1) ||(attrTest.indexOf("background-color:") > -1 && attrTest.indexOf("background-color: transparent") == -1 && attrTest.indexOf("background-color:  transparent") == -1)))
+          var isCity = (htmlTestIs || attrTestIs) && curTest.find('b').length > 0 && !$(this).is("div");
+          return isCity;
+        }
 
         function formCurCity(curCity) {
           var cityName = curCity.find('b').html();

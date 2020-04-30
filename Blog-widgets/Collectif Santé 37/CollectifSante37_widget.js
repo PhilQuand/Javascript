@@ -549,6 +549,35 @@ function createSummaryAndThumb(pID, isRegular) {
 }
 </script>
 
+<!-- alignement de deux images de même taille -->
+<style>
+.img2align {
+    display: flex; 
+    align-items: center;
+    width: 100%; 
+}
+.img2align .divImg {
+    max-width: 600px; 
+    width: 50%; 
+    margin-right: 0.5em;
+    margin-bottom: 1em;
+}
+.img2align  .divImg img {
+    width: 100%;
+}
+@media (max-width: 1100px) {
+    .img2align {
+        display: block; 
+    }
+    .img2align  .divImg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+}
+</style>
+
 <!-- Add a modal window -->
 
 <a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2" href="javascript:;" >iframe 1</a>
@@ -730,8 +759,8 @@ $('.fancybox')
     //background-color: orange;
   }
   100% {
-    //transform: scale(1.2);
-    transform: scale(0.8);
+    transform: scale(1.2);
+    //transform: scale(0.8);
     //background-color: yellow;
   }
 }
@@ -743,6 +772,94 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-4c9MRQiEeb8/Xka1VOFAoFI/AAAAAAAAk-c/j8BJiF1bV1wABPVcnicsgbs9ouZ2nKMVwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.png" /></a>');
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-hxTYiKnKI1A/XklzVPvsmJI/AAAAAAAAk_g/8vb0ElqOgdgLKvjT17apdQ9CP779ZtPlwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.jpg" /></a>');
   
-  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
+  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
+  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
+}
+</script>
+<style>
+.gallery-container {
+    width: 30vw;
+}
+@media screen and (max-width: 1100px) {
+    .gallery-container {
+         width: 60vw;
+    }
+}
+</style>
+<!-- 
+Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
+-->
+<script>
+var galContainer  = 'gallery-container';
+var urls = [
+  'https://1.bp.blogspot.com/-iZ-Zi5b8pZ4/XqrZD11sJ7I/AAAAAAAAlqQ/GR8_hUtZ7A4y3qwtpVWa0jONM6gRyvZJgCK4BGAsYHg/s1600/20200429_152854.jpg',
+  'https://1.bp.blogspot.com/-I8DWf9bvcWc/XoN3n_o348I/AAAAAAAAlUg/sxkCTaH5q_4Bp8VWAFaxliMonmeCTqLxgCK4BGAsYHg/s1600/DSC04968-NEW.jpg',
+  'https://1.bp.blogspot.com/-ECV4PtoBlcE/Xqk-84gHY5I/AAAAAAAAlo4/iloeN45EKtEUrBvHXauSZtF23IEwB9u9ACK4BGAsYHg/s1600/Sauvons-Hopital-Pas_Capital.jpg',
+  'https://1.bp.blogspot.com/-X0f6JyJKK04/Xoyq6DEy6EI/AAAAAAAAlfQ/mrjMvg_iMXEYRm9wOT4iokeWshUZqIoMQCK4BGAsYHg/s1600/20200407_163610.jpg',
+  'https://1.bp.blogspot.com/-7JEF_2lu5C4/XoNxc2OtDcI/AAAAAAAAlTw/VGlsjryM9FAkr_lmge5lh-lBAElnW8lBwCK4BGAsYHg/s1600/IMG_1522-NEW.jpg',
+  'https://1.bp.blogspot.com/-sdREiSAnKdk/XoN3ReIz_sI/AAAAAAAAlUM/aJSoL9GmP-42F3NAINdz8fF8WxvcRyTDgCK4BGAsYHg/s1600/IMG_1519-NEW.jpg',
+  'https://1.bp.blogspot.com/-YMfAm9AdFQQ/XoN4KxvGBnI/AAAAAAAAlVI/Uc3XnfQP50wRZcgAgZfSS5YMUeFJG6osACK4BGAsYHg/s1600/P1030025-New.jpg',
+  'https://1.bp.blogspot.com/-Om5lJzeDn4Y/Xo4PYlVmYOI/AAAAAAAAlgQ/CeiQykpYW2sBRX80DBlmTyUOb0goKSuTwCK4BGAsYHg/s1600/IMG_1538.JPG',
+  'https://1.bp.blogspot.com/-cZDLcWMtTNU/Xobkb0Ei_oI/AAAAAAAAlZ0/UcyYFSJ5lv0wL4KwWbRrMkU3pBMsUBnLQCK4BGAsYHg/s1600/IMG_20200402_192429.jpg',
+  'https://1.bp.blogspot.com/-hLh_7qprf3U/XoS_ms_xC5I/AAAAAAAAlX8/H7QDXub99Ng6lX6QCiSerTKuZ9bdKdZ9wCK4BGAsYHg/s1600/panneau-1-CP.jpeg',
+  'https://1.bp.blogspot.com/-OjuU1WVxDG0/XoS9yAUa84I/AAAAAAAAlXY/BnHjdIVSGoQInslgudU0H5zW2QNVF2ksQCK4BGAsYHg/s1600/panneau%2B2.jpg',
+  'https://1.bp.blogspot.com/-O7hnL8dbzM8/XoTTFONhBpI/AAAAAAAAlZY/KTizzghJdeg0xldk_g72Gm5lu26teQZ9QCK4BGAsYHg/s1600/IMG_1530-NEW.jpg',
+  'https://1.bp.blogspot.com/-d875dZB417Q/XoGdZpgWaJI/AAAAAAAAlQ8/C8r3Hi_7LXgA3LPOfCZeeGxB86oyobo8ACLcBGAsYHQ/s1600/20200328_195330-NEW.jpg',
+  'https://1.bp.blogspot.com/-sJYaRkhsK6I/XoGcueEEE3I/AAAAAAAAlQ0/twnESkBSgAgwl3ZYkFPB9zx2pmI9Em6hgCLcBGAsYHQ/s1600/IMG_3180.jpg',
+  'https://1.bp.blogspot.com/-smsO2gcV6sI/XoGe4ZiXXNI/AAAAAAAAlRI/TItFtmypAho_q3SeEf_EO3F5n6i4khmeACLcBGAsYHQ/s1600/IMG-20200327-WA0000-NEW.jpg',
+  'https://1.bp.blogspot.com/-qp7YM3Imf0Y/XoN35CsF8tI/AAAAAAAAlU0/QdeXXfm7m4QEpjGkIhyoNnmjx59rddkZgCK4BGAsYHg/s16000/B2E890A9-C6D5-4562-B081-New.jpg',
+  'https://1.bp.blogspot.com/-eLTOdsVwHPg/XoLuBKZfsMI/AAAAAAAAlSQ/2tItUxnjMssKjbAC2N774FUAfUND_DbPgCK4BGAsYHg/s1600/IMAG2300-NEW.jpg',
+  'https://1.bp.blogspot.com/-3GW_0nPtHNE/XoNtr7POc3I/AAAAAAAAlTE/Oh10masdyuQznmcojrVDeiBDvnvU_FFEQCK4BGAsYHg/s1600/IMG_20200330_160758-NEW.jpg',
+  'https://1.bp.blogspot.com/-fr_GYi06S48/XoNte-JtP1I/AAAAAAAAlSs/6FPiMVfG4EoaRIdl1Nl9GC3yjvD_O5GpgCK4BGAsYHg/s1600/IMG_0861-NEW.jpg',
+  'https://1.bp.blogspot.com/-v1aRuElutSY/XoOdex9e4II/AAAAAAAAlWU/ytud8uyE2qMMEGE-BjUm1wbaD-19ImkXwCK4BGAsYHg/s16000/IMG_1527.jpg',
+  'https://1.bp.blogspot.com/-IE-pmEVlINQ/XomeUhtPpXI/AAAAAAAAla8/ivqYJqK_baQqKEDHnIC1FZdiLS2U2k1wgCK4BGAsYHg/s1600/IMG_1531.jpg',
+  'https://1.bp.blogspot.com/-6_QUOOVpVi8/Xor-vZivymI/AAAAAAAAlcs/ePaYbw2khX8IkLJoEEORKPZ-un8MrvgjgCK4BGAsYHg/s1600/20200401_204050-NEW.jpg',
+  'https://1.bp.blogspot.com/-E-qledZQuYo/XpNh2IgHFdI/AAAAAAAAliA/0mHlq0VcctoRWmfD6A5mHAS934Jj98o7wCK4BGAsYHg/s16000/IMG_1543.jpg',
+  'https://1.bp.blogspot.com/-ARhfmWXuEVI/XpgIzLE55-I/AAAAAAAAljg/i6yNlE44HtAxnQsRSnrAn0r_-buPjdoNwCK4BGAsYHg/s16000/image001.jpg',
+  'https://1.bp.blogspot.com/-nZ2Vi0ejpJo/Xp2S9kKzv9I/AAAAAAAAllI/Kpii4vJlJ3oVEO2_0UgM9WyiHfwq6NrXwCK4BGAsYHg/s1600/IMG_1545.jpg'
+]
+var imageSize = {
+  x: 1600,
+  y: 1200
+};
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
+<script type='module'>
+galContainer = '.' +  galContainer;
+calcHeight();
+$(window).resize(function() {
+  calcHeight();
+});
+function calcHeight() {
+  var galWidth = $(galContainer).css('width');
+  if( typeof galWidth ==='undefined' ) return;
+  //var galHeight = $(galContainer).css('height');
+  var galHeight = Number(galWidth.split("px")[0]) * imageSize.y / imageSize.x;
+  $(galContainer).css('height', galHeight + 'px');
+  //galHeight = $(galContainer).css('height');
+}
+import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
+const options = {
+  container: document.querySelector(galContainer),
+  urls: urls,
+  imageSize: imageSize,
+  callbacks: {
+    onGalleryCreated: function() {
+      console.log('It\'s time to remove preloader!');
+      window.myGallery.goToNextSlide();
+      var timer = setInterval("window.myGallery.goToNextSlide()", 5000);
+    }
+  }
+};
+if ($(galContainer).length > 0) {
+  window.myGallery = new ShadersGallery(options);
+  console.log(window.myGallery);
+  $(galContainer).wrapInner('<a href="' + window.location.href + '#imageTS-1"></a>')
+  $(galContainer).append('<div class="fancyData" style="display:none"></div>')
+  for (var i = 0; i < options.urls.length; i++) {
+    $(galContainer + ' .fancyData').append('<a class="fancyboxTestSoignants" data-fancybox="imageTS" data-src="' + options.urls[i] + '" data-thumb="' + options.urls[i] + '" href="javascript:;">imageTS #' + i + '</a>');
+  }
+  $(galContainer + ' a').css("cursor", "pointer");
 }
 </script>

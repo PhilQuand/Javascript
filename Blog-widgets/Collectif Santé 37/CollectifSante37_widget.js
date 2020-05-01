@@ -792,10 +792,10 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
 <script>
 var galContainer  = 'gallery-container';
 var urls = [
-  'https://1.bp.blogspot.com/-iZ-Zi5b8pZ4/XqrZD11sJ7I/AAAAAAAAlqQ/GR8_hUtZ7A4y3qwtpVWa0jONM6gRyvZJgCK4BGAsYHg/s1600/20200429_152854.jpg',
   'https://1.bp.blogspot.com/-I8DWf9bvcWc/XoN3n_o348I/AAAAAAAAlUg/sxkCTaH5q_4Bp8VWAFaxliMonmeCTqLxgCK4BGAsYHg/s1600/DSC04968-NEW.jpg',
-  'https://1.bp.blogspot.com/-ECV4PtoBlcE/Xqk-84gHY5I/AAAAAAAAlo4/iloeN45EKtEUrBvHXauSZtF23IEwB9u9ACK4BGAsYHg/s1600/Sauvons-Hopital-Pas_Capital.jpg',
+  'https://1.bp.blogspot.com/-iZ-Zi5b8pZ4/XqrZD11sJ7I/AAAAAAAAlqQ/GR8_hUtZ7A4y3qwtpVWa0jONM6gRyvZJgCK4BGAsYHg/s1600/20200429_152854.jpg',
   'https://1.bp.blogspot.com/-X0f6JyJKK04/Xoyq6DEy6EI/AAAAAAAAlfQ/mrjMvg_iMXEYRm9wOT4iokeWshUZqIoMQCK4BGAsYHg/s1600/20200407_163610.jpg',
+  'https://1.bp.blogspot.com/-ECV4PtoBlcE/Xqk-84gHY5I/AAAAAAAAlo4/iloeN45EKtEUrBvHXauSZtF23IEwB9u9ACK4BGAsYHg/s1600/Sauvons-Hopital-Pas_Capital.jpg',
   'https://1.bp.blogspot.com/-7JEF_2lu5C4/XoNxc2OtDcI/AAAAAAAAlTw/VGlsjryM9FAkr_lmge5lh-lBAElnW8lBwCK4BGAsYHg/s1600/IMG_1522-NEW.jpg',
   'https://1.bp.blogspot.com/-sdREiSAnKdk/XoN3ReIz_sI/AAAAAAAAlUM/aJSoL9GmP-42F3NAINdz8fF8WxvcRyTDgCK4BGAsYHg/s1600/IMG_1519-NEW.jpg',
   'https://1.bp.blogspot.com/-YMfAm9AdFQQ/XoN4KxvGBnI/AAAAAAAAlVI/Uc3XnfQP50wRZcgAgZfSS5YMUeFJG6osACK4BGAsYHg/s1600/P1030025-New.jpg',
@@ -826,33 +826,34 @@ var imageSize = {
 <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
 <script type='module'>
-galContainer = '.' +  galContainer;
-calcHeight();
-$(window).resize(function() {
-  calcHeight();
-});
-function calcHeight() {
-  var galWidth = $(galContainer).css('width');
-  if( typeof galWidth ==='undefined' ) return;
-  //var galHeight = $(galContainer).css('height');
-  var galHeight = Number(galWidth.split("px")[0]) * imageSize.y / imageSize.x;
-  $(galContainer).css('height', galHeight + 'px');
-  //galHeight = $(galContainer).css('height');
-}
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
-const options = {
-  container: document.querySelector(galContainer),
-  urls: urls,
-  imageSize: imageSize,
-  callbacks: {
-    onGalleryCreated: function() {
-      console.log('It\'s time to remove preloader!');
-      window.myGallery.goToNextSlide();
-      var timer = setInterval("window.myGallery.goToNextSlide()", 5000);
-    }
-  }
-};
+galContainer = '.' +  galContainer;
 if ($(galContainer).length > 0) {
+  calcHeight();
+  $(window).resize(function() {
+    calcHeight();
+  });
+
+  function calcHeight() {
+    var galWidth = $(galContainer).css('width');
+    if (typeof galWidth === 'undefined') return;
+    //var galHeight = $(galContainer).css('height');
+    var galHeight = Number(galWidth.split("px")[0]) * imageSize.y / imageSize.x;
+    $(galContainer).css('height', galHeight + 'px');
+    //galHeight = $(galContainer).css('height');
+  }
+  const options = {
+    container: document.querySelector(galContainer),
+    urls: urls,
+    imageSize: imageSize,
+    callbacks: {
+      onGalleryCreated: function() {
+        console.log('It\'s time to remove preloader!');
+        window.myGallery.goToNextSlide();
+        var timer = setInterval("window.myGallery.goToNextSlide()", 5000);
+      }
+    }
+  };
   window.myGallery = new ShadersGallery(options);
   console.log(window.myGallery);
   $(galContainer).wrapInner('<a href="' + window.location.href + '#imageTS-1"></a>')

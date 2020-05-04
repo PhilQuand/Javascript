@@ -317,6 +317,8 @@ var inpAddress = [
   lat: 45.96379, lng: -0.33969},
 { inpText: "LOURDIOS ICHERES",
   lat: 43.04997, lng: -0.66255},
+{ inpText: "TENON",
+  lat: 46.5594, lng: 2.5505},
 { inpText: "INDRE ET LOIRE",
   lat: 47.1977, lng:  0.7615},
 { inpText: "Guadeloupe",

@@ -793,9 +793,11 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
 var galContainer  = 'gallery-container';
 var urls = [
   'https://1.bp.blogspot.com/-I8DWf9bvcWc/XoN3n_o348I/AAAAAAAAlUg/sxkCTaH5q_4Bp8VWAFaxliMonmeCTqLxgCK4BGAsYHg/s1600/DSC04968-NEW.jpg',
-  'https://1.bp.blogspot.com/-iZ-Zi5b8pZ4/XqrZD11sJ7I/AAAAAAAAlqQ/GR8_hUtZ7A4y3qwtpVWa0jONM6gRyvZJgCK4BGAsYHg/s1600/20200429_152854.jpg',
+  'https://1.bp.blogspot.com/-y_lWmVRxJN0/Xq7JQdWvx-I/AAAAAAAAlv4/mJ1zkMt78wQAsK1B9WNWpNFNt_5dflNZwCK4BGAsYHg/s1600/ClaudeD.jpg',
   'https://1.bp.blogspot.com/-X0f6JyJKK04/Xoyq6DEy6EI/AAAAAAAAlfQ/mrjMvg_iMXEYRm9wOT4iokeWshUZqIoMQCK4BGAsYHg/s1600/20200407_163610.jpg',
   'https://1.bp.blogspot.com/-ECV4PtoBlcE/Xqk-84gHY5I/AAAAAAAAlo4/iloeN45EKtEUrBvHXauSZtF23IEwB9u9ACK4BGAsYHg/s1600/Sauvons-Hopital-Pas_Capital.jpg',
+  'https://1.bp.blogspot.com/-kxft1_1SpNQ/Xqw4-1pw46I/AAAAAAAAluo/xZgKdKiP9bsI_waqkI9c93ivcTnv19GnwCK4BGAsYHg/s1600/P1030228.jpg',
+  'https://1.bp.blogspot.com/-au2EZAXNfDQ/Xqw4_lRN7II/AAAAAAAAlus/d6Jei9N8lyUpphPfqcauSLi03C5z4QT-QCK4BGAsYHg/s1600/P1030226.jpg',
   'https://1.bp.blogspot.com/-7JEF_2lu5C4/XoNxc2OtDcI/AAAAAAAAlTw/VGlsjryM9FAkr_lmge5lh-lBAElnW8lBwCK4BGAsYHg/s1600/IMG_1522-NEW.jpg',
   'https://1.bp.blogspot.com/-sdREiSAnKdk/XoN3ReIz_sI/AAAAAAAAlUM/aJSoL9GmP-42F3NAINdz8fF8WxvcRyTDgCK4BGAsYHg/s1600/IMG_1519-NEW.jpg',
   'https://1.bp.blogspot.com/-YMfAm9AdFQQ/XoN4KxvGBnI/AAAAAAAAlVI/Uc3XnfQP50wRZcgAgZfSS5YMUeFJG6osACK4BGAsYHg/s1600/P1030025-New.jpg',

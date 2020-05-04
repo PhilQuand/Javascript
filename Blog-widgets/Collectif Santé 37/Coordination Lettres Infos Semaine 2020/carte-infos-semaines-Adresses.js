@@ -320,7 +320,7 @@ var inpAddress = [
 { inpText: "TENON",
   lat: 48.8662, lng: 2.4009},
 { inpText: "INDRE ET LOIRE",
-  lat: 47.1977, lng:  0.7615},
+  lat: 47.1977, lng:  0.9615},
 { inpText: "Guadeloupe",
   lat: 16.2424, lng:  -61.5666},
 { inpText: "COORDINATION NATIONALE",

@@ -1,8 +1,12 @@
     var archi = [
            {
+          svgInfos: ['Semaine 18', 'du 27 apr.', 'au 01 may', '2020'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 18.html',
+          idGlinkID: 'PreviousLetters'
+        },
+           {
           svgInfos: ['Semaine 17', 'du 20 apr.', 'au 24 apr.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 17.html',
-          idGlinkID: 'PreviousLetters'
         },
            {
           svgInfos: ['Semaine 16', 'du 13 apr.', 'au 17 apr.', '2020'],

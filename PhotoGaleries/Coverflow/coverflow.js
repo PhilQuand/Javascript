@@ -1,3 +1,4 @@
+(function($) {
 /*Coverflow Image Gallery By Dynamic Drive
 * Created: Jan 14th', 2015 by DynamicDrive.com.
 * Dependencies: jQuery, Sly scrolling lib https://github.com/darsain/sly
@@ -117,7 +118,6 @@ function coverflowimages(options){
 						['ashleysmall.jpg', 'ashley.jpg', 'Ashley was born in Granada Hills, California. She is the daughter of Naomi Judd, a country music singer and motivational speaker'] // <-- no comma after last image
 					] // <-- no comma after last option
 })*/
-(function($) {
     $.fn.coverflowimages = function(options) {
         var i = 0;
         $(this).each(function() {

@@ -137,16 +137,15 @@
       //if( idCover == 'TESTcoverflow1') {
       if (!$(this).find('.wrap').length) {
         $(this).append('<div class="wrap"><div class="scrollbar"><div class="handle"><div class="mousearea"></div></div></div><div class="frame coverflow"><ul class="clearfix"><li>Holder</li></div><ul class="pages"></ul></div></div>');
+        options.wrap = $(this).find('.wrap');
+        options.wrap.attr('id', idCover);
+        //options.coverid = idCover;
+        coverflowimages(options);
       }
-      options.wrap = $(this).find('.wrap');
-      options.wrap.attr('id', idCover);
-      //options.coverid = idCover;
-      coverflowimages(options);
       //}
     });
   };
 })(jQuery);
-
 /*$(document).ready(function() {
 $('.testImages').coverflowimages({
 	images: [

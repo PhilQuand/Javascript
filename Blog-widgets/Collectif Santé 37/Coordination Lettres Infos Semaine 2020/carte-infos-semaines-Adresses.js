@@ -328,7 +328,7 @@ var inpAddress = [
 { inpText: "SAINT-NAZAIRE",
   lat: 47.27435, lng:  -2.21386},
 { inpText: "NORD FRANCHE-COMTE",
-  lat: 50.447973, lng:  3.214787},
+  lat: 47.66752, lng:  6.89586},
 { inpText: "ALPES DU SUD",
   lat: 45.160630, lng:  5.712725},
 { inpText: "Guadeloupe",

@@ -1,8 +1,9 @@
-<!-- begin of customized social share buttons P.Q.-->
+j<!-- begin of customized social share buttons P.Q.-->
 <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet' type='text/css' />
 <!--script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' type='text/javascript'></script-->
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' type='text/javascript'></script>
 <link href='https://philquand.github.io/Javascript/FloatingShareBar/css/jquery-social-share-bar.css' rel='stylesheet' type='text/css'/>
+<link href="https://philquand.github.io/Javascript/FloatingShareBar/css/font-awesome-animation.css" rel="stylesheet" type='text/css'/>
 <script src='https://philquand.github.io/Javascript/FloatingShareBar/js/jquery-social-share-bar.js' type='text/javascript'></script>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
@@ -17,61 +18,163 @@
 <div class='myShareBar' id='share-bar'></div>
 
 <div style='display: none'>
-	<script type="text/javascript" src="https://philquand.github.io/Javascript/HYPE/Transitions/HypeSceneMagic.min.js"></script>
-<span id='calendarFancy_content'>
+<!--div id='calendarFancy_content' style='margin-left: auto; margin-right: 0;'-->
+<div id='epingleFancy_content' style='margin-left: auto; margin-right: 0;'>
+<div style="width: 100%; margin: 0;">
+<article style="background-color: rgba(190, 201, 228, 0.498039); background-position: initial initial; background-repeat: initial initial;">
+<div class="item-content float-container res-title"><h3 style="display: block;"><a href="https://www.linternationaledessavoirspourtous.org/2020/01/notre-congres-marseilledes-22-et-23.html?lang=fr" onclick="return function gotoOnClick(e) {
+  //alert(e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;));
+  window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;);
+  return false;
+}(this);" data-lngloc="fr-FR"><div class="local-lang fr-FR" style="display: block;">Notre congrès à Marseille&nbsp;des 22 et 23 novembre 2019&nbsp;: le compte rendu</div><div class="local-lang en-EN" style="display: none;">Our congress in Marseille on November 22 and 23, 2019: the minutes</div><div class="local-lang es-ES" style="display: none;">Nuestro congreso en Marsella los días 22 y 23 de noviembre de 2019: las actas</div></a>
+<img src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png" width="32" height="32" alt="es-ES" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags es-ES"><img src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png" width="32" height="32" alt="en-EN" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags en-EN"><img src="https://philquand.github.io/Javascript/flagsRepository/France.png" width="32" height="32" alt="fr-FR" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags fr-FR"></h3><h3 style="display: none;"><div class="local-lang fr-FR" style="display: block;">Notre congrès à Marseille&nbsp;des 22 et 23 novembre 2019&nbsp;: le compte rendu</div><div class="local-lang en-EN" style="display: none;">Our congress in Marseille on November 22 and 23, 2019: the minutes</div><div class="local-lang es-ES" style="display: none;">Nuestro congreso en Marsella los días 22 y 23 de noviembre de 2019: las actas</div></h3>
+<h2 class="authors">
+<div class="local-lang fr-FR" style="display: block;">La Rédaction du blog</div>
+<div class="local-lang en-EN" style="display: none;">Blog editorial team</div>
+<div class="local-lang es-ES" style="display: none;">La redacción del blog</div>
+</h2>
+<img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)"></div><div style="display: block"><div class="post-header item-content float-container"><span class="imgSum"><img data-img="yes" src="https://1.bp.blogspot.com/-Xwfy_uMmuz4/Xh7Kwa2VG9I/AAAAAAAAk1Y/A3KGEPzE7BYMFQHNhJzao6bJwGnDRWbMgCLcBGAsYHQ/s320/DSC09279_2x.jpg" width="180px" height="auto"></span><div class="incrustation"><div class="local-lang fr-FR" style="display: block;">
+Quelques
+remerciements tout d’abord&nbsp;:
+au journal La Marseillaise qui nous a
+	accueillis dans ses locaux, 
+à Jean-Pierre Brundu responsable de
+	l’Université populaire de Marseille-Métropole et Boris Humbert
+	pour la belle <a href="https://drive.google.com/file/d/1PN955UOts1jZSRzjyU9Znk5gdsFRQXwi/view?usp=sharing">plaquette</a> qu’il a réalisée,
+à l’équipe de rédaction de
+	l’Internationale des Savoirs pour Tous (IDST) et de son blog,
+	Patricia Pol,... </div><div class="local-lang en-EN" style="display: none;">
+First of all, a few words of thanks:
+to the newspaper La Marseillaise who welcomed us in its building, 
+to Jean-Pierre Brundu in charge of the Université Populaire de Marseille-Métropole (UPOP) and Boris Humbert for the beautiful <a href="https://drive.google.com/file/d/1PN955UOts1jZSRzjyU9Znk5gdsFRQXwi/view?usp=sharing">brochure</a> he produced,
+to the editorial team of the International of Knowledge for All (IKA) and its blog,... </div><div class="local-lang es-ES" style="display: none;">
+En primer lugar, unas palabras de agradecimiento:
+al periódico La Marsellesa que nos acogió en sus instalaciones, 
+a Jean-Pierre Brundu, responsable de la Universidad popular de Marsella-Métropole (UPOP) y a Boris Humbert por el hermoso <a href="https://drive.google.com/file/d/1PN955UOts1jZSRzjyU9Znk5gdsFRQXwi/view?usp=sharing">folleto</a> que ha realizado,
+al equipo editorial de la Internacional del Saber para Todos... </div></div><div style="text-align: right; display: none;"><a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=fr" title="À l’origine de notre Internationale">Lire la suite</a></div></div>
+</div>
+</article>
+</div>
+</div>
+
+<!--span id='calendarTooltipster_content' class='tooltipStyle'>
 <center>
-<style>
-.fancybox-content {
-    width-max: 700px;
-    width: 700px;
-}
-</style>
-	<div id="congresidst_hype_container" class="HYPE_document" style="margin:auto;position:relative;width:600px;height:400px;overflow:hidden;">
-		<script type="text/javascript" charset="utf-8" src="https://philquand.github.io/Javascript/Blog-widgets/IDST/Congrès-IDST-Nov-2019/CongresIDST.hyperesources/congresidst_hype_generated_script.js?65097"></script>
-	</div>
-<!--img border="0" style="display: block;" src="https://1.bp.blogspot.com/-fiZ2hS4XPeg/XW58GM9JRAI/AAAAAAAAj4E/tePKkDnxCggaD4xxD9geKLMIVKe3SpQYQCLcBGAs/s1600/Vieuxport2.jpg" alt="NewImage" width="100%" border="0" /><br/>
-<div lang="fr">
-<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venez à notre congrès, à Marseille, les 22-23 novembre 2019…</a></div>
-<div lang="en" style="display: none">
-<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Come to our congress, in Marseille (France), on November 22-23, 2019...</a></div>
-<div lang="es" style="display: none">
-<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venga a nuestro congreso, en Marsella (Francia), los días 22 y 23 de noviembre de 2019...</a></div>
-<div lang="de" style="display: none">
-<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Kommen Sie zu unserem Kongress in Marseille (Frankreich), vom 22. bis 23. November 2019...</a></div>
-<div lang="pt" style="display: none">
-<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venha ao nosso congresso, em Marselha (França), de 22 a 23 de novembro de 2019....</a></div>
-<div lang="it" style="display: none">
-<a href="https://brouillon-savoirspourtous.blogspot.com/2019/09/vers-une-societe-du-partage-des-savoirs.html">Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</a></div-->
+<img border="0" style="display: block; margin: 1em auto 1em auto;" src="https://1.bp.blogspot.com/-fiZ2hS4XPeg/XW58GM9JRAI/AAAAAAAAj4E/tePKkDnxCggaD4xxD9geKLMIVKe3SpQYQCLcBGAs/s1600/Vieuxport2.jpg" alt="NewImage" width="100%" border="0" />
+<div class="local-lang fr-FR" lang="fr">
+Venez à notre congrès, à Marseille, les 22-23 novembre 2019…</div>
+<div class="local-lang en-EN" lang="en" style="display: none">
+Come to our congress, in Marseille (France), on November 22-23, 2019...</div>
+<div class="local-lang es-ES" lang="es" style="display: none">
+Venga a nuestro congreso, en Marsella (Francia), los días 22 y 23 de noviembre de 2019...</div>
+<div class="local-lang de-DE" lang="de" style="display: none">
+Kommen Sie zu unserem Kongress in Marseille (Frankreich), vom 22. bis 23. November 2019...</div>
+<div class="local-lang pt-PT" lang="pt" style="display: none">
+Venha ao nosso congresso, em Marselha (França), de 22 a 23 de novembro de 2019....</div>
+<div class="local-lang it-IT" lang="it" style="display: none">
+Venite al nostro congresso, a Marsiglia (Francia), il 22-23 novembre 2019...</div>
 </center>
-</span>
+</span-->
 </div>
 
 <style>
-.calendarFancyClass .fancybox-content {
-    background-color: white;
+.imgSum { 
+ overflow:hidden; 
+ border: none; 
+ margin:0 15px 10px 0;
+ float:left;
+ max-height:180px;
+ width:auto;
 }
-.calendarFancyClass.fancybox-is-open .fancybox-bg {
-    opacity: 0.5;
+@media screen and (max-width: 450px) {
+     .imgSum {
+         margin-top: 0.5em;
+         width: 100%;
+         text-align: center;
+     }
+}
+</style>
+<style>
+/*  .myShareBar.animate .sharing-providers  > .epingleFancy:hover {
+    transform: translateX(0px) !important;
+    transform: translateY(0px) !important;
+  }
+.myShareBar.right.animate .sharing-providers > .epingleFancy:hover {
+  transform: translateX(0px);
+  //cursor: grab;
+}*/
+.epingleFancy {
+  //background-color: red;
+  animation-name: stretch;
+  animation-duration: 2.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(.8);
+    //background-color: red;
+    border-radius: 100%;
+  }
+  10% {
+    transform: scale(1.);
+    border-radius: 0%;
+    //background-color: orange;
+  }
+  100% {
+    //transform: scale(1.2);
+    transform: scale(1.5);
+    //background-color: yellow;
+  }
+}
+.calendarFancyClass .fancybox-content {
+    //width: 80%;
+    max-width: 600px;
+    height: 400px;
+}
+@media (max-width: 800px) {
+.sharing-providers > li.epingleFancy {
+  background-size: 90px;
+  width: 90px;
+  height: 60px;
+}
+.sharing-providers > li.epingleFancy > a {
+  width: 90px;
+  height: 60px;
+}
 }
 </style>
 <script>
 $(document).ready(function() {
+// if calendarFancy defined, it's the url of an iFrame fancyox otherwise fancybox is of div with div id as #calendarFancy_content
   $('#share-bar').share({
-    'channels': ['calendarFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email']
+    //'channels': ['facebook', 'twitter', 'linkedin', 'pdf', 'email'],
+    'channels': ['epingleFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email'],
+    //epingleFancy: 'https://philquand.github.io/Javascript/Blog-widgets/IDST/Congrès-IDST-Nov-2019/CongresIDST.html'
   });
+  var pathname = window.location.pathname;
+  if ((pathname != "/") && (pathname != "/search") && (pathname.indexOf("/p/biblioteca-delluniversita-di-bologna") == -1)) {
+      $('.sharing-providers .calendarFancy').css('display','none');
+      //$('#calendarFancy_content').remove();
+      $('.sharing-providers .epingleFancy').css('display','none');
+      //$('#epingleFancy_content').remove();
+}
 });
-$(document).ready(function() {
+</script>
+<script>
+// a supprimer par la suite
+/*$(document).ready(function() {
             $(".trgCalendarFancy").fancybox({
                 baseClass: 'calendarFancyClass',
     afterLoad: function(instance, current) {
       current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
     }
             });
-  var pathname = window.location.pathname;
-  if ((pathname != "/") && (pathname != "/search") && (pathname.indexOf("/p/") == -1)) {
-      $('.sharing-providers .calendarFancy').css('display','none');
-  }
-});
+});*/
 </script>
 <style>
 header.centered-top-container.sticky.animating div div nav #page_list_top #HTML2 div #share-bar{

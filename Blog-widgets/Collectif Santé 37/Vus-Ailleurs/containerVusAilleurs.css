@@ -25,6 +25,18 @@
     //font-weight: bold;
     color: #196779;
 }
+.containerVusAilleurs article .titre > a:link {
+  text-decoration: none;
+}
+.containerVusAilleurs article .titre > a:visited {
+  text-decoration: none;
+}
+.containerVusAilleurs article .titre > a:hover {
+  text-decoration: underline;
+}
+.containerVusAilleurs article .titre > a:active {
+  text-decoration: underline;
+}
 .containerVusAilleurs article .data {
     display: flex; 
     align-items: center;

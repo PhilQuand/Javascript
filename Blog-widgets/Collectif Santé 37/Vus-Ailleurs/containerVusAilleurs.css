@@ -1,15 +1,22 @@
 .containerVusAilleurs article .titre {
+    font: normal bold 30px, sans-serif
+}
+.containerVusAilleurs article .date,
+.containerVusAilleurs article .data .divText {
+    font: normal italic 20px, sans-serif
+}
+.containerVusAilleurs article .titre {
     margin-bottom: 0.25em;
 }
 .containerVusAilleurs article .date {
-    font-style: italic;
+    //font-style: italic;
     margin-bottom: 0.25em;
     color: grey;
 }
 .containerVusAilleurs article .titre > a {
-    font-size: 24px;
+    //font-size: 24px;
     line-height: 1.2;
-    font-weight: bold;
+    //font-weight: bold;
     color: #196779;
 }
 .containerVusAilleurs article .data {

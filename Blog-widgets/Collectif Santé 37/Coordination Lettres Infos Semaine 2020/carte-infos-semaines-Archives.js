@@ -2,11 +2,11 @@
            {
           svgInfos: ['Semaine 20', 'du 11 may.', 'au 15 may', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 20.html',
-          idGlinkID: 'PreviousLetters'
         },
            {
           svgInfos: ['Semaine 19', 'du 04 may.', 'au 08 may', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 19.html',
+          idGlinkID: 'PreviousLetters'
         },
            {
           svgInfos: ['Semaine 18', 'du 27 apr.', 'au 01 may', '2020'],

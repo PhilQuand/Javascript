@@ -73,14 +73,11 @@
       if (divLinkID != 'none') {
         var IDlink = divLinkID.find('#' + idGlinkID);
         if (IDlink.length > 0) {
-          inputLink.html(IDlink.html());
-          IDlink.html('');
-          IDlink.append(inputLink);
+          var inlineProgramNum = divArchi.prevAll().length + 1; 
+          IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');
         }
-        else {
-          inputLink.insertBefore(divArchi);
-          inputLink.wrap('<div style="display: none"></div>')
-        }
+        inputLink.insertBefore(divArchi);
+        inputLink.wrap('<div style="display: none"></div>')
       }
       else {
         if (typeof idGlinkID !== 'undefined') {

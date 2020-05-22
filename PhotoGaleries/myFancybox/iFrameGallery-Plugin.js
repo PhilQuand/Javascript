@@ -52,12 +52,12 @@
           idG = idG.split("/view")[0];
           idG = "https://docs.google.com/file/d/" + idG + "/preview"
         }
-        addInfos(imgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID, inlineProgram, thumbs);
+        addInfos(imgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID, inlineProgram, thumbs, options.archi.length);
       }
 
     }
 
-    function addInfos(imgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID, inlineProgram, thumbs) {
+    function addInfos(imgID, svgInfos, idG, idGtyp, idGlinkID, idGExt, pdfLink, divArchi, divLinkID, inlineProgram, thumbs, archiLength) {
       imgBase = getIMG(imgID, svgInfos);
       if (idGtyp == 'inlined') {
         if (indexInlineHTML == 0) divCont = $('<div id="contInlineHTML"></div>').insertAfter(divArchi);
@@ -73,8 +73,13 @@
       if (divLinkID != 'none') {
         var IDlink = divLinkID.find('#' + idGlinkID);
         if (IDlink.length > 0) {
-          var inlineProgramNum = divArchi.prevAll().length + 1; 
-          IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');
+          if (!archiLength) {
+            var inlineProgramNum = divArchi.prevAll().length + 1;
+            IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');
+          }
+          else {
+            IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram"></a>');
+          }
         }
         inputLink.insertBefore(divArchi);
         inputLink.wrap('<div style="display: none"></div>')

@@ -73,7 +73,7 @@
       if (divLinkID != 'none') {
         var IDlink = divLinkID.find('#' + idGlinkID);
         if (IDlink.length > 0) {
-          if (!archiLength) {
+          if (archiLength > 1) {
             var inlineProgramNum = divArchi.prevAll().length + 1;
             IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');
           }

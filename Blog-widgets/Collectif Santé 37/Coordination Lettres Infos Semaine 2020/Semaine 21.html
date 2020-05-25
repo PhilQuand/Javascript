@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaine 03</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: 400px;
+   max-width: 600px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 21</li>
+<li><strong>Dates</strong>: du 18 au 22 mai 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/Infos-semaine-21-du-18-au-22-Mai-2020.pdf">Pdf correspondant</a></div>
+<style>
+img#\<image004\.jpg\@01D6068D\.5E25CFA0\> {
+    //width: 400px; 
+    max-width: 300px;
+}
+</style>
+<div class="corpsLettrePictures">
+<h3>cid:image009.jpg@01D63274.70149300</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/05/image009-2.jpg" />
+<h3>cid:image004.png@01D63273.B63DF570</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/05/image004.png" />
+</div>
+<div class="corpsLettre">
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p class="Édito" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 1.2;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/Demain-edito-semaine-21.docx"><span style="font-size: 18pt; font-family: 'Times New Roman', serif; font-weight: normal;">Demain ne pourra pas être comme hier.</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-family: 'Times New Roman', serif;">Le monde d’après devra rétablir la démocratie en santé et nous rendre notre citoyenneté.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 22pt; line-height: 31.093334197998047px;">Sommaire :</span></p>
+<p class="MsoListParagraphCxSpFirst" style="margin: 0cm 0cm 0.0001pt 18pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol; font-weight: normal;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><span style="font-size: 22pt; line-height: 31.093334197998047px;">L’écho des comités :                      Page 2</span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 18pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol; font-weight: normal;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><span style="font-size: 22pt; line-height: 31.093334197998047px;">Autres infos locales :                      Pages 2 à 4</span></p>
+<p class="MsoListParagraphCxSpLast" style="margin: 0cm 0cm 8pt 18pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol; font-weight: normal;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><span style="font-size: 22pt; line-height: 31.093334197998047px;">Dossiers :</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 14.2pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 14pt; line-height: 19.786666870117188px;">- Les soignants veulent être reconnus                         Page 4 et 5</span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt 14.2pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 14pt;">- Le Ségur de la santé                                                       Page 5</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 14.2pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 14pt; line-height: 19.786666870117188px;">- L’hôpital public dans la tourmente financière          Page 6</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt 14.2pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 14pt; line-height: 19.786666870117188px;">- Psychiatrie : Non à un désastre sanitaire de plus    Page 6</span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt 14.2pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 14pt;">- Pétition sur le pouvoir sanitaire                                   Page 6</span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt 14.2pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 14pt; font-weight: normal;"> </span></p>
+<p class="MsoListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol; font-weight: normal;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><span style="font-size: 22pt; line-height: 31.093334197998047px;">Culture et santé :                             Page 7</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 22pt; line-height: 31.093334197998047px; color: #7030a0; font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-size: 22pt; line-height: 31.093334197998047px; color: #0070c0;">L’écho des comités :</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center; background-color: #ffc000;" align="center"><span class='isCity' style="font-size: 14pt; line-height: 19.786666870117188px;">DOLE</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<h4 style="margin: 2pt 0cm 0.0001pt; line-height: 16.959999084472656px; break-after: avoid; font-size: 12pt; font-family: 'Calibri Light', sans-serif; color: #2e74b5; font-style: italic; text-align: center;" align="center"><span style="font-family: Arial, sans-serif; color: windowtext; font-style: normal;">Le comité organise une chaîne humaine</span><span style="line-height: 16.959999084472656px;"> </span><span style="font-family: Arial, sans-serif; color: windowtext; font-style: normal;">autour du centre hospitalier Louis Pasteur pour soutenir le personnel et demander des moyens supplémentaires.</span></h4>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<h4 style="margin: 2pt 0cm 0.0001pt; line-height: 16.959999084472656px; break-after: avoid; font-size: 12pt; font-family: 'Calibri Light', sans-serif; color: #2e74b5; font-style: italic; text-align: center;" align="center"><a style="color: #954f72;" href="https://actu.fr/bourgogne-franche-comte/dole_39198/jura-ce-mercredi-soir-lhopital-dole-cetait-tour-soignants-dapplaudir_33764990.html?fbclid=IwAR2dCl9PF2Gey6S2C79CVwMtPxAyeEhLS_fYqgdtI0pTr6-1Mif5pUDprhQ"><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: 'Times New Roman', serif; font-style: normal;">L’article </span></a></h4>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<table class="MsoTableGrid" style="font-family: Helvetica; border-collapse: collapse; border: none;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr style="height: 17.8pt;">
+<td style="width: 700.55pt; border: 1pt solid windowtext; background-color: #c1f1cc; padding: 0cm 5.4pt; height: 17.8pt; background-position: initial initial; background-repeat: initial initial;" valign="top" width="934">
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span class='isCity'>BERNAY</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;">Curieuse démarche :Parce que des opposants au projet de réforme des retraites on fait « un tintamare qui l’a empêchée de s’exprimer » Mme TAMAREL-VERAEGHE, députée LREM de la 3<sup>ème</sup> circonscription de l’Eure porte plainte contre…. deux personnes : un élu et le représentant d’une association de défense des services publics de proximité</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;">Convaincus que <span style="font-size: 10.5pt;">notre ami Jean JAYET, président du comité   « liberté,égalité,proximité » de Bernay a agi dans le respect des lois et valeurs de la République nous l’assurons, ainsi que son co-accusé, de notre soutien.</span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span class="MsoHyperlink" style="color: #0563c1; text-decoration: underline;"><span style="line-height: 16.959999084472656px;">L’article d’<a style="color: #954f72;" href="http://actu.fr/normandie">actu.fr/normandie</a></span></span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.paris-normandie.fr/actualites/politique/marie-tamarelle-verhaeghe-deputee-lrem-a-porte-plainte-contre-deux-leaders-de-la-mobilisation-citoyenne-de-bernay-NP16806748"><span style="line-height: 16.959999084472656px;">L’article de paris-normandie</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<table class="MsoTableGrid" style="font-family: Helvetica; border-collapse: collapse; border: none;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr style="height: 14.95pt;">
+<td style="width: 690.8pt; border: 1pt solid windowtext; background-color: #04e20f; padding: 0cm 5.4pt; height: 14.95pt; background-position: initial initial; background-repeat: initial initial;" valign="top" width="921">
+<p class="MsoNormalCxSpFirst" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><span class='isCity'>LURE</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;">Communiqué suite à l'intervention du 20/05/2020 de Frédéric BURGHARD, président du conseil de surveillance du Groupe hospitalier de Haute Saône.</p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-admin/post.php?post=23841&amp;action=edit"><span style="font-weight: normal;">Le communiqué</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-size: 22pt; line-height: 31.093334197998047px; color: #0070c0;">Autres infos locales :</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center; background-color: red;" align="center"><span class='isCity' style="font-size: 14pt; line-height: 19.786666870117188px;">MELUN - 77</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Coronavirus à Melun : le loyer demandé par la clinique privée à l’hôpital public fait tousser les syndicats</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: justify;">Le directeur du groupe hospitalier sud Ile-de-France attend une facture d’environ 50 000 euros dans le cadre d’une convention signée avec le groupe Saint-Jean l’Ermitage qui lui a loué une aile d’hébergement de 36 lits durant la crise du Covid-19.</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="http://www.leparisien.fr/amp/seine-et-marne-77/coronavirus-a-melun-le-loyer-demande-par-la-clinique-privee-a-l-hopital-public-fait-tousser-les-syndicats-18-05-2020-8319369.php?fbclid=IwAR2PNTAMmu7XEgQHxTkkUThj2IoRsaKvFLijVmxy9Vd-5dOwyaWChVvDUfs"><span style="line-height: 16.959999084472656px;">L’article</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center; background-color: #ffc000;" align="center"><span class='isCity' style="font-size: 14pt; line-height: 19.786666870117188px;">SAINT ETIENNE - 42</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Les soignants du CHU de nouveau mobilisés ce vendredi</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><img id="&lt;image009.jpg@01D63274.70149300&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image009.jpg@01D63274.70149300" alt="Photo Progrès/Rémy PERRIN" border="0" /></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: justify;">Après la mobilisation de jeudi, <a style="color: #954f72;" href="https://c.leprogres.fr/social/2020/05/14/300-soignants-en-colere-au-chu-de-saint-etienne" target="_blank" rel="noopener"><span style="color: windowtext; text-decoration: none;">qui a réuni environ 300 personnes</span></a>, les soignants du CHU de Saint-Etienne remettent ça. Ce vendredi, à 13 heures, ils se sont de nouveau réunis dans le hall A-B de l’hôpital.</p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.leprogres.fr/techniques/2020/05/15/saint-etienne-les-soignants-du-chu-de-nouveau-mobilises-ce-vendredi"><span style="line-height: 16.959999084472656px;">L’article</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<table class="MsoTableGrid" style="font-family: Helvetica; width: 703.55pt; border-collapse: collapse; border: none;" border="1" width="938" cellspacing="0" cellpadding="0">
+<tbody>
+<tr style="height: 12.75pt;">
+<td style="width: 703.55pt; border: 1pt solid windowtext; background-color: #f1c1da; padding: 0cm 5.4pt; height: 12.75pt; background-position: initial initial; background-repeat: initial initial;" valign="top" width="938">
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span class='isCity'>CAEN</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;">Une manifestation statique a eu lieu ce samedi 23 mai 2020, dans l'après-midi, devant le CHU de Caen (Calvados). Objectif : soutenir les personnels soignants.</p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://actu.fr/normandie/caen_14118/manifestation-devant-le-chu-de-caen-pour-soutenir-les-soignants_33806004.html"><span style="font-weight: normal;">L’article</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center; background-color: yellow;" align="center"><span  class='isCity' style="font-size: 14pt; line-height: 19.786666870117188px;">LYON - 69</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="line-height: 16.959999084472656px;">Pétition pour les soignants à Lyon</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.youtube.com/watch?v=EhCjRhxSEWM"><span style="line-height: 16.959999084472656px;">La vidéo</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center; background-color: #00b050;" align="center"><span class='isCity' style="font-size: 14pt; line-height: 19.786666870117188px;">ROUEN - 76</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">L’association Rouen Respire rend une première étude sur l'impact sanitaire de l'incendie</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: justify;">On s'en doutait, mais un premier rapport sur les conséquences sanitaires de l'incendie de l'usine Lubrizol le confirme. La catastrophe a bien eu des conséquences sur la santé des habitants de l'agglomération et sur son environnement.</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.rouenrespire.fr/enquete-sante/"><span style="line-height: 16.959999084472656px;">https://www.rouenrespire.fr/enquete-sante/</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://france3-regions.francetvinfo.fr/normandie/seine-maritime/rouen/lubrizol-association-rouen-respire-rend-premiere-etude-impact-sanitaire-incendie-1830780.html"><span style="font-weight: normal;">L’article france3</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center; background-color: #0070c0;" align="center"><span class='isCity' style="font-size: 14pt; line-height: 19.786666870117188px;">SOTTEVILLE-LES-ROUEN</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;">Des soignants menacés de sanctions disciplinaires pour avoir alerter leurs collègues sur la dangerosité d’une note de service portant sur la réutilisation de masques à usage unique </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-admin/post.php?post=23843&amp;action=edit"><span style="font-weight: normal;">Le communiqué intersyndical</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<table class="MsoTableGrid" style="font-family: Helvetica; width: 704.3pt; border-collapse: collapse; border: none;" border="1" width="939" cellspacing="0" cellpadding="0">
+<tbody>
+<tr style="height: 16.35pt;">
+<td style="width: 704.3pt; border: 1pt solid windowtext; background-color: #d9d9d9; padding: 0cm 5.4pt; height: 16.35pt; background-position: initial initial; background-repeat: initial initial;" valign="top" width="939">
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">CLERMONT-FERRAND</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;">150 personnes environ ont manifesté ce mardi midi devant le CHU Gabriel Montpied à Clermont-Ferrand pour demander des moyens rapidement pour l'hôpital.</p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.francebleu.fr/infos/sante-sciencesL%E2%80%99article/clermont-ferrand-ils-demandent-des-moyens-maintenant-pour-l-hopital-1589906440">L’article</a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-size: 22pt; line-height: 31.093334197998047px; color: #0070c0;">Dossiers :</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 16pt; line-height: 22.61333465576172px;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-size: 16pt;">Les soignants veulent être reconnus</span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="line-height: 16.959999084472656px; font-weight: normal;">Pas de médailles, pas de charité ! Les soignants à nouveau dans la rue</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: justify;"><strong><span style="line-height: 16.959999084472656px; font-weight: normal;">Pas de charité, pas de médailles, on n’est pas des héros, on est des travailleurs ! Après les bravos, les soignants sont à nouveau dans la rue. Aujourd’hui, devant l’hôpital Robert-Debré, à Paris.</span></strong></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><img id="&lt;image004.png@01D63273.B63DF570&gt;" class="Apple-web-attachment" style="opacity: 1;" src="cid:image004.png@01D63273.B63DF570" alt="image004.png" border="0" /></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://la-bas.org/la-bas-magazine/reportages/AS-DE-MEDAILLES-PAS-DE-CHARITE-LES-SOIGNANTS-A-NOUVEAU-DANS-LA-RUE"><span style="line-height: 16.959999084472656px;">L’article</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.facebook.com/cerveauxnondisponibles/videos/2967512679994636/"><span style="line-height: 16.959999084472656px;">La vidéo</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Prime… Médaille… Défilé… Don de congés…</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">L’hôpital se fout de la charité !!</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: justify;">Le décret sur la prime est sorti, son élaboration aura été laborieuse à l’instar de la gestion de la crise du Covid-19 ratée par le ministère de la santé et le gouvernement. Les montants de cette prime vont de 500 à 1500 € mais pour percevoir ces sommes il faudra remplir quelques critères. Déjà, dans le Calvados, département du 2ème groupe, on oublie les 1500€, nous ne sommes pas un département éligible. Donc pour les hospitaliers du département ce sera 500€ !</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="http://epsmcaen.reference-syndicale.fr/files/2020/05/20-05-18-TRACT-PRIME-COVID.pdf">Le communiqué</a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Les avares et les tartuffes démasqués</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Une prime à géométrie variable qui s'est faite attendre !</p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: justify;">Un pourboire et un hochet en guise de reconnaissance ! Des conditions d'attribution digne d'un contrat d'assurance ! Une médaille et un défilé le 14 Juillet ! Quelle mesquinerie après les promesses !</p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="http://www.sudsantesociaux.org/IMG/pdf/tract_prime_hochet.pdf"><span style="line-height: 16.959999084472656px;">L’article</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-size: 16pt; font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-size: 16pt;">Le Ségur de la santé</span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Le Monde d’après : On prend les mêmes et on recommence</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="font-weight: normal;">« La folie, c’est de faire toujours la même chose et de s’attendre à un résultat différent »<br />A. Einstein.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><a style="color: #954f72;" href="http://www.sudsantesociaux.org/IMG/pdf/20200522_notat_on_prend_les_meme_et_on_recommence.pdf"><span style="color: windowtext; font-weight: normal; text-decoration: none;">La Fédération SUD Santé Sociaux s’insurge contre la énième provocation du gouvernement de nommer Nicole Notat comme coordinatrice du Ségur de la Santé.</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="http://www.sudsantesociaux.org/covid-19-le-monde-d-apres-notat.html"><span style="line-height: 16.959999084472656px;">Le communiqué</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Ce que prévoit le gouvernement</p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.gouvernement.fr/conseil-des-ministres/2020-05-20/le-segur-de-la-sante-?utm_source=emailing&amp;utm_medium=email&amp;utm_campaign=conseil_ministre_20200520"><span style="font-weight: normal;">La communication d’Olivier VERAN au conseil-des-ministres</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Et un écho dans la presse <br /><br /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.sudouest.fr/2020/05/23/segur-de-la-sante-soignants-et-malades-que-prevoit-le-plan-du-gouvernement-7506405-4696.php"><span style="line-height: 16.959999084472656px;">L’article de Sud-Ouest</span></a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-size: 16pt;">L’hôpital public dans la tourmente financière</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; text-align: center; line-height: normal;" align="center">Hôpital public : l'optimisation à mort</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.youtube.com/watch?v=RJAwnJcNCg8&amp;feature=youtu.be"><span style="line-height: 16.959999084472656px;">La vidéo</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center">Hôpital public, le dos au mur</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: justify;"><strong>Soumis à des années de politiques d’austérité, l’hôpital public connaît aujourd’hui une crise d’une extrême gravité, non encore perçue dans son intégralité par la population. Parti des urgences, un mouvement social inédit s’étend à tous les hôpitaux et à toutes les catégories de professionnels.</strong></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://pratiques.fr/Hopital-public-le-dos-au-mur"><span style="line-height: 16.959999084472656px;">L’article</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;">Le SNMH – FO (Syndicat National des Médecins Hospitaliers  Force Ouvrière) dénoncent les nombreux plans covid de fermeture de lits.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: normal; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" title="Lien Permanent vers Avant, pendant et après COVID : les fermetures de lits continuent et aucune revalorisation salariale n’est prévue" href="http://snmhfo.unblog.fr/2020/05/22/avant-pendant-et-apres-covid-les-fermetures-de-lits-continuent-et-aucune-revalorisation-salariale-nest-prevue/">Le communiqué</a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="line-height: 16.959999084472656px;">PSYCHIATRIE</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="line-height: 16.959999084472656px; font-weight: normal;">Non à un désastre sanitaire de plus !</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://fedepsychiatrie.fr/wp-content/uploads/2020/05/Non-%C3%A0-un-d%C3%A9sastre-sanitaire-de-plus-16052020-FFP-CDC-CMPP-NA.pdf"><span style="line-height: 16.959999084472656px;">Le communiqué</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><span style="line-height: 16.959999084472656px; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="line-height: 16.959999084472656px;">Pouvoir sanitaire aux soignants et aux usagers</span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;">« Les soignants et les citoyens doivent diriger leur colère contre les <strong><span style="font-weight: normal;">vrais responsables</span></strong> : les anciens gouvernements et l'actuel, ainsi que la haute-administration, qui ont tricoté ces transformations dont ni la population ni les soignants ne voulaient. Cette technocratie a failli par les politiques de santé menées depuis plus de 10 ans, en restant sourde à la colère des soignants et des usagers.</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"><a name="_Hlk41197644"></a><span style="line-height: 16.959999084472656px; font-weight: normal;">La pétition du Collectif Soignants et Usagers</span></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.change.org/p/pouvoir-sanitaire-aux-soignants-et-aux-usagers-soignonsensemble?utm_source=share_petition&amp;utm_medium=custom_url&amp;recruited_by_id=8c5d2190-8a4d-11ea-8463-bdf08edbae4a">La pétition du collectif soignants et usagers</a></p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 16.959999084472656px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="font-size: 22pt; line-height: 31.093334197998047px; color: #0070c0;">Culture et santé :</span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold;"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;"> </span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold;"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;"> </span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold;"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;">Avec le déconfinement les spectacles de rue vont reprendre pour le plaisir de tous</span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold;"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;"> </span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;">Clins d’œil de la compagnie Jolie Môme</span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;"> </span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.youtube.com/watch?v=KBXEyfpLX3w"><span style="font-family: Arial, sans-serif;">https://www.youtube.com/watch?v=KBXEyfpLX3w</span></a></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold;"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;"> </span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold;"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;"> </span></p>
+<p class="MsoPlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; font-weight: bold;"><span style="font-size: 12pt; font-family: Arial, sans-serif; font-weight: normal;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; line-height: 14pt; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center; background-color: yellow;" align="center"><span style="font-family: 'Times New Roman', serif;">« Toutes les infos sur le site de la Coordination Nationale »</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; line-height: 18.399999618530273px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><span style="line-height: 18.399999618530273px;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; line-height: 18.399999618530273px; font-size: 12pt; font-family: Arial, sans-serif; font-weight: bold; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><span style="line-height: 18.399999618530273px;">http://coordination-defense-sante.org/</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Échos: Spécial 7 avril',
+        }, {
+          class: "marker-3",
+          icon: simpleGoldIcon,
+          title: 'Autres infos locales: Spécial 7 avril'
+        }, {
+          class: "marker-4",
+          icon: simpleVioletIcon,
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -621,7 +621,7 @@ Quatre organisations syndicales du département appellent à
 <br/>(date anniversaire du Conseil Nationale de la Résistance)
 <br/>autour du champ Giraud, siège de L'Agence Régionale de Santé, 
 <br/>pour réclamer des moyens 
-<br/>pour l'hôpital public,les EHPAD, 
+<br/>pour l'hôpital public, les EHPAD, 
 <br>pour la protection sociale, 
 <br/>et pour que la crise sanitaire ne devienne pas une crise sociale qu'on nous fera payer
 <p>Le Collectif santé appelle à participer à cette mobilisation, en respectant bien sûr, les mesures barrières</p>

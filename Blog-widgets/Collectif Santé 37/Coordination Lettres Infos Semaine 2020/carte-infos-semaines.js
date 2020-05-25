@@ -908,7 +908,7 @@
         curNextAll.each(function() {
           if(isCurCity($(this))) {
             //console.log($(this).find('b').html());
-            $(this).find('b').wrap('<span />');
+            if($(this).find('.isCity').length == 0) $(this).find('b').wrap('<span />');
             curCity = $(this).wrap('<div class="' + curClass + '" />').parent();
             formCurCity(curCity);
           }
@@ -916,7 +916,8 @@
         });
 
         function isCurCity(curTest) {
-          var htmlTest = curTest.html();
+         if(curTest.find('.isCity').length >0) return true;
+         var htmlTest = curTest.html();
           var attrTest = curTest.attr("style");
           var htmlTestIs = (htmlTest.search('background:') > -1 && htmlTest.search('background: transparent') == -1 && htmlTest.search('background:  transparent') == -1) || (htmlTest.search('background-color:') > -1 && htmlTest.search('background-color: transparent') == -1 && htmlTest.search('background-color:  transparent') == -1)
           var attrTestIs = typeof attrTest !== 'undefined' && (((attrTest.indexOf("background:") > -1 && attrTest.indexOf("background: transparent") == -1 && attrTest.indexOf("background:  transparent") == -1) ||(attrTest.indexOf("background-color:") > -1 && attrTest.indexOf("background-color: transparent") == -1 && attrTest.indexOf("background-color:  transparent") == -1)))
@@ -925,7 +926,8 @@
         }
 
         function formCurCity(curCity) {
-          var cityName = curCity.find('b').html();
+          var cityName = curCity.text();
+          //var cityName = curCity.find('b').html();
           var cityColor = curCity.html().split('background:');
           if (cityColor.length == 1) cityColor = curCity.html().split('background-color:');
           //cityColor= cityColor[cityColor.length-1].split(';')[0];

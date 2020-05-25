@@ -327,6 +327,8 @@ var inpAddress = [
   lat: 49.18437, lng:  -0.36109},
 { inpText: "SAINT-NAZAIRE",
   lat: 47.27435, lng:  -2.21386},
+{ inpText: "MELUN",
+  lat: 48.53958, lng:  2.66413},
 { inpText: "NORD FRANCHE-COMTE",
   lat: 47.66752, lng:  6.89586},
 { inpText: "ALPES DU SUD",

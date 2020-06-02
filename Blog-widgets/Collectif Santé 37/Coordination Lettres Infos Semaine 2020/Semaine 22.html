@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaine 03</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: 400px;
+   max-width: 600px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 22</li>
+<li><strong>Dates</strong>: du 25 au 29 mai 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/Infos-semaine-22-du-25-au-29-Mai-2020.pdf">Pdf correspondant</a></div>
+<style>
+img#\<image004\.jpg\@01D6068D\.5E25CFA0\> {
+    //width: 400px; 
+    max-width: 300px;
+}
+</style>
+<div class="corpsLettrePictures">
+<h3>cid:image007.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image007.jpg" />
+<h3>cid:image008.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image008.jpg" />
+<h3>cid:image009.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image009.jpg" />
+<h3>cid:image010.png@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image010.png" />
+<h3>cid:image011.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image011.jpg" />
+<h3>cid:image012.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image012.jpg" />
+<h3>cid:image013.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image013.jpg" />
+<h3>cid:image014.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image014.jpg" />
+<h3>cid:image015.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image015.jpg" />
+<h3>cid:image016.jpg@01D638D1.A6569220</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/image016.jpg" />
+</div>
+<div class="corpsLettre">
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p class="Édito" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 1.2;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito :</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 13.5pt;">Pour changer de direction , mobilisons-nous , </span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 13.5pt;">faisons du 16 mai une grande journée d'action !</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">L'épreuve que nous venons de subir a montré combien avaient raison celles et ceux, dont nous sommes, qui hier alertaient sur l'extrême faiblesse d'hôpital public. Celui-ci n'a « tenu » que par la mobilisation- dans un dénuement matériel inimaginable- de son personnel et par l'arrêt des soins des malades non COVID non urgents. L'activité économique a du quasiment s'arrêter. Nos liberté ont été réduites. Encore aujourd'hui on peut se déplacer par milliers dans les transports en commun, mais nous ne pouvons légalement nous rassembler à plus de dix sur la voie publique ! </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">La COVID 19 l'a démontré : l'austérité en santé coûte cher, très cher , ce sont des centaines de milliards d'euros qui doivent maintenant être dépensés, des millions d'entre nous qui vont plonger dans la paupérisation, la chômage, les inégalités sociales vont s'aggraver. </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">La concertation « Ségur de la santé » a peine commencée soulève bien d'interrrogations : en premier lieu le but poursuivi. En effet le Premier Ministre a d'emblée annoncer la couleur, il ne s'agit en aucun cas d'abandonner la loi «  Ma santé 2022 » qui est un plan de destructionde l'hôpital public en particuliers des hôpitaux de proximité qui sont promis à voir fermer leurs urgences, leur SMUR, leurs services de chirugie,de radiologie, leurs maternités mais aussi les CHU et les CHR dont les capacités sont vouées à être réduites comme à Caen, Nancy, Nantes, l'APHP , etc. Mieux même ; il s'agit d'aller plus vite. Autrement dit, aller plus vite dans le mur ! Alors que ce qu'il faut c'est changer de direction. </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">Rien n'est écrit d'avance, mais rien ne s'obtiendra, ne se gagnera en tendant la main, en murmurant à l'oreille du Président . Déjà dans les conditions difficiles du confinement, des initiatives ont lieu le mardi ou le jeudi devant les hôpitaux ou les ARS ( Agences de Restrictions en Santé ). Il nous faut amplifier le mouvement, en proposant aux citoyen-nes à exiger ,par tous les actions possibles, avec les <a style="color: #954f72;" href="http://soignant.es/">soignant.es</a> la satisfaction de nos revendications  locales et nationales. </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><b><span style="font-size: 22pt;">Sommaire :</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 7.95pt; margin-left: 36pt; font-size: 12pt; font-family: 'Times New Roman', serif; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">         </span></span><b><span style="font-size: 22pt;">L’écho des comités : pages 2-6</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 7.95pt; margin-left: 36pt; font-size: 12pt; font-family: 'Times New Roman', serif; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">         </span></span><b><span style="font-size: 22pt;">Autres infos locales : pages 7-8</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 7.95pt; margin-left: 36pt; font-size: 12pt; font-family: 'Times New Roman', serif; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">         </span></span><b><span style="font-size: 22pt;">Dossiers : pages 9-11</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 7.95pt; margin-left: 36pt; font-size: 12pt; font-family: 'Times New Roman', serif; text-indent: -18pt;"><span style="font-size: 10pt; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">         </span></span><b><span style="font-size: 22pt;">Culture et santé : page 12</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 22pt; color: #0070c0;">L’écho des comités :</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 13.5pt;">BERNAY - 27</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 11.9pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Soutenons notre ami Jean Jayet Président du comité   « liberté,égalité,proximité «  de Bernay et son ami mis en examen pour avoir exercé leur droit à la liberté d’expression.</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image007.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image007.jpg@01D638D1.A6569220" alt="image007.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">« Une mise en examen peut arriver à tout le monde, soupire Jean Jayer. On n’est pas condamné, mais c’est tout comme… » Le président de l’association Liberté – Egalité – Proximité ne s’attendait pas à être convoqué à la gendarmerie dans le cadre d’une enquête préliminaire, à devoir subir la prise de photos et d’empreintes digitales.</p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://actu.fr/normandie/bernay_27056/eure-reunion-perturbee-deputee-tamarelle-porte-plainte_33793949.html"><b>L’article</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: red;" align="center"><b><span style="font-size: 13.5pt;">NANTES - 44</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Pas de réduction de lits et de personnel au CHU de Nantes !</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">Il aura fallu attendre une pandémie mondiale et plusieurs dizaines de milliers de décès pour que toute notre société - dirigeant•e•s politiques, corps intermédiaires, citoyen•ne•s - entendent enfin le cri d'alarme que poussent depuis plusieurs années celles et ceux qui font vivre nos hôpitaux publics au quotidien. Depuis plus de quarante ans, l'hôpital public français fait l'objet d'une guerre d'usure : la guerre des finances.</p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.youtube.com/watch?v=El5uEbp9KGo&amp;feature=youtu.be&amp;fbclid=IwAR0GKwHxLKwcn6fDJEr07CXXNeliCSS7DEP6l-P4x-ysIfck69YQsrl7tRw"><b>La video</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 13.5pt; background-color: #009933; background-position: initial initial; background-repeat: initial initial;">TOURS - 37</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Le Collectif 37 à l'action </b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">Rassemblement le 27 mai devant l' ARS à l'occasion de la journée nationale de la Résistance </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-family: Tahoma, sans-serif; color: #4d90fe;"><a href="https://collectifsante37.blogspot.com/2020/05/rassemblement-du-27-mai-devant-l-de.html">Le compte-rendu</a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-family: Tahoma, sans-serif;">numerus clausus : le verrou saute ??? </span></p>
+<h3 style="margin-right: 0cm; margin-bottom: 5.95pt; margin-left: 0cm; font-size: 13.5pt; font-family: 'Times New Roman', serif;"><a style="color: #954f72;" href="https://collectifsante37.blogspot.com/2020/05/les-deserts-medicaux-ont-besoin-de-plus.html" target="_blank" rel="noopener"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #0186ba;">Les déserts médicaux ont besoin de plus de 20 médecins supplémentaires dans la région centre</span></a></h3>
+<p style="margin-right: 0cm; margin-bottom: 12pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="background-color: red; background-position: initial initial; background-repeat: initial initial;">HÔPITAL DE CORNOUAILLE QUIMPER-CONCARNEAU</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image008.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image008.jpg@01D638D1.A6569220" alt="image008.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">Le comité de Concarneau a participé au rassemblement intersyndical le 28 mai devant l'hôpital pour défendre les revendications des personnels hospitaliers </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 13.5pt;">SAINT AFFRIQUE - 12</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Communiqué du comité : Surtout, ne pas recommencer comme avant</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image009.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image009.jpg@01D638D1.A6569220" alt="image009.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/Saint-Affrique-Lemanifeste-Communiqu%C3%A9-Surtout-ne-pas-recommencer-26-05-20.pdf"><b>Le communiqué</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: #00b0f0;" align="center"><b><span style="font-size: 13.5pt;">MOUTIERS - 73</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Communiqué de presse du Mai 2020</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image010.png@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image010.png@01D638D1.A6569220" alt="image010.png" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><br /><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/Moutiers-Communiqu%C3%A9-du-17-Mai-2020.pdf"><b>L’article</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 35.45pt; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: #7030a0;" align="center"><b><span style="font-size: 13.5pt; color: white;">LURE -70</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-family: Verdana, sans-serif;">Le SMUR de LURE  à nouveau menacé ????</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-family: Arial, sans-serif;">Au moment où les effets de la pandémie ne sont même pas terminés, des bruits insistants font état d'une future suppression du SMUR de Lure.<br /><br />Ce serait invraisemblable ! Les initiateurs  de la désertification sanitaire et les destructeurs de l'aménagement du territoire seraient donc encore à l'oeuvre.</span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">    <span style="font-family: Arial, sans-serif;">On n'ose même pas penser que ces informations soient vraies, tant la crise récente a confirmé l'insondable stupidité et la dangerosité des politiques de santé menées depuis des années. Les regroupements et rationnements en lits, en personnels, en services ont été mis en oeuvre sous tous les gouvernements successifs depuis 30 ans. Ces destructions ont fragilisé notre santé publique, mis à mal nos soignant-e-s,  augmentant sans doute  la mortalité et le mal être de bien des patients durant la terrible épreuve que nous venons de subir.</span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><u><span style="font-family: Arial, sans-serif;">Ces choix irresponsables</span></u><span style="font-family: Arial, sans-serif;"> ont pourtant été dénoncés par les professionnels de santé, les syndicats, les associations d'usager.e.s ...Cela n'a pas été entendu. <br /><br />SI c'est le choix encore aujourd'hui  ça en dit long, sur les défenseurs sans scrupules de la soi-disant rationalisation qui n'est rien d'autre qu'une gestion insane de la pénurie et une généralisation de bricolages indigestes entre les différents sites.<br /><br />Disons le haut et fort : <u>le Smur de Lure est intouchable. Comme d'ailleurs tous les autres Smur de Haute Saône et de Bourgogne Franche Comté</u>. Ces services  indispensables à notre population sont à maintenir absolument et à rouvrir en fonction des besoins (nous pensons particulièrement à Lons le Saunier et au regretté docteur Loupiac qui en était un défenseur acharné). <br /><br />La proximité est une valeur forte à défendre et à développer. Nous ne voulons pas d'une version limitée et réductrice avancée par l'actuel gouvernement.<br />Nous voulons une politique intelligente, responsable, égalitaire et solidaire encore plus aujourd'hui qu'avant la pandémie<br /><br />Si la menace de fermeture se confirme, préparons-nous à une mobilisation forte, radicale, unitaire contre  cette ineptie et leurs auteur</span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 13.5pt;">LE BLANC - 36</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Lettre du comité au directeur de l’ARS</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image011.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image011.jpg@01D638D1.A6569220" alt="image011.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/Le-blanc-Lettre-du-comit%C3%A9-au-directeur-de-lARS-22-05-20.pdf"><b>La lettre</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 22pt; color: #0070c0;">Autres infos locales :</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: red;" align="center"><b><span style="font-size: 13.5pt;">ESSONNE - 91</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Elus et syndicats réclament la reprise permanente du service de réanimation de l’hôpital d’Arpajon</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image012.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image012.jpg@01D638D1.A6569220" alt="image012.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">Cinq ans après sa fermeture, programmée dans le cadre d’un regroupement des soins, l’unité de réanimation a rouvert avec huit lits… pour six mois. Le temps de faire face l’épidémie.</p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://www.leparisien.fr/essonne-91/ils-reclament-la-reprise-permanente-du-service-de-reanimation-de-l-hopital-d-arpajon-05-05-2020-8311371.php"><b>L’article</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 13.5pt;">BAYEUX - 14</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>À l’hôpital de Bayeux, une partie du personnel en grève pour obtenir l’éligibilité à la prime de 1 500 €</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image013.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image013.jpg@01D638D1.A6569220" alt="image013.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 5.1pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">À Bayeux, les soignants ont combattu le virus en première ligne depuis le début de la crise sanitaire. Le syndicat FO veut qu'ils bénéficient de la prime de 1 500 €.</p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://actu.fr/normandie/bayeux_14047/a-l-hopital-de-bayeux-une-partie-du-personnel-en-greve-pour-obtenir-l-eligibilite-a-la-prime-de-1-500_33830583.html"><b>L’article</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 13.5pt;">TOUL - 54</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>A Toul, les élus se mobilisent contre la réduction du budget de l'hôpital et son offre de soins</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">A quelques jours des annonces du gouvernement sur son plan "Ségur", les élus du Toulois interpellent une nouvelle fois l'exécutif pour demander l'annulation du plan de restructuration budgétaire de l'hôpital Saint-Charles de Toul, menacé de perdre 381 000 euros et une partie de son offre de soins.</p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.francebleu.fr/infos/sante-sciences/a-toul-les-elus-interpellent-le-gouvernement-contre-le-plan-de-restructuration-budgetaire-de-l-1590239822"><b>L’article</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: #002060;" align="center"><b><span style="font-size: 13.5pt; color: white;">ROUVRAY - 76</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Lettre ouverte : Répression du Centre Hospitalier du Rouvray de Sotteville Lès Rouen</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/Rouvray-Lettre-ouverte-Repression-du-Centre-Hospitalier-du-Rouvrai-de-Sotteville-les-Rouen-05-20.pdf"><b>La lettre ouverte</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Lettre ouverte au Ministre de la Solidarité et de la Santé</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/Rouvray-Lettre-ouverte-au-Ministre-de-la-Solidarit%C3%A9-et-de-la-Sant%C3%A9-25-05-20.pdf"><b>La lettre ouverte</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Stopper la répression au Centre Hospitalier du Rouvray (76)</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.change.org/p/directeur-du-centre-hospitalier-du-rouvray-76300-sotteville-l%C3%A8s-rouen-stopper-la-r%C3%A9pression-au-centre-hospitalier-du-rouvray-76?recruiter=1092621899&amp;recruited_by_id=ab293860-9c55-11ea-9f77-8d9046ece91f&amp;utm_source=share_petition&amp;utm_medium=copylink&amp;utm_campaign=petition_dashboard"><b>L’article</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Prime COVID à géométrie variable !</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/Rouvray-Prime-COVID-%C3%A0-g%C3%A9om%C3%A9trie-variable-05-20.pdf"><b>L’article</b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 13.5pt;">AVICENNE - </span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">Concert de casseroles et sifflets du personnel hospitalier pour réclamer des moyens humains et matériel pour l'hôpital </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><a style="color: #954f72;" href="http://www.leparisien.fr/seine-saint-denis-93/bobigny-casseroles-et-sifflets-a-l-hopital-avicenne-pour-reclamer-des-moyens-28-05-2020-8325762.php"><b>l'article </b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; background-color: #0070c0;" align="center"><b><span style="font-size: 13.5pt;">ROBERT DEBRÉ</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">la manifestation du 28 mai :<i> jediscolère </i></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><a style="color: #954f72;" href="https://www.youtube.com/watch?v=Hdi_TRqWnFY&amp;feature=youtu.be"><b><i>la video </i></b></a></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 22pt; color: #0070c0;">Dossier :</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">La fédération CGT Santé et Action Sociale a mobilisé ses syndicats pour centraliser dans cette enquête publiée le 4 mai la réalité du travail des soignants pendant cette période d’épidémie. 356 syndicats représentants 550 000 travailleurs et travailleuses dans 80 départements ont répondu à l’enquête.</p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="https://revue-progressistes.org/wp-content/uploads/2020/05/NOTE-PRESSE-Enquete-Flash-n%C2%B01-Version-finale.pdf"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 5.1pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Les remerciements de l'APHP</b></p>
+<p style="margin-right: 0cm; margin-bottom: 12pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">Je travaille à l'APHP depuis plusieurs années, au sein de différents hôpitaux, cumulant 2 mi-temps. Ce que j'ai vu durant ces deux derniers mois, c'est la peur, la peur d'être contaminé, d'être le prochain sur la liste. Puis la colère, la colère de nous envoyer au front sans arme. Je suis psychologue à l'APHP et la semaine du déconfinement, on m'a remerciée...</p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="https://blogs.mediapart.fr/jeanne-mathe/blog/200520/les-remerciements-de-laphp?utm_source=20200520&amp;utm_medium=email&amp;utm_campaign=QUOTIDIENNE&amp;utm_content=&amp;utm_term=&amp;xtor=EREC-83-%5BQUOTIDIENNE%5D-20200520&amp;M_BT=255389111616"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Communiqué de l’APVF<br />«Ségur de la santé»: l’APVF appelle le Gouvernement à être à la hauteur de l’enjeu</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Arial, sans-serif;">L’Association des Petites Villes de France, que préside Christophe Bouillon, Député de Seine-Maritime, et dont Pierre Jarlier, Maire de Saint-Flour, est le président délégué, n’a pas attendu la crise sanitaire pour alerter sur le creusement des inégalités territoriales en matière d’accès aux soins sur tout le territoire et sur les conséquences désastreuses des restructurations hospitalières à répétition qui ont eu pour conséquence la fermeture de lits et de services dans de nombreux petits établissements.</span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="https://www.apvf.asso.fr/wp-content/uploads/2020/05/20200525-CP-Lancement-s%C3%A9gur-sant%C3%A9.pdf"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Ségur de la santé : les diagnostics et prescriptions des soignants en Normandie, en 6 points</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-family: Arial, sans-serif;">La concertation débute ce lundi et durera sept semaines. Au menu : conditions de travail, rémunération, gouvernance. Alors qu'ils sont "en première ligne" face au Covid-19, que préconisent les chefs de service, médecins et infirmiers en Normandie ? Quand le terrain parle ... </span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="https://france3-regions.francetvinfo.fr/normandie/segur-sante-diagnostics-prescriptions-soignants-normandie-6-points-1832948.html#xtor=EPR-521-[france3regions]-20200526-[info-bouton1]&amp;pid=726375-1437732574-2a072072"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Victoire pour les <a style="color: #954f72;" href="http://xn--salari-gva.es/">salarié.es</a> des EHPAD du groupe Korian</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image014.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image014.jpg@01D638D1.A6569220" alt="image014.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="http://www.sante.cgt.fr/Une-grande-victoire-pour-l-ensemble-des-salarie-e-s-de-Korian"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Soignants : «Monsieur le Président, montrez-nous qu’on peut compter sur vous»</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 5.1pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">Alors que s’ouvrent ce lundi des états généraux sur l’avenir du système de santé, un collectif de soignants interpelle Macron et propose un manifeste pour un véritable service public.</p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="https://www.liberation.fr/france/2020/05/24/soignants-monsieur-le-president-montrez-nous-qu-on-peut-compter-sur-vous_1789266"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Pour sauver des vies, fabriquons des masques</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-family: Arial, sans-serif;">Alors que pour faire face à la pénurie, le gouvernement importe des masques fabriqués en Chine, « l'affaire Honeywell raconte le désinvestissement tragique de l’État dans la production de matériels de protection ». Dans une perspective sociale et écologique, des membres du Comité national de soutien en appellent « à la création d'une société coopérative d’intérêt collectif (SCIC) “Fabrique de santé”, où se trouvait l'ex-usine ».</span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="https://blogs.mediapart.fr/les-invites-de-mediapart/blog/240520/pour-sauver-des-vies-fabriquons-des-masques"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>MIOP : Communiqué du 19 mai 2020 : Confinons les ordres professionnels de santé !</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/05/MIOP-Communiqu%C3%A9-du-19-05-20-Confinons-les-ordres-professionnels-de-sant%C3%A9.pdf"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">Communiqué : Non à la T2A en psychiatrie</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image015.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image015.jpg@01D638D1.A6569220" alt="image015.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Consolas;"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2017/03/Communiqu%C3%A9-Non-%C3%A0-la-TA-en-psychiatrie-Mai-2020.pdf"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></span></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>Alternative Mutualiste dans l'action le 16 juin</b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><img id="&lt;image016.jpg@01D638D1.A6569220&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image016.jpg@01D638D1.A6569220" alt="image016.jpg" border="0" /></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 22pt; color: #0070c0;">Culture et santé :</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>La complainte du virus </b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b>par la chorale des canulars </b></p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"> </p>
+<p style="margin-right: 0cm; margin-bottom: 0.0001pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="color: blue;"><a style="color: #954f72;" href="https://blogs.mediapart.fr/jean-marc-b/blog/080420/la-complainte-du-virus-chorale-des-canulars-chanson">l</a>a video</span></b></p>
+<p style="margin-right: 0cm; margin-bottom: 9.9pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; line-height: 13.9pt; background-color: yellow;" align="center"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></p>
+<p style="margin-right: 0cm; margin-bottom: 12pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; line-height: 18.399999618530273px;" align="center"> </p>
+<p style="margin-right: 0cm; margin-bottom: 9.9pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; line-height: 18.399999618530273px;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Échos: Spécial 7 avril',
+        }, {
+          class: "marker-3",
+          icon: simpleGoldIcon,
+          title: 'Autres infos locales: Spécial 7 avril'
+        }, {
+          class: "marker-4",
+          icon: simpleVioletIcon,
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

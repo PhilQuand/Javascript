@@ -586,13 +586,13 @@ function createSummaryAndThumb(pID, isRegular) {
 <a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rad&t=a01&view=map2" href="javascript:;" >iframe 4</a>
 <a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://thevirustracker.com/" href="javascript:;" >iframe 5</a-->
 
-<!--div class="articleFancy" id="hidden-content-1">
+<div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-VCDexq9MrH8/Xkq4sM0dhaI/AAAAAAAAlBc/ocJhIWyYNtg696SW-TTqvTooN8wCmakUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.58.57.png" />
+<img src="https://1.bp.blogspot.com/-fLxbhgWdaIA/XtfhzNq5YlI/AAAAAAAAmUk/WPOTe_T0LOofCxpFY6NKSgOXbskKpW7ZwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-03%2Ba%25CC%2580%2B19.44.51.jpg" />
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<div class="articleFancy" id="hidden-content-2">
+<!--div class="articleFancy" id="hidden-content-2">
 <div class="corpsFancy">
 <img src="https://1.bp.blogspot.com/-VKgaKWKbOq8/Xkq4tDRM-kI/AAAAAAAAlBc/aDkpX-FLoEoRpOXMi_ScH5QIjNNrWUicgCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.59.53.png" />
 </div>
@@ -612,7 +612,7 @@ function createSummaryAndThumb(pID, isRegular) {
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-4" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>--
 <!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
 
-<div class="articleFancy" id="hidden-content-1">
+<!--div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
 <div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">
 Quatre organisations syndicales du département appellent à 
@@ -641,7 +641,7 @@ Quatre organisations syndicales du département appellent à
 <img src="https://1.bp.blogspot.com/-G3PSWiGvqf8/XskUGfVQM-I/AAAAAAAAmEw/s2upFEbjY5YgNsq4k1xUJvkk9fcMI8tBgCK4BGAsYHg/s1600/98306570_1286226648246897_920476663366549504_n.jpg" />
 </div>
 </div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
 
 <style>
 .customIframeBaseClass .fancybox-button.fancybox-button--close{
@@ -804,7 +804,8 @@ if ( window.location.pathname == '/' ){
   
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
-  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
+  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
+  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images"><img class="img-foreground" src="https://1.bp.blogspot.com/-fLxbhgWdaIA/XtfhzNq5YlI/AAAAAAAAmUk/WPOTe_T0LOofCxpFY6NKSgOXbskKpW7ZwCK4BGAsYHg/s320/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-03%2Ba%25CC%2580%2B19.44.51.jpg" /></a>');
 }
 </script>
 <style>

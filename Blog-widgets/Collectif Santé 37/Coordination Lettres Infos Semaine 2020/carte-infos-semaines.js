@@ -931,10 +931,13 @@
           var cityColor = curCity.html().split('background:');
           if (cityColor.length == 1) cityColor = curCity.html().split('background-color:');
           //cityColor= cityColor[cityColor.length-1].split(';')[0];
-          cityColor = cityColor[1].split(';')[0];
-          cityColor = cityColor.split('"')[0];
-          /*curCity.html('<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; background: ' +  cityColor + '; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>' + cityName + '</b></span></span></p>');*/
-          curCity.html('<p class="western" style="paddin: 5px; background: ' + cityColor + ';" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
+          if (cityColor.length == 1) curCity.html('<p class="western" style="paddin: 5px;" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
+          else {
+              cityColor = cityColor[1].split(';')[0];
+              cityColor = cityColor.split('"')[0];
+              /*curCity.html('<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; background: ' +  cityColor + '; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>' + cityName + '</b></span></span></p>');*/
+              curCity.html('<p class="western" style="paddin: 5px; background: ' + cityColor + ';" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
+          }
         }
       };
 

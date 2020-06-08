@@ -1,12 +1,16 @@
     var archi = [
          {
+          svgInfos: ['Semaine 23', 'du 01 juin.', 'au 7 juin', '2020'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Vus-Ailleurs/Vus-Ailleurs-2020/Semaine-2020-23.html',
+        },
+         {
           svgInfos: ['Semaine 22', 'du 25 may.', 'au 31 may', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Vus-Ailleurs/Vus-Ailleurs-2020/Semaine-2020-22.html',
+          idGlinkID: 'PreviousLetters'
         },
        {
           svgInfos: ['Semaine 21', 'du 18 may.', 'au 24 may', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Vus-Ailleurs/Vus-Ailleurs-2020/Semaine-2020-21.html',
-          idGlinkID: 'PreviousLetters'
         },
         {
           svgInfos: ['Semaine 20', 'du 11 may.', 'au 17 may', '2020'],

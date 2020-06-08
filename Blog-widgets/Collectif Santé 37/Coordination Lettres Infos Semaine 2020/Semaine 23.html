@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaine 03</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: 400px;
+   max-width: 600px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 23</li>
+<li><strong>Dates</strong>: du 01 au 05 juin 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/info-semaine-23-du-01-au-05-juin.pdf">Pdf correspondant</a>
+</div>
+<style>
+img#\<image004\.jpg\@01D6068D\.5E25CFA0\> {
+    //width: 400px; 
+    max-width: 300px;
+}
+</style>
+<div class="corpsLettrePictures">
+<h3>cid:part8.599931F6.CE64D123@orange.fr</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/images2.jpeg" />
+<h3>cid:part5.3555763C.AB2480D5@orange.fr</h3>
+<img border="0" data-original-height="124" data-original-width="265" src="http://coordination-defense-sante.org/wp-content/uploads/2020/06/tours-1.jpg" />
+</div>
+<div class="corpsLettre">
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p class="Édito" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 1.2;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito :</span></b></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #000000;"><span style="font-size: 14pt;"><b>L</b></span></span><span style="font-size: 14pt;"><b>a journée nationale d'action aura lieu le </b></span><span style="font-size: 16pt;"><b>16 juin.</b></span></p>
+<h5 class="western" style="margin-bottom: 0.21cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; break-after: avoid; font-family: 'Times New Roman', serif; font-size: 10pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/2020/05/declaration-unitaire/">La déclaration</a> commune</b></span></span></h5>
+<p style="margin-bottom: 0.49cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm; line-height: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le « Ségur de la Santé » est mal parti : claquement de porte (SUD), parole qui ne circule pas, des absences importantes (collectifs de professionnels, usagers...) des pans entiers de la Santé non abordés (prévention, médecine du travail, médecine scolaire...).</b></span></span></p>
+<p style="margin-bottom: 0.49cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm; line-height: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Il est invraisemblable de reconstruire en 7 semaines ce qui se détruit depuis des années. La Coordination nationale demande des assises de la Santé qui permettront, enfin de mettre sur la table l'ensemble des problèmes pour bâtir un système démocratique permettant à toutes et à tous d'être soignés partout sur le territoire.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Sommaire :</b></span></span></p>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>L’écho des comités : pages 2-3 </b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Autres infos locales : page 4 </b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossiers : pages 5-6</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; line-height: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>- Une histoire de la Coordination nationale</b></span></span></p>
+</li>
+</ul>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; text-indent: 1cm; line-height: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>- Le Ségur de la Santé</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; text-indent: 1cm; line-height: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>- Saclay : un nouveau partenariat public/privé ?</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; text-indent: 1cm; line-height: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>- Pour un comité national de santé publique</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; text-indent: 1cm; line-height: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>- Une analyse de l'hôpital public par les économistes atterrés</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; text-indent: 1cm; line-height: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>- Lubryzol ou notre santé en danger </b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; text-indent: 1cm; line-height: 12px;"> </p>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; line-height: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé : page 6</b></span></span></p>
+</li>
+</ul>
+<p class="markerGroupDeb"  style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="margin-bottom: 0.18cm; direction: ltr; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px; margin-top: 0.18cm; line-height: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: #ff0000; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>CRETEIL</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.18cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; margin-top: 0.18cm; line-height: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le comité de Créteil demande à être reçu par Nicole Notat</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/comit%C3%A9-de-cr%C3%A9teil-Lettre-a%CC%80-Mme-Notat.pdf">comité de créteil Lettre à Mme Notat</a></b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: #f4b083; font-family: Helvetica; font-size: 12px; break-before: page;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>QUIMPER</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center">
+<center><img id="&lt;part8.599931F6.CE64D123@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1; display: block; margin-left: auto; margin-right: auto;" src="cid:part8.599931F6.CE64D123@orange.fr" alt="images2" /></center></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Les conséquences des politiques de santé menées depuis 30 ans : A Quimper l'attente se fait dans les ambulances</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.letelegramme.fr/finistere/quimper/un-mardi-critique-aux-urgences-de-quimper-03-06-2020-12561007.php" target="_blank" rel="noopener">Un mardi « critique » aux urgences de Quimper - Quimper .</a></b></span></span></span></p>
+<p class="markerGroupDeb" style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: #0070c0; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>le 16 juin</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>Appel des comités</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span class='isCity' style="font-size: 12pt;"><b>Tours Notre Santé en Danger</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"> Appel commun : Place Jean Jaurès à 15h<br /><center><img id="&lt;part5.3555763C.AB2480D5@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:part5.3555763C.AB2480D5@orange.fr" alt="" align="middle" /></center></p>
+<p style="margin-bottom: 0.21cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"><span style="font-family: Arial, serif;"><span class='isCity' style="font-size: 12pt;"><b>Nord Essonne</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="justify"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/HOPITAL-Appel-pour-le-16-06-2020-.pdf"><b>L'appel commun</b></a></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="justify"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="justify"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"><span style="font-family: Arial, serif;"><span class='isCity' style="font-size: 12pt;"><b>Guingamp</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"><span style="font-family: Consolas, serif;"><span style="font-size: 10pt;"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="zxx"><u><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/16-06-%C3%A0-Guingamp.pdf">P</a>ique nique devant l'hôpital</b></u></span></span></span></span></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="justify"> </p>
+<p> </p>
+<p class="markerGroupDeb" style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; break-before: page;" align="center"><br /><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Autres infos locales :</b></span></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="justify"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: #00b050; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>CAEN</b></span></span></p>
+<p style="margin-bottom: 0.64cm; direction: ltr; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px; margin-top: 0.18cm; line-height: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.64cm; direction: ltr; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px; margin-top: 0.18cm; line-height: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Grève du 16 juin</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><u><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/EPSM-Caen-appel-pour-le-16-JUIN.pdf">EPSM Caen appel pour le 16 JUIN</a></b></u></span></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="justify"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="justify"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: #ffc000; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>TOURS</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b>Et si rien ne changeait ? de réelles inquiétudes au CHU de Tours</b></span></span></p>
+<p style="margin-bottom: 0.18cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; margin-top: 0.18cm; line-height: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><u><b><a style="color: #0000ff;" href="https://www.francebleu.fr/infos/sante-sciences/au-chru-de-tours-les-restructurations-se-poursuivent-denoncent-les-syndicats-1590502786">https://www.francebleu.fr/infos/sante-sciences/au-chru-de-tours-les-restructurations-se-poursuivent-denoncent-les-syndicats-1590502786</a></b></u></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: #ff0000; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>CLERMONT FERRAND</b></span></span></p>
+<p style="margin-bottom: 0.18cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; margin-top: 0.18cm; line-height: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b>Des soignants en souffrance, les drames continuent...</b></span></span></p>
+<p style="margin-bottom: 0.18cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; margin-top: 0.18cm; line-height: 12px;" align="left"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><u><b><a class="moz-txt-link-freetext" style="color: #0000ff;" href="https://www.francebleu.fr/infos/faits-divers-justice/clermont-ferrand-deux-suicides-aux-samu-au-mois-de-mai-1590610030">https://www.francebleu.fr/infos/faits-divers-justice/clermont-ferrand-deux-suicides-aux-samu-au-mois-de-mai-1590610030</a></b></u></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: #ffff00; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>BESANCON</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b>Les fermetures aussi</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.francebleu.fr/infos/sante-sciences/en-plein-segur-de-la-sante-le-chu-de-besancon-va-supprimer-15-lits-1590749649" target="_blank" rel="noopener">https://www.francebleu.fr/infos/sante-sciences/en-plein-segur-de-la-sante-le-chu-de-besancon-va-supprimer-15-lits-1590749649</a></b></span></span></p>
+<p style="margin-bottom: 0.18cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; margin-top: 0.18cm; line-height: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: #002060; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>CHAUMONT - 52</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"><span style="font-family: Arial,          sans-serif;"><span style="font-size: 12pt;"><b>Le service de réanimation, ouvert pour le Covid, devrait fermer selon la décision de l'ars du Grand Est. Une pétition est lancée par la section des retraités CGT.</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;"><a style="color: #0000ff;" href="https://www.change.org/p/agence-r%C3%A9gionale-de-sant%C3%A9-r%C3%A9gion-grand-est-ars-chaumont-haute-marne-l-h%C3%B4pital-doit-garder-sa-r%C3%A9a" target="_blank" rel="noopener"><span style="color: #0000ff;"><span style="font-family: Arial,              sans-serif;"><span style="font-size: 12pt;"><b>https://www.change.org/p/agence-r%C3%A9gionale-de-sant%C3%A9-r%C3%A9gion-grand-est-ars-chaumont-haute-marne-l-h%C3%B4pital-doit-garder-sa-r%C3%A9a</b></span></span></span></a></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossiers</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b>La Coordination Nationale : de St Affrique au "Ségur de la Santé", une histoire d'aujourd'hui par Aurore Cros</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/la-Coordination-Nationale.pdf">la Coordination Nationale</a></b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b>Le Ségur de la Santé</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 11pt;"><b>Pourquoi SUD quitte le « Ségur »</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;">LES BELLES PROMESSES DU PRESIDENT FACE A LA CRISE COVID Les déclarations présidentielles pendant la crise COVID étaient sans ambiguïté. </span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;">Le Président Macron a défendu tour à tour “l’Etat Providence” et les services publics comme des “biens précieux”, “la santé gratuite sans condition de revenu, de parcours ou de profession” “un plan massif d’investissement et de revalorisation des carrières pour l’hôpital”. Il a reconnu “une erreur dans la stratégie annoncée”, erreur qu’il qualifie comme très “cruelle” pour “lui-même”. </span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;">C’est pourquoi la Fédération SUD Santé Sociaux s’est impliquée dans le Ségur de la santé. Malheureusement, dès la réunion plénière introductive du 26/05/2020, la position ministérielle n’était plus en phase avec les engagements présidentiels. </span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 11pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/federation_sud_sante_sociaux_claque_la_porte_du_segur_de_la_sante-02-06-2020.pdf">federation_sud_sante_sociaux_claque_la_porte_du_segur_de_la_sante-02 06 2020</a></b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 11pt;"><b>Frédéric Pierru analyse le Ségur de la Santé</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;"><a style="color: #0000ff;" href="http://www.gaucherepublicaine.org/respublica/segur-de-la-sante-le-cercle-de-la-raison-sanitaire/7413647"><b>http://www.gaucherepublicaine.org/respublica/segur-de-la-sante-le-cercle-de-la-raison-sanitaire/7413647</b></a></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 11pt;"><b>Ségur un démarrage difficile</b></span></span></p>
+<p lang="zxx" style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;"><u><a style="color: #0000ff;" href="https://www.ouest-france.fr/sante/le-segur-de-la-sante-demarre-dans-la-febrilite-6858415?utm_source=neolane_of_newsletter-matinale&amp;mediego_ruuid=96f9055a-fec9-493c-a633-c647ee6ecb94_19&amp;mediego_campaign=20200605_048b2b96-6ea8-43d3-b510-30bc65de51d7&amp;utm_content=20200605&amp;utm_campaign=neolane_of_newsletter-matinale&amp;utm_medium=email&amp;vid=4094946&amp;mediego_euid=4094946"><b>L'article d'Ouest France</b></a></u></span></span></span></p>
+<p> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 11pt;"><b>La situation de l'hôpital public : ou comment en est-on arrivé là par B. Dormond</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;"><a style="color: #0000ff;" href="https://blogs.alternatives-economiques.fr/rcerevue/2020/05/31/les-crises-de-l-hopital-public-entretien-avec-brigitte-dormont"><b>https://blogs.alternatives-economiques.fr/rcerevue/2020/05/31/les-crises-de-l-hopital-public-entretien-avec-brigitte-dormont</b></a></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="font-family: Arial, serif;"><span style="font-size: 11pt;"><b>Saclay un nouveau sud francilien ?</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 11pt;"><b>L'inquiétude de la CGT</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/COURRIER-ARS-PPP-SACLAY.pdf">COURRIER ARS PPP SACLAY</a></b></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 13pt;"><b>Une démarche à laquelle participent des comités et suivie de près par la Coordination Nationale</b></span></span></p>
+<h5 class="western" style="margin-bottom: 0.21cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; break-after: avoid; font-family: 'Times New Roman', serif; font-size: 10pt;" align="center"><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/POURUNCOMITENATIONALDESANTEPUBLIQUE.pdf"><span style="color: #3333ff;"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;"><b>POURUNCOMITENATIONALDESANTEPUBLIQUE</b></span></span></span></a></h5>
+<p style="margin-bottom: 0.21cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b>L'hôpital public à l'épreuve du néo-libéralisme : une analyse des économistes atterrés</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/20-05-29-Note-EA-Crise-de-lhopital.pdf">20 05 29 Note EA Crise de l'hopital</a></b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b>Lubrizol ou notre santé en danger</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a class="moz-txt-link-freetext" style="color: #0000ff;" href="https://france3-regions.francetvinfo.fr/normandie/lubrizol-commission-enquete-senatoriale-epingle-gestion-etat-ses-manquements-1837204.html#xtor=EPR-521">https://france3-regions.francetvinfo.fr/normandie/lubrizol-commission-enquete-senatoriale-epingle-gestion-etat-ses-manquements-1837204.html#xtor=EPR-521</a>-[france3regions]-20200604-[info-image1]&amp;pid=726375-1437732574-2a072072</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial,          serif;"><span style="font-size: 12pt;"><b><span style="font-family: sans-serif;">Recommandations minimales du</span> <span style="font-family: sans-serif;">Contrôleur général des lieux de privation de liberté pour le respect de la dignité et des droits fondamentaux des personnes privées de liberté</span></b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px;" align="left"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/06/06-2020-Recommandations-minimales-du-CGLPL.pdf">06 2020 Recommandations-minimales-du-CGLPL</a></b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; break-before: page;" align="center"><br /><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://vimeo.com/424814139"><span style="color: #0000ff;">https://vimeo.com/424814139</span></a></b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://lundi.am/Segur-comme-la-Comtesse-Les-belles-histoires-du-gouvernement" target="_blank" rel="noopener"><span style="font-family: Times New Roman, Times,                  serif;"><span style="font-size: 14pt;">https://lundi.am/Segur-comme-la-Comtesse-Les-belles-histoires-du-gouvernement</span></span></a></b></span></span></p>
+<p> </p>
+<p style="margin-bottom: 0cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 12px;"> </p>
+<p style="margin-bottom: 0.35cm; direction: ltr; orphans: 2; widows: 2; background-color: #ffff00; font-family: Helvetica; font-size: 12px; line-height: 0.49cm;" align="center"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></span></span></p>
+<p style="margin-bottom: 0.35cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 13.800000190734863px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.35cm; direction: ltr; orphans: 2; widows: 2; background-color: transparent; font-family: Helvetica; font-size: 12px; line-height: 13.800000190734863px;" align="center"><a style="color: #0000ff;" href="http://coordination-defense-sante.org/"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><u>http://coordination-defense-sante.org/</u></span></span></span></a></p>
+<p style="margin-right: 0cm; margin-bottom: 12pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; line-height: 18.399999618530273px;" align="center"> </p>
+<p style="margin-right: 0cm; margin-bottom: 9.9pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; line-height: 18.399999618530273px;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        [{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGoldIcon,
+          title: 'Échos: Spécial 16 juin',
+        }, {
+          class: "marker-3",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: simpleVioletIcon,
+          title: 'Autres'
+        }]
+    );
+});
+</script>
+</body>
+</html>

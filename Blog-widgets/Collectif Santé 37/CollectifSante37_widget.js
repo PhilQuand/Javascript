@@ -588,7 +588,7 @@ function createSummaryAndThumb(pID, isRegular) {
 
 <div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-fLxbhgWdaIA/XtfhzNq5YlI/AAAAAAAAmUk/WPOTe_T0LOofCxpFY6NKSgOXbskKpW7ZwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-03%2Ba%25CC%2580%2B19.44.51.jpg" />
+<img src="https://1.bp.blogspot.com/-DHejtkKvDGg/XtjwQiJibeI/AAAAAAAAmVE/H_9vACECauUG7BX1PiqtvUOeL5uv-UeogCK4BGAsYHg/s320/tract%2Bunitaire%2B16%2Bjuin%2B2020%2BV%2B3.jpg" />
 </div>
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
@@ -805,7 +805,7 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
-  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images"><img class="img-foreground" src="https://1.bp.blogspot.com/-fLxbhgWdaIA/XtfhzNq5YlI/AAAAAAAAmUk/WPOTe_T0LOofCxpFY6NKSgOXbskKpW7ZwCK4BGAsYHg/s320/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-03%2Ba%25CC%2580%2B19.44.51.jpg" /></a>');
+  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images"><img class="img-foreground" src="https://1.bp.blogspot.com/-DHejtkKvDGg/XtjwQiJibeI/AAAAAAAAmVE/H_9vACECauUG7BX1PiqtvUOeL5uv-UeogCK4BGAsYHg/s320/tract%2Bunitaire%2B16%2Bjuin%2B2020%2BV%2B3.jpg" /></a>');
 }
 </script>
 <style>

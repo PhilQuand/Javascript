@@ -638,6 +638,11 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
 
 <style>
+.customInlineBaseClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.1;
+    /*transition-timing-function: cubic-bezier(.22, .61, .36, 1);*/
+}
+
 .customIframeBaseClass .fancybox-button.fancybox-button--close{
     display: none;
 }
@@ -659,10 +664,6 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 }
 .corpsFancy > img {
     width: 100%;
-}
-.customInlineBaseClass.fancybox-is-open .fancybox-bg {
-    opacity: 0.1;
-    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
 }
 
 .customInlineBaseClass .button-close,
@@ -763,7 +764,7 @@ $('.fancybox')
   //background-color: red;
   animation-name: stretch;
   animation-duration: 2.5s; 
-  animation-timing-function: ease-out; 
+  //animation-timing-function: ease-out; 
   animation-delay: 0;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -803,32 +804,154 @@ if ( window.location.pathname == '/' ){
 }
 $(document).ready(function() {
   $('#AlaUne').AlaUne({
-    img: "https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg",
+    //src: '<a href="http://monsitetest123.blogspot.com/2020/06/pour-l-aux-soins-de-toutes-et-tous-dans.html"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>',
+    src: "https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg",
+    fancyClass: "default",
+    /*fancyClass: {
+          baseClass: 'customAlaUneBaseClass',
+    },*/
+    href: [
+    {
+       dataType: "iframe",
+       dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
+    },
+    {
+       dataType: "images",
+       dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
+    }
+    ]
   });
 });
 </script>
+<style>
+.customAlaUneBaseClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.1;
+}
+</style>
 <script>
 (function($) {
   $.fn.AlaUne = function(options) {
-    if (jQuery.type(options) == 'undefined' || jQuery.type(options.img) == 'undefined') return false;
-    //if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {
-    if (typeof options.href == 'undefined' )
-   switch (jQuery.type( options.href )) {
-     case "string":
-      $(this).append('<a href="' + options.href + '"><img class="img-foreground" src="' + options.img + '" /></a>');
-       break;
-     case "object":
-      $(this).append('<a href="https://collectifsante37.blogspot.com/#images"><img class="img-foreground" src="' + options.img + '" /></a>');
-       break;
-     case "array":
-      $(this).append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="' + options.img + '" /></a>');
-       break;
-     default:
-      $(this).append('<a href="' + options.img + '"><img class="img-foreground" src="' + options.img + '" /></a>');
-   }
+    if (jQuery.type(options) == 'undefined' || jQuery.type(options.src) == 'undefined') return false;
+    var src = options.src;
+    switch (jQuery.type(src)) {
+      case "string":
+        if (src.indexOf('http') == 0) src = ('<img class="img-foreground" src="' + src + '" /></a>');
+        break;
+      default:
+        log('AlaUne plugin error src');
+    }
+    if (jQuery.type(options.href) == 'undefined') {
+      $(this).append(src);
+      return;
+    }
+    var randGen = new Generator();
+    var randNum = 'FB' + randGen.getrand();
+    switch (jQuery.type(options.href)) {
+      case "string":
+        $(this).append('<a href="' + options.href + '">' + src + '</a>');
+        break;
+      case "array":
+        break;
+      case "object":
+        options.href = [options.href]
+        break;
+      default:
+        log('AlaUne plugin error options.href = ' + options.href);
+    }
+    for (var i = 0; i < options.href.length; i++) {
+      if (jQuery.type(options.href[i].dataType) == 'string') {
+        if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
+        else {
+          switch (options.href[i].dataType) {
+            case "iframe":
+              //$(this).append('<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="FB' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i +'</a>');
+              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i + '</a>');
+              break;
+            case "images":
+              //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
+              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i + '</a>');
+              break;
+            default:
+              log('AlaUne plugin error options.href = ' + options.href);
+          }
+        }
+      }
+    }
+    if (options.href.length > 1)
+      $(this).append('<a href="' + window.location.href + '#' + randNum + '-1">' + src + '</a>');
+    else
+      $(this).append('<a href="' + window.location.href + '#' + randNum + '">' + src + '</a>');
+    // pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
+    switch (jQuery.type(options.fancyClass)) {
+      case "string":
+        $('.' + randNum).fancybox({
+          baseClass: 'customInlineBaseClass',
+          smallBtn: false,
+          toolbar: false,
+          afterLoad: function(instance, current) {
 
+            var pixelRatio = window.devicePixelRatio || 1;
+
+            if (pixelRatio > 1.5) {
+              current.width = current.width / pixelRatio;
+              current.height = current.height / pixelRatio;
+            }
+
+            if (instance.group.length > 1 && current.$content) {
+              if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+              else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+              else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+            }
+            current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+          }
+        });
+        break;
+      case "object":
+        $('.' + randNum).fancybox(options.fancyClass);
+        break;
+    }
+    /*$('.fancybox')
+    .attr('rel', 'gallery')
+    .fancybox({
+        baseClass: 'customIframeBaseClass customInlineBaseClass',
+        //arrows: true,
+        smallBtn: false,
+        toolbar: true,
+        buttons: [
+          'close'
+        ],
+        afterLoad : function(instance, current) {
+            
+            var pixelRatio = window.devicePixelRatio || 1;
+
+            if ( pixelRatio > 1.5 ) {
+                current.width  = current.width  / pixelRatio;
+                current.height = current.height / pixelRatio;
+            }
+            
+            if (instance.group.length > 1 && current.$content) {
+              if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+              else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+              else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+            }
+            var url = window.location.href;
+            indexFancy = url.indexOf('#');
+            if( indexFancy > 1 ) {
+              var url = url.substr(0, indexFancy-1);
+            }
+            current.$content.append('<a data-fancybox-close class="button-close" href="' + url + '">x</a>');
+        }
+    })*/
   }
-})(jQuery);;
+
+  function Generator() {};
+
+  Generator.prototype.rand = Math.floor(Math.random() * 26) + Date.now();
+
+  Generator.prototype.getrand = function() {
+    return this.rand++;
+  };
+})(jQuery);
 </script>
 <style>
 .gallery-container {

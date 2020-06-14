@@ -80,11 +80,9 @@ function loadMap() {
 
 
   /*var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
-
   var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
     attribution: cartodbAttribution
   }).addTo(map);
-
   var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
     attribution: cartodbAttribution,
     pane: 'labels'
@@ -134,7 +132,6 @@ function zoomRemove( map ) {
   map.boxZoom.disable();
   map.keyboard.disable();
 }
-
 // Copyright (c) 2013 Ryan Clark
 // https://gist.github.com/rclark/5779673
 L.TopoJSON = L.GeoJSON.extend({

@@ -638,11 +638,6 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
 
 <style>
-.customInlineBaseClass.fancybox-is-open .fancybox-bg {
-    opacity: 0.1;
-    /*transition-timing-function: cubic-bezier(.22, .61, .36, 1);*/
-}
-
 .customIframeBaseClass .fancybox-button.fancybox-button--close{
     display: none;
 }
@@ -664,6 +659,10 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 }
 .corpsFancy > img {
     width: 100%;
+}
+.customInlineBaseClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.1;
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
 }
 
 .customInlineBaseClass .button-close,
@@ -806,11 +805,24 @@ $(document).ready(function() {
   $('#AlaUne').AlaUne({
     //src: '<a href="http://monsitetest123.blogspot.com/2020/06/pour-l-aux-soins-de-toutes-et-tous-dans.html"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>',
     src: "https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg",
-    //fancyClass: "default",
-    fancyClass: {
+    fancyClass: "default",
+    /*fancyClass: {
           baseClass: 'customAlaUneBaseClass',
-    },
+    },*/
     href: [
+    {
+       dataType: "inline",
+       dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em"> \
+                 Le 16 juin sera une journée historique de mobilisation dans  la santé<br/> \
+                 après l’épidémie du coronavirus au début de laquelle <br/> \
+                 les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection. \
+                 <p style="color:red"><b>Rendez-vous le mardi 16 juin à 15H place Jean Jaurès</b></p> \
+                 </div>'
+    },
+    {
+       dataType: "inline",
+       dataSrc: '<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />'
+    },
     {
        dataType: "iframe",
        dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
@@ -846,6 +858,7 @@ $(document).ready(function() {
     }
     var randGen = new Generator();
     var randNum = 'FB' + randGen.getrand();
+    var randHid = 'HD' + randGen.getrand();
     switch (jQuery.type(options.href)) {
       case "string":
         $(this).append('<a href="' + options.href + '">' + src + '</a>');
@@ -863,13 +876,21 @@ $(document).ready(function() {
         if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
         else {
           switch (options.href[i].dataType) {
+            case "inline":
+              $(this).append('<div class="articleFancy" id="' + randHid + i + '"> \
+                              <div class="corpsFancy"> \
+                              ' + options.href[i].dataSrc + ' \
+                              </div></div>  \
+                              <a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
+                              //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
+              break;
             case "iframe":
               //$(this).append('<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="FB' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i +'</a>');
-              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i + '</a>');
+              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" data-width="1132" data-height="1600">iframe ' + i + '</a>');
               break;
             case "images":
               //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
-              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i + '</a>');
+              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" data-width="1132" data-height="1600">images ' + i + '</a>');
               break;
             default:
               log('AlaUne plugin error options.href = ' + options.href);
@@ -892,10 +913,10 @@ $(document).ready(function() {
 
             var pixelRatio = window.devicePixelRatio || 1;
 
-            if (pixelRatio > 1.5) {
+            /*if (pixelRatio > 1.5) {
               current.width = current.width / pixelRatio;
               current.height = current.height / pixelRatio;
-            }
+            }*/
 
             if (instance.group.length > 1 && current.$content) {
               if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');

@@ -5,8 +5,10 @@
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <!-- End FancyBox -->
 
 
@@ -577,172 +579,6 @@ function createSummaryAndThumb(pID, isRegular) {
     }
 }
 </style>
-
-<!-- Add a modal window -->
-
-<!--a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2" href="javascript:;" >iframe 1</a>
-<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rea&t=a01&view=map2" href="javascript:;" >iframe 2</a>
-<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.dc&t=a01&view=map2" href="javascript:;" >iframe 3</a>
-<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rad&t=a01&view=map2" href="javascript:;" >iframe 4</a>
-<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://thevirustracker.com/" href="javascript:;" >iframe 5</a-->
-
-<!--div class="articleFancy" id="hidden-content-1">
-<div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />
-</div>
-</div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<div class="articleFancy" id="hidden-content-2">
-<div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-VKgaKWKbOq8/Xkq4tDRM-kI/AAAAAAAAlBc/aDkpX-FLoEoRpOXMi_ScH5QIjNNrWUicgCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.59.53.png" />
-</div>
-</div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<div class="articleFancy" id="hidden-content-3">
-<div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-lcApAQdxneQ/Xkq4sQKFAlI/AAAAAAAAlBY/qRqji_Dp9w0-n9bGxCBj1lrA3ih_oD6KwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.59.20.png" />
-</div>
-</div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<div class="articleFancy" id="hidden-content-4">
-<div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-r4UZygiIxfo/Xkq4rkiwgUI/AAAAAAAAlBY/IBOahb50pnUBYAM37xxp3VO3WO6tpsRGACPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.59.39.png" />
-</div>
-</div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-4" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
-
-<div class="articleFancy" id="hidden-content-1">
-<div class="corpsFancy">
-<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">
-Le 16 juin sera une journée historique de mobilisation dans  la santé<br/>
-après l’épidémie du coronavirus au début de laquelle <br/>
-les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection.
-
-<p style="color:red"><b>Rendez-vous le mardi 16 juin à 15H place Jean Jaurès</b></p>
-</div>
-</div>
-</div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<div class="articleFancy" id="hidden-content-2">
-<div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />
-</div>
-</div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<!--div class="articleFancy" id="hidden-content-3">
-<div class="corpsFancy">
-<img src="https://1.bp.blogspot.com/-G3PSWiGvqf8/XskUGfVQM-I/AAAAAAAAmEw/s2upFEbjY5YgNsq4k1xUJvkk9fcMI8tBgCK4BGAsYHg/s1600/98306570_1286226648246897_920476663366549504_n.jpg" />
-</div>
-</div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
-
-<style>
-.customIframeBaseClass .fancybox-button.fancybox-button--close{
-    display: none;
-}
-.articleFancy {
-    padding: 0 0 0 0;
-    //min-width: 80%;
-    min-width: 800px;
-    height: 90vh;
-    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
-    transition: box-shadow .2s;
-    display: none;
-}
-.corpsFancy {
-    width: 100%;
-    //max-height: calc(80vh - 140px);
-    max-height: 100%;
-    overflow: auto;
-    padding: 10px 15px 10px 15px;
-}
-.corpsFancy > img {
-    width: 100%;
-}
-.customInlineBaseClass.fancybox-is-open .fancybox-bg {
-    opacity: 0.1;
-    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
-}
-
-.customInlineBaseClass .button-close,
-.customInlineBaseClass .button-previous,
-.customInlineBaseClass .button-next {
-  background: black;
-}
-@media screen and (max-width: 1100px) {
-  .articleFancy {
-    min-width: 90%;
-  }
-  .customIframeBaseClass .button-close,
-  .customIframeBaseClass .button-previous,
-  .customIframeBaseClass .button-next {
-      display: none;
-  }
-  .customIframeBaseClass .fancybox-button.fancybox-button--close,
-  .customIframeBaseClass .fancybox-button.fancybox-button--arrow_left,
-  .customIframeBaseClass .fancybox-button.fancybox-button--arrow_right {
-    display: block;
-  }
-}
-</style>
-<script>
-// pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
-$('.trgImgUL').fancybox({
-    baseClass: 'customInlineBaseClass',
-    smallBtn: false,
-    toolbar: false,
-    afterLoad : function(instance, current) {
-        
-        var pixelRatio = window.devicePixelRatio || 1;
-
-        if ( pixelRatio > 1.5 ) {
-            current.width  = current.width  / pixelRatio;
-            current.height = current.height / pixelRatio;
-        }
-        
-        if (instance.group.length > 1 && current.$content) {
-          if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-          else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-          else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-        }
-        current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
-    }
-});
-$('.fancybox')
-.attr('rel', 'gallery')
-.fancybox({
-    baseClass: 'customIframeBaseClass customInlineBaseClass',
-    //arrows: true,
-    smallBtn: false,
-    toolbar: true,
-    buttons: [
-      'close'
-    ],
-    afterLoad : function(instance, current) {
-        
-        var pixelRatio = window.devicePixelRatio || 1;
-
-        if ( pixelRatio > 1.5 ) {
-            current.width  = current.width  / pixelRatio;
-            current.height = current.height / pixelRatio;
-        }
-        
-        if (instance.group.length > 1 && current.$content) {
-          if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-          else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-          else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-        }
-        var url = window.location.href;
-        indexFancy = url.indexOf('#');
-        if( indexFancy > 1 ) {
-          var url = url.substr(0, indexFancy-1);
-        }
-        current.$content.append('<a data-fancybox-close class="button-close" href="' + url + '">x</a>');
-    }
-})
-</script>
-<!-- End of modal window -->
 <style>
 .bg-photo-overlay {
   background-image: url("https://1.bp.blogspot.com/-irCxDcyeGC4/XZXsscPP4kI/AAAAAAAAkKM/8rvF00Lvr1Y_iF5BOWT7hOXoqeaXvRJogCPcBGAYYCw/s320/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-10-03%2Ba%25CC%2580%2B14.41.46.png");
@@ -789,6 +625,8 @@ $('.fancybox')
   }
 }
 </style>
+<!-- Add a modal window AlaUne -->
+
 <script>
 if ( window.location.pathname == '/' ){
   // pétition change.org sur la réanimation pédiatrie
@@ -799,9 +637,45 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
-  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" /></a>');
+  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" /></a>');
+  $('.page_body').append('<div id="AlaUne"></div>');
 }
+$(document).ready(function() {
+  $('#AlaUne').AlaUne({
+    //src: '<a href="http://monsitetest123.blogspot.com/2020/06/pour-l-aux-soins-de-toutes-et-tous-dans.html"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>',
+    src: "https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg",
+    fancyClass: "default",
+    /*fancyClass: {
+          baseClass: 'customAlaUneBaseClass',
+    },*/
+    href: [
+    {
+       dataType: "inline",
+       dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em"> \
+                 Le 16 juin sera une journée historique de mobilisation dans  la santé<br/> \
+                 après l’épidémie du coronavirus au début de laquelle <br/> \
+                 les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection. \
+                 <p style="color:red"><b>Rendez-vous le mardi 16 juin à 15H place Jean Jaurès</b></p> \
+                 </div>'
+    },
+    {
+       dataType: "inline",
+       dataSrc: '<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />'
+    },
+    /*{
+       dataType: "iframe",
+       dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
+    },
+    {
+       dataType: "images",
+       dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
+    }*/
+    ]
+  });
+});
 </script>
+
+<!-- End of modal window -->
 <style>
 .gallery-container {
     width: 30vw;

@@ -806,10 +806,10 @@ $(document).ready(function() {
   $('#AlaUne').AlaUne({
     //src: '<a href="http://monsitetest123.blogspot.com/2020/06/pour-l-aux-soins-de-toutes-et-tous-dans.html"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>',
     src: "https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg",
-    fancyClass: "default",
-    /*fancyClass: {
+    //fancyClass: "default",
+    fancyClass: {
           baseClass: 'customAlaUneBaseClass',
-    },*/
+    },
     href: [
     {
        dataType: "iframe",

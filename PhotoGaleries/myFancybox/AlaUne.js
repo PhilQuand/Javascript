@@ -55,10 +55,13 @@
         }
       }
     }
+    var loc = window.location.href;
+    loc = loc.split('#');
+    loc  = loc[0];
     if (options.href.length > 1)
-      $(this).append('<a href="' + window.location.href + '#' + randNum + '-1">' + src + '</a>');
+      $(this).append('<a href="' + loc + '#' + randNum + '-1">' + src + '</a>');
     else
-      $(this).append('<a href="' + window.location.href + '#' + randNum + '">' + src + '</a>');
+      $(this).append('<a href="' + loc + '#' + randNum + '">' + src + '</a>');
     // pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
     switch (jQuery.type(options.fancyClass)) {
       case "string":

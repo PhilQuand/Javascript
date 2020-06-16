@@ -648,16 +648,18 @@ $(document).ready(function() {
     href: [
     {
        dataType: "inline",
-       dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em"> \
-                 Le 16 juin sera une journée historique de mobilisation dans  la santé<br/> \
-                 après l’épidémie du coronavirus au début de laquelle <br/> \
-                 les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection. \
-                 <p style="color:red"><b>Rendez-vous le mardi 16 juin à 15H place Jean Jaurès</b></p> \
-                 </div>'
+       dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">Le 16 juin sera une journée historique de mobilisation dans  la santé<br/> \
+                 après l’épidémie du coronavirus au début de laquelle <br/>les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection. C&#39;est également une Journée nationale intersyndicale de mobilisation et de grève en soutien et pour la réintégration d&#39;Anthony Smith,<br/>cet inspecteur du travail de la Marne qui est toujours suspendu depuis le 15 avril 2020.<br/> \
+  Pour plus d&#39;information sur la situation d&#39;Anthony, voici des liens vers <a href="https://www.change.org/p/muriel-p%C3%A9nicaud-abandon-des-poursuites-contre-anthony-smith">la pétition</a> (près de 143 000 signatures !) et vers <a href="https://soutienanthonysmith.fr/">le comité de soutien</a>.<br/> \
+  <p style="color:red"><b>À Tours la mobilisation aura lieu de 12h à 14h<br/>devant la DIRECCTE-UD 37<br/>(8, rue Alexander Fleming 37000 TOURS).</p></div>'
     },
     {
        dataType: "inline",
        dataSrc: '<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />'
+    },
+    {
+       dataType: "inline",
+       dataSrc: '<img src="https://1.bp.blogspot.com/-2u-TmbSKCBs/XuicBxEzF4I/AAAAAAAAmcA/QZ0vnmA8Ev0fDmJ93vmt_yjVkUjKrmy5wCK4BGAsYHg/s1600/anthony.jpg" />'
     },
     /*{
        dataType: "iframe",

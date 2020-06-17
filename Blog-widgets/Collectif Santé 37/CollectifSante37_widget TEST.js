@@ -8,7 +8,7 @@
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<!--script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script-->
 <!-- End FancyBox -->
 
 
@@ -680,7 +680,7 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
     //background-color: orange;
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(2.);
     //transform: scale(0.8);
     //background-color: yellow;
   }
@@ -695,64 +695,14 @@ if ( window.location.pathname == '/' ){
   
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
+  //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
   $('.page_body').append('<div id="AlaUne"></div>');
 }
 $(document).ready(function() {
   $('#AlaUne').AlaUne({
-    //src: '<a href="http://monsitetest123.blogspot.com/2020/06/pour-l-aux-soins-de-toutes-et-tous-dans.html"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>',
-    src: "https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg",
-    fancyClass: "default",
-    /*fancyClass: {
-          baseClass: 'customAlaUneBaseClass',
-    },*/
-    href: [
-    {
-       dataType: "inline",
-       dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em"> \
-                 Le 16 juin sera une journée historique de mobilisation dans  la santé<br/> \
-                 après l’épidémie du coronavirus au début de laquelle <br/> \
-                 les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection. \
-                 <p style="color:red"><b>Rendez-vous le mardi 16 juin à 15H place Jean Jaurès</b></p> \
-                 </div>'
-    },
-    {
-       dataType: "inline",
-       dataSrc: '<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />'
-    },
-    {
-       dataType: "iframe",
-       dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
-    },
-    {
-       dataType: "images",
-       dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
-    }
-    ]
-  });
-});
-</script>
-<style>
-.customAlaUneBaseClass.fancybox-is-open .fancybox-bg {
-    opacity: 0.1;
-}
-</style>
-<style>
-.gallery-container {
-    width: 30vw;
-}
-@media screen and (max-width: 1100px) {
-    .gallery-container {
-         width: 60vw;
-    }
-}
-</style>
-<!-- 
-Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
--->
-<script>
-var galContainer  = 'gallery-container';
-var urls = [
+    ShadersGallery : {
+  urls: [
   'https://1.bp.blogspot.com/-I8DWf9bvcWc/XoN3n_o348I/AAAAAAAAlUg/sxkCTaH5q_4Bp8VWAFaxliMonmeCTqLxgCK4BGAsYHg/s1600/DSC04968-NEW.jpg',
   'https://1.bp.blogspot.com/-y_lWmVRxJN0/Xq7JQdWvx-I/AAAAAAAAlv4/mJ1zkMt78wQAsK1B9WNWpNFNt_5dflNZwCK4BGAsYHg/s1600/ClaudeD.jpg',
   'https://1.bp.blogspot.com/-X0f6JyJKK04/Xoyq6DEy6EI/AAAAAAAAlfQ/mrjMvg_iMXEYRm9wOT4iokeWshUZqIoMQCK4BGAsYHg/s1600/20200407_163610.jpg',
@@ -780,50 +730,253 @@ var urls = [
   'https://1.bp.blogspot.com/-E-qledZQuYo/XpNh2IgHFdI/AAAAAAAAliA/0mHlq0VcctoRWmfD6A5mHAS934Jj98o7wCK4BGAsYHg/s16000/IMG_1543.jpg',
   'https://1.bp.blogspot.com/-ARhfmWXuEVI/XpgIzLE55-I/AAAAAAAAljg/i6yNlE44HtAxnQsRSnrAn0r_-buPjdoNwCK4BGAsYHg/s16000/image001.jpg',
   'https://1.bp.blogspot.com/-nZ2Vi0ejpJo/Xp2S9kKzv9I/AAAAAAAAllI/Kpii4vJlJ3oVEO2_0UgM9WyiHfwq6NrXwCK4BGAsYHg/s1600/IMG_1545.jpg'
-]
-var imageSize = {
+],
+imageSize: {
   x: 1600,
   y: 1200
-};
+}
+    },
+    //src: '<a href="http://monsitetest123.blogspot.com/2020/06/pour-l-aux-soins-de-toutes-et-tous-dans.html"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>',
+    src: "https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg",
+    fancyClass: "default",
+    /*fancyClass: {
+          baseClass: 'customAlaUneBaseClass',
+    },*/
+    href: [
+    {
+       dataType: "inline",
+       dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">Le 16 juin sera une journée historique de mobilisation dans  la santé<br/> \
+                 après l’épidémie du coronavirus au début de laquelle <br/>les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection. \
+                 <p style="color:red"><b>Rendez-vous le mardi 16 juin à 15H place Jean Jaurès</b></p>C&#39;est également une Journée nationale intersyndicale de mobilisation et de grève en soutien et pour la réintégration d&#39;Anthony Smith,<br/>cet inspecteur du travail de la Marne qui est toujours suspendu depuis le 15 avril 2020.<br/> \
+  Pour plus d&#39;information sur la situation d&#39;Anthony, voici des liens vers <a href="https://www.change.org/p/muriel-p%C3%A9nicaud-abandon-des-poursuites-contre-anthony-smith">la pétition</a> (près de 143 000 signatures !) et vers <a href="https://soutienanthonysmith.fr/">le comité de soutien</a>.<br/> \
+  <p style="color:red"><b>À Tours la mobilisation aura lieu de 12h à 14h<br/>devant la DIRECCTE-UD 37<br/>(8, rue Alexander Fleming 37000 TOURS).</p></div>'
+    },
+    {
+       dataType: "inline",
+       dataSrc: '<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />'
+    },
+    {
+       dataType: "inline",
+       dataSrc: '<img src="https://1.bp.blogspot.com/-2u-TmbSKCBs/XuicBxEzF4I/AAAAAAAAmcA/QZ0vnmA8Ev0fDmJ93vmt_yjVkUjKrmy5wCK4BGAsYHg/s1600/anthony.jpg" />'
+    },
+    /*{
+       dataType: "iframe",
+       dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
+    },
+    {
+       dataType: "images",
+       dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
+    }*/
+    ]
+  });
+});
 </script>
+<style>
+.customAlaUneBaseClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.1;
+}
+</style>
+<style>
+.gallery-container {
+    width: 30vw;
+}
+@media screen and (max-width: 1100px) {
+    .gallery-container {
+         width: 60vw;
+    }
+}
+</style>
+<!-- 
+Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
+-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
 <script type='module'>
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
-galContainer = '.' + galContainer;
-if ($(galContainer).length > 0) {
-  calcHeight();
-  $(window).resize(function() {
-    calcHeight();
-  });
+(function($) {
+  $.fn.AlaUne = function(options) {
+    if (jQuery.type(options) != 'undefined' && jQuery.type(options.ShadersGallery) != 'undefined') {
+      if (jQuery.type(options.ShadersGallery.urls) == 'undefined' ||
+        jQuery.type(options.ShadersGallery.imageSize) == 'undefined' ||
+        jQuery.type(options.ShadersGallery.imageSize.x) == 'undefined' ||
+        jQuery.type(options.ShadersGallery.imageSize.y) == 'undefined') return false;
 
-  function calcHeight() {
-    var galWidth = $(galContainer).css('width');
-    if (typeof galWidth === 'undefined') return;
-    //var galHeight = $(galContainer).css('height');
-    var galHeight = Number(galWidth.split("px")[0]) * imageSize.y / imageSize.x;
-    $(galContainer).css('height', galHeight + 'px');
-    //galHeight = $(galContainer).css('height');
-  }
-  const options = {
-    container: document.querySelector(galContainer),
-    urls: urls,
-    imageSize: imageSize,
-    callbacks: {
-      onGalleryCreated: function() {
-        console.log('It\'s time to remove preloader!');
-        window.myGallery.goToNextSlide();
-        var timer = setInterval("window.myGallery.goToNextSlide()", 5000);
+      var imageSize = options.ShadersGallery.imageSize;
+      var randGen = new Generator();
+      var CLthis =  'CL' + randGen.getrand();
+      $(this).addClass(CLthis);
+      CLthis =  '.' + CLthis;
+      calcHeight();
+      $(window).resize(function() {
+        calcHeight();
+      });
+
+      function calcHeight() {
+        var galWidth = $(CLthis).css('width');
+        if (typeof galWidth === 'undefined') return;
+        //var galHeight = $(galContainer).css('height');
+        var galHeight = Number(galWidth.split("px")[0]) * imageSize.y / imageSize.x;
+        $(CLthis).css('height', galHeight + 'px');
+        //galHeight = $(galContainer).css('height');
+      }
+      var randGen = new Generator();
+      window.myGallery = {};
+      $(this).each(function() {
+        var randNum = 'FB' + randGen.getrand();
+        const ShadersGalleryoptions = {
+          container: this,
+          urls: options.ShadersGallery.urls,
+          imageSize: options.ShadersGallery.imageSize,
+          callbacks: {
+            onGalleryCreated: function() {
+              console.log('It\'s time to remove preloader!');
+              window.myGallery[randNum].goToNextSlide();
+              var timer = setInterval("window.myGallery['" + randNum + "'].goToNextSlide()", 5000);
+            }
+          }
+        };
+        window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
+        console.log(window.myGallery[randNum]);
+        $(this).wrapInner('<a href="' + window.location.href + '#' + randNum + '-1"></a>');
+        $(this).append('<div class="fancyData" style="display:none"></div>');
+        for (var i = 0; i < ShadersGalleryoptions.urls.length; i++) {
+          $(this).find('.fancyData').append('<a class="fancyboxTestSoignants" data-fancybox="' + randNum + '" data-src="' + ShadersGalleryoptions.urls[i] + '" data-thumb="' + ShadersGalleryoptions.urls[i] + '" href="javascript:;">' + randNum + ' #' + i + '</a>');
+        }
+        $(this).find('a').css("cursor", "pointer");
+      });
+      return;
+    };
+    if (jQuery.type(options) == 'undefined' || jQuery.type(options.src) == 'undefined') return false;
+    var src = options.src;
+    switch (jQuery.type(src)) {
+      case "string":
+        if (src.indexOf('http') == 0) src = ('<img class="img-foreground" src="' + src + '" /></a>');
+        break;
+      default:
+        log('AlaUne plugin error src');
+    }
+    if (jQuery.type(options.href) == 'undefined') {
+      $(this).append(src);
+      return;
+    }
+    var randGen = new Generator();
+    var randNum = 'FB' + randGen.getrand();
+    var randHid = 'HD' + randGen.getrand();
+    switch (jQuery.type(options.href)) {
+      case "string":
+        $(this).append('<a href="' + options.href + '">' + src + '</a>');
+        break;
+      case "array":
+        break;
+      case "object":
+        options.href = [options.href]
+        break;
+      default:
+        log('AlaUne plugin error options.href = ' + options.href);
+    }
+    for (var i = 0; i < options.href.length; i++) {
+      if (jQuery.type(options.href[i].dataType) == 'string') {
+        if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
+        else {
+          switch (options.href[i].dataType) {
+            case "inline":
+              $(this).append('<div class="articleFancy" id="' + randHid + i + '"> \
+                              <div class="corpsFancy"> \
+                              ' + options.href[i].dataSrc + ' \
+                              </div></div>  \
+                              <a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
+              //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
+              break;
+            case "iframe":
+              //$(this).append('<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="FB' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i +'</a>');
+              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" data-width="1132" data-height="1600">iframe ' + i + '</a>');
+              break;
+            case "images":
+              //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
+              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" data-width="1132" data-height="1600">images ' + i + '</a>');
+              break;
+            default:
+              log('AlaUne plugin error options.href = ' + options.href);
+          }
+        }
       }
     }
-  };
-  window.myGallery = new ShadersGallery(options);
-  console.log(window.myGallery);
-  $(galContainer).wrapInner('<a href="' + window.location.href + '#imageTS-1"></a>')
-  $(galContainer).append('<div class="fancyData" style="display:none"></div>')
-  for (var i = 0; i < options.urls.length; i++) {
-    $(galContainer + ' .fancyData').append('<a class="fancyboxTestSoignants" data-fancybox="imageTS" data-src="' + options.urls[i] + '" data-thumb="' + options.urls[i] + '" href="javascript:;">imageTS #' + i + '</a>');
+    var loc = window.location.href;
+    loc = loc.split('#');
+    loc = loc[0];
+    if (options.href.length > 1)
+      $(this).append('<a href="' + loc + '#' + randNum + '-1">' + src + '</a>');
+    else
+      $(this).append('<a href="' + loc + '#' + randNum + '">' + src + '</a>');
+    // pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
+    switch (jQuery.type(options.fancyClass)) {
+      case "string":
+        $('.' + randNum).fancybox({
+          baseClass: 'customInlineBaseClass',
+          smallBtn: false,
+          toolbar: false,
+          afterLoad: function(instance, current) {
+
+            var pixelRatio = window.devicePixelRatio || 1;
+
+            /*if (pixelRatio > 1.5) {
+              current.width = current.width / pixelRatio;
+              current.height = current.height / pixelRatio;
+            }*/
+
+            if (instance.group.length > 1 && current.$content) {
+              if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+              else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+              else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+            }
+            current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+          }
+        });
+        break;
+      case "object":
+        $('.' + randNum).fancybox(options.fancyClass);
+        break;
+    }
+    /*$('.fancybox')
+    .attr('rel', 'gallery')
+    .fancybox({
+        baseClass: 'customIframeBaseClass customInlineBaseClass',
+        //arrows: true,
+        smallBtn: false,
+        toolbar: true,
+        buttons: [
+          'close'
+        ],
+        afterLoad : function(instance, current) {
+            
+            var pixelRatio = window.devicePixelRatio || 1;
+
+            if ( pixelRatio > 1.5 ) {
+                current.width  = current.width  / pixelRatio;
+                current.height = current.height / pixelRatio;
+            }
+            
+            if (instance.group.length > 1 && current.$content) {
+              if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+              else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+              else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+            }
+            var url = window.location.href;
+            indexFancy = url.indexOf('#');
+            if( indexFancy > 1 ) {
+              var url = url.substr(0, indexFancy-1);
+            }
+            current.$content.append('<a data-fancybox-close class="button-close" href="' + url + '">x</a>');
+        }
+    })*/
   }
-  $(galContainer + ' a').css("cursor", "pointer");
-}
+
+  function Generator() {};
+
+  Generator.prototype.rand = Math.floor(Math.random() * 26) + Date.now();
+
+  Generator.prototype.getrand = function() {
+    return this.rand++;
+  };
+})(jQuery);
 </script>

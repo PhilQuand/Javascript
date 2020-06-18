@@ -49,8 +49,12 @@
               //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
               $(this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" data-width="1132" data-height="1600">images ' + i + '</a>');
               break;
+            case "video":
+              //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
+              $(this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '">video ' + i + '</a>');
+              break;
             default:
-              log('AlaUne plugin error options.href = ' + options.href);
+              console.log('AlaUne plugin error options.href = ' + options.href);
           }
         }
       }

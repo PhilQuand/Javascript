@@ -4,7 +4,7 @@
     var src = options.src;
     switch (jQuery.type(src)) {
       case "string":
-        if (src.indexOf('http') == 0) src = ('<img class="img-foreground" src="' + src + '" /></a>');
+        if (src.indexOf('http') == 0) src = ('<img class="img-foreground" src="' + src + '" />');
         break;
       default:
         log('AlaUne plugin error src');

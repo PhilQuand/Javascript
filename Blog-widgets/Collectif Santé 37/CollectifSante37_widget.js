@@ -8,7 +8,9 @@
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <!-- End FancyBox -->
 
 
@@ -80,9 +82,11 @@ function loadMap() {
 
 
   /*var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+
   var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
     attribution: cartodbAttribution
   }).addTo(map);
+
   var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
     attribution: cartodbAttribution,
     pane: 'labels'
@@ -132,6 +136,7 @@ function zoomRemove( map ) {
   map.boxZoom.disable();
   map.keyboard.disable();
 }
+
 // Copyright (c) 2013 Ryan Clark
 // https://gist.github.com/rclark/5779673
 L.TopoJSON = L.GeoJSON.extend({
@@ -576,6 +581,67 @@ function createSummaryAndThumb(pID, isRegular) {
     }
 }
 </style>
+
+<!-- Add a modal window -->
+
+<!--a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2" href="javascript:;" >iframe 1</a>
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rea&t=a01&view=map2" href="javascript:;" >iframe 2</a>
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.dc&t=a01&view=map2" href="javascript:;" >iframe 3</a>
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.rad&t=a01&view=map2" href="javascript:;" >iframe 4</a>
+<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="iframes" data-src="https://thevirustracker.com/" href="javascript:;" >iframe 5</a-->
+
+<!--div class="articleFancy" id="hidden-content-1">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<div class="articleFancy" id="hidden-content-2">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-VKgaKWKbOq8/Xkq4tDRM-kI/AAAAAAAAlBc/aDkpX-FLoEoRpOXMi_ScH5QIjNNrWUicgCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.59.53.png" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<div class="articleFancy" id="hidden-content-3">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-lcApAQdxneQ/Xkq4sQKFAlI/AAAAAAAAlBY/qRqji_Dp9w0-n9bGxCBj1lrA3ih_oD6KwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.59.20.png" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<div class="articleFancy" id="hidden-content-4">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-r4UZygiIxfo/Xkq4rkiwgUI/AAAAAAAAlBY/IBOahb50pnUBYAM37xxp3VO3WO6tpsRGACPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-17%2Ba%25CC%2580%2B16.59.39.png" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-4" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
+
+<div class="articleFancy" id="hidden-content-1">
+<div class="corpsFancy">
+<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">
+Le 16 juin sera une journée historique de mobilisation dans  la santé<br/>
+après l’épidémie du coronavirus au début de laquelle <br/>
+les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection.
+
+<p style="color:red"><b>Rendez-vous le mardi 16 juin à 15H place Jean Jaurès</b></p>
+</div>
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<div class="articleFancy" id="hidden-content-2">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<!--div class="articleFancy" id="hidden-content-3">
+<div class="corpsFancy">
+<img src="https://1.bp.blogspot.com/-G3PSWiGvqf8/XskUGfVQM-I/AAAAAAAAmEw/s2upFEbjY5YgNsq4k1xUJvkk9fcMI8tBgCK4BGAsYHg/s1600/98306570_1286226648246897_920476663366549504_n.jpg" />
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
+
+<!-- End of modal window -->
 <style>
 .bg-photo-overlay {
   background-image: url("https://1.bp.blogspot.com/-irCxDcyeGC4/XZXsscPP4kI/AAAAAAAAkKM/8rvF00Lvr1Y_iF5BOWT7hOXoqeaXvRJogCPcBGAYYCw/s320/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-10-03%2Ba%25CC%2580%2B14.41.46.png");
@@ -596,7 +662,7 @@ function createSummaryAndThumb(pID, isRegular) {
   //background-color: red;
   animation-name: stretch;
   animation-duration: 2.5s; 
-  animation-timing-function: ease-out; 
+  //animation-timing-function: ease-out; 
   animation-delay: 0;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -616,14 +682,12 @@ function createSummaryAndThumb(pID, isRegular) {
     //background-color: orange;
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(2.);
     //transform: scale(0.8);
     //background-color: yellow;
   }
 }
 </style>
-<!-- Add a modal window AlaUne -->
-
 <script>
 if ( window.location.pathname == '/' ){
   // pétition change.org sur la réanimation pédiatrie
@@ -633,54 +697,59 @@ if ( window.location.pathname == '/' ){
   
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
+  //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
-  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" /></a>');
-  $('.page_body').append('<div id="AlaUne"></div>');
+  $('.page_body').append('<div class="img-foreground" id="AlaUne"></div>');
 }
 $(document).ready(function() {
   $('#AlaUne').AlaUne({
-    //src: '<a href="http://monsitetest123.blogspot.com/2020/06/pour-l-aux-soins-de-toutes-et-tous-dans.html"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>',
-    src: "https://1.bp.blogspot.com/-MXvuuskMlLM/XusBc_j1J_I/AAAAAAAAmk8/sjObo62es5UU_1_GN6fRqV-0NlsqbSBSACK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-18%2Ba%25CC%2580%2B07.53.17.jpg",
-    fancyClass: "default",
-    /*fancyClass: {
-          baseClass: 'customAlaUneBaseClass',
-    },*/
-    href: [
-    /*{
-       dataType: "inline",
-       dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">Le 16 juin sera une journée historique de mobilisation dans  la santé<br/> \
+      //src: '<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />',
+      src: "https://1.bp.blogspot.com/-MXvuuskMlLM/XusBc_j1J_I/AAAAAAAAmk8/sjObo62es5UU_1_GN6fRqV-0NlsqbSBSACK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-18%2Ba%25CC%2580%2B07.53.17.jpg",
+      fancyClass: "default",
+      /*fancyClass: {
+            baseClass: 'customAlaUneBaseClass',
+      },*/
+      href: [
+        /*{
+          dataType: "inline",
+          dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">Le 16 juin sera une journée historique de mobilisation dans  la santé<br/> \
                  après l’épidémie du coronavirus au début de laquelle <br/>les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pris soin des malades et des personnes dépendantes sans protection. \
                  <p style="color:red"><b>Rendez-vous le mardi 16 juin à 15H place Jean Jaurès</b></p>C&#39;est également une Journée nationale intersyndicale de mobilisation et de grève en soutien et pour la réintégration d&#39;Anthony Smith,<br/>cet inspecteur du travail de la Marne qui est toujours suspendu depuis le 15 avril 2020.<br/> \
   Pour plus d&#39;information sur la situation d&#39;Anthony, voici des liens vers <a href="https://www.change.org/p/muriel-p%C3%A9nicaud-abandon-des-poursuites-contre-anthony-smith">la pétition</a> (près de 143 000 signatures !) et vers <a href="https://soutienanthonysmith.fr/">le comité de soutien</a>.<br/> \
   <p style="color:red"><b>À Tours la mobilisation aura lieu de 12h à 14h<br/>devant la DIRECCTE-UD 37<br/>(8, rue Alexander Fleming 37000 TOURS).</p></div>'
-    },
-    {
-       dataType: "inline",
-       dataSrc: '<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />'
-    },
-    {
-       dataType: "inline",
-       dataSrc: '<img src="https://1.bp.blogspot.com/-2u-TmbSKCBs/XuicBxEzF4I/AAAAAAAAmcA/QZ0vnmA8Ev0fDmJ93vmt_yjVkUjKrmy5wCK4BGAsYHg/s1600/anthony.jpg" />'
-    },*/
-    /*{
-       dataType: "iframe",
-       dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
-    },
-    {
-       dataType: "images",
-       dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
-    }*/
-     {
-       dataType: "video",
-       dataSrc: "https://www.youtube.com/watch?v=OdPaf_H5On4&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
-    },
-   ]
+        },
+        {
+          dataType: "inline",
+          dataSrc: '<img src="https://1.bp.blogspot.com/-FJDjMPOenx4/XuIfoidV9BI/AAAAAAAAmYI/tSp1eLB5URw75B9UAHIkpUkeCAJGxwiZQCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-06-11%2Ba%25CC%2580%2B14.11.22.jpg" />'
+        },
+        {
+          dataType: "inline",
+          dataSrc: '<img src="https://1.bp.blogspot.com/-2u-TmbSKCBs/XuicBxEzF4I/AAAAAAAAmcA/QZ0vnmA8Ev0fDmJ93vmt_yjVkUjKrmy5wCK4BGAsYHg/s1600/anthony.jpg" />'
+        },*/
+        /*{
+          dataType: "iframe",
+          dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
+        }*/ {
+        dataType: "video",
+        dataSrc: "https://www.youtube.com/watch?v=OdPaf_H5On4&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+      },
+    ]
   });
 });
 </script>
-
-<!-- End of modal window -->
 <style>
+.customAlaUneBaseClass.fancybox-is-open .fancybox-bg {
+    opacity: 0.1;
+}
+</style>
+<!-- 
+Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
+-->
+<!--style>
 .gallery-container {
     width: 30vw;
 }
@@ -690,83 +759,44 @@ $(document).ready(function() {
     }
 }
 </style>
-<!-- 
-Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
--->
 <script>
-var galContainer  = 'gallery-container';
-var urls = [
-  'https://1.bp.blogspot.com/-I8DWf9bvcWc/XoN3n_o348I/AAAAAAAAlUg/sxkCTaH5q_4Bp8VWAFaxliMonmeCTqLxgCK4BGAsYHg/s1600/DSC04968-NEW.jpg',
-  'https://1.bp.blogspot.com/-y_lWmVRxJN0/Xq7JQdWvx-I/AAAAAAAAlv4/mJ1zkMt78wQAsK1B9WNWpNFNt_5dflNZwCK4BGAsYHg/s1600/ClaudeD.jpg',
-  'https://1.bp.blogspot.com/-X0f6JyJKK04/Xoyq6DEy6EI/AAAAAAAAlfQ/mrjMvg_iMXEYRm9wOT4iokeWshUZqIoMQCK4BGAsYHg/s1600/20200407_163610.jpg',
-  'https://1.bp.blogspot.com/-ECV4PtoBlcE/Xqk-84gHY5I/AAAAAAAAlo4/iloeN45EKtEUrBvHXauSZtF23IEwB9u9ACK4BGAsYHg/s1600/Sauvons-Hopital-Pas_Capital.jpg',
-  'https://1.bp.blogspot.com/-kxft1_1SpNQ/Xqw4-1pw46I/AAAAAAAAluo/xZgKdKiP9bsI_waqkI9c93ivcTnv19GnwCK4BGAsYHg/s1600/P1030228.jpg',
-  'https://1.bp.blogspot.com/-au2EZAXNfDQ/Xqw4_lRN7II/AAAAAAAAlus/d6Jei9N8lyUpphPfqcauSLi03C5z4QT-QCK4BGAsYHg/s1600/P1030226.jpg',
-  'https://1.bp.blogspot.com/-7JEF_2lu5C4/XoNxc2OtDcI/AAAAAAAAlTw/VGlsjryM9FAkr_lmge5lh-lBAElnW8lBwCK4BGAsYHg/s1600/IMG_1522-NEW.jpg',
-  'https://1.bp.blogspot.com/-sdREiSAnKdk/XoN3ReIz_sI/AAAAAAAAlUM/aJSoL9GmP-42F3NAINdz8fF8WxvcRyTDgCK4BGAsYHg/s1600/IMG_1519-NEW.jpg',
-  'https://1.bp.blogspot.com/-YMfAm9AdFQQ/XoN4KxvGBnI/AAAAAAAAlVI/Uc3XnfQP50wRZcgAgZfSS5YMUeFJG6osACK4BGAsYHg/s1600/P1030025-New.jpg',
-  'https://1.bp.blogspot.com/-Om5lJzeDn4Y/Xo4PYlVmYOI/AAAAAAAAlgQ/CeiQykpYW2sBRX80DBlmTyUOb0goKSuTwCK4BGAsYHg/s1600/IMG_1538.JPG',
-  'https://1.bp.blogspot.com/-cZDLcWMtTNU/Xobkb0Ei_oI/AAAAAAAAlZ0/UcyYFSJ5lv0wL4KwWbRrMkU3pBMsUBnLQCK4BGAsYHg/s1600/IMG_20200402_192429.jpg',
-  'https://1.bp.blogspot.com/-hLh_7qprf3U/XoS_ms_xC5I/AAAAAAAAlX8/H7QDXub99Ng6lX6QCiSerTKuZ9bdKdZ9wCK4BGAsYHg/s1600/panneau-1-CP.jpeg',
-  'https://1.bp.blogspot.com/-OjuU1WVxDG0/XoS9yAUa84I/AAAAAAAAlXY/BnHjdIVSGoQInslgudU0H5zW2QNVF2ksQCK4BGAsYHg/s1600/panneau%2B2.jpg',
-  'https://1.bp.blogspot.com/-O7hnL8dbzM8/XoTTFONhBpI/AAAAAAAAlZY/KTizzghJdeg0xldk_g72Gm5lu26teQZ9QCK4BGAsYHg/s1600/IMG_1530-NEW.jpg',
-  'https://1.bp.blogspot.com/-d875dZB417Q/XoGdZpgWaJI/AAAAAAAAlQ8/C8r3Hi_7LXgA3LPOfCZeeGxB86oyobo8ACLcBGAsYHQ/s1600/20200328_195330-NEW.jpg',
-  'https://1.bp.blogspot.com/-sJYaRkhsK6I/XoGcueEEE3I/AAAAAAAAlQ0/twnESkBSgAgwl3ZYkFPB9zx2pmI9Em6hgCLcBGAsYHQ/s1600/IMG_3180.jpg',
-  'https://1.bp.blogspot.com/-smsO2gcV6sI/XoGe4ZiXXNI/AAAAAAAAlRI/TItFtmypAho_q3SeEf_EO3F5n6i4khmeACLcBGAsYHQ/s1600/IMG-20200327-WA0000-NEW.jpg',
-  'https://1.bp.blogspot.com/-qp7YM3Imf0Y/XoN35CsF8tI/AAAAAAAAlU0/QdeXXfm7m4QEpjGkIhyoNnmjx59rddkZgCK4BGAsYHg/s16000/B2E890A9-C6D5-4562-B081-New.jpg',
-  'https://1.bp.blogspot.com/-eLTOdsVwHPg/XoLuBKZfsMI/AAAAAAAAlSQ/2tItUxnjMssKjbAC2N774FUAfUND_DbPgCK4BGAsYHg/s1600/IMAG2300-NEW.jpg',
-  'https://1.bp.blogspot.com/-3GW_0nPtHNE/XoNtr7POc3I/AAAAAAAAlTE/Oh10masdyuQznmcojrVDeiBDvnvU_FFEQCK4BGAsYHg/s1600/IMG_20200330_160758-NEW.jpg',
-  'https://1.bp.blogspot.com/-fr_GYi06S48/XoNte-JtP1I/AAAAAAAAlSs/6FPiMVfG4EoaRIdl1Nl9GC3yjvD_O5GpgCK4BGAsYHg/s1600/IMG_0861-NEW.jpg',
-  'https://1.bp.blogspot.com/-v1aRuElutSY/XoOdex9e4II/AAAAAAAAlWU/ytud8uyE2qMMEGE-BjUm1wbaD-19ImkXwCK4BGAsYHg/s16000/IMG_1527.jpg',
-  'https://1.bp.blogspot.com/-IE-pmEVlINQ/XomeUhtPpXI/AAAAAAAAla8/ivqYJqK_baQqKEDHnIC1FZdiLS2U2k1wgCK4BGAsYHg/s1600/IMG_1531.jpg',
-  'https://1.bp.blogspot.com/-6_QUOOVpVi8/Xor-vZivymI/AAAAAAAAlcs/ePaYbw2khX8IkLJoEEORKPZ-un8MrvgjgCK4BGAsYHg/s1600/20200401_204050-NEW.jpg',
-  'https://1.bp.blogspot.com/-E-qledZQuYo/XpNh2IgHFdI/AAAAAAAAliA/0mHlq0VcctoRWmfD6A5mHAS934Jj98o7wCK4BGAsYHg/s16000/IMG_1543.jpg',
-  'https://1.bp.blogspot.com/-ARhfmWXuEVI/XpgIzLE55-I/AAAAAAAAljg/i6yNlE44HtAxnQsRSnrAn0r_-buPjdoNwCK4BGAsYHg/s16000/image001.jpg',
-  'https://1.bp.blogspot.com/-nZ2Vi0ejpJo/Xp2S9kKzv9I/AAAAAAAAllI/Kpii4vJlJ3oVEO2_0UgM9WyiHfwq6NrXwCK4BGAsYHg/s1600/IMG_1545.jpg'
-]
-var imageSize = {
-  x: 1600,
-  y: 1200
-};
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
-<script type='module'>
-import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
-galContainer = '.' + galContainer;
-if ($(galContainer).length > 0) {
-  calcHeight();
-  $(window).resize(function() {
-    calcHeight();
-  });
-
-  function calcHeight() {
-    var galWidth = $(galContainer).css('width');
-    if (typeof galWidth === 'undefined') return;
-    //var galHeight = $(galContainer).css('height');
-    var galHeight = Number(galWidth.split("px")[0]) * imageSize.y / imageSize.x;
-    $(galContainer).css('height', galHeight + 'px');
-    //galHeight = $(galContainer).css('height');
-  }
-  const options = {
-    container: document.querySelector(galContainer),
-    urls: urls,
-    imageSize: imageSize,
-    callbacks: {
-      onGalleryCreated: function() {
-        console.log('It\'s time to remove preloader!');
-        window.myGallery.goToNextSlide();
-        var timer = setInterval("window.myGallery.goToNextSlide()", 5000);
+$(document).ready(function() {
+  $('.gallery-container').AlaUne({
+      ShadersGallery: {
+        urls: [
+          'https://1.bp.blogspot.com/-I8DWf9bvcWc/XoN3n_o348I/AAAAAAAAlUg/sxkCTaH5q_4Bp8VWAFaxliMonmeCTqLxgCK4BGAsYHg/s1600/DSC04968-NEW.jpg',
+          'https://1.bp.blogspot.com/-y_lWmVRxJN0/Xq7JQdWvx-I/AAAAAAAAlv4/mJ1zkMt78wQAsK1B9WNWpNFNt_5dflNZwCK4BGAsYHg/s1600/ClaudeD.jpg',
+          'https://1.bp.blogspot.com/-X0f6JyJKK04/Xoyq6DEy6EI/AAAAAAAAlfQ/mrjMvg_iMXEYRm9wOT4iokeWshUZqIoMQCK4BGAsYHg/s1600/20200407_163610.jpg',
+          'https://1.bp.blogspot.com/-ECV4PtoBlcE/Xqk-84gHY5I/AAAAAAAAlo4/iloeN45EKtEUrBvHXauSZtF23IEwB9u9ACK4BGAsYHg/s1600/Sauvons-Hopital-Pas_Capital.jpg',
+          'https://1.bp.blogspot.com/-kxft1_1SpNQ/Xqw4-1pw46I/AAAAAAAAluo/xZgKdKiP9bsI_waqkI9c93ivcTnv19GnwCK4BGAsYHg/s1600/P1030228.jpg',
+          'https://1.bp.blogspot.com/-au2EZAXNfDQ/Xqw4_lRN7II/AAAAAAAAlus/d6Jei9N8lyUpphPfqcauSLi03C5z4QT-QCK4BGAsYHg/s1600/P1030226.jpg',
+          'https://1.bp.blogspot.com/-7JEF_2lu5C4/XoNxc2OtDcI/AAAAAAAAlTw/VGlsjryM9FAkr_lmge5lh-lBAElnW8lBwCK4BGAsYHg/s1600/IMG_1522-NEW.jpg',
+          'https://1.bp.blogspot.com/-sdREiSAnKdk/XoN3ReIz_sI/AAAAAAAAlUM/aJSoL9GmP-42F3NAINdz8fF8WxvcRyTDgCK4BGAsYHg/s1600/IMG_1519-NEW.jpg',
+          'https://1.bp.blogspot.com/-YMfAm9AdFQQ/XoN4KxvGBnI/AAAAAAAAlVI/Uc3XnfQP50wRZcgAgZfSS5YMUeFJG6osACK4BGAsYHg/s1600/P1030025-New.jpg',
+          'https://1.bp.blogspot.com/-Om5lJzeDn4Y/Xo4PYlVmYOI/AAAAAAAAlgQ/CeiQykpYW2sBRX80DBlmTyUOb0goKSuTwCK4BGAsYHg/s1600/IMG_1538.JPG',
+          'https://1.bp.blogspot.com/-cZDLcWMtTNU/Xobkb0Ei_oI/AAAAAAAAlZ0/UcyYFSJ5lv0wL4KwWbRrMkU3pBMsUBnLQCK4BGAsYHg/s1600/IMG_20200402_192429.jpg',
+          'https://1.bp.blogspot.com/-hLh_7qprf3U/XoS_ms_xC5I/AAAAAAAAlX8/H7QDXub99Ng6lX6QCiSerTKuZ9bdKdZ9wCK4BGAsYHg/s1600/panneau-1-CP.jpeg',
+          'https://1.bp.blogspot.com/-OjuU1WVxDG0/XoS9yAUa84I/AAAAAAAAlXY/BnHjdIVSGoQInslgudU0H5zW2QNVF2ksQCK4BGAsYHg/s1600/panneau%2B2.jpg',
+          'https://1.bp.blogspot.com/-O7hnL8dbzM8/XoTTFONhBpI/AAAAAAAAlZY/KTizzghJdeg0xldk_g72Gm5lu26teQZ9QCK4BGAsYHg/s1600/IMG_1530-NEW.jpg',
+          'https://1.bp.blogspot.com/-d875dZB417Q/XoGdZpgWaJI/AAAAAAAAlQ8/C8r3Hi_7LXgA3LPOfCZeeGxB86oyobo8ACLcBGAsYHQ/s1600/20200328_195330-NEW.jpg',
+          'https://1.bp.blogspot.com/-sJYaRkhsK6I/XoGcueEEE3I/AAAAAAAAlQ0/twnESkBSgAgwl3ZYkFPB9zx2pmI9Em6hgCLcBGAsYHQ/s1600/IMG_3180.jpg',
+          'https://1.bp.blogspot.com/-smsO2gcV6sI/XoGe4ZiXXNI/AAAAAAAAlRI/TItFtmypAho_q3SeEf_EO3F5n6i4khmeACLcBGAsYHQ/s1600/IMG-20200327-WA0000-NEW.jpg',
+          'https://1.bp.blogspot.com/-qp7YM3Imf0Y/XoN35CsF8tI/AAAAAAAAlU0/QdeXXfm7m4QEpjGkIhyoNnmjx59rddkZgCK4BGAsYHg/s16000/B2E890A9-C6D5-4562-B081-New.jpg',
+          'https://1.bp.blogspot.com/-eLTOdsVwHPg/XoLuBKZfsMI/AAAAAAAAlSQ/2tItUxnjMssKjbAC2N774FUAfUND_DbPgCK4BGAsYHg/s1600/IMAG2300-NEW.jpg',
+          'https://1.bp.blogspot.com/-3GW_0nPtHNE/XoNtr7POc3I/AAAAAAAAlTE/Oh10masdyuQznmcojrVDeiBDvnvU_FFEQCK4BGAsYHg/s1600/IMG_20200330_160758-NEW.jpg',
+          'https://1.bp.blogspot.com/-fr_GYi06S48/XoNte-JtP1I/AAAAAAAAlSs/6FPiMVfG4EoaRIdl1Nl9GC3yjvD_O5GpgCK4BGAsYHg/s1600/IMG_0861-NEW.jpg',
+          'https://1.bp.blogspot.com/-v1aRuElutSY/XoOdex9e4II/AAAAAAAAlWU/ytud8uyE2qMMEGE-BjUm1wbaD-19ImkXwCK4BGAsYHg/s16000/IMG_1527.jpg',
+          'https://1.bp.blogspot.com/-IE-pmEVlINQ/XomeUhtPpXI/AAAAAAAAla8/ivqYJqK_baQqKEDHnIC1FZdiLS2U2k1wgCK4BGAsYHg/s1600/IMG_1531.jpg',
+          'https://1.bp.blogspot.com/-6_QUOOVpVi8/Xor-vZivymI/AAAAAAAAlcs/ePaYbw2khX8IkLJoEEORKPZ-un8MrvgjgCK4BGAsYHg/s1600/20200401_204050-NEW.jpg',
+          'https://1.bp.blogspot.com/-E-qledZQuYo/XpNh2IgHFdI/AAAAAAAAliA/0mHlq0VcctoRWmfD6A5mHAS934Jj98o7wCK4BGAsYHg/s16000/IMG_1543.jpg',
+          'https://1.bp.blogspot.com/-ARhfmWXuEVI/XpgIzLE55-I/AAAAAAAAljg/i6yNlE44HtAxnQsRSnrAn0r_-buPjdoNwCK4BGAsYHg/s16000/image001.jpg',
+          'https://1.bp.blogspot.com/-nZ2Vi0ejpJo/Xp2S9kKzv9I/AAAAAAAAllI/Kpii4vJlJ3oVEO2_0UgM9WyiHfwq6NrXwCK4BGAsYHg/s1600/IMG_1545.jpg'
+        ],
+        imageSize: {
+          x: 1600,
+          y: 1200
+        }
       }
-    }
-  };
-  window.myGallery = new ShadersGallery(options);
-  console.log(window.myGallery);
-  $(galContainer).wrapInner('<a href="' + window.location.href + '#imageTS-1"></a>')
-  $(galContainer).append('<div class="fancyData" style="display:none"></div>')
-  for (var i = 0; i < options.urls.length; i++) {
-    $(galContainer + ' .fancyData').append('<a class="fancyboxTestSoignants" data-fancybox="imageTS" data-src="' + options.urls[i] + '" data-thumb="' + options.urls[i] + '" href="javascript:;">imageTS #' + i + '</a>');
-  }
-  $(galContainer + ' a').css("cursor", "pointer");
-}
-</script>
+  });
+});
+</script-->

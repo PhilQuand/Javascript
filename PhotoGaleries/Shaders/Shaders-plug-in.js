@@ -1,5 +1,9 @@
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
+  var script_arr = [
+    'https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'
+  ];
   $.fn.Shaders = function(options) {
     if (jQuery.type(options) != 'undefined') {
       if (jQuery.type(options.urls) == 'undefined' ||
@@ -9,9 +13,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
 
       var imageSize = options.imageSize;
       var randGen = new Generator();
-      var CLthis =  'CL' + randGen.getrand();
+      var CLthis = 'CL' + randGen.getrand();
       $(this).addClass(CLthis);
-      CLthis =  '.' + CLthis;
+      CLthis = '.' + CLthis;
       calcHeight();
       $(window).resize(function() {
         calcHeight();
@@ -41,7 +45,10 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
             }
           }
         };
-        window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
+        //$.getScript('https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js', function() {
+        $.getMultiScripts(script_arr, '').done(function() {
+          window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
+        });
         console.log(window.myGallery[randNum]);
         $(this).wrapInner('<a href="' + window.location.href + '#' + randNum + '-1"></a>');
         $(this).append('<div class="fancyData" style="display:none"></div>');
@@ -53,6 +60,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       return;
     };
   };
+
   function Generator() {};
 
   Generator.prototype.rand = Math.floor(Math.random() * 26) + Date.now();
@@ -60,4 +68,15 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
   Generator.prototype.getrand = function() {
     return this.rand++;
   };
+  $.getMultiScripts = function(arr, path) {
+    var _arr = $.map(arr, function(scr) {
+      return $.getScript((path || "") + scr);
+    });
+
+    _arr.push($.Deferred(function(deferred) {
+      $(deferred.resolve);
+    }));
+
+    return $.when.apply($, _arr);
+  }
 })(jQuery);

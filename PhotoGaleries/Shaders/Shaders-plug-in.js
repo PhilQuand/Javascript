@@ -43,17 +43,25 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         };
         //$.getScript('https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js', function() {
         //$.getMultiScripts(script_arr,'').done(function() {
+        var _this = this;
         Promise.all([
+          //  chargements des dépendances css
+          load.css('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'),
+          load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
+          load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css'),
+          //  chargements des dépendances js
           load.js('https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'),
           load.js('https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'),
+          load.js('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js'),
+          load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
         ]).then(function() {
-          console.log('Shaders: Everything has loaded!');
+          console.log('Everything has loaded!');
           window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
+          $(_this).wrapInner('<a href="' + window.location.href + '#' + randNum + '-1"></a>');
         }).catch(function() {
-          console.log('Shaders: Oh no, epic failure!');
+          console.log('Oh no, epic failure!');
         });
         console.log(window.myGallery[randNum]);
-        $(this).wrapInner('<a href="' + window.location.href + '#' + randNum + '-1"></a>');
         $(this).append('<div class="fancyData" style="display:none"></div>');
         for (var i = 0; i < ShadersGalleryoptions.urls.length; i++) {
           $(this).find('.fancyData').append('<a class="fancyboxTestSoignants" data-fancybox="' + randNum + '" data-src="' + ShadersGalleryoptions.urls[i] + '" data-thumb="' + ShadersGalleryoptions.urls[i] + '" href="javascript:;">' + randNum + ' #' + i + '</a>');
@@ -85,7 +93,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       }));
 
       return $.when.apply($, _arr);
-  }*/
+    }*/
   var load = (function() {
     // Function which returns a function: https://davidwalsh.name/javascript-functions
     function _load(tag) {

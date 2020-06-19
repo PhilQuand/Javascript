@@ -5,12 +5,8 @@
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'></script>
-<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <!-- End FancyBox -->
 
 
@@ -688,6 +684,8 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   }
 }
 </style>
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" />
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <script>
 if ( window.location.pathname == '/' ){
   // pétition change.org sur la réanimation pédiatrie
@@ -741,11 +739,12 @@ $(document).ready(function() {
   });
 });
 </script>
-<style>
+<!--style>
 .customAlaUneBaseClass.fancybox-is-open .fancybox-bg {
     opacity: 0.1;
 }
-</style>
+</style-->
+
 <!-- 
 Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
 -->
@@ -759,10 +758,10 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
     }
 }
 </style>
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders-plug-in.js'></script>
 <script>
 $(document).ready(function() {
-  $('.gallery-container').AlaUne({
-      ShadersGallery: {
+  $('.gallery-container').Shaders({
         urls: [
           'https://1.bp.blogspot.com/-I8DWf9bvcWc/XoN3n_o348I/AAAAAAAAlUg/sxkCTaH5q_4Bp8VWAFaxliMonmeCTqLxgCK4BGAsYHg/s1600/DSC04968-NEW.jpg',
           'https://1.bp.blogspot.com/-y_lWmVRxJN0/Xq7JQdWvx-I/AAAAAAAAlv4/mJ1zkMt78wQAsK1B9WNWpNFNt_5dflNZwCK4BGAsYHg/s1600/ClaudeD.jpg',
@@ -796,7 +795,6 @@ $(document).ready(function() {
           x: 1600,
           y: 1200
         }
-      }
   });
 });
 </script-->

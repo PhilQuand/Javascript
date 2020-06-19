@@ -762,7 +762,7 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
 <script>
 $(document).ready(function() {
   $('.gallery-container').Shaders({
-        urls: [
+        images: [
           'https://1.bp.blogspot.com/-I8DWf9bvcWc/XoN3n_o348I/AAAAAAAAlUg/sxkCTaH5q_4Bp8VWAFaxliMonmeCTqLxgCK4BGAsYHg/s1600/DSC04968-NEW.jpg',
           'https://1.bp.blogspot.com/-y_lWmVRxJN0/Xq7JQdWvx-I/AAAAAAAAlv4/mJ1zkMt78wQAsK1B9WNWpNFNt_5dflNZwCK4BGAsYHg/s1600/ClaudeD.jpg',
           'https://1.bp.blogspot.com/-X0f6JyJKK04/Xoyq6DEy6EI/AAAAAAAAlfQ/mrjMvg_iMXEYRm9wOT4iokeWshUZqIoMQCK4BGAsYHg/s1600/20200407_163610.jpg',

@@ -7,6 +7,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         jQuery.type(options.imageSize.x) == 'undefined' ||
         jQuery.type(options.imageSize.y) == 'undefined') return false;
 
+      var ShaderGalleryTarget = options.ShaderGalleryTarget;
       var imageSize = options.imageSize;
       var randGen = new Generator();
       var CLthis = 'CL' + randGen.getrand();
@@ -57,7 +58,11 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         ]).then(function() {
           console.log('Everything has loaded!');
           window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
-          $(_this).wrapInner('<a href="' + window.location.href + '#' + randNum + '-1"></a>');
+          var myGalleryTarget = window.location.href + '#' + randNum + '-1';
+          $(_this).wrapInner('<a href="' + myGalleryTarget + '"></a>');
+          if (jQuery.type(ShaderGalleryTarget) != 'undefined') {
+            $('.' + ShaderGalleryTarget).attr("href", myGalleryTarget);
+          }
         }).catch(function() {
           console.log('Oh no, epic failure!');
         });

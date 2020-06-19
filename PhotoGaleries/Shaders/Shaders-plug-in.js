@@ -7,7 +7,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         jQuery.type(options.imageSize.x) == 'undefined' ||
         jQuery.type(options.imageSize.y) == 'undefined') return false;
 
-      var ShaderGalleryTarget = options.ShaderGalleryTarget;
+      var ShaderGalleryTarget = options.GalleryLink;
       var imageSize = options.imageSize;
       var randGen = new Generator();
       var CLthis = 'CL' + randGen.getrand();

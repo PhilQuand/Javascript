@@ -51,9 +51,9 @@
 
     $.fn.imagesGrid.defaults = {
         images: [],
-        fancybox: false,
+        fancybox: true,
         cells: 5,
-        align: false,
+        align: true,
         nextOnClick: true,
         showViewAll: 'more',
         viewAllStartIndex: 'auto',

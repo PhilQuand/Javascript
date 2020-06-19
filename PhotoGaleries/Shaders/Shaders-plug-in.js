@@ -2,7 +2,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
 (function($) {
   $.fn.Shaders = function(options) {
     if (jQuery.type(options) != 'undefined') {
-      if (jQuery.type(options.urls) == 'undefined' ||
+      if (jQuery.type(options.images) == 'undefined' ||
         jQuery.type(options.imageSize) == 'undefined' ||
         jQuery.type(options.imageSize.x) == 'undefined' ||
         jQuery.type(options.imageSize.y) == 'undefined') return false;
@@ -32,7 +32,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         var randNum = 'FB' + randGen.getrand();
         const ShadersGalleryoptions = {
           container: this,
-          urls: options.urls,
+          urls: options.images,
           imageSize: options.imageSize,
           callbacks: {
             onGalleryCreated: function() {

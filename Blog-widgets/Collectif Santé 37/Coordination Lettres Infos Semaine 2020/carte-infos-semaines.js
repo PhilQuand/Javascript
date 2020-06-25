@@ -168,7 +168,7 @@
               default:
                 iconMarkers[i].icon = simpleRBlueIcon;
             }*/
-            eval('iconMarkers[i].icon = ' + iconMarkers[i].icon);
+            iconMarkers[i].icon = eval(iconMarkers[i].icon);
           }
         }
         var divBannerCoord, divLegend;

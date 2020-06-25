@@ -6,21 +6,21 @@
       //  chargements des dépendances css
       load.css('https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'),
       load.css('https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css'),
+      load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css'),
+      load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css'),
       //  chargements des dépendances js
       load.js('https://unpkg.com/leaflet@1.6.0/dist/leaflet.js'),
       load.js('https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js'),
       load.js('https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js'),
+      load.js('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js'),
     ]).then(function() {
       Promise.all([
         //  chargements des dépendances css
         load.css('https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css'),
         load.css('https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css'),
-        load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css'),
-        load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css'),
         //load.css('https://unpkg.com/leaflet@1.4.0/dist/leaflet.css'),
         //  chargements des dépendances js
         load.js('https://code.jquery.com/ui/1.12.1/jquery-ui.js'),
-        load.js('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js'),
         load.js('https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js'),
         load.js('https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js'),
       ]).then(function() {

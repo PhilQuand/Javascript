@@ -6,13 +6,13 @@
       //  chargements des dépendances css
       load.css('https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'),
       load.css('https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css'),
-      load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css'),
-      load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css'),
+        load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css'),
+        load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css'),
       //  chargements des dépendances js
       load.js('https://unpkg.com/leaflet@1.6.0/dist/leaflet.js'),
       load.js('https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js'),
       load.js('https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js'),
-      load.js('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js'),
+        load.js('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js'),
     ]).then(function() {
       Promise.all([
         //  chargements des dépendances css
@@ -77,19 +77,21 @@
           infoMapWrap.append('<div class="dispInfoMap">' + strMapTitle + '</div>', '<button type="button" class="styled" id="btData">Données</button>');
         }
 
+        var infosComités = '.infosComités';
+        if (typeof options !== 'undefined' && typeof options.InfosData !== 'undefined') infosComités = '.' + options.InfosData;
         $(document).ready(function() {
           $('#btData').click(function(e) {
-            var blockData = $('.infosComités');
+            var blockData = $(infosComités);
             if (blockData.css('display') == 'block') {
               $('#btData').html('Données');
               $('.dispInfoMap').css('display', 'block')
               map.invalidateSize();
-              $('.infosComités').css('display', 'none')
+              $(infosComités).css('display', 'none')
             }
             else {
               $('#btData').html('Carte');
               $('.dispInfoMap').css('display', 'none')
-              $('.infosComités').css('display', 'block')
+              $(infosComités).css('display', 'block')
             }
           });
           $('#btData').trigger("click");
@@ -214,9 +216,8 @@
         function getMyInnerLinkContent() {
           if (hrefLength == 0) {
             if (isLinkContent('')) return;
-            /*var allText = $('.corpsLettre');
-            var allText = $('.corpsLettre')[0].innerHTML;*/
-            var allText = $('.corpsLettre').html();
+            //var allText = $('.corpsLettre').html();
+            var allText = $(infosComités).html();
             return getBody(allText);
           }
           if (isLinkContent(href[indIndex[indexCal]].weekInfos)) return;

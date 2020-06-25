@@ -4,25 +4,25 @@
     var _this = this;
     Promise.all([
       //  chargements des dépendances css
+      load.css('https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'),
       load.css('https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css'),
       //  chargements des dépendances js
+      load.js('https://unpkg.com/leaflet@1.6.0/dist/leaflet.js'),
       load.js('https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js'),
       load.js('https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js'),
     ]).then(function() {
       Promise.all([
         //  chargements des dépendances css
-        //load.css('https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'),
         load.css('https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css'),
         load.css('https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css'),
         load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css'),
         load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css'),
         //load.css('https://unpkg.com/leaflet@1.4.0/dist/leaflet.css'),
         //  chargements des dépendances js
-        //load.js('https://unpkg.com/leaflet@1.6.0/dist/leaflet.js'),
         load.js('https://code.jquery.com/ui/1.12.1/jquery-ui.js'),
         load.js('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js'),
         load.js('https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js'),
-        //load.js('https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js'),
+        load.js('https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js'),
       ]).then(function() {
         //if (typeof options === 'undefined' || typeof options.href === 'undefined') return;
 
@@ -157,6 +157,19 @@
         }
         for (i = 0; i < iconMarkersLength; i++) {
           iconMarkers[i].nbMapEvents = 0;
+          if (typeof iconMarkers[i].icon !== 'undefined') {
+            /*switch (iconMarkers[i].icon) {
+              case "simpleGreenIcon":
+                iconMarkers[i].icon = simpleGreenIcon;
+                break;
+              case "simpleRedIcon":
+                iconMarkers[i].icon = simpleRedIcon;
+                break;
+              default:
+                iconMarkers[i].icon = simpleRBlueIcon;
+            }*/
+            eval('iconMarkers[i].icon = ' + iconMarkers[i].icon);
+          }
         }
         var divBannerCoord, divLegend;
         var result = getMyInnerLinkContent();
@@ -1033,14 +1046,14 @@
     function iconMarkersBuilder(iconMarkersOptions) {
       var iconMarkers = [{
         class: "marker-0",
-        icon: simpleRedIcon,
+        icon: 'simpleRedIcon',
         title: 'Coordination'
       }, {
         class: "marker-1",
         title: 'Échos'
       }, {
         class: "marker-2",
-        icon: simpleGreenIcon,
+        icon: 'simpleGreenIcon',
         title: 'Autres Infos'
       }];
       if (typeof iconMarkersOptions !== 'undefined') {

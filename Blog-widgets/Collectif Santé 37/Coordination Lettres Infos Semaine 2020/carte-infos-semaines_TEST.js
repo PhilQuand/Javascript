@@ -4,12 +4,12 @@
     var _this = this;
     Promise.all([
       //  chargements des dépendances css
-      //load.css('https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'),
+      load.css('https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'),
       load.css('https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css'),
         load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css'),
         load.css('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css'),
       //  chargements des dépendances js
-      //load.js('https://unpkg.com/leaflet@1.6.0/dist/leaflet.js'),
+      load.js('https://unpkg.com/leaflet@1.6.0/dist/leaflet.js'),
       load.js('https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js'),
       load.js('https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js'),
         load.js('https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js'),

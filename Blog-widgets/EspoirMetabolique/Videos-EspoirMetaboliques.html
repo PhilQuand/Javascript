@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vidéos d'Espoir Métaboliques</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+  <base target="_blank">
+
+</head>
+<body>
+
+<div style="display:none">
+<span class="material-icons md-18 md-dark md-inactive">pages</span>
+<span class="material-icons md-24 md-dark md-inactive">photo_camera</span>
+<span class="material-icons md-36 md-dark md-inactive">ondemand_video</span>
+<span class="material-icons md-48 md-dark md-inactive">picture_as_pdf</span>
+</div>
+<link href="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Vus-Ailleurs/containerVusAilleurs.css" rel="stylesheet" type="text/css" />
+
+<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;" data-summary="no">
+<img border="0" style="width: 400px; max-width: 40%;" id="banCoord" alt="banCoord.png" src="https://1.bp.blogspot.com/-HKmUT2RFQbY/XrbNycLE0tI/AAAAAAAAl4E/lsYL7MfmXeok_rC2NV6lbHm9dTtp_HBGgCK4BGAsYHg/s1600/Inserm-medias-icons.png" class="banInfos" width="400px"><div class="weekVA">Semaine 26<br>du 22 au 28 juin 2020</div></div>
+<p>Voici des articles, vidéos, enregistrements sonores que nous avons découverts pendant la semaine et que nous souhaitons partager avec nos lecteurs.</p>
+<hr style="border-top: 1px dashed;">
+<div class="containerVusAilleurs">
+<!--article class="AlaUneActu"-->
+<article>
+<div class="titre"><a href="https://youtu.be/5ffEybAq2FY">Témoignage : La guérison de FRED<span class="material-icons md-36 md-dark md-inactive">ondemand_video</span></a></div>
+<div class="date">27 juin, 2020</div>
+<div class="data">
+<div class="video-wrapper">
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5ffEybAq2FY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></div>
+<div class="divText">
+FRED nous offre un magnifique témoignage sur son combat et sa guérison. Cette vidéo est un formidable encouragement pour nous tous et nous montre la voie à suivre ! Un grand merci à Fred.
+</div></div>
+<hr style="border-top: 1px dashed;"></article>
+
+</div>
+<style>
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	//padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.containerVusAilleurs article .titre {
+    font-size: 24px;
+    font-weight: bold;
+}
+.containerVusAilleurs article .date {
+    font-style: italic;
+}
+.containerVusAilleurs article .titre {
+    margin-bottom: 0.25em;
+}
+.containerVusAilleurs article .date {
+    //font-style: italic;
+    margin-bottom: 0.25em;
+    color: grey;
+}
+.containerVusAilleurs article .titre > a {
+    //font-size: 24px;
+    line-height: 1.2;
+    //font-weight: bold;
+    color: #196779;
+}
+.containerVusAilleurs article .titre > a:link {
+  text-decoration: none;
+}
+.containerVusAilleurs article .titre > a:visited {
+  text-decoration: none;
+}
+.containerVusAilleurs article .titre > a:hover {
+  text-decoration: underline;
+}
+.containerVusAilleurs article .titre > a:active {
+  text-decoration: underline;
+}
+.containerVusAilleurs article .data {
+    display: flex; 
+    align-items: center;
+    width: 100%; 
+}
+.containerVusAilleurs article .data .video-wrapper {
+	width: 560px;
+	max-width: 100%;
+    margin: 2em auto 2em auto;
+    margin-right: 0.5em;
+}
+.containerVusAilleurs article .data .divText {
+    width: 70%; 
+}
+.containerVusAilleurs article .data .divImg img {
+    width: 100%;
+}
+
+/* mise en forme de l'article "à la une" */
+.containerVusAilleurs article.AlaUneActu .titre {
+  //font-size: 125%;
+  //font-weight: bold;
+}
+.containerVusAilleurs article.AlaUneActu .data  {
+  line-height: 1.6;
+  color: black;
+  font-size: 125%;
+  font-weight: bold;
+  margin: 1em 0 1em 0;
+}
+.containerVusAilleurs article.AlaUneActu .data .divImg {
+    max-width: 450px; 
+    width: 50%; 
+    margin-right: 0.5em;
+    //margin-bottom: 1em;
+}
+
+/* détails des images disponibles à l'adresse suivante:
+https://material.io/resources/icons/?icon=picture_as_pdf&style=baseline
+*/
+.material-icons { float: right; }
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+@media (max-width: 1100px) {
+    .containerVusAilleurs article .data {
+        display: block; 
+    }
+    .containerVusAilleurs article .data .divImg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+    .containerVusAilleurs article .data .divText {
+        width: 100%; 
+    }
+}
+</style>
+</body>
+</html>

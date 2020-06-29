@@ -1,0 +1,117 @@
+/*.containerVusAilleurs article .titre,
+.containerVusAilleurs article .date,
+.containerVusAilleurs article .data .divText {
+    font-family: normal, sans-serif;
+    font-size: 20px;
+}*/
+body {
+    font-family: normal, sans-serif;
+    font-size: 20px;
+}
+.weekVA {
+text-align: center;
+font-weight: bold;
+font-size: 24px; 
+/*color: #0070c0;
+text-shadow: 2px 1px grey;*/
+}
+.containerVusAilleurs article .titre {
+    font-size: 24px;
+    font-weight: bold;
+}
+.containerVusAilleurs article .date {
+    font-style: italic;
+}
+.containerVusAilleurs article .titre {
+    margin-bottom: 0.25em;
+}
+.containerVusAilleurs article .date {
+    //font-style: italic;
+    margin-bottom: 0.25em;
+    color: grey;
+}
+.containerVusAilleurs article .titre > a {
+    //font-size: 24px;
+    line-height: 1.2;
+    //font-weight: bold;
+    color: #196779;
+}
+.containerVusAilleurs article .titre > a:link {
+  text-decoration: none;
+}
+.containerVusAilleurs article .titre > a:visited {
+  text-decoration: none;
+}
+.containerVusAilleurs article .titre > a:hover {
+  text-decoration: underline;
+}
+.containerVusAilleurs article .titre > a:active {
+  text-decoration: underline;
+}
+.containerVusAilleurs article .data {
+    display: flex; 
+    align-items: center;
+    width: 100%; 
+}
+.containerVusAilleurs article .data .divImg {
+    max-width: 323px; 
+    width: 30%; 
+    margin-right: 0.5em;
+    //margin-bottom: 1em;
+}
+.containerVusAilleurs article .data .divText {
+    width: 70%; 
+}
+.containerVusAilleurs article .data .divImg img {
+    width: 100%;
+}
+
+/* mise en forme de l'article "à la une" */
+.containerVusAilleurs article.AlaUneActu .titre {
+  //font-size: 125%;
+  //font-weight: bold;
+}
+.containerVusAilleurs article.AlaUneActu .data  {
+  line-height: 1.6;
+  color: black;
+  font-size: 125%;
+  font-weight: bold;
+  margin: 1em 0 1em 0;
+}
+.containerVusAilleurs article.AlaUneActu .data .divImg {
+    max-width: 450px; 
+    width: 50%; 
+    margin-right: 0.5em;
+    //margin-bottom: 1em;
+}
+
+/* détails des images disponibles à l'adresse suivante:
+https://material.io/resources/icons/?icon=picture_as_pdf&style=baseline
+*/
+.material-icons { float: right; }
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+@media (max-width: 1100px) {
+    .containerVusAilleurs article .data {
+        display: block; 
+    }
+    .containerVusAilleurs article .data .divImg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+    .containerVusAilleurs article .data .divText {
+        width: 100%; 
+    }
+}

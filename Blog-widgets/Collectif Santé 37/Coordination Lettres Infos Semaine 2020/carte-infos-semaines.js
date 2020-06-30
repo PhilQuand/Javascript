@@ -134,6 +134,9 @@
       }
       for (i = 0; i < iconMarkersLength; i++) {
         iconMarkers[i].nbMapEvents = 0;
+        if (jQuery.type(iconMarkers[i].icon) == 'string') {
+          iconMarkers[i].icon = eval(iconMarkers[i].icon);
+        }
       }
       var divBannerCoord, divLegend;
       var result = getMyInnerLinkContent();

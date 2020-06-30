@@ -1,4 +1,4 @@
-$('[data-fancybox]').fancybox({
+$('[data-fancybox-video]').fancybox({
   baseClass: 'customInlineBaseClass',
   smallBtn: false,
   toolbar: false,

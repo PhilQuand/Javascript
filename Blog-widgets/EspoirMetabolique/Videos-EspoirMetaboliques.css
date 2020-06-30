@@ -1,10 +1,10 @@
-/*.containerVusAilleurs article .titre,
-.containerVusAilleurs article .date,
-.containerVusAilleurs article .data .divText {
+/*.containerVideos article .titre,
+.containerVideos article .date,
+.containerVideos article .data .divText {
     font-family: normal, sans-serif;
     font-size: 20px;
 }*/
-body {
+/*body {
     font-family: normal, sans-serif;
     font-size: 20px;
 }
@@ -12,79 +12,147 @@ body {
 text-align: center;
 font-weight: bold;
 font-size: 24px; 
-/*color: #0070c0;
-text-shadow: 2px 1px grey;*/
+}*/
+.enTete {
+    display: flex; 
+    align-items: center;
+    align-content: stretch;
+    width: 100%; 
 }
-.containerVusAilleurs article .titre {
+.enTete .divImg {
+    max-width: 323px; 
+    //width: 30%; 
+    margin-right: 0.5em;
+    //margin-bottom: 1em;
+}
+.enTete .divImg img {
+    width: 100%;
+}
+.enTete .divText {
+   width: 100%; 
+   text-align: center;
+   font-weight: bold;
+   line-height: normal;
+   font-family: "Times New Roman", Times, serif;
+   font-style: italic;
+   color: #050084;
+   //text-shadow: 2px 1px grey;
+}
+.enTete .divText .titre {
+font-size: 48px; 
+}
+.enTete .divText .auteur {
+font-size: 36px; 
+}
+.enTete .divText .qualité {
+   font-size: 20px; 
+}
+.containerVideos article .titre {
     font-size: 24px;
     font-weight: bold;
 }
-.containerVusAilleurs article .date {
+.containerVideos article .date {
     font-style: italic;
 }
-.containerVusAilleurs article .titre {
+.containerVideos article .titre {
     margin-bottom: 0.25em;
 }
-.containerVusAilleurs article .date {
+.containerVideos article .date {
     //font-style: italic;
     margin-bottom: 0.25em;
     color: grey;
 }
-.containerVusAilleurs article .titre > a {
+.containerVideos article .titre > a {
+    font-style: italic;
     //font-size: 24px;
     line-height: 1.2;
     //font-weight: bold;
-    color: #196779;
+    color: #050084;
 }
-.containerVusAilleurs article .titre > a:link {
+.containerVideos article .titre > a:link {
   text-decoration: none;
 }
-.containerVusAilleurs article .titre > a:visited {
+.containerVideos article .titre > a:visited {
   text-decoration: none;
 }
-.containerVusAilleurs article .titre > a:hover {
+.containerVideos article .titre > a:hover {
   text-decoration: underline;
 }
-.containerVusAilleurs article .titre > a:active {
+.containerVideos article .titre > a:active {
   text-decoration: underline;
 }
-.containerVusAilleurs article .data {
+.containerVideos article .data {
     display: flex; 
     align-items: center;
     width: 100%; 
 }
-.containerVusAilleurs article .data .divImg {
+.containerVideos article .data .divImg {
     max-width: 323px; 
     width: 30%; 
     margin-right: 0.5em;
     //margin-bottom: 1em;
 }
-.containerVusAilleurs article .data .divText {
+.containerVideos article .data .divText {
     width: 70%; 
 }
-.containerVusAilleurs article .data .divImg img {
+.containerVideos article .data .divImg img {
     width: 100%;
 }
 
 /* mise en forme de l'article "à la une" */
-.containerVusAilleurs article.AlaUneActu .titre {
+.containerVideos article.AlaUneActu .titre {
   //font-size: 125%;
   //font-weight: bold;
 }
-.containerVusAilleurs article.AlaUneActu .data  {
+.containerVideos article.AlaUneActu .data  {
   line-height: 1.6;
   color: black;
   font-size: 125%;
   font-weight: bold;
   margin: 1em 0 1em 0;
 }
-.containerVusAilleurs article.AlaUneActu .data .divImg {
+.containerVideos article.AlaUneActu .data .divImg {
     max-width: 450px; 
     width: 50%; 
     margin-right: 0.5em;
     //margin-bottom: 1em;
 }
 
+.customInlineBaseClass .button-close,
+.customInlineBaseClass .button-previous,
+.customInlineBaseClass .button-next {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: black;
+  text-align: center;
+  line-height: 44px;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.customInlineBaseClass .button-previous,
+.customInlineBaseClass .button-next {
+  top: 50%;
+  margin-top: -22px;
+  line-height: 42px;
+}
+
+.customInlineBaseClass .button-previous {
+    left: -50px;
+}
+
+.customInlineBaseClass .button-next {
+    right: -50px;
+}
+
+.customInlineBaseClass .button-close {
+  top: -44px;
+  right: -44px;
+  font-size: 22px;
+}
 /* détails des images disponibles à l'adresse suivante:
 https://material.io/resources/icons/?icon=picture_as_pdf&style=baseline
 */
@@ -102,16 +170,16 @@ https://material.io/resources/icons/?icon=picture_as_pdf&style=baseline
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
 @media (max-width: 600px) {
-    .containerVusAilleurs article .data {
+    .containerVideos article .data {
         display: block; 
     }
-    .containerVusAilleurs article .data .divImg {
+    .containerVideos article .data .divImg {
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 80%; 
     }
-    .containerVusAilleurs article .data .divText {
+    .containerVideos article .data .divText {
         width: 100%; 
     }
 }

@@ -127,18 +127,16 @@ $('[data-fancybox-video]').fancybox({
   },
   afterShow: function(instance, current) {
     if ('parentIFrame' in window) {
-      parentIFrame.scrollToOffset(0,0);
+      //parentIFrame.scrollToOffset(0,0);
       //parentIFrame.scrollTo(0, 0);
     }
   },
   afterLoad: function(instance, current) {
     if ('parentIFrame' in window) {
-      //if (parentIFrameSize[instance.currentHash] > 0) {
-        parentIFrame.autoResize(false);
-        parentIFrame.size(500); // Set height to parentIFrameSize
-      //} else parentIFrame.size();
-      parentIFrame.scrollToOffset(0,0);
-      //parentIFrame.scrollTo(0, 0);
+        //parentIFrame.autoResize(false);
+        //parentIFrame.size(500); // Set height to parentIFrameSize
+      //parentIFrame.scrollToOffset(0,0);
+      parentIFrame.scrollTo(0, 0);
     }
 
     var pixelRatio = window.devicePixelRatio || 1;

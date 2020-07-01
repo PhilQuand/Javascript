@@ -136,7 +136,7 @@ $('[data-fancybox-video]').fancybox({
           },
   afterLoad: function(instance, current) {
     var top = relPageCoords.Y + 'px'
-    $('.customInlineBaseClass .fancybox-content').attr('top',top);
+    $('.customInlineBaseClass .fancybox-content').css('top',top);
     if ('parentIFrame' in window) {
         //parentIFrame.autoResize(false);
         //parentIFrame.size(500); // Set height to parentIFrameSize

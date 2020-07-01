@@ -117,7 +117,7 @@ $('[data-fancybox-video]').fancybox({
   toolbar: false,
           afterClose: function(instance, current) {
             if ('parentIFrame' in window) {
-              parentIFrame.scrollTo(0, 0);
+              //parentIFrame.scrollTo(0, 0);
             }
           },
           beforeClose: function(instance, current) {
@@ -131,9 +131,9 @@ $('[data-fancybox-video]').fancybox({
           },
   afterLoad: function(instance, current) {
     if ('parentIFrame' in window) {
-        //parentIFrame.autoResize(false);
-        //parentIFrame.size(500); // Set height to parentIFrameSize
-      parentIFrame.scrollToOffset(0,0);
+        parentIFrame.autoResize(false);
+        parentIFrame.size(500); // Set height to parentIFrameSize
+      //parentIFrame.scrollToOffset(0,0);
       //parentIFrame.scrollTo(0, 0);
     }
 

@@ -2,7 +2,30 @@ $('[data-fancybox-video]').fancybox({
   baseClass: 'customInlineBaseClass',
   smallBtn: false,
   toolbar: false,
+  afterClose: function(instance, current) {
+    if ('parentIFrame' in window) {
+      parentIFrame.scrollTo(0, 0);
+    }
+  },
+  beforeClose: function(instance, current) {
+    if ('parentIFrame' in window) {
+      parentIFrame.autoResize(true);
+    }
+  },
+  afterShow: function(instance, current) {
+    var fancybox_content = $(".iFrameGalleryClass .fancybox-content");
+    fancybox_content.prop("style", "");
+  },
   afterLoad: function(instance, current) {
+    if ('parentIFrame' in window) {
+      if (parentIFrameSize[instance.currentHash] > 0) {
+        parentIFrame.autoResize(false);
+        parentIFrame.size(parentIFrameSize[instance.currentHash]); // Set height to parentIFrameSize
+      }
+      else parentIFrame.size();
+      //parentIFrame.scrollToOffset(0,0);
+      parentIFrame.scrollTo(0, 0);
+    }
 
     var pixelRatio = window.devicePixelRatio || 1;
 

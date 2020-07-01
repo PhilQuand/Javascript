@@ -111,6 +111,11 @@ Courte Vidéo de présentation de ma Chaine YouTube.
 </div>
 <!--script src='https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Videos-EspoirMetaboliques.js'></script-->
 <script>
+var relPageCoords = {};
+$("body").mousemove(function(event){
+  relPageCoords.X = event.pageX;
+  relPageCoords.Y = event.pageY;
+}
 $('[data-fancybox-video]').fancybox({
   baseClass: 'customInlineBaseClass',
   smallBtn: false,
@@ -130,6 +135,8 @@ $('[data-fancybox-video]').fancybox({
             //fancybox_content.prop("style", "");
           },
   afterLoad: function(instance, current) {
+    var top = relPageCoords.Y + 'px'
+    $('.customInlineBaseClass .fancybox-content').attr('top',top);
     if ('parentIFrame' in window) {
         //parentIFrame.autoResize(false);
         //parentIFrame.size(500); // Set height to parentIFrameSize

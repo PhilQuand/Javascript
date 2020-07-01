@@ -136,10 +136,11 @@ $('[data-fancybox-video]').fancybox({
           },
   afterLoad: function(instance, current) {
     var top = relPageCoords.Y + 'px'
+    var frameSize = max(relPageCoords.Y + 550,$("body").css('height');
     $('.customInlineBaseClass .fancybox-content').css('top',top);
     if ('parentIFrame' in window) {
-        //parentIFrame.autoResize(false);
-        //parentIFrame.size(500); // Set height to parentIFrameSize
+        parentIFrame.autoResize(false);
+        parentIFrame.size(frameSize); // Set height to parentIFrameSize
       //parentIFrame.scrollToOffset(0,0);
       //parentIFrame.scrollTo(0, 0);
     }

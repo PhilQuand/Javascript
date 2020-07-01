@@ -174,16 +174,19 @@ https://material.io/resources/icons/?icon=picture_as_pdf&style=baseline
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
 @media (max-width: 600px) {
-    .containerVideos article .data {
+    .containerVideos article .data, 
+    .enTete {
         display: block; 
     }
-    .containerVideos article .data .divImg {
+    .containerVideos article .data .divImg, 
+    .enTete .divImg {
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 80%; 
     }
-    .containerVideos article .data .divText {
+    .containerVideos article .data .divText, 
+    .enTete .divText {
         width: 100%; 
     }
 }

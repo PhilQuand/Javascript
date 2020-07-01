@@ -136,7 +136,7 @@ $('[data-fancybox-video]').fancybox({
           },
   afterLoad: function(instance, current) {
     var top = relPageCoords.Y + 'px'
-    var frameSize = Math.max(relPageCoords.Y + 550,$("body").height());
+    var frameSize = Math.max(relPageCoords.Y + 2000,$("body").height());
     $('.customInlineBaseClass .fancybox-content').css('top',top);
     if ('parentIFrame' in window) {
         parentIFrame.autoResize(false);

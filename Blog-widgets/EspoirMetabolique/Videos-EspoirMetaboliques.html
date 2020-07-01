@@ -125,10 +125,10 @@ $('[data-fancybox-video]').fancybox({
       parentIFrame.autoResize(true);
     }
   },
-  /*afterShow: function(instance, current) {
+  afterShow: function(instance, current) {
     var fancybox_content = $(".iFrameGalleryClass .fancybox-content");
     fancybox_content.prop("style", "");
-  },*/
+  },
   afterLoad: function(instance, current) {
     if ('parentIFrame' in window) {
       //if (parentIFrameSize[instance.currentHash] > 0) {

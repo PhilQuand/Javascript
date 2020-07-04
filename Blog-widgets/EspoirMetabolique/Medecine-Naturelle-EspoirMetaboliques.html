@@ -63,6 +63,42 @@ article .button div {
     }
 }
 </style>
+</head>
+<body>
+
+<article>
+<div class="divImg">
+<img src="https://www.espoirmetabolique.com/file/si1416124/téléchargé%20(26)-fi21690363x543.jpg"></div>
+<div class="divText">
+<div class="titre">La vraie cause du cancer</div>
+Tout ce que vous lisez ici vient du travail de chercheurs, de l’expérience des malades et des études  scientifiques publiées à travers le monde.<br/>
+Notre site a pour objectif de délivrer ces informations et de favoriser les échanges entre patients
+<!--div class="button"><div>Suite...</div></div-->
+<div id="AlaUne"></div>
+</div>
+</article>
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<script>
+$(document).ready(function() {
+  $('#AlaUne').AlaUne({
+      src: '<div class="button"><div>Suite...</div></div>',
+      fancyClass: "default",
+      /*fancyClass: {
+            baseClass: 'customAlaUneBaseClass',
+      },*/
+      href: [
+        {
+          dataType: "video",
+          dataSrc: 'https://www.youtube.com/watch?v=7ksjJc3B_t0&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
+        },
+        {
+          dataType: "video",
+          dataSrc: 'https://www.youtube.com/watch?v=SO1472QvAMA&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
+        },
+    ]
+  });
+});
+</script>
 <style>
 .customInlineBaseClass .button-close,
 .customInlineBaseClass .button-previous,
@@ -102,44 +138,8 @@ article .button div {
 }
 .customInlineBaseClass .fancybox-content {
   position:fixed;
-  left:20px;
+  left:50px;
 }
 </style>
-</head>
-<body>
-
-<article>
-<div class="divImg">
-<img src="https://www.espoirmetabolique.com/file/si1416124/téléchargé%20(26)-fi21690363x543.jpg"></div>
-<div class="divText">
-<div class="titre">La vraie cause du cancer</div>
-Tout ce que vous lisez ici vient du travail de chercheurs, de l’expérience des malades et des études  scientifiques publiées à travers le monde.<br/>
-Notre site a pour objectif de délivrer ces informations et de favoriser les échanges entre patients
-<!--div class="button"><div>Suite...</div></div-->
-<div id="AlaUne"></div>
-</div>
-</article>
-<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
-<script>
-$(document).ready(function() {
-  $('#AlaUne').AlaUne({
-      src: '<div class="button"><div>Suite...</div></div>',
-      fancyClass: "default",
-      /*fancyClass: {
-            baseClass: 'customAlaUneBaseClass',
-      },*/
-      href: [
-        {
-          dataType: "video",
-          dataSrc: 'https://www.youtube.com/watch?v=7ksjJc3B_t0&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
-        },
-        {
-          dataType: "video",
-          dataSrc: 'https://www.youtube.com/watch?v=SO1472QvAMA&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
-        },
-    ]
-  });
-});
-</script>
 </body>
 </html>

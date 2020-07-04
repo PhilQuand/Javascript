@@ -132,8 +132,13 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         return;
       }
       var randGen = new Generator();
-      var myRandGen = randGen.getrand();
-      //var myLocation = window.location.pathname;
+      var myLocation = window.location.pathname;
+      var myLocation = myLocation.split('#FB');
+      if( myLocation.length > 0) {
+          var myRandgen = myRandgen[1];
+      } else {
+          var myRandGen = randGen.getrand();
+      }
       var randNum = 'FB' + myRandGen;
       var randHid = 'HD' + myRandGen;
       //var randNum = 'FBTest';

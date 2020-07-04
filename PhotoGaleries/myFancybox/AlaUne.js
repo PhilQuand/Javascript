@@ -4,7 +4,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
     var _this = this;
     Promise.all([
       //  chargements des dépendances css
-      load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css'),
+      //load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css'),
       load.css('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'),
       load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
       //  chargements des dépendances js

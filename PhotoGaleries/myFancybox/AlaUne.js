@@ -49,8 +49,8 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 $(_this).append('<div class="articleFancy" id="' + randHid + i + '"> \
                               <div class="corpsFancy"> \
                               ' + options.href[i].dataSrc + ' \
-                              </div></div>  \
-                              <a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
+                              </div></div>');
+                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
                 //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
                 break;
               case "iframe":

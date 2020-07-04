@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vidéos d'Espoir Métaboliques</title>
+
+<!-- jQuery for FancyBox 3-->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Add fancyBox 3 -->
+<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+<!-- End FancyBox -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+<link href="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Videos-EspoirMetaboliques.css" rel="stylesheet" type="text/css" />
+<base target="_blank">
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+<script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+</head>
+<body>
+
+<style>
+article {
+    display: flex; 
+    align-items: flex-end;
+    width: 100%; 
+}
+article  .divImg {
+    max-width: 323px; 
+    width: 30%; 
+    margin-right: 0.5em;
+ }
+article  .divText {
+    width: 70%; 
+    font-family: Arial;
+    font-style: oblique; 
+    font-size: 22px; 
+    text-align: justify;
+    text-justify: inter-word;
+
+}
+article  .divText .titre{
+    font-size: 36px; 
+    color:#027ffd;
+    text-align: center;
+    margin-bottom: 1em;
+}
+article  .divImg img {
+    width: 100%;
+}
+article .button {
+    background-image: linear-gradient(90deg, rgb(2, 127, 253), rgba(2, 127, 253, 0.5));border: 1px solid rgb(0, 0, 0);
+    width: 100px;
+    margin-top: 1em;
+    float: right;
+}
+article .button div {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size:20px;
+    width:100%;
+}
+@media (max-width: 1100px) {
+    article {
+        display: block; 
+    }
+    article .divImg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+    article  .divText {
+        width: 100%; 
+    }
+}
+</style>
+<article>
+<div class="divImg">
+<a data-fancybox-video href="https://www.youtube.com/watch?v=5ffEybAq2FY&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"><img src="https://www.espoirmetabolique.com/file/si1416124/téléchargé%20(26)-fi21690363x543.jpg"></a></div>
+<div class="divText">
+<div class="titre">La vraie cause du cancer</div>
+Tout ce que vous lisez ici vient du travail de chercheurs, de l’expérience des malades et des études  scientifiques publiées à travers le monde.<br/>
+Notre site a pour objectif de délivrer ces informations et de favoriser les échanges entre patients
+<!--div class="button"><div>Suite...</div></div-->
+<div id="AlaUne"></div>
+</div>
+</article>
+<!--div class="articleFancy" id="hidden-content-1">
+<div class="corpsFancy">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7ksjJc3B_t0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+<a class="trgImgUL" data-src="#hidden-content-1" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
+<div class="articleFancy" id="hidden-content-2">
+<div class="corpsFancy">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SO1472QvAMA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-2" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
+<!--script src='https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Videos-EspoirMetaboliques.js'></script-->
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" />
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<!--script type='module'>
+import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
+(function($) {
+  $.fn.AlaUne = function(options) {
+    var _this = this;
+    Promise.all([
+      //  chargements des dépendances css
+      load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css'),
+      load.css('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'),
+      load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
+      //  chargements des dépendances js
+      load.js('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js'),
+      load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
+    ]).then(function() {
+      console.log('Everything has loaded!');
+      if (jQuery.type(options) == 'undefined' || jQuery.type(options.src) == 'undefined') return false;
+      var src = options.src;
+      switch (jQuery.type(src)) {
+        case "string":
+          if (src.indexOf('http') == 0) src = ('<img class="img-AlaUne" src="' + src + '" />');
+          break;
+        default:
+          log('AlaUne plugin error src');
+      }
+      if (jQuery.type(options.href) == 'undefined') {
+        $(_this).append(src);
+        return;
+      }
+      var randGen = new Generator();
+      var myRandGen = randGen.getrand();
+      //var myLocation = window.location.pathname;
+      var randNum = 'FB' + myRandGen;
+      var randHid = 'HD' + myRandGen;
+      //var randNum = 'FBTest';
+      //var randHid = 'HDTest';
+     switch (jQuery.type(options.href)) {
+        case "string":
+          $(_this).append('<a href="' + options.href + '">' + src + '</a>');
+          break;
+        case "array":
+          break;
+        case "object":
+          options.href = [options.href]
+          break;
+        default:
+          log('AlaUne plugin error options.href = ' + options.href);
+      }
+      for (var i = 0; i < options.href.length; i++) {
+        if (jQuery.type(options.href[i].dataType) == 'string') {
+          if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
+          else {
+            switch (options.href[i].dataType) {
+              case "inline":
+                $(_this).append('<div class="articleFancy" id="' + randHid + '-' + i + '"> \
+                              <div class="corpsFancy"> \
+                              ' + options.href[i].dataSrc + ' \
+                              </div></div>');
+                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + '-' + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
+                //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
+                break;
+              case "iframe":
+                //$(this).append('<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="FB' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i +'</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" data-width="1132" data-height="1600">iframe ' + i + '</a>');
+                break;
+              case "images":
+                //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" data-width="1132" data-height="1600">images ' + i + '</a>');
+                break;
+              case "video":
+                //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '">video ' + i + '</a>');
+                break;
+              default:
+                console.log('AlaUne plugin error options.href = ' + options.href);
+            }
+          }
+        }
+      }
+      var loc = window.location.href;
+      loc = loc.split('#');
+      loc = loc[0];
+      if (options.href.length > 1)
+        $(_this).append('<a href="' + loc + '#' + randNum + '-1">' + src + '</a>');
+      else
+        $(_this).append('<a href="' + loc + '#' + randNum + '">' + src + '</a>');
+      // pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
+      switch (jQuery.type(options.fancyClass)) {
+        case "string":
+          $('.' + randNum).fancybox({
+            baseClass: 'customInlineBaseClass',
+            smallBtn: false,
+            toolbar: false,
+            afterLoad: function(instance, current) {
+
+              var pixelRatio = window.devicePixelRatio || 1;
+
+              /*if (pixelRatio > 1.5) {
+                current.width = current.width / pixelRatio;
+                current.height = current.height / pixelRatio;
+              }*/
+
+              if (instance.group.length > 1 && current.$content) {
+                if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+                else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+              }
+              current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+            }
+          });
+          break;
+        case "object":
+          $('.' + randNum).fancybox(options.fancyClass);
+          break;
+      }
+      /*$('.fancybox')
+      .attr('rel', 'gallery')
+      .fancybox({
+          baseClass: 'customIframeBaseClass customInlineBaseClass',
+          //arrows: true,
+          smallBtn: false,
+          toolbar: true,
+          buttons: [
+            'close'
+          ],
+          afterLoad : function(instance, current) {
+              
+              var pixelRatio = window.devicePixelRatio || 1;
+
+              if ( pixelRatio > 1.5 ) {
+                  current.width  = current.width  / pixelRatio;
+                  current.height = current.height / pixelRatio;
+              }
+              
+              if (instance.group.length > 1 && current.$content) {
+                if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+                else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+              }
+              var url = window.location.href;
+              indexFancy = url.indexOf('#');
+              if( indexFancy > 1 ) {
+                var url = url.substr(0, indexFancy-1);
+              }
+              current.$content.append('<a data-fancybox-close class="button-close" href="' + url + '">x</a>');
+          }
+      })*/
+    }).catch(function() {
+      console.log('Oh no, epic failure!');
+    });
+  }
+
+  function Generator() {};
+
+  Generator.prototype.rand = Math.floor(Math.random() * 26) + Date.now();
+
+  Generator.prototype.getrand = function() {
+    return this.rand++;
+  };
+  var load = (function() {
+    // Function which returns a function: https://davidwalsh.name/javascript-functions
+    function _load(tag) {
+      return function(url) {
+        // This promise will be used by Promise.all to determine success or failure
+        return new Promise(function(resolve, reject) {
+          var element = document.createElement(tag);
+          var parent = 'body';
+          var attr = 'src';
+
+          // Important success and error for the promise
+          element.onload = function() {
+            resolve(url);
+          };
+          element.onerror = function() {
+            reject(url);
+          };
+
+          // Need to set different attributes depending on tag type
+          switch (tag) {
+            case 'script':
+              element.async = true;
+              break;
+            case 'link':
+              element.type = 'text/css';
+              element.rel = 'stylesheet';
+              attr = 'href';
+              parent = 'head';
+          }
+
+          // Inject into document to kick off loading
+          element[attr] = url;
+          document[parent].appendChild(element);
+        });
+      };
+    }
+
+    return {
+      css: _load('link'),
+      js: _load('script'),
+      img: _load('img')
+    }
+  })();
+})(jQuery);
+</script-->
+<script>
+$(document).ready(function() {
+  $('#AlaUne').AlaUne({
+      src: '<div class="button"><div>Suite...</div></div>',
+      fancyClass: "default",
+      /*fancyClass: {
+            baseClass: 'customAlaUneBaseClass',
+      },*/
+      href: [
+        {
+          dataType: "inline",
+          dataSrc: '<iframe width="560" height="315" src="https://www.youtube.com/embed/7ksjJc3B_t0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />'
+        },
+        {
+          dataType: "inline",
+          dataSrc: '<iframe width="560" height="315" src="https://www.youtube.com/embed/SO1472QvAMA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> />'
+        },
+    ]
+  });
+});
+</script>
+</body>
+</html>

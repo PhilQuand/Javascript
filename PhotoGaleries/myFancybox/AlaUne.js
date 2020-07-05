@@ -1,3 +1,4 @@
+var randGen = new Generator();
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
   $.fn.AlaUne = function(options) {
@@ -25,7 +26,6 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         $(_this).append(src);
         return;
       }
-      var randGen = new Generator();
       var randNum = 'FB' + randGen.getrand();
       var randHid = 'HD' + randGen.getrand();
       switch (jQuery.type(options.href)) {

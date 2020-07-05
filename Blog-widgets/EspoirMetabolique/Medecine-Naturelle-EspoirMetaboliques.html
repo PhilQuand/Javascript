@@ -115,10 +115,8 @@ Présentation des principaux produits naturelles qui complètent utilement les t
 <div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
 <div class="buttons">
 <div id="ComplémentsAlimentaires"></div>
-<!--button class="gauche">Voir la vidéo</button-->
 <button class="droit">Lire la suite...</button>
 </div>
-<div id="Produits"></div>
 </div>
 <div class="divImg">
 <img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /></div>
@@ -129,45 +127,135 @@ Présentation des principaux produits naturelles qui complètent utilement les t
 <div class="divText">
 <div class="titre">L'hyperthermie</div>
 C'est à cette voie que Jacob Aten et ses collègues de l'Academic Medical center d'Amsterdam ont décidé de s'attaquer.
-<!--div class="button"><div>Suite...</div></div-->
-<div id="CauseDuCancer"></div>
+<div id="Hyperthermie"></div>
 </div>
 </article>
+<div class="articleFancy" id="Hyperthermie-1" >
+<div class="fontFancy">
+<div class="titreFancy">
+L'Hyperthermie
+</div>
+<div class="corpsFancy">
+Ceci est un test
+</div>
+</div>
+</div>
+<div class="articleFancy" id="Hyperthermie-2" >
+<div class="fontFancy">
+<div class="titreFancy">
+L'Hyperthermie
+</div>
+<div class="corpsFancy">
+Ceci est un test
+</div>
+</div>
+</div>
 <script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <script>
 $(document).ready(function() {
   $('#CauseDuCancer').AlaUne({
-      src: '<button>Lire la suite...</button>',
-      fancyClass: "default",
-      offSet: {Y: '100px'},
-      href: [
-        {
-          dataType: "video",
-          dataSrc: 'https://www.youtube.com/watch?v=7ksjJc3B_t0&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
-        },
-        {
-          dataType: "video",
-          dataSrc: 'https://www.youtube.com/watch?v=SO1472QvAMA&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
-        },
+    src: '<button>Lire la suite...</button>',
+    fancyClass: "default",
+    offSet: {
+      Y: '100px'
+    },
+    href: [{
+        dataType: "video",
+        dataSrc: 'https://www.youtube.com/watch?v=7ksjJc3B_t0&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
+      },
+      {
+        dataType: "video",
+        dataSrc: 'https://www.youtube.com/watch?v=SO1472QvAMA&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
+      },
     ]
   });
   $('#ComplémentsAlimentaires').AlaUne({
-      src: '<button class="gauche">Voir la vidéo...</button>',
-      fancyClass: "default",
-      offSet: {Y: '500px'},
-       /*fancyClass: {
+    src: '<button class="gauche">Voir la vidéo...</button>',
+    fancyClass: "default",
+    offSet: {
+      Y: '500px'
+    },
+    /*fancyClass: {
             baseClass: 'customAlaUneBaseClass',
       },*/
-      href: [
-        {
-          dataType: "video",
-          dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
-        },
+    href: [{
+      dataType: "video",
+      dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
+    }, ]
+  });
+  var fancyopt1 = {
+    toolbar: true,
+    infobar: true,
+    arrows: true,
+    animationEffect: "fade",
+    transitionEffect: "slide",
+    speed: 300,
+    margin: [40, 20],
+    buttons: false,
+    thumbs: {
+      autoStart: false, // Display thumbnails on opening
+      hideOnClose: true // Hide thumbnail grid when closing animation starts
+    },
+    buttons: [
+      'close',
+      'thumbs'
+    ],
+    baseClass: 'customIframeBaseClass customInlineBaseClass',
+    afterLoad: function(instance, current) {
+      $('.articleFancy.fancybox-content').css('visibility', 'hidden');
+      $(".getFancyFocus").focus();
+      if (instance.group.length > 1 && current.$content) {
+        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+      }
+    },
+    beforeShow: function(instance, current) {
+      $('.articleFancy.fancybox-content').css('visibility', 'hidden');
+    },
+    afterShow: function(instance, current) {
+      $('.articleFancy.fancybox-content').css('width', '90%');
+      $('.articleFancy.fancybox-content').css('visibility', 'visible');
+    }
+  }
+  var fancyopt2 = {
+    buttons: [
+      'play',
+      'download',
+      'thumbs',
+      'close'
+    ],
+    afterLoad: function(instance, current) {
+      $('.articleFancy.fancybox-content').css('visibility', 'hidden');
+      $(".getFancyFocus").focus();
+    },
+    beforeShow: function(instance, current) {
+      $('.articleFancy.fancybox-content').css('visibility', 'hidden');
+    },
+    afterShow: function(instance, current) {
+      $('.articleFancy.fancybox-content').css('width', '90%');
+      $('.articleFancy.fancybox-content').css('visibility', 'visible');
+    }
+  }
+  $('#Hyperthermie').AlaUne({
+    src: '<button>Voir la vidéo...</button>',
+    fancyClass: fancyopt1,
+    offSet: {
+      Y: '500px'
+    },
+    href: [{
+        dataType: "inlineId",
+        dataSrc: 'Hyperthermie-1'
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Hyperthermie-2'
+      },
     ]
   });
 });
 </script>
-<style>
+<!--style>
 .customInlineBaseClass .button-close,
 .customInlineBaseClass .button-previous,
 .customInlineBaseClass .button-next {
@@ -208,6 +296,71 @@ $(document).ready(function() {
   position:fixed;
   left:40px;
 }
+</style-->
+<style>
+.customInlineBaseClass .fancybox-button--close {
+    display: none;
+}
+.articleFancy {
+    padding: 0 0 0 0;
+    width: 80%;
+    height: 90vh;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    transition: box-shadow .2s;
+    display: none;
+}
+.fontFancy {
+    padding: 40px 20px 20px 20px;
+}
+.titreSummary, .titreFancy {
+    color: #999933;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    margin: 10px 10px 10px 0;
+    //margin: 10px 10px 0 0;
+}
+.titreFancy {
+   font-weight: bold;
+}
+.titreSummary, .titreFancy a:link {
+   color:inherit;
+}
+.maximeSummary, .maximeFancy {
+    color: #7a1e1e;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+.fontSummary, .fontFancy {
+    max-width: 100% ;
+    font-weight: normal;
+    font-style: normal;
+    text-align: justify;
+    color: black;
+}
+.corpsFancy {
+    width: 100%;
+    max-height: calc(80vh - 140px);
+    overflow: auto;
+    padding: 10px 15px 10px 15px;
+}
+
+@media screen and (max-width: 1100px) {
+   .corpsFancy {
+    max-height: none;
+  }
+   .titreFancy {
+    font-size: 18px;
+    line-height: 1.;
+    margin-left: 60px;
+  }
+  .maximeSummary, .maximeFancy {
+   clear: both;
+  }
+}
 </style>
+
 </body>
 </html>

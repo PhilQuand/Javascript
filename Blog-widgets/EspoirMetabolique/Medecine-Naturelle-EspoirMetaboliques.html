@@ -16,19 +16,16 @@ article {
 }
 article .divImg {
     //max-width: 323px; 
-    width: 55%; 
-    margin-right: 1em;
+    width: 40%; 
  }
 article .divText {
-    width: 45%; 
+    width: 60%; 
+}
+article.droit .divImg {
+    margin-right: 1em;
 }
 article.gauche  .divImg {
-    //max-width: 323px; 
-    width: 40%; 
     margin-left: 1em;
- }
-article.gauche  .divText {
-    width: 60%; 
 }
 article  .divText {
     font-family: Arial, Helvetica, sans-serif;;
@@ -88,7 +85,11 @@ article button {
         margin-right: auto;
         width: 80%; 
     }
-    article  .divText {
+    article.gauche .divImg {
+        display: none;
+    }
+    article .divText {
+        display: block; 
         width: 100%; 
     }
 }
@@ -96,7 +97,7 @@ article button {
 </head>
 <body>
 
-<article>
+<article class="droit">
 <div class="divImg">
 <img src="https://www.espoirmetabolique.com/file/si1416124/ob_862cb6_dr-otto-heinrich-warburg-prix-nobel-de-fi24503095x814.jpg"></div>
 <div class="divText">
@@ -122,7 +123,7 @@ Présentation des principaux produits naturelles qui complètent utilement les t
 <div class="divImg">
 <img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /></div>
 </article>
-<article>
+<article class="droit">
 <div class="divImg">
 <img style="max-width:500px" src="https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg"></div>
 <div class="divText">
@@ -138,6 +139,7 @@ $(document).ready(function() {
   $('#CauseDuCancer').AlaUne({
       src: '<button>Lire la suite...</button>',
       fancyClass: "default",
+      offSet: {Y: '100px'},
       href: [
         {
           dataType: "video",
@@ -152,7 +154,8 @@ $(document).ready(function() {
   $('#ComplémentsAlimentaires').AlaUne({
       src: '<button class="gauche">Voir la vidéo...</button>',
       fancyClass: "default",
-      /*fancyClass: {
+      offSet: {Y: '500px'},
+       /*fancyClass: {
             baseClass: 'customAlaUneBaseClass',
       },*/
       href: [
@@ -203,9 +206,8 @@ $(document).ready(function() {
 }
 .customInlineBaseClass .fancybox-content {
   position:fixed;
-  left:50px;
+  left:40px;
 }
 </style>
-
 </body>
 </html>

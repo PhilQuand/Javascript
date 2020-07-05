@@ -51,6 +51,13 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
           else {
             switch (options.href[i].dataType) {
+              case "inlineId":
+                $('"#' + options.href[i].dataSrc + '"').wrap('<div class="articleFancy" id="' + randHid + i + '"> \
+                              <div class="corpsFancy"> \
+                              </div></div>');
+                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
+                //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
+                break;
               case "inline":
                 $(_this).append('<div class="articleFancy" id="' + randHid + i + '"> \
                               <div class="corpsFancy"> \

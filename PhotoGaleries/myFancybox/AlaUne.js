@@ -1,7 +1,7 @@
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
+  var randGen = new Generator();
   $.fn.AlaUne = function(options) {
-    var randGen = new Generator();
     var _this = this;
     Promise.all([
       //  chargements des dépendances css

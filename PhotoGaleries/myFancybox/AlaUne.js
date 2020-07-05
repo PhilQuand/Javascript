@@ -94,7 +94,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
             afterLoad: function(instance, current) {
 
               if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string' ) {
-                var top = relPageCoords.Y + 'px'
+                var top = relPageCoords.Y;
                 //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
                 $('.customInlineBaseClass .fancybox-content').css('top', top);
               }

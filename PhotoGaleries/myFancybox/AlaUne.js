@@ -1,6 +1,7 @@
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
   var randGen = new Generator();
+  var relPageCoords = {};
   $.fn.AlaUne = function(options) {
     var _this = this;
     Promise.all([
@@ -39,6 +40,11 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           break;
         default:
           log('AlaUne plugin error options.href = ' + options.href);
+      }
+      var relPageCoords = options.offSet;
+      if (jQuery.type(options.href) == 'undefined') {
+        $(_this).append(src);
+        return;
       }
       for (var i = 0; i < options.href.length; i++) {
         if (jQuery.type(options.href[i].dataType) == 'string') {
@@ -87,6 +93,12 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
             toolbar: false,
             afterLoad: function(instance, current) {
 
+              if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string' ) {
+                var top = relPageCoords.Y + 'px'
+                //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
+                $('.customInlineBaseClass .fancybox-content').css('top', top);
+              }
+              
               var pixelRatio = window.devicePixelRatio || 1;
 
               /*if (pixelRatio > 1.5) {

@@ -12,15 +12,25 @@ article {
     align-items: center;
     align-content: center;
     width: 100%; 
-    height: 100%;
+    height: 500px;
 }
-article  .divImg {
+article .divImg {
     //max-width: 323px; 
     width: 55%; 
     margin-right: 1em;
  }
-article  .divText {
+article .divText {
     width: 45%; 
+}
+article.gauche  .divImg {
+    //max-width: 323px; 
+    width: 40%; 
+    margin-left: 1em;
+ }
+article.gauche  .divText {
+    width: 60%; 
+}
+article  .divText {
     font-family: Arial, Helvetica, sans-serif;;
     font-style: italic;
     line-height: 1.4;
@@ -29,26 +39,44 @@ article  .divText {
     text-justify: inter-word;
 
 }
-article  .divText .titre{
+article  .divText .titre {
     font-size: 36px; 
     color:#027ffd;
     text-align: center;
     margin-bottom: 1em;
 }
+article  .divText .attention {
+    font-size: 18px; 
+    //color:#027ffd;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 article  .divImg img {
     width: 100%;
 }
-article .button {
-    background-image: linear-gradient(90deg, rgb(2, 127, 253), rgba(2, 127, 253, 0.5));border: 1px solid rgb(0, 0, 0);
-    width: 100px;
+article .buttons {
+    width:100%;
+}
+article button {
+    background-image: linear-gradient(90deg, rgb(2, 127, 253), rgba(2, 127, 253, 0.3));
+    border: 1px solid rgb(0, 0, 0);
+    //width: 100px;
     margin-top: 1em;
     float: right;
 }
-article .button div {
+article button.gauche {
+    background-image: linear-gradient(90deg, rgb(0, 128, 0), rgba(0, 128, 0, 0.3));
+    border: 1px solid rgb(0, 0, 0);
+    margin-top: 1em;
+    float: left;
+}
+article button {
     color: rgb(255, 255, 255);
     text-align: center;
     font-size:20px;
-    width:100%;
+    padding: 5px;
+    border-radius: 8px;
 }
 @media (max-width: 500px) {
     article {
@@ -70,24 +98,46 @@ article .button div {
 
 <article>
 <div class="divImg">
-<img src="https://www.espoirmetabolique.com/file/si1416124/téléchargé%20(26)-fi21690363x543.jpg"></div>
+<img src="https://www.espoirmetabolique.com/file/si1416124/ob_862cb6_dr-otto-heinrich-warburg-prix-nobel-de-fi24503095x814.jpg"></div>
 <div class="divText">
 <div class="titre">La vraie cause du cancer</div>
 Tout ce que vous lisez ici vient du travail de chercheurs, de l’expérience des malades et des études  scientifiques publiées à travers le monde.<br/>
 Notre site a pour objectif de délivrer ces informations et de favoriser les échanges entre patients
 <!--div class="button"><div>Suite...</div></div-->
-<div id="AlaUne"></div>
+<div id="CauseDuCancer"></div>
+</div>
+</article>
+<article class="gauche">
+<div class="divText">
+<div class="titre">Compléments alimentaires</div>
+Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
+<div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
+<div class="buttons">
+<div id="ComplémentsAlimentaires"></div>
+<!--button class="gauche">Voir la vidéo</button-->
+<button class="droit">Lire la suite...</button>
+</div>
+<div id="Produits"></div>
+</div>
+<div class="divImg">
+<img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /></div>
+</article>
+<article>
+<div class="divImg">
+<img style="max-width:500px" src="https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg"></div>
+<div class="divText">
+<div class="titre">L'hyperthermie</div>
+C'est à cette voie que Jacob Aten et ses collègues de l'Academic Medical center d'Amsterdam ont décidé de s'attaquer.
+<!--div class="button"><div>Suite...</div></div-->
+<div id="CauseDuCancer"></div>
 </div>
 </article>
 <script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <script>
 $(document).ready(function() {
-  $('#AlaUne').AlaUne({
-      src: '<div class="button"><div>Suite...</div></div>',
+  $('#CauseDuCancer').AlaUne({
+      src: '<button>Lire la suite...</button>',
       fancyClass: "default",
-      /*fancyClass: {
-            baseClass: 'customAlaUneBaseClass',
-      },*/
       href: [
         {
           dataType: "video",
@@ -96,6 +146,19 @@ $(document).ready(function() {
         {
           dataType: "video",
           dataSrc: 'https://www.youtube.com/watch?v=SO1472QvAMA&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
+        },
+    ]
+  });
+  $('#ComplémentsAlimentaires').AlaUne({
+      src: '<button class="gauche">Voir la vidéo...</button>',
+      fancyClass: "default",
+      /*fancyClass: {
+            baseClass: 'customAlaUneBaseClass',
+      },*/
+      href: [
+        {
+          dataType: "video",
+          dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
         },
     ]
   });
@@ -143,5 +206,6 @@ $(document).ready(function() {
   left:50px;
 }
 </style>
+
 </body>
 </html>

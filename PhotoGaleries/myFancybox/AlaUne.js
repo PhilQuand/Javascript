@@ -41,6 +41,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           log('AlaUne plugin error options.href = ' + options.href);
       }
       var relPageCoords = options.offSet;
+      var relPageWidth = options.width;
       if (jQuery.type(options.href) == 'undefined') {
         $(_this).append(src);
         return;
@@ -121,6 +122,11 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
               }
               current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+            },
+            onUpdate: function(opts, obj) {
+              if (jQuery.type(relPageWidth) == 'string') {
+                $('.customInlineBaseClass .fancybox-content').css('width', relPageWidth);
+              }
             }
           });
           break;

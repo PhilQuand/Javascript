@@ -28,9 +28,9 @@ $('[data-fancybox-video]').fancybox({
     var numArticles = numItems - numItem;
     var Articles = $('article');
     for( var i = 0; i < numArticles; i++) {
-      top = top + $('article')[i].outerHeight();
+      top = top + $('article').eq(i).outerHeight();
     }
-    top = top + $('article')[numArticles].outerHeight()*0.5;
+    top = top + $('article').eq(numArticles).outerHeight()*0.5;
     //var top = relPageCoords.Y + 'px';
     $('.customInlineBaseClass .fancybox-content').css('top', top);
 

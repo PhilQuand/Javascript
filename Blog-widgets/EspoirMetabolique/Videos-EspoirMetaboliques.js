@@ -28,10 +28,10 @@ $('[data-fancybox-video]').fancybox({
     var numArticles = numItems - numItem;
     var Articles = $('article');
     for( var i = 0; i < numArticles; i++) {
-      //top = top + $('article')[i].height();
+      top = top + $('article')[i].clientHeight;
     }
-    //top = top + $('article')[numArticles].height()*0.5;
-    var top = relPageCoords.Y + 'px';
+    top = top + $('article')[numArticles].clientHeight*0.5;
+    //var top = relPageCoords.Y + 'px';
     $('.customInlineBaseClass .fancybox-content').css('top', top);
 
     var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());

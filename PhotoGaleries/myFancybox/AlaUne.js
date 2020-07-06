@@ -128,7 +128,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
               onUpdate: function(opts, obj) {
                 //$('.customInlineBaseClass .articleFancy.fancybox-content').css('width', '90%');
                 if (jQuery.type(relPageWidth) == 'string') {
-                  $('.customInlineBaseClass').css('width', relPageWidth);
+                  $('.customInlineBaseClass .articleFancy.fancybox-content').css('width', relPageWidth);
                 }
                 //$('.customInlineBaseClass').css('height', $(window).height()*0.5);
                 //$('.customInlineBaseClass .corpsFancy').css('max-height', $(window).height()*0.5-200);

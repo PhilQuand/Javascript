@@ -42,6 +42,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       }
       var relPageCoords = options.offSet;
       var relPageWidth = options.width;
+      var relPageHeightCoef = options.height_coef;
       if (jQuery.type(options.href) == 'undefined') {
         $(_this).append(src);
         return;
@@ -97,38 +98,89 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       var fancyClass = {};
       switch (jQuery.type(options.fancyClass)) {
         case "string":
-          $('.' + randNum).fancybox({
-            baseClass: 'customInlineBaseClass',
-            smallBtn: false,
-            toolbar: false,
-            afterLoad: function(instance, current) {
+          if (options.fancyClass == 'articleFancy') {
+            $('.' + randNum).fancybox({
+              toolbar: true,
+              infobar: true,
+              arrows: true,
+              animationEffect: "fade",
+              transitionEffect: "slide",
+              speed: 300,
+              margin: [40, 20],
+              buttons: false,
+              thumbs: {
+                autoStart: false, // Display thumbnails on opening
+                hideOnClose: true // Hide thumbnail grid when closing animation starts
+              },
+              buttons: [
+                'close',
+                'thumbs'
+              ],
+              baseClass: 'customInlineBaseClass',
+              afterLoad: function(instance, current) {
+                $(".getFancyFocus").focus();
+                if (instance.group.length > 1 && current.$content) {
+                  if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+                  else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                  else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                }
+              },
+              onUpdate: function(opts, obj) {
+                //$('.customInlineBaseClass .articleFancy.fancybox-content').css('width', '90%');
+                if (jQuery.type(relPageWidth) == 'string') {
+                  $('.customInlineBaseClass').css('width', relPageWidth);
+                }
+                //$('.customInlineBaseClass').css('height', $(window).height()*0.5);
+                //$('.customInlineBaseClass .corpsFancy').css('max-height', $(window).height()*0.5-200);
+                if (jQuery.type(relPageHeightCoef) == 'string') {
+                  var relPageHeight = $(window).height() * relPageHeightCoef;
 
-              if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
-                var top = relPageCoords.Y;
-                //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
-                $('.customInlineBaseClass .fancybox-content').css('top', top);
+                  $('.customInlineBaseClass').css('height', relPageHeight);
+                  $('.customInlineBaseClass .corpsFancy').css('max-height', relPageHeight - 200);
+                }
+                //$('.customInlineBaseClass').css('top', '750px');
+                if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
+                  var top = relPageCoords.Y;
+                  //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
+                  $('.customInlineBaseClass').css('top', top);
+                }
+              },
+            });
+          }
+          else {
+            $('.' + randNum).fancybox({
+              baseClass: 'customInlineBaseClass',
+              smallBtn: false,
+              toolbar: false,
+              afterLoad: function(instance, current) {
+
+                if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
+                  var top = relPageCoords.Y;
+                  //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
+                  $('.customInlineBaseClass .fancybox-content').css('top', top);
+                }
+
+                var pixelRatio = window.devicePixelRatio || 1;
+
+                /*if (pixelRatio > 1.5) {
+                  current.width = current.width / pixelRatio;
+                  current.height = current.height / pixelRatio;
+                }*/
+
+                if (instance.group.length > 1 && current.$content) {
+                  if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+                  else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                  else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                }
+                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+              },
+              onUpdate: function(opts, obj) {
+                if (jQuery.type(relPageWidth) == 'string') {
+                  $('.customInlineBaseClass .fancybox-content').css('width', relPageWidth);
+                }
               }
-
-              var pixelRatio = window.devicePixelRatio || 1;
-
-              /*if (pixelRatio > 1.5) {
-                current.width = current.width / pixelRatio;
-                current.height = current.height / pixelRatio;
-              }*/
-
-              if (instance.group.length > 1 && current.$content) {
-                if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-                else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-                else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-              }
-              current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
-            },
-            onUpdate: function(opts, obj) {
-              if (jQuery.type(relPageWidth) == 'string') {
-                $('.customInlineBaseClass .fancybox-content').css('width', relPageWidth);
-              }
-            }
-          });
+            });
+          }
           break;
         case "object":
           $('.' + randNum).fancybox(options.fancyClass);

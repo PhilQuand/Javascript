@@ -200,9 +200,8 @@ $(document).ready(function() {
       'close',
       'thumbs'
     ],
-    baseClass: 'customIframeBaseClass customInlineBaseClass',
+    baseClass: 'customInlineBaseClass',
     afterLoad: function(instance, current) {
-      $('.articleFancy.fancybox-content').css('visibility', 'hidden');
       $(".getFancyFocus").focus();
       if (instance.group.length > 1 && current.$content) {
         if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
@@ -210,13 +209,9 @@ $(document).ready(function() {
         else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
       }
     },
-    beforeShow: function(instance, current) {
-      $('.articleFancy.fancybox-content').css('visibility', 'hidden');
-    },
-    afterShow: function(instance, current) {
+    onUpdate: function(opts, obj) {
       $('.articleFancy.fancybox-content').css('width', '90%');
-      $('.articleFancy.fancybox-content').css('visibility', 'visible');
-    }
+    },
   }
   var fancyopt2 = {
     buttons: [
@@ -226,16 +221,11 @@ $(document).ready(function() {
       'close'
     ],
     afterLoad: function(instance, current) {
-      $('.articleFancy.fancybox-content').css('visibility', 'hidden');
       $(".getFancyFocus").focus();
     },
-    beforeShow: function(instance, current) {
-      $('.articleFancy.fancybox-content').css('visibility', 'hidden');
-    },
-    afterShow: function(instance, current) {
+    onUpdate: function(opts, obj) {
       $('.articleFancy.fancybox-content').css('width', '90%');
-      $('.articleFancy.fancybox-content').css('visibility', 'visible');
-    }
+    },
   }
   $('#Hyperthermie').AlaUne({
     src: '<button>Voir la vidéo...</button>',
@@ -245,11 +235,13 @@ $(document).ready(function() {
     },
     href: [{
         dataType: "inlineId",
-        dataSrc: 'Hyperthermie-1'
+        dataSrc: 'Hyperthermie-1',
+        dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
       },
       {
         dataType: "inlineId",
-        dataSrc: 'Hyperthermie-2'
+        dataSrc: 'Hyperthermie-2',
+        dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
       },
     ]
   });

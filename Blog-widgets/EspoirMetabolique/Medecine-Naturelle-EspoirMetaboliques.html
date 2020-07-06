@@ -24,8 +24,12 @@ article .divText {
 article.droit .divImg {
     margin-right: 1em;
 }
-article.gauche  .divImg {
+article.gauche .divImg {
     margin-left: 1em;
+}
+article .divImg.mobile {
+    margin-top: 5em;
+    display:none;
 }
 article  .divText {
     font-family: Arial, Helvetica, sans-serif;;
@@ -88,6 +92,9 @@ article button {
     article.gauche .divImg {
         display: none;
     }
+    article .divImg.mobile {
+      display:block;
+    }
     article .divText {
         display: block; 
         width: 100%; 
@@ -109,6 +116,8 @@ Notre site a pour objectif de délivrer ces informations et de favoriser les éc
 </div>
 </article>
 <article class="gauche">
+<div class="divImg mobile">
+<img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /></div>
 <div class="divText">
 <div class="titre">Compléments alimentaires</div>
 Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
@@ -344,9 +353,6 @@ $(document).ready(function() {
     font-size: 18px;
     line-height: 1.;
     margin-left: 60px;
-  }
-  .maximeSummary, .maximeFancy {
-   clear: both;
   }
 }
 </style>

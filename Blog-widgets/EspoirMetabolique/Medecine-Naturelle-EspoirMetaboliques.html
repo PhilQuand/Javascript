@@ -173,7 +173,7 @@ $(document).ready(function() {
     src: '<button class="gauche">Voir la vidéo...</button>',
     fancyClass: "default",
     offSet: {
-      Y: '500px'
+      Y: '250px'
     },
     /*fancyClass: {
             baseClass: 'customAlaUneBaseClass',
@@ -209,10 +209,16 @@ $(document).ready(function() {
         else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
       }
     },
-    onUpdate: function(opts, obj) {
-      $('.articleFancy.fancybox-content').css('width', '90%');
-    },
-  }
+	onUpdate: function (opts, obj) {
+      $('.customInlineBaseClass .articleFancy.fancybox-content').css('width', '90%');
+      $('.customInlineBaseClass').css('height', $(window).height()*0.8);
+       /*if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
+        var top = relPageCoords.Y;
+        $('.customInlineBaseClass').css('top', top);
+      }*/
+     $('.customInlineBaseClass').css('top', '500px');
+	},
+ }
   var fancyopt2 = {
     buttons: [
       'play',
@@ -223,16 +229,16 @@ $(document).ready(function() {
     afterLoad: function(instance, current) {
       $(".getFancyFocus").focus();
     },
-    onUpdate: function(opts, obj) {
+	onUpdate: function (opts, obj) {
       $('.articleFancy.fancybox-content').css('width', '90%');
-    },
+	},
   }
   $('#Hyperthermie').AlaUne({
     src: '<button>Voir la vidéo...</button>',
     fancyClass: fancyopt1,
-    offSet: {
+    /*offSet: {
       Y: '500px'
-    },
+    },*/
     href: [{
         dataType: "inlineId",
         dataSrc: 'Hyperthermie-1',
@@ -247,7 +253,7 @@ $(document).ready(function() {
   });
 });
 </script>
-<!--style>
+<style>
 .customInlineBaseClass .button-close,
 .customInlineBaseClass .button-previous,
 .customInlineBaseClass .button-next {
@@ -286,9 +292,9 @@ $(document).ready(function() {
 }
 .customInlineBaseClass .fancybox-content {
   position:fixed;
-  left:40px;
+  left:50px;
 }
-</style-->
+</style>
 <style>
 .customInlineBaseClass .fancybox-button--close {
     display: none;

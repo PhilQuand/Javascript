@@ -1,34 +1,6 @@
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
   var randGen = new Generator();
-  var relPageCoords = {};
-  var fancyDefault = {
-    baseClass: 'customInlineBaseClass',
-    smallBtn: false,
-    toolbar: false,
-    afterLoad: function(instance, current) {
-
-      if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
-        var top = relPageCoords.Y;
-        //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
-        $('.customInlineBaseClass .fancybox-content').css('top', top);
-      }
-
-      var pixelRatio = window.devicePixelRatio || 1;
-
-      /*if (pixelRatio > 1.5) {
-        current.width = current.width / pixelRatio;
-        current.height = current.height / pixelRatio;
-      }*/
-
-      if (instance.group.length > 1 && current.$content) {
-        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-      }
-      current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
-    }
-  }
   $.fn.AlaUne = function(options) {
     var _this = this;
     Promise.all([
@@ -124,14 +96,38 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       var fancyClass = {};
       switch (jQuery.type(options.fancyClass)) {
         case "string":
-          if (options.fancyClass == 'default') var fancyClass = eval('fancyDefault');
-          else var fancyClass = eval(options.fancyClass);
+          $('.' + randNum).fancybox({
+            baseClass: 'customInlineBaseClass',
+            smallBtn: false,
+            toolbar: false,
+            afterLoad: function(instance, current) {
+
+              if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
+                var top = relPageCoords.Y;
+                //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
+                $('.customInlineBaseClass .fancybox-content').css('top', top);
+              }
+
+              var pixelRatio = window.devicePixelRatio || 1;
+
+              /*if (pixelRatio > 1.5) {
+                current.width = current.width / pixelRatio;
+                current.height = current.height / pixelRatio;
+              }*/
+
+              if (instance.group.length > 1 && current.$content) {
+                if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+                else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+              }
+              current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+            }
+          });
           break;
         case "object":
-          fancyClass = options.fancyClass;
+          $('.' + randNum).fancybox(options.fancyClass);
           break;
       }
-      $('.' + randNum).fancybox(fancyClass);
       /*$('.fancybox')
       .attr('rel', 'gallery')
       .fancybox({

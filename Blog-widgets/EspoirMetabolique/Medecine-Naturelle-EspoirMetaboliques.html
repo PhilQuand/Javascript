@@ -211,7 +211,6 @@ $(document).ready(function() {
     offSet: {
       Y: '100px'
     },
-    width: '90%',
     href: [{
         dataType: "video",
         dataSrc: 'https://www.youtube.com/watch?v=7ksjJc3B_t0&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
@@ -228,54 +227,24 @@ $(document).ready(function() {
     offSet: {
       Y: '500px'
     },
-    width: '90%',
     href: [{
       dataType: "video",
       dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
     }, ]
   });
-  var fancyopt1 = {
-    toolbar: true,
-    infobar: true,
-    arrows: true,
-    animationEffect: "fade",
-    transitionEffect: "slide",
-    speed: 300,
-    margin: [40, 20],
-    buttons: false,
-    thumbs: {
-      autoStart: false, // Display thumbnails on opening
-      hideOnClose: true // Hide thumbnail grid when closing animation starts
-    },
-    buttons: [
-      'close',
-      'thumbs'
-    ],
-    baseClass: 'customInlineBaseClass',
-    afterLoad: function(instance, current) {
-      $(".getFancyFocus").focus();
-      if (instance.group.length > 1 && current.$content) {
-        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-      }
-    },
-	onUpdate: function (opts, obj) {
-      $('.customInlineBaseClass .articleFancy.fancybox-content').css('width', '90%');
-      $('.customInlineBaseClass').css('height', $(window).height()*0.5);
-$('.customInlineBaseClass .corpsFancy').css('max-height', $(window).height()*0.5-200);
-      //$('.customInlineBaseClass').css('top', '750px');
-	},
-  }
   $('#Hyperthermie').AlaUne({
     src: '<button>Voir la vidéo...</button>',
-    fancyClass: fancyopt1,
+    fancyClass: "articleFancy",
+    offSet: {
+      Y: '750px'
+    },
+    width: '90%',
+    height_coef: '0.5',
     href: [{
-        dataType: "inlineId",
-        dataSrc: 'Hyperthermie-1',
-        dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
-      },
-    ]
+      dataType: "inlineId",
+      dataSrc: 'Hyperthermie-1',
+      dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
+    }, ]
   });
 });
 </script>
@@ -361,7 +330,7 @@ $('.customInlineBaseClass .corpsFancy').css('max-height', $(window).height()*0.5
 }*/
 .corpsFancy {
     width: 100%;
-    max-height: calc(80vh - 50px);
+    max-height: calc(100vh - 200px);
     overflow: auto;
     padding: 10px 15px 10px 15px;
 }

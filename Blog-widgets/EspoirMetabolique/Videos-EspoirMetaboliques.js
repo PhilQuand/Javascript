@@ -27,6 +27,7 @@ $('[data-fancybox-video]').fancybox({
     //var top = relPageCoords.Y + 'px';
     var top = 0;
     var numArticles = numItems - numItem;
+    var Articles = $('article');
     for( var i = 0; i < numArticles; i++) {
       top = top + $('article')[i].height();
     }

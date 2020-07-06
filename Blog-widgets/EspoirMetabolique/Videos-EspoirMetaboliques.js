@@ -22,6 +22,8 @@ $('[data-fancybox-video]').fancybox({
     //fancybox_content.prop("style", "");
   },
   afterLoad: function(instance, current) {
+    var numItems = $('[data-fancybox-video]').length;
+    var numItem = current.opts.$orig[0].dataset.imgNum;
     var top = relPageCoords.Y + 'px'
     var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
     $('.customInlineBaseClass .fancybox-content').css('top', top);

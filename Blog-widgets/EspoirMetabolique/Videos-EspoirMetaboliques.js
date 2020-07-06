@@ -24,7 +24,7 @@ $('[data-fancybox-video]').fancybox({
   afterLoad: function(instance, current) {
     var numItems = $('[data-fancybox-video]').length;
     var numItem = current.opts.$orig[0].dataset.imgNum;
-    var top = 0;
+    var top = $('.enTete').outerHeight() + $('.Intro').outerHeight();
     var numArticles = numItems - numItem;
     var Articles = $('article');
     for( var i = 0; i < numArticles; i++) {

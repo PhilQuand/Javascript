@@ -24,13 +24,14 @@ $('[data-fancybox-video]').fancybox({
   afterLoad: function(instance, current) {
     var numItems = $('[data-fancybox-video]').length;
     var numItem = current.opts.$orig[0].dataset.imgNum;
-    var top = $('.enTete').outerHeight() + $('.Intro').outerHeight();
+    var top = 0;
+    //top = top + $('.enTete').height() + $('.Intro').height();
     var numArticles = numItems - numItem;
     var Articles = $('article');
     for( var i = 0; i < numArticles; i++) {
-      top = top + $('article').eq(i).outerHeight();
+      top = top + $('article').eq(i).height();
     }
-    top = top + $('article').eq(numArticles).outerHeight()*0.5;
+    top = top + $('article').eq(numArticles).height()*0.5;
     //var top = relPageCoords.Y + 'px';
     $('.customInlineBaseClass .fancybox-content').css('top', top);
 

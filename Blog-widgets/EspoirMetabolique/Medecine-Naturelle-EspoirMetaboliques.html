@@ -159,6 +159,7 @@ $(document).ready(function() {
     offSet: {
       Y: '100px'
     },
+    width: '90%',
     href: [{
         dataType: "video",
         dataSrc: 'https://www.youtube.com/watch?v=7ksjJc3B_t0&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
@@ -173,11 +174,9 @@ $(document).ready(function() {
     src: '<button class="gauche">Voir la vidéo...</button>',
     fancyClass: "default",
     offSet: {
-      Y: '250px'
+      Y: '500px'
     },
-    /*fancyClass: {
-            baseClass: 'customAlaUneBaseClass',
-      },*/
+    width: '90%',
     href: [{
       dataType: "video",
       dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
@@ -211,34 +210,17 @@ $(document).ready(function() {
     },
 	onUpdate: function (opts, obj) {
       $('.customInlineBaseClass .articleFancy.fancybox-content').css('width', '90%');
-      $('.customInlineBaseClass').css('height', $(window).height()*0.8);
+      $('.customInlineBaseClass').css('height', $(window).height()*0.5);
        /*if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
         var top = relPageCoords.Y;
         $('.customInlineBaseClass').css('top', top);
       }*/
-     $('.customInlineBaseClass').css('top', '500px');
-	},
- }
-  var fancyopt2 = {
-    buttons: [
-      'play',
-      'download',
-      'thumbs',
-      'close'
-    ],
-    afterLoad: function(instance, current) {
-      $(".getFancyFocus").focus();
-    },
-	onUpdate: function (opts, obj) {
-      $('.articleFancy.fancybox-content').css('width', '90%');
+     $('.customInlineBaseClass').css('top', '750px');
 	},
   }
   $('#Hyperthermie').AlaUne({
     src: '<button>Voir la vidéo...</button>',
     fancyClass: fancyopt1,
-    /*offSet: {
-      Y: '500px'
-    },*/
     href: [{
         dataType: "inlineId",
         dataSrc: 'Hyperthermie-1',

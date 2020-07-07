@@ -649,11 +649,11 @@ $(document).ready(function() {
 .customDefaultClass .button-next {
   display:block;
   position: absolute;
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
   background: black;
   text-align: center;
-  line-height: 44px;
+  line-height: 30px;
   color: white;
   text-decoration: none;
   border-radius: 50%;
@@ -664,26 +664,32 @@ $(document).ready(function() {
 .customDefaultClass .button-next {
   top: 50%;
   margin-top: -22px;
-  line-height: 42px;
+  line-height: 30px;
 }
 
 .customDefaultClass .button-previous {
-    left: -50px;
+    left: -30px;
 }
 
 .customDefaultClass .button-next {
-    right: -50px;
+    right: -30px;
 }
 
 .customDefaultClass .button-close {
-  top: -44px;
-  right: -44px;
+  top: -22px;
+  right: -22px;
   font-size: 22px;
 }
 .customDefaultClass .fancybox-content {
-  position:fixed;
+  position: fixed;
   width: 90%;
-  left:50px;
+  left: 50px;
+  background-color: rgb(255,255,255,0.5);
+}
+@media screen and (max-width: 600px) {
+  .customDefaultClass .fancybox-content {
+      margin-top: 10em;
+  }
 }
 </style>
 <style>

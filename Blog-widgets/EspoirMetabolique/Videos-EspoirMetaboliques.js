@@ -22,18 +22,16 @@ $('[data-fancybox-video]').fancybox({
     //fancybox_content.prop("style", "");
   },
   afterLoad: function(instance, current) {
-    var numItems = $('[data-fancybox-video]').length;
+    /*var numItems = $('[data-fancybox-video]').length;
     var numItem = current.opts.$orig[0].dataset.imgNum;
     var top = 0;
-    //top = top + $('.enTete').height() + $('.Intro').height();
     var numArticles = numItems - numItem;
     var Articles = $('article');
     for( var i = 0; i < numArticles; i++) {
       top = top + $('article').eq(i).height();
     }
     top = top + $('article').eq(numArticles).height()*0.5;
-    //var top = relPageCoords.Y + 'px';
-    $('.customInlineBaseClass .fancybox-content').css('top', top);
+    $('.customInlineBaseClass .fancybox-content').css('top', top);*/
 
     var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
     if ('parentIFrame' in window) {
@@ -56,5 +54,14 @@ $('[data-fancybox-video]').fancybox({
       else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
     }
     current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
-  }
+  },
+  onUpdate: function(opts, obj) {
+    var top = 0;
+    var orig = obj.opts.$orig[0];
+    var closestTop = orig.closest('article');
+    var offsetTop = closestTop.offsetTop;
+    var top = offsetTop + 'px';
+    //var offsetHeight = closestTop.offsetHeight;
+    $('.customInlineBaseClass').css('top', top);
+  },
 });

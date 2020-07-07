@@ -40,9 +40,10 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         default:
           log('AlaUne plugin error options.href = ' + options.href);
       }
-      var relPageCoords = options.offSet;
-      var relPageWidth = options.width;
-      var relPageHeightCoef = options.height_coef;
+      if (jQuery.type(options.top) != 'undefined') var relTop = options.top;
+      if (jQuery.type(options.offSet) != 'undefined') var relPageCoords = options.offSet;
+      if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
+      if (jQuery.type(options.height) != 'undefined') var relPageHeight = options.height;
       if (jQuery.type(options.href) == 'undefined') {
         $(_this).append(src);
         return;
@@ -132,18 +133,29 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 }
                 //$('.customInlineBaseClass').css('height', $(window).height()*0.5);
                 //$('.customInlineBaseClass .corpsFancy').css('max-height', $(window).height()*0.5-200);
-                if (jQuery.type(relPageHeightCoef) == 'string') {
-                  var relPageHeight = $(window).height() * relPageHeightCoef;
+                if (jQuery.type(relPageHeight) == 'string') {
+                  //var relPageHeight = $(window).height() * relPageHeightCoef;
+                  var relHeight = relPageHeight.split("px")[0];
+                  if(relHeight < 10) relHeight = $(window).height() * relHeight;
 
-                  $('.customInlineBaseClass').css('height', relPageHeight);
-                  $('.customInlineBaseClass .corpsFancy').css('max-height', relPageHeight - 200);
+                  $('.customInlineBaseClass').css('height', relHeight);
+                  $('.customInlineBaseClass .corpsFancy').css('max-height', relHeight - 200);
                 }
                 //$('.customInlineBaseClass').css('top', '750px');
-                if (jQuery.type(relPageCoords) == 'string') {
+                var top = 0;
+                if (jQuery.type(relTop) == 'string') {
+                  var orig = obj.opts.$orig[0];
+                  var closestTop = orig.closest(relTop);
+                  var offsetTop = closestTop.offsetTop;
+                  var top = offsetTop + 'px';
+                  //var offsetHeight = closestTop.offsetHeight;
+                  $('.customInlineBaseClass').css('top', top);
+                }
+                /*if (jQuery.type(relPageCoords) == 'string') {
                   var top = relPageCoords;
                   //var frameSize = Math.max(relPageCoords + 550, $("body").height());
                   $('.customInlineBaseClass').css('top', top);
-                }
+                }*/
               },
             });
           }
@@ -174,10 +186,18 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   $('.customInlineBaseClass .fancybox-content').css('width', relPageWidth);
                 }
  
-                if (jQuery.type(relPageCoords) == 'string') {
+                /*if (jQuery.type(relPageCoords) == 'string') {
                   var top = relPageCoords;
-                  //var frameSize = Math.max(relPageCoords + 550, $("body").height());
                   $('.customInlineBaseClass .fancybox-content').css('top', top);
+                }*/
+                var top = 0;
+                if (jQuery.type(relTop) == 'string') {
+                  var orig = obj.opts.$orig[0];
+                  var closestTop = orig.closest(relTop);
+                  var offsetTop = closestTop.offsetTop;
+                  var top = offsetTop + 'px';
+                  //var offsetHeight = closestTop.offsetHeight;
+                  $('.customInlineBaseClass').css('top', top);
                 }
               }
             });

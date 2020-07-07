@@ -139,9 +139,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   $('.customInlineBaseClass .corpsFancy').css('max-height', relPageHeight - 200);
                 }
                 //$('.customInlineBaseClass').css('top', '750px');
-                if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
-                  var top = relPageCoords.Y;
-                  //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
+                if (jQuery.type(relPageCoords) == 'string') {
+                  var top = relPageCoords;
+                  //var frameSize = Math.max(relPageCoords + 550, $("body").height());
                   $('.customInlineBaseClass').css('top', top);
                 }
               },
@@ -153,12 +153,6 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
               smallBtn: false,
               toolbar: false,
               afterLoad: function(instance, current) {
-
-                if (jQuery.type(relPageCoords) != 'undefined' && jQuery.type(relPageCoords.Y) == 'string') {
-                  var top = relPageCoords.Y;
-                  //var frameSize = Math.max(relPageCoords.Y + 550, $("body").height());
-                  $('.customInlineBaseClass .fancybox-content').css('top', top);
-                }
 
                 var pixelRatio = window.devicePixelRatio || 1;
 
@@ -175,8 +169,15 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
               },
               onUpdate: function(opts, obj) {
+
                 if (jQuery.type(relPageWidth) == 'string') {
                   $('.customInlineBaseClass .fancybox-content').css('width', relPageWidth);
+                }
+ 
+                if (jQuery.type(relPageCoords) == 'string') {
+                  var top = relPageCoords;
+                  //var frameSize = Math.max(relPageCoords + 550, $("body").height());
+                  $('.customInlineBaseClass .fancybox-content').css('top', top);
                 }
               }
             });

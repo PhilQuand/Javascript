@@ -136,7 +136,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 if (jQuery.type(relPageHeight) == 'string') {
                   //var relPageHeight = $(window).height() * relPageHeightCoef;
                   var relHeight = relPageHeight.split("px")[0];
-                  if(relHeight < 10) relHeight = $(window).height() * relHeight;
+                  if (relHeight < 10) relHeight = $(window).height() * relHeight;
 
                   $('.customInlineBaseClass').css('height', relHeight);
                   $('.customInlineBaseClass .corpsFancy').css('max-height', relHeight - 200);
@@ -147,6 +147,10 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   var orig = obj.opts.$orig[0];
                   var closestTop = orig.closest(relTop);
                   var offsetTop = closestTop.offsetTop;
+                  if (jQuery.type(relPageCoords) == 'string') {
+                    var add2top = relPageCoords.split("px")[0];
+                    offsetTop = offsetTop + eval(relPageCoords.split("px")[0]);
+                  }
                   var top = offsetTop + 'px';
                   //var offsetHeight = closestTop.offsetHeight;
                   $('.customInlineBaseClass').css('top', top);
@@ -185,7 +189,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 if (jQuery.type(relPageWidth) == 'string') {
                   $('.customInlineBaseClass .fancybox-content').css('width', relPageWidth);
                 }
- 
+
                 /*if (jQuery.type(relPageCoords) == 'string') {
                   var top = relPageCoords;
                   $('.customInlineBaseClass .fancybox-content').css('top', top);
@@ -195,6 +199,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   var orig = obj.opts.$orig[0];
                   var closestTop = orig.closest(relTop);
                   var offsetTop = closestTop.offsetTop;
+                  if (jQuery.type(relPageCoords) == 'string') {
+                    offsetTop = offsetTop + relPageCoords.split("px")[0];
+                  }
                   var top = offsetTop + 'px';
                   //var offsetHeight = closestTop.offsetHeight;
                   $('.customInlineBaseClass').css('top', top);

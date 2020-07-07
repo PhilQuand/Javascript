@@ -452,7 +452,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           }
           else {
             $('.' + randNum).fancybox({
-              baseClass: 'customInlineBaseClass',
+              baseClass: 'customDefaultClass',
               smallBtn: false,
               toolbar: false,
               afterLoad: function(instance, current) {
@@ -474,7 +474,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
               onUpdate: function(opts, obj) {
 
                 if (jQuery.type(relPageWidth) == 'string') {
-                  $('.customInlineBaseClass .fancybox-content').css('width', relPageWidth);
+                  $('.customDefaultClass .fancybox-content').css('width', relPageWidth);
                 }
  
                 /*if (jQuery.type(relPageCoords) == 'string') {
@@ -491,7 +491,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   }
                   var top = offsetTop + 'px';
                   //var offsetHeight = closestTop.offsetHeight;
-                  $('.customInlineBaseClass').css('top', top);
+                  $('.customDefaultClass').css('top', top);
                 }
               }
             });
@@ -639,10 +639,14 @@ $(document).ready(function() {
   });
 });
 </script>
-<!--style>
-.customInlineBaseClass .button-close,
-.customInlineBaseClass .button-previous,
-.customInlineBaseClass .button-next {
+<style>
+/* Background color */
+.customDefaultClass .fancybox-bg {
+  background-color: #fff;
+}
+.customDefaultClass .button-close,
+.customDefaultClass .button-previous,
+.customDefaultClass .button-next {
   display:block;
   position: absolute;
   width: 44px;
@@ -656,32 +660,32 @@ $(document).ready(function() {
   font-size: 16px;
 }
 
-.customInlineBaseClass .button-previous,
-.customInlineBaseClass .button-next {
+.customDefaultClass .button-previous,
+.customDefaultClass .button-next {
   top: 50%;
   margin-top: -22px;
   line-height: 42px;
 }
 
-.customInlineBaseClass .button-previous {
+.customDefaultClass .button-previous {
     left: -50px;
 }
 
-.customInlineBaseClass .button-next {
+.customDefaultClass .button-next {
     right: -50px;
 }
 
-.customInlineBaseClass .button-close {
+.customDefaultClass .button-close {
   top: -44px;
   right: -44px;
   font-size: 22px;
 }
-.customInlineBaseClass .fancybox-content {
+.customDefaultClass .fancybox-content {
   position:fixed;
   width: 90%;
   left:50px;
 }
-</style-->
+</style>
 <style>
 .customInlineBaseClass .fancybox-button--close {
     display: none;
@@ -713,7 +717,7 @@ $(document).ready(function() {
 .titreFancy a:link {
    color:inherit;
 }
-/*.fontSummary, .fontFancy {
+/*.customInlineBaseClass .fontSummary, .fontFancy {
     max-width: 100% ;
     font-weight: normal;
     font-style: normal;

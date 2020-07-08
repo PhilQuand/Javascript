@@ -164,7 +164,8 @@ blockquote {
       } else {
         var title = h1Title.children[0].innerHTML;
         //title.replace(/br/gi, "");
-        h1Title.children[0].innerHTML = "C’est au Tour(s) du Peuple !<br>Municipales 2020";
+        //h1Title.children[0].innerHTML = "C’est au Tour(s) du Peuple !<br>Municipales 2020";
+        h1Title.children[0].innerHTML = "C’est au Tour(s) du Peuple !";
       }
     };
   }
@@ -1136,11 +1137,11 @@ $('.fancybox')
 if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://www.catdp2020.com/#images"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" /></a>');
   //$('.page_body').append('<a href="https://www.catdp2020.com/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Ru3APT121xw/XlPcPftIJaI/AAAAAAAAlFA/hOSll_WRZ2IvUyUr01YmBJY4asA3nHjVACLcBGAsYHQ/s1600/86831332_858753717897452_6176428490821206016_o.jpg" /></a>');
-  $('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
   //$('.page_body').append('<a href="https://www.catdp2020.com/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1T-GQdnkDMyR8TP_tlcVMXIXMyPhdfaJ2/view?usp=sharing"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-9pS5hl9D1ZA/XkW6Bq58M-I/AAAAAAAAk90/_aNKxSxRmS0qovhlRKrK2_XPFIVHzg_xQCLcBGAsYHQ/s1600/86185907_852785498494274_5150774147164405760_o.png" /></a>');
   //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-Q_tTp_aWd_U/Xh9WRNE9R8I/AAAAAAAAk2M/AXsk07zTCzQzxfq4Z-3p06D4zvTm4fKuwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-01-15%2Ba%25CC%2580%2B19.12.51.png" /></a>');
   //$('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>').insertAfter('.bg-photo-container');
-  $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/>Municipales 2020<br/></h1>")
+  $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>")
+  //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
 }
 </script>

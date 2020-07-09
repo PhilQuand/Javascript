@@ -30,7 +30,10 @@ article.gauche .divImg {
 article .divText.mobile {
     display:none;
 }
-article  .divText {
+article .titre-mobile {
+    display:none;
+}
+article .divText, article .titre-mobile {
     font-family: Arial, Helvetica, sans-serif;;
     font-style: italic;
     line-height: 1.4;
@@ -39,7 +42,7 @@ article  .divText {
     text-justify: inter-word;
 
 }
-article  .divText .titre {
+article  .divText .titre, article .titre-mobile {
     font-size: 36px; 
     color:#027ffd;
     text-align: center;
@@ -86,8 +89,9 @@ article button {
         display: block;
         margin-left: auto;
         margin-right: auto;
+        max-width: 500px; 
         width: 80%; 
-        margin-top: 5em;
+       // margin-top: 5em;
     }
     article .divText {
         display: block; 
@@ -96,15 +100,25 @@ article button {
     article.gauche .divText {
         display: none;
     }
-    article .divText.mobile {
+    article .divText .titre {
+        display: none;
+    }
+    article .divText.mobile, article .titre-mobile {
       display:block;
-     }
+    }
+    article .titre-mobile.complements {
+      margin-top: 2em;
+    }
+    article .titre-mobile.hyperthermie {
+      margin-top: 5em;
+    }
 }
 </style>
 </head>
 <body>
 
 <article class="droit">
+<div class="titre-mobile">La vraie cause du cancer</div>
 <div class="divImg">
 <img src="https://www.espoirmetabolique.com/file/si1416124/ob_862cb6_dr-otto-heinrich-warburg-prix-nobel-de-fi24503095x814.jpg"></div>
 <div class="divText">
@@ -116,13 +130,14 @@ Notre site a pour objectif de délivrer ces informations et de favoriser les éc
 </div>
 </article>
 <article class="gauche">
+<div class="titre-mobile complements">Compléments alimentaires</div>
 <div class="divText">
 <div class="titre">Compléments alimentaires</div>
 Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
 <div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
 <div class="buttons">
-<div id="VideoComplémentsAlimentaires"></div>
-<div id="ExplicationsComplémentsAlimentaires"></div>
+<div id="VideoComplémentsAlimentaires-1"></div>
+<div id="ExplicationsComplémentsAlimentaires-1"></div>
 </div>
 </div>
 <div class="divImg">
@@ -174,12 +189,13 @@ $(document).ready(function() {
 Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
 <div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
 <div class="buttons">
-<div id="VideoComplémentsAlimentaires"></div>
-<div id="ExplicationsComplémentsAlimentaires"></div>
+<div id="VideoComplémentsAlimentaires-2"></div>
+<div id="ExplicationsComplémentsAlimentaires-2"></div>
 </div>
 </div>
 </article>
 <article class="droit">
+<div class="titre-mobile hyperthermie">L'hyperthermie</div>
 <div class="divImg">
 <img style="max-width:500px" src="https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg"></div>
 <div class="divText">
@@ -1081,22 +1097,34 @@ $(document).ready(function() {
     fancyClass: "articleFancy",
     top: 'article',
     offSet: '100px',
-    //width: '90%',
     height: '800px',
     href: [
     {
       dataType: "inlineId",
       dataSrc: 'CauseDuCancer-1',
-      dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
+      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/pisteOubliee.jpg',
     },
      {
       dataType: "inlineId",
       dataSrc: 'CauseDuCancer-2',
-      dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
+      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Mitochondrie.jpg',
     },
    ]
   });
-  $('#VideoComplémentsAlimentaires').AlaUne({
+  $('#VideoComplémentsAlimentaires-1').AlaUne({
+    src: '<button class="gauche">Voir la vidéo...</button>',
+    fancyClass: "default",
+    top: 'article',
+    offSet: '100px',
+    height: '800px',
+    href: [
+    {
+      dataType: "video",
+      dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
+    },
+    ]
+  });
+  $('#VideoComplémentsAlimentaires-2').AlaUne({
     src: '<button class="gauche">Voir la vidéo...</button>',
     fancyClass: "default",
     top: 'article',
@@ -1108,7 +1136,75 @@ $(document).ready(function() {
     },
     ]
   });
-  $('#ExplicationsComplémentsAlimentaires').AlaUne({
+  $('#ExplicationsComplémentsAlimentaires-1').AlaUne({
+    src: '<button class="droit">Lire la suite...</button>',
+    fancyClass: "articleFancy",
+    top: 'article',
+    offSet: '100px',
+    height: '800px',
+    href: [{
+        dataType: "inlineId",
+        dataSrc: 'Compléments-1',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Radicaux-libres-Fruitomed.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-2',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/hydroxycitrate.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-3',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Artémésia.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-4',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineC.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-5',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ananas.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-6',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Germanium.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-7',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Magnesium2.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-8',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Krill.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-9',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineD3.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-10',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/abeilles.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-11',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Graviola.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-12',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Desmodium.jpg',
+      },
+    ]
+  });
+  $('#ExplicationsComplémentsAlimentaires-2').AlaUne({
     src: '<button class="droit">Lire la suite...</button>',
     fancyClass: "articleFancy",
     top: 'article',
@@ -1177,7 +1273,7 @@ $(document).ready(function() {
     ]
   });
   $('#Hyperthermie').AlaUne({
-    src: '<button>Voir la vidéo...</button>',
+    src: '<button>Lire la suite...</button>',
     fancyClass: "articleFancy",
     top: 'article',
     offSet: '100px',
@@ -1185,11 +1281,6 @@ $(document).ready(function() {
     href: [{
         dataType: "inlineId",
         dataSrc: 'Hyperthermie-1',
-        dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Hyperthermie-2',
         dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
       },
     ]

@@ -27,8 +27,7 @@ article.droit .divImg {
 article.gauche .divImg {
     margin-left: 1em;
 }
-article .divImg.mobile {
-    margin-top: 5em;
+article .divText.mobile {
     display:none;
 }
 article  .divText {
@@ -88,17 +87,18 @@ article button {
         margin-left: auto;
         margin-right: auto;
         width: 80%; 
-    }
-    article.gauche .divImg {
-        display: none;
-    }
-    article .divImg.mobile {
-      display:block;
+        margin-top: 5em;
     }
     article .divText {
         display: block; 
         width: 100%; 
     }
+    article.gauche .divText {
+        display: none;
+    }
+    article .divText.mobile {
+      display:block;
+     }
 }
 </style>
 </head>
@@ -116,9 +116,6 @@ Notre site a pour objectif de délivrer ces informations et de favoriser les éc
 </div>
 </article>
 <article class="gauche">
-<div class="divImg mobile">
-<img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" />
-</div>
 <div class="divText">
 <div class="titre">Compléments alimentaires</div>
 Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
@@ -130,9 +127,9 @@ Présentation des principaux produits naturelles qui complètent utilement les t
 </div>
 <div class="divImg">
 <!--img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /-->
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders-plug-in.js'></script>
 <center> 
 <div class='gallery-container'></div>
-<!--p>Quelques exemples<br/><em><span style="color: blue">(<a class="AlaUne-gallery-target" href="">cliquez</a> pour accéder à la galerie des images)</span></em></p--> 
 </center> 
 <style>
 .gallery-container {
@@ -144,7 +141,6 @@ Présentation des principaux produits naturelles qui complètent utilement les t
     }
 }
 </style>
-<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders-plug-in.js'></script>
 <script>
 $(document).ready(function() {
   $('.gallery-container').Shaders({
@@ -172,6 +168,15 @@ $(document).ready(function() {
   });
 });
 </script>
+</div>
+<div class="divText mobile">
+<div class="titre">Compléments alimentaires</div>
+Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
+<div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
+<div class="buttons">
+<div id="VideoComplémentsAlimentaires"></div>
+<div id="ExplicationsComplémentsAlimentaires"></div>
+</div>
 </div>
 </article>
 <article class="droit">
@@ -1308,6 +1313,9 @@ $(document).ready(function() {
   }
 }
 </style>
+
+</body>
+</html>
 
 </body>
 </html>

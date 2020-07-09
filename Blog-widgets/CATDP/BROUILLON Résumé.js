@@ -15,6 +15,13 @@
 
 
 <style>
+.incrustation {
+  background-color: #e8f6f8;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
 .show-more.pill-button,
 .show-less.pill-button {
   color: white

@@ -14,6 +14,13 @@
 
 
 <style>
+.incrustation {
+  background-color: #e8f6f8;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
 .show-more.pill-button,
 .show-less.pill-button {
   color: white
@@ -175,7 +182,7 @@ blockquote {
 <script type='text/javascript'>
 $(document).ready(function() {
   breakCode: {
-    var href = "https://www.catdp2020.com/";
+    var href = "https://www.catdp.org/";
     var actHref = window.location.href;
     var s = actHref.indexOf(href + 'search');
     if (href == actHref || actHref.indexOf(href + 'search') > -1) {
@@ -933,7 +940,7 @@ $(document).ready(function() {
    },
     mapTitle: 'Actions et réunions',
     calendarTitle: 'Actions et réunions',
-    strDate: '2019-09-01'
+    strDate: '2020-07-01'
   });
   $('#myCalendar').css('display', 'none');
 });
@@ -1069,7 +1076,8 @@ $('.fancybox')
   //background-image: url("https://1.bp.blogspot.com/-3oX1E78ddIA/XSYspRHPw0I/AAAAAAAAjb8/rTqL35gvE7cvsb8E5f7d3htvQQEfj2Q5wCPcBGAYYCw/s1600/IMG_3574%2BBlog.png");
   //background-image: url("https://1.bp.blogspot.com/-wJIM1s2IfOY/XkA-pwODE4I/AAAAAAAAk80/hktT5pDB2O42bTZFQppkkIa55RjJqG1ZgCLcBGAsYHQ/s1600/Liste%2BCARDP2020.png");
   //background-image: url("https://1.bp.blogspot.com/-FNjD_efIqhs/XkWKmYGhSaI/AAAAAAAAk9c/NIn8-IPppVMqkJMrilQYGwydAOV-2G2DQCLcBGAsYHQ/s1600/IMG_3008.png");
-  background: url("https://1.bp.blogspot.com/-PabyVfPipwc/XkgiDH7kEeI/AAAAAAAAk-s/0h4VxPkZop4YxwCVnkTpL6tPRj-NGLzKACPcBGAYYCw/s1600/IMG_3008.jpg");
+  //background: url("https://1.bp.blogspot.com/-PabyVfPipwc/XkgiDH7kEeI/AAAAAAAAk-s/0h4VxPkZop4YxwCVnkTpL6tPRj-NGLzKACPcBGAYYCw/s1600/IMG_3008.jpg");
+  //background: url("https://1.bp.blogspot.com/-95ZFJC9lK2o/XwVpV7pnp7I/AAAAAAAAm3w/H6GlrFRJf1cd-WfgGR30fkL1u17N6mBXgCLcBGAsYHQ/s1600/CATDP-bg-Loire.jpg");
   background-size: cover;
   }
 </style>
@@ -1135,13 +1143,13 @@ $('.fancybox')
 </style>
 <script>
 if ( window.location.pathname == '/' ){
-  //$('.page_body').append('<a href="https://www.catdp2020.com/#images"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" /></a>');
-  //$('.page_body').append('<a href="https://www.catdp2020.com/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Ru3APT121xw/XlPcPftIJaI/AAAAAAAAlFA/hOSll_WRZ2IvUyUr01YmBJY4asA3nHjVACLcBGAsYHQ/s1600/86831332_858753717897452_6176428490821206016_o.jpg" /></a>');
-  //$('.page_body').append('<a href="https://www.catdp2020.com/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
+  //$('.page_body').append('<a href="https://www.catdp.org/#images"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" /></a>');
+  //$('.page_body').append('<a href="https://www.catdp.org/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Ru3APT121xw/XlPcPftIJaI/AAAAAAAAlFA/hOSll_WRZ2IvUyUr01YmBJY4asA3nHjVACLcBGAsYHQ/s1600/86831332_858753717897452_6176428490821206016_o.jpg" /></a>');
+  //$('.page_body').append('<a href="https://www.catdp.org/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1T-GQdnkDMyR8TP_tlcVMXIXMyPhdfaJ2/view?usp=sharing"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-9pS5hl9D1ZA/XkW6Bq58M-I/AAAAAAAAk90/_aNKxSxRmS0qovhlRKrK2_XPFIVHzg_xQCLcBGAsYHQ/s1600/86185907_852785498494274_5150774147164405760_o.png" /></a>');
-  //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-Q_tTp_aWd_U/Xh9WRNE9R8I/AAAAAAAAk2M/AXsk07zTCzQzxfq4Z-3p06D4zvTm4fKuwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-01-15%2Ba%25CC%2580%2B19.12.51.png" /></a>');
-  //$('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>').insertAfter('.bg-photo-container');
+  //$('.page_body').append('<a href="https://www.catdp.org/#images-1"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-Q_tTp_aWd_U/Xh9WRNE9R8I/AAAAAAAAk2M/AXsk07zTCzQzxfq4Z-3p06D4zvTm4fKuwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-01-15%2Ba%25CC%2580%2B19.12.51.png" /></a>');
+  //$('<a href="https://www.catdp.org/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>').insertAfter('.bg-photo-container');
   $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>")
-  //$('.page_body').append('<a href="https://www.catdp2020.com/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
+  //$('.page_body').append('<a href="https://www.catdp.org/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
 }
 </script>

@@ -11,6 +11,8 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       var imageSize = options.imageSize;
       var randGen = new Generator();
       var CLthis = 'CL' + randGen.getrand();
+      if(jQuery.type(options.clikable) != 'undefined' && options.clikable ==  false)  var galleryClickable = false;
+      else var galleryClickable = true;
       $(this).addClass(CLthis);
       CLthis = '.' + CLthis;
       calcHeight();
@@ -26,7 +28,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         $(CLthis).css('height', galHeight + 'px');
         //galHeight = $(galContainer).css('height');
       }
-      var randGen = new Generator();
+      //var randGen = new Generator();
       window.myGallery = {};
       $(this).each(function() {
         var randNum = 'FB' + randGen.getrand();
@@ -58,10 +60,12 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         ]).then(function() {
           console.log('Everything has loaded!');
           window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
-          var myGalleryTarget = window.location.href + '#' + randNum + '-1';
-          $(_this).wrapInner('<a href="' + myGalleryTarget + '"></a>');
-          if (jQuery.type(ShaderGalleryTarget) != 'undefined') {
-            $('.' + ShaderGalleryTarget).attr("href", myGalleryTarget);
+          if( galleryClickable ) {
+            var myGalleryTarget = window.location.href + '#' + randNum + '-1';
+            $(_this).wrapInner('<a href="' + myGalleryTarget + '"></a>');
+            if (jQuery.type(ShaderGalleryTarget) != 'undefined') {
+              $('.' + ShaderGalleryTarget).attr("href", myGalleryTarget);
+            }
           }
         }).catch(function() {
           console.log('Oh no, epic failure!');

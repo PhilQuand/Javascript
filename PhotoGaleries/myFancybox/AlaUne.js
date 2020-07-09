@@ -139,7 +139,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   if(relHeight < 10) relHeight = $(window).height() * relHeight;
 
                   $('.customInlineBaseClass').css('height', relHeight);
-                  $('.customInlineBaseClass .corpsFancy').css('max-height', relHeight - 200);
+                  $('.customInlineBaseClass .corpsFancy').css('max-height', relHeight - 250);
                 }
                 //$('.customInlineBaseClass').css('top', '750px');
                 var top = 0;

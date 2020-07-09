@@ -53,7 +53,7 @@ article  .divText .attention {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-article  .divImg img {
+article  .divImg * {
     width: 100%;
 }
 article .buttons {
@@ -117,7 +117,8 @@ Notre site a pour objectif de délivrer ces informations et de favoriser les éc
 </article>
 <article class="gauche">
 <div class="divImg mobile">
-<img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /></div>
+<img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" />
+</div>
 <div class="divText">
 <div class="titre">Compléments alimentaires</div>
 Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
@@ -128,7 +129,50 @@ Présentation des principaux produits naturelles qui complètent utilement les t
 </div>
 </div>
 <div class="divImg">
-<img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /></div>
+<!--img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /-->
+<center> 
+<div class='gallery-container'></div>
+<!--p>Quelques exemples<br/><em><span style="color: blue">(<a class="AlaUne-gallery-target" href="">cliquez</a> pour accéder à la galerie des images)</span></em></p--> 
+</center> 
+<style>
+.gallery-container {
+    width: 30vw;
+}
+@media screen and (max-width: 1100px) {
+    .gallery-container {
+         width: 60vw;
+    }
+}
+</style>
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders-plug-in.js'></script>
+<script>
+$(document).ready(function() {
+  $('.gallery-container').Shaders({
+        images: [
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Radicaux-libres-Fruitomed.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/hydroxycitrate.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Artémésia.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineC.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ananas.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Germanium.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Magnesium2.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Krill.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineD3.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/abeilles.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Graviola.jpg',
+          'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Desmodium.jpg'
+        ],
+        imageSize: {
+          x: 1600,
+          y: 1200
+        },
+        clikable: false,
+        //GalleryLink: 'AlaUne-gallery-target'
+  });
+});
+</script>
+</div>
 </article>
 <article class="droit">
 <div class="divImg">
@@ -973,13 +1017,11 @@ $(document).ready(function() {
     offSet: '100px',
     //width: '90%',
     height: '800px',
-    href: [
-    {
+    href: [{
       dataType: "inlineId",
       dataSrc: 'CauseDuCancer-1',
       dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
-    },
-     ]
+    }, ]
   });
   $('#VideoComplémentsAlimentaires').AlaUne({
     src: '<button class="gauche">Voir la vidéo...</button>',
@@ -989,96 +1031,93 @@ $(document).ready(function() {
     href: [{
       dataType: "video",
       dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
-    },
-     ]
+    }, ]
   });
-   $('#ExplicationsComplémentsAlimentaires').AlaUne({
+  $('#ExplicationsComplémentsAlimentaires').AlaUne({
     src: '<button class="droit">Lire la suite...</button>',
     fancyClass: "articleFancy",
     //top: 'article',
     //offSet: '100px',
     height: '800px',
-    href: [
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-1',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Radicaux-libres-Fruitomed.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-2',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/hydroxycitrate.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-3',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Yougou.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-4',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineC.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-5',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ananas.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-6',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Germanium.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-7',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Magnesium2.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-8',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Krill.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-9',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineD3.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-10',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/abeilles.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-11',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Graviola.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Compléments-12',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Desmodium.jpg',
-    },
-     ]
+    href: [{
+        dataType: "inlineId",
+        dataSrc: 'Compléments-1',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Radicaux-libres-Fruitomed.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-2',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/hydroxycitrate.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-3',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Artémésia.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-4',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineC.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-5',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ananas.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-6',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Germanium.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-7',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Magnesium2.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-8',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Krill.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-9',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineD3.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-10',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/abeilles.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-11',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Graviola.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-12',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Desmodium.jpg',
+      },
+    ]
   });
- $('#Hyperthermie').AlaUne({
+  $('#Hyperthermie').AlaUne({
     src: '<button>Voir la vidéo...</button>',
     fancyClass: "articleFancy",
     top: 'article',
     offSet: '100px',
     height: '600px',
-    href: [
-    {
-      dataType: "inlineId",
-      dataSrc: 'Hyperthermie-1',
-      dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
-    },
-    {
-      dataType: "inlineId",
-      dataSrc: 'Hyperthermie-2',
-      dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
-    },
-     ]
+    href: [{
+        dataType: "inlineId",
+        dataSrc: 'Hyperthermie-1',
+        dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Hyperthermie-2',
+        dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
+      },
+    ]
   });
 });
 </script>
@@ -1137,6 +1176,10 @@ $(document).ready(function() {
 </style>
 <style>
 .customInlineBaseClass .fancybox-button--close {
+    display: none;
+}
+.customInlineBaseClass .button-next,
+.customInlineBaseClass .button-previous {
     display: none;
 }
 .customInlineBaseClass .fancybox-button.fancybox-button--arrow_left,

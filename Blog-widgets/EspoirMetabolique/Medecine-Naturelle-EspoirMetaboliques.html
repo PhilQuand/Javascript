@@ -1082,8 +1082,8 @@ Quelques degrés en plus lors d'un traitement anticancéreux pourraient ainsi pe
 </div>
 </div>
 </div>
-<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
-<!--script type="module">
+<!--script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script-->
+<script type="module">
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
   var randGen = new Generator();
@@ -1225,7 +1225,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   if(relHeight < 10) relHeight = $(window).height() * relHeight;
 
                   $('.customInlineBaseClass').css('height', relHeight);
-                  $('.customInlineBaseClass .corpsFancy').css('max-height', relHeight - 250);
+                  $('.customInlineBaseClass .corpsFancy').css('max-height', relHeight - 300);
                 }
                 //$('.customInlineBaseClass').css('top', '750px');
                 var top = 0;
@@ -1388,7 +1388,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
     }
   })();
 })(jQuery);
-</script-->
+</script>
 <script>
 $(document).ready(function() {
   /*$('#CauseDuCancer').AlaUne({
@@ -1631,9 +1631,9 @@ $(document).ready(function() {
 }
 
 @media screen and (max-width: 600px) {
-  /*.customInlineBaseClass {
-    margin-top: 100px;
-  }*/  
+  .customInlineBaseClass .fancybox-inner{
+    margin-top: 40px;
+  }  
   .corpsFancy {
     max-height: none;
   }

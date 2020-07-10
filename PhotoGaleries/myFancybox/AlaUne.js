@@ -155,6 +155,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   var orig = obj.opts.$orig[0];
                   var closestTop = orig.closest(relTop);
                   var offsetTop = closestTop.offsetTop;
+                  if (jQuery.type(relPageCoords) == 'string') {
+                      offsetTop = offsetTop + eval(relPageCoords.split("px")[0]);
+                  }
                   var top = offsetTop + 'px';
                   //var offsetHeight = closestTop.offsetHeight;
                   $('.customInlineBaseClass').css('top', top);
@@ -163,11 +166,6 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   var add2top = relPageCoords.split("px")[0];
                   $('.customInlineBaseClass .fancybox-inner').css('margin-top', add2top);
                 }
-                /*if (jQuery.type(relPageCoords) == 'string') {
-                  var top = relPageCoords;
-                  //var frameSize = Math.max(relPageCoords + 550, $("body").height());
-                  $('.customInlineBaseClass .fancybox-inner').css('top', top);
-                }*/
               },
             });
           }
@@ -207,17 +205,17 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   var orig = obj.opts.$orig[0];
                   var closestTop = orig.closest(relTop);
                   var offsetTop = closestTop.offsetTop;
-                  /*if (jQuery.type(relPageCoords) == 'string') {
-                      offsetTop = offsetTop + relPageCoords.split("px")[0];
-                  }*/
+                  if (jQuery.type(relPageCoords) == 'string') {
+                    offsetTop = offsetTop + eval(relPageCoords.split("px")[0]);
+                  }
                   var top = offsetTop + 'px';
                   //var offsetHeight = closestTop.offsetHeight;
                   $('.customDefaultClass').css('top', top);
                 }
-                if (jQuery.type(relPageCoords) == 'string') {
+                /*if (jQuery.type(relPageCoords) == 'string') {
                   var add2top = relPageCoords.split("px")[0];
                   $('.customInlineBaseClass .fancybox-inner').css('margin-top', add2top);
-                }
+                }*/
               }
             });
           }

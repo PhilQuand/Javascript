@@ -12,7 +12,7 @@ article {
     align-items: center;
     align-content: center;
     width: 100%; 
-    height: 500px;
+    //height: 500px;
 }
 article .divImg {
     //max-width: 323px; 
@@ -42,17 +42,17 @@ article .divText, article .titre-mobile {
     text-justify: inter-word;
 
 }
-article  .divText .titre, article .titre-mobile {
+article .divText .titre, article .titre-mobile {
     font-size: 36px; 
     color:#027ffd;
     text-align: center;
     margin-bottom: 1em;
 }
-article  .divText .attention {
+article .divText .attention {
     font-size: 18px; 
     //color:#027ffd;
     text-align: center;
-    margin-top: 1em;
+    margin-top: 70px;
     margin-bottom: 1em;
 }
 article  .divImg * {
@@ -65,13 +65,13 @@ article button {
     background-image: linear-gradient(90deg, rgb(2, 127, 253), rgba(2, 127, 253, 0.3));
     border: 1px solid rgb(0, 0, 0);
     //width: 100px;
-    margin-top: 1em;
+    //margin-top: 1em;
     float: right;
 }
 article button.gauche {
     background-image: linear-gradient(90deg, rgb(0, 128, 0), rgba(0, 128, 0, 0.3));
     border: 1px solid rgb(0, 0, 0);
-    margin-top: 1em;
+    //margin-top: 1em;
     float: left;
 }
 article button {
@@ -81,7 +81,7 @@ article button {
     padding: 5px;
     border-radius: 8px;
 }
-@media (max-width: 3500px) {
+@media (max-width: 500px) {
     article {
         display: block; 
     }
@@ -109,9 +109,6 @@ article button {
     article .titre-mobile.complements {
       margin-top: 2em;
     }
-    article .titre-mobile.hyperthermie {
-      margin-top: 5em;
-    }
 }
 </style>
 </head>
@@ -123,8 +120,10 @@ article button {
 <img src="https://www.espoirmetabolique.com/file/si1416124/ob_862cb6_dr-otto-heinrich-warburg-prix-nobel-de-fi24503095x814.jpg"></div>
 <div class="divText">
 <div class="titre">La vraie cause du cancer</div>
-Tout ce que vous lisez ici vient du travail de chercheurs, de l’expérience des malades et des études  scientifiques publiées à travers le monde.<br/>
-Notre site a pour objectif de délivrer ces informations et de favoriser les échanges entre patients
+<div style="display:none">Tout ce que vous lisez ici vient du travail de chercheurs, de l’expérience des malades et des études  scientifiques publiées à travers le monde.<br/>
+Notre site a pour objectif de délivrer ces informations et de favoriser les échanges entre patients</div>
+Le cancer doit-il être vraiment compris et traité comme une « maladie des gènes », ou une autre piste, abandonnée puis reprise, pourrait nous permettre de comprendre et de traiter le cancer ?
+<br/>Des chercheurs et médecins dans différents pays le pensent, et veulent en révolutionner le traitement. Pour eux, le cancer est un dérèglement du métabolisme cellulaire, qui pourrait être soigné avec quelques molécules simples...
 <!--div class="button"><div>Suite...</div></div-->
 <div id="CauseDuCancer"></div>
 </div>
@@ -133,15 +132,21 @@ Notre site a pour objectif de délivrer ces informations et de favoriser les éc
 <div class="titre-mobile complements">Compléments alimentaires</div>
 <div class="divText">
 <div class="titre">Compléments alimentaires</div>
-Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
-<div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
+<div style="display:none">Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer.</div> 
+<div class="titreFancy">Exemple des anti oxydants</div>
+<p>Prendre un complexe antioxydant qui regroupe un ensemble de nutriments d'une qualité et d'une biodisponibilité exemplaires:</p>
+<p>L’Acide Alpha-Lipoïque (ou acide R lipoique) est antioxydant et participe à certaines réactions chimiques nécessaires pour fournir 
+de l’énergie aux cellules. Il est naturellement présent dans l'organisme. Son action antioxydante majeure lui confère un rôle majeur dans 
+les désordres liés aux radicaux libres. La forme R de l'acide alpha-lipoique est naturellement produite par l'organisme. Elle est beaucoup 
+plus active que la forme S, que l'on retrouve dans la majorité des compléments alimentaires (moins coûteuse et synthétique).</p>
+<p>La forme R est stable, biodisponible et permet d'obtenir très rapidement une concentration sanguine élevée... </p>
 <div class="buttons">
 <div id="VideoComplémentsAlimentaires-1"></div>
 <div id="ExplicationsComplémentsAlimentaires-1"></div>
 </div>
+<div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
 </div>
 <div class="divImg">
-<!--img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ComplementsAlimentairesMajeurs.jpg" /-->
 <script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders-plug-in.js'></script>
 <center> 
 <div class='gallery-container'></div>
@@ -186,12 +191,19 @@ $(document).ready(function() {
 </div>
 <div class="divText mobile">
 <div class="titre">Compléments alimentaires</div>
-Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer. 
-<div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
+<div style="display:none">Présentation des principaux produits naturelles qui complètent utilement les traitements conventionnels du cancer.</div> 
+<div class="titreFancy">Exemple des anti oxydants</div>
+<p>Prendre un complexe antioxydant qui regroupe un ensemble de nutriments d'une qualité et d'une biodisponibilité exemplaires:</p>
+<p>L’Acide Alpha-Lipoïque (ou acide R lipoique) est antioxydant et participe à certaines réactions chimiques nécessaires pour fournir 
+de l’énergie aux cellules. Il est naturellement présent dans l'organisme. Son action antioxydante majeure lui confère un rôle majeur dans 
+les désordres liés aux radicaux libres. La forme R de l'acide alpha-lipoique est naturellement produite par l'organisme. Elle est beaucoup 
+plus active que la forme S, que l'on retrouve dans la majorité des compléments alimentaires (moins coûteuse et synthétique).</p>
+<p>La forme R est stable, biodisponible et permet d'obtenir très rapidement une concentration sanguine élevée... </p>
 <div class="buttons">
 <div id="VideoComplémentsAlimentaires-2"></div>
 <div id="ExplicationsComplémentsAlimentaires-2"></div>
 </div>
+<div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
 </div>
 </article>
 <article class="droit">
@@ -200,8 +212,11 @@ Présentation des principaux produits naturelles qui complètent utilement les t
 <img style="max-width:500px" src="https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg"></div>
 <div class="divText">
 <div class="titre">L'hyperthermie</div>
-C'est à cette voie que Jacob Aten et ses collègues de l'Academic Medical center d'Amsterdam ont décidé de s'attaquer.
-<div id="Hyperthermie"></div>
+<p>C'est à cette voie que Jacob Aten et ses collègues de l'Academic Medical center d'Amsterdam ont décidé de s'attaquer.</p>
+<p>En premier lieu, ils ont constaté chez la souris, qu'une hausse de température de l'organisme de quelques degrés (de 37°C à 41°C) permettait d'inhiber le mécanisme de recombinaison homologue. 
+<p>Ils ont ensuite montré que cette même hausse de température agissait directement sur les cellules cancéreuses, les rendant plus sensibles au traitement qui permet d'inhiber la protéine PARP-1, dont le rôle principal est de reconnaître les cassures de l'ADN et d'alerter la machinerie cellulaire en vue d'une réparation.</p>
+<p>Quelques degrés en plus lors d'un traitement anticancéreux pourraient ainsi permettre, en jouant sur deux points essentiels de la réparation d'ADN, une meilleure réponse de l'organisme malade et ainsi améliorer ses chances de rémission. Ces travaux pourraient donc avoir des applications prometteuses dans le traitement de nombreuses tumeurs.</p>
+<!--div id="Hyperthermie"></div-->
 </div>
 </article>
 <div class="articleFancy" id="CauseDuCancer-1" >
@@ -1268,7 +1283,7 @@ $(document).ready(function() {
 .customInlineBaseClass .fancybox-button.fancybox-button--arrow_right {
     display: block;
 }
-.customInlineBaseClass .articleFancy {
+.articleFancy {
     padding: 0 0 0 0;
     width: 80%;
     height: 90vh;
@@ -1276,13 +1291,13 @@ $(document).ready(function() {
     transition: box-shadow .2s;
     display: none;
 }
-.customInlineBaseClass .fontFancy {
+.fontFancy {
     font-family: Arial, Helvetica, sans-serif;;
     font-size: 18px;
     line-height: 1.4;
     padding: 40px 20px 20px 20px;
 }
-.customInlineBaseClass .titreFancy {
+.titreFancy {
     font-weight: bold;
     font-style: italic;
     color: #027ffd;
@@ -1292,7 +1307,7 @@ $(document).ready(function() {
     margin: 10px 10px 10px 0;
     //margin: 10px 10px 0 0;
 }
-.customInlineBaseClass .titreFancy a:link {
+.titreFancy a:link {
    color:inherit;
 }
 /*.customInlineBaseClass .fontSummary, .fontFancy {
@@ -1302,7 +1317,7 @@ $(document).ready(function() {
     text-align: justify;
     color: black;
 }*/
-.customInlineBaseClass .corpsFancy {
+.corpsFancy {
     width: 100%;
     max-height: calc(100vh - 200px);
     overflow: auto;
@@ -1313,10 +1328,10 @@ $(document).ready(function() {
   .customInlineBaseClass .fancybox-inner {
     margin-top: 40px;
   }  
-  .customInlineBaseClass .corpsFancy {
+  .corpsFancy {
     max-height: none;
   }
-  .customInlineBaseClass .titreFancy {
+  .titreFancy {
     font-size: 18px;
     line-height: 1.;
     margin-left: 60px;

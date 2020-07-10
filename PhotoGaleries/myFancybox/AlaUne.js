@@ -1,4 +1,3 @@
-<!--script type="module">
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
   var randGen = new Generator();

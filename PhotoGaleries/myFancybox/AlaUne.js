@@ -1,3 +1,4 @@
+<!--script type="module">
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
   var randGen = new Generator();
@@ -127,7 +128,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 }
               },
               onUpdate: function(opts, obj) {
-                //$('.customInlineBaseClass .articleFancy.fancybox-content').css('width', '90%');
+                $('.customInlineBaseClass .articleFancy.fancybox-content').css('width', '100%');
                 if (jQuery.type(relPageWidth) == 'string') {
                   $('.customInlineBaseClass .articleFancy.fancybox-content').css('width', relPageWidth);
                 }
@@ -139,7 +140,15 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   if(relHeight < 10) relHeight = $(window).height() * relHeight;
 
                   $('.customInlineBaseClass').css('height', relHeight);
-                  $('.customInlineBaseClass .corpsFancy').css('max-height', relHeight - 250);
+                  //var botOffset = $('.customInlineBaseClass .fancybox-inner').css('margin-topt');
+                  //var corpsFancyHeight = relHeight + $('.customInlineBaseClass .fancybox-inner').css('margin-topt') - 250;
+                  var fancyboxContent = $('.customInlineBaseClass .articleFancy.fancybox-content').first();
+                  var titreFancy = $('.customInlineBaseClass .articleFancy.fancybox-content  .titreFancy').first();
+                  if(fancyboxContent.length == 1) {
+                    var fancyboxContentHeight = fancyboxContent[0].offsetHeight;
+                    var titreFancyHeight = titreFancy[0].offsetHeight;
+                    $('.customInlineBaseClass .articleFancy.fancybox-content .corpsFancy').css('max-height', fancyboxContentHeight - titreFancyHeight - 100);
+                  }
                 }
                 //$('.customInlineBaseClass').css('top', '750px');
                 var top = 0;
@@ -147,18 +156,18 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   var orig = obj.opts.$orig[0];
                   var closestTop = orig.closest(relTop);
                   var offsetTop = closestTop.offsetTop;
-                  if (jQuery.type(relPageCoords) == 'string') {
-                      var add2top = relPageCoords.split("px")[0];
-                      offsetTop = offsetTop + eval(relPageCoords.split("px")[0]);
-                  }
                   var top = offsetTop + 'px';
                   //var offsetHeight = closestTop.offsetHeight;
                   $('.customInlineBaseClass').css('top', top);
                 }
+                if (jQuery.type(relPageCoords) == 'string') {
+                  var add2top = relPageCoords.split("px")[0];
+                  $('.customInlineBaseClass .fancybox-inner').css('margin-top', add2top);
+                }
                 /*if (jQuery.type(relPageCoords) == 'string') {
                   var top = relPageCoords;
                   //var frameSize = Math.max(relPageCoords + 550, $("body").height());
-                  $('.customInlineBaseClass').css('top', top);
+                  $('.customInlineBaseClass .fancybox-inner').css('top', top);
                 }*/
               },
             });
@@ -182,7 +191,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
                   else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
                 }
-                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">x</a>');
+                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
               },
               onUpdate: function(opts, obj) {
 
@@ -199,12 +208,16 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   var orig = obj.opts.$orig[0];
                   var closestTop = orig.closest(relTop);
                   var offsetTop = closestTop.offsetTop;
-                  if (jQuery.type(relPageCoords) == 'string') {
+                  /*if (jQuery.type(relPageCoords) == 'string') {
                       offsetTop = offsetTop + relPageCoords.split("px")[0];
-                  }
+                  }*/
                   var top = offsetTop + 'px';
                   //var offsetHeight = closestTop.offsetHeight;
                   $('.customDefaultClass').css('top', top);
+                }
+                if (jQuery.type(relPageCoords) == 'string') {
+                  var add2top = relPageCoords.split("px")[0];
+                  $('.customInlineBaseClass .fancybox-inner').css('margin-top', add2top);
                 }
               }
             });

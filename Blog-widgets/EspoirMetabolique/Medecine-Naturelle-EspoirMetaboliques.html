@@ -1425,7 +1425,7 @@ $(document).ready(function() {
     },
    ]
   });
-  $('#VideoComplémentsAlimentaires-1').AlaUne({
+  var VideoComplémentsAlimentaires = {
     src: '<button class="gauche">Voir la vidéo...</button>',
     fancyClass: "default",
     top: 'article',
@@ -1436,20 +1436,10 @@ $(document).ready(function() {
       dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
     },
     ]
-  });
-  $('#VideoComplémentsAlimentaires-2').AlaUne({
-    src: '<button class="gauche">Voir la vidéo...</button>',
-    fancyClass: "default",
-    top: 'article',
-    //offSet: '500px',
-    href: [
-    {
-      dataType: "video",
-      dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
-    },
-    ]
-  });
-  $('#ExplicationsComplémentsAlimentaires-1').AlaUne({
+  };
+  $('#VideoComplémentsAlimentaires-1').AlaUne(VideoComplémentsAlimentaires);
+  $('#VideoComplémentsAlimentaires-2').AlaUne(VideoComplémentsAlimentaires);
+  var ExplicationsComplémentsAlimentaires = {
     src: '<button class="droit">Lire la suite...</button>',
     fancyClass: "articleFancy",
     top: 'article',
@@ -1516,75 +1506,9 @@ $(document).ready(function() {
         dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Desmodium.jpg',
       },
     ]
-  });
-  $('#ExplicationsComplémentsAlimentaires-2').AlaUne({
-    src: '<button class="droit">Lire la suite...</button>',
-    fancyClass: "articleFancy",
-    top: 'article',
-    offSet: '100px',
-    height: '800px',
-    href: [{
-        dataType: "inlineId",
-        dataSrc: 'Compléments-1',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Radicaux-libres-Fruitomed.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-2',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/hydroxycitrate.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-3',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Artémésia.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-4',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineC.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-5',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ananas.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-6',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Germanium.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-7',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Magnesium2.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-8',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Krill.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-9',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineD3.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-10',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/abeilles.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-11',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Graviola.jpg',
-      },
-      {
-        dataType: "inlineId",
-        dataSrc: 'Compléments-12',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Desmodium.jpg',
-      },
-    ]
-  });
+  };
+  $('#ExplicationsComplémentsAlimentaires-1').AlaUne(ExplicationsComplémentsAlimentaires);
+  $('#ExplicationsComplémentsAlimentaires-2').AlaUne(ExplicationsComplémentsAlimentaires);
   $('#Hyperthermie').AlaUne({
     src: '<button>Lire la suite...</button>',
     fancyClass: "articleFancy",
@@ -1707,9 +1631,9 @@ $(document).ready(function() {
 }
 
 @media screen and (max-width: 600px) {
-  .customInlineBaseClass {
+  /*.customInlineBaseClass {
     margin-top: 100px;
-  }  
+  }*/  
   .corpsFancy {
     max-height: none;
   }

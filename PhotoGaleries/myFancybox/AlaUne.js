@@ -162,10 +162,10 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   //var offsetHeight = closestTop.offsetHeight;
                   $('.customInlineBaseClass').css('top', top);
                 }
-                if (jQuery.type(relPageCoords) == 'string') {
+                /*if (jQuery.type(relPageCoords) == 'string') {
                   var add2top = relPageCoords.split("px")[0];
                   $('.customInlineBaseClass .fancybox-inner').css('margin-top', add2top);
-                }
+                }*/
               },
             });
           }

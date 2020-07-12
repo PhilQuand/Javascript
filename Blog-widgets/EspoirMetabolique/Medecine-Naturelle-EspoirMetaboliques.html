@@ -7,6 +7,9 @@
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
 <style>
+articleWrapper {
+    display: block;
+}
 article {
     display: flex; 
     align-items: center;
@@ -14,15 +17,15 @@ article {
     width: 100%; 
     //height: 700px;
 }
-article.CauseDuCancer {
+/*article.CauseDuCancer {
     height: 400px;
 }
 article.CompAlim {
-    height: 1000px;
+    height: 900px;
 }
 article.Hyperthermie {
     height: 700px;
-}
+}*/
 article .divImg {
     //max-width: 323px; 
     width: 40%; 
@@ -94,6 +97,15 @@ article button {
     article {
         display: block; 
     }
+    /*article.CauseDuCancer {
+        height: 700px;
+    }
+    article.CompAlim {
+        height: 1550px;
+    }
+    article.Hyperthermie {
+        height: 700px;
+    }*/
     article .divImg {
         display: block;
         margin-left: auto;
@@ -120,10 +132,51 @@ article button {
     }
 }
 </style>
+
 </head>
 <body>
 
-<article class="CauseDuCancer droit">
+    <p>parent Window Height is:  
+        <span class="windowHeight"></span> 
+    </p> 
+      
+    <p>parent Windows Width is:  
+        <span class="windowWidth"></span> 
+    </p> 
+      
+    <p>parent Window.innerHeight is:  
+        <span class="windowInnerHeight"></span> 
+    </p> 
+      
+    <p>parent Windows.innerWidth is:  
+        <span class="windowInnerWidth"></span> 
+    </p> 
+      
+    <p>parent Window.outerHeight is:  
+        <span class="windowOuterHeight"></span> 
+    </p> 
+      
+    <p>parent Windows.outerWidth is:  
+        <span class="windowOuterWidth"></span> 
+    </p> 
+      
+    <p>parent Document Height is:  
+        <span class="documentHeight"></span> 
+    </p> 
+      
+    <p>parent Document Width is:  
+        <span class="documentWidth"></span> 
+    </p> 
+      
+    <p>parent Screen Height is:  
+        <span class="screenHeight"></span> 
+    </p> 
+      
+    <p>parent Screen Width is:  
+        <span class="screenWidth"></span> 
+    </p>
+    
+<div class='articleWrapper'><article class="CauseDuCancer droit">
 <div class="titre-mobile">La vraie cause du cancer</div>
 <div class="divImg">
 <img src="https://www.espoirmetabolique.com/file/si1416124/ob_862cb6_dr-otto-heinrich-warburg-prix-nobel-de-fi24503095x814.jpg"></div>
@@ -136,8 +189,8 @@ Le cancer doit-il être vraiment compris et traité comme une « maladie des gè
 <!--div class="button"><div>Suite...</div></div-->
 <div id="CauseDuCancer"></div>
 </div>
-</article>
-<article class="CompAlim gauche">
+</article></div>
+<div class='articleWrapper'><article class="CompAlim gauche">
 <div class="titre-mobile complements">Compléments alimentaires</div>
 <div class="divText">
 <div class="titre">Compléments alimentaires</div>
@@ -214,8 +267,8 @@ plus active que la forme S, que l'on retrouve dans la majorité des compléments
 </div>
 <div class="attention">Chaque cas étant particulier, il est indispensable de consulter votre thérapeute <br/>pour définir la posologie la mieux adaptée à votre situation.</div>
 </div>
-</article>
-<article class="Hyperthermie  droit">
+</article></div>
+<div class='articleWrapper'><article class="Hyperthermie  droit">
 <div class="titre-mobile hyperthermie">L'hyperthermie</div>
 <div class="divImg">
 <img style="max-width:500px" src="https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg"></div>
@@ -227,7 +280,7 @@ plus active que la forme S, que l'on retrouve dans la majorité des compléments
 <p>Quelques degrés en plus lors d'un traitement anticancéreux pourraient ainsi permettre, en jouant sur deux points essentiels de la réparation d'ADN, une meilleure réponse de l'organisme malade et ainsi améliorer ses chances de rémission. Ces travaux pourraient donc avoir des applications prometteuses dans le traitement de nombreuses tumeurs.</p>
 <!--div id="Hyperthermie"></div-->
 </div>
-</article>
+</article></div>
 <div class="articleFancy" id="CauseDuCancer-1" >
 <div class="fontFancy">
 <div class="titreFancy">
@@ -269,6 +322,9 @@ Le Cancer la piste oubliée Documentaire arte
 </div>
 </div>
 </center>
+</div>
+<div class="footFancy">
+pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).
 </div>
 </div>
 </div>
@@ -332,6 +388,9 @@ Les informations contenues dans cette vidéo sont fournies à des fins éducativ
 <p>notre site "Espoir Metabolique" ne sera pas responsable des déclarations inexactes ou incorrectes. Nous mettons ce matériel à la disposition de nos lecteurs en vertu des dispositions de « l’utilisation équitable », dans un effort pour faire progresser une meilleure compréhension des enjeux politiques, économiques et sociaux. Le contenu de ce site est distribué sans profit pour ceux qui ont exprimé un intérêt aux fins de recherche et d’enseignement.</p>
 
 </div>
+<div class="footFancy">
+pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).
+</div>
 </div>
 </div>
 
@@ -390,6 +449,9 @@ Les anti oxydants
 
 <p>Le sélénium contribue à protéger les cellules du stress oxydatif.  Il intervient dans le métabolisme des radicaux libres et d'autres substances produites par l'oxydation des lipides au niveau des membranes cellulaires. Il intervient dans le métaboilisme du glutathion, un des antioxydants corporels les plus puissant. Il est issu de fermentation de levures.</p>
 
+</div>
+<div class="footFancy">
+pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).
 </div>
 </div>
 </div>
@@ -1106,15 +1168,360 @@ Quelques degrés en plus lors d'un traitement anticancéreux pourraient ainsi pe
 </div>
 </div>
 </div>
-<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<!--script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script-->
+<script type="module">
+import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
+(function($) {
+  var randGen = new Generator();
+  $.fn.AlaUne = function(options) {
+    var _this = this;
+    Promise.all([
+      //  chargements des dépendances css
+      //load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css'),
+      load.css('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'),
+      load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
+      //  chargements des dépendances js
+      load.js('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js'),
+      load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
+    ]).then(function() {
+      console.log('Everything has loaded!');
+      if (jQuery.type(options) == 'undefined' || jQuery.type(options.src) == 'undefined') return false;
+      var src = options.src;
+      switch (jQuery.type(src)) {
+        case "string":
+          if (src.indexOf('http') == 0) src = ('<img class="img-AlaUne" src="' + src + '" />');
+          break;
+        default:
+          log('AlaUne plugin error src');
+      }
+      if (jQuery.type(options.href) == 'undefined') {
+        $(_this).append(src);
+        return;
+      }
+      var randNum = 'FB' + randGen.getrand();
+      var randHid = 'HD' + randGen.getrand();
+      switch (jQuery.type(options.href)) {
+        case "string":
+          $(_this).append('<a href="' + options.href + '">' + src + '</a>');
+          break;
+        case "array":
+          break;
+        case "object":
+          options.href = [options.href]
+          break;
+        default:
+          log('AlaUne plugin error options.href = ' + options.href);
+      }
+      if (jQuery.type(options.top) != 'undefined') var relTop = options.top;
+      if (jQuery.type(options.offSet) != 'undefined') var relPageCoords = options.offSet;
+      if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
+      if (jQuery.type(options.height) != 'undefined') var relPageHeight = options.height;
+      if (jQuery.type(options.href) == 'undefined') {
+        $(_this).append(src);
+        return;
+      }
+      for (var i = 0; i < options.href.length; i++) {
+        if (jQuery.type(options.href[i].dataType) == 'string') {
+          if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
+          else {
+            switch (options.href[i].dataType) {
+              case "inlineId":
+                //var inlineId = $('#' + options.href[i].dataSrc);
+                //inlineId = inlineId.wrap('<div class="corpsFancy"></div>');
+                //inlineId = inlineId.wrap('<div class="articleFancy" id="' + randHid + i + '" style="display:none"></div>');
+                //$(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
+                if (jQuery.type(options.href[i].dataThumb) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '">inline ' + i + '</a>');
+                else $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '" data-thumb="' + options.href[i].dataThumb + '">inline ' + i + '</a>');
+                //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
+                break;
+              case "inline":
+                $(_this).append('<div class="articleFancy" id="' + randHid + i + '"> \
+                              <div class="corpsFancy"> \
+                              ' + options.href[i].dataSrc + ' \
+                              </div></div>');
+                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
+                //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
+                break;
+              case "iframe":
+                //$(this).append('<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="FB' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i +'</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" data-width="1132" data-height="1600">iframe ' + i + '</a>');
+                break;
+              case "images":
+                //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" data-width="1132" data-height="1600">images ' + i + '</a>');
+                break;
+              case "video":
+                //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '">video ' + i + '</a>');
+                break;
+              default:
+                console.log('AlaUne plugin error options.href = ' + options.href);
+            }
+          }
+        }
+      }
+      var loc = window.location.href;
+      loc = loc.split('#');
+      loc = loc[0];
+      if (options.href.length > 1)
+        $(_this).append('<a href="' + loc + '#' + randNum + '-1">' + src + '</a>');
+      else
+        $(_this).append('<a href="' + loc + '#' + randNum + '">' + src + '</a>');
+      // pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
+      var fancyClass = {};
+      switch (jQuery.type(options.fancyClass)) {
+        case "string":
+          if (options.fancyClass == 'articleFancy') {
+            $('.' + randNum).fancybox({
+              smallBtn: false,
+              toolbar: true,
+              infobar: true,
+              arrows: true,
+              animationEffect: "fade",
+              transitionEffect: "slide",
+              speed: 300,
+              margin: [40, 20],
+              buttons: false,
+              thumbs: {
+                autoStart: false, // Display thumbnails on opening
+                hideOnClose: true // Hide thumbnail grid when closing animation starts
+              },
+              buttons: [
+                'close',
+                'thumbs'
+              ],
+              baseClass: 'articleFancyClass',
+              afterLoad: function(instance, current) {
+                $(".getFancyFocus").focus();
+                /*if (instance.group.length > 1 && current.$content) {
+                  if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+                  else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                  else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                }*/
+              },
+              onUpdate: function(opts, obj) {
+            var  windowParent = window.parent;
+            //var  windowParent = window;
+            var windowHeight = windowParent.$(window).height(); 
+            var windowWidth = windowParent.$(window).width(); 
+            var windowOuterHeight = windowParent.window.outerHeight; 
+            var windowOuterWidth = windowParent.window.outerWidth; 
+            var windowInnerHeight = windowParent.window.innerHeight; 
+            var windowInnerWidth = windowParent.window.innerWidth; 
+            var documentHeight = windowParent.document.documentElement.clientHeight; 
+            var documentWidth = windowParent.document.documentElement.clientWidth; 
+            var screenHeight = screen.height; 
+            var screenWidth = screen.width; 
+  
+            document.querySelector('.windowHeight').textContent 
+                        = windowHeight; 
+            document.querySelector('.windowWidth').textContent 
+                        = windowWidth; 
+            document.querySelector('.windowOuterHeight').textContent 
+                        = windowOuterHeight; 
+            document.querySelector('.windowOuterWidth').textContent 
+                        = windowOuterWidth; 
+            document.querySelector('.windowInnerHeight').textContent 
+                        = windowOuterHeight; 
+            document.querySelector('.windowInnerWidth').textContent 
+                        = windowInnerWidth; 
+            document.querySelector('.documentHeight').textContent 
+                        = documentHeight; 
+            document.querySelector('.documentWidth').textContent 
+                        = documentWidth; 
+            document.querySelector('.screenHeight').textContent 
+                        = screenHeight; 
+            document.querySelector('.screenWidth').textContent 
+                        = screenWidth;
+                //$('.articleFancyClass').css('position', 'absolute');
+                //$('.articleFancyClass').css('top', '1px');
+                //var relHeight = window.outerHeight -  1;
+                //var relHeight = window.innerHeight -  1;
+                var relHeight = documentHeight;
+                relHeight = documentHeight + 'px';
+                $('.articleFancyClass').css('height', relHeight);
+
+                /*$('.articleFancyClass .articleFancy.fancybox-content').css('width', '100%');
+                if (jQuery.type(relPageWidth) == 'string') {
+                  $('.articleFancyClass .articleFancy.fancybox-content').css('width', relPageWidth);
+                }
+                //$('.articleFancyClass').css('height', $(window).height()*0.5);
+                //$('.articleFancyClass .corpsFancy').css('max-height', $(window).height()*0.5-200);
+                if (jQuery.type(relPageHeight) == 'string') {
+                  //var relPageHeight = $(window).height() * relPageHeightCoef;
+                  var relHeight = relPageHeight.split("px")[0];
+                  if(relHeight < 10) relHeight = $(window).height() * relHeight;
+
+                  $('.articleFancyClass').css('height', relHeight);
+                }*/
+                  //var botOffset = $('.articleFancyClass .fancybox-inner').css('margin-topt');
+                  //var corpsFancyHeight = relHeight + $('.articleFancyClass .fancybox-inner').css('margin-topt') - 250;
+                  var fancyboxContent = $('.articleFancyClass .articleFancy.fancybox-content').first();
+                  if(fancyboxContent.length == 1) {
+                    var fancyboxContentHeight = fancyboxContent[0].offsetHeight;
+                    var titreFancy = $('.articleFancyClass .articleFancy.fancybox-content  .titreFancy').first();
+                    var titreFancyHeight = titreFancy[0].offsetHeight;
+                    var footFancy = $('.articleFancyClass .articleFancy.fancybox-content  .footFancy').first();
+                    var footFancyHeight = footFancy[0].offsetHeight;
+                    //$('.articleFancyClass .articleFancy.fancybox-content .corpsFancy').css('max-height', fancyboxContentHeight - titreFancyHeight - footFancyHeight);
+                    $('.articleFancyClass .articleFancy.fancybox-content .corpsFancy').css('max-height', documentHeight - titreFancyHeight - footFancyHeight-50);
+                  }
+                //$('.articleFancyClass').css('top', '750px');
+              },
+            });
+          }
+          else {
+            $('.' + randNum).fancybox({
+              baseClass: 'customDefaultClass',
+              smallBtn: false,
+              toolbar: false,
+              afterLoad: function(instance, current) {
+
+                var pixelRatio = window.devicePixelRatio || 1;
+
+                /*if (pixelRatio > 1.5) {
+                  current.width = current.width / pixelRatio;
+                  current.height = current.height / pixelRatio;
+                }*/
+
+                if (instance.group.length > 1 && current.$content) {
+                  if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+                  else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                  else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                }
+                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
+              },
+              onUpdate: function(opts, obj) {
+
+                if (jQuery.type(relPageWidth) == 'string') {
+                  $('.customDefaultClass .fancybox-content').css('width', relPageWidth);
+                }
+ 
+                /*if (jQuery.type(relPageCoords) == 'string') {
+                  var top = relPageCoords;
+                  $('.customInlineBaseClass .fancybox-content').css('top', top);
+                }*/
+                var top = 0;
+                if (jQuery.type(relTop) == 'string') {
+                  var orig = obj.opts.$orig[0];
+                  var closestTop = orig.closest(relTop);
+                  var offsetTop = closestTop.offsetTop;
+                  if (jQuery.type(relPageCoords) == 'string') {
+                    offsetTop = offsetTop + eval(relPageCoords.split("px")[0]);
+                  }
+                  var top = offsetTop + 'px';
+                  //var offsetHeight = closestTop.offsetHeight;
+                  $('.customDefaultClass').css('top', top);
+                }
+                /*if (jQuery.type(relPageCoords) == 'string') {
+                  var add2top = relPageCoords.split("px")[0];
+                  $('.customInlineBaseClass .fancybox-inner').css('margin-top', add2top);
+                }*/
+              }
+            });
+          }
+          break;
+        case "object":
+          $('.' + randNum).fancybox(options.fancyClass);
+          break;
+      }
+      /*$('.fancybox')
+      .attr('rel', 'gallery')
+      .fancybox({
+          baseClass: 'customIframeBaseClass customInlineBaseClass',
+          //arrows: true,
+          smallBtn: false,
+          toolbar: true,
+          buttons: [
+            'close'
+          ],
+          afterLoad : function(instance, current) {
+              
+              var pixelRatio = window.devicePixelRatio || 1;
+
+              if ( pixelRatio > 1.5 ) {
+                  current.width  = current.width  / pixelRatio;
+                  current.height = current.height / pixelRatio;
+              }
+              
+              if (instance.group.length > 1 && current.$content) {
+                if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+                else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+                else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+              }
+              var url = window.location.href;
+              indexFancy = url.indexOf('#');
+              if( indexFancy > 1 ) {
+                var url = url.substr(0, indexFancy-1);
+              }
+              current.$content.append('<a data-fancybox-close class="button-close" href="' + url + '">x</a>');
+          }
+      })*/
+    }).catch(function() {
+      console.log('Oh no, epic failure!');
+    });
+  }
+
+  function Generator() {};
+
+  Generator.prototype.rand = Math.floor(Math.random() * 26) + Date.now();
+
+  Generator.prototype.getrand = function() {
+    return this.rand++;
+  };
+  var load = (function() {
+    // Function which returns a function: https://davidwalsh.name/javascript-functions
+    function _load(tag) {
+      return function(url) {
+        // This promise will be used by Promise.all to determine success or failure
+        return new Promise(function(resolve, reject) {
+          var element = document.createElement(tag);
+          var parent = 'body';
+          var attr = 'src';
+
+          // Important success and error for the promise
+          element.onload = function() {
+            resolve(url);
+          };
+          element.onerror = function() {
+            reject(url);
+          };
+
+          // Need to set different attributes depending on tag type
+          switch (tag) {
+            case 'script':
+              element.async = true;
+              break;
+            case 'link':
+              element.type = 'text/css';
+              element.rel = 'stylesheet';
+              attr = 'href';
+              parent = 'head';
+          }
+
+          // Inject into document to kick off loading
+          element[attr] = url;
+          document[parent].appendChild(element);
+        });
+      };
+    }
+
+    return {
+      css: _load('link'),
+      js: _load('script'),
+      img: _load('img')
+    }
+  })();
+})(jQuery);
+</script>
 <script>
 $(document).ready(function() {
   $('#CauseDuCancer').AlaUne({
     src: '<button>Lire la suite...</button>',
     fancyClass: "articleFancy",
-    top: 'article',
-    offSet: '100px',
-    height: '800px',
+    //top: 'article',
+    //offSet: '100px',
+    //height: '800px',
     href: [
     {
       dataType: "inlineId",
@@ -1131,7 +1538,7 @@ $(document).ready(function() {
   var VideoComplémentsAlimentaires = {
     src: '<button class="gauche">Voir la vidéo...</button>',
     fancyClass: "default",
-    top: 'article',
+    //top: 'article',
     //offSet: '500px',
     href: [
     {
@@ -1145,9 +1552,9 @@ $(document).ready(function() {
   var ExplicationsComplémentsAlimentaires = {
     src: '<button class="droit">Lire la suite...</button>',
     fancyClass: "articleFancy",
-    top: 'article',
-    offSet: '100px',
-    height: '800px',
+    //top: 'article',
+    //offSet: '100px',
+    //height: '800px',
     href: [{
         dataType: "inlineId",
         dataSrc: 'Compléments-1',
@@ -1281,21 +1688,27 @@ $(document).ready(function() {
 }
 </style>
 <style>
-.customInlineBaseClass .fancybox-button--close {
-    display: none;
+.articleFancyClass {
+    position: absolute;
+}  
+.articleFancyClass .fancybox-inner {
+    margin-top: 40px;
+}  
+.articleFancyClass .fancybox-content {
+    width: 100%;
+    height: 100%;
+}  
+.articleFancyClass .fancybox-button--close {
+    display: block;
 }
-.customInlineBaseClass .button-next,
-.customInlineBaseClass .button-previous {
-    display: none;
-}
-.customInlineBaseClass .fancybox-button.fancybox-button--arrow_left,
-.customInlineBaseClass .fancybox-button.fancybox-button--arrow_right {
+.articleFancyClass .fancybox-button.fancybox-button--arrow_left,
+.articleFancyClass .fancybox-button.fancybox-button--arrow_right {
     display: block;
 }
 .articleFancy {
     padding: 0 0 0 0;
-    width: 80%;
-    height: 90vh;
+    width: 100%;
+    //height: 90vh;
     box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
     transition: box-shadow .2s;
     display: none;
@@ -1304,7 +1717,9 @@ $(document).ready(function() {
     font-family: Arial, Helvetica, sans-serif;;
     font-size: 18px;
     line-height: 1.4;
-    padding: 40px 20px 20px 20px;
+    height: 100%;
+    //padding: 40px 20px 20px 20px;
+    padding: 0 0 0 0;
 }
 .titreFancy {
     font-weight: bold;
@@ -1313,30 +1728,31 @@ $(document).ready(function() {
     font-size: 24px;
     //line-height: 1.2;
     letter-spacing: 2px;
-    margin: 10px 10px 10px 0;
-    //margin: 10px 10px 0 0;
+    //margin: 10px 10px 10px 0;
+    padding: 10px 10px 10px 10px;
 }
-.titreFancy a:link {
+.footFancy {
+    text-align: center;
+    //font-weight: bold;
+    font-style: italic;
+    //color: #027ffd;
+    font-size: 14px;
+    //line-height: 1.2;
+    letter-spacing: 2px;
+    //margin: 10px 10px 10px 0;
+    padding: 10px 10px 10px 10px;
+}
+.titreFancy a:link, .footFancy a:link {
    color:inherit;
 }
-/*.customInlineBaseClass .fontSummary, .fontFancy {
-    max-width: 100% ;
-    font-weight: normal;
-    font-style: normal;
-    text-align: justify;
-    color: black;
-}*/
 .corpsFancy {
     width: 100%;
     max-height: calc(100vh - 200px);
     overflow: auto;
-    padding: 10px 15px 200px 15px;
+    padding: 10px 15px 10px 15px;
 }
 
 @media screen and (max-width: 600px) {
-  .customInlineBaseClass .fancybox-inner {
-    margin-top: 40px;
-  }  
   .corpsFancy {
     max-height: none;
   }

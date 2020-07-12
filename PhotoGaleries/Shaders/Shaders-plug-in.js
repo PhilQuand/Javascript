@@ -1,5 +1,20 @@
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
 (function($) {
+  var supportsWebGL = (function() {
+    try {
+      return !!window.WebGLRenderingContext && !!document.createElement('canvas').getContext('experimental-webgl');
+    }
+    catch (e) {
+      return false;
+    }
+  })();
+
+  if (supportsWebGL) {
+    console.log("supportsWebGL support");
+  }
+  else {
+    console.log("supportsWebGLno support");
+  }
   $.fn.Shaders = function(options) {
     if (jQuery.type(options) != 'undefined') {
       if (jQuery.type(options.images) == 'undefined' ||

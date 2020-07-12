@@ -13,7 +13,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
     console.log("supportsWebGL support");
   }
   else {
-    console.log("supportsWebGLno support");
+    console.log("supportsWebGL no support");
   }
   $.fn.Shaders = function(options) {
     if (jQuery.type(options) != 'undefined') {
@@ -74,7 +74,8 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
         ]).then(function() {
           console.log('Everything has loaded!');
-          window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
+          if( supportsWebGL ) window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
+          else $(_this).append('<img src="'  + ShadersGalleryoptions.urls[0] + '"/>')
           if( galleryClickable ) {
             var myGalleryTarget = window.location.href + '#' + randNum + '-1';
             $(_this).wrapInner('<a href="' + myGalleryTarget + '"></a>');

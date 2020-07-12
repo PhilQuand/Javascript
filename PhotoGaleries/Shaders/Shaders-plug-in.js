@@ -10,10 +10,10 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
   })();
 
   if (supportsWebGL) {
-    console.log("supportsWebGL support");
+    console.log("WebGL supported");
   }
   else {
-    console.log("supportsWebGL no support");
+    console.log("WebGL not supported");
   }
   $.fn.Shaders = function(options) {
     if (jQuery.type(options) != 'undefined') {

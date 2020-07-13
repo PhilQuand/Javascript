@@ -1198,7 +1198,19 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           log('AlaUne plugin error options.href = ' + options.href);
       }
       var  windowParent = window.parent;
-      var  Zone18429457Height = windowParent.$('#Zone18429457').height();
+      /*var  Zone18429457Height = windowParent.$('#Zone18429457').height();
+      var BackgroundTop = windowParent.$('#Background').css('padding-top')*/
+
+      var HeaderWrapperHeight = windowParent.$('#HeaderWrapper').css('height');
+      var MenuHeight = windowParent.$('#Menu').css('height');
+      var Zone18429457Height = windowParent.$('#Zone18429457').css('height');
+      var Zone18429457Overflow = windowParent.$('#Zone18429457').css('overflow');
+      var FooterWrapperDisplay = windowParent.$('#FooterWrapper').css('display');
+      var Zone18429229Display = windowParent.$('#Zone18429229').css('display');              
+      var HeaderWrapperDisplay = windowParent.$('#HeaderWrapper').css('display');
+      var MenuDisplay = windowParent.$('#Menu').css('visibility');
+      var BackgroundPaddingTop = windowParent.$('#Background').css('padding-top');
+
       if (jQuery.type(options.top) != 'undefined') var relTop = options.top;
       if (jQuery.type(options.offSet) != 'undefined') var relPageCoords = options.offSet;
       if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
@@ -1279,12 +1291,20 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
               ],
               baseClass: 'articleFancyClass',
               afterClose: function(instance, current) {
-                windowParent.$('#Zone18429457').css('height', Zone18429457Height + 'px');
+                /*windowParent.$('#Zone18429457').css('height', Zone18429457Height + 'px');
+                windowParent.$('#BackgroundTop').css('padding-top', BackgroundTop);
                 windowParent.$('#Zone18429457').css('overflow','auto');
                 windowParent.$('#FooterWrapper').css('display','block');
                 windowParent.$('#Zone18429229').css('display','block');
                 windowParent.$('#HeaderWrapper').css('display','block');
-                windowParent.$('#Menu').css('display','block');
+                windowParent.$('#Menu').css('visibility','visible');*/
+      windowParent.$('#Zone18429457').css('height',Zone18429457Height);
+      windowParent.$('#Zone18429457').css('overflow',Zone18429457Overflow);
+      windowParent.$('#FooterWrapper').css('display',FooterWrapperDisplay);
+      windowParent.$('#Zone18429229').css('display',Zone18429229Display);              
+      windowParent.$('#HeaderWrapper').css('display',HeaderWrapperDisplay);
+      windowParent.$('#Menu').css('visibility',MenuDisplay);
+      windowParent.$('#Background').css('padding-top',BackgroundPaddingTop);
               },
               afterLoad: function(instance, current) {
                 $(".getFancyFocus").focus();
@@ -1336,15 +1356,24 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 //$('.articleFancyClass').css('top', '1px');
                 //var relHeight = window.outerHeight -  1;
                 //var relHeight = window.innerHeight -  1;
-                $('.articleFancyClass').css('height', documentHeight + 'px');
-                $('.articleFancyClass .corpsFancy').css('height', documentHeight - 150 + 'px');
                 //windowParent.$('#Zone18429457').css('overflow','hidden');
-                windowParent.$('#Zone18429457').css('height', documentHeight + 'px');
+                var documentInnerHeight = documentHeight;
+                var BackgroundPaddingTopVal = eval(BackgroundPaddingTop.split("px")[0]);
+                if( BackgroundPaddingTopVal > 0 ) {
+                   windowParent.$('#HeaderWrapper').css('display','none');
+                   windowParent.$('#Background').css('padding-top', MenuHeight);
+                   documentInnerHeight = documentInnerHeight -  eval(MenuHeight.split("px")[0]);
+                } else documentInnerHeight = documentInnerHeight -  eval(HeaderWrapperHeight.split("px")[0]);
+                windowParent.$('#Zone18429457').css('height', documentInnerHeight + 'px');
                 windowParent.$('#Zone18429457').css('overflow','hidden');
                 windowParent.$('#FooterWrapper').css('display','none');
-                windowParent.$('#Zone18429229').css('display','none');
-                windowParent.$('#HeaderWrapper').css('display','none');
-                windowParent.$('#Menu').css('display','none');
+                windowParent.$('#Zone18429229').css('display','none'); 
+
+                //windowParent.$('#HeaderWrapper').css('display','none');
+                //windowParent.$('#Menu').css('visibility','hidden');
+                $('.articleFancyClass').css('height', documentInnerHeight + 'px');
+                $('.articleFancyClass .corpsFancy').css('height', documentInnerHeight - 150 + 'px');
+                windowParent.window.scrollTo(0, 0);             
 
                 /*$('.articleFancyClass .articleFancy.fancybox-content').css('width', '100%');
                 if (jQuery.type(relPageWidth) == 'string') {

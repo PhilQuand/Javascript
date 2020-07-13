@@ -1,4 +1,9 @@
-<html><head><!-- jQuery for FancyBox 3-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vidéos d'Espoir Métaboliques</title>
+
+<!-- jQuery for FancyBox 3-->
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
 <style>
@@ -130,6 +135,7 @@ article button {
 
 </head>
 <body>
+
     <p>parent Window Height is:  
         <span class="windowHeight"></span> 
     </p> 
@@ -977,19 +983,19 @@ L'intérêt de la propolis rouge
 <div class="divImg">
 <img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/abeilles.jpg" /></div>
 <div class="divText">
-La propolis rouge présente elle une activité antitumorale considérable ayant été démontrée dans des études in vitro et in vivo depuis les années 1990.
+La propolis rouge présente elle une activité antitumorale considérable ayant été démontrée&nbsp;dans des études in vitro et in vivo depuis les années 1990.
 </div>
 </div>
 
 <p>elle enrayent le développement de différentes lignées cancéreuses humaines</p>
 
-<p>  → protège les cellules saines et l’ADN,</p>
+<p>&nbsp;&nbsp;→&nbsp;protège les cellules saines et l’ADN,</p>
 
-<p>  → détruit les cellules cancéreuses,</p>
+<p>&nbsp;&nbsp;→&nbsp;détruit les cellules cancéreuses,</p>
 
-<p>  → et stimule énergiquement le système immunitaire.</p>
+<p>&nbsp;&nbsp;→&nbsp;et stimule énergiquement le système immunitaire.</p>
 
-<p>Si aujourd’hui la chimiothérapie entraîne de nombreuses infections liées à la dégradation de la qualité du sang, avec notamment une baisse importante des globules blancs et rouges, affaiblissant dangereusement les malades…selon le Docteur Willem, « l’association de propolis rouge à la chimiothérapie donne des résultats intéressants : les globules blancs diminuent en proportion moitié moindre et le nombre de globules rouges redevient normal au bout de 35 jours de traitement. »</p>
+<p>Si aujourd’hui la chimiothérapie entraîne de nombreuses infections liées à la dégradation de la qualité du sang, avec notamment une baisse importante des globules blancs et rouges, affaiblissant dangereusement les malades…selon le Docteur Willem, «&nbsp;l’association de propolis rouge à la chimiothérapie donne des résultats intéressants : les globules blancs diminuent en proportion moitié moindre et le nombre de globules rouges redevient normal au bout de 35 jours de traitement.&nbsp;»</p>
 
 </div>
 </div>
@@ -1041,9 +1047,9 @@ C'est une plante amazonienne qui aide dans la lutte contre le cancer ce qui a é
 </div>
 </div>
 Les tribus indiennes utilisent le Graviola depuis des siècles pour se soigner car toutes les parties de cet arbre contiennent des principes actifs (feuilles, racines, tronc, écorce, graines) et peuvent soigner différentes maladies.<br>
-En tous cas, on a pu vérifier l'efficacité du Graviola pour les cancers suivants : Abdomen, ovaire, utérus, poumon, prostate, sein, pancréas, peau, sang (leucémie), vessie et foie.<br>
+En tous cas, on a pu vérifier l'efficacité du Graviola pour les&nbsp;cancers&nbsp;suivants :&nbsp;Abdomen, ovaire, utérus, poumon, prostate, sein, pancréas, peau, sang (leucémie), vessie et foie.<br>
 <br>
-En plus de guérir le cancer, le Graviola nettoie l'organisme en profondeur et le débarrasse de toutes sortes de poisons, régénérant ainsi nos cellules et nos mitochondries.
+En plus de guérir le cancer, le Graviola nettoie l'organisme en profondeur et le débarrasse de toutes sortes de poisons, régénérant ainsi nos cellules et nos&nbsp;mitochondries.
 
 </div>
 </div>
@@ -1091,9 +1097,9 @@ Le desmodium
 <div class="divImg">
 <img src="https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Desmodium.jpg" /></div>
 <div class="divText">
-Il sert lui à protéger votre foie durant la chimiothérapie et à limiter les effets secondaires du traitement.  C'est un hépatoprotecteur majeur
+Il sert lui à protéger votre foie durant la chimiothérapie et à limiter les effets secondaires du traitement.&nbsp; C'est un hépatoprotecteur majeur
 
-<p>Ses effets indésirables sont rares, légers et passagers.</p>
+<p>Ses&nbsp;effets&nbsp;indésirables&nbsp;sont&nbsp;rares, légers et passagers.</p>
 
 <p>Les plus fréquents incluent les troubles gastro-intestinaux tels que les vomissements, les diarrhées et les douleurs abdominales</p>
 
@@ -1153,6 +1159,101 @@ Quelques degrés en plus lors d'un traitement anticancéreux pourraient ainsi pe
 </div>
 </div>
 </div>
+<script>
+(function(window){
+  // *** Prepare configuration ***
+  window.iFramePositionFixPolyfillConfiguration = window.iFramePositionFixPolyfillConfiguration || {};
+  // *** Merge configuration ***
+  window.iFramePositionFixPolyfillConfiguration.debug = window.iFramePositionFixPolyfillConfiguration.debug || false;
+  window.iFramePositionFixPolyfillConfiguration.parent = window.iFramePositionFixPolyfillConfiguration.parent || window.parent;
+  window.iFramePositionFixPolyfillConfiguration.parentScrollTopProperty = window.iFramePositionFixPolyfillConfiguration.parentScrollTopProperty || 'pageYOffset';
+  window.iFramePositionFixPolyfillConfiguration.updateScrollTimeout = 100;
+  // *** Static helpers ***
+  // log: log something in the console, if the debug flag is set
+  if ( !('log' in window.iFramePositionFixPolyfillConfiguration) )
+    window.iFramePositionFixPolyfillConfiguration.log = function () {
+      if ( window.iFramePositionFixPolyfillConfiguration.debug )
+        console.log( '>> iFramePositionFixPolyfillConfiguration:', arguments );
+    };
+  // setInitialState: set the initial state of the element
+  if ( !('setInitialState' in window.iFramePositionFixPolyfillConfiguration) )
+    window.iFramePositionFixPolyfillConfiguration.setInitialState = function ( initialStyles ) {
+      var me = this;
+
+      me.updateTimeout = null;
+      me.initialTop = initialStyles.top.indexOf('%') > -1 ? ( window.iFramePositionFixPolyfillConfiguration.parent.innerHeight / 100 * initialStyles.top.slice(0,-1) ) : me.element.offsetTop;
+      me.element.style.top = me.initialTop + 'px';
+    };
+  // updateState: updates the element state on scroll
+  if ( !('updateState' in window.iFramePositionFixPolyfillConfiguration) )
+    window.iFramePositionFixPolyfillConfiguration.updateState = function () {
+      var me = this,
+          scrollTop = window.iFramePositionFixPolyfillConfiguration.parent[ window.iFramePositionFixPolyfillConfiguration.parentScrollTopProperty ];
+
+      if ( me.updateTimeout ) clearTimeout( me.updateTimeout );
+      me.updateTimeout = setTimeout( function() {
+        window.iFramePositionFixPolyfillConfiguration.log( 'updateScroll', me, scrollTop );
+        window.requestAnimationFrame( function (){
+          me.element.style.top = me.initialTop + ( scrollTop >= window.frameElement.offsetTop ? scrollTop - window.frameElement.offsetTop : scrollTop ) + 'px';
+        });
+      }, window.iFramePositionFixPolyfillConfiguration.updateScrollTimeout );
+    };
+  // Initialize this polyfill when the document has been fully loaded, including CSS
+  window.addEventListener('load', initPolyfill, false);
+  // Observe for new added elements
+  var observer = new MutationObserver(initPolyfill);
+  observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+  });
+  // -------------------------------------------------------------------
+  function loop ( elements, callback ) {
+    if ( elements ) {
+      for ( var i = 0; i < elements.length; i++ ) {
+        if ( callback ) callback( elements[i] );
+      }
+    }
+  }
+  // -------------------------------------------------------------------
+  function initPolyfill () {
+    if ( document.styleSheets ) {
+      loop( document.styleSheets, function ( styleSheet ){
+        loop( styleSheet.cssRules, function ( rule ){
+          if ( rule.style ) {
+            if ( rule.style.position == 'fixed' ) {
+              loop( document.querySelectorAll( rule.selectorText ), function ( element ){
+                new iFramePositionFixPolyfill( element, rule.style );
+              })
+            }
+          }
+        })
+      });
+    }
+  }
+  // -------------------------------------------------------------------
+  function iFramePositionFixPolyfill ( element, initialStyles ) {
+    var me = this,
+        isInitialized = ( element.getAttribute('data-iframe-position-fixed-initialized') === "true" );
+
+    if ( !isInitialized ) {
+      // Define properties
+      me.element = element;
+
+      // Allow the user to configure the initial position through the external helper method
+      window.iFramePositionFixPolyfillConfiguration.setInitialState.call(me, initialStyles);
+
+      // Initialize element position
+      me.element.setAttribute( 'data-iframe-position-fixed-initialized', true );
+
+      // When the parent scrolls, attempt to update the element position ever 500ms.
+      // If another scroll event comes in place, cancel the previous attempt and retry.
+      window.iFramePositionFixPolyfillConfiguration.parent.addEventListener( 'scroll', function ( event ){
+        window.iFramePositionFixPolyfillConfiguration.updateState.call( me );
+      }, {passive: true});
+    }
+  }
+})(window);
+</script>
 <!--script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script-->
 <script type="module">
 import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
@@ -1197,8 +1298,6 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         default:
           log('AlaUne plugin error options.href = ' + options.href);
       }
-      var  windowParent = window.parent;
-      var  Zone18429457Height = windowParent.$('#Zone18429457').height();
       if (jQuery.type(options.top) != 'undefined') var relTop = options.top;
       if (jQuery.type(options.offSet) != 'undefined') var relPageCoords = options.offSet;
       if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
@@ -1278,29 +1377,23 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 'thumbs'
               ],
               baseClass: 'articleFancyClass',
-              afterClose: function(instance, current) {
-                windowParent.$('#Zone18429457').css('height', Zone18429457Height + 'px');
-                windowParent.$('#Zone18429457').css('overflow','auto');
-                windowParent.$('#FooterWrapper').css('display','block');
-                windowParent.$('#Zone18429229').css('display','block');
-                windowParent.$('#HeaderWrapper').css('display','block');
-                windowParent.$('#Menu').css('display','block');
-              },
               afterLoad: function(instance, current) {
                 $(".getFancyFocus").focus();
                 /*if (instance.group.length > 1 && current.$content) {
                   if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
                   else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
                   else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-                }
-                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');*/
+                }*/
                 if(current.$content.find('.footFancy').length ==  0)
                 $(current.$content).find('.fontFancy').append('<div class="footFancy">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
-              },
-              onUpdate: function(opts, obj) {
-            /*if( jQuery.type(windowParent.AllItems) ==  'object' && windowParent.AllItems[0].Element[0].style.position ==  'relative') {
+                //$(current.$content).find('.fontFancy').append('<div class="footFancy">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
+              /*},
+              onUpdate: function(opts, obj) {*/
+            var  windowParent = window.parent;
+            if( jQuery.type(windowParent.AllItems) ==  'object' && windowParent.AllItems[0].Element[0].style.position ==  'relative') {
                 $('.articleFancyClass .fancybox-inner').css('margin-top','40px');
-            };*/
+            };
+            //$('.articleFancyClass .fancybox-inner').css('margin-bottom','40px');
             //var  windowParent = window;
             var windowHeight = windowParent.$(window).height(); 
             var windowWidth = windowParent.$(window).width(); 
@@ -1333,18 +1426,12 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                         = screenHeight; 
             document.querySelector('.screenWidth').textContent 
                         = screenWidth;
+                $('.articleFancyClass').css('position', 'absolute');
                 //$('.articleFancyClass').css('top', '1px');
                 //var relHeight = window.outerHeight -  1;
                 //var relHeight = window.innerHeight -  1;
                 $('.articleFancyClass').css('height', documentHeight + 'px');
                 $('.articleFancyClass .corpsFancy').css('height', documentHeight - 150 + 'px');
-                //windowParent.$('#Zone18429457').css('overflow','hidden');
-                windowParent.$('#Zone18429457').css('height', documentHeight + 'px');
-                windowParent.$('#Zone18429457').css('overflow','hidden');
-                windowParent.$('#FooterWrapper').css('display','none');
-                windowParent.$('#Zone18429229').css('display','none');
-                windowParent.$('#HeaderWrapper').css('display','none');
-                windowParent.$('#Menu').css('display','none');
 
                 /*$('.articleFancyClass .articleFancy.fancybox-content').css('width', '100%');
                 if (jQuery.type(relPageWidth) == 'string') {
@@ -1361,15 +1448,17 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 }*/
                   //var botOffset = $('.articleFancyClass .fancybox-inner').css('margin-topt');
                   //var corpsFancyHeight = relHeight + $('.articleFancyClass .fancybox-inner').css('margin-topt') - 250;
-                  /*var fancyboxContent = $('.articleFancyClass .articleFancy.fancybox-content').first();
-                  if(fancyboxContent.length == 1) {
+                  /*if(instance.currIndex == 0) {
+                    var fancyboxContent = current.$content;
                     var fancyboxContentHeight = fancyboxContent[0].offsetHeight;
-                    var titreFancy = $('.articleFancyClass .articleFancy.fancybox-content  .titreFancy').first();
+                    var titreFancy = $(fancyboxContent).find('.titreFancy');
                     var titreFancyHeight = titreFancy[0].offsetHeight;
-                    var footFancy = $('.articleFancyClass .articleFancy.fancybox-content  .footFancy').first();
+                    //var titreFancyHeight = titreFancy.height();
+                    var footFancy = $(fancyboxContent).find('.footFancy');
                     var footFancyHeight = footFancy[0].offsetHeight;
                     //$('.articleFancyClass .articleFancy.fancybox-content .corpsFancy').css('max-height', fancyboxContentHeight - titreFancyHeight - footFancyHeight);
-                    $('.articleFancyClass .articleFancy.fancybox-content .corpsFancy').css('max-height', documentHeight - titreFancyHeight - footFancyHeight-200);
+                    //var relHeight = documentHeight - titreFancyHeight - footFancyHeight - 150 + 'px';
+                    $(fancyboxContent).find('.corpsFancy').css('max-height', documentHeight - 150 + 'px');
                   }*/
                 //$('.articleFancyClass').css('top', '750px');
               },
@@ -1548,7 +1637,7 @@ $(document).ready(function() {
     href: [
     {
       dataType: "video",
-      dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&autoplay=1&rel=0&controls=0&showinfo=0'
+      dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0'
     },
     ]
   };
@@ -1694,7 +1783,7 @@ $(document).ready(function() {
 </style>
 <style>
 .articleFancyClass {
-    position: absolute;
+    position: fixed;
 }  
 .articleFancyClass .fancybox-content {
     width: 100%;
@@ -1765,3 +1854,6 @@ $(document).ready(function() {
   }
 }
 </style>
+
+</body>
+</html>

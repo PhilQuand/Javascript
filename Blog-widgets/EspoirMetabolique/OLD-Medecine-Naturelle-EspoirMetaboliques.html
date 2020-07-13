@@ -128,8 +128,14 @@ article button {
 }
 </style>
 
-</head>
-<body>
+
+
+
+
+
+
+
+</head><body>
     <p>parent Window Height is:  
         <span class="windowHeight"></span> 
     </p> 
@@ -317,6 +323,9 @@ Le Cancer la piste oubliée Documentaire arte
 </div>
 </center>
 </div>
+<div class="footFancy">
+pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).
+</div>
 </div>
 </div>
 <div class="articleFancy" id="CauseDuCancer-2" >
@@ -379,6 +388,9 @@ Les informations contenues dans cette vidéo sont fournies à des fins éducativ
 <p>notre site "Espoir Metabolique" ne sera pas responsable des déclarations inexactes ou incorrectes. Nous mettons ce matériel à la disposition de nos lecteurs en vertu des dispositions de « l’utilisation équitable », dans un effort pour faire progresser une meilleure compréhension des enjeux politiques, économiques et sociaux. Le contenu de ce site est distribué sans profit pour ceux qui ont exprimé un intérêt aux fins de recherche et d’enseignement.</p>
 
 </div>
+<div class="footFancy">
+pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).
+</div>
 </div>
 </div>
 
@@ -437,6 +449,9 @@ Les anti oxydants
 
 <p>Le sélénium contribue à protéger les cellules du stress oxydatif.  Il intervient dans le métabolisme des radicaux libres et d'autres substances produites par l'oxydation des lipides au niveau des membranes cellulaires. Il intervient dans le métaboilisme du glutathion, un des antioxydants corporels les plus puissant. Il est issu de fermentation de levures.</p>
 
+</div>
+<div class="footFancy">
+pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).
 </div>
 </div>
 </div>
@@ -1197,8 +1212,6 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         default:
           log('AlaUne plugin error options.href = ' + options.href);
       }
-      var  windowParent = window.parent;
-      var  Zone18429457Height = windowParent.$('#Zone18429457').height();
       if (jQuery.type(options.top) != 'undefined') var relTop = options.top;
       if (jQuery.type(options.offSet) != 'undefined') var relPageCoords = options.offSet;
       if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
@@ -1278,29 +1291,19 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 'thumbs'
               ],
               baseClass: 'articleFancyClass',
-              afterClose: function(instance, current) {
-                windowParent.$('#Zone18429457').css('height', Zone18429457Height + 'px');
-                windowParent.$('#Zone18429457').css('overflow','auto');
-                windowParent.$('#FooterWrapper').css('display','block');
-                windowParent.$('#Zone18429229').css('display','block');
-                windowParent.$('#HeaderWrapper').css('display','block');
-                windowParent.$('#Menu').css('display','block');
-              },
               afterLoad: function(instance, current) {
                 $(".getFancyFocus").focus();
                 /*if (instance.group.length > 1 && current.$content) {
                   if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
                   else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
                   else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-                }
-                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');*/
-                if(current.$content.find('.footFancy').length ==  0)
-                $(current.$content).find('.fontFancy').append('<div class="footFancy">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
+                }*/
               },
               onUpdate: function(opts, obj) {
-            /*if( jQuery.type(windowParent.AllItems) ==  'object' && windowParent.AllItems[0].Element[0].style.position ==  'relative') {
+            var  windowParent = window.parent;
+            if( windowParent.AllItems[0].Element[0].style.position ==  'relative') {
                 $('.articleFancyClass .fancybox-inner').css('margin-top','40px');
-            };*/
+            };
             //var  windowParent = window;
             var windowHeight = windowParent.$(window).height(); 
             var windowWidth = windowParent.$(window).width(); 
@@ -1333,18 +1336,13 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                         = screenHeight; 
             document.querySelector('.screenWidth').textContent 
                         = screenWidth;
+                //$('.articleFancyClass').css('position', 'absolute');
                 //$('.articleFancyClass').css('top', '1px');
                 //var relHeight = window.outerHeight -  1;
                 //var relHeight = window.innerHeight -  1;
-                $('.articleFancyClass').css('height', documentHeight + 'px');
-                $('.articleFancyClass .corpsFancy').css('height', documentHeight - 150 + 'px');
-                //windowParent.$('#Zone18429457').css('overflow','hidden');
-                windowParent.$('#Zone18429457').css('height', documentHeight + 'px');
-                windowParent.$('#Zone18429457').css('overflow','hidden');
-                windowParent.$('#FooterWrapper').css('display','none');
-                windowParent.$('#Zone18429229').css('display','none');
-                windowParent.$('#HeaderWrapper').css('display','none');
-                windowParent.$('#Menu').css('display','none');
+                var relHeight = documentHeight;
+                relHeight = documentHeight + 'px';
+                $('.articleFancyClass').css('height', relHeight);
 
                 /*$('.articleFancyClass .articleFancy.fancybox-content').css('width', '100%');
                 if (jQuery.type(relPageWidth) == 'string') {
@@ -1361,7 +1359,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 }*/
                   //var botOffset = $('.articleFancyClass .fancybox-inner').css('margin-topt');
                   //var corpsFancyHeight = relHeight + $('.articleFancyClass .fancybox-inner').css('margin-topt') - 250;
-                  /*var fancyboxContent = $('.articleFancyClass .articleFancy.fancybox-content').first();
+                  var fancyboxContent = $('.articleFancyClass .articleFancy.fancybox-content').first();
                   if(fancyboxContent.length == 1) {
                     var fancyboxContentHeight = fancyboxContent[0].offsetHeight;
                     var titreFancy = $('.articleFancyClass .articleFancy.fancybox-content  .titreFancy').first();
@@ -1370,7 +1368,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                     var footFancyHeight = footFancy[0].offsetHeight;
                     //$('.articleFancyClass .articleFancy.fancybox-content .corpsFancy').css('max-height', fancyboxContentHeight - titreFancyHeight - footFancyHeight);
                     $('.articleFancyClass .articleFancy.fancybox-content .corpsFancy').css('max-height', documentHeight - titreFancyHeight - footFancyHeight-200);
-                  }*/
+                  }
                 //$('.articleFancyClass').css('top', '750px');
               },
             });

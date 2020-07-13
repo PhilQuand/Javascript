@@ -1201,6 +1201,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       /*var  Zone18429457Height = windowParent.$('#Zone18429457').height();
       var BackgroundTop = windowParent.$('#Background').css('padding-top')*/
 
+      //var scrollTopHeight;
       var HeaderWrapperHeight = windowParent.$('#HeaderWrapper').css('height');
       var MenuHeight = windowParent.$('#Menu').css('height');
       var Zone18429457Height = windowParent.$('#Zone18429457').css('height');
@@ -1290,6 +1291,11 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 'thumbs'
               ],
               baseClass: 'articleFancyClass',
+              onActivate: function(instance, current) {
+                  //scrollTopHeight = $(window).scrollTop();
+                  //scrollTopHeight = windowParent.$('#Zone18429457 .BgLayer').scrollTop();
+                  //scrollTopHeight = windowParent.$(window).scrollTop();
+              },
               afterClose: function(instance, current) {
                 /*windowParent.$('#Zone18429457').css('height', Zone18429457Height + 'px');
                 windowParent.$('#BackgroundTop').css('padding-top', BackgroundTop);
@@ -1305,6 +1311,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       windowParent.$('#HeaderWrapper').css('display',HeaderWrapperDisplay);
       windowParent.$('#Menu').css('visibility',MenuDisplay);
       windowParent.$('#Background').css('padding-top',BackgroundPaddingTop);
+      //windowParent.window.scrollTo(0, scrollTopHeight);             
               },
               afterLoad: function(instance, current) {
                 $(".getFancyFocus").focus();

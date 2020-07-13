@@ -1197,6 +1197,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         default:
           log('AlaUne plugin error options.href = ' + options.href);
       }
+      var footFancyHeight = 0;
       var  windowParent = window.parent;
       /*var  Zone18429457Height = windowParent.$('#Zone18429457').height();
       var BackgroundTop = windowParent.$('#Background').css('padding-top')*/
@@ -1321,8 +1322,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
                 }
                 current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');*/
+                footFancyHeight = 100;
                 if(current.$content.find('.footFancy').length ==  0)
-                $(current.$content).find('.fontFancy').append('<div class="footFancy">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
+                $(current.$content).find('.fontFancy').append('<div class="footFancy" height="' + footFancyHeight + '">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
               },
               onUpdate: function(opts, obj) {
             /*if( jQuery.type(windowParent.AllItems) ==  'object' && windowParent.AllItems[0].Element[0].style.position ==  'relative') {
@@ -1365,21 +1367,24 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 //var relHeight = window.innerHeight -  1;
                 //windowParent.$('#Zone18429457').css('overflow','hidden');
                 var documentInnerHeight = documentHeight;
-                var BackgroundPaddingTopVal = eval(BackgroundPaddingTop.split("px")[0]);
-                if( BackgroundPaddingTopVal > 0 ) {
-                   windowParent.$('#HeaderWrapper').css('display','none');
-                   windowParent.$('#Background').css('padding-top', MenuHeight);
-                   documentInnerHeight = documentInnerHeight -  eval(MenuHeight.split("px")[0]);
-                } else documentInnerHeight = documentInnerHeight -  eval(HeaderWrapperHeight.split("px")[0]);
-                windowParent.$('#Zone18429457').css('height', documentInnerHeight + 'px');
-                windowParent.$('#Zone18429457').css('overflow','hidden');
-                windowParent.$('#FooterWrapper').css('display','none');
-                windowParent.$('#Zone18429229').css('display','none'); 
-
+                if (jQuery.type(BackgroundPaddingTop) == 'string') {
+                  var BackgroundPaddingTopVal = eval(BackgroundPaddingTop.split("px")[0]);
+                  if( BackgroundPaddingTopVal > 0 ) {
+                     windowParent.$('#HeaderWrapper').css('display','none');
+                     windowParent.$('#Background').css('padding-top', MenuHeight);
+                     documentInnerHeight = documentInnerHeight -  eval(MenuHeight.split("px")[0]);
+                  } else documentInnerHeight = documentInnerHeight -  eval(HeaderWrapperHeight.split("px")[0]);
+                  windowParent.$('#Zone18429457').css('height', documentInnerHeight + 'px');
+                  windowParent.$('#Zone18429457').css('overflow','hidden');
+                  windowParent.$('#FooterWrapper').css('display','none');
+                  windowParent.$('#Zone18429229').css('display','none'); 
+                };
                 //windowParent.$('#HeaderWrapper').css('display','none');
                 //windowParent.$('#Menu').css('visibility','hidden');
                 $('.articleFancyClass').css('height', documentInnerHeight + 'px');
-                $('.articleFancyClass .corpsFancy').css('height', documentInnerHeight - 150 + 'px');
+                var titreFancyHeight = $('.titreFancy').height();
+                //var footFancyHeight = $('.footFancy').height();
+                $('.articleFancyClass .corpsFancy').css('height', documentInnerHeight - titreFancyHeight - footFancyHeight - 10 + 'px');
                 windowParent.window.scrollTo(0, 0);             
 
                 /*$('.articleFancyClass .articleFancy.fancybox-content').css('width', '100%');
@@ -1760,6 +1765,7 @@ $(document).ready(function() {
     padding: 0 0 0 0;
 }
 .titreFancy {
+    height: 55px;
     font-weight: bold;
     font-style: italic;
     color: #027ffd;

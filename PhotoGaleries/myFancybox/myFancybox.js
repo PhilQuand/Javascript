@@ -77,7 +77,7 @@ function goFancy() {
         current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
       }*/
 
-      current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
+      //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
     }
 
   });

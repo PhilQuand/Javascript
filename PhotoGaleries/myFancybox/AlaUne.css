@@ -1,7 +1,7 @@
 .customIframeBaseClass .fancybox-button.fancybox-button--close{
     display: none;
 }
-.articleFancy {
+.customIframeBaseClass .articleFancy {
     padding: 0 0 0 0;
     //min-width: 80%;
     min-width: 800px;
@@ -10,14 +10,14 @@
     transition: box-shadow .2s;
     display: none;
 }
-.corpsFancy {
+.customIframeBaseClass .corpsFancy {
     width: 100%;
     //max-height: calc(80vh - 140px);
     max-height: 100%;
     overflow: auto;
     padding: 10px 15px 10px 15px;
 }
-.corpsFancy > img {
+.customIframeBaseClass .corpsFancy > img {
     width: 100%;
 }
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {

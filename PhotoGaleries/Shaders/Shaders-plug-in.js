@@ -66,7 +66,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           //  chargements des dépendances css
           load.css('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'),
           load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
-          load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css'),
+          //load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css'),
           //  chargements des dépendances js
           load.js('https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js'),
           load.js('https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'),

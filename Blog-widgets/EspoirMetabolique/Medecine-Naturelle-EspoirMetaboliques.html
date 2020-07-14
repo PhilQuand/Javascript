@@ -1366,25 +1366,25 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 //var relHeight = window.innerHeight -  1;
                 //windowParent.$('#Zone18429457').css('overflow','hidden');
                 
+                var documentInnerHeight = windowInnerHeight;
                 if (jQuery.type(BackgroundPaddingTop) == 'string') {
-                  var documentInnerHeight = documentHeight;
                   var BackgroundPaddingTopVal = eval(BackgroundPaddingTop.split("px")[0]);
                   if( BackgroundPaddingTopVal > 0 ) {
                      windowParent.$('#HeaderWrapper').css('display','none');
                      windowParent.$('#Background').css('padding-top', MenuHeight);
-                     documentInnerHeight = documentInnerHeight -  eval(MenuHeight.split("px")[0]);
-                  } else documentInnerHeight = documentInnerHeight -  eval(HeaderWrapperHeight.split("px")[0]);
-                  windowParent.$('#Zone18429457').css('height', documentInnerHeight + 'px');
+                     windowInnerHeight = windowInnerHeight -  eval(MenuHeight.split("px")[0]);
+                  } else windowInnerHeight = windowInnerHeight -  eval(HeaderWrapperHeight.split("px")[0]);
+                  windowParent.$('#Zone18429457').css('height', windowInnerHeight + 'px');
                   windowParent.$('#Zone18429457').css('overflow','hidden');
                   windowParent.$('#FooterWrapper').css('display','none');
                   windowParent.$('#Zone18429229').css('display','none'); 
-                } else var documentInnerHeight = windowInnerHeight;
+                }
                 //windowParent.$('#HeaderWrapper').css('display','none');
                 //windowParent.$('#Menu').css('visibility','hidden');
-                $('.articleFancyClass').css('height', documentInnerHeight + 'px');
+                $('.articleFancyClass').css('height', windowInnerHeight + 'px');
                 var titreFancyHeight = $('.titreFancy').height();
                 var footFancyHeight = $('.footFancy').height();
-                $('.articleFancyClass .corpsFancy').css('height', documentInnerHeight - titreFancyHeight - footFancyHeight - 40 + 'px');
+                $('.articleFancyClass .corpsFancy').css('height', windowInnerHeight - titreFancyHeight - footFancyHeight - 40 + 'px');
                 windowParent.window.scrollTo(0, 0);             
 
                 /*$('.articleFancyClass .articleFancy.fancybox-content').css('width', '100%');

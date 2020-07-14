@@ -1350,7 +1350,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
             document.querySelector('.windowOuterWidth').textContent 
                         = windowOuterWidth; 
             document.querySelector('.windowInnerHeight').textContent 
-                        = windowOuterHeight; 
+                        = windowInnerHeight; 
             document.querySelector('.windowInnerWidth').textContent 
                         = windowInnerWidth; 
             document.querySelector('.documentHeight').textContent 
@@ -1365,8 +1365,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 //var relHeight = window.outerHeight -  1;
                 //var relHeight = window.innerHeight -  1;
                 //windowParent.$('#Zone18429457').css('overflow','hidden');
-                var documentInnerHeight = documentHeight;
+                
                 if (jQuery.type(BackgroundPaddingTop) == 'string') {
+                  var documentInnerHeight = documentHeight;
                   var BackgroundPaddingTopVal = eval(BackgroundPaddingTop.split("px")[0]);
                   if( BackgroundPaddingTopVal > 0 ) {
                      windowParent.$('#HeaderWrapper').css('display','none');
@@ -1377,7 +1378,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   windowParent.$('#Zone18429457').css('overflow','hidden');
                   windowParent.$('#FooterWrapper').css('display','none');
                   windowParent.$('#Zone18429229').css('display','none'); 
-                };
+                } else var documentInnerHeight = windowInnerHeight;
                 //windowParent.$('#HeaderWrapper').css('display','none');
                 //windowParent.$('#Menu').css('visibility','hidden');
                 $('.articleFancyClass').css('height', documentInnerHeight + 'px');

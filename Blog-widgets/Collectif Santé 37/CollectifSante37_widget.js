@@ -686,6 +686,11 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 </style>
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" />
 <script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<style>
+.articleFancy {
+  display: none;
+}
+</style>
 <script>
 if ( window.location.pathname == '/' ){
   // pétition change.org sur la réanimation pédiatrie
@@ -736,9 +741,73 @@ $(document).ready(function() {
 });
 </script>
 <!--style>
-.customAlaUneBaseClass.fancybox-is-open .fancybox-bg {
+/* Background color */
+.fancyAlaUneDefault.fancybox-is-open .fancybox-bg {
     opacity: 0.1;
+    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
 }
+.fancyAlaUneDefault .fancybox-content {
+	max-height : calc( 100% - 100px );
+  margin: 50px 0;
+  overflow: visible;
+  padding: 15px;
+}
+.fancyAlaUneDefault .corpsFancy {
+    width: 100%;
+    //max-height: calc(80vh - 140px);
+    max-height: 100%;
+    overflow: auto;
+}
+.fancyAlaUneDefault .corpsFancy > img {
+    width: 100%;
+    //max-height: 90%;
+}
+.fancyAlaUneDefault .fancybox-button.fancybox-button--close,
+.fancyAlaUneDefault .fancybox-button.fancybox-button--arrow_left,
+.fancyAlaUneDefault .fancybox-button.fancybox-button--arrow_right {
+    display: none;
+}
+.fancyAlaUneDefault .button-close,
+.fancyAlaUneDefault .button-previous,
+.fancyAlaUneDefault .button-next {
+  display:block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: black;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.fancyAlaUneDefault .button-previous,
+.fancyAlaUneDefault .button-next {
+  top: 50%;
+  margin-top: -22px;
+  line-height: 30px;
+}
+
+.fancyAlaUneDefault .button-previous {
+    left: -30px;
+}
+
+.fancyAlaUneDefault .button-next {
+    right: -30px;
+}
+
+.fancyAlaUneDefault .button-close {
+  top: -22px;
+  right: -22px;
+  font-size: 22px;
+}
+/*@media screen and (max-width: 600px) {
+  .fancyAlaUneDefault .fancybox-content {
+      margin-top: 10em;
+  }
+}*/
 </style-->
 
 <!-- 

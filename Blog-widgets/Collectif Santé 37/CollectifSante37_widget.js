@@ -700,12 +700,13 @@ if ( window.location.pathname == '/' ){
   
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
-  //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
-  $('.page_body').append('<div class="img-foreground" id="AlaUne"></div>');
+
+  //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
+  //$('.page_body').append('<div class="img-foreground" id="AlaUne"></div>');
 }
 </script>
-<script>
+<!--script>
 $(document).ready(function() {
   $('#AlaUne').AlaUne({
       //src: '<img src="https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg" />',
@@ -739,7 +740,7 @@ $(document).ready(function() {
     ]
   });
 });
-</script>
+</script-->
 <!-- 
 Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
 -->

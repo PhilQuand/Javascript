@@ -130,46 +130,7 @@ article button {
 
 </head>
 <body>
-    <p>parent Window Height is:  
-        <span class="windowHeight"></span> 
-    </p> 
-      
-    <p>parent Windows Width is:  
-        <span class="windowWidth"></span> 
-    </p> 
-      
-    <p>parent Window.innerHeight is:  
-        <span class="windowInnerHeight"></span> 
-    </p> 
-      
-    <p>parent Windows.innerWidth is:  
-        <span class="windowInnerWidth"></span> 
-    </p> 
-      
-    <p>parent Window.outerHeight is:  
-        <span class="windowOuterHeight"></span> 
-    </p> 
-      
-    <p>parent Windows.outerWidth is:  
-        <span class="windowOuterWidth"></span> 
-    </p> 
-      
-    <p>parent Document Height is:  
-        <span class="documentHeight"></span> 
-    </p> 
-      
-    <p>parent Document Width is:  
-        <span class="documentWidth"></span> 
-    </p> 
-      
-    <p>parent Screen Height is:  
-        <span class="screenHeight"></span> 
-    </p> 
-      
-    <p>parent Screen Width is:  
-        <span class="screenWidth"></span> 
-    </p>
-    
+
 <div class='articleWrapper'><article class="CauseDuCancer droit">
 <div class="titre-mobile">La vraie cause du cancer</div>
 <div class="divImg">
@@ -1153,453 +1114,189 @@ Quelques degrés en plus lors d'un traitement anticancéreux pourraient ainsi pe
 </div>
 </div>
 </div>
-<!--script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script-->
-<script type="module">
-import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries/Shaders/Shaders17.js';
-(function($) {
-  var randGen = new Generator();
-  $.fn.AlaUne = function(options) {
-    var _this = this;
-    Promise.all([
-      //  chargements des dépendances css
-      load.css('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'),
-      load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
-      //  chargements des dépendances js
-      load.js('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js'),
-      load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
-    ]).then(function() {
-      console.log('Everything has loaded!');
-      if (jQuery.type(options) == 'undefined' || jQuery.type(options.src) == 'undefined') return false;
-      var src = options.src;
-      switch (jQuery.type(src)) {
-        case "string":
-          if (src.indexOf('http') == 0) src = ('<img class="img-AlaUne" src="' + src + '" />');
-          break;
-        default:
-          log('AlaUne plugin error src');
-      }
-      if (jQuery.type(options.href) == 'undefined') {
-        $(_this).append(src);
-        return;
-      }
-      var randNum = 'FB' + randGen.getrand();
-      var randHid = 'HD' + randGen.getrand();
-      switch (jQuery.type(options.href)) {
-        case "string":
-          $(_this).append('<a href="' + options.href + '">' + src + '</a>');
-          break;
-        case "array":
-          break;
-        case "object":
-          options.href = [options.href]
-          break;
-        default:
-          log('AlaUne plugin error options.href = ' + options.href);
-      }
-      var  windowParent = window.parent;
-      /*var  Zone18429457Height = windowParent.$('#Zone18429457').height();
-      var BackgroundTop = windowParent.$('#Background').css('padding-top')*/
-
-      //var scrollTopHeight;
-      var HeaderWrapperHeight = windowParent.$('#HeaderWrapper').css('height');
-      var MenuHeight = windowParent.$('#Menu').css('height');
-      var Zone18429457Height = windowParent.$('#Zone18429457').css('height');
-      var Zone18429457Overflow = windowParent.$('#Zone18429457').css('overflow');
-      var FooterWrapperDisplay = windowParent.$('#FooterWrapper').css('display');
-      var Zone18429229Display = windowParent.$('#Zone18429229').css('display');              
-      var HeaderWrapperDisplay = windowParent.$('#HeaderWrapper').css('display');
-      var MenuDisplay = windowParent.$('#Menu').css('visibility');
-      var BackgroundPaddingTop = windowParent.$('#Background').css('padding-top');
-
-      if (jQuery.type(options.top) != 'undefined') var relTop = options.top;
-      if (jQuery.type(options.offSet) != 'undefined') var relPageCoords = options.offSet;
-      if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
-      if (jQuery.type(options.height) != 'undefined') var relPageHeight = options.height;
-      if (jQuery.type(options.href) == 'undefined') {
-        $(_this).append(src);
-        return;
-      }
-      for (var i = 0; i < options.href.length; i++) {
-        if (jQuery.type(options.href[i].dataType) == 'string') {
-          if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
-          else {
-            switch (options.href[i].dataType) {
-              case "inlineId":
-                //var inlineId = $('#' + options.href[i].dataSrc);
-                //inlineId = inlineId.wrap('<div class="corpsFancy"></div>');
-                //inlineId = inlineId.wrap('<div class="articleFancy" id="' + randHid + i + '" style="display:none"></div>');
-                //$(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
-                if (jQuery.type(options.href[i].dataThumb) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '">inline ' + i + '</a>');
-                else $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '" data-thumb="' + options.href[i].dataThumb + '">inline ' + i + '</a>');
-                //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
-                break;
-              case "inline":
-                $(_this).append('<div class="articleFancy" id="' + randHid + i + '"> \
-                              <div class="corpsFancy"> \
-                              ' + options.href[i].dataSrc + ' \
-                              </div></div>');
-                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
-                //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
-                break;
-              case "iframe":
-                //$(this).append('<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="FB' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i +'</a>');
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" data-width="1132" data-height="1600">iframe ' + i + '</a>');
-                break;
-              case "images":
-                //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" data-width="1132" data-height="1600">images ' + i + '</a>');
-                break;
-              case "video":
-                //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '">video ' + i + '</a>');
-                break;
-              default:
-                console.log('AlaUne plugin error options.href = ' + options.href);
-            }
-          }
-        }
-      }
-      var loc = window.location.href;
-      loc = loc.split('#');
-      loc = loc[0];
-      if (options.href.length > 1)
-        $(_this).append('<a href="' + loc + '#' + randNum + '-1">' + src + '</a>');
-      else
-        $(_this).append('<a href="' + loc + '#' + randNum + '">' + src + '</a>');
-      // pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
-      var fancyClass = {};
-      switch (jQuery.type(options.fancyClass)) {
-        case "string":
-          if (options.fancyClass == 'articleFancy') {
-            $('.' + randNum).fancybox({
-              smallBtn: false,
-              toolbar: true,
-              infobar: true,
-              arrows: true,
-              animationEffect: "fade",
-              transitionEffect: "slide",
-              speed: 300,
-              margin: [40, 20],
-              buttons: false,
-              thumbs: {
-                autoStart: false, // Display thumbnails on opening
-                hideOnClose: true // Hide thumbnail grid when closing animation starts
-              },
-              buttons: [
-                'close',
-                'thumbs'
-              ],
-              baseClass: 'articleFancyClass',
-              onActivate: function(instance, current) {
-                  //scrollTopHeight = $(window).scrollTop();
-                  //scrollTopHeight = windowParent.$('#Zone18429457 .BgLayer').scrollTop();
-                  //scrollTopHeight = windowParent.$(window).scrollTop();
-              },
-              afterClose: function(instance, current) {
-                /*windowParent.$('#Zone18429457').css('height', Zone18429457Height + 'px');
-                windowParent.$('#BackgroundTop').css('padding-top', BackgroundTop);
-                windowParent.$('#Zone18429457').css('overflow','auto');
-                windowParent.$('#FooterWrapper').css('display','block');
-                windowParent.$('#Zone18429229').css('display','block');
-                windowParent.$('#HeaderWrapper').css('display','block');
-                windowParent.$('#Menu').css('visibility','visible');*/
-      windowParent.$('#Zone18429457').css('height',Zone18429457Height);
-      windowParent.$('#Zone18429457').css('overflow',Zone18429457Overflow);
-      windowParent.$('#FooterWrapper').css('display',FooterWrapperDisplay);
-      windowParent.$('#Zone18429229').css('display',Zone18429229Display);              
-      windowParent.$('#HeaderWrapper').css('display',HeaderWrapperDisplay);
-      windowParent.$('#Menu').css('visibility',MenuDisplay);
-      windowParent.$('#Background').css('padding-top',BackgroundPaddingTop);
-      //windowParent.window.scrollTo(0, scrollTopHeight);             
-              },
-              afterLoad: function(instance, current) {
-                $(".getFancyFocus").focus();
-                /*if (instance.group.length > 1 && current.$content) {
-                  if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-                  else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-                  else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-                }
-                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');*/
-                if(current.$content.find('.footFancy').length ==  0)
-                $(current.$content).find('.fontFancy').append('<div class="footFancy">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
-                //$(current.$content).find('.fontFancy').append('<div class="footFancy" height="' + footFancyHeight + '">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
-              },
-              onUpdate: function(opts, obj) {
-            /*if( jQuery.type(windowParent.AllItems) ==  'object' && windowParent.AllItems[0].Element[0].style.position ==  'relative') {
-                $('.articleFancyClass .fancybox-inner').css('margin-top','40px');
-            };*/
-            //var  windowParent = window;
-            var windowHeight = windowParent.$(window).height(); 
-            var windowWidth = windowParent.$(window).width(); 
-            var windowOuterHeight = windowParent.window.outerHeight; 
-            var windowOuterWidth = windowParent.window.outerWidth; 
-            var windowInnerHeight = windowParent.window.innerHeight; 
-            var windowInnerWidth = windowParent.window.innerWidth; 
-            var documentHeight = windowParent.document.documentElement.clientHeight; 
-            var documentWidth = windowParent.document.documentElement.clientWidth; 
-            var screenHeight = screen.height; 
-            var screenWidth = screen.width; 
-  
-            document.querySelector('.windowHeight').textContent 
-                        = windowHeight; 
-            document.querySelector('.windowWidth').textContent 
-                        = windowWidth; 
-            document.querySelector('.windowOuterHeight').textContent 
-                        = windowOuterHeight; 
-            document.querySelector('.windowOuterWidth').textContent 
-                        = windowOuterWidth; 
-            document.querySelector('.windowInnerHeight').textContent 
-                        = windowInnerHeight; 
-            document.querySelector('.windowInnerWidth').textContent 
-                        = windowInnerWidth; 
-            document.querySelector('.documentHeight').textContent 
-                        = documentHeight; 
-            document.querySelector('.documentWidth').textContent 
-                        = documentWidth; 
-            document.querySelector('.screenHeight').textContent 
-                        = screenHeight; 
-            document.querySelector('.screenWidth').textContent 
-                        = screenWidth;
-                //$('.articleFancyClass').css('top', '1px');
-                //var relHeight = window.outerHeight -  1;
-                //var relHeight = window.innerHeight -  1;
-                //windowParent.$('#Zone18429457').css('overflow','hidden');
-                
-                var documentInnerHeight = windowInnerHeight;
-                if (jQuery.type(BackgroundPaddingTop) == 'string') {
-                  var BackgroundPaddingTopVal = eval(BackgroundPaddingTop.split("px")[0]);
-                  if( BackgroundPaddingTopVal > 0 ) {
-                     windowParent.$('#HeaderWrapper').css('display','none');
-                     windowParent.$('#Background').css('padding-top', MenuHeight);
-                     documentInnerHeight = documentInnerHeight -  eval(MenuHeight.split("px")[0]);
-                  } else documentInnerHeight = documentInnerHeight -  eval(HeaderWrapperHeight.split("px")[0]);
-                  windowParent.$('#Zone18429457').css('height', documentInnerHeight + 'px');
-                  windowParent.$('#Zone18429457').css('overflow','hidden');
-                  windowParent.$('#FooterWrapper').css('display','none');
-                  windowParent.$('#Zone18429229').css('display','none'); 
-                }
-                //windowParent.$('#HeaderWrapper').css('display','none');
-                //windowParent.$('#Menu').css('visibility','hidden');
-                $('.articleFancyClass').css('height', documentInnerHeight + 'px');
-                var titreFancyHeight = $('.titreFancy').height();
-                var footFancyHeight = $('.footFancy').height();
-                var fancyboxInnerMT = eval($('.articleFancyClass .fancybox-inner').css('margin-top').split("px")[0]);
-                var fancyboxInnerMB = eval($('.articleFancyClass .fancybox-inner').css('margin-bottom').split("px")[0]);
-
-                $('.articleFancyClass .corpsFancy').css('height', documentInnerHeight - titreFancyHeight - footFancyHeight - fancyboxInnerMT -fancyboxInnerMB - 60 + 'px');
-                windowParent.window.scrollTo(0, 0);             
-
-                /*$('.articleFancyClass .articleFancy.fancybox-content').css('width', '100%');
-                if (jQuery.type(relPageWidth) == 'string') {
-                  $('.articleFancyClass .articleFancy.fancybox-content').css('width', relPageWidth);
-                }
-                //$('.articleFancyClass').css('height', $(window).height()*0.5);
-                //$('.articleFancyClass .corpsFancy').css('max-height', $(window).height()*0.5-200);
-                if (jQuery.type(relPageHeight) == 'string') {
-                  //var relPageHeight = $(window).height() * relPageHeightCoef;
-                  var relHeight = relPageHeight.split("px")[0];
-                  if(relHeight < 10) relHeight = $(window).height() * relHeight;
-
-                  $('.articleFancyClass').css('height', relHeight);
-                }*/
-                  //var botOffset = $('.articleFancyClass .fancybox-inner').css('margin-topt');
-                  //var corpsFancyHeight = relHeight + $('.articleFancyClass .fancybox-inner').css('margin-topt') - 250;
-                  /*var fancyboxContent = $('.articleFancyClass .articleFancy.fancybox-content').first();
-                  if(fancyboxContent.length == 1) {
-                    var fancyboxContentHeight = fancyboxContent[0].offsetHeight;
-                    var titreFancy = $('.articleFancyClass .articleFancy.fancybox-content  .titreFancy').first();
-                    var titreFancyHeight = titreFancy[0].offsetHeight;
-                    var footFancy = $('.articleFancyClass .articleFancy.fancybox-content  .footFancy').first();
-                    var footFancyHeight = footFancy[0].offsetHeight;
-                    //$('.articleFancyClass .articleFancy.fancybox-content .corpsFancy').css('max-height', fancyboxContentHeight - titreFancyHeight - footFancyHeight);
-                    $('.articleFancyClass .articleFancy.fancybox-content .corpsFancy').css('max-height', documentHeight - titreFancyHeight - footFancyHeight-200);
-                  }*/
-                //$('.articleFancyClass').css('top', '750px');
-              },
-            });
-          }
-          else {
-            $('.' + randNum).fancybox({
-              baseClass: 'customDefaultClass',
-              smallBtn: false,
-              toolbar: false,
-              afterLoad: function(instance, current) {
-
-                var pixelRatio = window.devicePixelRatio || 1;
-
-                /*if (pixelRatio > 1.5) {
-                  current.width = current.width / pixelRatio;
-                  current.height = current.height / pixelRatio;
-                }*/
-
-                if (instance.group.length > 1 && current.$content) {
-                  if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-                  else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-                  else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-                }
-                current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
-              },
-              onUpdate: function(opts, obj) {
-
-                if (jQuery.type(relPageWidth) == 'string') {
-                  $('.customDefaultClass .fancybox-content').css('width', relPageWidth);
-                }
- 
-                /*if (jQuery.type(relPageCoords) == 'string') {
-                  var top = relPageCoords;
-                  $('.customInlineBaseClass .fancybox-content').css('top', top);
-                }*/
-                var top = 0;
-                if (jQuery.type(relTop) == 'string') {
-                  var orig = obj.opts.$orig[0];
-                  var closestTop = orig.closest(relTop);
-                  var offsetTop = closestTop.offsetTop;
-                  if (jQuery.type(relPageCoords) == 'string') {
-                    offsetTop = offsetTop + eval(relPageCoords.split("px")[0]);
-                  }
-                  var top = offsetTop + 'px';
-                  //var offsetHeight = closestTop.offsetHeight;
-                  $('.customDefaultClass').css('top', top);
-                }
-                /*if (jQuery.type(relPageCoords) == 'string') {
-                  var add2top = relPageCoords.split("px")[0];
-                  $('.customInlineBaseClass .fancybox-inner').css('margin-top', add2top);
-                }*/
-              }
-            });
-          }
-          break;
-        case "object":
-          $('.' + randNum).fancybox(options.fancyClass);
-          break;
-      }
-      /*$('.fancybox')
-      .attr('rel', 'gallery')
-      .fancybox({
-          baseClass: 'customIframeBaseClass customInlineBaseClass',
-          //arrows: true,
-          smallBtn: false,
-          toolbar: true,
-          buttons: [
-            'close'
-          ],
-          afterLoad : function(instance, current) {
-              
-              var pixelRatio = window.devicePixelRatio || 1;
-
-              if ( pixelRatio > 1.5 ) {
-                  current.width  = current.width  / pixelRatio;
-                  current.height = current.height / pixelRatio;
-              }
-              
-              if (instance.group.length > 1 && current.$content) {
-                if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-                else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-                else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-              }
-              var url = window.location.href;
-              indexFancy = url.indexOf('#');
-              if( indexFancy > 1 ) {
-                var url = url.substr(0, indexFancy-1);
-              }
-              current.$content.append('<a data-fancybox-close class="button-close" href="' + url + '">x</a>');
-          }
-      })*/
-    }).catch(function() {
-      console.log('Oh no, epic failure!');
-    });
-  }
-
-  function Generator() {};
-
-  Generator.prototype.rand = Math.floor(Math.random() * 26) + Date.now();
-
-  Generator.prototype.getrand = function() {
-    return this.rand++;
-  };
-  var load = (function() {
-    // Function which returns a function: https://davidwalsh.name/javascript-functions
-    function _load(tag) {
-      return function(url) {
-        // This promise will be used by Promise.all to determine success or failure
-        return new Promise(function(resolve, reject) {
-          var element = document.createElement(tag);
-          var parent = 'body';
-          var attr = 'src';
-
-          // Important success and error for the promise
-          element.onload = function() {
-            resolve(url);
-          };
-          element.onerror = function() {
-            reject(url);
-          };
-
-          // Need to set different attributes depending on tag type
-          switch (tag) {
-            case 'script':
-              element.async = true;
-              break;
-            case 'link':
-              element.type = 'text/css';
-              element.rel = 'stylesheet';
-              attr = 'href';
-              parent = 'head';
-          }
-
-          // Inject into document to kick off loading
-          element[attr] = url;
-          document[parent].appendChild(element);
-        });
-      };
-    }
-
-    return {
-      css: _load('link'),
-      js: _load('script'),
-      img: _load('img')
-    }
-  })();
-})(jQuery);
-</script>
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <script>
 $(document).ready(function() {
+
+  var  windowParent = window.parent;
+  //var scrollTopHeight;
+  var HeaderWrapperHeight = windowParent.$('#HeaderWrapper').css('height');
+  var MenuHeight = windowParent.$('#Menu').css('height');
+  var Zone18429457Height = windowParent.$('#Zone18429457').css('height');
+  var Zone18429457Overflow = windowParent.$('#Zone18429457').css('overflow');
+  var FooterWrapperDisplay = windowParent.$('#FooterWrapper').css('display');
+  var Zone18429229Display = windowParent.$('#Zone18429229').css('display');              
+  var HeaderWrapperDisplay = windowParent.$('#HeaderWrapper').css('display');
+  var MenuDisplay = windowParent.$('#Menu').css('visibility');
+  var BackgroundPaddingTop = windowParent.$('#Background').css('padding-top');
+
+  var articleFancy = {
+    smallBtn: false,
+    toolbar: true,
+    infobar: true,
+    arrows: true,
+    animationEffect: "fade",
+    transitionEffect: "slide",
+    speed: 300,
+    margin: [40, 20],
+    buttons: false,
+    thumbs: {
+      autoStart: false, // Display thumbnails on opening
+      hideOnClose: true // Hide thumbnail grid when closing animation starts
+    },
+    buttons: [
+      'close',
+      'thumbs'
+    ],
+    baseClass: 'articleFancyClass',
+    onActivate: function(instance, current) {
+      //scrollTopHeight = $(window).scrollTop();
+      //scrollTopHeight = windowParent.$('#Zone18429457 .BgLayer').scrollTop();
+      //scrollTopHeight = windowParent.$(window).scrollTop();
+    },
+    afterClose: function(instance, current) {
+      windowParent.$('#Zone18429457').css('height', Zone18429457Height);
+      windowParent.$('#Zone18429457').css('overflow', Zone18429457Overflow);
+      windowParent.$('#FooterWrapper').css('display', FooterWrapperDisplay);
+      windowParent.$('#Zone18429229').css('display', Zone18429229Display);
+      windowParent.$('#HeaderWrapper').css('display', HeaderWrapperDisplay);
+      windowParent.$('#Menu').css('visibility', MenuDisplay);
+      windowParent.$('#Background').css('padding-top', BackgroundPaddingTop);
+      //windowParent.window.scrollTo(0, scrollTopHeight);             
+    },
+    afterLoad: function(instance, current) {
+      $(".getFancyFocus").focus();
+      /*if (instance.group.length > 1 && current.$content) {
+        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+      }
+      current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');*/
+      if (current.$content.find('.footFancy').length == 0)
+        $(current.$content).find('.fontFancy').append('<div class="footFancy">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
+      //$(current.$content).find('.fontFancy').append('<div class="footFancy" height="' + footFancyHeight + '">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
+    },
+    onUpdate: function(opts, obj) {
+
+      var documentInnerHeight = windowParent.window.innerHeight;
+      if (jQuery.type(BackgroundPaddingTop) == 'string') {
+        var BackgroundPaddingTopVal = eval(BackgroundPaddingTop.split("px")[0]);
+        if (BackgroundPaddingTopVal > 0) {
+          windowParent.$('#HeaderWrapper').css('display', 'none');
+          windowParent.$('#Background').css('padding-top', MenuHeight);
+          documentInnerHeight = documentInnerHeight - eval(MenuHeight.split("px")[0]);
+        }
+        else documentInnerHeight = documentInnerHeight - eval(HeaderWrapperHeight.split("px")[0]);
+        windowParent.$('#Zone18429457').css('height', documentInnerHeight + 'px');
+        windowParent.$('#Zone18429457').css('overflow', 'hidden');
+        windowParent.$('#FooterWrapper').css('display', 'none');
+        windowParent.$('#Zone18429229').css('display', 'none');
+      }
+      //windowParent.$('#HeaderWrapper').css('display','none');
+      //windowParent.$('#Menu').css('visibility','hidden');
+      $('.articleFancyClass').css('height', documentInnerHeight + 'px');
+      var titreFancyHeight = $('.titreFancy').height();
+      var footFancyHeight = $('.footFancy').height();
+      var fancyboxInnerMT = eval($('.articleFancyClass .fancybox-inner').css('margin-top').split("px")[0]);
+      var fancyboxInnerMB = eval($('.articleFancyClass .fancybox-inner').css('margin-bottom').split("px")[0]);
+
+      $('.articleFancyClass .corpsFancy').css('height', documentInnerHeight - titreFancyHeight - footFancyHeight - fancyboxInnerMT - fancyboxInnerMB - 60 + 'px');
+      windowParent.window.scrollTo(0, 0);
+
+    },
+  };
+  var videoFancy = {
+    baseClass: 'customDefaultClass',
+    smallBtn: false,
+    toolbar: false,
+    onActivate: function(instance, current) {
+      //scrollTopHeight = $(window).scrollTop();
+      //scrollTopHeight = windowParent.$('#Zone18429457 .BgLayer').scrollTop();
+      //scrollTopHeight = windowParent.$(window).scrollTop();
+    },
+    afterClose: function(instance, current) {
+      windowParent.$('#Zone18429457').css('height', Zone18429457Height);
+      windowParent.$('#Zone18429457').css('overflow', Zone18429457Overflow);
+      windowParent.$('#FooterWrapper').css('display', FooterWrapperDisplay);
+      windowParent.$('#Zone18429229').css('display', Zone18429229Display);
+      windowParent.$('#HeaderWrapper').css('display', HeaderWrapperDisplay);
+      windowParent.$('#Menu').css('visibility', MenuDisplay);
+      windowParent.$('#Background').css('padding-top', BackgroundPaddingTop);
+      //windowParent.window.scrollTo(0, scrollTopHeight);             
+    },
+    afterLoad: function(instance, current) {
+
+      var pixelRatio = window.devicePixelRatio || 1;
+
+      /*if (pixelRatio > 1.5) {
+        current.width = current.width / pixelRatio;
+        current.height = current.height / pixelRatio;
+      }*/
+
+      if (instance.group.length > 1 && current.$content) {
+        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
+        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+      }
+      current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
+    },
+    onUpdate: function(opts, obj) {
+
+      var documentInnerHeight = windowParent.window.innerHeight;
+      if (jQuery.type(BackgroundPaddingTop) == 'string') {
+        var BackgroundPaddingTopVal = eval(BackgroundPaddingTop.split("px")[0]);
+        if (BackgroundPaddingTopVal > 0) {
+          windowParent.$('#HeaderWrapper').css('display', 'none');
+          windowParent.$('#Background').css('padding-top', MenuHeight);
+          documentInnerHeight = documentInnerHeight - eval(MenuHeight.split("px")[0]);
+        }
+        else documentInnerHeight = documentInnerHeight - eval(HeaderWrapperHeight.split("px")[0]);
+        windowParent.$('#Zone18429457').css('height', documentInnerHeight + 'px');
+        windowParent.$('#Zone18429457').css('overflow', 'hidden');
+        windowParent.$('#FooterWrapper').css('display', 'none');
+        windowParent.$('#Zone18429229').css('display', 'none');
+      }
+      $('.customDefaultClass').css('height', documentInnerHeight + 'px');
+      windowParent.window.scrollTo(0, 0);
+
+    }
+  }
   $('#CauseDuCancer').AlaUne({
     src: '<button>Lire la suite...</button>',
-    fancyClass: "articleFancy",
+    //fancyClass: "articleFancy",
+    fancyClass: articleFancy,
     //top: 'article',
     //offSet: '100px',
     //height: '800px',
-    href: [
-    {
-      dataType: "inlineId",
-      dataSrc: 'CauseDuCancer-1',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/pisteOubliee.jpg',
-    },
-     {
-      dataType: "inlineId",
-      dataSrc: 'CauseDuCancer-2',
-      dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Mitochondrie.jpg',
-    },
-   ]
+    href: [{
+        dataType: "inlineId",
+        dataSrc: 'CauseDuCancer-1',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/pisteOubliee.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'CauseDuCancer-2',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Mitochondrie.jpg',
+      },
+    ]
   });
   var VideoComplémentsAlimentaires = {
     src: '<button class="gauche">Voir la vidéo...</button>',
-    fancyClass: "default",
+    //fancyClass: "default",
+    fancyClass: videoFancy,
     //top: 'article',
     //offSet: '500px',
-    href: [
-    {
+    href: [{
       dataType: "video",
       dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&autoplay=1&rel=0&controls=0&showinfo=0'
-    },
-    ]
+    }, ]
   };
   $('#VideoComplémentsAlimentaires-1').AlaUne(VideoComplémentsAlimentaires);
   $('#VideoComplémentsAlimentaires-2').AlaUne(VideoComplémentsAlimentaires);
   var ExplicationsComplémentsAlimentaires = {
     src: '<button class="droit">Lire la suite...</button>',
-    fancyClass: "articleFancy",
+    //fancyClass: "articleFancy",
+    fancyClass: articleFancy,
     //top: 'article',
     //offSet: '100px',
     //height: '800px',
@@ -1667,7 +1364,7 @@ $(document).ready(function() {
   };
   $('#ExplicationsComplémentsAlimentaires-1').AlaUne(ExplicationsComplémentsAlimentaires);
   $('#ExplicationsComplémentsAlimentaires-2').AlaUne(ExplicationsComplémentsAlimentaires);
-  $('#Hyperthermie').AlaUne({
+  /*$('#Hyperthermie').AlaUne({
     src: '<button>Lire la suite...</button>',
     fancyClass: "articleFancy",
     top: 'article',
@@ -1679,14 +1376,31 @@ $(document).ready(function() {
         dataThumb: 'https://www.espoirmetabolique.com/file/si1416124/4sunbox-anaisdasilva_-noback-fi22864361x470.jpg',
       },
     ]
-  });
+  });*/
 });
 </script>
 <style>
+.customDefaultClass {
+    position: absolute;
+}  
 /* Background color */
 .customDefaultClass .fancybox-bg {
   background-color: #fff;
+  opacity: 1;
 }
+.customDefaultClass .fancybox-inner {
+    margin: 20 20 20 20;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    //box-shadow: -0.5em -0.5em 0 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow .2s;
+	  //box-shadow: none;
+    //transition: none;
+}  
+.customDefaultClass .fancybox-content {
+    padding: 20 20 20 20;
+    width: 100%;
+    height: 100%;
+}  
 .customDefaultClass .button-close,
 .customDefaultClass .button-previous,
 .customDefaultClass .button-next {
@@ -1723,12 +1437,12 @@ $(document).ready(function() {
   right: -22px;
   font-size: 22px;
 }
-.customDefaultClass .fancybox-content {
+/*.customDefaultClass .fancybox-content {
   position: fixed;
   width: 90%;
   left: 50px;
   background-color: rgb(255,255,255,0.5);
-}
+}*/
 @media screen and (max-width: 600px) {
   .customDefaultClass .fancybox-content {
       margin-top: 10em;
@@ -1742,6 +1456,7 @@ $(document).ready(function() {
 /* Background color */
 .articleFancyClass .fancybox-bg {
   background-color: #fff;
+  opacity: 1;
 }
 .articleFancyClass .fancybox-inner {
     margin: 20 20 20 20;
@@ -1812,3 +1527,6 @@ $(document).ready(function() {
   }
 }
 </style>
+
+</body>
+</html>

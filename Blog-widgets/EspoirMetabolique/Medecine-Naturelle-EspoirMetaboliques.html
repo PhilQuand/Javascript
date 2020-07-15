@@ -1166,12 +1166,12 @@ $(document).ready(function() {
     },
     afterLoad: function(instance, current) {
       $(".getFancyFocus").focus();
-      /*if (instance.group.length > 1 && current.$content) {
-        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+      if (instance.group.length > 1 && current.$content) {
+        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a>');
+        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
+        else current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
       }
-      current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');*/
+      current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
       if (current.$content.find('.footFancy').length == 0)
         $(current.$content).find('.fontFancy').append('<div class="footFancy">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
       //$(current.$content).find('.fontFancy').append('<div class="footFancy" height="' + footFancyHeight + '">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
@@ -1206,9 +1206,27 @@ $(document).ready(function() {
     },
   };
   var videoFancy = {
-    baseClass: 'videoFancyClass',
     smallBtn: false,
-    toolbar: false,
+    toolbar: true,
+    infobar: true,
+    arrows: true,
+    animationEffect: "fade",
+    transitionEffect: "slide",
+    speed: 300,
+    margin: [40, 20],
+    buttons: false,
+    thumbs: {
+      autoStart: false, // Display thumbnails on opening
+      hideOnClose: true // Hide thumbnail grid when closing animation starts
+    },
+    buttons: [
+      'close',
+      'thumbs'
+    ],
+    baseClass: 'articleFancyClass',
+    /*baseClass: 'videoFancyClass',
+    smallBtn: false,
+    toolbar: false,*/
     onActivate: function(instance, current) {
       //scrollTopHeight = $(window).scrollTop();
       //scrollTopHeight = windowParent.$('#Zone18429457 .BgLayer').scrollTop();
@@ -1234,11 +1252,11 @@ $(document).ready(function() {
       }*/
 
       if (instance.group.length > 1 && current.$content) {
-        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a>');
-        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
-        else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
+        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next outside" href="javascript:;">→</a>');
+        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous outside" href="javascript:;">←</a>');
+        else current.$content.append('<a data-fancybox-next class="button-next outside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous outside" href="javascript:;">←</a>');
       }
-      current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
+      current.$content.append('<a data-fancybox-close class="button-close outside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
     },
     onUpdate: function(opts, obj) {
 
@@ -1256,7 +1274,7 @@ $(document).ready(function() {
         windowParent.$('#FooterWrapper').css('display', 'none');
         windowParent.$('#Zone18429229').css('display', 'none');
       }
-      $('.videoFancyClass').css('height', documentInnerHeight + 'px');
+      $('.articleFancyClass').css('height', documentInnerHeight + 'px');
       windowParent.window.scrollTo(0, 0);
 
     }
@@ -1286,10 +1304,16 @@ $(document).ready(function() {
     fancyClass: videoFancy,
     //top: 'article',
     //offSet: '500px',
-    href: [{
+    href: [
+    {
       dataType: "video",
       dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&autoplay=1&rel=0&controls=0&showinfo=0'
-    }, ]
+    }, 
+    {
+      dataType: "video",
+      dataSrc: 'https://www.youtube.com/watch?v=XFfRNT1AWNI&autoplay=1&rel=0&controls=0&showinfo=0'
+    }, 
+    ]
   };
   $('#VideoComplémentsAlimentaires-1').AlaUne(VideoComplémentsAlimentaires);
   $('#VideoComplémentsAlimentaires-2').AlaUne(VideoComplémentsAlimentaires);
@@ -1471,12 +1495,58 @@ $(document).ready(function() {
     width: 100%;
     height: 100%;
 }  
-.articleFancyClass .fancybox-button--close {
-    display: block;
+.articleFancyClass .button-close,
+.articleFancyClass .button-previous,
+.articleFancyClass .button-next {
+  display:block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: black;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 16px;
 }
+.articleFancyClass .button-previous,
+.articleFancyClass .button-next {
+  top: 50%;
+  margin-top: -22px;
+  line-height: 30px;
+}
+.articleFancyClass .button-previous.inside {
+    left: 0px;
+}
+.articleFancyClass .button-next.inside {
+    right: 0px;
+}
+.articleFancyClass .button-close.inside {
+  top: 22px;
+  right: 22px;
+  font-size: 22px;
+}
+.articleFancyClass .button-previous.outside {
+    left: -30px;
+}
+.articleFancyClass .button-next.outside {
+    right: -30px;
+}
+.articleFancyClass .button-close.outside {
+  top: -22px;
+  right: -22px;
+  font-size: 22px;
+}
+.articleFancyClass .fancybox-button.fancybox-button--close,
+.articleFancyClass .fancybox-button.fancybox-button--thumbs {
+    background: black;
+}
+.articleFancyClass .button-close,
 .articleFancyClass .fancybox-button.fancybox-button--arrow_left,
 .articleFancyClass .fancybox-button.fancybox-button--arrow_right {
-    display: block;
+    //display: block;
+    display: none;
 }
 .articleFancy {
     width: 100%;
@@ -1517,6 +1587,11 @@ $(document).ready(function() {
 }
 
 @media screen and (max-width: 600px) {
+  .articleFancyClass .fancybox-inner {
+    margin: 0 0 0 0;
+	  box-shadow: none;
+    transition: none;
+  }  
   .corpsFancy {
     max-height: none;
   }

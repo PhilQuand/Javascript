@@ -1131,6 +1131,7 @@ $(document).ready(function() {
   var BackgroundPaddingTop = windowParent.$('#Background').css('padding-top');
 
   var articleFancy = {
+    idleTime: false,
     smallBtn: false,
     toolbar: true,
     infobar: true,
@@ -1199,9 +1200,7 @@ $(document).ready(function() {
       var fancyboxInnerMT = eval($('.articleFancyClass .fancybox-inner').css('margin-top').split("px")[0]);
       var fancyboxInnerMB = eval($('.articleFancyClass .fancybox-inner').css('margin-bottom').split("px")[0]);
 
-      var corpsFancyHeight = documentInnerHeight - titreFancyHeight - fancyboxInnerMT - fancyboxInnerMB - 60;
-      if (jQuery.type(footFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - footFancyHeight;
-      $('.articleFancyClass .corpsFancy').css('height', corpsFancyHeight + 'px');
+      $('.articleFancyClass .corpsFancy').css('height', documentInnerHeight - titreFancyHeight - footFancyHeight - fancyboxInnerMT - fancyboxInnerMB - 60 + 'px');
       windowParent.window.scrollTo(0, 0);
 
     },
@@ -1296,8 +1295,7 @@ $(document).ready(function() {
         dataType: "inlineId",
         dataSrc: 'CauseDuCancer-2',
         dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Mitochondrie.jpg',
-      },
-    ]
+      }]
   });
   var VideoComplémentsAlimentaires = {
     src: '<button class="gauche">Voir la vidéo...</button>',
@@ -1464,12 +1462,21 @@ $(document).ready(function() {
   font-size: 22px;
 }
 .articleFancyClass .fancybox-button.fancybox-button--close,
+.articleFancyClass .fancybox-button.fancybox-button--arrow_left > div,
+.articleFancyClass .fancybox-button.fancybox-button--arrow_right > div,
 .articleFancyClass .fancybox-button.fancybox-button--thumbs {
     background: black;
 }
-.articleFancyClass .button-close,
+.articleFancyClass .button-close {
+    display: none;
+}
 .articleFancyClass .fancybox-button.fancybox-button--arrow_left,
 .articleFancyClass .fancybox-button.fancybox-button--arrow_right {
+    display: block;
+    //display: none;
+}
+.articleFancyClass .button-previous,
+.articleFancyClass .button-next {
     //display: block;
     display: none;
 }
@@ -1485,13 +1492,13 @@ $(document).ready(function() {
     padding: 0 0 0 0;
 }
 .titreFancy {
-    height: 55px;
+    //height: 55px;
     font-weight: bold;
     font-style: italic;
     color: #027ffd;
     font-size: 24px;
     letter-spacing: 2px;
-    padding: 10px 10px 10px 10px;
+    padding: 20px 10px 10px 10px;
 }
 .footFancy {
     height: 100px;
@@ -1508,17 +1515,24 @@ $(document).ready(function() {
     width: 100%;
     max-height: calc(100vh - 200px);
     overflow: auto;
-    padding: 10px 15px 10px 15px;
+    padding: 10px 30px 10px 30px;
+    text-align: justify;
+    text-justify: inter-word;
+
 }
 
 @media screen and (max-width: 600px) {
+  .articleFancyClass .fancybox-navigation .fancybox-button {
+    top: calc(15% - 50px);
+  }
   .articleFancyClass .fancybox-inner {
     margin: 0 0 0 0;
-	  box-shadow: none;
+	box-shadow: none;
     transition: none;
   }  
   .corpsFancy {
     max-height: none;
+    padding: 10px 10px 10px 10px;
   }
   .titreFancy {
     font-size: 18px;

@@ -702,11 +702,11 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
 
-  $('.page_body').append('<div class="img-foreground" id="AlaUne"></div>');
-  //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
+  //$('.page_body').append('<div class="img-foreground" id="AlaUne"></div>');
+  $('.page_body').append('<div class="img-foreground gallery-container"></div>');
 }
 </script>
-<script>
+<!--script>
 $(document).ready(function() {
   $('#AlaUne').AlaUne({
       //src: '<img src="https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg" />',
@@ -739,11 +739,11 @@ $(document).ready(function() {
     ]
   });
 });
-</script>
+</script-->
 <!-- 
 Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
 -->
-<!--style>
+<style>
 .gallery-container {
     width: 30vw;
 }
@@ -758,15 +758,21 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
 $(document).ready(function() {
   $('.gallery-container').Shaders({
         images: [
-        'https://1.bp.blogspot.com/-SUhkWiwEu3Y/XvuSZ4mqbwI/AAAAAAAAmzA/091nsPpMO98IqeNkQ2OQJSwPPILqax5MgCK4BGAsYHg/s1600/DSC05036.jpg',
-        'https://1.bp.blogspot.com/-u4Kg-kP1Was/XvuSaqXSaQI/AAAAAAAAmzE/hXc6FQM7OM8fY7VnTRnwhc2yNuIne4HYwCK4BGAsYHg/s1600/DSC05040.jpg',
-        'https://1.bp.blogspot.com/-eV1fNTOLwOQ/XvuSbEwNmkI/AAAAAAAAmzI/SK011rRbTYEY2m1IqUj9wJap2KMi3pgTQCK4BGAsYHg/s1600/DSC05029.jpg',
-        'https://1.bp.blogspot.com/-6pG_eBegTeY/XvuSbgshtCI/AAAAAAAAmzM/VhiwfDW4BV8t6SvCweSUClFB4GRHnK6PACK4BGAsYHg/s1600/DSC05039.jpg',
-        'https://1.bp.blogspot.com/-k7dU9JYi7eI/XvuScBHQh2I/AAAAAAAAmzQ/h6brjfYTEPoglNhsbKjifpt0kOnaea5JgCK4BGAsYHg/s1600/DSC05049.jpg',
-        'https://1.bp.blogspot.com/-r7WPejlWBRs/XvuScwasEqI/AAAAAAAAmzU/e778mafiOKUo359yB6ZsmlkCJCPSz4pxACK4BGAsYHg/s1600/DSC05044.jpg',
-        'https://1.bp.blogspot.com/-3-JWGts62yw/XvuSdWQOWMI/AAAAAAAAmzY/J9gxhllqucY4ZvHoQRtUrHHEGpl8VtT5wCK4BGAsYHg/s1600/DSC05052.jpg',
-        'https://1.bp.blogspot.com/-x19v-RAaQCI/XvuSd_4VHaI/AAAAAAAAmzc/NWBiML8Zw-s5QixV2c_ju1O_Us_HXa3PwCK4BGAsYHg/s1600/DSC05051.jpg',
-        'https://1.bp.blogspot.com/-5sw_cGVIS4s/XvuSeq3EmyI/AAAAAAAAmzg/U0y4iYT9J7sD83Gmx5tsg9kH5tHJTN2RACK4BGAsYHg/s1600/DSC05045.jpg'
+        'https://1.bp.blogspot.com/-YBe4YFy8IoU/Xw8UkHwPncI/AAAAAAAAm5k/9fq7pPtx6PA8lA5wXqWJwF-g6700psL8gCLcBGAsYHQ/s1600/DSC05053%2B%25282%2529.jpg',
+        'https://1.bp.blogspot.com/-r5PSGVTN_60/Xw8UkKMBinI/AAAAAAAAm5c/BhwCuG50jPgukyPvLhenKI7X05klUqnqQCLcBGAsYHQ/s1600/DSC05055.jpg',
+        'https://1.bp.blogspot.com/-OVbm83hHUf4/Xw8UkEIJskI/AAAAAAAAm5g/3HkRZ_I-4ogaCRiiFO8SjQxvR6PCBD8EQCLcBGAsYHQ/s1600/DSC05059.jpg',
+        'https://1.bp.blogspot.com/-BQB772BVIgU/Xw8Uk_EN-ZI/AAAAAAAAm5o/bEqyCtJDcq4I6Qd4rc7N07B2DLiMk2s0QCLcBGAsYHQ/s1600/DSC05060.jpg',
+        'https://1.bp.blogspot.com/-4vZBf-L4LKY/Xw8UlevaxII/AAAAAAAAm5s/A5onMD5rsIcLunTdl_KEuzGxOxHdK97hwCLcBGAsYHQ/s1600/DSC05061.jpg',
+        'https://1.bp.blogspot.com/-up8x7jERMJU/Xw8Ul04herI/AAAAAAAAm5w/kheK1TTSPP8uyN0qsJwrNYbAsGVfliOhgCLcBGAsYHQ/s1600/DSC05065.jpg',
+        'https://1.bp.blogspot.com/-7az9SsAVBMA/Xw8UmaDwBXI/AAAAAAAAm50/ig0O04mwKPUtGwQ51Ytvuynl1Q_fmZLAQCLcBGAsYHQ/s1600/DSC05069.jpg',
+        'https://1.bp.blogspot.com/-vt8vZb5P4xk/Xw8Umpfs0CI/AAAAAAAAm54/iVG51dTsssEbJMaVNU-xGvP7pccAN1KvwCLcBGAsYHQ/s1600/DSC05073.jpg',
+        'https://1.bp.blogspot.com/-CiYhwKEkgVA/Xw8UmwjZvxI/AAAAAAAAm58/CiWAJ4LJZ5YNhVPUqpsEFS6P8DZc6KWJACLcBGAsYHQ/s1600/DSC05074.jpg',
+        'https://1.bp.blogspot.com/-ZfUuGWgF5xI/Xw8UnPp84YI/AAAAAAAAm6A/QEKgrUpVfqkE5F-G1bgg1p24ZzFFjEXuQCLcBGAsYHQ/s1600/DSC05076.jpg',
+        'https://1.bp.blogspot.com/-mr82JXe8ehM/Xw8UnHTnMlI/AAAAAAAAm6E/QfUerAQnO3c3yfLzL2ZhsoI3_lLTpkTggCLcBGAsYHQ/s1600/DSC05081.jpg',
+        'https://1.bp.blogspot.com/-hXmH4rONudI/Xw8UnmNP7SI/AAAAAAAAm6I/dQPLAGjDw7ghQ1J8xO4VQc6I-G38yvWSgCLcBGAsYHQ/s1600/DSC05084.jpg',
+        'https://1.bp.blogspot.com/-Z3gf8fA3ptw/Xw8SHi27EFI/AAAAAAAAm5Q/AYgi9bjGNpY7F1c-BV6K3yucBmQV0NnmACLcBGAsYHQ/s1600/Banderole_Marie.jpg',
+        'https://1.bp.blogspot.com/-80SX0DtohQo/Xw83sG7J4kI/AAAAAAAAm60/GsYpWHc-594gi4oVpN70_jEEvtLd6my6ACLcBGAsYHQ/s1600/DSC05060.jpg',
+        'https://1.bp.blogspot.com/-wZAKBRYbaho/Xw83r6Krt6I/AAAAAAAAm6s/NKwalc7z3PwyHTWUZos5GljI3k_l0OomQCLcBGAsYHQ/s1600/DSC05073.jpg'
         ],
         imageSize: {
           x: 1600,
@@ -774,4 +780,4 @@ $(document).ready(function() {
         }
   });
 });
-</script-->
+</script>

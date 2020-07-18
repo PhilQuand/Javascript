@@ -131,6 +131,12 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                     else current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
                   }
                   current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--thumbs').attr('title', 'navigateur de pages');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close').attr('title', 'fermeture de la page');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right').attr('title', 'page suivante');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left').attr('title', 'page précédente');
+                  $('.fancyAlaUneDefaultInline .fancybox-button:enabled').css('visibility', 'visible');
+                  $('.fancyAlaUneDefaultInline .fancybox-button:disabled').css('visibility', 'hidden');
                 },
                 onUpdate: function(opts, obj) {
 

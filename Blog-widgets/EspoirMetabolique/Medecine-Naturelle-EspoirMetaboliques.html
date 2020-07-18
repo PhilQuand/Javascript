@@ -1175,6 +1175,12 @@ $(document).ready(function() {
       current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
       //if (current.$content.find('.footFancy').length == 0)
       //  $(current.$content).find('.fontFancy').append('<div class="footFancy">pour naviguer dans les différentes pages utilisez les flèches latérales <br/>ou le navigateur de pages (icône en haut à gauche).</div>')
+      $('.articleFancyClass .fancybox-button.fancybox-button--thumbs').attr('title', 'navigateur de pages');
+      $('.articleFancyClass .fancybox-button.fancybox-button--close').attr('title', 'fermeture de la page');
+      $('.articleFancyClass .fancybox-button.fancybox-button--arrow_right').attr('title', 'page suivante');
+      $('.articleFancyClass .fancybox-button.fancybox-button--arrow_left').attr('title', 'page précédente');
+      $('.articleFancyClass .fancybox-button:enabled').css('visibility', 'visible');
+      $('.articleFancyClass .fancybox-button:disabled').css('visibility', 'hidden');
     },
     onUpdate: function(opts, obj) {
 
@@ -1200,7 +1206,9 @@ $(document).ready(function() {
       var fancyboxInnerMT = eval($('.articleFancyClass .fancybox-inner').css('margin-top').split("px")[0]);
       var fancyboxInnerMB = eval($('.articleFancyClass .fancybox-inner').css('margin-bottom').split("px")[0]);
 
-      $('.articleFancyClass .corpsFancy').css('height', documentInnerHeight - titreFancyHeight - footFancyHeight - fancyboxInnerMT - fancyboxInnerMB - 60 + 'px');
+      var corpsFancyHeight = documentInnerHeight - titreFancyHeight - fancyboxInnerMT - fancyboxInnerMB - 80;
+      if (jQuery.type(footFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - footFancyHeight;
+      $('.articleFancyClass .corpsFancy').css('height', corpsFancyHeight + 'px');
       windowParent.window.scrollTo(0, 0);
 
     },

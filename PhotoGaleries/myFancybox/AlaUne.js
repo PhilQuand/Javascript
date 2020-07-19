@@ -54,32 +54,23 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           else {
             switch (options.href[i].dataType) {
               case "inlineId":
-                //var inlineId = $('#' + options.href[i].dataSrc);
-                //inlineId = inlineId.wrap('<div class="corpsFancy"></div>');
-                //inlineId = inlineId.wrap('<div class="articleFancy" id="' + randHid + i + '" style="display:none"></div>');
-                //$(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
                 if (jQuery.type(options.href[i].dataThumb) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '">inline ' + i + '</a>');
                 else $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '" data-thumb="' + options.href[i].dataThumb + '">inline ' + i + '</a>');
-                //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
                 break;
               case "inline":
-                $(_this).append('<div class="articleFancy" id="' + randHid + i + '"> \
-                              <div class="corpsFancy"> \
+                $(_this).append('<div id="' + randHid + i + '"> \
+                              <div class="inlineCorpsFancy"> \
                               ' + options.href[i].dataSrc + ' \
                               </div></div>');
                 $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
-                //<a style="display:none" class="' + randNum + ' fancybox.inline" data-src="#hidden-content-1" data-fancybox="' + randNum + '" data-width="50%" data-height="800">inline ' + i + '</a>');
                 break;
               case "iframe":
-                //$(this).append('<a style="display:none" class="fancybox fancybox.iframe" data-type="iframe" data-fancybox="FB' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" >iframe ' + i +'</a>');
                 $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" data-width="1132" data-height="1600">iframe ' + i + '</a>');
                 break;
               case "images":
-                //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
                 $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" data-width="1132" data-height="1600">images ' + i + '</a>');
                 break;
               case "video":
-                //$(this).append('<a style="display:none" class="fancybox" data-fancybox="FB' + randNum + '" href="' + options.href[i].dataSrc + '" >images ' + i +'</a>');
                 $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '">video ' + i + '</a>');
                 break;
               default:
@@ -104,56 +95,52 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           switch (options.fancyClass) {
             case "defaultInline":
               $('.' + randNum).fancybox({
-                idleTime: false,
-                smallBtn: false,
-                toolbar: true,
-                infobar: true,
-                arrows: true,
-                animationEffect: "fade",
-                transitionEffect: "slide",
-                speed: 300,
-                margin: [40, 20],
-                buttons: false,
-                thumbs: {
-                  autoStart: false, // Display thumbnails on opening
-                  hideOnClose: true // Hide thumbnail grid when closing animation starts
-                },
-                buttons: [
-                  'close',
-                  'thumbs'
-                ],
-                baseClass: 'fancyAlaUneDefaultInline',
-                afterLoad: function(instance, current) {
-                  $(".getFancyFocus").focus();
-                  if (instance.group.length > 1 && current.$content) {
-                    if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a>');
-                    else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
-                    else current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
-                  }
-                  current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
-                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--thumbs').attr('title', 'navigateur de pages');
-                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close').attr('title', 'fermeture de la page');
-                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right').attr('title', 'page suivante');
-                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left').attr('title', 'page précédente');
-                  $('.fancyAlaUneDefaultInline .fancybox-button:enabled').css('visibility', 'visible');
-                  $('.fancyAlaUneDefaultInline .fancybox-button:disabled').css('visibility', 'hidden');
-                },
-                onUpdate: function(opts, obj) {
+    idleTime: false,
+    smallBtn: false,
+    toolbar: true,
+    infobar: true,
+    arrows: true,
+    animationEffect: "fade",
+    transitionEffect: "slide",
+    speed: 300,
+    margin: [40, 20],
+    buttons: false,
+    thumbs: {
+      autoStart: false, // Display thumbnails on opening
+      hideOnClose: true // Hide thumbnail grid when closing animation starts
+    },
+    buttons: [
+      'close',
+      'thumbs'
+    ],
+    baseClass: 'fancyAlaUneDefaultInline',
+    afterLoad: function(instance, current) {
+      $(".getFancyFocus").focus();
+      if (instance.group.length > 1 && current.$content) {
+        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a>');
+        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
+        else current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
+      }
+      current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
+    },
+    onUpdate: function(opts, obj) {
 
-                  var documentInnerHeight = window.innerHeight;
-                  $('.fancyAlaUneDefaultInline').css('height', documentInnerHeight + 'px');
-                  var titreFancyHeight = $('.titreFancy').height();
-                  var footFancyHeight = $('.footFancy').height();
-                  var fancyboxInnerMT = eval($('.fancyAlaUneDefaultInline .fancybox-inner').css('margin-top').split("px")[0]);
-                  var fancyboxInnerMB = eval($('.fancyAlaUneDefaultInline .fancybox-inner').css('margin-bottom').split("px")[0]);
+      var documentInnerHeight = window.innerHeight;
+      $('.fancyAlaUneDefaultInline').css('height', documentInnerHeight + 'px');
 
-                  var corpsFancyHeight = documentInnerHeight - titreFancyHeight - fancyboxInnerMT - fancyboxInnerMB - 80;
-                  if (jQuery.type(footFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - footFancyHeight;
-                  $('.fancyAlaUneDefaultInline .corpsFancy').css('height', corpsFancyHeight + 'px');
-                  window.scrollTo(0, 0);
+      /*var fancyboxInnerMT = eval($('.fancyAlaUneDefaultInline .fancybox-inner').css('margin-top').split("px")[0]);
+      var fancyboxInnerMB = eval($('.fancyAlaUneDefaultInline .fancybox-inner').css('margin-bottom').split("px")[0]);
+      var corpsFancyHeight = documentInnerHeight - fancyboxInnerMT - fancyboxInnerMB - 80;
+      var titreFancyHeight = $('.titreFancy').height();
+      if (jQuery.type(titreFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - titreFancyHeight;
+      var footFancyHeight = $('.footFancy').height();
+      if (jQuery.type(footFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - footFancyHeight;
+      $('.fancyAlaUneDefaultInline .corpsFancy').css('height', corpsFancyHeight + 'px');*/
 
-                },
-              });
+      window.scrollTo(0, 0);
+
+    },
+  });
               break;
             default:
               $('.' + randNum).fancybox({

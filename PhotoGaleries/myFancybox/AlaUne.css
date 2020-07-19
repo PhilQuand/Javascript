@@ -19,10 +19,9 @@
     width: 100%;
     height: 100%;
 }  
-.fancyAlaUneDefaultInline .button-close,
-.fancyAlaUneDefaultInline .button-previous,
-.fancyAlaUneDefaultInline .button-next {
-  display:block;
+.fancyAlaUneDefaultInline .fancybox-content .button-close,
+.fancyAlaUneDefaultInline .fancybox-content .button-previous,
+.fancyAlaUneDefaultInline .fancybox-content .button-next {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -34,30 +33,30 @@
   border-radius: 50%;
   font-size: 16px;
 }
-.fancyAlaUneDefaultInline .button-previous,
-.fancyAlaUneDefaultInline .button-next {
+.fancyAlaUneDefaultInline .fancybox-content .button-previous,
+.fancyAlaUneDefaultInline .fancybox-content .button-next {
   top: 50%;
   margin-top: -22px;
   line-height: 30px;
 }
-.fancyAlaUneDefaultInline .button-previous.inside {
+.fancyAlaUneDefaultInline .fancybox-content .button-previous.inside {
     left: 0px;
 }
-.fancyAlaUneDefaultInline .button-next.inside {
+.fancyAlaUneDefaultInline .fancybox-content .button-next.inside {
     right: 0px;
 }
-.fancyAlaUneDefaultInline .button-close.inside {
+.fancyAlaUneDefaultInline .fancybox-content .button-close.inside {
   top: 22px;
   right: 22px;
   font-size: 22px;
 }
-.fancyAlaUneDefaultInline .button-previous.outside {
+.fancyAlaUneDefaultInline .fancybox-content .button-previous.outside {
     left: -30px;
 }
-.fancyAlaUneDefaultInline .button-next.outside {
+.fancyAlaUneDefaultInline .fancybox-content .button-next.outside {
     right: -30px;
 }
-.fancyAlaUneDefaultInline .button-close.outside {
+.fancyAlaUneDefaultInline .fancybox-content .button-close.outside {
   top: -22px;
   right: -22px;
   font-size: 22px;
@@ -73,9 +72,9 @@
 .fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right {
     display: none;
 }
-.fancyAlaUneDefaultInline .button-close,
-.fancyAlaUneDefaultInline .button-previous,
-.fancyAlaUneDefaultInline .button-next {
+.fancyAlaUneDefaultInline .fancybox-content .button-close,
+.fancyAlaUneDefaultInline .fancybox-content .button-previous,
+.fancyAlaUneDefaultInline .fancybox-content .button-next {
     display: block;
 }
 .fancyAlaUneDefaultInline .fancybox-inner .inlineCorpsFancy {
@@ -138,9 +137,9 @@
   .fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right {
     display: block;
   }
-  .fancyAlaUneDefaultInline .button-close,
-  .fancyAlaUneDefaultInline .button-previous,
-  .fancyAlaUneDefaultInline .button-next {
+  .fancyAlaUneDefaultInline .fancybox-content .button-close,
+  .fancyAlaUneDefaultInline .fancybox-content .button-previous,
+  .fancyAlaUneDefaultInline .fancybox-content .button-next {
     display: none;
   }
   .fancyAlaUneDefaultInline .fancybox-inner {

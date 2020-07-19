@@ -113,7 +113,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   'close',
                   'thumbs'
                 ],
-                baseClass: 'fancyAlaUneDefaultInline',
+                baseClass: 'fancyAlaUneDefault',
                 afterLoad: function(instance, current) {
                   $(".getFancyFocus").focus();
                   /*if (instance.group.length > 1 && current.$content) {
@@ -160,11 +160,11 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   }*/
 
                   if (instance.group.length > 1 && current.$content) {
-                    if (current.index == 0) current.$content.append('<div class="button-next"><a data-fancybox-next href="javascript:;">→</a></div>');
-                    else if (current.index == (instance.group.length - 1)) current.$content.append('<div class="button-previous"><a data-fancybox-prev href="javascript:;">←</a></div>');
-                    else current.$content.append('<div class="button-next"><a data-fancybox-next href="javascript:;">→</a></div><div class="button-previous"><a data-fancybox-prev href="javascript:;">←</a></div>');
+                    if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next outside" href="javascript:;">→</a>');
+                    else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous outside" href="javascript:;">←</a>');
+                    else current.$content.append('<a data-fancybox-next class="button-next outside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous outside" href="javascript:;">←</a>');
                   }
-                  current.$content.append('<div class="button-close"><a data-fancybox-close href="javascript:;">x</a></div>');
+                  current.$content.append('<a data-fancybox-close class="button-close outside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
                 }
               });
           }

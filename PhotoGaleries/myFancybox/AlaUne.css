@@ -1,12 +1,12 @@
-.fancyAlaUneDefaultInline {
+.fancyAlaUneDefault {
     position: absolute;
 }  
 /* Background color */
-.fancyAlaUneDefaultInline .fancybox-bg {
+.fancyAlaUneDefault .fancybox-bg {
   background-color: #fff;
   opacity: 1;
 }
-.fancyAlaUneDefaultInline .fancybox-inner {
+.fancyAlaUneDefault .fancybox-inner {
     margin: 20 20 20 20;
     box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
     //box-shadow: -0.5em -0.5em 0 0 rgba(0, 0, 0, 0.2);
@@ -14,14 +14,14 @@
 	  //box-shadow: none;
     //transition: none;
 }  
-.fancyAlaUneDefaultInline .fancybox-content {
+.fancyAlaUneDefault .fancybox-content {
     padding: 20 20 20 20;
     width: 100%;
     height: 100%;
 }  
-.fancyAlaUneDefaultInline .fancybox-content .button-close,
-.fancyAlaUneDefaultInline .fancybox-content .button-previous,
-.fancyAlaUneDefaultInline .fancybox-content .button-next {
+.fancyAlaUneDefault .fancybox-content .button-close,
+.fancyAlaUneDefault .fancybox-content .button-previous,
+.fancyAlaUneDefault .fancybox-content .button-next {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -33,51 +33,51 @@
   border-radius: 50%;
   font-size: 16px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-previous,
-.fancyAlaUneDefaultInline .fancybox-content .button-next {
+.fancyAlaUneDefault .fancybox-content .button-previous,
+.fancyAlaUneDefault .fancybox-content .button-next {
   top: 50%;
   margin-top: -22px;
   line-height: 30px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-previous.inside {
+.fancyAlaUneDefault .fancybox-content .button-previous.inside {
     left: 0px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-next.inside {
+.fancyAlaUneDefault .fancybox-content .button-next.inside {
     right: 0px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-close.inside {
+.fancyAlaUneDefault .fancybox-content .button-close.inside {
   top: 22px;
   right: 22px;
   font-size: 22px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-previous.outside {
+.fancyAlaUneDefault .fancybox-content .button-previous.outside {
     left: -30px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-next.outside {
+.fancyAlaUneDefault .fancybox-content .button-next.outside {
     right: -30px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-close.outside {
+.fancyAlaUneDefault .fancybox-content .button-close.outside {
   top: -22px;
   right: -22px;
   font-size: 22px;
 }
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left > div,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right > div,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--thumbs {
+.fancyAlaUneDefault .fancybox-button.fancybox-button--close,
+.fancyAlaUneDefault .fancybox-button.fancybox-button--arrow_left > div,
+.fancyAlaUneDefault .fancybox-button.fancybox-button--arrow_right > div,
+.fancyAlaUneDefault .fancybox-button.fancybox-button--thumbs {
     background: #808080;
 }
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right {
+.fancyAlaUneDefault .fancybox-button.fancybox-button--close,
+.fancyAlaUneDefault .fancybox-button.fancybox-button--arrow_left,
+.fancyAlaUneDefault .fancybox-button.fancybox-button--arrow_right {
     display: none;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-close,
-.fancyAlaUneDefaultInline .fancybox-content .button-previous,
-.fancyAlaUneDefaultInline .fancybox-content .button-next {
+.fancyAlaUneDefault .fancybox-content .button-close,
+.fancyAlaUneDefault .fancybox-content .button-previous,
+.fancyAlaUneDefault .fancybox-content .button-next {
     display: block;
 }
-.fancyAlaUneDefaultInline .fancybox-inner .inlineCorpsFancy {
+.fancyAlaUneDefault .fancybox-inner .inlineCorpsFancy {
     width: 100%;
     max-height: calc(100vh - 200px);
     overflow: auto;
@@ -129,25 +129,25 @@
 }*/
 
 @media screen and (max-width: 600px) {
-  .fancyAlaUneDefaultInline .fancybox-navigation .fancybox-button {
+  .fancyAlaUneDefault .fancybox-navigation .fancybox-button {
     top: calc(15% - 50px);
   }
-  .fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close,
-  .fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left,
-  .fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right {
+  .fancyAlaUneDefault .fancybox-button.fancybox-button--close,
+  .fancyAlaUneDefault .fancybox-button.fancybox-button--arrow_left,
+  .fancyAlaUneDefault .fancybox-button.fancybox-button--arrow_right {
     display: block;
   }
-  .fancyAlaUneDefaultInline .fancybox-content .button-close,
-  .fancyAlaUneDefaultInline .fancybox-content .button-previous,
-  .fancyAlaUneDefaultInline .fancybox-content .button-next {
+  .fancyAlaUneDefault .fancybox-content .button-close,
+  .fancyAlaUneDefault .fancybox-content .button-previous,
+  .fancyAlaUneDefault .fancybox-content .button-next {
     display: none;
   }
-  .fancyAlaUneDefaultInline .fancybox-inner {
+  .fancyAlaUneDefault .fancybox-inner {
     margin: 0 0 0 0;
 	box-shadow: none;
     transition: none;
   }  
-  .fancyAlaUneDefaultInline .fancybox-inner .inlineCorpsFancy {
+  .fancyAlaUneDefault .fancybox-inner .inlineCorpsFancy {
     max-height: none;
     padding: 10px 10px 10px 10px;
   }

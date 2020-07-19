@@ -116,12 +116,15 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 baseClass: 'fancyAlaUneDefaultInline',
                 afterLoad: function(instance, current) {
                   $(".getFancyFocus").focus();
-                  if (instance.group.length > 1 && current.$content) {
+                  /*if (instance.group.length > 1 && current.$content) {
                     if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a>');
                     else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
                     else current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
                   }
-                  current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
+                  current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');*/
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close').css('display','block');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left').css('display','block');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right').css('display','block');
                 },
                 onUpdate: function(opts, obj) {
 

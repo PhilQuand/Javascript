@@ -95,52 +95,52 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           switch (options.fancyClass) {
             case "defaultInline":
               $('.' + randNum).fancybox({
-    idleTime: false,
-    smallBtn: false,
-    toolbar: true,
-    infobar: true,
-    arrows: true,
-    animationEffect: "fade",
-    transitionEffect: "slide",
-    speed: 300,
-    margin: [40, 20],
-    buttons: false,
-    thumbs: {
-      autoStart: false, // Display thumbnails on opening
-      hideOnClose: true // Hide thumbnail grid when closing animation starts
-    },
-    buttons: [
-      'close',
-      'thumbs'
-    ],
-    baseClass: 'fancyAlaUneDefaultInline',
-    afterLoad: function(instance, current) {
-      $(".getFancyFocus").focus();
-      if (instance.group.length > 1 && current.$content) {
-        if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a>');
-        else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
-        else current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
-      }
-      current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
-    },
-    onUpdate: function(opts, obj) {
+                idleTime: false,
+                smallBtn: false,
+                toolbar: true,
+                infobar: true,
+                arrows: true,
+                animationEffect: "fade",
+                transitionEffect: "slide",
+                speed: 300,
+                margin: [40, 20],
+                buttons: false,
+                thumbs: {
+                  autoStart: false, // Display thumbnails on opening
+                  hideOnClose: true // Hide thumbnail grid when closing animation starts
+                },
+                buttons: [
+                  'close',
+                  'thumbs'
+                ],
+                baseClass: 'fancyAlaUneDefaultInline',
+                afterLoad: function(instance, current) {
+                  $(".getFancyFocus").focus();
+                  if (instance.group.length > 1 && current.$content) {
+                    if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a>');
+                    else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
+                    else current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
+                  }
+                  current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
+                },
+                onUpdate: function(opts, obj) {
 
-      var documentInnerHeight = window.innerHeight;
-      $('.fancyAlaUneDefaultInline').css('height', documentInnerHeight + 'px');
+                  var documentInnerHeight = window.innerHeight;
+                  $('.fancyAlaUneDefaultInline').css('height', documentInnerHeight + 'px');
 
-      /*var fancyboxInnerMT = eval($('.fancyAlaUneDefaultInline .fancybox-inner').css('margin-top').split("px")[0]);
-      var fancyboxInnerMB = eval($('.fancyAlaUneDefaultInline .fancybox-inner').css('margin-bottom').split("px")[0]);
-      var corpsFancyHeight = documentInnerHeight - fancyboxInnerMT - fancyboxInnerMB - 80;
-      var titreFancyHeight = $('.titreFancy').height();
-      if (jQuery.type(titreFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - titreFancyHeight;
-      var footFancyHeight = $('.footFancy').height();
-      if (jQuery.type(footFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - footFancyHeight;
-      $('.fancyAlaUneDefaultInline .corpsFancy').css('height', corpsFancyHeight + 'px');*/
+                  /*var fancyboxInnerMT = eval($('.fancyAlaUneDefaultInline .fancybox-inner').css('margin-top').split("px")[0]);
+                  var fancyboxInnerMB = eval($('.fancyAlaUneDefaultInline .fancybox-inner').css('margin-bottom').split("px")[0]);
+                  var corpsFancyHeight = documentInnerHeight - fancyboxInnerMT - fancyboxInnerMB - 80;
+                  var titreFancyHeight = $('.titreFancy').height();
+                  if (jQuery.type(titreFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - titreFancyHeight;
+                  var footFancyHeight = $('.footFancy').height();
+                  if (jQuery.type(footFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - footFancyHeight;
+                  $('.fancyAlaUneDefaultInline .corpsFancy').css('height', corpsFancyHeight + 'px');*/
 
-      window.scrollTo(0, 0);
+                  window.scrollTo(0, 0);
 
-    },
-  });
+                },
+              });
               break;
             default:
               $('.' + randNum).fancybox({

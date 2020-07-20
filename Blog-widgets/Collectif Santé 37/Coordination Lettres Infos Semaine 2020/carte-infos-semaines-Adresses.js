@@ -345,6 +345,8 @@ var inpAddress = [
   lat: 45.160630, lng:  5.712725},
 { inpText: "SENLIS",
   lat: 49.20636, lng:  2.58570},
+{ inpText: "FOUGERES",
+  lat: 48.35426, lng:  -1.20019},
 { inpText: "TARN",
   lat: 43.78571, lng:  2.16572},
 { inpText: "Guadeloupe",

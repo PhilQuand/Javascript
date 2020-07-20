@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaine 03</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 600px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 29</li>
+<li><strong>Dates</strong>: du 13 juillet au 18 juillet 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/Infos-Semaine-29-du-13-au-18-juillet-2020.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:image004.jpg@01D65E7D.9A1C30B0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/image004-1.jpg" />
+<h3>cid:image005.jpg@01D65E7D.9A1C30B0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/Tours-Rassemblement-du-4-Juillet-Photo.jpg" />
+<h3>cid:image006.jpg@01D65E7D.9A1C30B0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/Oloron-Ste-Marie-rassemblement-14-Juillet-2020-Photo-1.jpg" />
+<h3>cid:image007.jpg@01D65E7D.9A1C30B0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/Oloron-Ste-Marie-rassemblement-14-Juillet-2020-Photo-3.jpg" />
+<h3>cid:image009.jpg@01D65E7D.9A1C30B0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/dinan20200720.jpg" />
+<h3>cid:image010.jpg@01D65E7D.9A1C30B0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/image010-1.jpg" />
+<h3>cid:image011.jpg@01D65E7D.9A1C30B0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/image011-1.jpg" />
+<h3>cid:image012.jpg@01D65E7D.9A1C30B0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/image012-1.jpg" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Édito  :</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">Quand l’attente de l’après Ségur aura fait long feu,</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">Quand l’hôpital public sortira de la crise comme il y est rentré : exsangue,</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">Quand professionnels et population nous serons tous déçus ,</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">Il restera la lutte commune pour reconstruire la santé publique que nous voulons pour demain !</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	 
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	 
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	 
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	 
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Sommaire :</span></b>
+</p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-indent: -18pt;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">L’écho des comités : pages 2, 3, 4</span></b>
+</p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-indent: -18pt;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Autres infos locales : pages 4, 5</span></b>
+</p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-indent: -18pt;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Dossiers :</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-indent: 18pt;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">-</span></b><span class="Apple-converted-space"> </span><b><span style="font-size: 18pt; line-height: 25.200000762939453px; font-family: Arial, sans-serif;">Les orthophonistes s’inquiètent : page 6</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-indent: 18pt;">
+	<b><span style="font-size: 18pt; line-height: 25.200000762939453px; font-family: Arial, sans-serif;">- Le Ségur de la Santé : page 6</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-indent: 18pt;">
+	<b><span style="font-size: 18pt; line-height: 25.200000762939453px; font-family: Arial, sans-serif;">- Contre les soignants : la justice : page 7</span></b>
+</p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-indent: -18pt;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Culture et santé :<span class="Apple-converted-space"> </span><span style="color: rgb(112, 48, 160);"></span><span style="color: black;">page 8</span></span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(112, 48, 160);"> </span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(112, 48, 160);"> </span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(112, 48, 160);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);">L’écho des comités :</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(217, 226, 243); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">CONCARNEAU – DOUARNENEZ – MORLAIX - 29</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Soutien des trois comités aux soignants à l’occasion de l’action nationale du 14 juillet</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="http://coordination-defense-sante.org/2020/07/Le%20communiqu%C3%A9%20communsoutien-aux-soignants/" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Le communiqué commun</span></b></a><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(255, 217, 102); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">THOUARS – NORD DEUX SEVRES - 79</span></b>
+</p>
+<p align="center" style="margin: 5pt 0cm; font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;">Une direction unique Centre hospitalier de NIORT - Centre hospitalier Nord Deux-Sèvres :</span></b>
+</p>
+<p align="center" style="margin: 5pt 0cm; font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;">Dans le même article les réactions de la CGT et du comité.</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="https://www.lanouvellerepublique.fr/deux-sevres/deux-sevres-hopital-on-nous-dit-toujours-que-ca-n-arrivera-jamais-denonce-la-cgt?queryId%5Bquery1%5D=57cd2206459a452f008b4594&amp;queryId%5Bquery2%5D=57c95b34479a452f008b459d&amp;page=1&amp;pageId=57da5ce0459a4552008b456f" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif; color: blue;">Les réactions de la CGT et du comité</span></b></a><span style="font-size: 12pt; line-height: 16.799999237060547px;"></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: red; background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">BRIOUDE - 43</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Dans le cadre des "Mardis de la colère", une centaine de personnes (personnels hospitaliers, usagers, population) se sont rassemblées devant le Centre Hospitalier de Brioude pour dénoncer l' insuffisance des annonces faites à l'issue du Ségur de la Santé et exiger davantage de moyens pour l'hôpital public. Pendant ce rassemblement, un "pseudo-Macron" a remis symboliquement des médailles aux membres du personnel pour signifier que le personnel ne se contentera pas de reconnaissance en paroles, en primes ou en médailles.</span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span><img border="0" width="359" height="269" id="Image_x0020_7" src="cid:image004.jpg@01D65E7D.9A1C30B0"></span><b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="https://defensehopitalbrioude.blogspot.com/2020/07/dans-le-cadre-des-mardis-de-la-colere.html" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif; color: blue;">L’article</span></b></a><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(191, 143, 0); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">SAINT AFFRIQUE – 12</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Le comité lance les Assises de la Santé en Sud-Aveyron et appelle à un pique-nique citoyen le 14 juillet</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="http://coordination-defense-sante.org/2020/07/sainte-affrique-lancement-des-assises-de-laLe%20communiqu%C3%A9-sante-en-sud-aveyron/" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Le communiqué</span></b></a><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(0, 176, 240); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">SARLAT - 24</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Le centre hospitalier de SARLAT rouvre le service de dépistage du cancer du sein fermé en septembre 2019 faute d’équipement</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="http://coordination-defense-sante.org/2020/07/sarlat-service-de-depistage-du-cancer-du-sein/" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">L’article</span></b></a><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(255, 192, 0); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">TOURS - 37</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Rassemblement du 4 Juillet</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span><img border="0" width="220" height="255" id="Image_x0020_6" src="cid:image005.jpg@01D65E7D.9A1C30B0"></span><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="https://collectifsante37.blogspot.com/2020/07/le-segur-de-la-sante-une-imposture.html" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif; color: blue;">L’article</span></b></a><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(0, 32, 96); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">OLORON SAINTE MARIE – 64</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">    </span><span class="Apple-converted-space"> </span><span><img border="0" width="211" height="281" id="Image_x0020_5" src="cid:image006.jpg@01D65E7D.9A1C30B0"></span><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">                        </span><span class="Apple-converted-space"> </span><span><img border="0" width="376" height="282" id="Image_x0020_4" src="cid:image007.jpg@01D65E7D.9A1C30B0"></span><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="http://coordination-defense-sante.org/2020/07/oloron-sainte-marie-rassemblement-du-14-juillet/" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Les photos</span></b></a><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);">Autres infos locales :</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(244, 176, 131); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">FOUGERES - 35</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	 
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’hôpital de Fougères et la lente agonie des soins publics</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="https://galettesociale.org/lhopital-de-fougeres-et-la-lente-agonie-des-soins-publics/" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’interview</span></b></a><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 0, 10);"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 0, 10);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(255, 217, 102); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: rgb(0, 0, 10);">LE HAVRE : Clinique Océane – 76</span></b><span class="Apple-converted-space"> </span><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(0, 0, 10);">-</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Conflit social : On ne négocie pas – on évacue les patients et on ferme.</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="about:blank#xtor=EPR-521-[france3regions]-20200714-" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a><b><span style="font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(244, 176, 131); background-position: initial initial; background-repeat: initial initial;">
+	<span class="MsoHyperlink" style="color: rgb(5, 99, 193); text-decoration: underline;"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: black;">DINAN  - 22  -</span></b></span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<img width="241" height="429" src="cid:image009.jpg@01D65E7D.9A1C30B0" v:shapes="Image_x0020_9">
+	<b><span style="font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(192, 0, 0); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="display:none; font-size: 14pt; font-family: Arial, sans-serif;">Paris</span><span style="font-size: 14pt; font-family: Arial, sans-serif;">PRINTEMPS DE LA PSYCHIATRIE</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;">Photo de la manif du 14 à Paris avec banderole et pancartes</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span><img border="0" width="277" height="208" id="Image_x0020_3" src="cid:image010.jpg@01D65E7D.9A1C30B0"></span><b><span style="font-size: 12pt; line-height: 16.799999237060547px; font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);">Dossiers :</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: yellow; background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif;">Orthophonistes en vigilance</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif;"> </span>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-size: 12pt; font-family: Arial, sans-serif;">Soucieux de la préservation du soin, de la relation thérapeutique, de la singularité du patient et du soignant les orthophonistes inquiètent de la propagation exponentielle des plateformes informatiques censées venir en aide aux familles et aux professionnels et de</span><span class="Apple-converted-space"> </span><span style="font-size: 12pt; font-family: Arial, sans-serif;">la réduction du soin orthophonique à des entrainements en kit.</span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 14pt;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="https://orthos-en-vigilance.wixsite.com/orthos-en-vigilance" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 14pt;">Leur lettre ouverte</span></b></a>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	 
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(142, 170, 219); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; font-family: Arial, sans-serif;">Ségur de la Santé</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	 
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Fortes attentes et déceptions !</span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">
+	<span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="http://coordination-defense-sante.org/2020/07/segur-de-la-sante-fortes-attentes-et-deceptions/" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le communiqué de la CGT</span></b></a><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="https://mcusercontent.com/e961b45a3d0d8082a4a68d7d2/files/3e6aff5e-66d8-4d7c-ade2-cace137f9caa/CP_enque_te_et_refus_de_signature_APH_JM_20200713.pdf" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">et celui de l’Union syndicale Action Praticiens Hospitaliers et Jeunes Médecins</span></b></a><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(30, 30, 30);">Ségur de la santé : l’urgentiste Patrick Pelloux dénonce les "magouilles des syndicats", "un monde d’avant en pire"</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-size: 12pt; font-family: Arial, sans-serif;">"On nous avait promis un nouveau monde, on a l'impression que c'est le monde du passé", a dénoncé l'urgentiste sur franceinfo après l'accord trouvé par les syndicats et le gouvernement lors du "Ségur de la santé".</span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="about:blank#xtor=EPR-2-[newsletterquotidienne]-2020" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: blue;">L’article</span></b></a><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Vers une accélération de la transformation de l’hôpital public en hôpital entreprise</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="gmail-msonospacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-family: Arial, sans-serif;">On entend certains syndicats expliquer que le Ségur de la santé est un accord "historique". Non ! C'est tout sauf un accord historique ! Un accord historique est un accord où 50 ans après, 100 ans après, on s'en rappelle encore ! Et il y a eu des accords historiques dans l'histoire du pays. Ce n'est pas le cas ici.</span>
+</p>
+<p class="gmail-msonospacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="gmail-msonospacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-family: Arial, sans-serif;">Celui-là est un accord avec des augmentations de salaire mais à côté de nombreux reculs sont positionnés en tant que chantage, en tant que principe du donnant/donnant. Mais les personnels de notre champ professionnel n'ont rien à donner ! Ils donnent suffisamment de leur personne à longueur d'année. Nous sommes loin du "quoi qu'il en coûte" du mois de mars. A ce moment-là, il était question de prendre soin des personnels hospitaliers, de prendre soin de l'hôpital public... Alors qu'aujourd'hui, pour chaque euro donné, il faudrait des contreparties. C'est pour cela qu'il parait plus pertinent de parler de mascarade ou de gros plan de com.</span>
+</p>
+<p class="gmail-msonospacing" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-size: 11pt; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="http://coordination-defense-sante.org/2020/07/segur-de-la-sante-vers-une-acceleration-de-la-transformation-de-lhopital-public-en-hopital-entreprise/" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a name="_GoBack" id="_GoBack"></a><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: rgb(146, 208, 80); background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 14pt; font-family: Arial, sans-serif;">Poursuites post-covid 19 contre des soignants</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span><img border="0" width="295" height="319" id="Image_x0020_2" src="cid:image011.jpg@01D65E7D.9A1C30B0"></span><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; font-family: Arial, sans-serif;">« Nous réclamons l'annulation et l'arrêt des sanctions<br>
+	contre les soignantes &amp; soignants ! »</span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="https://www.change.org/p/olivier-v%C3%A9ran-nous-r%C3%A9clamons-l-annulation-et-l-arr%C3%AAt-des-sanctions-contre-les-soignantes-soignants?utm_content=cl_sharecopy_23317378_fr-FR%3A2&amp;recruiter=34204042&amp;recruited_by_id=202645c0-e585-012f-cc62-404060e72abb&amp;utm_source=share_petition&amp;utm_medium=copylink&amp;utm_campaign=psf_combo_share_initial" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">la pétition</span></b></a><b><span style="font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: white; background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(51, 63, 72);">14-Juillet à Paris : deux soignants interpellés pour une banderole contre Emmanuel Macron</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span><img border="0" width="240" height="180" id="Image_x0020_1" src="cid:image012.jpg@01D65E7D.9A1C30B0"></span><b><span style="font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-size: 12pt; font-family: Arial, sans-serif; color: rgb(51, 63, 72);">Les interpellations ont été signalées par le collectif Inter-Urgences, mobilisé depuis plus d’un an pour réclamer davantage de moyens pour l’hôpital public. « Soutien à nos deux collègues qui se sont mobilisés ce matin », a tweeté le collectif.</span>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: justify;">
+	<span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="https://actu.fr/ile-de-france/paris_75056/video-14-juillet-a-paris-deux-soignants-interpelles-pour-une-banderole-pendant-la-ceremonie_34936885.html" style="color: rgb(149, 79, 114); text-decoration: underline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: blue;">L’article</span></b></a><b><span style="font-family: Arial, sans-serif;"></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);"> </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: rgb(0, 112, 192);">Culture et santé :</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-size: 14pt; line-height: 19.599998474121094px; font-family: Arial, sans-serif; color: black;">Johnny Clegg   </span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.399999618530273px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<b><span style="font-family: Arial, sans-serif;"><a href="https://www.youtube.com/watch?v=wUX3AK6wRzM" target="_blank" data-toggle="tooltip" title="https://www.youtube.com/watch?v=wUX3AK6wRzM" style="color: rgb(149, 79, 114); text-decoration: underline; display: inline;">https://www.youtube.com/watch<wbr>?v=wUX3AK6wRzM</a></span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 14pt; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center; background-color: yellow; background-position: initial initial; background-repeat: initial initial;">
+	<b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: black;">« Toutes les infos sur le site de la Coordination Nationale »</span></b>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 16.866666793823242px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> </span>
+</p>
+<p class="MsoNormal" align="center" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 16.866666793823242px; caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; text-align: center;">
+	<a href="http://coordination-defense-sante.org/" style="color: rgb(149, 79, 114); text-decoration: underline;"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif; color: blue;">http://coordination-defense-s<wbr>ante.org/</span></a>
+</p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGoldIcon",
+          title: 'Appels pour le 14 juillet',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

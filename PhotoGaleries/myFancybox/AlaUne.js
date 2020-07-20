@@ -152,12 +152,12 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 toolbar: false,
                 afterLoad: function(instance, current) {
 
-                  var pixelRatio = window.devicePixelRatio || 1;
+                  /*var pixelRatio = window.devicePixelRatio || 1;
 
                   if (pixelRatio > 1.5) {
                     current.width = current.width / pixelRatio;
                     current.height = current.height / pixelRatio;
-                  }
+                  }*/
 
                   if (instance.group.length > 1 && current.$content) {
                     if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next outside" href="javascript:;">→</a>');

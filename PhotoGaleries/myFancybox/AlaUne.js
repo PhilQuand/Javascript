@@ -113,7 +113,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   'close',
                   'thumbs'
                 ],
-                baseClass: 'fancyAlaUneDefault',
+                baseClass: 'fancyAlaUneDefaultInline',
                 afterLoad: function(instance, current) {
                   $(".getFancyFocus").focus();
                   /*if (instance.group.length > 1 && current.$content) {

@@ -150,6 +150,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 baseClass: 'fancyAlaUneDefault fancyAlaUneDefaultButton',
                 smallBtn: false,
                 toolbar: false,
+	              type : 'iframe',
                 afterLoad: function(instance, current) {
 
                   var pixelRatio = window.devicePixelRatio || 1;

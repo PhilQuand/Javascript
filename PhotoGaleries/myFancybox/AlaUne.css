@@ -77,9 +77,11 @@
 .fancyAlaUneDefault .fancybox-content .button-next {
     display: block;
 }
-.fancyAlaUneDefault .fancybox-inner .inlineArticleFancy {
-    width: 100%;
+.inlineArticleFancy {
     display: none;
+}
+.fancyAlaUneDefault .fancybox-inner .inlineArticleFancy.fancybox-content {
+    width: 100%;
 }
 .fancyAlaUneDefault .fancybox-inner .inlineCorpsFancy {
     width: 100%;

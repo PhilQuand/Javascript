@@ -113,7 +113,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   'close',
                   'thumbs'
                 ],
-                baseClass: 'fancyAlaUneDefaultInline',
+                baseClass: 'fancyAlaUneDefaultInline.fancyAlaUneDefaultButton',
                 afterLoad: function(instance, current) {
                   $(".getFancyFocus").focus();
                   /*if (instance.group.length > 1 && current.$content) {
@@ -147,7 +147,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
               break;
             default:
               $('.' + randNum).fancybox({
-                baseClass: 'fancyAlaUneDefault',
+                baseClass: 'fancyAlaUneDefault.fancyAlaUneDefaultButton',
                 smallBtn: false,
                 toolbar: false,
                 afterLoad: function(instance, current) {

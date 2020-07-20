@@ -19,9 +19,9 @@
     width: 100%;
     height: 100%;
 }  
-.fancyAlaUneDefaultInline .fancybox-content .button-close,
-.fancyAlaUneDefaultInline .fancybox-content .button-previous,
-.fancyAlaUneDefaultInline .fancybox-content .button-next {
+.fancyAlaUneDefaultButton .fancybox-content .button-close,
+.fancyAlaUneDefaultButton .fancybox-content .button-previous,
+.fancyAlaUneDefaultButton .fancybox-content .button-next {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -33,48 +33,48 @@
   border-radius: 50%;
   font-size: 16px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-previous,
-.fancyAlaUneDefaultInline .fancybox-content .button-next {
+.fancyAlaUneDefaultButton .fancybox-content .button-previous,
+.fancyAlaUneDefaultButton .fancybox-content .button-next {
   top: 50%;
   margin-top: -22px;
   line-height: 30px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-previous.inside {
+.fancyAlaUneDefaultButton .fancybox-content .button-previous.inside {
     left: 0px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-next.inside {
+.fancyAlaUneDefaultButton .fancybox-content .button-next.inside {
     right: 0px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-close.inside {
+.fancyAlaUneDefaultButton .fancybox-content .button-close.inside {
   top: 22px;
   right: 22px;
   font-size: 22px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-previous.outside {
+.fancyAlaUneDefaultButton .fancybox-content .button-previous.outside {
     left: -30px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-next.outside {
+.fancyAlaUneDefaultButton .fancybox-content .button-next.outside {
     right: -30px;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-close.outside {
+.fancyAlaUneDefaultButton .fancybox-content .button-close.outside {
   top: -22px;
   right: -22px;
   font-size: 22px;
 }
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left > div,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right > div,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--thumbs {
+.fancyAlaUneDefaultButton .fancybox-button.fancybox-button--close,
+.fancyAlaUneDefaultButton .fancybox-button.fancybox-button--arrow_left > div,
+.fancyAlaUneDefaultButton .fancybox-button.fancybox-button--arrow_right > div,
+.fancyAlaUneDefaultButton .fancybox-button.fancybox-button--thumbs {
     background: #808080;
 }
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left,
-.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right {
+.fancyAlaUneDefaultButton .fancybox-button.fancybox-button--close,
+.fancyAlaUneDefaultButton .fancybox-button.fancybox-button--arrow_left,
+.fancyAlaUneDefaultButton .fancybox-button.fancybox-button--arrow_right {
     display: none;
 }
-.fancyAlaUneDefaultInline .fancybox-content .button-close,
-.fancyAlaUneDefaultInline .fancybox-content .button-previous,
-.fancyAlaUneDefaultInline .fancybox-content .button-next {
+.fancyAlaUneDefaultButton .fancybox-content .button-close,
+.fancyAlaUneDefaultButton .fancybox-content .button-previous,
+.fancyAlaUneDefaultButton .fancybox-content .button-next {
     display: block;
 }
 /*.articleFancy {
@@ -121,14 +121,14 @@
   .fancyAlaUneDefaultInline .fancybox-navigation .fancybox-button {
     top: calc(15% - 50px);
   }
-  .fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close,
-  .fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left,
-  .fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right {
+  .fancyAlaUneDefaultButton .fancybox-button.fancybox-button--close,
+  .fancyAlaUneDefaultButton .fancybox-button.fancybox-button--arrow_left,
+  .fancyAlaUneDefaultButton .fancybox-button.fancybox-button--arrow_right {
     display: block;
   }
-  .fancyAlaUneDefaultInline .fancybox-content .button-close,
-  .fancyAlaUneDefaultInline .fancybox-content .button-previous,
-  .fancyAlaUneDefaultInline .fancybox-content .button-next {
+  .fancyAlaUneDefaultButton .fancybox-content .button-close,
+  .fancyAlaUneDefaultButton .fancybox-content .button-previous,
+  .fancyAlaUneDefaultButton .fancybox-content .button-next {
     display: none;
   }
   .fancyAlaUneDefaultInline .fancybox-inner {

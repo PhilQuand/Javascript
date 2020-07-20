@@ -166,6 +166,14 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                   }
                   current.$content.append('<a data-fancybox-close class="button-close outside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');
                 }
+                onUpdate: function(opts, obj) {
+
+                  var documentInnerHeight = window.innerHeight;
+                  $('.fancyAlaUneDefault').css('height', documentInnerHeight + 'px');
+
+                  window.scrollTo(0, 0);
+
+                },
               });
           }
       }

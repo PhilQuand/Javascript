@@ -131,6 +131,48 @@ article button {
 </head>
 <body>
 
+<div class="img-foreground" id="AlaUne"></div>
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<script>
+$(document).ready(function() {
+
+  $('#AlaUne').AlaUne({
+      //src: '<img src="https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg" />',
+      src: "https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg",
+      /*fancyClass: {
+            baseClass: 'customAlaUneBaseClass',
+      },*/
+      href: [
+        {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-3',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Radicaux-libres-Fruitomed.jpg',
+        },
+        {
+          dataType: "inline",
+          dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">Après le succès de la mobilisation du 16 à Tours et nationalement, il faut enfoncer le clou pour obtenir satisfaction aux réelles revendications des personnels et usagers que le Ségur de la santé ne prend pas en compte: embauches supplémentaires, réouverture de services et ou d&#39;hôpitaux fermés, arrêt du « dézingage » des statuts des personnels hospitaliers... \
+                 <p style="color:red"><b>Mardi 30 juin 2020, <br/>Toutes et Tous en grève<br/>Rassemblement à Tours, à 15H devant l&#39;ARS<br/>et Manifestation</b>.</p></div>'
+        },
+        {
+          dataType: "images",
+          dataSrc: 'https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg'
+        },
+        {
+          dataType: "iframe",
+          dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
+        },
+        {
+          dataType: "video",
+          dataSrc: "https://www.youtube.com/watch?v=OdPaf_H5On4&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+        },
+       {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
+        }
+    ]
+  });
+});
+</script>
 <div class='articleWrapper'><article class="CauseDuCancer droit">
 <div class="titre-mobile">La vraie cause du cancer</div>
 <div class="divImg">
@@ -1114,7 +1156,6 @@ Quelques degrés en plus lors d'un traitement anticancéreux pourraient ainsi pe
 </div>
 </div>
 </div>
-<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <script>
 $(document).ready(function() {
 

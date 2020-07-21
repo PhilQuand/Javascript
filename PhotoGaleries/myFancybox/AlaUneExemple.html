@@ -131,23 +131,129 @@ article button {
 </head>
 <body>
 
-<div class="img-foreground" id="AlaUne"></div>
+<style>
+.articleFancy {
+    display: none;
+}
+.fontFancy {
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 18px;
+    line-height: 1.4;
+}
+.titreFancy {
+    font-weight: bold;
+    font-style: italic;
+    color: #027ffd;
+    font-size: 24px;
+    letter-spacing: 2px;
+    padding: 15px 20px 15px 20px;
+}
+.footFancy {
+    height: 100px;
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 15px 20px 15px 20px;
+}
+.titreFancy a:link, .footFancy a:link {
+   color:inherit;
+}
+.corpsFancy {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+@media screen and (max-width: 600px) {
+  .titreFancy {
+    font-size: 18px;
+    line-height: 1.;
+    margin-left: 60px;
+  }
+}
+</style>
+<!--div class="img-foreground" id="AlaUne"></div-->
+<center>
+<img id="AlaUne" width="250px" src="https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg" />
+</center>
 <script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<style>
+.fancyAlaUneDefault .fancybox-slide.fancybox-slide--html .fancybox-content {
+    //margin-bottom: 0px;
+}
+</style>
 <script>
 $(document).ready(function() {
 
   $('#AlaUne').AlaUne({
       //src: '<img src="https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg" />',
-      src: "https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg",
+      //src: "https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg",
       /*fancyClass: {
             baseClass: 'customAlaUneBaseClass',
       },*/
-      href: [
-        /*{
+    //fancyClass: "defaultInline",
+    href: [{
+        dataType: "inlineId",
+        dataSrc: 'Compléments-1',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Radicaux-libres-Fruitomed.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-2',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/hydroxycitrate.jpg',
+      },
+      {
         dataType: "inlineId",
         dataSrc: 'Compléments-3',
-        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Radicaux-libres-Fruitomed.jpg',
-        },*/
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Artémésia.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-4',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineC.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-5',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/ananas.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-6',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Germanium.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-7',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Magnesium2.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-8',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Krill.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-9',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/vitamineD3.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-10',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/abeilles.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-11',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Graviola.jpg',
+      },
+      {
+        dataType: "inlineId",
+        dataSrc: 'Compléments-12',
+        dataThumb: 'https://philquand.github.io/Javascript/Blog-widgets/EspoirMetabolique/Images/Desmodium.jpg',
+      },
+    ]
+      /*href: [
         {
           dataType: "inline",
           dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">Après le succès de la mobilisation du 16 à Tours et nationalement, il faut enfoncer le clou pour obtenir satisfaction aux réelles revendications des personnels et usagers que le Ségur de la santé ne prend pas en compte: embauches supplémentaires, réouverture de services et ou d&#39;hôpitaux fermés, arrêt du « dézingage » des statuts des personnels hospitaliers... \
@@ -169,7 +275,7 @@ $(document).ready(function() {
           dataType: "images",
           dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
         }
-    ]
+    ]*/
   });
 });
 </script>
@@ -930,7 +1036,7 @@ C'est un précurseur de la tumostérone, une substance utilisée par les globule
 <ol>
 <li>Uvédose® (vitamine D3)</li>
 <br/><li>Huile de foie de morue16 (riche en vitamine D et en acide gras oméga 3 naturels)</li>
-<ol>
+</ol>
 </div>
 </div>
 
@@ -1156,6 +1262,8 @@ Quelques degrés en plus lors d'un traitement anticancéreux pourraient ainsi pe
 </div>
 </div>
 </div>
+</div>
+</div>
 <script>
 $(document).ready(function() {
 
@@ -1264,60 +1372,6 @@ $(document).ready(function() {
   });*/
 });
 </script>
-<style>
-.articleFancy {
-    width: 100%;
-    display: none;
-}
-.fontFancy {
-    font-family: Arial, Helvetica, sans-serif;;
-    font-size: 18px;
-    line-height: 1.4;
-    height: 100%;
-    padding: 0 0 0 0;
-}
-.titreFancy {
-    //height: 55px;
-    font-weight: bold;
-    font-style: italic;
-    color: #027ffd;
-    font-size: 24px;
-    letter-spacing: 2px;
-    padding: 20px 10px 10px 10px;
-}
-.footFancy {
-    height: 100px;
-    text-align: center;
-    font-style: italic;
-    font-size: 14px;
-    letter-spacing: 2px;
-    padding: 10px 10px 10px 10px;
-}
-.titreFancy a:link, .footFancy a:link {
-   color:inherit;
-}
-.corpsFancy {
-    width: 100%;
-    max-height: calc(100vh - 200px);
-    overflow: auto;
-    padding: 10px 30px 10px 30px;
-    text-align: justify;
-    text-justify: inter-word;
-
-}
-
-@media screen and (max-width: 600px) {
-  .corpsFancy {
-    max-height: none;
-    padding: 10px 10px 10px 10px;
-  }
-  .titreFancy {
-    font-size: 18px;
-    line-height: 1.;
-    margin-left: 60px;
-  }
-}
-</style>
 
 </body>
 </html>

@@ -182,3 +182,26 @@
   
 }
 
+.fancyAlaUneDefaultInline .corpsFancy {
+    width: 100%;
+    max-height: calc(100vh - 200px);
+    overflow: auto;
+    padding: 10px 30px 10px 30px;
+}
+
+.fancyAlaUneDefault .corpsFancy {
+    width: 100%;
+    max-height: calc(100vh - 280px);
+    overflow: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .fancyAlaUneDefaultInline .corpsFancy {
+    max-height: none;
+    padding: 10px 10px 10px 10px;
+  }
+  .fancyAlaUneDefault .corpsFancy {
+    max-height: none;
+  }
+}
+

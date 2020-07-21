@@ -13,24 +13,28 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
     ]).then(function() {
       console.log('Everything has loaded!');
-      if (jQuery.type(options) == 'undefined' || jQuery.type(options.src) == 'undefined') return false;
+      if (jQuery.type(options) == 'undefined') return false;
       var src = options.src;
       switch (jQuery.type(src)) {
+        case "undefined":
+          $(_this).wrap('<div class="alaUneWrapper"/>');
+          _this = _this.parent();
+          break;
         case "string":
           if (src.indexOf('http') == 0) src = ('<img class="img-AlaUne" src="' + src + '" />');
+          $(_this).append(src);
           break;
         default:
           log('AlaUne plugin error src');
       }
       if (jQuery.type(options.href) == 'undefined') {
-        $(_this).append(src);
         return;
       }
       var randNum = 'FB' + randGen.getrand();
       var randHid = 'HD' + randGen.getrand();
       switch (jQuery.type(options.href)) {
         case "string":
-          $(_this).append('<a href="' + options.href + '">' + src + '</a>');
+          $(_this).children(":first").wrap('<a href="' + options.href + '"></a>');
           break;
         case "array":
           break;
@@ -45,7 +49,6 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
       if (jQuery.type(options.height) != 'undefined') var relPageHeight = options.height;
       if (jQuery.type(options.href) == 'undefined') {
-        $(_this).append(src);
         return;
       }
       for (var i = 0; i < options.href.length; i++) {
@@ -83,9 +86,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       loc = loc.split('#');
       loc = loc[0];
       if (options.href.length > 1)
-        $(_this).append('<a href="' + loc + '#' + randNum + '-1">' + src + '</a>');
+        $(_this).children(":first").wrap('<a href="' + loc + '#' + randNum + '-1"></a>');
       else
-        $(_this).append('<a href="' + loc + '#' + randNum + '">' + src + '</a>');
+        $(_this).children(":first").wrap('<a href="' + loc + '#' + randNum + '"></a>');
       // pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1
       switch (jQuery.type(options.fancyClass)) {
         case "object":
@@ -122,9 +125,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                     else current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a><a data-fancybox-prev class="button-previous inside" href="javascript:;">←</a>');
                   }
                   current.$content.append('<a data-fancybox-close class="button-close inside" href="javascript:;"><span  style="font-family: Arial">x</span></a>');*/
-                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close').css('display','block');
-                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left').css('display','block');
-                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right').css('display','block');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--close').css('display', 'block');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_left').css('display', 'block');
+                  $('.fancyAlaUneDefaultInline .fancybox-button.fancybox-button--arrow_right').css('display', 'block');
                 },
                 onUpdate: function(opts, obj) {
 

@@ -61,7 +61,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                 else $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '" data-thumb="' + options.href[i].dataThumb + '">inline ' + i + '</a>');
                 break;
               case "inline":
-                $(_this).append('<div style="display:none; width=100%" id="' + randHid + i + '"> \
+                $(_this).append('<div class="defaultFancyWrapper" style="display:none;" id="' + randHid + i + '"> \
                               <div class="fontFancy defaultFancy"> \
                               ' + options.href[i].dataSrc + ' \
                               </div></div>');

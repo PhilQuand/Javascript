@@ -165,15 +165,6 @@
 .fancyAlaUneDefault .fancybox-inner .inlineArticleFancy.fancybox-content {
     width: 100%;
 }
-.fancyAlaUneDefault .fancybox-inner .inlineCorpsFancy {
-    width: 100%;
-    max-height: calc(100vh - 200px);
-    overflow: auto;
-    padding: 10px 30px 10px 30px;
-    text-align: justify;
-    text-justify: inter-word;
-
-}
 @media screen and (max-width: 600px) {
   .fancyAlaUneDefault .fancybox-inner .inlineCorpsFancy {
     max-height: none;
@@ -182,6 +173,16 @@
   
 }
 
+.fancyAlaUneDefaultInline .fontFancy,
+.fancyAlaUneDefault .fontFancy {
+    padding: 15px 30px 15px 30px;
+}
+.fancyAlaUneDefaultInline .fontFancy.Default,
+.fancyAlaUneDefault .fontFancy.Default {
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 18px;
+    line-height: 1.4;
+}
 .fancyAlaUneDefaultInline .footFancy {
     padding: 15px 20px 15px 20px;
 }

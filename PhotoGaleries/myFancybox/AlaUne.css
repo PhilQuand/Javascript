@@ -165,13 +165,6 @@
 .fancyAlaUneDefault .fancybox-inner .inlineArticleFancy.fancybox-content {
     width: 100%;
 }
-@media screen and (max-width: 600px) {
-  .fancyAlaUneDefault .fancybox-inner .inlineCorpsFancy {
-    max-height: none;
-    padding: 10px 10px 10px 10px;
-  }
-  
-}
 
 .fancyAlaUneDefaultInline .fontFancy,
 .fancyAlaUneDefault .fontFancy {
@@ -198,11 +191,13 @@
     overflow: auto;
 }
 @media screen and (max-width: 600px) {
-  .fancyAlaUneDefaultInline .corpsFancy {
+  .fancyAlaUneDefaultInline .corpsFancy,
+  .fancyAlaUneDefaultInline .fontFancy.defaultFancy {
     max-height: none;
     padding: 10px 10px 10px 10px;
   }
-  .fancyAlaUneDefault .corpsFancy {
+  .fancyAlaUneDefault .corpsFancy,
+  .fancyAlaUneDefault .fontFancy.defaultFancy {
     max-height: none;
   }
 }

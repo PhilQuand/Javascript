@@ -11,7 +11,7 @@ $(document).ready(function() {
   $('.post-wrapper.hero').each(function() {
 
     let searchParams = new URLSearchParams(window.location.search);
-    var mobile = searchParams.has('m');
+    var mobile = searchParams.has('m=1');
     if (!mobile) {
       var image = $(this).find('.featuredPostInfo').attr('data-thumbImage');
       $(this).find('.slide').wrap('<div class="myFeaturedPost"></div');

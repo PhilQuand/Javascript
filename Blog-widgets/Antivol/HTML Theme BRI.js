@@ -6,7 +6,7 @@ body {
 <script>
 $(document).ready(function() {
   let searchParams = new URLSearchParams(window.location.search);
-  var mobile = searchParams.has('m');
+  var mobile = searchParams.has('m=1');
   if (!mobile) {
     //var bgColor = '#ececec';
     var opacHover1 = '1';

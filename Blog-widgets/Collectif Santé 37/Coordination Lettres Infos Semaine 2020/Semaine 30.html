@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaine 03</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 600px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 30</li>
+<li><strong>Dates</strong>: du 20 juillet au 24 juillet 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/Infos-semaine-30-du-20-au-24-Juillet-2020.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:part4.20E7E3E4.62FE0C91@wanadoo.fr</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/image005.jpg" />
+<h3>cid:part8.518291DE.F858AD60@wanadoo.fr</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/image007-1.jpg" />
+<h3>cid:part10.4E49C900.F6253898@wanadoo.fr</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/07/image009-1.jpg" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">Édito</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Que ceux qui peuvent prendre des jours de congés en profitent : la rentrée sera rude ! En espérant qu’un rebond de l’épidémie de COVID ne la complique pas un peu plus ! Le ministre de la Santé a annoncé quelques mesurettes, dont il faudra surveiller l’application tout en prenant garde à ce qu’elles ne se retournent pas contre l’intérêt général ! D’autant plus que l’hospitalisation privée est considérée à l’égal du service public, sans un mot pour les restes à charge plus élevés pour les patients, ni les montages financiers permettant de ponctionner indûment la Sécurité Sociale </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Il va falloir continuer à se mobiliser en particulier au moment du débat sur la loi de financement de la Sécurité Sociale. Prévoyons d’interpeller nos députés et sénateurs !</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Et ne baissons pas la garde : l’été est le moment des mauvais coups. Malgré les grands discours, l’anormal reste la norme. Les services de soins non programmés des hôpitaux de Valognes et de La Réole ferment pour l’été. A Pertuis, seule la vigilance des élus, des personnels et de la population a évité une fermeture de nuit du service des urgences (voir ci-dessous).</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Les masques sont devenus obligatoires dans tous les lieux publics clos, mais le gouvernement en refuse la gratuité.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Il y a encore un long chemin pour que l’accès à la prévention et aux soins soit un droit effectif pour toutes et tous !</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Bon été !</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">Sommaire :</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">L’écho des comités : page 2</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Autres infos locales : pages 3 et 4</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Dossiers :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 2.85pt; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: 18pt;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">- Ségur de la Santé page 5</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 2.85pt; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: 18pt;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">- Psychiatrie page 5</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 2.85pt; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: 18pt;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">- Epidémie de COVID page 6</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 2.85pt; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: 18pt;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">- Europe page 6</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif;">Culture et santé : page 6</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;">L’écho des comités :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">DIE - 26</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #003c6c;">La justice donne raison au collectif de défense de l'hôpital</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;part4.20E7E3E4.62FE0C91@wanadoo.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:part4.20E7E3E4.62FE0C91@wanadoo.fr" alt="image005.jpg" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Et si la maternité de Die avait une chance de rouvrir ? Le tribunal administratif de Grenoble vient de donner raison au collectif de défense de l'hôpital, dans une décision rendue le 6 juillet. </span><a style="color: #954f72;" href="https://www.francebleu.fr/infos/societe/drome-c-est-fini-pour-la-maternite-de-die-1511522738"><span style="font-size: 12pt; font-family: Arial, sans-serif;">La justice considère que sa fermeture au 1er janvier 2018</span></a><span style="font-size: 12pt; font-family: Arial, sans-serif;"> s'est faite sans aucune concertation." En sachant quand même que l'Agence régionale de santé peut ensuite refuser une éventuelle réouverture.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.francebleu.fr/infos/societe/maternite-de-die-la-justice-donne-raison-au-collectif-de-defense-de-l-hopital-1594403230"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">SAINT-CLAUDE - 39</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Dans un reportage sur BFM-TV, le comité explique sa lutte contre la fermeture de la maternité</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2020/07/saint-claude-reportage-de-bfm-tv/"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le reportage</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><img id="&lt;part8.518291DE.F858AD60@wanadoo.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:part8.518291DE.F858AD60@wanadoo.fr" alt="image007.jpg" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">VIRE - 14</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Accouchement dans le camion des pompiers</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://actu.fr/normandie/vire-normandie_14762/la-belle-histoire-manon-jeune-maman-accouche-dans-le-camion-des-pompiers-pres-de-vire-normandie_35126943.html?mediego_ruuid=237984d0-eea0-4efc-9026-8b9da5fe785f_0&amp;mediego_euid=@2051495885&amp;mediego_campaign=20200725_003f02b2-7f3f-4c75-8f06-71a9852d5391"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article de Actu.fr du 24 juillet</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;">Autres infos locales :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: white;">TOUL - 54</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Les Toulois mobilisés pour l’hôpital Saint Charles</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;part10.4E49C900.F6253898@wanadoo.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:part10.4E49C900.F6253898@wanadoo.fr" alt="image009.jpg" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le vendredi 3 Juillet 2020 devant l’hôpital Saint Charles a eu lieu un rassemblement festif – et revendicatif – à l’initiative du Comité de Défense de l’Hôpital St Charles. </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://radiodeclic.fr/2020/07/17/les-toulois-mobilises-pour-sauver-lhopital-saint-charles/"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">LA REOLE - 33</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Mobilisation contre la fermeture estivale de l’unité de premier soin</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/La-r%C3%A9ole-tract-Toujours-pas-de-service-durgence-Juillet-2020.pdf"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le tract </span></b></a></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.sudouest.fr/2019/07/10/reouverture-des-urgences-un-collectif-y-croit-encore-6319341-2915.php"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Réouverture des urgences, un collectif y croit encore </span></b></a><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">– Sud Ouest – 10 07 20</span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://actu.fr/nouvelle-aquitaine/la-reole_33352/gironde-la-reole-l-unite-de-premiers-soins-devrait-rouvrir-en-septembre_34929901.html#:~:text=d'archives.)-,L'unit%C3%A9            de premiers soins de La R%C3%A9ole (Gironde),devrait bien rouvrir            mi-septembre."><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">L’unité de premiers soins devrait rouvrir en Septembre</span></b></a><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> – <a style="color: #954f72;" href="http://actu.fr/">Actu.fr</a> – 14 07 20</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">MARSEILLE - 13</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 5.25pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Lettre ouverte à la direction de l’Assistance Publique des Hôpitaux de Marseille</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Fabienne Orsi, chercheuse engagée dans la défense de l’hôpital public, co-initiatrice de l’Appel à la tenue d’un Atelier démocratique et populaire pour la refondation du service public hospitalier, a adressé une lettre à la direction de l’APHM à l’occasion d’une expérience sensible, lettre qu’elle a choisie de rendre publique en solidarité avec toutes celles et tous ceux qui continuent de se mobiliser pour un hôpital public humaniste et de qualité. En publiant cette lettre, Fabienne Orsi en appelle également à la nouvelle maire de Marseille qui, traditionnellement, est aussi présidente du Conseil de surveillance de l’APHM. Pour elle, il y a urgence.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://www.lamarseillaise.fr/accueil/messieurs-YF3986122"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; break-before: page; background-color: #0070c0;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: white;">PERTUIS - 84</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Fermeture des urgences de nuit, annulée deux jours plus tard !</span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le 22 juillet, la direction de l'hôpital d'Aix-en-Provence/Pertuis a annoncé la fermeture provisoire des Urgences de nuit à Pertuis.</span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/pertuisCP-CHIAP.pdf"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le communiqué de la direction</span></b></a></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Les réactions sont immédiates</span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.ville-pertuis.fr/toute-l-actu-pertusienne/item/4859-fermeture-des-urgences-de-nuit-sur-le-site-de-l-hopital-de-pertuis-du-1er-aout-au-6-septembre?fbclid=IwAR3S4zWq8nZXjPHbV1k7AE7sKlHINqIj7b4EIUm8d6rN5oAPGyxKCt5pB18"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le communiqué du maire de Pertuis sur le site de la commune</span></b></a></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/Communiqu%C3%A9-CGT-Sant%C3%A9-PACA-Urgences-de-Pertuis.pdf"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le communiqué de la CGT Santé et Action sociale de PACA</span></b></a></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le 24 juillet, l'ARS de PACA annonce le maintien de l'ouverture de nuit des urgences, mais avec un effectif médical moindre.</span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/CP-ARS-PACA-Urgences-de-nuit-CHIAP.pdf"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le communiqué de l'ARS</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #7b3d00;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: white;">GUYANE</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Les moyens dédiés à la santé des Guyanais.e.s sont indignes de la République et de la France</span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/guiyanne.pdf"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le tract de Sud Solidaire Guyane du 19 juillet</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;">Dossier :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #729fcf;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: white;">SEGUR DE LA SANTE</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le dossier de presse de la conférence du Ministre de la Santé du 21 juillet</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.lemonde.fr/societe/article/2020/07/14/on-ne-peut-pas-etre-satisfaits-du-segur-de-la-sante-plusieurs-milliers-de-manifestants-a-paris-pour-l-hopital-public_6046167_3224.html"><b><i><span style="font-size: 12pt; font-family: Arial, sans-serif;">« Ségur = imposture. »</span></i></b><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> Le nouveau slogan des soignants – Article du Monde – 14 07 20</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Les réactions</span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/cp77_sans_contact-3.pdf"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le communiqué de la CGT Santé et Action Sociale</span></b></a></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/71-tract-segur-de-la-sante.pdf"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le tract de Sud Santé sociaux</span></b></a></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 16.866666793823242px; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/SNPHAR.pdf"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">Le communiqué du SNPHAR.E</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #e16173;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">PSYCHIATRIE</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 14pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #2a303b;">« On redoute un effondrement du système » : après le Covid-19, la crainte d’une « vague psychiatrique »</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #2a303b; letter-spacing: 0.05pt;">Le secteur psychiatrique estime que 10 % des malades ont été perdus de vue pendant le confinement et voit affluer de nouveaux patients sans antécédents.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.lemonde.fr/sante/article/2020/07/11/tous-les-voyants-sont-au-rouge-apres-le-covid-19-la-vague-psychiatrique-attendue-a-la-rentree_6045900_1651302.html"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 14pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #2a303b;">« La situation des urgences pédopsychiatriques est un drame »</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #2a303b; letter-spacing: 0.05pt;">La capacité d’accueil et de soin d’enfants atteints de troubles mentaux ne suit pas l’augmentation et l’aggravation des cas, alerte un collectif de professionnels hospitaliers, dont le professeur Richard Delorme, dans une tribune au « Monde ».</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.lemonde.fr/idees/article/2020/07/17/la-situation-des-urgences-pedopsychiatriques-est-un-drame_6046434_3232.html"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 7.5pt; font-size: 11pt; font-family: Calibri, sans-serif; vertical-align: baseline;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le mandat d'Adeline Hazan a permis "un nouveau regard" sur l'enfermement en psychiatrie</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: justify;"><span style="font-size: 12pt; font-family: Arial, sans-serif;">En vue de sa fin de mandat le 16 juillet, Adeline Hazan est revenue sur les moments forts de son action comme contrôleuse générale des lieux de privation de liberté. Comme annoncé dès le départ, le contrôle des hôpitaux assurant des soins sans consentement a bien consisté une "priorité forte" de son activité durant les six années écoulées.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.hospimedia.fr/actualite/articles/20200713-psychiatrie-le-mandat-d-adeline-hazan-a-permis"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.cglpl.fr/wp-content/uploads/2020/06/Rapport-soins-sans-consentement-et-droits-fondamentaux_web.pdf"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le rapport </span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #77bc65;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">ÉPIDÉMIE DE COVID </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 14pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Effets collatéraux du covid 19</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2020/07/effets-colateraux-du-covid-19/"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffffa6;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">EUROPE</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Analyse sur la privatisation en Espagne</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/EspagneCommission-de-Reconstruction-de-la-Sant%C3%A9-1.pdf"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Une contribution de la Coordinadora Antiprivatización de la Sanidad</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;">Culture et santé :</span></b></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Chansons dégageantes de Lionel Thura</span></b></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.youtube.com/watch?v=2FGXPg_XMlI"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Gare au COVID sur « Le gorille » de Georges Brassens</span></b></a></p>
+<p class="PlainText" style="margin: 0cm 0cm 0.0001pt; font-size: 10.5pt; font-family: Consolas;"><a name="_GoBack"></a><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; line-height: 14pt; background-color: yellow;" align="center"><b><span style="font-size: 12pt;">« Toutes les infos sur le site de la Coordination Nationale »</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; line-height: 16.866666793823242px;" align="center"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; line-height: 16.866666793823242px;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">http://coordination-defense-sante.org/</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGoldIcon",
+          title: 'Appels pour le 14 juillet',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -1,12 +1,12 @@
 <style>
 body {
-  background: #aedce9;
+  background: #aedce9 url(https://1.bp.blogspot.com/-3mZ1hwNXX0o/Xx2awnL5LhI/AAAAAAAAnDI/55zF-S7w-Lw5SPOg_0IorE3M4_aU94OCgCLcBGAsYHQ/s1600/karim-manjra-advTG1XH9nk-unsplash.jpg) no-repeat fixed top center /* Credit: Deejpilot (http://www.istockphoto.com/portfolio/Deejpilot?platform=blogger) */;
 }
 </style>
 <script>
 $(document).ready(function() {
   let searchParams = new URLSearchParams(window.location.search);
-  var mobile = searchParams.has('m');
+  var mobile = searchParams.has('m=1');
   if (!mobile) {
     //var bgColor = '#ececec';
     var opacHover1 = '1';
@@ -14,14 +14,12 @@ $(document).ready(function() {
     var bgColor = '#ffffff';
     var textColor = '#d67f3f'
 
-    $('body').css('background', '#aedce9 url(https://1.bp.blogspot.com/-3mZ1hwNXX0o/Xx2awnL5LhI/AAAAAAAAnDI/55zF-S7w-Lw5SPOg_0IorE3M4_aU94OCgCLcBGAsYHQ/s1600/karim-manjra-advTG1XH9nk-unsplash.jpg) no-repeat fixed top center');
     $('aside.sidebar-container.sidebar-invisible').css('opacity', opacHover2);
     $('aside.sidebar-container.sidebar-invisible').hover(function() {
       $(this).css('opacity', opacHover1)
     }, function() {
       $(this).css('opacity', opacHover2)
     });
-    $('div.widget.FeaturedPost h3').css('color', textColor);
     $('div.widget.FeaturedPost').css('opacity', opacHover2);
     $('div.widget.FeaturedPost').hover(function() {
       $(this).css('opacity', opacHover1)

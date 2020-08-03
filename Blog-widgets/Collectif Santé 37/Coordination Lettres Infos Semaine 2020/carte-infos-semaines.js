@@ -468,10 +468,26 @@
                 hasevents: false
               },
               {
+                name: 'Guadeloupe',
+                bounds: L.latLngBounds([
+                  [16.5572, -61.971],
+                  [15.7881, -60.946]
+                ]),
+                hasevents: false
+              },
+              {
                 name: 'Guyane',
                 bounds: L.latLngBounds([
                   [6.16, -55.08],
                   [1.88, -51.16]
+                ]),
+                hasevents: false
+              },
+              {
+                name: 'La Réunion',
+                bounds: L.latLngBounds([
+                  [-19.6496, 54.5825],
+                  [-21.6107, 58.1036]
                 ]),
                 hasevents: false
               },
@@ -586,6 +602,21 @@
                     }
                   };
                   break;
+                case 'Guadeloupe':
+                  localState.title = 'vol vers la Guadeloupe'; // like its title
+                  localState.onClick = function(btn, map) { // and its callback
+                    map.flyTo({
+                      lat: 16.228,
+                      lng: -61.526
+                    }, 6);
+                    for (var j = 0; j < btn.options.states.length; j++) {
+                      if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                        btn.state(btn.options.states[j].nextStateName); // change state on click!
+                        break;
+                      }
+                    }
+                  };
+                  break;
                 case 'Guyane':
                   localState.title = 'vol vers la Guyane'; // like its title
                   localState.onClick = function(btn, map) { // and its callback
@@ -601,8 +632,23 @@
                     }
                   };
                   break;
+                case 'La Réunion':
+                  localState.title = 'vol vers la Réunion'; // like its title
+                  localState.onClick = function(btn, map) { // and its callback
+                    map.flyTo({
+                      lat: -20.887,
+                      lng: 55.455
+                    }, 6);
+                    for (var j = 0; j < btn.options.states.length; j++) {
+                      if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                        btn.state(btn.options.states[j].nextStateName); // change state on click!
+                        break;
+                      }
+                    }
+                  };
+                  break;
                 default:
-                  localState.title = "vol vers l'Hexagone"; // like its title
+                  localState.title = "retour vers l'Hexagone"; // like its title
                   localState.bounds = autresDepts[i].bounds;
                   localState.onClick = function(btn, map) { // and its callback
                     for (var j = 0; j < btn.options.states.length; j++) {

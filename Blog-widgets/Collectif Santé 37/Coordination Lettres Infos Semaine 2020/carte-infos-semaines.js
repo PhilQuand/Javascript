@@ -450,9 +450,11 @@
 
         Promise.all([
           //  chargements des dépendances css
+          load.css('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'),
           load.css('https://use.fontawesome.com/releases/v5.0.6/css/all.css'),
           //  chargements des dépendances js
           load.js('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'),
+          //load.js('https://philquand.github.io/Javascript/LeafLet/leaflet-button/L.Control.Button.js'),
         ]).then(function() {
           console.log('Everything has loaded!');
           checkautresDepts(map, indexEvent);

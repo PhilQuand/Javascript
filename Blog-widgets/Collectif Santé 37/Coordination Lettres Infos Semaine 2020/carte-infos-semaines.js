@@ -468,7 +468,7 @@
                 hasevents: false
               },
               {
-                name: 'Guyanne',
+                name: 'Guyane',
                 bounds: L.latLngBounds([
                   [6.16, -55.08],
                   [1.88, -51.16]
@@ -501,7 +501,7 @@
                         lng:  9.08
                       }, 6);
             };
-            var Guyanne = function () {
+            var Guyane = function () {
                       map.setView({
                         lat: 3.945,
                         lng:  -53.13
@@ -586,8 +586,8 @@
                     }
                   };
                   break;
-                case 'Guyanne':
-                  localState.title = 'vol vers la Guyanne'; // like its title
+                case 'Guyane':
+                  localState.title = 'vol vers la Guyane'; // like its title
                   localState.onClick = function(btn, map) { // and its callback
                     map.flyTo({
                       lat: 3.945,

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaine 31</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 600px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 31</li>
+<li><strong>Dates</strong>: du 27 juillet au 31 juillet 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/08/Infos-semaine-31-du-27-au-31-Juillet-2020.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:image004.png@01D6697A.2CA81D70</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/08/image004.png" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito (ou point fort de la semaine) :</span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><em class=""><span class="" style="font-size: 16pt; line-height: 22.61333465576172px; font-family: Arial, sans-serif;">Qu’adviendra-t-il demain des mesures annoncées<br class="" />&gt; en conclusion du Ségur de la santé :<br class="" />&gt; l’exemple du Service d’Accès aux Soins ?</span></em></strong></p>
+<p class="MsoNormal" style="text-align: justify;"><em class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">« Annoncé par Agnès BUZIN le 9 septembre 2019 comme mesure phare du Pacte pour la refondation des urgences, le Service d’Accès aux Soins (SAS) devait être un service universel, accessible par téléphone et en ligne et reposant sur un partenariat entre professionnels hospitaliers et libéraux. »</span></em></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le dossier de presse du Ségur de la santé de juillet 2020 propose de le concrétiser</span><em class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">.</span></em></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Un communiqué de presse du ministère des solidarités et de la santé, en date du 1 novembre 2019, précisait</span><em class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;"> :</span></em></p>
+<p class="MsoNormal" style="text-align: justify;"><em class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: 'Cambria Math', serif;">« Nouveau service d’orientation et de guidage dans le système de Santé, le SAS permettra à tous les Français de disposer d’un service apportant une réponse à toute demande de soins ou toute question sur la Santé.</span></em></p>
+<p class="MsoNormal" style="text-align: justify;"><em class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: 'Cambria Math', serif;">L’équipe projet chargée de définir l’organisation du SAS a été reçue par Agnès Buzyn et lui fera des propositions d’ici deux mois. A l’issue des deux mois de concertation fin novembre, la ministre choisira un modèle d’organisation du SAS, afin de pouvoir mettre en place ce service à l’été 2020. »</span></em></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Les hasards de calendrier peuvent être facétieux. Nous n’en tirerons pas de conclusions hâtives et nous limiterons à des interrogations de fond.</span></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Que pourra proposer le SAS quand la désertification médicale sévit en médecine libérale et à l’hôpital ou quand les médecins sont en week-end et n’assurent plus la permanence des soins ?</span></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Et comment feront les patients qui en plus des problèmes de santé ont des problèmes de déplacement lorsqu’il leur faudra aller consulter dans le département voisin ?</span></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Et comment feront les médecins pour répondre à une demande supplémentaire alors qu’ils sont déjà surbookés, avec des délais de rendez-vous qui se déclinent en mois ?</span></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Et quelle valeur accorder à cette proposition quand il n’est pas apporté de solution aux carences qui l’ont fait naître ? </span></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Depuis l’épidémie de COVID il semble qu’il y ait une volonté politique de corriger les effets désastreux de la politique de santé imposée ces dernières décennies et que le gouvernement, chantre de l’orthodoxie budgétaire en matière de services publics en général et de dépenses de santé en particulier, ait soudain trouvé « l’argent magique » qui, paraît-il, n’existait pas. L’examen, à l’échelle nationale et à celle des territoires, des promesses d’abord, de leur mise en œuvre et des résultats ensuite nous dira si elles sont de nature à répondre aux attentes des citoyens, des élus locaux et des soignants. Les premiers éléments dont nous disposons n’incitent ni à l’optimisme ni à la confiance.</span></p>
+<div class="" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<div class="" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<div class="" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<div class="" align="center">
+<table class="MsoTableGrid" style="border-collapse: collapse; border: none;" border="0" cellspacing="0" cellpadding="0">
+<tbody class="">
+<tr class="">
+<td class="" style="width: 148.6pt; padding: 0cm 5.4pt;" valign="top" width="198">
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><strong class=""><em class=""><span class="" style="font-size: 14pt; font-family: Arial, sans-serif;"><object id="4FAC3339-2DA6-49C9-9C99-A673D3214E4B" class="" data="cid:image004.png@01D6697A.2CA81D70" type="application/x-apple-msg-attachment" width="182" height="176" border="0"></object></span></em></strong></p>
+</td>
+<td class="" style="width: 304.5pt; padding: 0cm 5.4pt;" valign="top" width="406">
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><strong class=""><em class=""><span class="" style="font-size: 14pt; font-family: Arial, sans-serif;">Avocate, députée, auteure, militante au service des droits des femmes, Gisèle HALIMI s’est éteinte le 28 juillet 2020.</span></em></strong></p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><strong class=""><em class=""><span class="" style="font-size: 14pt; font-family: Arial, sans-serif;">La coordination nationale, ses comités, ses membres saluent sa mémoire et gardent à l’esprit le message qu’elle adressait à ses lecteurs et lectrices en 2009 :</span></em></strong></p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><strong class=""><em class=""><span class="" style="font-size: 14pt; font-family: Arial, sans-serif;">« NE VOUS RESIGNEZ JAMAIS. »</span></em></strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></strong></p>
+<div class=""> </div>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Sommaire :</span></strong></p>
+<p class="MsoListParagraphCxSpFirst" style="margin-left: 18pt; text-indent: -18pt;"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">L’écho des comités :                  Page 3</span></strong></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-left: 18pt; text-indent: -18pt;"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Autres infos locales :                 Pages 4 et 5</span></strong></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left: 18pt; text-indent: -18pt;"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Dossiers :                                    Page 6</span></strong></p>
+<p class="MsoListParagraphCxSpLast" style="margin-left: 18pt; text-indent: -18pt;"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Culture et santé :                        Page 7</span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">L’écho des comités :</span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<!--p class="isCity" style="text-align: center; background-color: #ffc000;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">SAINT AFFRIQUE - 12</span></strong></p-->
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">SAINT AFFRIQUE - 12</span></b></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: justify;"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Une émission - </span></strong><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">portée par le Manifeste, collectif de SAINT-AFFRIQUE -<strong class=""> qui parle de santé et de maintien du droit à l’accès à un système de soin de proximité.</strong></span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="https://www.radiosaintaffrique.com/emissions/a-la-votre/A_la_votre_Juillet-4019"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’émission</span></strong></a></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><u class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif; color: blue;"><span class=""> </span></span></u></strong></p>
+<!--p class="isCity" style="text-align: center; background-color: red;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">REMIREMONT</span></strong></p-->
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">REMIREMONT</span></b></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’Association suggère aux nouveaux élus locaux de se positionner en faveur de la défense et de l’amélioration l’accès au soin</span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="https://www.ademat.org/2020/07/ademat-h-sadresse-aux-nouveaux-elus-communaux-et-communautaires/?fbclid=IwAR2y9XRBaEUYpKOvaw1_grWCBzPaDGAqw8Yoksvx7y91ObZPh1527h-sqUk"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Extrait de  la lettre aux élus</span></strong></a></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<!--p class="isCity" style="text-align: center; background-color: #00b050;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">SARLAT</span></strong></p-->
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">SARLAT</span></b></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le comité demande la gratuité des soins liés au COVID </span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="http://coordination-defense-sante.org/2020/08/sarlat-soins-lies-au-coviLe%20communiqu%C3%A9d/"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le communiqué</span></strong></a></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">Autres infos locales :</span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<!--p class="isCity" style="text-align: center; background-color: red;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">GUYANE</span></strong></p-->
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">GUYANE</span></b></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<div class=""> </div>
+<p class="Default" style="text-align: center;" align="center"><strong class=""><span class="" style="font-family: Arial, sans-serif;">LES MOYENS DÉDIÉS A LA SANTÉ DES GUYANAIS·ES SONT INDIGNES DE LA RÉPUBLIQUE ET DE LA France</span></strong></p>
+<p class="Default" style="text-align: center;" align="center"><strong class=""><span class="" style="font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="Default" style="text-align: center;" align="center"><strong class=""><span class="" style="font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Depuis le début de l’année 2020, le coronavirus se répand dans le monde entier. En Guyane, l’épidémie est arrivée plus tardivement qu’ailleurs, pourtant rien n’a été préparé et anticipé correctement. Les moyens humains et matériels nécessaires pour empêcher la propagation du virus ne sont pas au rendez-vous et les stratégies mises en place ne sont ni adaptées ni efficaces. L’ensemble de la population est donc mise en danger de manière inacceptable et les réponses de l’état ne sont que mensonges et communication politique.</span></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="http://www.sudeducationgard.ouvaton.org/IMG/pdf/les_moyens_dedies_a_la_sante_des_guyanais_o_es_sont_indignes_de_la_republique_et_de_la_france_19072020.pdf"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></strong></a></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<!--p class="isCity" style="text-align: center; background-color: yellow;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">SEINE SAINT DENIS - 93</span></strong></p-->
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">SEINE SAINT DENIS - 93</span></b></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal; vertical-align: baseline;" align="center"><strong class=""><span class="" style="font-size: 12pt; font-family: Arial, sans-serif;">Covid-19 en Seine-Saint-Denis (1/2) : quand l’épidémie aggrave les inégalités sociales de santé</span></strong></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">La Seine-Saint-Denis a été durement frappée par l’</span><a class="" href="https://www.metropolitiques.eu/Le-Covid-19-la-guerre-et-les-quartiers-populaires.html"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif; color: windowtext; border: 1pt none windowtext; padding: 0cm;">épidémie de coronavirus</span></a><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> : Audrey Mariette et Laure Pitti présentent une analyse de l’épidémie à l’échelle de ce département et montrent ses incidences sur les inégalités territoriales de </span><a class="" href="https://www.metropolitiques.eu/Ville-et-sante.html"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif; color: windowtext; border: 1pt none windowtext; padding: 0cm;">santé</span></a><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">.</span></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="https://www.metropolitiques.eu/Covid-19-en-Seine-Saint-Denis-1-2-quand-l-epidemie-aggrave-les-inegalites.html"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></strong></a></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<!--p class="isCity" style="text-align: center; background-color: #ffc000;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">LIVRY-GARGAN - 93</span></strong></p-->
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">LIVRY-GARGAN - 93</span></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="" style="text-align: center;" align="center"><strong class=""><span class="" style="font-family: Arial, sans-serif;">Covid et après covid</span></strong></p>
+<p class="" style="text-align: center;" align="center"><strong class=""><span class="" style="font-family: Arial, sans-serif;">L'inacceptable après l'indigne.</span></strong></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Des</span><span class="" style="font-family: 'Arial Nova', sans-serif;"> élu-es SUD menacées de sanctions pour avoir depuis début mars alerté la direction, en lien avec les élu-es CFDT, sur le manque de matériels, sur le manque de communication et de présence  de la direction sur le terrain, </span></p>
+<div class=""><span class="" style="font-family: 'Arial Nova', sans-serif;"> </span></div>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="http://coordination-defense-sante.org/2020/08/livry-gargan-menacee-de-sanctions-suite-a-une-alerte-covid/"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le communiqué du syndicat et la lettre adressée à la direction de l’EHPAD</span></strong></a></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Et la réaction de M.D. soignante en psychiatrie et écrivain.</span></p>
+<div class="" style="text-align: center;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="margin-bottom: 5.25pt; text-align: center; line-height: normal;" align="center"><strong class=""><span class="" style="font-size: 12pt; font-family: Arial, sans-serif;">Non à l’amour, oui au soin...</span></strong></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le malheur, lors de la crise sanitaire, ce n’est pas seulement d’avoir manqué de matériel, de moyens mais d’avoir vu tant de personnes âgées en EHPAD mourir privées de la présence, de l’amour de leur proche. Le malheur, c’est comprendre que des gens s’accommodaient de l’impuissance des soignants. Maintenant nous recevons des déclarations d’amour. Alors que nous voulons juste soigner. Dignement.</span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="https://blogs.mediapart.fr/mary-dorsan/blog/280720/non-l-amour-oui-au-soin"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></strong></a></p>
+<div class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">Dossier :</span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">INTERNATIONAL</span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif; color: #333333; border: 1pt none windowtext; padding: 0cm;">Commission de Reconstruction de la Santé: même aujourd’hui, la privatisation avance</span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="http://coordination-defense-sante.org/wp-content/uploads/2020/07/EspagneCommission-de-Reconstruction-de-la-Sant%C3%A9-1.pdf"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></strong></a></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">COVID-19</span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<h1 class="" style="margin-right: 5.9pt; margin-bottom: 15pt; margin-left: 0cm; text-align: center; vertical-align: baseline;" align="center"><span class="" style="font-size: 12pt; font-family: Arial, sans-serif; color: #1e1e1e;">"On les a condamnés avant même qu'ils ne soient contaminés" : <br class="" />&gt; ces résidents d'Ehpad qui ont été privés d'hôpital au plus fort de l'épidémie de Covid-19</span></h1>
+<p class="MsoNormal" style="text-align: justify;"><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Plus d'un tiers des personnes décédées du coronavirus en France sont mortes au sein d'Etablissements pour personnes âgées dépendantes. Les difficultés d'accès aux hôpitaux pour les résidents les plus âgés, au plus fort de l'épidémie, alimentent la polémique sur la gestion de la crise par les autorités.</span></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="https://www.francetvinfo.fr/sante/maladie/coronavirus/on-les-a-condamnes-avant-meme-qu-ils-ne-soient-contamines-ces-residents-d-ehpad-qui-ont-ete-prives-d-hopital-au-plus-fort-de-l-epidemie-de-covid-19_4047037.html"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></strong></a></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">AUTRES</span></strong></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">La pieuvre Microsoft et nos données de santé</span></strong></p>
+<p class="MsoNormal" style="line-height: normal;"><strong class=""><span class="" style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span class="" style="font-size: 12pt; font-family: Arial, sans-serif;">Sous couvert de lutte contre l’épidémie et d’état d’urgence sanitaire, le gouvernement a donné le coup d’envoi à son projet de méga plateforme de données de santé hébergée chez Microsoft. Petite plongée dans l’intelligence artificielle en médecine avec le collectif inter-hop qui depuis le début du projet milite contre cette plateforme géante et pour une utilisation autonome des données de santé à échelle humaine.</span></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="https://lundi.am/pieuvre-Microsoft"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></strong></a></p>
+<p class="MsoNormal"><strong class=""><span class="" style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">Culture et santé :</span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">En ce début de trêve estivale un peu de dépaysement :</span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;"> </span></strong></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a class="" href="https://www.youtube.com/watch?v=uOIHHMnI_Ig"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">https://www.youtube.com/watch?v=uOIHHMnI_Ig</span></strong></a></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><strong class=""><span class="" style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;"> </span></strong></p>
+<div class="" style="margin-bottom: 0.0001pt; line-height: normal;"><span class="" style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></div>
+<div class="" style="margin-bottom: 0.0001pt; line-height: normal;"><span class="" style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="margin-bottom: 10pt; text-align: center; line-height: 14pt; background-color: yellow;" align="center"><strong class=""><span class="" style="font-size: 12pt; font-family: 'Times New Roman', serif;">« Toutes les infos sur le site de la Coordination Nationale »</span></strong></p>
+<div class="" style="margin-bottom: 10pt; text-align: center; line-height: 13.800000190734863px;"><span class="" style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> </span></div>
+<p class="MsoNormal" style="margin-bottom: 10pt; text-align: center; line-height: 13.800000190734863px;" align="center"><a class="" href="http://coordination-defense-sante.org/"><span class="" style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">http://coordination-defense-sante.org/</span></a></p><p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; line-height: 16.866666793823242px;" align="center"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center; line-height: 16.866666793823242px;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><b><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">http://coordination-defense-sante.org/</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGoldIcon",
+          title: 'Appels pour le 14 juillet',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

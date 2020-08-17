@@ -1181,6 +1181,7 @@
       });
 
       function isCurCity(curTest) {
+        if (curTest.find('.isNotCity').length > 0) return false;
         if (curTest.find('.isCity').length > 0) return true;
         var htmlTest = curTest.html();
         var attrTest = curTest.attr("style");

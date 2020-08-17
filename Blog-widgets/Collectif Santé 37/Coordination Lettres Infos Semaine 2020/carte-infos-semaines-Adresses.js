@@ -353,6 +353,8 @@ var inpAddress = [
   lat: 48.35426, lng:  -1.20019},
 { inpText: "TARN",
   lat: 43.78571, lng:  2.16572},
+{ inpText: "SAINT-BRIEUC",
+  lat: 48.51572, lng:  -2.76390},
 { inpText: "Guadeloupe",
   lat: 16.2424, lng:  -61.5666},
 { inpText: "GUYANE",

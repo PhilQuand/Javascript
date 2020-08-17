@@ -664,29 +664,30 @@
               }
               states.push(localState);
             }
-            var stateChangingButton = L.easyButton({
-              states: states
-              /*[{
-                      stateName: 'zoom-to-forest',        // name the state
-                      icon:      'fa-plane',               // and define its properties
-                      title:     'zoom to a forest',      // like its title
-                      onClick: function(btn, map) {       // and its callback
-                          map.setView([46.25,-121.8],10);
-                          btn.state('zoom-to-school');    // change state on click!
-                      }
-                  }, {
-                      stateName: 'zoom-to-school',
-                      icon:      'fa-paper-plane',
-                      title:     'zoom to a school',
-                      onClick: function(btn, map) {
-                          map.setView([42.3748204,-71.1161913],16);
-                          btn.state('zoom-to-forest');
-                      }
-              }]*/
-            });
+            if (states.length > 1) {
+              var stateChangingButton = L.easyButton({
+                states: states
+                /*[{
+                        stateName: 'zoom-to-forest',        // name the state
+                        icon:      'fa-plane',               // and define its properties
+                        title:     'zoom to a forest',      // like its title
+                        onClick: function(btn, map) {       // and its callback
+                            map.setView([46.25,-121.8],10);
+                            btn.state('zoom-to-school');    // change state on click!
+                        }
+                    }, {
+                        stateName: 'zoom-to-school',
+                        icon:      'fa-paper-plane',
+                        title:     'zoom to a school',
+                        onClick: function(btn, map) {
+                            map.setView([42.3748204,-71.1161913],16);
+                            btn.state('zoom-to-forest');
+                        }
+                }]*/
+              });
 
-            stateChangingButton.addTo(map);
-
+              stateChangingButton.addTo(map);
+            }
             function checkautresDeptsBounds(autresDepts, indexEvent) {
               for (i = 0; i < indexEvent.length; i++) {
                 for (j = 0; j < indexEvent[i].length; j++) {

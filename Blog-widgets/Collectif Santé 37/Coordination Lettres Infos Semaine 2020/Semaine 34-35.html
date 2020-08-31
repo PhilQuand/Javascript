@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaines 34 et 35</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 250px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 34-35</li>
+<li><strong>Dates</strong>: du 17 août au 30 août 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/08/Infos-semaines-34-et-35-du-17-au-30-août-2020.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:part3.A898C133.E306F2DF@orange.fr</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/08/Tract-pour-le-31-août-2020-Urgences-de-Sisteron.jpg" />
+<h3>cid:part5.CF5016CE.9318B01E@orange.fr</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/08/BernayLEP-Lecornu-280820.jpg" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Édito :</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">L’épidémie de COVID a témoigné, pour ceux qui ne le savaient pas encore, de la décrépitude de notre système de soins ! Le Ségur n’a pas convaincu et la mobilisation va se poursuivre, en particulier lors du débat sur la loi de financement de la Sécurité Sociale.</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Intéressons nous aujourd’hui à la prévention : un petit investissement pour beaucoup d’économies !</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Après avoir décrédibilisé le port du masque, pourtant le principal instrument de protection collective, le gouvernement le rend obligatoire dans nombre de situations. En assurer la gratuité devrait en être la suite logique. Si, en milieu de travail, c’est à l’employeur d’assurer cette gratuité, les principes mêmes de la Sécurité Soclale devraient lui permettre de répondre aux autres situations : « Chacun cotise selon ses moyens et reçoit selon ses besoins »</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Les instances de la Sécurité Sociale ont-elles seulement été consultées avant les prises de position répétées des membres du gouvernement, en particulier de celui de l’Education Nationale, contre cette gratuité ? Il s’agit là d’un déni démocratique mais aussi d’une prise de risque du gouvernement sur l’amplification d’une 2ème vague. Pour la prévention aussi, nous devons nous réapproprier la Sécurité Sociale !</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Sommaire :</b></span></span></p>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0.28cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>L’écho des comités : pages 2 et 3</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Autres infos locales : page 4</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.2cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Dossiers :</b></span></span></p>
+</li>
+</ul>
+<p class="western" style="font-family: Helvetica; font-size: 12px; text-indent: 0.64cm; margin-bottom: 0cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 16pt;"><b>- protection sociale page 5</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; text-indent: 0.64cm; margin-bottom: 0cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 16pt;"><b>- psychiatrie page 5</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; text-indent: 0.64cm; margin-bottom: 0cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 16pt;"><b>- privatisation du système de soins page 5</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; text-indent: 0.64cm; margin-bottom: 0.2cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 16pt;"><b>- industrie pharmaceutique page 5</b></span></span></p>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0.28cm;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Culture et santé : page 6</b></span></span></p>
+</li>
+</ul>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b> </b></span></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial,
+            sans-serif;"><span style="font-size: 22pt;"><b>L’écho des comités :</b></span></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm; background-color: #ff3838;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>SARLAT - 24</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Pour la gratuité des masques</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Le Comité de défense de l’hôpital public et de la maternité de Sarlat  EXIGE la GRATUITE DES MASQUES POUR TOUS (nous la réclamions déjà dans notre tract n°11 du 30 juillet 2020).</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Rappelons que la Sécurité sociale est fondée sur le principe suivant «chacun cotise selon ses moyens et reçoit selon ses besoins».Ce principe prend toute sa valeur aujourd’hui en pleine pandémie. Ainsi exiger le port obligatoire du masque, une très bonne décision, constitue un coût insupportable pour de très nombreuses familles(jusqu’à 250 euros mensuels pour une famille de quatre personnes).</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><span style="color: #0000ff;"><u><a href="http://coordination-defense-sante.org/wp-content/uploads/2020/08/Sarlat_gratuit%C3%A9-des-masques-25-08-2020.pdf"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Le communiqué</b></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm; background-color: #ffff6d;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>SISTERON - 04</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><img id="&lt;part3.A898C133.E306F2DF@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:part3.A898C133.E306F2DF@orange.fr" alt="" align="middle" border="0" /> <br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm; background-color: #b7b3ca; break-before: page;" align="center"><br /><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>DOUARNENEZ – 29</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Conférence de presse du comité</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Ce mercredi 26 aout, le comité des usagers de l’hôpital de Douarnenez a tenu une conférence de presse s’alarmant de l’offre médicale : 17 lits fermés à l’hôpital sur les 115, alors que la fréquentation de l’hôpital augmente avec la période touristique : en juillet l’hôpital a été 17 jours en tension.</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Mais c’est aussi le manque de professionnels en ville et le comité demande la création d’un centre de santé.</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Et bien sur il demande le retour d’une ligne autonome de SMUR la nuit et le week end pour Douarnenez et le Cap Sizun, supprimée depuis deux ans.</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0000ff;"><u><a href="https://www.letelegramme.fr/_amp/236/12604236.php?fbclid=IwAR1XIgYANp20xSQ72zfIQ00Yn6cy1I8SWopWiZnbmXjThXT3tFFT5eq5-zw"><span style="color: #0000ff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>L’article du Télégramme</b></span></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm; background-color: #ffd7d7;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>BERNAY – 27</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Rencontre avec Sébastien Lecornu</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Les membres du bureau de l’association Liberté Egalité Proximité, toujours engagés dans le combat pour la réouverture de la maternité et le maintien de la chirurgie conventionnelle au centre hospitalier de Bernay, département de l’Eure, ont interpellé Monsieur Sébastien Lecornu, ministre des Outre-Mer, en campagne pour les élections sénatoriales à l’occasion de la pose de la première pierre d’un collège.</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">LEP a réaffirmé sa demande de réouverture de la maternité de Bernay à monsieur le Ministre Sébastien Lecornu</span></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.2cm;" align="center"><img id="&lt;part5.CF5016CE.9318B01E@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:part5.CF5016CE.9318B01E@orange.fr" alt="" align="middle" /> <br clear="left" /><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><span style="color: #0000ff;"><u><a href="http://coordination-defense-sante.org/2020/08/bernay-rencontre-avec-sebastien-lecornu/"><span style="color: #0000ff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Plus d’infos</b></span></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.4cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Autres infos locales :</b></span></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; background-color: #ffff00;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>LAVAL- 53</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Grève au service de médecine interne</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-top: 0.49cm; margin-bottom: 0.49cm;"><span style="color: #0000ff;"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Une trentaine de soignants se sont réunis le mercredi 19 août devant le centre hospitalier de Laval pour témoigner de leur solidarité avec leurs collègues du service de médecine interne en grève pour protester contre le manque de personnel paramédical dans ce service qui accueille les cas de COVID</span></span></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">L’annonce de la grève dans</span></span><a href="https://www.ouest-france.fr/pays-de-la-loire/laval-53000/laval-une-greve-illimitee-au-service-de-medecine-interne-de-l-hopital-debute-mercredi-19-aout-6940188?utm_medium=Social&amp;utm_source=Facebook&amp;fbclid=IwAR2mDcw47xgVnurJyN7ZvE7U507sfdUUL7ZYah0IyuMoZoXzz5zQE81hllI#Echobox=1597758142"><span style="color: #0000ff;"><u><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"> </span></span></u></span><span style="color: #0000ff;"><u><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Ouest France du 18 août</b></span></span></u></span></a></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px;" align="center"> </p>
+<p style="font-family: Helvetica; font-size: 12px; margin-top: 0.49cm; margin-bottom: 0.49cm; background-color: #ff33cc;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>MONTFAUCON-46</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>La Vice-Présidente d’Occitanie s’insurge contre le fermeture du service de rééducation cardiaque :</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0000ff;"><u><a href="https://mariepique-occitanie.fr/2020/08/11/non-a-la-fermeture-du-service-de-reeducation-cardiaque-de-montfaucon/?"><span style="color: #0000ff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Le blog de Marie Piqué</b></span></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"> </p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; background-color: #f5deb3;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><u><b>ARIEGE</b></u></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Se Soigner en Ariège, le parcours du combattant</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0000ff;"><u><a href="https://blogs.mediapart.fr/myriam-martin/blog/270820/se-soigner-en-ariege-un-parcours-du-combattant?utm_source=20200829&amp;utm_medium=email&amp;utm_campaign=QUOTIDIENNE&amp;utm_content=&amp;utm_term=&amp;xtor=EREC-83-[QUOTIDIENNE]-20200829&amp;M_BT=8631337866"><span style="color: #0000ff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Un article de Myriam Martin, conseillère régionale d’Occitanie</b></span></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; break-before: page;" align="center"><br /><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Dossier :</b></span></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-top: 0.49cm; margin-bottom: 0.49cm; background-color: #ffb66c;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>PROTECTION SOCIALE</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-top: 0.49cm; margin-bottom: 0.49cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>L’UFAL appelle les familles de France à s’opposer aux achats groupés en santé :</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><a href="https://www.ufal.org/sante-protection-sociale/lufal-appellent-les-familles-de-france-a-sopposer-aux-achats-groupes-en-sante/?utm_source=mailup&amp;utm_medium=courriel&amp;utm_campaign=flash"><span style="color: #0000ff;"><u><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>L’article sur le site de </b></span></span></u></span><span style="color: #0000ff;"><u><span style="color: #0000ff;"><span style="font-family: Arial,
+                  sans-serif;"><span style="font-size: 12pt;"><b>l</b></span></span></span></u></span><span style="color: #0000ff;"><u><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>’UFAL</b></span></span></u></span></a></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; background-color: #bf819e;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>PSYCHIATRIE</b></span></span></span></p>
+<h1 class="western" style="font-family: Helvetica;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">«Les Heures heureuses», une révolution dans la psychiatrie </span></span></h1>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0000ff;"><u><a href="https://www.mediapart.fr/studio/documentaires/culture-idees/les-heures-heureuses-une-revolution-dans-la-psychiatrie"><span style="color: #0000ff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Article de Médiapart du 8 août</b></span></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>La psychiatrie, une arme de combat pour dépasser la race. Frantz Fanon de Lyon à Blida en passant par Saint Alban.</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0000ff;"><u><a href="https://www.franceculture.fr/emissions/grandes-traversees-frantz-fanon-lindocile/la-psychiatrie-une-arme-de-combat-pour-depasser-la-race-frantz-fanon-de-lyon-a-blida-en-passant-par"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Une émission de France Culture du 20 août</b></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Emmanuel Venet : « </b></span></span><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><i><b>l’abandon de la psychiatrie publique est le fruit d’une volonté plutôt que d’une impuissance politique</b></i></span></span><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b> »</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0000ff;"><u><a href="https://diacritik.com/2020/08/26/emmanuel-venet-labandon-de-la-psychiatrie-publique-est-le-fruit-dune-volonte-plutot-que-dune-impuissance-politique/"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>L’article sur le site de diacritik.com à l’occasion de la sortie du livre « Manifeste pour une psychiatrie artisanale » d’Emmanuel Venet </b></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px;" align="center"><strong><span style="font-family: Arial,
+            sans-serif;"><span style="font-size: 12pt;">Prime COVID</span></span></strong></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0000ff;"><u><a href="http://coordination-defense-sante.org/wp-content/uploads/2020/08/CaenEPSMPrime-covid-27-08-2020.pdf"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Tract de la CGT du CHS de Caen</b></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; background-color: #e8f2a1;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>PRIVATISATION DU SYSTÈME DE SOINS</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Une nouvelle clinique privée fin prête « pour la 2ème vague »</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">L’hôpital public, ses personnels, ont eu trop de « privilège » de gérer la crise presque seuls, ça ne doit pas se reproduire. !!</span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0000ff;"><u><a href="https://www.lesechos.fr/pme-regions/occitanie/coronavirus-comment-les-cliniques-cap-sante-se-preparent-a-une-seconde-vague-1236799"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>L’article des Echos du 26 août</b></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; background-color: #fde9a9;" align="center"><span style="color: #0000ff;"><span style="color: #000000;"><span style="font-family: Arial,
+              sans-serif;"><span style="font-size: 14pt;"><b>INDUSTR</b></span></span></span></span><span style="color: #0000ff;"><span style="color: #000000;"><span style="font-family: Arial,
+              sans-serif;"><span style="font-size: 14pt;"><span lang="fr-FR"><b>IE</b></span></span></span></span></span><span style="color: #0000ff;"><span style="color: #000000;"><span style="font-family: Arial,
+              sans-serif;"><span style="font-size: 14pt;"><b> PHARMACEUTIQUE</b></span></span></span></span></p>
+<p><a href="http://coordination-defense-sante.org/wp-content/uploads/2020/08/20.08.25-PPL-CRCE-P%C3%B4le-public-du-m%C3%A9dicament-et-des-produits-m%C3%A9dicaux.pdf"><b>Proposition de loi déposée par Mme Laurence Cohen et les membres du groupe CRCE, visant à la création d'un pôle public du médicament et des produits médicaux. </b></a></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0000ff;"><a href="http://coordination-defense-sante.org/wp-content/uploads/2020/08/20.08.25-PPL-CRCE-P%C3%B4le-public-du-m%C3%A9dicament-et-des-produits-m%C3%A9dicaux.pdf"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><span style="text-decoration: none;"><b>Le texte </b></span></span></span></a></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; break-before: page;" align="center">  <span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><span style="color: #0000ff;"><u><a href="https://www.youtube.com/watch?v=LCbKwaY-eK8"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Paris Combo</b></span></span></a></u></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm;" align="center"><br /><br /></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.35cm; line-height: 0.49cm; background-color: #ffff00;" align="center"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></span></span></p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.35cm; line-height: 13.800000190734863px;" align="center"> </p>
+<p class="western" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.35cm; line-height: 13.800000190734863px;" align="center"><span style="color: #0000ff;"><u><a href="http://coordination-defense-sante.org/"><span style="color: #0000ff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">http://coordination-defense-sante.org/</span></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGoldIcon",
+          title: 'Appels pour le 14 juillet',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

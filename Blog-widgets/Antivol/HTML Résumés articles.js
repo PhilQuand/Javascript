@@ -296,18 +296,18 @@ function createSummaryAndThumb(pID, isRegular) {
   pointer-events: none;
 }
 .header-widget-home {
-    display: flex;
+    //display: flex;
     align-items: center; 
     justify-content: center;
     width: 100%; 
 }
 .header-widget-home img {
-    max-width: 60px; 
-    width: 30%; 
+    //max-width: 60px; 
+    //width: 30%; 
     margin-right: 0.5em;
     margin-bottom: 1em;
 }
-.header-widget-home div {
+/*.header-widget-home div {
     max-width: 500px; 
     width: 70%; 
 }
@@ -315,6 +315,16 @@ function createSummaryAndThumb(pID, isRegular) {
   padding-bottom: 10px;
   border-bottom: thick solid #3FF60A;
   line-height: 48px;
+}*/
+.header-widget > div > h1 img {
+    //width: 100%; 
+    max-width:300px;
+    max-height:200px;
+}
+.header-widget > div > h1 > a img {
+    //width: 100%; 
+    max-width:300px;
+    max-height:30px;
 }
 @media (max-width: 1100px) {
     .header-widget-home {
@@ -333,20 +343,28 @@ function createSummaryAndThumb(pID, isRegular) {
 </style>
 <!--script>
 if ( window.location.pathname == '/' ){
-  banAnim();
+  //banAnim();
   $('.header-widget').addClass('header-widget-home');
   $('.header-widget h1').wrapInner('<span />');
-  $('.header-widget > div').append($('.header-widget > p'));
-  $('.header-widget').prepend('<img src="https://1.bp.blogspot.com/-q3glREgFdhc/XgNs4Ds753I/AAAAAAAAkrw/BMiVS8ldeIgFST_88L5A5mlL-XvVZkEOgCLcBGAsYHQ/s1600/Double%2BPHI%2Bclair.png"/>');
+  //$('.header-widget > div').append($('.header-widget > p'));
+  $('.header-widget > div > h1 > span').attr('style','border-bottom:none;');
+  $('.header-widget > div > h1 > span').attr('style','display:none;');
+  $('.header-widget > div').append('<center><img src="https://1.bp.blogspot.com/-ow5Anx1wNTk/X0qX0h2VojI/AAAAAAAAnE8/zdtTf1hbHyI6a8UHLeGoaUcmm_QLtwhNwCLcBGAsYHQ/s722/Logo%2BAzo%2Bv1%2Btransparent.png"/></center>');
   $('.bg-photo').remove();
-  function banAnim() {
-    //$('.bg-photo-overlay').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="https://philquand.github.io/Javascript/Blog-widgets/Touraine%20Insoumise/Animation-ban/Montgolfiere-ban.html" frameborder="0" allowfullscreen></iframe></div></div>');
+  /*function banAnim() {
     $('.page_body').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="https://philquand.github.io/Javascript/Blog-widgets/Touraine%20Insoumise/Animation-ban/Montgolfiere-ban.html" frameborder="0" allowfullscreen></iframe></div></div>');
-    /*$('.header-widget').css('visibility', 'hidden');
-    $('.subscribe-section-container').css('visibility', 'hidden');
-    setTimeout(function() {
-      $('.header-widget').css('visibility', 'visible');
-      $('.subscribe-section-container').css('visibility', 'visible');
-    }, 5000);*/
-  }}
+    }, 5000);
+  }*/
+}
 </script-->
+<script>
+if ( window.location.pathname == '/' ){
+  //banAnim();
+  $('.header-widget').addClass('header-widget-home');
+  $('.bg-photo').remove();
+  $('.header-widget > div > h1').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/>');
+  //$('.header-widget > div').append('<center><img src="https://1.bp.blogspot.com/-ow5Anx1wNTk/X0qX0h2VojI/AAAAAAAAnE8/zdtTf1hbHyI6a8UHLeGoaUcmm_QLtwhNwCLcBGAsYHQ/s722/Logo%2BAzo%2Bv1%2Btransparent.png"/></center>');
+} else {
+  $('.header-widget > div > h1 > a').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/>');
+}
+</script>

@@ -1147,6 +1147,7 @@
         infoWeek = [];
         infoWeek.push("L'INFO");
         var num = $('.corpsLettreWeek li:contains(Semaine:)');
+        if (num.length == 0) num = $('.corpsLettreWeek li:contains(Semaines:)');
         if (num.length > 0) infoWeek.push('Semaine' + num.text().substr(8))
         var dates = $('.corpsLettreWeek li:contains(Dates:)');
         if (dates.length > 0) infoWeek.push(dates.text().substr(6))

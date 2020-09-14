@@ -1,7 +1,12 @@
     var archi = [
            {
+          svgInfos: ['Semaine 37', 'du 07 septembre', 'au 11 septembre', '2020'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 37.html',
+        },
+           {
           svgInfos: ['Semaine 36', 'du 31 août.', 'au 06 septembre', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 36.html',
+          idGlinkID: 'PreviousLetters'
         },
            {
           svgInfos: ['Semaine 34-35', 'du 17 août.', 'au 30 août', '2020'],

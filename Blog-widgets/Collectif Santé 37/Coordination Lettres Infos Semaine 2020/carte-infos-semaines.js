@@ -1116,7 +1116,7 @@
         //if( typeof strKeyElem === 'undefined' || typeof strKeyElem === 'object') {
         if (strKeyElem.length == 0) {
           var curHtmk = $(this).html().replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
-          if (strKey != '' && $(this).prop("tagName") != "UL" && curHtmk.search(strKeyComp) > -1 && curHtmk.search("page") == -1) {
+          if (!$(this).hasClass('disregard') && strKey != '' && $(this).prop("tagName") != "UL" && curHtmk.search(strKeyComp) > -1 && curHtmk.search("page") == -1) {
             curElem = $(this);
             return false;
           };

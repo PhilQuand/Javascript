@@ -9,6 +9,9 @@
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
 <!-- End FancyBox -->
 
+<!-- Add myTimeLine -->
+<script src='https://philquand.github.io/Javascript/Blog-widgets/myTimeLine.js'></script>
+<!-- End myTimeLinex -->
 <!-- Add a modal window -->
 <div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
@@ -254,16 +257,13 @@ function createSummaryAndThumb(pID, isRegular) {
   }*/
   if( img.length >= 1 ) {
     if (isRegular) {
-      //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-width:' + img_thumb_width_reg + 'px;height:auto;"><img src="' + img[0].src + '" height="' + img_thumb_height_reg + 'px" width="auto"/></span>';
-      //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-width:' + img_thumb_width_reg + 'px;height:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/></span>';
-      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/>';
-      //imgtag = '<td valign="top" style="border: none; padding:0 15px 10px 0;" width="20%"" ><img src="' + img[0].src + '"/></td>';
-      //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-height:' + img_thumb_height_reg + 'px;width:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/></span>';
+      //imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/>';
+      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; max-width: ' + img_thumb_width_reg + 'px; max-height: ' + img_thumb_height_reg + 'px;" src="' + img[0].src + '"/>';
       summ = summary_img_reg;
     }
     else {
-      //imgtag = '<center><img src="' + img[0].src + '" width= 50%" height="auto"/></center>';
-      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_feat + 'px" height="auto"/>';
+      //imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_feat + 'px" height="auto"/>';
+      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; max-width: ' + img_thumb_width_feat + 'px; max-height: ' + img_thumb_height_feat + 'px;" src="' + img[0].src + '"/>';
       summ = summary_img_feat;
     }
   }
@@ -305,7 +305,7 @@ function createSummaryAndThumb(pID, isRegular) {
     //max-width: 60px; 
     //width: 30%; 
     margin-right: 0.5em;
-    margin-bottom: 1em;
+    margin-bottom: 20px;
 }
 /*.header-widget-home div {
     max-width: 500px; 
@@ -316,10 +316,31 @@ function createSummaryAndThumb(pID, isRegular) {
   border-bottom: thick solid #3FF60A;
   line-height: 48px;
 }*/
-.header-widget > div > h1 img {
+.header-widget > div > h1 > img {
     //width: 100%; 
     max-width:300px;
     max-height:200px;
+}
+.header-widget > div > h1 p {
+  font-family: "Arial Rounded MT Bold"; 
+  font-size: 24px; 
+  font-style: italic; 
+  font-variant: normal; 
+  font-weight: 400; 
+  line-height: 1.1; 
+  max-width: 500px;
+}
+.tabs .overflow-button a, .tabs li a {
+  font-family: "Arial Rounded MT Bold"; 
+}
+/*.header-widget > div > h1 p, .overflowable-item {
+  font-family: "Arial Rounded MT Bold"; 
+}*/
+.tabs .selected {
+  border-bottom:4px solid #ff0000
+}
+.tabs .selected a{
+  color:#ff0000
 }
 .header-widget > div > h1 > a img {
     //width: 100%; 
@@ -341,30 +362,75 @@ function createSummaryAndThumb(pID, isRegular) {
     }
 }
 </style>
-<!--script>
-if ( window.location.pathname == '/' ){
-  //banAnim();
-  $('.header-widget').addClass('header-widget-home');
-  $('.header-widget h1').wrapInner('<span />');
-  //$('.header-widget > div').append($('.header-widget > p'));
-  $('.header-widget > div > h1 > span').attr('style','border-bottom:none;');
-  $('.header-widget > div > h1 > span').attr('style','display:none;');
-  $('.header-widget > div').append('<center><img src="https://1.bp.blogspot.com/-ow5Anx1wNTk/X0qX0h2VojI/AAAAAAAAnE8/zdtTf1hbHyI6a8UHLeGoaUcmm_QLtwhNwCLcBGAsYHQ/s722/Logo%2BAzo%2Bv1%2Btransparent.png"/></center>');
-  $('.bg-photo').remove();
-  /*function banAnim() {
-    $('.page_body').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="https://philquand.github.io/Javascript/Blog-widgets/Touraine%20Insoumise/Animation-ban/Montgolfiere-ban.html" frameborder="0" allowfullscreen></iframe></div></div>');
-    }, 5000);
-  }*/
-}
-</script-->
 <script>
 if ( window.location.pathname == '/' ){
   //banAnim();
   $('.header-widget').addClass('header-widget-home');
   $('.bg-photo').remove();
-  $('.header-widget > div > h1').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/>');
+  $('.header-widget > div > h1').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/><center><p>« Être radical, c’est aller à la racine des problèmes et à la hauteur des solutions »</p></center>');
   //$('.header-widget > div').append('<center><img src="https://1.bp.blogspot.com/-ow5Anx1wNTk/X0qX0h2VojI/AAAAAAAAnE8/zdtTf1hbHyI6a8UHLeGoaUcmm_QLtwhNwCLcBGAsYHQ/s722/Logo%2BAzo%2Bv1%2Btransparent.png"/></center>');
 } else {
   $('.header-widget > div > h1 > a').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/>');
+  $(document).ready(function() {
+    $('#FeaturedPost1').css('display','none');
+  });
 }
 </script>
+<style>
+.post-body img {
+  max-height: 50px;
+}
+.header {
+  font-weight: bold;
+}
+.incrustation {
+  background-color: #e8f6f8;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+
+}
+.incrustation h1 {
+  color: red;
+  font-size:x-large;
+}
+</style>
+<style>
+.flex-image-text {
+    display: flex; 
+    align-items: center;
+    width: 100%; 
+}
+.flex-image-text  .divImg {
+    max-width: 323px; 
+    width: 30%; 
+    margin-bottom: 1em;
+}
+.flex-image-text  .divImg.right {
+    margin-left: 0.5em;
+}
+.flex-image-text  .divImg.left {
+    margin-right: 0.5em;
+}
+.flex-image-text  .divText {
+    width: 70%; 
+}
+.flex-image-text  .divImg img {
+    width: 100%;
+}
+@media (max-width: 1100px) {
+    .flex-image-text {
+        display: block; 
+    }
+    .flex-image-text .divImg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+    .flex-image-text  .divText {
+        width: 100%; 
+    }
+}
+</style>

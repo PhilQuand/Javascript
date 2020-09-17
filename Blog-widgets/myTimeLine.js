@@ -233,43 +233,44 @@
     }
   }
 
-img_thumb_width_reg = 180; // Image Thumbnail Width
-img_thumb_height_reg = 180; // Image Thumbnail Height
-img_thumb_width_feat = 360; // Image Thumbnail Width
-img_thumb_height_feat = 360; // Image Thumbnail Height
-summary_noimg = 500; // Length of Summary Text if no image is Used
-summary_img_reg = 400; // Length of Summary Text if post has Image Thumbnail
-summary_img_feat = 400; // Length of Summary Text if post has Image Thumbnail
+  img_thumb_width_reg = 180; // Image Thumbnail Width
+  img_thumb_height_reg = 180; // Image Thumbnail Height
+  img_thumb_width_feat = 360; // Image Thumbnail Width
+  img_thumb_height_feat = 360; // Image Thumbnail Height
+  summary_noimg = 500; // Length of Summary Text if no image is Used
+  summary_img_reg = 400; // Length of Summary Text if post has Image Thumbnail
+  summary_img_feat = 400; // Length of Summary Text if post has Image Thumbnail
 
-function createSummaryAndThumbfromDiv(div, isRegular) {
-  //var div = document.getElementById(pID);
-  var imgtag = "";
-  var img = div.getElementsByTagName("img");
-  var summ = summary_noimg;
-  /*if (isRegular && (img.length >= 1)) {
-    imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-height:' + img_thumb_height + 'px;width:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width + 'px" height="auto"/></span>';
-    summ = summary_img;
-  }*/
-  if( img.length >= 1 ) {
-    if (isRegular) {
-      //imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/>';
-      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; max-width: ' + img_thumb_width_reg + 'px; max-height: ' + img_thumb_height_reg + 'px;" src="' + img[0].src + '"/>';
-      summ = summary_img_reg;
+  function createSummaryAndThumbfromDiv(div, isRegular) {
+    //var div = document.getElementById(pID);
+    var imgtag = "";
+    var img = div.getElementsByTagName("img");
+    var summ = summary_noimg;
+    /*if (isRegular && (img.length >= 1)) {
+      imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-height:' + img_thumb_height + 'px;width:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width + 'px" height="auto"/></span>';
+      summ = summary_img;
+    }*/
+    if (img.length >= 1) {
+      if (isRegular) {
+        //imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/>';
+        imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; max-width: ' + img_thumb_width_reg + 'px; max-height: ' + img_thumb_height_reg + 'px;" src="' + img[0].src + '"/>';
+        summ = summary_img_reg;
+      }
+      else {
+        //imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_feat + 'px" height="auto"/>';
+        imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; max-width: ' + img_thumb_width_feat + 'px; max-height: ' + img_thumb_height_feat + 'px;" src="' + img[0].src + '"/>';
+        summ = summary_img_feat;
+      }
     }
-    else {
-      //imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_feat + 'px" height="auto"/>';
-      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; max-width: ' + img_thumb_width_feat + 'px; max-height: ' + img_thumb_height_feat + 'px;" src="' + img[0].src + '"/>';
-      summ = summary_img_feat;
-    }
+    var resul = compSumAndImg(div.innerHTML, summ, imgtag)
+    var summary;
+    //if( isRegular ) summary = '<table><tr>' + imgtag + '<td valign="top"><div class="mySumReg">' + resul.summary + '</div></td></tr></table>';
+    //if( isRegular ) summary = imgtag + '<div class="mySumReg">' + resul.summary + '</div>';
+    if (isRegular) summary = '<div style="position: 0;" class="mySumReg"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
+    else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
+    div.innerHTML = summary;
   }
-  var resul = compSumAndImg(div.innerHTML, summ, imgtag)
-  var summary;
-  //if( isRegular ) summary = '<table><tr>' + imgtag + '<td valign="top"><div class="mySumReg">' + resul.summary + '</div></td></tr></table>';
-  //if( isRegular ) summary = imgtag + '<div class="mySumReg">' + resul.summary + '</div>';
-  if( isRegular ) summary = '<div style="position: 0;" class="mySumReg"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
-  else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
-  div.innerHTML = summary;
-}
+
   function getMyInnerLinkContent(theURL) {
     var xmlhttp = false;
     loadXMLDoc(theURL);

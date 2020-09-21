@@ -377,7 +377,7 @@ if ( window.location.pathname == '/' ){
 }
 </script>
 <style>
-.post-body img {
+.mySumReg img {
   max-height: 50px;
 }
 .header {
@@ -394,6 +394,9 @@ if ( window.location.pathname == '/' ){
 .incrustation h1 {
   color: red;
   font-size:x-large;
+}
+.furthermore {
+  text-align: right;
 }
 </style>
 <style>

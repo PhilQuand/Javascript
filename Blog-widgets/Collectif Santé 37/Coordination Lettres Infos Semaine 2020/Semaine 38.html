@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaines 38</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<p style="display:none">
+Le gouvernement de M Macron utilise la pandémie de la COVID 19 pour donner le coup de gräce à notre
+protection sociale. Il provoque son endettement en lui transférant des charges indues, il assèche ses ressources en
+généralisant l’exonération des cotisations patronales, il crée la confusion entre le budget de l’État et celui de la
+Sécu, il crée une 5 ème branche pour l’ouvrir aux compagnies d’assurance, il laisse pourrir la situation à l’hôpital
+public afin de le privatiser.
+Il existe des solutions alternatives pour construire une sécurité sociale du 21ème siècle, avec de nouveaux
+financements, une gestion démocratique et citoyenne , un élargissement de l’accès au droit à la sécu.
+</p>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 250px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 38</li>
+<li><strong>Dates</strong>: du 14 au 18 septembre 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/09/Infos-semaine-37-du-7-au-11-Septembre-2020.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:image004.jpg@01D68A83.8AA0A120</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/09/image004.jpg" />
+<h3>cid:image005.jpg@01D68A83.8AA0A120</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/09/image005.jpg" />
+<h3>cid:image006.jpg@01D68A83.8AA0A120</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/09/image006.jpg" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: justify;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><img id="&lt;image011.jpg@01D69003.0ED092A0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image011.jpg@01D69003.0ED092A0" alt="image011.jpg" align="left" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Sommaire :</span></b></p>
+<p class="ListParagraphCxSpFirst" style="margin: 0cm 0cm 0.0001pt 18pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">L’écho des comités : pages 2 et 3</span></b></p>
+<p class="ListParagraphCxSpMiddle" style="margin: 0cm 0cm 0.0001pt 18pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Autres infos locales : pages 4 et 5</span></b></p>
+<p class="ListParagraphCxSpLast" style="margin: 0cm 0cm 8pt 18pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-indent: -18pt;"><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">     </span></span><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Dossiers :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-indent: 18pt;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">- Manifestation à Bruxelles : page 5</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-indent: 18pt;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">- Psychiatrie : page 6</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-indent: 18pt;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-indent: -18pt;"><span style="font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">         </span></span><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Culture et santé : page 6</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">L’écho des comités :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><u><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif; color: #990000;"><span style="text-decoration: none;"> </span></span></u></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">SARLAT - 24</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><img id="&lt;image020.jpg@01D69003.0ED092A0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image020.jpg@01D69003.0ED092A0" alt="image020.jpg" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">MONTREUIL - 93</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<h1 style="margin: 14pt 0cm; font-size: 24pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Le comité de Montreuil appelle à la mobilisation pour la défense de l’hôpital intercommunal en signant la pétition</span></h1>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2020/09/montreuil-atelier-de-travail-et-de-reflexion-democratique-et-populaire-pour-le-refondation-du-service-public-hospitalier-le-10-octobre-2020/"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le tract</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<h1 style="margin: 14pt 0cm; font-size: 24pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;">L'hôpital de Montreuil doit vivre, les Montreuillois·es​ s'engagent !    Le 26 septembre faites signer et venez signer la pétition place de la mairie</span></h1>
+<h1 style="margin: 14pt 0cm; font-size: 24pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/09/Montreuil-rdv-le-26-09-2020.pdf"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Montreuil rdv le 26 09 2020</span></a></h1>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.change.org/p/olivier-v%C3%A9ran-l-h%C3%B4pital-de-montreuil-doit-vivre-les-montreuillois-es-s-engagent?utm_content=cl_sharecopy_24574919_fr-FR%3A3&amp;recruiter=34204042&amp;recruited_by_id=202645c0-e585-012f-cc62-404060e72abb&amp;utm_source=share_petition&amp;utm_medium=copylink&amp;utm_campaign=psf_combo_share_initial&amp;utm_term=psf_combo_share_abi"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">La pétition</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">MONTAIGU  - 85</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><span class="MsoHyperlink" style="color: #0563c1; text-decoration: underline;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif; color: black; text-decoration: none;">Le  comité reçu par la direction : il a été question de la place de « Happytal », entreprise privée au sein du CHD Vendée</span></b></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif; background-color: yellow; background-position: initial initial; background-repeat: initial initial;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/09/Le-Mensuel-de-Montaigu-09-2020.pdf"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le Mensuel de Montaigu 09 2020</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> <span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: #0070c0;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">QUIMPER – 29</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Manifestation intersyndicale pour une autre politique économique et sociale</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"><img id="&lt;image021.jpg@01D69003.0ED092A0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image021.jpg@01D69003.0ED092A0" alt="image021.jpg" border="0" /></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center">  </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">Autres infos locales :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">MONTREUIL - 93</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"><img id="&lt;image022.jpg@01D69003.0ED092A0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image022.jpg@01D69003.0ED092A0" alt="image022.jpg" border="0" /></span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/2020/09/montreuil-atelier-de-travail-et-de-reflexion-democratique-et-populaire-pour-le-refondation-du-service-public-hospitalier-le-10-octobre-2020/"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le tract</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">AVRANCHES - 50</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-right: 86.2pt; margin-bottom: 15pt; margin-left: 86.2pt; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; line-height: normal; vertical-align: baseline;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #1e1e1e;">L’hôpital d'Avranches demande du renfort dans la lutte contre le Covid-19</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: normal;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Alors que la France est toujours traversée par la pandémie de coronavirus, le personnel médical, épuisé, se démène au quotidien. Mais les bras manquent. Alors l’hôpital d’Avranches (Manche) lance un appel aux volontaires, rapporte France 3, jeudi 17 septembre.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.francetvinfo.fr/sante/maladie/coronavirus/manche-l-hopital-d-avranches-demande-du-renfort-dans-la-lutte-contre-le-covid-19_4109545.html#xtor=EPR-2-[newsletterquotidienne]-20200918-[lesimages/image5"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">BOURGES - 18</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-right: 0cm; margin-bottom: 7.5pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Encombrement aux urgences de l'hôpital de Bourges : des ambulanciers ont attendu jusqu'à 10 heures avec leurs patients à bord</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">« Je suis resté sept heures sur le parking des urgences avant d’être libéré. » Ambulancier privé, Thomas Vermote, qui exerce depuis quinze ans dans le Cher, n’avait « jamais connu » une attente aussi longue aux urgences de Bourges.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.leberry.fr/bourges-18000/actualites/_13837179/?fbclid=IwAR1Jzu5VoTDAR7AwC0h7GUNIzDd5gUCs_8mNN48heFfpuXHBqe72Gpu4oVc#refresh"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">LE HAVRE - 76</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<h1 style="margin: 14pt 0cm 6pt; font-size: 24pt; font-family: 'Times New Roman', serif; text-align: center; vertical-align: baseline;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Une société privée vient de créer son premier centre de soin au Havre</span></h1>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L'objectif de Sagéo est de lutter contre les déserts médicaux en ouvrant des centres privés où les professionnels de santé trouvent tout le nécessaire à leur activité. L'entreprise a choisi le Havre pour tester son concept. </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="https://france3-regions.francetvinfo.fr/normandie/seine-maritime/havre/societe-privee-vient-creer-son-premier-centre-soin-au-havre-1874332.html#xtor=EPR-521-[france3regions]-20200917-[info-bouton6]&amp;pid=726375-1437732574-2a072072"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; line-height: 19.786666870117188px; font-family: Arial, sans-serif;">GERARDMER - 88</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<h1 style="margin: 0cm 0cm 0.0001pt; font-size: 24pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;">Les urgences de l’hôpital de Gérardmer fermées ce week-end</span></h1>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: justify;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le service de soins non programmés et le SMUR du centre hospitalier de Gérardmer suspendront son activité ce week-end du 12 et 13 septembre ainsi que mercredi 16 septembre. C’est la direction du centre hospitalier de Gérardmer qui en fait l’annonce ce vendredi matin.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="https://www.vosgesmatin.fr/faits-divers-justice/2020/09/11/les-urgences-de-l-hopital-de-gerardmer-fermees-ce-week-end?fbclid=IwAR0cGc7RDgCM8YM6t7V46wEByUUvDn4KRdowtk2qAJLIetm4Q-OtKdgm8Wk"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">Dossiers :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">BELGIQUE</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="margin-right: 0cm; margin-bottom: 12pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #1a1a1a;">Merci pour cette belle journée !</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="margin-right: 0cm; margin-bottom: 21pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #1a1a1a;">Un an jour pour jour après la première assemblée générale de La santé en lutte, nous étions plus de 7000 personnes à manifester cette après-midi pour revendiquer un refinancement massif dans les soins de santé ! Merci à toutes et à tous pour votre mobilisation et votre détermination.</span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-right: 0cm; margin-bottom: 21pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #1a1a1a;">Aujourd’hui, le message était très clair :</span></p>
+<p class="MsoNormalCxSpMiddle" style="margin-right: 0cm; margin-bottom: 21pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #1a1a1a;">Nous ne les laisserons plus nous imposer une dégradation de nos conditions de travail.<br />Nous ne les laisserons plus détruire la qualité des soins que nous donnons à la population.<br />Nous ne les laisserons plus nous gérer à coup de tableaux excel et par le prisme d’une vision marchande aux conséquences mortelles.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="https://lasanteenlutte.org/bilan-de-la-manifestation/"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">Le communiqué</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;">PSYCHIATRIE</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px;"><b><span style="font-size: 12pt; line-height: 16.959999084472656px; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/09/Psychiatrie-lettre-ARS-06-20-sur-la-situation-des-CMPP.pdf"><span class="ListLabel11" style="font-family: Arial, sans-serif; color: #1e73be;"><span style="font-size: 12.5pt; line-height: 17.66666603088379px; text-decoration: none;">Lettre à l’ARS de Dordogne de Juin 2020 sur la situation des CMPP</span></span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/09/Psychiatrie-lettre-snuipp24-au-Pr%C3%A9sident-de-la-R%C3%A9publique-Fran%C3%A7aise-sur-la-situation-des-CMPP-24-05-20.pdf"><span class="ListLabel11" style="font-family: Arial, sans-serif; color: #1e73be;"><span style="font-size: 12.5pt; line-height: 17.66666603088379px; text-decoration: none;">Lettre du snuipp24 au Président de la République Française sur la situation des CMPP – 24 05 20</span></span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/09/Psychiatrie-lettre-snuipp24-%C3%A0-linspecteur-dAcad%C3%A9mie-de-la-Dordogne-sur-la-situation-des-CMPP-24-05-20.pdf"><span class="ListLabel12" style="font-family: Arial, sans-serif; color: #8224e3;"><span style="font-size: 12.5pt; line-height: 17.66666603088379px; text-decoration: none;">Lettre du snuipp24 à l’inspecteur d’Académie de la Dordogne sur la situation des CMPP – 24 05 20</span></span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 15.546667098999023px; text-align: center;" align="center"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif; color: #0070c0;">Culture et santé :</span></b></p>
+<p class="PlainTextCxSpFirst" style="margin-right: 0cm; margin-bottom: 8pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;">Henri Tachan  : pour  le plaisir  ?</span></b></p>
+<p class="PlainTextCxSpMiddle" style="margin-right: 0cm; margin-bottom: 8pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="PlainTextCxSpMiddle" style="margin-right: 0cm; margin-bottom: 8pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif; text-align: center;" align="center"><b><span style="font-size: 12pt; font-family: Arial, sans-serif;"><a style="color: #954f72;" href="https://www.youtube.com/watch?v=Bis1zHq_Krk">https://www.youtube.com/watch?v=Bis1zHq_Krk</a></span></b></p>
+<p class="PlainTextCxSpMiddle" style="margin-right: 0cm; margin-bottom: 8pt; margin-left: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: normal;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 14pt; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 12pt; font-family: 'Times New Roman', serif;">« Toutes les infos sur le site de la Coordination Nationale »</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 16.866666793823242px; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 16.866666793823242px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><span class="ListLabel13" style="font-family: Arial, sans-serif; color: blue;"><span style="font-size: 12pt; line-height: 18.399999618530273px;">http://coordination-defense-sante.org/</span></span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 16.866666793823242px; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 11pt; font-family: Calibri, sans-serif; line-height: 16.866666793823242px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><span style="font-size: 12pt; line-height: 18.399999618530273px; font-family: Arial, sans-serif;">http://coordination-defense-sante.org/</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGoldIcon",
+          title: 'Appels pour le 14 juillet',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

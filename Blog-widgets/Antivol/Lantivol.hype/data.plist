@@ -79,17 +79,17 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2020-09-27T20:56:52Z</date>
+	<date>2020-09-27T22:17:59Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
 			<string>{{0, 0}, {1680, 991}}</string>
 			<key>identifier</key>
-			<string>container 501</string>
+			<string>container 295</string>
 			<key>isCustomizableViewContainer</key>
 			<true/>
 			<key>isCustomizableViewWrapper</key>
@@ -102,7 +102,7 @@
 					<key>frame</key>
 					<string>{{0, 0}, {1409, 991}}</string>
 					<key>identifier</key>
-					<string>container 626</string>
+					<string>container 710</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -113,13 +113,13 @@
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 0}, {1138, 991}}</string>
+							<string>{{0, 0}, {135, 991}}</string>
 							<key>identifier</key>
-							<string>container 295</string>
+							<string>container 165</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
-							<false/>
+							<true/>
 							<key>isVertical</key>
 							<true/>
 							<key>subviews</key>
@@ -128,7 +128,30 @@
 									<key>frame</key>
 									<string>{{0, 0}, {135, 991}}</string>
 									<key>identifier</key>
-									<string>container 165</string>
+									<string>sceneSelectorCustomizableContainer</string>
+									<key>isCustomizableViewContainer</key>
+									<false/>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>frame</key>
+							<string>{{136, 0}, {1273, 991}}</string>
+							<key>identifier</key>
+							<string>container 189</string>
+							<key>isCustomizableViewContainer</key>
+							<true/>
+							<key>isCustomizableViewWrapper</key>
+							<false/>
+							<key>isVertical</key>
+							<false/>
+							<key>subviews</key>
+							<array>
+								<dict>
+									<key>frame</key>
+									<string>{{136, 0}, {1273, 508}}</string>
+									<key>identifier</key>
+									<string>container 188</string>
 									<key>isCustomizableViewContainer</key>
 									<true/>
 									<key>isCustomizableViewWrapper</key>
@@ -139,9 +162,9 @@
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{0, 0}, {135, 991}}</string>
+											<string>{{136, 0}, {1273, 508}}</string>
 											<key>identifier</key>
-											<string>sceneSelectorCustomizableContainer</string>
+											<string>timelineCustomizableContainer</string>
 											<key>isCustomizableViewContainer</key>
 											<false/>
 										</dict>
@@ -149,87 +172,26 @@
 								</dict>
 								<dict>
 									<key>frame</key>
-									<string>{{136, 0}, {1002, 991}}</string>
+									<string>{{136, 509}, {1273, 482}}</string>
 									<key>identifier</key>
-									<string>container 189</string>
+									<string>container 187</string>
 									<key>isCustomizableViewContainer</key>
 									<true/>
 									<key>isCustomizableViewWrapper</key>
-									<false/>
+									<true/>
 									<key>isVertical</key>
-									<false/>
+									<true/>
 									<key>subviews</key>
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{136, 0}, {1002, 508}}</string>
+											<string>{{136, 509}, {1273, 482}}</string>
 											<key>identifier</key>
-											<string>container 188</string>
+											<string>sceneEditorCustomizableContainer</string>
 											<key>isCustomizableViewContainer</key>
-											<true/>
-											<key>isCustomizableViewWrapper</key>
-											<true/>
-											<key>isVertical</key>
-											<true/>
-											<key>subviews</key>
-											<array>
-												<dict>
-													<key>frame</key>
-													<string>{{136, 0}, {1002, 508}}</string>
-													<key>identifier</key>
-													<string>timelineCustomizableContainer</string>
-													<key>isCustomizableViewContainer</key>
-													<false/>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>frame</key>
-											<string>{{136, 509}, {1002, 482}}</string>
-											<key>identifier</key>
-											<string>container 187</string>
-											<key>isCustomizableViewContainer</key>
-											<true/>
-											<key>isCustomizableViewWrapper</key>
-											<true/>
-											<key>isVertical</key>
-											<true/>
-											<key>subviews</key>
-											<array>
-												<dict>
-													<key>frame</key>
-													<string>{{136, 509}, {1002, 482}}</string>
-													<key>identifier</key>
-													<string>sceneEditorCustomizableContainer</string>
-													<key>isCustomizableViewContainer</key>
-													<false/>
-												</dict>
-											</array>
+											<false/>
 										</dict>
 									</array>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>frame</key>
-							<string>{{1139, 0}, {270, 991}}</string>
-							<key>identifier</key>
-							<string>container 294</string>
-							<key>isCustomizableViewContainer</key>
-							<true/>
-							<key>isCustomizableViewWrapper</key>
-							<true/>
-							<key>isVertical</key>
-							<true/>
-							<key>subviews</key>
-							<array>
-								<dict>
-									<key>frame</key>
-									<string>{{1139, 0}, {270, 991}}</string>
-									<key>identifier</key>
-									<string>inspectorCustomizableContainer</string>
-									<key>isCustomizableViewContainer</key>
-									<false/>
 								</dict>
 							</array>
 						</dict>
@@ -239,7 +201,7 @@
 					<key>frame</key>
 					<string>{{1410, 0}, {270, 991}}</string>
 					<key>identifier</key>
-					<string>container 625</string>
+					<string>container 709</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -252,7 +214,7 @@
 							<key>frame</key>
 							<string>{{1410, 0}, {270, 991}}</string>
 							<key>identifier</key>
-							<string>resourcesCustomizableContainer</string>
+							<string>inspectorCustomizableContainer</string>
 							<key>isCustomizableViewContainer</key>
 							<false/>
 						</dict>
@@ -271,7 +233,7 @@
 		<key>showInspectorView</key>
 		<true/>
 		<key>showResourcesView</key>
-		<true/>
+		<false/>
 		<key>showSceneSelectorView</key>
 		<false/>
 		<key>showSceneVariantSelectorView</key>
@@ -307,7 +269,7 @@
 	<key>monotypeProjectID</key>
 	<string>9905C7CC-9C46-4A1F-AF5E-3D403FAF8806-10813-000029B52054766E</string>
 	<key>oidCounter</key>
-	<integer>77</integer>
+	<integer>79</integer>
 	<key>pageTitle</key>
 	<string></string>
 	<key>resourcesInfo</key>
@@ -410,6 +372,20 @@
 				<key>resources</key>
 				<array>
 					<string>Citation-iphone.png</string>
+				</array>
+			</dict>
+			<dict>
+				<key>expanded</key>
+				<true/>
+				<key>isPosterImageGroup</key>
+				<false/>
+				<key>name</key>
+				<string>Capture-ecran1036</string>
+				<key>oid</key>
+				<string>78</string>
+				<key>resources</key>
+				<array>
+					<string>Capture-ecran1036.jpg</string>
 				</array>
 			</dict>
 		</array>
@@ -806,13 +782,64 @@
 				<key>type</key>
 				<string>FileResource</string>
 			</dict>
+			<dict>
+				<key>fileModificationDate</key>
+				<date>2020-09-27T22:09:31Z</date>
+				<key>fileSize</key>
+				<integer>113548</integer>
+				<key>md5</key>
+				<string>04F2BDD9D8A3E4AFA3134B4379FBF075</string>
+				<key>notifyOnBookmarkChange</key>
+				<true/>
+				<key>originalPath</key>
+				<string>/Users/Philippe/Desktop/Capture-ecran1036.jpg</string>
+				<key>resourceName</key>
+				<string>Capture-ecran1036.jpg</string>
+				<key>securityScopedBookmark</key>
+				<data>
+				Ym9vawADAAAAAAQQMAAAAKnS1HSJSpX9ikWa0gxEM6SK
+				wApuIXylPa4nQjY5oW/W8AEAAAQAAAADAwAAAAkAKAUA
+				AAABAQAAVXNlcnMAAAAIAAAAAQEAAFBoaWxpcHBlBwAA
+				AAEBAABEZXNrdG9wABUAAAABAQAAQ2FwdHVyZS1lY3Jh
+				bjEwMzYuanBnAAAAEAAAAAEGAAAQAAAAIAAAADAAAABA
+				AAAACAAAAAQDAADOYAYAAAAAAAgAAAAEAwAAFDofAAAA
+				AAAIAAAABAMAAO07HwAAAAAACAAAAAQDAAA4+F8FAgAA
+				ABAAAAABBgAAeAAAAIgAAACYAAAAqAAAAAgAAAAABAAA
+				QcKQoo2XQXIYAAAAAQIAAAEAAAAAAAAADwAAAAAAAAAA
+				AAAAAAAAAAgAAAAEAwAAAgAAAAAAAAAEAAAAAwMAAPUB
+				AAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNpbnRv
+				c2ggSEQIAAAABAMAAACQIGh0AAAACAAAAAAEAABBwaji
+				lIAMwiQAAAABAQAARkIzQTkyQkQtMUE4RC0zMDc1LTlF
+				OTMtNkUwMTM0OUNFN0U4GAAAAAECAACBAAAAAQAAAO8T
+				AAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAAAQUA
+				ABoAAAABAQAATlNVUkxEb2N1bWVudElkZW50aWZpZXJL
+				ZXkAAAQAAAADAwAA5AwBANgAAAD+////AQAAAAAAAAAR
+				AAAABBAAAGAAAAAAAAAABRAAALgAAAAAAAAAEBAAAOAA
+				AAAAAAAAQBAAANAAAAAAAAAAAiAAAKwBAAAAAAAABSAA
+				ABwBAAAAAAAAECAAACwBAAAAAAAAESAAAGABAAAAAAAA
+				EiAAAEABAAAAAAAAEyAAAFABAAAAAAAAICAAAIwBAAAA
+				AAAAMCAAALgBAAAAAAAAAcAAAAABAAAAAAAAEcAAACAA
+				AAAAAAAAEsAAABABAAAAAAAAENAAAAQAAAAAAAAAwAEA
+				gOQBAAAAAAAA
+				</data>
+				<key>shouldAutoResize</key>
+				<true/>
+				<key>shouldIncludeInDocumentHeadHTML</key>
+				<false/>
+				<key>shouldPreload</key>
+				<true/>
+				<key>shouldRemoveWhenNoLongerReferenced</key>
+				<false/>
+				<key>type</key>
+				<string>FileResource</string>
+			</dict>
 		</array>
 	</dict>
 	<key>sceneContainers</key>
 	<array>
 		<dict>
 			<key>currentSceneOid</key>
-			<string>47</string>
+			<string>76</string>
 			<key>name</key>
 			<string>Scène sans titre</string>
 			<key>oid</key>
@@ -825,7 +852,7 @@
 						<key>timeCursors</key>
 						<dict>
 							<key>kTimelineDefaultIdentifier</key>
-							<real>6.4000000953674316</real>
+							<real>0.80000001192092896</real>
 						</dict>
 						<key>timescale</key>
 						<integer>60</integer>
@@ -879,7 +906,7 @@
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1131, 813}</string>
+					<string>{1273, 495}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -893,7 +920,7 @@
 						<key>sceneScalePercentageSize</key>
 						<string>{1, 1}</string>
 						<key>sceneSize</key>
-						<string>{1024, 768}</string>
+						<string>{1024, 450}</string>
 						<key>shouldScaleSceneHeight</key>
 						<true/>
 						<key>shouldScaleSceneWidth</key>
@@ -904,7 +931,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>70</string>
 					<key>scrollViewOffset</key>
-					<string>{0, 5}</string>
+					<string>{0, 0}</string>
 					<key>userGuides</key>
 					<array>
 						<dict>
@@ -927,7 +954,7 @@
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1281, 482}</string>
+					<string>{1282, 482}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -952,7 +979,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>2</string>
 					<key>scrollViewOffset</key>
-					<string>{8, 0}</string>
+					<string>{9, 0}</string>
 					<key>userGuides</key>
 					<array>
 						<dict>
@@ -3203,9 +3230,7 @@
 			<key>documentIdentifier</key>
 			<string>691A11F0-4B36-4774-96F8-C5E31F76E2E2-26481-0000361F8CB32C92</string>
 			<key>selectedObjects</key>
-			<array>
-				<string>42</string>
-			</array>
+			<array/>
 			<key>symbol</key>
 			<dict>
 				<key>addToNewSceneControllers</key>
@@ -4758,9 +4783,7 @@
 			<key>documentIdentifier</key>
 			<string>691A11F0-4B36-4774-96F8-C5E31F76E2E2-26481-0000361F8CB32C92</string>
 			<key>selectedObjects</key>
-			<array>
-				<string>77</string>
-			</array>
+			<array/>
 			<key>symbol</key>
 			<dict>
 				<key>addToNewSceneControllers</key>
@@ -4855,7 +4878,7 @@
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>2</string>
+							<string>3</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4942,7 +4965,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>86px</string>
+							<string>112px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4972,7 +4995,7 @@
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>338px</string>
+							<string>344px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4990,7 +5013,7 @@
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>3</string>
+							<string>4</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5119,7 +5142,7 @@
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>2</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5206,7 +5229,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>13px</string>
+							<string>41px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5242,7 +5265,7 @@
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>648px</string>
+							<string>652px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5278,7 +5301,7 @@
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>4</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5371,7 +5394,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>189px</string>
+							<string>207px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5389,7 +5412,7 @@
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>67px</string>
+							<string>68px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5401,7 +5424,7 @@
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>257px</string>
+							<string>248px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5419,13 +5442,13 @@
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>5</string>
+							<string>6</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
-							<string>487px</string>
+							<string>493px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5443,7 +5466,7 @@
 							<key>identifier</key>
 							<string>Locked</string>
 							<key>objectValue</key>
-							<string>1</string>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5462,6 +5485,129 @@
 							<string>OriginalWidth</string>
 							<key>objectValue</key>
 							<string>713px</string>
+						</dict>
+					</array>
+					<key>79</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>TagName</string>
+							<key>objectValue</key>
+							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ConstrainProportions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>none</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Image</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackgroundRepeat</string>
+							<key>objectValue</key>
+							<string>no-repeat</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>446px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackgroundImageResourceGroupOid</string>
+							<key>objectValue</key>
+							<string>78</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>SizeRatio</string>
+							<key>objectValue</key>
+							<string>2.29797</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AccessibilityRole</string>
+							<key>objectValue</key>
+							<string>img</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>1026px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BackgroundSize</string>
+							<key>objectValue</key>
+							<string>100% 100%</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>Capture-ecran1036</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>OriginalHeight</string>
+							<key>objectValue</key>
+							<string>443px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>OriginalWidth</string>
+							<key>objectValue</key>
+							<string>1018px</string>
 						</dict>
 					</array>
 				</dict>
@@ -5561,7 +5707,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>34.5px</string>
+									<string>62.5px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Top</string>
@@ -5577,15 +5723,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>endPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{760, 157}</string>
+												<string>{764, 185}</string>
 												<key>startPoint</key>
-												<string>{760, 157}</string>
+												<string>{764, 185}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -5621,7 +5767,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>13px</string>
+									<string>41px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -5642,7 +5788,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>395.5px</string>
+									<string>399.5px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Left</string>
@@ -5658,15 +5804,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>endPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{760, 157}</string>
+												<string>{764, 185}</string>
 												<key>startPoint</key>
-												<string>{760, 157}</string>
+												<string>{764, 185}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -5702,7 +5848,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>648px</string>
+									<string>652px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -5739,15 +5885,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>endPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{760, 157}</string>
+												<string>{764, 185}</string>
 												<key>startPoint</key>
-												<string>{760, 157}</string>
+												<string>{764, 185}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -5912,7 +6058,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>104px</string>
+									<string>132px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Top</string>
@@ -5928,15 +6074,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>endPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>startPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -5970,7 +6116,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>34.5px</string>
+									<string>62.5px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -6007,15 +6153,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>endPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>startPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -6070,7 +6216,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>368px</string>
+									<string>372px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Left</string>
@@ -6086,15 +6232,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>endPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>startPoint</key>
-												<string>{495, 162}</string>
+												<string>{499, 190}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -6128,7 +6274,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>395.5px</string>
+									<string>399.5px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -6324,15 +6470,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{585, 313}</string>
+												<string>{589, 341}</string>
 												<key>endPoint</key>
-												<string>{585, 313}</string>
+												<string>{589, 341}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>startPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -6366,7 +6512,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>368px</string>
+									<string>372px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -6396,15 +6542,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{585, 313}</string>
+												<string>{589, 341}</string>
 												<key>endPoint</key>
-												<string>{585, 313}</string>
+												<string>{589, 341}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>startPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -6468,15 +6614,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{585, 313}</string>
+												<string>{589, 341}</string>
 												<key>endPoint</key>
-												<string>{585, 313}</string>
+												<string>{589, 341}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>startPoint</key>
-												<string>{392, 134}</string>
+												<string>{396, 162}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -6510,7 +6656,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>104px</string>
+									<string>132px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>

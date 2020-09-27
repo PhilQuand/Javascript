@@ -373,14 +373,38 @@ if ( window.location.pathname == '/' ){
   $('.header-widget > div > h1 > a').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/>');
   $(document).ready(function() {
     $('#FeaturedPost1').css('display','none');
+    var head = $('div#header.container.section')
+    head.append($('section.subscribe-section-container'));
+    head.css('display','flex')
+    head.css('align-items','center')
+    head.children().first().css('margin-bottom','0')
   });
 }
+$(document).ready(function() {
+  $('.widget.BlogArchive > details').attr('open','open');
+  $('.widget.Label > details').attr('open','open');
+  $('.widget.Attribution').css('display','none');
+  $('.widget.Attribution').css('display','none');
+});
 </script>
 <style>
 .mySumReg img {
   max-height: 50px;
 }
 .header {
+  font-family: "Arial Rounded MT Bold"; 
+  font-size:18px;
+  color: #666666;
+  line-height: 1.4;
+  //font-style: italic;
+  //background-color: #FEFEE2;
+  //padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  //padding-left: 1em;
+  //padding-right: 1em;
+  margin-bottom: 0.5em;
+}
+.author {
   font-weight: bold;
 }
 .incrustation {
@@ -389,14 +413,16 @@ if ( window.location.pathname == '/' ){
   padding-bottom: 0.5em;
   padding-left: 1em;
   padding-right: 1em;
-
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
-.incrustation h1 {
+h1 {
   color: red;
   font-size:x-large;
 }
 .furthermore {
   text-align: right;
+  font-style: italic;
 }
 </style>
 <style>

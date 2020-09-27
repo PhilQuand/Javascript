@@ -79,17 +79,17 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2020-09-27T19:25:21Z</date>
+	<date>2020-09-27T19:35:38Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>3</integer>
+		<integer>0</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
 			<string>{{0, 0}, {1680, 991}}</string>
 			<key>identifier</key>
-			<string>container 248</string>
+			<string>container 22</string>
 			<key>isCustomizableViewContainer</key>
 			<true/>
 			<key>isCustomizableViewWrapper</key>
@@ -102,7 +102,7 @@
 					<key>frame</key>
 					<string>{{0, 0}, {1409, 991}}</string>
 					<key>identifier</key>
-					<string>container 22</string>
+					<string>container 31</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -201,7 +201,7 @@
 					<key>frame</key>
 					<string>{{1410, 0}, {270, 991}}</string>
 					<key>identifier</key>
-					<string>container 21</string>
+					<string>container 30</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -214,7 +214,7 @@
 							<key>frame</key>
 							<string>{{1410, 0}, {270, 991}}</string>
 							<key>identifier</key>
-							<string>resourcesCustomizableContainer</string>
+							<string>inspectorCustomizableContainer</string>
 							<key>isCustomizableViewContainer</key>
 							<false/>
 						</dict>
@@ -231,9 +231,9 @@
 		<key>selectedTabIndex</key>
 		<integer>0</integer>
 		<key>showInspectorView</key>
-		<false/>
-		<key>showResourcesView</key>
 		<true/>
+		<key>showResourcesView</key>
+		<false/>
 		<key>showSceneSelectorView</key>
 		<true/>
 		<key>showSceneVariantSelectorView</key>
@@ -723,7 +723,7 @@
 			<string>691A11F0-4B36-4774-96F8-C5E31F76E2E2-26481-0000361F8CB32C92</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>6</string>
+				<string>9</string>
 			</array>
 			<key>symbol</key>
 			<dict>
@@ -1299,7 +1299,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>2.5px</string>
+							<string>16px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1323,7 +1323,7 @@
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>435px</string>
+							<string>360px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1335,7 +1335,7 @@
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>744px</string>
+							<string>794px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1365,7 +1365,7 @@
 							<key>identifier</key>
 							<string>MotionPathRotation</string>
 							<key>objectValue</key>
-							<string>180deg</string>
+							<string>183deg</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1377,7 +1377,7 @@
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
-							<string>340px</string>
+							<string>280px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1555,7 +1555,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>180deg</string>
+									<string>183deg</string>
 								</dict>
 								<key>identifier</key>
 								<string>MotionPathRotation</string>
@@ -1571,15 +1571,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>endPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{914, 220}</string>
+												<string>{934, 196}</string>
 												<key>startPoint</key>
-												<string>{914, 220}</string>
+												<string>{934, 196}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -1613,7 +1613,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>180deg</string>
+									<string>183deg</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -1634,7 +1634,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>383px</string>
+									<string>413.5px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Left</string>
@@ -1650,15 +1650,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>endPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{914, 220}</string>
+												<string>{934, 196}</string>
 												<key>startPoint</key>
-												<string>{914, 220}</string>
+												<string>{934, 196}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -1692,7 +1692,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>744px</string>
+									<string>794px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -1713,7 +1713,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>2.5px</string>
+									<string>6px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Top</string>
@@ -1729,15 +1729,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>endPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{914, 220}</string>
+												<string>{934, 196}</string>
 												<key>startPoint</key>
-												<string>{914, 220}</string>
+												<string>{934, 196}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -1771,7 +1771,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>2.5px</string>
+									<string>16px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -1792,7 +1792,7 @@
 									<key>identifier</key>
 									<string>Height</string>
 									<key>objectValue</key>
-									<string>435px</string>
+									<string>338px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Height</string>
@@ -1807,7 +1807,7 @@
 									<key>identifier</key>
 									<string>Height</string>
 									<key>objectValue</key>
-									<string>435px</string>
+									<string>360px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -1828,7 +1828,7 @@
 									<key>identifier</key>
 									<string>Width</string>
 									<key>objectValue</key>
-									<string>340px</string>
+									<string>263px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Width</string>
@@ -1843,7 +1843,7 @@
 									<key>identifier</key>
 									<string>Width</string>
 									<key>objectValue</key>
-									<string>340px</string>
+									<string>280px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2028,7 +2028,7 @@
 									<key>identifier</key>
 									<string>Width</string>
 									<key>objectValue</key>
-									<string>340px</string>
+									<string>263px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Width</string>
@@ -2043,7 +2043,7 @@
 									<key>identifier</key>
 									<string>Width</string>
 									<key>objectValue</key>
-									<string>340px</string>
+									<string>263px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2064,7 +2064,7 @@
 									<key>identifier</key>
 									<string>Height</string>
 									<key>objectValue</key>
-									<string>435px</string>
+									<string>338px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Height</string>
@@ -2079,7 +2079,7 @@
 									<key>identifier</key>
 									<string>Height</string>
 									<key>objectValue</key>
-									<string>435px</string>
+									<string>338px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2100,7 +2100,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>2.5px</string>
+									<string>5px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Top</string>
@@ -2116,15 +2116,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>endPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>startPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -2158,7 +2158,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>2.5px</string>
+									<string>6px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2179,7 +2179,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>383px</string>
+									<string>412.5px</string>
 								</dict>
 								<key>identifier</key>
 								<string>Left</string>
@@ -2195,15 +2195,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>endPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>startPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -2237,7 +2237,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>383px</string>
+									<string>413.5px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2258,7 +2258,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>0deg</string>
+									<string>225deg</string>
 								</dict>
 								<key>identifier</key>
 								<string>MotionPathRotation</string>
@@ -2274,15 +2274,15 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>endPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>startPoint</key>
-												<string>{553, 220}</string>
+												<string>{545, 175}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -2316,7 +2316,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>0deg</string>
+									<string>225deg</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2392,7 +2392,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>213deg</string>
+									<string>195deg</string>
 								</dict>
 								<key>identifier</key>
 								<string>MotionPathRotation</string>
@@ -2414,9 +2414,9 @@
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>startPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -2450,7 +2450,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>213deg</string>
+									<string>195deg</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2493,9 +2493,9 @@
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>startPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -2529,7 +2529,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>383px</string>
+									<string>412.5px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2572,9 +2572,9 @@
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>startPoint</key>
-												<string>{553, 220}</string>
+												<string>{544, 174}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -2608,7 +2608,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>2.5px</string>
+									<string>5px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2644,7 +2644,7 @@
 									<key>identifier</key>
 									<string>Width</string>
 									<key>objectValue</key>
-									<string>340px</string>
+									<string>263px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2680,7 +2680,7 @@
 									<key>identifier</key>
 									<string>Height</string>
 									<key>objectValue</key>
-									<string>435px</string>
+									<string>338px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2954,7 +2954,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>213deg</string>
+									<string>195deg</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>

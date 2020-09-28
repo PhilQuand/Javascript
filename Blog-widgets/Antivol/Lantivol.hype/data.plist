@@ -79,17 +79,17 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2020-09-28T07:23:27Z</date>
+	<date>2020-09-28T08:03:50Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
-		<integer>3</integer>
+		<integer>2</integer>
 		<key>customizableLayout</key>
 		<dict>
 			<key>frame</key>
 			<string>{{0, 0}, {1680, 991}}</string>
 			<key>identifier</key>
-			<string>container 940</string>
+			<string>container 951</string>
 			<key>isCustomizableViewContainer</key>
 			<true/>
 			<key>isCustomizableViewWrapper</key>
@@ -102,7 +102,7 @@
 					<key>frame</key>
 					<string>{{0, 0}, {1409, 991}}</string>
 					<key>identifier</key>
-					<string>container 951</string>
+					<string>container 710</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -113,13 +113,13 @@
 					<array>
 						<dict>
 							<key>frame</key>
-							<string>{{0, 0}, {1138, 991}}</string>
+							<string>{{0, 0}, {135, 991}}</string>
 							<key>identifier</key>
-							<string>container 710</string>
+							<string>container 165</string>
 							<key>isCustomizableViewContainer</key>
 							<true/>
 							<key>isCustomizableViewWrapper</key>
-							<false/>
+							<true/>
 							<key>isVertical</key>
 							<true/>
 							<key>subviews</key>
@@ -128,7 +128,30 @@
 									<key>frame</key>
 									<string>{{0, 0}, {135, 991}}</string>
 									<key>identifier</key>
-									<string>container 165</string>
+									<string>sceneSelectorCustomizableContainer</string>
+									<key>isCustomizableViewContainer</key>
+									<false/>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>frame</key>
+							<string>{{136, 0}, {1273, 991}}</string>
+							<key>identifier</key>
+							<string>container 189</string>
+							<key>isCustomizableViewContainer</key>
+							<true/>
+							<key>isCustomizableViewWrapper</key>
+							<false/>
+							<key>isVertical</key>
+							<false/>
+							<key>subviews</key>
+							<array>
+								<dict>
+									<key>frame</key>
+									<string>{{136, 0}, {1273, 508}}</string>
+									<key>identifier</key>
+									<string>container 188</string>
 									<key>isCustomizableViewContainer</key>
 									<true/>
 									<key>isCustomizableViewWrapper</key>
@@ -139,9 +162,9 @@
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{0, 0}, {135, 991}}</string>
+											<string>{{136, 0}, {1273, 508}}</string>
 											<key>identifier</key>
-											<string>sceneSelectorCustomizableContainer</string>
+											<string>timelineCustomizableContainer</string>
 											<key>isCustomizableViewContainer</key>
 											<false/>
 										</dict>
@@ -149,87 +172,26 @@
 								</dict>
 								<dict>
 									<key>frame</key>
-									<string>{{136, 0}, {1002, 991}}</string>
+									<string>{{136, 509}, {1273, 482}}</string>
 									<key>identifier</key>
-									<string>container 189</string>
+									<string>container 187</string>
 									<key>isCustomizableViewContainer</key>
 									<true/>
 									<key>isCustomizableViewWrapper</key>
-									<false/>
+									<true/>
 									<key>isVertical</key>
-									<false/>
+									<true/>
 									<key>subviews</key>
 									<array>
 										<dict>
 											<key>frame</key>
-											<string>{{136, 0}, {1002, 508}}</string>
+											<string>{{136, 509}, {1273, 482}}</string>
 											<key>identifier</key>
-											<string>container 188</string>
+											<string>sceneEditorCustomizableContainer</string>
 											<key>isCustomizableViewContainer</key>
-											<true/>
-											<key>isCustomizableViewWrapper</key>
-											<true/>
-											<key>isVertical</key>
-											<true/>
-											<key>subviews</key>
-											<array>
-												<dict>
-													<key>frame</key>
-													<string>{{136, 0}, {1002, 508}}</string>
-													<key>identifier</key>
-													<string>timelineCustomizableContainer</string>
-													<key>isCustomizableViewContainer</key>
-													<false/>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>frame</key>
-											<string>{{136, 509}, {1002, 482}}</string>
-											<key>identifier</key>
-											<string>container 187</string>
-											<key>isCustomizableViewContainer</key>
-											<true/>
-											<key>isCustomizableViewWrapper</key>
-											<true/>
-											<key>isVertical</key>
-											<true/>
-											<key>subviews</key>
-											<array>
-												<dict>
-													<key>frame</key>
-													<string>{{136, 509}, {1002, 482}}</string>
-													<key>identifier</key>
-													<string>sceneEditorCustomizableContainer</string>
-													<key>isCustomizableViewContainer</key>
-													<false/>
-												</dict>
-											</array>
+											<false/>
 										</dict>
 									</array>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>frame</key>
-							<string>{{1139, 0}, {270, 991}}</string>
-							<key>identifier</key>
-							<string>container 709</string>
-							<key>isCustomizableViewContainer</key>
-							<true/>
-							<key>isCustomizableViewWrapper</key>
-							<true/>
-							<key>isVertical</key>
-							<true/>
-							<key>subviews</key>
-							<array>
-								<dict>
-									<key>frame</key>
-									<string>{{1139, 0}, {270, 991}}</string>
-									<key>identifier</key>
-									<string>inspectorCustomizableContainer</string>
-									<key>isCustomizableViewContainer</key>
-									<false/>
 								</dict>
 							</array>
 						</dict>
@@ -239,7 +201,7 @@
 					<key>frame</key>
 					<string>{{1410, 0}, {270, 991}}</string>
 					<key>identifier</key>
-					<string>container 950</string>
+					<string>container 709</string>
 					<key>isCustomizableViewContainer</key>
 					<true/>
 					<key>isCustomizableViewWrapper</key>
@@ -252,7 +214,7 @@
 							<key>frame</key>
 							<string>{{1410, 0}, {270, 991}}</string>
 							<key>identifier</key>
-							<string>resourcesCustomizableContainer</string>
+							<string>inspectorCustomizableContainer</string>
 							<key>isCustomizableViewContainer</key>
 							<false/>
 						</dict>
@@ -271,7 +233,7 @@
 		<key>showInspectorView</key>
 		<true/>
 		<key>showResourcesView</key>
-		<true/>
+		<false/>
 		<key>showSceneSelectorView</key>
 		<false/>
 		<key>showSceneVariantSelectorView</key>
@@ -877,7 +839,7 @@
 	<array>
 		<dict>
 			<key>currentSceneOid</key>
-			<string>76</string>
+			<string>47</string>
 			<key>name</key>
 			<string>Scène sans titre</string>
 			<key>oid</key>
@@ -896,7 +858,7 @@
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1452, 490}</string>
+					<string>{1587, 490}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -921,7 +883,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>41</string>
 					<key>scrollViewOffset</key>
-					<string>{43, 0}</string>
+					<string>{184, 0}</string>
 					<key>userGuides</key>
 					<array>
 						<dict>
@@ -944,7 +906,7 @@
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1405, 490}</string>
+					<string>{1540, 490}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -969,7 +931,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>80</string>
 					<key>scrollViewOffset</key>
-					<string>{0, 0}</string>
+					<string>{144, 0}</string>
 					<key>userGuides</key>
 					<array>
 						<dict>
@@ -992,7 +954,7 @@
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1228, 490}</string>
+					<string>{1366, 490}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -1017,7 +979,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>94</string>
 					<key>scrollViewOffset</key>
-					<string>{0, 0}</string>
+					<string>{93, 0}</string>
 					<key>userGuides</key>
 					<array>
 						<dict>
@@ -1040,7 +1002,7 @@
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1131, 495}</string>
+					<string>{1275, 495}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -1065,7 +1027,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>70</string>
 					<key>scrollViewOffset</key>
-					<string>{0, 0}</string>
+					<string>{2, 0}</string>
 					<key>userGuides</key>
 					<array>
 						<dict>
@@ -1088,7 +1050,7 @@
 						<integer>60</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1297, 482}</string>
+					<string>{1274, 482}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -1113,7 +1075,7 @@
 					<key>rootSymbolControllerOid</key>
 					<string>2</string>
 					<key>scrollViewOffset</key>
-					<string>{24, 0}</string>
+					<string>{1, 0}</string>
 					<key>userGuides</key>
 					<array>
 						<dict>
@@ -1152,7 +1114,7 @@
 			<string>691A11F0-4B36-4774-96F8-C5E31F76E2E2-26481-0000361F8CB32C92</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>13</string>
+				<string>15</string>
 			</array>
 			<key>symbol</key>
 			<dict>
@@ -1383,7 +1345,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>45</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1524,7 +1486,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>45</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1770,7 +1732,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>45</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3487,7 +3449,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3868,7 +3830,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3997,7 +3959,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>169px</string>
+							<string>163px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4045,7 +4007,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4952,7 +4914,7 @@
 			<string>691A11F0-4B36-4774-96F8-C5E31F76E2E2-26481-0000361F8CB32C92</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>72</string>
+				<string>77</string>
 			</array>
 			<key>symbol</key>
 			<dict>
@@ -5183,7 +5145,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>45</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5435,7 +5397,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>45</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5618,7 +5580,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>45</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -6969,7 +6931,7 @@
 			<string>691A11F0-4B36-4774-96F8-C5E31F76E2E2-26481-0000361F8CB32C92</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>84</string>
+				<string>82</string>
 			</array>
 			<key>symbol</key>
 			<dict>
@@ -7053,7 +7015,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -7218,7 +7180,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -7458,7 +7420,13 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>176px</string>
+							<string>167px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ConstrainScaleRatio</string>
+							<key>objectValue</key>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -7482,13 +7450,13 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>34px</string>
+							<string>36px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -8542,7 +8510,7 @@
 			<string>691A11F0-4B36-4774-96F8-C5E31F76E2E2-26481-0000361F8CB32C92</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>101</string>
+				<string>96</string>
 			</array>
 			<key>symbol</key>
 			<dict>
@@ -8596,7 +8564,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>198px</string>
+							<string>176px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -8626,7 +8594,7 @@
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>167px</string>
+							<string>166px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -8639,6 +8607,12 @@
 							<string>AccessibilityRole</string>
 							<key>objectValue</key>
 							<string>img</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AutoresizingMask</string>
+							<key>objectValue</key>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -8884,7 +8858,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -9166,7 +9140,7 @@
 							<key>identifier</key>
 							<string>AutoresizingMask</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>5</string>
 						</dict>
 						<dict>
 							<key>identifier</key>

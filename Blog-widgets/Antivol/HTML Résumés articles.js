@@ -258,12 +258,12 @@ function createSummaryAndThumb(pID, isRegular) {
   if( img.length >= 1 ) {
     if (isRegular) {
       //imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_reg + 'px" height="auto"/>';
-      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; max-width: ' + img_thumb_width_reg + 'px; max-height: ' + img_thumb_height_reg + 'px;" src="' + img[0].src + '"/>';
+      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; padding-top: 5px; max-width: ' + img_thumb_width_reg + 'px; max-height: ' + img_thumb_height_reg + 'px;" src="' + img[0].src + '"/>';
       summ = summary_img_reg;
     }
     else {
       //imgtag = '<img style="float:left; margin: 0 1em 0.5em 0;" src="' + img[0].src + '" width="' + img_thumb_width_feat + 'px" height="auto"/>';
-      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; max-width: ' + img_thumb_width_feat + 'px; max-height: ' + img_thumb_height_feat + 'px;" src="' + img[0].src + '"/>';
+      imgtag = '<img style="float:left; margin: 0 1em 0.5em 0; padding-top: 5px; max-width: ' + img_thumb_width_feat + 'px; max-height: ' + img_thumb_height_feat + 'px;" src="' + img[0].src + '"/>';
       summ = summary_img_feat;
     }
   }
@@ -342,7 +342,8 @@ function createSummaryAndThumb(pID, isRegular) {
 .tabs .selected a{
   color:#ff0000
 }
-.header-widget > div > h1 > a img {
+.sticky .header-widget > div > h1 img, 
+.header-widget > div > h1 > a > img {
     //width: 100%; 
     max-width:300px;
     max-height:30px;
@@ -363,28 +364,40 @@ function createSummaryAndThumb(pID, isRegular) {
 }
 </style>
 <script>
-if ( window.location.pathname == '/' ){
-  //banAnim();
+if (window.location.pathname == '/') {
+  banAnim();
   $('.header-widget').addClass('header-widget-home');
   $('.bg-photo').remove();
   $('.header-widget > div > h1').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/><center><p>« Être radical, c’est aller à la racine des problèmes et à la hauteur des solutions »</p></center>');
   //$('.header-widget > div').append('<center><img src="https://1.bp.blogspot.com/-ow5Anx1wNTk/X0qX0h2VojI/AAAAAAAAnE8/zdtTf1hbHyI6a8UHLeGoaUcmm_QLtwhNwCLcBGAsYHQ/s722/Logo%2BAzo%2Bv1%2Btransparent.png"/></center>');
-} else {
+  function banAnim() {
+    //$('.page_body .centered-top').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="http://127.0.0.1:8887/LAntivol.html" frameborder="0" allowfullscreen></iframe></div></div>');
+    if (document.referrer == null || document.referrer.indexOf(window.location.hostname) < 0) {
+      $('.header-widget').css('visibility', 'hidden');
+      $('.page_body .centered-top').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="https://philquand.github.io/Javascript/Blog-widgets/Antivol/Lantivol.html" frameborder="0" allowfullscreen></iframe></div></div>');
+    }
+    else {
+      $('.header-widget').css('visibility', 'visible');
+    }
+  };
+}
+else {
   $('.header-widget > div > h1 > a').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/>');
   $(document).ready(function() {
-    $('#FeaturedPost1').css('display','none');
-    var head = $('div#header.container.section')
+    $('#FeaturedPost1').css('display', 'none');
+    /*var head = $('div#header.container.section')
     head.append($('section.subscribe-section-container'));
-    head.css('display','flex')
-    head.css('align-items','center')
-    head.children().first().css('margin-bottom','0')
+    head.css('display', 'flex')
+    head.css('align-items', 'center')
+    head.children().first().css('margin-bottom', '0')*/
   });
 }
 $(document).ready(function() {
-  $('.widget.BlogArchive > details').attr('open','open');
-  $('.widget.Label > details').attr('open','open');
-  $('.widget.Attribution').css('display','none');
-  $('.widget.Attribution').css('display','none');
+  $('.widget.BlogArchive > details').attr('open', 'open');
+  $('.widget.Label > details').attr('open', 'open');
+  $('.widget.Label > details > summary > .collapsible-title  > .title').html('Mots-clefs');
+  $('.widget.Attribution').css('display', 'none');
+  $('.widget.Attribution').css('display', 'none');
 });
 </script>
 <style>

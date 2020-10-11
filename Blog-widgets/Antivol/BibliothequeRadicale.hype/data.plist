@@ -92,7 +92,7 @@
 	<key>hasManuallyChangedCSSPositioning</key>
 	<false/>
 	<key>lastCheckDate</key>
-	<date>2020-10-11T16:01:34Z</date>
+	<date>2020-10-11T17:40:55Z</date>
 	<key>layout</key>
 	<dict>
 		<key>currentInspectorPane</key>
@@ -693,7 +693,7 @@
 						<integer>70</integer>
 					</dict>
 					<key>canvasSize</key>
-					<string>{1273, 599}</string>
+					<string>{1273, 596}</string>
 					<key>hypeScene</key>
 					<dict>
 						<key>backgroundColor</key>
@@ -748,7 +748,7 @@
 			<string>0BEB204D-3A15-470C-9F85-6E76C102C3FA-48496-00005E44DEB41839</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>31</string>
+				<string>27</string>
 			</array>
 			<key>symbol</key>
 			<dict>
@@ -832,7 +832,7 @@
 							<key>identifier</key>
 							<string>MotionPathRotation</string>
 							<key>objectValue</key>
-							<string>187deg</string>
+							<string>186deg</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -868,7 +868,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>5.5px</string>
+							<string>-2px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -946,7 +946,7 @@
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>47.5px</string>
+							<string>40px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1130,6 +1130,12 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>DisplayHiddenOverride</string>
+							<key>objectValue</key>
+							<string>1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
 							<string>470.5px</string>
@@ -1150,7 +1156,7 @@
 							<key>identifier</key>
 							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1207,7 +1213,7 @@
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>6px</string>
+							<string>7px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1243,7 +1249,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>6px</string>
+							<string>5px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1318,7 +1324,7 @@
 							<key>identifier</key>
 							<string>Opacity</string>
 							<key>objectValue</key>
-							<string>0</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1409,6 +1415,12 @@
 							<string>TransformOriginYOffset</string>
 							<key>objectValue</key>
 							<string>50%</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayHiddenOverride</string>
+							<key>objectValue</key>
+							<string>0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1636,7 +1648,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>87.5px</string>
+							<string>81px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1649,6 +1661,12 @@
 							<string>SymbolOid</string>
 							<key>objectValue</key>
 							<string>90</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ScaleY</string>
+							<key>objectValue</key>
+							<string>1.016666666666667</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1680,19 +1698,25 @@
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>115px</string>
+							<string>120px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>29.5px</string>
+							<string>22px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>SizeRatio</string>
 							<key>objectValue</key>
 							<string>0.9428571428571428</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ScaleX</string>
+							<key>objectValue</key>
+							<string>1.017699115044248</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1710,7 +1734,7 @@
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
-							<string>108px</string>
+							<string>113px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1843,42 +1867,6 @@
 					<dict>
 						<key>animations</key>
 						<array>
-							<dict>
-								<key>duration</key>
-								<real>3</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>1</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>31</string>
-								<key>startTime</key>
-								<real>0.0</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>912E952B-384A-475D-BD8A-F6959711ECF6-48496-0000649819E2B596</string>
-								<key>zIndex</key>
-								<integer>1</integer>
-							</dict>
 							<dict>
 								<key>duration</key>
 								<real>3</real>
@@ -2241,6 +2229,78 @@
 							</dict>
 							<dict>
 								<key>duration</key>
+								<real>3</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>DisplayHiddenOverride</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>identifier</key>
+								<string>DisplayHiddenOverride</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>26</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>DisplayHiddenOverride</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>211CC53E-CA2B-43E3-B8D8-6507ED580B29-48496-000095ACAB8C6657</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>3</real>
+								<key>endValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>DisplayHiddenOverride</string>
+									<key>objectValue</key>
+									<string>1</string>
+								</dict>
+								<key>identifier</key>
+								<string>DisplayHiddenOverride</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>31</string>
+								<key>startTime</key>
+								<real>0.0</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>DisplayHiddenOverride</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>24B35B9C-D4DC-4E02-9FC4-35949D3AB4D0-48496-000095C8B0C3FBBA</string>
+								<key>zIndex</key>
+								<integer>1</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
 								<real>0.033333335071802139</real>
 								<key>endValue</key>
 								<dict>
@@ -2321,6 +2381,35 @@
 								<key>duration</key>
 								<real>0.0</real>
 								<key>identifier</key>
+								<string>RotationAngleZ</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>31</string>
+								<key>startTime</key>
+								<real>3</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>RotationAngleZ</string>
+									<key>objectValue</key>
+									<string>0deg</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>BADBA0E0-A019-4B8B-BC11-4FBC13FBD575-48496-000064D73ACFEEBB</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
 								<string>SkewY</string>
 								<key>isRelative</key>
 								<false/>
@@ -2379,35 +2468,6 @@
 								<key>duration</key>
 								<real>0.0</real>
 								<key>identifier</key>
-								<string>RotationAngleZ</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>31</string>
-								<key>startTime</key>
-								<real>3</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>RotationAngleZ</string>
-									<key>objectValue</key>
-									<string>0deg</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>BADBA0E0-A019-4B8B-BC11-4FBC13FBD575-48496-000064D73ACFEEBB</string>
-								<key>zIndex</key>
-								<integer>2</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
 								<string>RotationAngleY</string>
 								<key>isRelative</key>
 								<false/>
@@ -2430,78 +2490,6 @@
 								<integer>0</integer>
 								<key>uuid</key>
 								<string>595FFE5A-EA4C-4537-BA52-11CAC2EAF015-48496-000064D4F051E894</string>
-								<key>zIndex</key>
-								<integer>2</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>2.9333333969116211</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>1</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>26</string>
-								<key>startTime</key>
-								<real>3</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>09B22FCD-CD6B-4AF0-82FE-67B03BD43444-26918-00005CCCBEF495DC</string>
-								<key>zIndex</key>
-								<integer>2</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.70000004768371582</real>
-								<key>endValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>31</string>
-								<key>startTime</key>
-								<real>3</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>1</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>4A0DF198-4556-4315-8A3A-E2ADB9A95FA2-48496-000064BD8CCA3DE2</string>
 								<key>zIndex</key>
 								<integer>2</integer>
 							</dict>
@@ -2701,6 +2689,35 @@
 								<key>duration</key>
 								<real>0.0</real>
 								<key>identifier</key>
+								<string>Top</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>31</string>
+								<key>startTime</key>
+								<real>3</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>Top</string>
+									<key>objectValue</key>
+									<string>7px</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>35810958-8106-42C0-868C-A82480D50BCC-48496-000090DB9989704D</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
 								<string>DisplayHiddenOverride</string>
 								<key>isRelative</key>
 								<false/>
@@ -2730,7 +2747,36 @@
 								<key>duration</key>
 								<real>0.0</real>
 								<key>identifier</key>
-								<string>Top</string>
+								<string>DisplayHiddenOverride</string>
+								<key>isRelative</key>
+								<false/>
+								<key>referenceOid</key>
+								<string>26</string>
+								<key>startTime</key>
+								<real>3</real>
+								<key>startValue</key>
+								<dict>
+									<key>identifier</key>
+									<string>DisplayHiddenOverride</string>
+									<key>objectValue</key>
+									<string>0</string>
+								</dict>
+								<key>symbolElementActionAttributesBySymbolTimeline</key>
+								<dict/>
+								<key>timingFunctionOid</key>
+								<string>c</string>
+								<key>type</key>
+								<integer>0</integer>
+								<key>uuid</key>
+								<string>DDD4985D-FB2C-4E34-9D02-F2F53D0563EF-48496-000095B46F9B319F</string>
+								<key>zIndex</key>
+								<integer>2</integer>
+							</dict>
+							<dict>
+								<key>duration</key>
+								<real>0.0</real>
+								<key>identifier</key>
+								<string>DisplayHiddenOverride</string>
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
@@ -2740,9 +2786,9 @@
 								<key>startValue</key>
 								<dict>
 									<key>identifier</key>
-									<string>Top</string>
+									<string>DisplayHiddenOverride</string>
 									<key>objectValue</key>
-									<string>7px</string>
+									<string>1</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -2751,7 +2797,7 @@
 								<key>type</key>
 								<integer>0</integer>
 								<key>uuid</key>
-								<string>35810958-8106-42C0-868C-A82480D50BCC-48496-000090DB9989704D</string>
+								<string>C7DB9CED-AA23-4087-B4C6-47F9BF0B3536-48496-000095DC77C6F6D9</string>
 								<key>zIndex</key>
 								<integer>2</integer>
 							</dict>
@@ -2790,35 +2836,6 @@
 								<string>352C3D7E-4AFD-4AD6-ABA1-CE957EA21CB1-26918-00005990D6BA8E71</string>
 								<key>zIndex</key>
 								<integer>1</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
-								<string>31</string>
-								<key>startTime</key>
-								<real>3.7000000476837158</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>0</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>9B91C9A1-D372-4082-9F4E-8B73CD21429C-48496-000065F6A4C13B92</string>
-								<key>zIndex</key>
-								<integer>3</integer>
 							</dict>
 							<dict>
 								<key>duration</key>
@@ -3050,35 +3067,6 @@
 								<key>isRelative</key>
 								<false/>
 								<key>referenceOid</key>
-								<string>26</string>
-								<key>startTime</key>
-								<real>5.9333333969116211</real>
-								<key>startValue</key>
-								<dict>
-									<key>identifier</key>
-									<string>Opacity</string>
-									<key>objectValue</key>
-									<string>1</string>
-								</dict>
-								<key>symbolElementActionAttributesBySymbolTimeline</key>
-								<dict/>
-								<key>timingFunctionOid</key>
-								<string>c</string>
-								<key>type</key>
-								<integer>0</integer>
-								<key>uuid</key>
-								<string>DCDB9684-FD55-48A5-9DA1-63EFC0F63FCA-26918-00005CCB232737CA</string>
-								<key>zIndex</key>
-								<integer>6</integer>
-							</dict>
-							<dict>
-								<key>duration</key>
-								<real>0.0</real>
-								<key>identifier</key>
-								<string>Opacity</string>
-								<key>isRelative</key>
-								<false/>
-								<key>referenceOid</key>
 								<string>12</string>
 								<key>startTime</key>
 								<real>6.3333334922790527</real>
@@ -3202,9 +3190,9 @@
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>startPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -3238,7 +3226,7 @@
 									<key>identifier</key>
 									<string>Left</string>
 									<key>objectValue</key>
-									<string>47.5px</string>
+									<string>40.5px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -3425,9 +3413,9 @@
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>startPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -3461,7 +3449,7 @@
 									<key>identifier</key>
 									<string>Top</string>
 									<key>objectValue</key>
-									<string>5.5px</string>
+									<string>-1.5px</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -3482,7 +3470,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>187deg</string>
+									<string>186deg</string>
 								</dict>
 								<key>identifier</key>
 								<string>MotionPathRotation</string>
@@ -3504,9 +3492,9 @@
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>startPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>startPointMovementMode</key>
 												<integer>0</integer>
 											</dict>
@@ -3540,7 +3528,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>187deg</string>
+									<string>186deg</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -3687,9 +3675,9 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>endPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
@@ -3904,9 +3892,9 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>endPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
@@ -3976,9 +3964,9 @@
 										<array>
 											<dict>
 												<key>endControlPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>endPoint</key>
-												<string>{93, 156}</string>
+												<string>{86, 149}</string>
 												<key>endPointMovementMode</key>
 												<integer>0</integer>
 												<key>startControlPoint</key>
@@ -4018,7 +4006,7 @@
 									<key>identifier</key>
 									<string>MotionPathRotation</string>
 									<key>objectValue</key>
-									<string>187deg</string>
+									<string>186deg</string>
 								</dict>
 								<key>symbolElementActionAttributesBySymbolTimeline</key>
 								<dict/>
@@ -4311,7 +4299,7 @@
 				<key>onTopDuringSceneTransition</key>
 				<true/>
 				<key>preferredSize</key>
-				<string>{108, 115}</string>
+				<string>{113, 120}</string>
 				<key>properties</key>
 				<dict>
 					<key>PhysicsGravityAngle</key>

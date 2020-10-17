@@ -55,6 +55,10 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         if (jQuery.type(options.href[i].dataType) == 'string') {
           if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
           else {
+            if (jQuery.type(options.href[i].dataWidth) == 'undefined') options.href[i].dataWidth = ''
+            else options.href[i].dataWidth = 'data-width="'+  options.href[i].dataWidth + '"'
+            if (jQuery.type(options.href[i].dataHeight) == 'undefined') options.href[i].dataHeight = ''
+            else options.href[i].dataHeight = 'data-height="'+  options.href[i].dataHeight + '"'
             switch (options.href[i].dataType) {
               case "inlineId":
                 if (jQuery.type(options.href[i].dataThumb) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '">inline ' + i + '</a>');
@@ -65,13 +69,13 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
                               <div class="fontFancy defaultFancy"> \
                               ' + options.href[i].dataSrc + ' \
                               </div></div>');
-                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" data-width="1132" data-height="1600">inline ' + i + '</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" ' + options.href[i].dataWidth + '  ' + options.href[i].dataHeight + '>inline ' + i + '</a>');
                 break;
               case "iframe":
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" data-width="1132" data-height="1600">iframe ' + i + '</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" ' + options.href[i].dataWidth + '  ' + options.href[i].dataHeight + '>iframe ' + i + '</a>');
                 break;
               case "images":
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" data-width="1132" data-height="1600">images ' + i + '</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + options.href[i].dataWidth + '  ' + options.href[i].dataHeight + '>images ' + i + '</a>');
                 break;
               case "video":
                 $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '">video ' + i + '</a>');

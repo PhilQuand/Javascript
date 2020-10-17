@@ -688,7 +688,7 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   }
 }
 </style>
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" />
+<!--link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" /-->
 <script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <style>
 .articleFancy {

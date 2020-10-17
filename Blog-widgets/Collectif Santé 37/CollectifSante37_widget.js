@@ -551,6 +551,9 @@ function createSummaryAndThumb(pID, isRegular) {
 
 <!-- alignement de deux images de même taille -->
 <style>
+/*.avatar-image-container {
+    max-width: 40px;
+}*/
 .img2align {
     display: flex; 
     align-items: center;
@@ -646,10 +649,11 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 <style>
 .img-foreground {
   position: absolute;
-  top: 75px;
+  //top: 75px;
+  top: 1em;
   left: 1em;
   width: 20%;
-  max-width: 300px;
+  max-width: 600px;
   //height: 100%;
   //pointer-events: none;
   cursor:pointer;
@@ -706,29 +710,29 @@ if ( window.location.pathname == '/' ){
   $('.page_body').append('<div class="img-foreground gallery-container"></div>');
 }
 </script>
-<!--script>
+<script>
 $(document).ready(function() {
   $('#AlaUne').AlaUne({
-      //src: '<img src="https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg" />',
-      src: "https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg",
-      /*fancyClass: {
-            baseClass: 'customAlaUneBaseClass',
-      },*/
+      src: '<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FDemainLeGrandSoir%2Femission-sur-la-situation-de-lh%C3%B4pital-public%2F" frameborder="0" ></iframe>',
+      //src: "https://thumbnailer.mixcloud.com/unsafe/600x600/defaults/cloudcasts/7.png",
+      fancyClass: {
+            baseClass: 'demain20200923AlaUneBaseClass',
+      },
       href: [
         /*{
           dataType: "inline",
           dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">Après le succès de la mobilisation du 16 à Tours et nationalement, il faut enfoncer le clou pour obtenir satisfaction aux réelles revendications des personnels et usagers que le Ségur de la santé ne prend pas en compte: embauches supplémentaires, réouverture de services et ou d&#39;hôpitaux fermés, arrêt du « dézingage » des statuts des personnels hospitaliers... \
                  <p style="color:red"><b>Mardi 30 juin 2020, <br/>Toutes et Tous en grève<br/>Rassemblement à Tours, à 15H devant l&#39;ARS<br/>et Manifestation</b>.</p></div>'
         },*/
-        {
+        /*{
           dataType: "inline",
-          dataSrc: '<img src="https://1.bp.blogspot.com/-2TUOQGnyBq8/XvzbfuNQHzI/AAAAAAAAm0w/lRMipUgW6qQkENlKnE5WgxowMN6lbh9VwCK4BGAsYHg/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-07-01%2Ba%25CC%2580%2B20.51.28.jpg" />'
+          dataSrc: '<img src="https://1.bp.blogspot.com/-jKqQHNaVL34/X29erAHnc_I/AAAAAAAAnKw/ojxM3Qp_5O0ycDTdE8BNF_VTJKiWp0AZQCLcBGAsYHQ/s0/1600935189987_report%2B3%2Boct.jpg" />'
+        },*/ 
+        {
+          dataType: "iframe",
+          dataSrc: "https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FDemainLeGrandSoir%2Femission-sur-la-situation-de-lh%C3%B4pital-public%2F"
         },
         /*{
-          dataType: "iframe",
-          dataSrc: "https://geodes.santepubliquefrance.fr/index.php#bbox=-162564,6318414,679313,535880&c=indicator&f=0&i=covid_hospit.hosp&t=a01&view=map2"
-        },
-        {
           dataType: "images",
           dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
         }*/
@@ -739,7 +743,17 @@ $(document).ready(function() {
     ]
   });
 });
-</script-->
+</script>
+<style>
+.demain20200923AlaUneBaseClass  .fancybox-slide.fancybox-slide--iframe .fancybox-content {
+    max-width: calc(100% - 80px);
+    max-height: 180px;
+    overflow: visible;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+</style>
 <!-- 
 Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
 -->
@@ -758,21 +772,22 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
 $(document).ready(function() {
   $('.gallery-container').Shaders({
         images: [
-        'https://1.bp.blogspot.com/-YBe4YFy8IoU/Xw8UkHwPncI/AAAAAAAAm5k/9fq7pPtx6PA8lA5wXqWJwF-g6700psL8gCLcBGAsYHQ/s1600/DSC05053%2B%25282%2529.jpg',
-        'https://1.bp.blogspot.com/-r5PSGVTN_60/Xw8UkKMBinI/AAAAAAAAm5c/BhwCuG50jPgukyPvLhenKI7X05klUqnqQCLcBGAsYHQ/s1600/DSC05055.jpg',
-        'https://1.bp.blogspot.com/-OVbm83hHUf4/Xw8UkEIJskI/AAAAAAAAm5g/3HkRZ_I-4ogaCRiiFO8SjQxvR6PCBD8EQCLcBGAsYHQ/s1600/DSC05059.jpg',
-        'https://1.bp.blogspot.com/-BQB772BVIgU/Xw8Uk_EN-ZI/AAAAAAAAm5o/bEqyCtJDcq4I6Qd4rc7N07B2DLiMk2s0QCLcBGAsYHQ/s1600/DSC05060.jpg',
-        'https://1.bp.blogspot.com/-4vZBf-L4LKY/Xw8UlevaxII/AAAAAAAAm5s/A5onMD5rsIcLunTdl_KEuzGxOxHdK97hwCLcBGAsYHQ/s1600/DSC05061.jpg',
-        'https://1.bp.blogspot.com/-up8x7jERMJU/Xw8Ul04herI/AAAAAAAAm5w/kheK1TTSPP8uyN0qsJwrNYbAsGVfliOhgCLcBGAsYHQ/s1600/DSC05065.jpg',
-        'https://1.bp.blogspot.com/-7az9SsAVBMA/Xw8UmaDwBXI/AAAAAAAAm50/ig0O04mwKPUtGwQ51Ytvuynl1Q_fmZLAQCLcBGAsYHQ/s1600/DSC05069.jpg',
-        'https://1.bp.blogspot.com/-vt8vZb5P4xk/Xw8Umpfs0CI/AAAAAAAAm54/iVG51dTsssEbJMaVNU-xGvP7pccAN1KvwCLcBGAsYHQ/s1600/DSC05073.jpg',
-        'https://1.bp.blogspot.com/-CiYhwKEkgVA/Xw8UmwjZvxI/AAAAAAAAm58/CiWAJ4LJZ5YNhVPUqpsEFS6P8DZc6KWJACLcBGAsYHQ/s1600/DSC05074.jpg',
-        'https://1.bp.blogspot.com/-ZfUuGWgF5xI/Xw8UnPp84YI/AAAAAAAAm6A/QEKgrUpVfqkE5F-G1bgg1p24ZzFFjEXuQCLcBGAsYHQ/s1600/DSC05076.jpg',
-        'https://1.bp.blogspot.com/-mr82JXe8ehM/Xw8UnHTnMlI/AAAAAAAAm6E/QfUerAQnO3c3yfLzL2ZhsoI3_lLTpkTggCLcBGAsYHQ/s1600/DSC05081.jpg',
-        'https://1.bp.blogspot.com/-hXmH4rONudI/Xw8UnmNP7SI/AAAAAAAAm6I/dQPLAGjDw7ghQ1J8xO4VQc6I-G38yvWSgCLcBGAsYHQ/s1600/DSC05084.jpg',
-        'https://1.bp.blogspot.com/-Z3gf8fA3ptw/Xw8SHi27EFI/AAAAAAAAm5Q/AYgi9bjGNpY7F1c-BV6K3yucBmQV0NnmACLcBGAsYHQ/s1600/Banderole_Marie.jpg',
-        'https://1.bp.blogspot.com/-80SX0DtohQo/Xw83sG7J4kI/AAAAAAAAm60/GsYpWHc-594gi4oVpN70_jEEvtLd6my6ACLcBGAsYHQ/s1600/DSC05060.jpg',
-        'https://1.bp.blogspot.com/-wZAKBRYbaho/Xw83r6Krt6I/AAAAAAAAm6s/NKwalc7z3PwyHTWUZos5GljI3k_l0OomQCLcBGAsYHQ/s1600/DSC05073.jpg'
+          "https://1.bp.blogspot.com/-tGmyh0utUoc/X4lkt-o0TPI/AAAAAAAAnP8/vbLBsq326Z0OMzXG4RtituCrt02JFF94wCLcBGAsYHQ/s1600/P1020891.jpeg",
+          "https://1.bp.blogspot.com/-_1fEmBb9Jdo/X4lkt_SfVoI/AAAAAAAAnP0/4AVGTo6uvEM8fPpylurd2ATQ2eDIOONPACLcBGAsYHQ/s1024/P1020892.jpeg",
+          "https://1.bp.blogspot.com/-JBRRw_EhDu8/X4lkt2uA_FI/AAAAAAAAnP4/_ljktsBlVJ8cAn3DzE7lhGOz6EguGUUzACLcBGAsYHQ/s1600/P1020896.jpeg",
+          "https://1.bp.blogspot.com/-3e_kXAxLAu8/X4lkuVQDg7I/AAAAAAAAnQA/Ic1A9IbWdoAswfotCSgUwyDNfnGY-B3OACLcBGAsYHQ/s1600/P1020898.jpeg",
+          "https://1.bp.blogspot.com/-_TlkVepwMeU/X4lkunHoL6I/AAAAAAAAnQE/GTzwGGnpQOs-q-R_hybDmwDGya-zBzY8ACLcBGAsYHQ/s1600/P1020900.jpeg",
+          "https://1.bp.blogspot.com/-m8_c_8YiLtg/X4lkuhBWdsI/AAAAAAAAnQI/mmDiFp7q19IA4QxPntMuCj1r2L5x5PIzACLcBGAsYHQ/s1600/P1020902.jpeg",
+          "https://1.bp.blogspot.com/-aLfWyW2-QtU/X4lku-WjUFI/AAAAAAAAnQM/gV8oWsKzm1oKWhr0raUfjxTEAdC5MsLCwCLcBGAsYHQ/s1600/P1020903.jpeg",
+          "https://1.bp.blogspot.com/-8q1O700pQ80/X4lkvLwQkpI/AAAAAAAAnQU/zmnqDBZPvmEfL3HUympJBV6ATLbfcSWcACLcBGAsYHQ/s1600/P1020904.jpeg",
+          "https://1.bp.blogspot.com/-PWX2oCx94F0/X4lkvDEteBI/AAAAAAAAnQQ/HMpeHEBvPMUPZl7xFJ4qoD2owS7zOuSTwCLcBGAsYHQ/s1600/P1020906.jpeg",
+          "https://1.bp.blogspot.com/-0Y-6IG4BEcE/X4lkvgxhI6I/AAAAAAAAnQY/N6ZamjyKhCgi9yFPqrC9HSJZuPPxE6FVwCLcBGAsYHQ/s1600/P1020909.jpeg",
+          "https://1.bp.blogspot.com/-hiwOc9hCKHs/X4lkvwt1bTI/AAAAAAAAnQc/R4oI4nVLzaobbc9JSX35RPKuQ29eAvKhgCLcBGAsYHQ/s1600/P1020910.jpeg",
+          "https://1.bp.blogspot.com/-MuouVheTmFA/X4lkv59kHMI/AAAAAAAAnQg/z4dFA0MFfv8-gBU4GIskX4KnFV7CoNmgACLcBGAsYHQ/s1600/P1020911.jpeg",
+          "https://1.bp.blogspot.com/-YP-VFikmKQw/X4lkwCwbQkI/AAAAAAAAnQk/m9LoHT-1LUU1h1Q2WjlhDHKFJ0yBtil_QCLcBGAsYHQ/s1600/P1020912.jpeg",
+          "https://1.bp.blogspot.com/-OFb07OTxA7A/X4lkwtjB2rI/AAAAAAAAnQo/fMmuIKzXhCkHNLGST0thksyk0-w_IcHQgCLcBGAsYHQ/s1600/P1020913.jpeg",
+          "https://1.bp.blogspot.com/-qOQqa1mUax0/X4lkw6QMXbI/AAAAAAAAnQs/46M_O_psjXspQYZmdxPip-2fREqyrgmSgCLcBGAsYHQ/s1600/P1020916.jpeg",
+          "https://1.bp.blogspot.com/-CxvmOalVra8/X4lkw0ZbIOI/AAAAAAAAnQw/jiN_sMObiIUZCGtqBxjB1E1cQlCpxh6uACLcBGAsYHQ/s1600/P1020917.jpeg"
         ],
         imageSize: {
           x: 1600,

@@ -358,7 +358,7 @@ var inpAddress = [
 { inpText: "JOYEUSE",
   lat: 44.4798, lng:  4.2387},
 { inpText: "VOIRON",
-  lat: 45.36723, lng:  5.59113},
+  lat: 45.36723, lng:  5.59113	},
 { inpText: "HAUTE CORSE",
   lat: 42.4691, lng:  9.2094},
 { inpText: "Guadeloupe",

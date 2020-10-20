@@ -30,7 +30,8 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       if (jQuery.type(options.href) == 'undefined') {
         return;
       }
-      var randNum = 'FB' + randGen.getrand();
+      if (jQuery.type(options.Num) != 'undefined') var randNum = 'HD' + options.Num;
+      else var randNum = 'FB' + randGen.getrand();
       var randHid = 'HD' + randGen.getrand();
       switch (jQuery.type(options.href)) {
         case "string":

@@ -56,30 +56,32 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         if (jQuery.type(options.href[i].dataType) == 'string') {
           if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
           else {
-            if (jQuery.type(options.href[i].dataWidth) == 'undefined') options.href[i].dataWidth = ''
-            else options.href[i].dataWidth = 'data-width="'+  options.href[i].dataWidth + '"'
-            if (jQuery.type(options.href[i].dataHeight) == 'undefined') options.href[i].dataHeight = ''
-            else options.href[i].dataHeight = 'data-height="'+  options.href[i].dataHeight + '"'
+            var dataOptions = '';
+            if (jQuery.type(options.href[i].dataCaption) != 'undefined') dataOptions += 'data-caption="'+  options.href[i].dataCaption + '" ';
+            if (jQuery.type(options.href[i].dataWidth) != 'undefined') dataOptions += 'data-width="'+  options.href[i].dataWidth + '" ';
+            if (jQuery.type(options.href[i].dataHeight) != 'undefined') dataOptions += 'data-height="'+  options.href[i].dataHeight + '" ';
+            if (jQuery.type(options.href[i].dataThumb) != 'undefined') dataOptions += 'data-thumb="'+  options.href[i].dataThumb + '"' ;
             switch (options.href[i].dataType) {
               case "inlineId":
                 if (jQuery.type(options.href[i].dataThumb) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '">inline ' + i + '</a>');
-                else $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '" data-thumb="' + options.href[i].dataThumb + '">inline ' + i + '</a>');
+                else $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '" '+ '  ' + dataOptions + '>inline ' + i + '</a>');
                 break;
               case "inline":
                 $(_this).append('<div class="defaultFancyWrapper" style="display:none;" id="' + randHid + i + '"> \
                               <div class="fontFancy defaultFancy"> \
                               ' + options.href[i].dataSrc + ' \
                               </div></div>');
-                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" ' + options.href[i].dataWidth + '  ' + options.href[i].dataHeight + '>inline ' + i + '</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" '+ '  ' + dataOptions + '>inline ' + i + '</a>');
                 break;
               case "iframe":
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" ' + options.href[i].dataWidth + '  ' + options.href[i].dataHeight + '>iframe ' + i + '</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" '+ '  ' + dataOptions + '>iframe ' + i + '</a>');
                 break;
               case "images":
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + options.href[i].dataWidth + '  ' + options.href[i].dataHeight + '>images ' + i + '</a>');
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>images ' + i + '</a>');
                 break;
               case "video":
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '">video ' + i + '</a>');
+                if (jQuery.type(options.href[i].dataRatio) != 'undefined') dataOptions += 'data-ratio="'+  options.href[i].dataRatio + '"  ';
+                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc+ '" ' + '  ' + dataOptions + '>video ' + i + '</a>');
                 break;
               default:
                 console.log('AlaUne plugin error options.href = ' + options.href);

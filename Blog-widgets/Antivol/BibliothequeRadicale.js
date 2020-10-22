@@ -52,13 +52,3 @@ var articleFancy = {
     windowParent.window.scrollTo(0, 0);
   }
 };
-
-function Mediastheque() {
-  var styleMedias = $("#containerMedias").attr("style");
-  if (styleMedias == "display: none;") {
-    $("#containerMedias").show();
-  }
-  else {
-    $("#containerMedias").hide();
-  }
-};

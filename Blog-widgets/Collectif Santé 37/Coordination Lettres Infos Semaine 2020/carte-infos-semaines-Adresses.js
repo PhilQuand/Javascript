@@ -363,6 +363,8 @@ var inpAddress = [
   lat: 42.4691, lng:  9.2094},
 { inpText: "Guadeloupe",
   lat: 16.2424, lng:  -61.5666},
+{ inpText: "MARTINIQUE",
+  lat: 14.7297, lng:  -60.9655},
 { inpText: "GUYANE",
   lat: 4.926, lng:  -52.313},
 { inpText: "SUD SANTÉ SOCIAUX",

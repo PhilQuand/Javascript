@@ -469,7 +469,15 @@
                 ]),
                 hasevents: false
               },
-              {
+               {
+                name: 'Martinique',
+                bounds: L.latLngBounds([
+                  [14.905, -61.500],
+                  [14.377, -60.762]
+                ]),
+                hasevents: false
+              },
+             {
                 name: 'Guadeloupe',
                 bounds: L.latLngBounds([
                   [16.5572, -61.971],
@@ -595,6 +603,21 @@
                     map.flyTo({
                       lat: 42.19,
                       lng: 9.08
+                    }, 6);
+                    for (var j = 0; j < btn.options.states.length; j++) {
+                      if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                        btn.state(btn.options.states[j].nextStateName); // change state on click!
+                        break;
+                      }
+                    }
+                  };
+                  break;
+                case 'Martinique':
+                  localState.title = 'vol vers la Martinique'; // like its title
+                  localState.onClick = function(btn, map) { // and its callback
+                    map.flyTo({
+                      lat: 14.7297,
+                      lng: -60.9655
                     }, 6);
                     for (var j = 0; j < btn.options.states.length; j++) {
                       if (btn._currentState.stateName == btn.options.states[j].stateName) {

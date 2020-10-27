@@ -18,6 +18,20 @@ var articleFancy = {
     'close',
     'thumbs'
   ],
+  beforeClose: function(instance, current) {
+    var doNotClose = false;
+    $('a.ptr').each(function() {
+      var thisdonotclose = $(this).attr("data-donotclose");
+      if (thisdonotclose == "true") {
+        $(this).attr("data-donotclose", "false");
+        doNotClose = true;
+        return false;
+      }
+    })
+    if (doNotClose) {
+      return false;
+    }
+  },
   baseClass: 'articleFancyClass',
   onActivate: function(instance, current) {},
   afterLoad: function(instance, current) {

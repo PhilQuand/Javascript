@@ -64,7 +64,7 @@ function theReference(e,s) {
             footmod == REFTYP.FOOTNOTE ?
             (r.setAttribute("href", "javascript:void(0)"), (r.onclick = m(REFTYP.FOOTNOTE, "footnotes_" + t, r))) :
             r.setAttribute("href", "#footnotes_" + t + s) :
-            l.test(s) && (refmod == REFTYP.FOOTNOTE ? (r.setAttribute("href", "javascript:void(0)"), (r.onclick = m(REFTYP.REFERENCE, "references_" + t, r))) : r.setAttribute("href", "#references_" + t + s), (r.setAttribute("onclick", "return theReference(event,'#references_" + t + s + "');"));
+            l.test(s) && (refmod == REFTYP.FOOTNOTE ? (r.setAttribute("href", "javascript:void(0)"), (r.onclick = m(REFTYP.REFERENCE, "references_" + t, r))) : r.setAttribute("href", "#references_" + t + s), (r.setAttribute("onclick", "return theReference(event,'#references_" + t + s + "');")));
         }
         f(0 == t ? "footnotes" : "footnotes_" + t, "footnote", "footnotes_" + t, "(", ")"), f(0 == t ? "references" : "references_" + t, "reference", "references_" + t, "[", "]");
       }

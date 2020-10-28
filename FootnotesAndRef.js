@@ -131,14 +131,16 @@ function theReference(e, s) {
           }
         "function" == typeof a && a(e);
 
-        $('.tooltip').tooltipster({
-          theme: 'tooltipster-shadow',
-          interactive: true,
-          contentAsHTML: true,
-          maxWidth: 400
-          /*,
-            side: 'right'*/
-        });
+        setTimeout(function() {
+          $('.tooltip').tooltipster({
+            theme: 'tooltipster-shadow',
+            interactive: true,
+            contentAsHTML: true,
+            maxWidth: 400
+            /*,
+              side: 'right'*/
+          });
+        }, 0);
 
       };
     }).catch(function() {

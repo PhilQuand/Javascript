@@ -1,0 +1,44 @@
+.references {
+    text-indent: -1.2em;
+    counter-reset: refcounter;
+    font-style: italic;
+    line-height: 1.5;
+    font-size: smaller;
+  }
+.footnotes {
+    text-indent: -1.2em;
+    counter-reset: footcounter;
+    font-style: italic;
+    line-height: 1.5;
+    font-size: smaller;
+  }
+.reference:before {
+    display: block;
+    content: " ";
+    margin-top: -140px;
+    height: 140px;
+    visibility: hidden;
+    pointer-events: none;
+  }
+.reference:target li {
+    background-color: #BFEFFF;
+  }
+.reference li:before {
+    content: "[" counter(refcounter) "] ";
+    counter-increment: refcounter;
+  }
+.footnote:before {
+    display: block;
+    content: " ";
+    margin-top: -285px;
+    height: 285px;
+    visibility: hidden;
+    pointer-events: none;
+  }
+.footnote:target li {
+    background-color: #BFEFFF;
+  }
+.footnote li:before {
+    content: "(" counter(footcounter) ") ";
+    counter-increment: footcounter;
+  }

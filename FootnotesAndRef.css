@@ -42,3 +42,12 @@
     content: "(" counter(footcounter) ") ";
     counter-increment: footcounter;
   }
+.tooltipster-sidetip.tooltipster-shadow .tooltipStyle {
+    color: black;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-box {
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 25px;
+    transition: box-shadow .2s;
+  }

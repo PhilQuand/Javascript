@@ -58,8 +58,6 @@ function theReference(e, s) {
           i.style.display = "none";
         }, 0);
     }
-    //event.preventDefault();
-    //};
   }
   
   window.onload = function(e) {

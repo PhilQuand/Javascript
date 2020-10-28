@@ -33,7 +33,6 @@ var articleFancy = {
     }
   },
   baseClass: 'articleFancyClass',
-  onActivate: function(instance, current) {},
   afterLoad: function(instance, current) {
     $(".getFancyFocus").focus();
     if (instance.group.length > 1 && current.$content) {

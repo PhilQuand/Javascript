@@ -1,4 +1,4 @@
-function theReference(e,s) {
+function theReference(e, s) {
   return true;
 }
 (function($) {
@@ -48,6 +48,10 @@ function theReference(e,s) {
   Promise.all([
     //  chargements des dépendances css
     load.css('https://philquand.github.io/Javascript/FootnotesAndRef.css'),
+    load.css('https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/tooltipster.bundle.min.css'),
+    load.css('https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css'),
+    //  chargements des dépendances js
+    load.js('https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js'),
   ]).then(
     function() {
       console.log('Everything has loaded!');
@@ -126,6 +130,16 @@ function theReference(e,s) {
             }
           }
         "function" == typeof a && a(e);
+
+        $('.tooltip').tooltipster({
+          theme: 'tooltipster-shadow',
+          interactive: true,
+          contentAsHTML: true,
+          maxWidth: 400
+          /*,
+            side: 'right'*/
+        });
+
       };
     }).catch(function() {
     console.log('Oh no, epic failure!');

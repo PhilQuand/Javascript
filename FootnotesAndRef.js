@@ -1,6 +1,25 @@
 function theReference(e, s) {
   return true;
 }
+/*function theReference(e,s) {
+    //à utiliser à l'intérieur d'une fenêtre modale de type articleFancyClass générée avec le plugin ALaUne.js 
+    if( !window.location.href.includes("#references_") ) e.currentTarget.dataset.donotclose = "true";
+    window.location.href = s;
+
+    var documentInnerHeight = windowParent.window.innerHeight;
+    $('.articleFancyClass').css('height', documentInnerHeight + 'px');
+    var titreFancyHeight = $('.titreFancy').height();
+    var footFancyHeight = $('.footFancy').height();
+    var fancyboxInnerMT = eval($('.articleFancyClass .fancybox-inner').css('margin-top').split("px")[0]);
+    var fancyboxInnerMB = eval($('.articleFancyClass .fancybox-inner').css('margin-bottom').split("px")[0]);
+
+    var corpsFancyHeight = documentInnerHeight - fancyboxInnerMT - fancyboxInnerMB - 80;
+    if (jQuery.type(titreFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - titreFancyHeight;
+    if (jQuery.type(footFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - footFancyHeight;
+    $('.articleFancyClass .corpsFancy').css('height', corpsFancyHeight + 'px');
+    windowParent.window.scrollTo(0, 0);
+    return false;
+};*/
 (function($) {
   var load = (function() {
     // Function which returns a function: https://davidwalsh.name/javascript-functions

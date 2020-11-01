@@ -23,3 +23,79 @@
   <script src="script.js"></script>
 </body>
 </html>
+<script>
+$(document).ready(function () {
+    // $('#table').DataTable();
+  // replace this string with your share URL
+  var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1bO7gWZNTsqRI2RKtIpRz8cc5BNGDFomCZagGkDLyhEU/edit?usp=sharing';
+
+  var loading = document.getElementById('loading');
+
+  Tabletop.init({
+    key: SHEET_ID,
+    callback: buildTable,
+    simpleSheet: true
+  });
+
+  function buildTable(data, tabletop) {
+    $('#table').DataTable({
+      data: data,
+      columns: [
+        { data: "Titre", title: "Titre"},
+        { data: "Auteur", title: "Auteur"},
+        { data: "Édition", title: "Édition"},
+        { data: "Année", title: "Année"},
+        { data: "Source", title: "Source"},
+        { data: "Type", title: "Type"},
+        { data: "Taille", title: "Taille"},
+        { data: "Auteur de l'article L'Antivol", title: "Auteur de l'article L'Antivol"},
+        { data: "Résume", title: "Résume"},
+        { data: "Lien Vignette", title: "Lien Vignette"},
+        { data: "Lien Vignette", title: "Lien Vignette"},
+        { data: "Lien Article de L'AntIvol", title: "Lien Article de L'AntIvol"},
+      ]
+    });
+    loading.style.display = 'none';
+  }
+
+});
+</script>
+<style>
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: left;
+  padding-bottom: 25px;
+}
+
+td, th, hr {
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th:hover {
+  background-color: #f7f7f7;
+}
+
+input {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+input, td, th {
+  padding: 5px;
+  vertical-align: bottom;
+}
+</style>

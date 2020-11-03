@@ -91,7 +91,7 @@ $(document).ready(function() {
       data: data,
       columns: [{
           data: "Titre",
-          title: "Titre"
+          title: "Titre",
         },
         {
           data: "Auteur",
@@ -124,7 +124,7 @@ $(document).ready(function() {
       ],
       initComplete: function() {
         var myApi = this.api();
-        var footer = $("<tfoot></tfoot>").appendTo($(this));
+        var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
         var footertr = $("<tr></tr>").appendTo(footer);
         var myColumnsi = this.api().columns();
         this.api().columns().every(function() {
@@ -180,6 +180,10 @@ th {
 
 th:hover {
   background-color: #f7f7f7;
+}
+
+tfoot {
+    display: table-header-group;
 }
 
 input {

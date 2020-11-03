@@ -73,8 +73,8 @@
 </body>
 </html>
 <script>
-$(document).ready(function () {
-    // $('#table').DataTable();
+$(document).ready(function() {
+  // $('#table').DataTable();
   // replace this string with your share URL
   var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1bO7gWZNTsqRI2RKtIpRz8cc5BNGDFomCZagGkDLyhEU/edit?usp=sharing';
 
@@ -89,16 +89,64 @@ $(document).ready(function () {
   function buildTable(data, tabletop) {
     $('#table').DataTable({
       data: data,
-      columns: [
-        { data: "Titre", title: "Titre"},
-        { data: "Auteur", title: "Auteur"},
-        { data: "Édition", title: "Édition"},
-        { data: "Année", title: "Année"},
-        { data: "Type", title: "Type"},
-        { data: "Article de L'AntIvol", title: "Article sur L'AntIvol"},
-        { data: "Vignette", title: "Vignette de l'Article sur L'AntIvol"},
-        { data: "Auteur de l'article L'Antivol", title: "Auteur de l'article sur L'Antivol"},
-      ]
+      columns: [{
+          data: "Titre",
+          title: "Titre"
+        },
+        {
+          data: "Auteur",
+          title: "Auteur"
+        },
+        {
+          data: "Édition",
+          title: "Édition"
+        },
+        {
+          data: "Année",
+          title: "Année"
+        },
+        {
+          data: "Type",
+          title: "Type"
+        },
+        {
+          data: "Article de L'AntIvol",
+          title: "Article sur L'AntIvol"
+        },
+        {
+          data: "Vignette",
+          title: "Vignette de l'Article sur L'AntIvol"
+        },
+        {
+          data: "Auteur de l'article L'Antivol",
+          title: "Auteur de l'article sur L'Antivol"
+        },
+      ],
+      initComplete: function() {
+        var myApi = this.api();
+        var footer = $("<tfoot></tfoot>").appendTo($(this));
+        var footertr = $("<tr></tr>").appendTo(footer);
+        var myColumnsi = this.api().columns();
+        this.api().columns().every(function() {
+          var column = this;
+          var myfooter = $("<th></th>").appendTo(footertr);
+          var select = $('<select><option value=""></option></select>')
+            .appendTo(myfooter)
+            .on('change', function() {
+              var val = $.fn.dataTable.util.escapeRegex(
+                $(this).val()
+              );
+
+              column
+                .search(val ? '^' + val + '$' : '', true, false)
+                .draw();
+            });
+
+          column.data().unique().sort().each(function(d, j) {
+            select.append('<option value="' + d + '">' + d + '</option>')
+          });
+        });
+      }
     });
     loading.style.display = 'none';
   }

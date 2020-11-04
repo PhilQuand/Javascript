@@ -89,8 +89,8 @@ $(document).ready(function() {
     $('#table').DataTable({
       data: data,
       columns: [{
-          data: "Titre",
-          title: "Titre",
+          data: "Article de L'AntIvol",
+          title: "Titre du média <br/>et lien vers l'article sur L'Antivol"
         },
         {
           data: "Auteur",
@@ -107,10 +107,6 @@ $(document).ready(function() {
         {
           data: "Type",
           title: "Type"
-        },
-        {
-          data: "Article de L'AntIvol",
-          title: "Article sur L'AntIvol"
         },
         {
           data: "Vignette",
@@ -141,11 +137,31 @@ $(document).ready(function() {
                 .draw();
             });
 
+          var optEmpty = true;
           column.data().unique().sort().each(function(d, j) {
-            select.append('<option value="' + d + '">' + d + '</option>')
+            if (isValidSelector(d) && (typeof $(d).html() !== "undefined")) {
+              var optlVal=$(d).html();
+            } else {
+              var optlVal=d;
+            }
+            if(optlVal != '') {
+              select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
+              optEmpty = false;
+            }
           });
+          if( optEmpty) select.css('display','none');
         });
-      }
+function isValidSelector(selector) {
+    if (typeof(selector) !== 'string') {
+        return false;
+    }
+    try {
+        var $element = $(selector);
+    } catch(error) {
+        return false;
+    }
+    return true;
+}      }
     });
     loading.style.display = 'none';
   }
@@ -172,7 +188,7 @@ body {
 .table-striped {
   border-spacing: 0;
   border-collapse: collapse;
-  text-align: left;
+  text-align: center;
   padding-bottom: 25px;
 }
 

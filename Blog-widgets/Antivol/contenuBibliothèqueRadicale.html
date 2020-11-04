@@ -131,7 +131,17 @@ $(document).ready(function() {
               var val = $.fn.dataTable.util.escapeRegex(
                 $(this).val()
               );
-
+              if( val != '') {
+                $('th select').css('display','none');
+                select.css('display','block');
+              } else {
+                $('th select').each(function() {
+                  dataDisplay = $(this).data('display');
+                  if( (typeof dataDisplay === "undefined") || dataDisplay != 'none' )  {
+                    $(this).css('display','block');
+                  }
+                });
+              }
               column
                 .search(val ? '^' + val + '$' : '', true, false)
                 .draw();
@@ -149,7 +159,10 @@ $(document).ready(function() {
               optEmpty = false;
             }
           });
-          if( optEmpty) select.css('display','none');
+          if( optEmpty) {
+            select.css('display','none');
+            select.data('display','none');
+          }
         });
 function isValidSelector(selector) {
     if (typeof(selector) !== 'string') {

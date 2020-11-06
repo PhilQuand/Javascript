@@ -51,49 +51,49 @@
   ]).then(
     function() {
       console.log('Everything has loaded!');
-$(document).ready(function() {
-  $('.audioFancy').find('audio').each(function() {
-    const $target = this;
-    const player = new MediaPlayer(
-      $target, {
-        prefix: 'media',
-        lang: {
-          play: 'play',
-          pause: 'pause',
-          mute: 'mute',
-          unmute: 'unmute',
-          volume: 'volume',
-          currentTime: 'current time',
-          remainingTime: 'remaining time',
-          enterFullscreen: 'enter fullscreen',
-          leaveFullscreen: 'leave fullscreen',
-          download: 'download'
-        },
-        svgs: {
-          play: '#symbol-play',
-          pause: '#symbol-pause',
-          mute: '#symbol-mute',
-          unmute: '#symbol-unmute',
-          volume: '#symbol-volume',
-          currentTime: '#symbol-currentTime',
-          remainingTime: '#symbol-remainingTime',
-          enterFullscreen: '#symbol-enterFullscreen',
-          leaveFullscreen: '#symbol-leaveFullscreen',
-          download: '#symbol-download'
-        },
-        timeDir: 'ltr',
-        volumeDir: 'ltr'
-      }
-    );
+      $(document).ready(function() {
+        $('.audioFancy').find('audio').each(function() {
+          const $target = this;
+          const player = new MediaPlayer(
+            $target, {
+              prefix: 'media',
+              lang: {
+                play: 'play',
+                pause: 'pause',
+                mute: 'mute',
+                unmute: 'unmute',
+                volume: 'volume',
+                currentTime: 'current time',
+                remainingTime: 'remaining time',
+                enterFullscreen: 'enter fullscreen',
+                leaveFullscreen: 'leave fullscreen',
+                download: 'download'
+              },
+              svgs: {
+                play: '#symbol-play',
+                pause: '#symbol-pause',
+                mute: '#symbol-mute',
+                unmute: '#symbol-unmute',
+                volume: '#symbol-volume',
+                currentTime: '#symbol-currentTime',
+                remainingTime: '#symbol-remainingTime',
+                enterFullscreen: '#symbol-enterFullscreen',
+                leaveFullscreen: '#symbol-leaveFullscreen',
+                download: '#symbol-download'
+              },
+              timeDir: 'ltr',
+              volumeDir: 'ltr'
+            }
+          );
 
-    /*var promise = $('.media-control.media-play').click(); 
-    if (promise) {
-        //Older browsers may not return a promise, according to the MDN website
-        promise.catch(function(error) { console.error(error); });
-    }*/
+          /*var promise = $('.media-control.media-play').click(); 
+          if (promise) {
+              //Older browsers may not return a promise, according to the MDN website
+              promise.catch(function(error) { console.error(error); });
+          }*/
 
-  });
-})
+        });
+      })
 
     }).catch(function() {
     console.log('Oh no, epic failure!');

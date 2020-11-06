@@ -12,6 +12,9 @@
 <!-- Add myTimeLine -->
 <script src='https://philquand.github.io/Javascript/Blog-widgets/myTimeLine.js'></script>
 <!-- End myTimeLinex -->
+<!-- Add audio toolbar -->
+<script src='https://philquand.github.io/Javascript/MediaPlayer/myMediaPlayer.js'></script>
+<!-- Fin audio toolbar -->
 <style>
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {
     opacity: 0.1;
@@ -364,7 +367,7 @@ $(document).ready(function() {
   margin-bottom: 0.5em;
 }
 h1 {
-  color: red;
+  color: #D52C1E;
   font-size:x-large;
 }
 .furthermore {
@@ -373,40 +376,71 @@ h1 {
 }
 </style>
 <style>
-.flex-image-text {
+.VignetteBR.flex {
     display: flex; 
-    align-items: center;
+    align-items: flex-start;
     width: 100%; 
 }
-.flex-image-text  .divImg {
-    max-width: 323px; 
+.VignetteBR.flex .divImg {
+    max-width: 200px; 
     width: 30%; 
-    margin-bottom: 1em;
+    //margin-bottom: 1em;
 }
-.flex-image-text  .divImg.right {
-    margin-left: 0.5em;
-}
-.flex-image-text  .divImg.left {
+.VignetteBR.flex.left .divImg {
     margin-right: 0.5em;
 }
-.flex-image-text  .divText {
-    width: 70%; 
+.VignetteBR.flex.right {
+    flex-direction: row-reverse;
 }
-.flex-image-text  .divImg img {
+.VignetteBR.flex.right .divImg {
+    margin-left: 0.5em;
+}
+.VignetteBR.flex .divText {
+    width: 100%; 
+}
+.VignetteBR.flex .divImg img {
     width: 100%;
 }
 @media (max-width: 1100px) {
-    .flex-image-text {
+    .VignetteBR.flex {
         display: block; 
     }
-    .flex-image-text .divImg {
+    .VignetteBR.flex .divImg img {
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 80%; 
     }
-    .flex-image-text  .divText {
+    .VignetteBR.flex .divText, .VignetteBR.flex .divImg {
         width: 100%; 
     }
 }
+</style>
+<style>
+/* pour création pdf */
+/*.fr-FR, .en-EN, .de-DE, .es-ES, .it-IT, .pt-PT {
+ display: none;
+}*/
+.VignetteBR {
+    display: block; 
+}
+.VignetteBR .divImg {
+    max-width: 200px; 
+    width: 40%; 
+    margin-top: 0.5em;
+    //margin-bottom: 0.5em;
+}
+.VignetteBR.left .divImg {
+    margin-right: 1em;
+    float: left;
+}
+.VignetteBR.right .divImg {
+    margin-left: 0.5em;
+    float: right;
+}
+.VignetteBR .divText, .VignetteBR .divImg img {
+    width: 100%; 
+}
+.VignetteBR .divImg img {
+    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
 </style>

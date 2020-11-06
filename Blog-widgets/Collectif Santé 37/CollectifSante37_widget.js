@@ -772,22 +772,8 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
 $(document).ready(function() {
   $('.gallery-container').Shaders({
         images: [
-          "https://1.bp.blogspot.com/-tGmyh0utUoc/X4lkt-o0TPI/AAAAAAAAnP8/vbLBsq326Z0OMzXG4RtituCrt02JFF94wCLcBGAsYHQ/s1600/P1020891.jpeg",
-          "https://1.bp.blogspot.com/-_1fEmBb9Jdo/X4lkt_SfVoI/AAAAAAAAnP0/4AVGTo6uvEM8fPpylurd2ATQ2eDIOONPACLcBGAsYHQ/s1024/P1020892.jpeg",
-          "https://1.bp.blogspot.com/-JBRRw_EhDu8/X4lkt2uA_FI/AAAAAAAAnP4/_ljktsBlVJ8cAn3DzE7lhGOz6EguGUUzACLcBGAsYHQ/s1600/P1020896.jpeg",
-          "https://1.bp.blogspot.com/-3e_kXAxLAu8/X4lkuVQDg7I/AAAAAAAAnQA/Ic1A9IbWdoAswfotCSgUwyDNfnGY-B3OACLcBGAsYHQ/s1600/P1020898.jpeg",
-          "https://1.bp.blogspot.com/-_TlkVepwMeU/X4lkunHoL6I/AAAAAAAAnQE/GTzwGGnpQOs-q-R_hybDmwDGya-zBzY8ACLcBGAsYHQ/s1600/P1020900.jpeg",
-          "https://1.bp.blogspot.com/-m8_c_8YiLtg/X4lkuhBWdsI/AAAAAAAAnQI/mmDiFp7q19IA4QxPntMuCj1r2L5x5PIzACLcBGAsYHQ/s1600/P1020902.jpeg",
-          "https://1.bp.blogspot.com/-aLfWyW2-QtU/X4lku-WjUFI/AAAAAAAAnQM/gV8oWsKzm1oKWhr0raUfjxTEAdC5MsLCwCLcBGAsYHQ/s1600/P1020903.jpeg",
-          "https://1.bp.blogspot.com/-8q1O700pQ80/X4lkvLwQkpI/AAAAAAAAnQU/zmnqDBZPvmEfL3HUympJBV6ATLbfcSWcACLcBGAsYHQ/s1600/P1020904.jpeg",
-          "https://1.bp.blogspot.com/-PWX2oCx94F0/X4lkvDEteBI/AAAAAAAAnQQ/HMpeHEBvPMUPZl7xFJ4qoD2owS7zOuSTwCLcBGAsYHQ/s1600/P1020906.jpeg",
-          "https://1.bp.blogspot.com/-0Y-6IG4BEcE/X4lkvgxhI6I/AAAAAAAAnQY/N6ZamjyKhCgi9yFPqrC9HSJZuPPxE6FVwCLcBGAsYHQ/s1600/P1020909.jpeg",
-          "https://1.bp.blogspot.com/-hiwOc9hCKHs/X4lkvwt1bTI/AAAAAAAAnQc/R4oI4nVLzaobbc9JSX35RPKuQ29eAvKhgCLcBGAsYHQ/s1600/P1020910.jpeg",
-          "https://1.bp.blogspot.com/-MuouVheTmFA/X4lkv59kHMI/AAAAAAAAnQg/z4dFA0MFfv8-gBU4GIskX4KnFV7CoNmgACLcBGAsYHQ/s1600/P1020911.jpeg",
-          "https://1.bp.blogspot.com/-YP-VFikmKQw/X4lkwCwbQkI/AAAAAAAAnQk/m9LoHT-1LUU1h1Q2WjlhDHKFJ0yBtil_QCLcBGAsYHQ/s1600/P1020912.jpeg",
-          "https://1.bp.blogspot.com/-OFb07OTxA7A/X4lkwtjB2rI/AAAAAAAAnQo/fMmuIKzXhCkHNLGST0thksyk0-w_IcHQgCLcBGAsYHQ/s1600/P1020913.jpeg",
-          "https://1.bp.blogspot.com/-qOQqa1mUax0/X4lkw6QMXbI/AAAAAAAAnQs/46M_O_psjXspQYZmdxPip-2fREqyrgmSgCLcBGAsYHQ/s1600/P1020916.jpeg",
-          "https://1.bp.blogspot.com/-CxvmOalVra8/X4lkw0ZbIOI/AAAAAAAAnQw/jiN_sMObiIUZCGtqBxjB1E1cQlCpxh6uACLcBGAsYHQ/s1600/P1020917.jpeg"
+          "https://1.bp.blogspot.com/-K-k7-J6EuZ4/X6V8RlEGQFI/AAAAAAAAnVQ/kcJobe8uDCwccf0J3SaxuYC4eog5eoW8QCLcBGAsYHQ/s0/Affichette%2Bde%25CC%2581passements%2Bverso.jpg",
+          "https://1.bp.blogspot.com/-GSpCAKD61js/X6V8Rn8wGkI/AAAAAAAAnVU/luYVX6c_rUUFmtiu_aa32bweDZzu2GvywCLcBGAsYHQ/s0/Affichette%2Bde%25CC%2581passements%2Brecto%2Bpaysage%2Bfinal.jpg",
         ],
         imageSize: {
           x: 1600,

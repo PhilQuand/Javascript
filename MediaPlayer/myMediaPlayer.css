@@ -1,0 +1,34 @@
+.media-text {
+    font-size: 75%;
+    padding-left: .5em;
+    padding-right: .5em;
+    width: 4em;
+}
+.media-fullscreen {
+    display: none;
+}
+.audioFancy {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.noAudioDownload .media-control.media-download {
+    display: none;
+}
+@media screen and (max-width: 800px) {
+  .audioFancy {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .media-text.media-current-time, .media-slider.media-volume {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .media-control.media-mute {
+    display: none;
+  }
+}

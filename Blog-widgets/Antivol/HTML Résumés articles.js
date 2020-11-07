@@ -387,7 +387,7 @@ h1 {
     //margin-bottom: 1em;
 }
 .VignetteBR.flex.left .divImg {
-    margin-right: 0.5em;
+    margin-right: 1em;
 }
 .VignetteBR.flex.right {
     flex-direction: row-reverse;

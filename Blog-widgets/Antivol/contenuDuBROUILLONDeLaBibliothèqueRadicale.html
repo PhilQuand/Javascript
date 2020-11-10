@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IRE 2018 template: Google Sheets to interactive table</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+</head>
+<body>
+<div class="SIURFFMR right" >
+<span class="divImg"  style="max-width: 200px;">
+<a href="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="374" data-original-width="497" src="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg"/></a>
+</span>
+<span class="divText">
+<p>Voici les livres, bandes dessinées, films, chansons, citations, etc., présentés dans les article de notre Médiathèque Radicale et propres à nourrir une culture comme telle. Soit, comme le rappelle notre manifeste, une manière de penser et d’agir qui « cherche à aller à la racine des problèmes et à la hauteur des solutions ». </p>
+<p> Ils s’adressent à toutes et tous, membres de L’Antivol ou non, débutants ou aguerris en radicalité, passionnés de l’écrit, du son ou/et de l’image.</p>
+</span></div>
+<style>
+.SIURFFMR {
+    display: flex; 
+    align-items: center;
+    width: 100%; 
+    padding: 1em;
+}
+.SIURFFMR .divImg {
+    max-width: 450px; 
+    width: 30%; 
+    //margin-bottom: 1em;
+}
+.SIURFFMR.left .divImg {
+    margin-right: 0.5em;
+}
+.SIURFFMR.right {
+    flex-direction: row-reverse;
+}
+.SIURFFMR.right .divImg {
+    margin-left: 0.5em;
+}
+.SIURFFMR .divText {
+    width: 100%; 
+}
+.SIURFFMR .divImg img {
+    width: 100%;
+}
+@media (max-width: 1100px) {
+    .SIURFFMR {
+        display: block; 
+    }
+    .SIURFFMR .divImg img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+    .SIURFFMR .divText, .SIURFFMR .divImg {
+        width: 100%; 
+    }
+}
+</style>
+  <div id="loading">
+    <p>Loading ...</p>
+  </div>
+    <table id="table" class="table table-striped table-bordered"></table>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+  <!--script src="script.js"></script-->
+</body>
+</html>
+<script>
+$(document).ready(function() {
+  // $('#table').DataTable();
+  // replace this string with your share URL
+  var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1bO7gWZNTsqRI2RKtIpRz8cc5BNGDFomCZagGkDLyhEU/edit?usp=sharing';
+
+  var loading = document.getElementById('loading');
+
+  Tabletop.init({
+    key: SHEET_ID,
+    callback: buildTable,
+    simpleSheet: true
+  });
+
+  function buildTable(data, tabletop) {
+    $('#table').DataTable({
+      data: data,
+      columns: [{
+          data: "Article de L'AntIvol",
+          title: "Titre du média <br/>et lien vers l'article sur L'Antivol"
+        },
+        {
+          data: "Auteur",
+          title: "Auteur"
+        },
+        {
+          data: "Édition",
+          title: "Édition"
+        },
+        {
+          data: "Année",
+          title: "Année"
+        },
+        {
+          data: "Type",
+          title: "Type"
+        },
+        {
+          data: "Vignette",
+          title: "Vignette de l'Article sur L'AntIvol"
+        },
+        {
+          data: "Auteur de l'article L'Antivol",
+          title: "Auteur de l'article sur L'Antivol"
+        },
+      ],
+      initComplete: function() {
+        var myApi = this.api();
+        var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
+        var footertr = $("<tr></tr>").appendTo(footer);
+        var myColumnsi = this.api().columns();
+        this.api().columns().every(function() {
+          var column = this;
+          var myfooter = $("<th></th>").appendTo(footertr);
+          var select = $('<select><option value=""></option></select>')
+            .appendTo(myfooter)
+            .on('change', function() {
+              var val = $.fn.dataTable.util.escapeRegex(
+                $(this).val()
+              );
+              if( val != '') {
+                $('th select').css('display','none');
+                select.css('display','block');
+              } else {
+                $('th select').each(function() {
+                  dataDisplay = $(this).data('display');
+                  if( (typeof dataDisplay === "undefined") || dataDisplay != 'none' )  {
+                    $(this).css('display','block');
+                  }
+                });
+              }
+              column
+                .search(val ? '^' + val + '$' : '', true, false)
+                .draw();
+            });
+
+          var optEmpty = true;
+          column.data().unique().sort().each(function(d, j) {
+            if (isValidSelector(d) && (typeof $(d).html() !== "undefined")) {
+              var optlVal=$(d).html();
+            } else {
+              var optlVal=d;
+            }
+            if(optlVal != '') {
+              select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
+              optEmpty = false;
+            }
+          });
+          if( optEmpty) {
+            select.css('display','none');
+            select.data('display','none');
+          }
+        });
+function isValidSelector(selector) {
+    if (typeof(selector) !== 'string') {
+        return false;
+    }
+    try {
+        var $element = $(selector);
+    } catch(error) {
+        return false;
+    }
+    return true;
+}      }
+    });
+    loading.style.display = 'none';
+  }
+
+});
+</script>
+<style>
+div.dataTables_wrapper div.dataTables_length {
+   margin-left: 1em;
+}
+div.dataTables_wrapper div.dataTables_length select {
+    width: 100%;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
+}
+
+.table-striped {
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+td, th, hr {
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th:hover {
+  background-color: #f7f7f7;
+}
+
+tfoot {
+    display: table-header-group;
+}
+
+input {
+  font-size: 16px;
+  margin-right: 1.5em;
+}
+
+input, td, th {
+  padding: 10px;
+  //vertical-align: bottom;
+}
+.table-striped td, img {
+  width: 100px;
+  padding: 5px;
+  vertical-align: bottom;
+}
+
+.table-striped thead th {
+  background:#E42421;
+  color:white;
+}
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(228, 36, 33, 0.04);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background:#FFFFFF;
+}
+.table-striped tbody tr:hover {
+  background:#BDC3C7;
+  color:#FFFFFF;
+}
+</style>
+<!--style>
+div.dataTables_wrapper div.dataTables_length select {
+    width: 100%;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: left;
+  padding-bottom: 25px;
+}
+
+td, th, hr {
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th:hover {
+  background-color: #f7f7f7;
+}
+
+tfoot {
+    display: table-header-group;
+}
+
+input {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+input, td, th {
+  padding: 5px;
+  vertical-align: bottom;
+}
+table td, img {
+  width: 100px;
+  padding: 5px;
+  vertical-align: bottom;
+}
+</style-->
+<!--style>
+table tbody {
+    height: 500px;
+    overflow-y: auto;
+    display: block;    
+}
+table tbody {
+   background: white;
+   color:black;
+}
+table {
+  font-size: 18px;
+  line-height: 24px;
+}
+table thead th {
+  background:#3E8F32;
+  color:white;
+  font-weight: bold;
+  width: 100%;
+}
+table tbody tr td, 
+table thead th {
+  border: thin solid black;
+  padding-left: 10px;
+  width: 33.333333%;
+}
+table tbody tr.even {
+  //background:#ECF0F1;
+  background:#3E8F32;
+}
+table {
+border-collapse: collapse; 
+width: 100%;
+}
+table tbody tr:hover {
+  background:#BDC3C7;
+  color:#FFFFFF;
+}
+@media screen and (max-width: 860px) {
+  table {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 650px) {
+  table {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+@media screen and (max-width: 470px) {
+  table tbody tr td, table thead th {
+    font-size: 12Px;
+  }
+}
+@media screen and (max-width: 380px) {
+  table tbody tr td, table thead th {
+    font-size: 10px;
+  }
+}
+</style-->

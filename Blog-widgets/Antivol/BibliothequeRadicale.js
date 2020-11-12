@@ -65,3 +65,38 @@ var articleFancy = {
     windowParent.window.scrollTo(0, 0);
   }
 };
+var printNavHash = function() {
+  $(".corpsBR").wrapInner("<div class='innerWrapBR'></div>");
+  var navCorpsBR = $('<nav id="navCorpsBR"></nav>');
+  $('.newBRMedia').each(function(index) {
+    $(this).attr('id', 'newBRMedia-' + index)
+    navCorpsBR.append('<li><a href="#newBRMedia-' + index + '"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');
+  })
+  navCorpsBR.wrapInner('<ul></ul>"');
+  $(".corpsBR").append(navCorpsBR);
+  $(document).ready(function() {
+    $(".corpsBR #navCorpsBR ul li a").hover(function() {
+      $(this).find("circle").css('fill', '#4a00ff');
+      $(this).find("circle").css('opacity', '0.3');
+    }, function() {
+      printHash();
+    });
+    $(".corpsBR #navCorpsBR ul li a").click(function() {
+      $(".corpsBR nav ul li a circle").css('fill', 'transparent')
+      $(this).find("circle").css('fill', '#4a00ff');
+    });
+    articleFancy.afterClose = function(instance, current) {
+      $(".corpsBR #navCorpsBR ul li a").first().click();
+    };
+    var printHash = function() {
+      $(".corpsBR nav ul li a circle").css('opacity', '1')
+      if (window.location.hash == '' || window.location.hash == '#more') $(".corpsBR #navCorpsBR ul li a").first().click();
+      else $(".corpsBR #navCorpsBR ul li a[href$='" + window.location.hash + "']").click();
+    };
+
+    // Print initial hash
+    printHash();
+
+    window.onhashchange = printHash;
+  });
+};

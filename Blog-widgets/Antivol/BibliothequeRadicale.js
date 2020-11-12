@@ -33,7 +33,7 @@ var articleFancy = {
     }
   },
   baseClass: 'articleFancyClass',
-  afterLoad: function(instance, current) {
+    afterLoad: function(instance, current) {
     $(".getFancyFocus").focus();
     if (instance.group.length > 1 && current.$content) {
       if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a>');

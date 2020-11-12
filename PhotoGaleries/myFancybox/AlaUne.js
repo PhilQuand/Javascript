@@ -11,7 +11,8 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       //  chargements des dépendances js
       load.js('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js'),
       load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
-    ]).then(function() {
+    ]).then(
+    function() {
       console.log('Everything has loaded!');
       if (jQuery.type(options) == 'undefined') return false;
       var src = options.src;

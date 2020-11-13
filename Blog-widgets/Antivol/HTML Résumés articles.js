@@ -44,6 +44,27 @@ color: grey;
 }
 </style>
 <script>
+// fonction de vérification du type de navigateur et numéro de version principal
+// console.log(myBrowser.join(' ')); // outputs: `Chrome 62`
+// if( myBrowser[0]  == "Firefox" && eval(myBrowser[1])  <= 48) caractérise la version du navigateur de Pierre...
+navigator.sayswho = (function() {
+  var ua = navigator.userAgent,
+    tem,
+    M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+  if (/trident/i.test(M[1])) {
+    tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+    return 'IE ' + (tem[1] || '');
+  }
+  if (M[1] === 'Chrome') {
+    tem = ua.match(/\b(OPR|Edge)\/(\d+)/);
+    if (tem != null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+  }
+  M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
+  if ((tem = ua.match(/version\/(\d+)/i)) != null) M.splice(1, 1, tem[1]);
+  return M;
+})();
+</script>
+<script>
 function compSumAndImg(strx, chop, imgtag) {
   var result = {
     img: '',
@@ -395,15 +416,21 @@ h1 {
 .VignetteBR.flex.right .divImg {
     margin-left: 0.5em;
 }
-.VignetteBR.flex .divText {
-    width: 100%; 
+.VignetteBR.flex .divText, .VignetteBR.flex .divImg img {
+    width: 100%;
 }
 .VignetteBR.flex .divImg img {
-    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
 }
 @media (max-width: 1100px) {
     .VignetteBR.flex {
         display: block; 
+    }
+    .VignetteBR.flex .divText, .VignetteBR.flex .divImg {
+        display: block;
+        width: 100%; 
+        max-width: 100%;
+        margin-bottom: 1em;
     }
     .VignetteBR.flex .divImg img {
         display: block;
@@ -411,12 +438,49 @@ h1 {
         margin-right: auto;
         width: 80%; 
     }
-    .VignetteBR.flex .divText, .VignetteBR.flex .divImg {
-        width: 100%; 
-    }
 }
 </style>
 <style>
+.VignetteBR.float {
+    display: block; 
+}
+.VignetteBR.float .divImg {
+    max-width: 200px; 
+    width: 40%; 
+    margin-top: 0.5em;
+    //margin-bottom: 0.5em;
+}
+.VignetteBR.float.left .divImg {
+    margin-right: 1em;
+    float: left;
+}
+.VignetteBR.float.right .divImg {
+    margin-left: 0.5em;
+    float: right;
+}
+.VignetteBR.float .divText, .VignetteBR.float .divImg img {
+    width: 100%; 
+}
+.VignetteBR.float .divImg img {
+    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
+}
+@media (max-width: 1100px) {
+    .VignetteBR.float .divText, .VignetteBR.float .divImg {
+        display: block;
+        width: 100%; 
+        max-width: 100%;
+        margin-bottom: 1em;
+    }
+    .VignetteBR.float .divImg img {
+        display: block;
+        max-width: 200px; 
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+}
+</style>
+<!--style>
 /* pour création pdf */
 /*.fr-FR, .en-EN, .de-DE, .es-ES, .it-IT, .pt-PT {
  display: none;
@@ -443,4 +507,4 @@ h1 {
 }
 .VignetteBR .divImg img {
     box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
-</style>
+</style-->

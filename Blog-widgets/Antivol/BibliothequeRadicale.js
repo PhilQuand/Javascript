@@ -33,7 +33,7 @@ var articleFancy = {
     }
   },
   baseClass: 'articleFancyClass',
-    afterLoad: function(instance, current) {
+  afterLoad: function(instance, current) {
     $(".getFancyFocus").focus();
     if (instance.group.length > 1 && current.$content) {
       if (current.index == 0) current.$content.append('<a data-fancybox-next class="button-next inside" href="javascript:;">→</a>');
@@ -68,12 +68,20 @@ var articleFancy = {
 var printNavHash = function() {
   $(".corpsBR").wrapInner("<div class='innerWrapBR'></div>");
   var navCorpsBR = $('<nav id="navCorpsBR"></nav>');
-  $('.newBRMedia').each(function(index) {
-    $(this).attr('id', 'newBRMedia-' + index)
-    navCorpsBR.append('<li><a href="#newBRMedia-' + index + '"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');
+  $(".corpsBR article").each(function(index) {
+    var idArtcle = $(this).attr('id');
+    if (jQuery.type(idArtcle) == 'undefined') {
+      $(this).attr('id', 'article-' + index);
+      navCorpsBR.append('<li><a href="#article-' + index + '"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');
+    }
+    else {
+      navCorpsBR.append('<li><a href="#' + idArtcle + '"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');
+    }
   })
-  navCorpsBR.wrapInner('<ul></ul>"');
-  $(".corpsBR").append(navCorpsBR);
+  if (navCorpsBR.has('li').length > 0) {
+    navCorpsBR.wrapInner('<ul></ul>"');
+    $(".corpsBR").append(navCorpsBR);
+  }
   $(document).ready(function() {
     $(".corpsBR #navCorpsBR ul li a").hover(function() {
       $(this).find("circle").css('fill', '#4a00ff');
@@ -99,4 +107,5 @@ var printNavHash = function() {
 
     window.onhashchange = printHash;
   });
+
 };

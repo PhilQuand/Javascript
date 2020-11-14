@@ -77,6 +77,7 @@ $(document).ready(function() {
   // replace this string with your share URL
   var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1xf3z6GWPcegkHynveirkPV-w9P9_N7Wvb5SR6SWEfSw/edit?usp=sharing';
   var loading = document.getElementById('loading');
+  if( loading == null) return;
 
   Tabletop.init({
     key: SHEET_ID,

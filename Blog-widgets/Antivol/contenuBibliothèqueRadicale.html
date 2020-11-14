@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="SIURFFMR right" >
-<span class="divImg"  style="max-width: 200px;">
+<span class="divImg">
 <a href="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="374" data-original-width="497" src="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg"/></a>
 </span>
 <span class="divText">
@@ -73,11 +73,12 @@
 </html>
 <script>
 $(document).ready(function() {
-  // $('#table').DataTable();
-  // replace this string with your share URL
+  // Table de L'Antivol
   var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1bO7gWZNTsqRI2RKtIpRz8cc5BNGDFomCZagGkDLyhEU/edit?usp=sharing';
-
+  // Table du BROUILLON de L'Antivol
+  //var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1xf3z6GWPcegkHynveirkPV-w9P9_N7Wvb5SR6SWEfSw/edit?usp=sharing';
   var loading = document.getElementById('loading');
+  if( loading == null) return;
 
   Tabletop.init({
     key: SHEET_ID,
@@ -89,7 +90,7 @@ $(document).ready(function() {
     $('#table').DataTable({
       data: data,
       columns: [{
-          data: "Article de L'AntIvol",
+          data: "Article sur L'AntIvol",
           title: "Titre du média <br/>et lien vers l'article sur L'Antivol"
         },
         {
@@ -113,8 +114,12 @@ $(document).ready(function() {
           title: "Vignette de l'Article sur L'AntIvol"
         },
         {
-          data: "Auteur de l'article L'Antivol",
+          data: "Auteur de l'article sur L'Antivol",
           title: "Auteur de l'article sur L'Antivol"
+        },
+        {
+          data: "Date sur L'Antivol",
+          title: "Date de publication sur L'Antivol"
         },
       ],
       initComplete: function() {
@@ -188,14 +193,13 @@ div.dataTables_wrapper div.dataTables_length {
 div.dataTables_wrapper div.dataTables_length select {
     width: 100%;
 }
-
 *, *:after, *:before {
   box-sizing: border-box;
 }
 
 body {
   font-family: Verdana, Arial, sans-serif;
-  font-size: 12px;
+  //font-size: 12px;
 }
 
 .table-striped {
@@ -251,116 +255,3 @@ input, td, th {
   color:#FFFFFF;
 }
 </style>
-<!--style>
-div.dataTables_wrapper div.dataTables_length select {
-    width: 100%;
-}
-
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Verdana, Arial, sans-serif;
-  font-size: 12px;
-}
-
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-  text-align: left;
-  padding-bottom: 25px;
-}
-
-td, th, hr {
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  cursor: pointer;
-}
-
-th:hover {
-  background-color: #f7f7f7;
-}
-
-tfoot {
-    display: table-header-group;
-}
-
-input {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-input, td, th {
-  padding: 5px;
-  vertical-align: bottom;
-}
-table td, img {
-  width: 100px;
-  padding: 5px;
-  vertical-align: bottom;
-}
-</style-->
-<!--style>
-table tbody {
-    height: 500px;
-    overflow-y: auto;
-    display: block;    
-}
-table tbody {
-   background: white;
-   color:black;
-}
-table {
-  font-size: 18px;
-  line-height: 24px;
-}
-table thead th {
-  background:#3E8F32;
-  color:white;
-  font-weight: bold;
-  width: 100%;
-}
-table tbody tr td, 
-table thead th {
-  border: thin solid black;
-  padding-left: 10px;
-  width: 33.333333%;
-}
-table tbody tr.even {
-  //background:#ECF0F1;
-  background:#3E8F32;
-}
-table {
-border-collapse: collapse; 
-width: 100%;
-}
-table tbody tr:hover {
-  background:#BDC3C7;
-  color:#FFFFFF;
-}
-@media screen and (max-width: 860px) {
-  table {
-    font-size: 14px;
-    line-height: 20px;
-  }
-}
-@media screen and (max-width: 650px) {
-  table {
-    font-size: 12px;
-    line-height: 18px;
-  }
-}
-@media screen and (max-width: 470px) {
-  table tbody tr td, table thead th {
-    font-size: 12Px;
-  }
-}
-@media screen and (max-width: 380px) {
-  table tbody tr td, table thead th {
-    font-size: 10px;
-  }
-}
-</style-->

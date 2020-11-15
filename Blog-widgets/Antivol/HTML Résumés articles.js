@@ -359,6 +359,31 @@ $(document).ready(function() {
 });
 </script>
 <style>
+/* pour rendre les vidéo "responsive" (voir sbipsetlab...) */
+.video-wrapper {
+	width: 560px;
+	max-width: 100%;
+    margin: 2em auto 2em auto;
+}
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	//padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
+<style>
 .mySumReg img {
   max-height: 50px;
 }

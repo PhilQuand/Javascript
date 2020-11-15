@@ -403,8 +403,16 @@ $(document).ready(function() {
 .author {
   font-weight: bold;
 }
+.corps {
+  text-align: justify;
+  //padding: 1em;
+  //background-color: rgba(0, 0, 0, 0.04);
+  background-color: #F4F4F4;
+}
 .incrustation {
   background-color: #e8f6f8;
+}
+.incrustation, .corps {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   padding-left: 1em;
@@ -480,7 +488,7 @@ h1 {
     float: left;
 }
 .VignetteBR.float.right .divImg {
-    margin-left: 0.5em;
+    margin-left: 1em;
     float: right;
 }
 .VignetteBR.float .divText, .VignetteBR.float .divImg img {

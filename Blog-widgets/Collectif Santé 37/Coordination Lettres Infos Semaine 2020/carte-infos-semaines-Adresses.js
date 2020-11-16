@@ -367,6 +367,8 @@ var inpAddress = [
   lat: 48.070360, lng:  1.332180	},
 { inpText: "MONTREUIL",
   lat: 48.864520, lng:  2.442650	},
+{ inpText: "PAMIERS",
+  lat: 43.11356, lng:  1.612530	},
 { inpText: "HAUTE CORSE",
   lat: 42.4691, lng:  9.2094},
 { inpText: "DEUX-SEVRE",

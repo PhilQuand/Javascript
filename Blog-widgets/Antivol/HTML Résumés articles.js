@@ -64,6 +64,38 @@ navigator.sayswho = (function() {
   return M;
 })();
 </script>
+<style>
+/*.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}*/
+
+button.subscribe-button.pill-button .tooltiptext {
+  //font-size; 12px;
+  text-transform: none;
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+button.subscribe-button.pill-button:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+
+<script>
+// tooltip du bouton s'inscrire
+$('button.subscribe-button.pill-button').append('<span class="tooltiptext">Abonnez-vous à notre lettre d'+ "'" + 'information. En appuyant sur "s'+ "'" + 'inscrire" vous serez prévenu de nos nouvelles publications</span>')
+</script>
 <script>
 function compSumAndImg(strx, chop, imgtag) {
   var result = {
@@ -388,6 +420,7 @@ $(document).ready(function() {
   max-height: 50px;
 }
 .header {
+  text-align: justify;
   font-family: "Arial Rounded MT Bold"; 
   font-size:18px;
   color: #666666;

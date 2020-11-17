@@ -2,11 +2,19 @@
 <html>
 <head>
 	<title>Responsive NavBar</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+body {
+    line-height: 1.15!important;
+    background-color: #FFFC79!important;
+    color: #757575!important;
+    font: normal normal 15px Calibri!important;
+}
+</style>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -20,30 +28,55 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="menu-item active"><a href="#">Антропоморфоз</a></li>
-                <li class="menu-item"><a href="#">Филогенез</a></li>
-                <li class="menu-item"><a href="#">Адаптагенность</a></li>
-                <li class="menu-item"><a href="#">Абберация</a></li>
-                <li class="menu-item"><a href="#">Суперпозиция</a></li>
-                <li class="menu-item"><a href="#">Микрофиламент</a></li>
-                <li class="menu-item"><a href="#">Квинтесенция</a></li>
-                <li class="menu-item"><a href="#">Нейропластичность</a></li>
+                <li class="menu-item active"><a href="#">Accueil</a></li>
+                <li class="menu-item"><a href="#">Qui sommes-nous&nbsp;?</a></li>
+                <li class="menu-item"><a href="#">Idées</a></li>
+                <li class="menu-item"><a href="#">Actions</a></li>
+                <li class="menu-item"><a href="#">Médiathèque radicale</a></li>
+                <li class="menu-item"><a href="#">Liens</a></li>
+                <li class="menu-item"><a href="#">Contacts</a></li>
+                <!--li class="menu-item"><a href="#">Нейропластичность</a></li-->
                 <li class="dropdown" id="menu-colapsed">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="glyphicon glyphicon-option-horizontal"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="collapsed-menu-item"><a href="#">Антропоморфоз</a></li>
-                        <li class="collapsed-menu-item"><a href="#">Филогенез</a></li>
-                        <li class="collapsed-menu-item"><a href="#">Адаптагенность</a></li>
-                        <li class="collapsed-menu-item"><a href="#">Абберация</a></li>
-                        <li class="collapsed-menu-item"><a href="#">Суперпозиция</a></li>
-                        <li class="collapsed-menu-item"><a href="#">Микрофиламент</a></li>
-                        <li class="collapsed-menu-item"><a href="#">Квинтесенция</a></li>
-                        <li class="collapsed-menu-item"><a href="#">Нейропластичность</a></li>
+                        <li class="collapsed-menu-item"><a href="#">Accueil</a></li>
+                        <li class="collapsed-menu-item"><a href="#">Qui sommes-nous&nbsp;?</a></li>
+                        <li class="collapsed-menu-item"><a href="#">Idées</a></li>
+                        <li class="collapsed-menu-item"><a href="#">Actions</a></li>
+                        <li class="collapsed-menu-item"><a href="#">Médiathèque radicale</a></li>
+                        <li class="collapsed-menu-item"><a href="#">Liens</a></li>
+                        <li class="collapsed-menu-item"><a href="#">Contacts</a></li>
+                        <!--li class="collapsed-menu-item"><a href="#">Нейропластичность</a></li-->
                     </ul>
                 </li>
             </ul>
+            <!--ul class="tabs">
+<li class="overflowable-item" aria-hidden="false">
+<a href="https://www.lantivol.com/">Accueil</a>
+</li>
+<li class="overflowable-item selected" aria-hidden="false">
+<a href="https://www.lantivol.com/p/qui-sommes-nous.html">Qui sommes-nous&nbsp;?</a>
+</li>
+<li class="overflowable-item" aria-hidden="false">
+<a href="https://www.lantivol.com/p/idees.html">Idées</a>
+</li>
+<li class="overflowable-item" aria-hidden="false">
+<a href="https://www.lantivol.com/p/actions.html">Actions</a>
+</li>
+<li class="overflowable-item" aria-hidden="false">
+<a href="https://www.lantivol.com/p/mediatheque-radicale.html">Médiathèque radicale</a>
+</li>
+<li class="overflowable-item" aria-hidden="false">
+<a href="https://www.lantivol.com/p/liens.html">Liens</a>
+</li>
+<li class="overflow-button-container" aria-hidden="true" style="display: none;"><div class="overflow-button">
+<a>Plus…</a>
+</div></li><li class="overflowable-item" aria-hidden="false">
+<a href="https://www.lantivol.com/p/contacts.html">Contacts</a>
+</li>
+</ul-->
         </div>
     </div>
 </nav>

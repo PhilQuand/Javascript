@@ -76,7 +76,7 @@ button.subscribe-button.pill-button .tooltiptext {
   text-transform: none;
   visibility: hidden;
   width: 120px;
-  background-color: white;
+  background-color: #F4F4F4;
   color: black;
   text-align: center;
   border-radius: 6px;
@@ -94,7 +94,7 @@ button.subscribe-button.pill-button:hover .tooltiptext {
 
 <script>
 // tooltip du bouton s'inscrire
-$('button.subscribe-button.pill-button').append('<span class="tooltiptext">Abonnez-vous à notre lettre d'+ "'" + 'information. En appuyant sur "s'+ "'" + 'inscrire" vous serez prévenu de nos nouvelles publications</span>')
+$('button.subscribe-button.pill-button').append('<span class="tooltiptext">Pour recevoir notre lettre d'+ "'" + 'information</span>')
 </script>
 <script>
 function compSumAndImg(strx, chop, imgtag) {

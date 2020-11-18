@@ -44,6 +44,31 @@ color: grey;
 }
 </style>
 <script>
+$(document).ready(function() {
+  $('.jump-link.flat-button.ripple a').each(function() {
+    var href = $(this).attr('href');
+    if (href.indexOf('#more') > -1) {
+      href = href.split('#more')[0];
+    }
+    $(this).attr('href', href);
+  });
+});
+
+if (postTyp() == 'post') $('nav').css('display', 'none')
+
+function postTyp() {
+  //var pathname = window.location.origin + window.location.pathname;
+  var pathname = window.location.pathname;
+  if ((pathname == "/") || (pathname == "/search")) {
+    return 'home';
+  }
+  if (pathname.indexOf("/p/") > -1) {
+    return 'page';
+  }
+  return 'post';
+}
+</script>
+<script>
 // fonction de vérification du type de navigateur et numéro de version principal
 // console.log(myBrowser.join(' ')); // outputs: `Chrome 62`
 // if( myBrowser[0]  == "Firefox" && eval(myBrowser[1])  <= 48) caractérise la version du navigateur de Pierre...

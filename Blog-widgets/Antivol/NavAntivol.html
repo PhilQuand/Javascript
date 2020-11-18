@@ -1,4 +1,4 @@
-<div class="widget-content" id="myWidgetPageList">
+<nav  id='myWidgetPageList'>
   <div class="overflowable-container overflowable-4">
     <div class="overflowable-contents">
       <div class="container">
@@ -89,11 +89,11 @@
       </ul>
     </div>
   </div>
-</div>
+</nav>
 <script>
 $(document).ready(function() {
-  //$('#PageList1 .widget-content').remove()
-  $('#PageList1').append($('#myWidgetPageList'));
+  $('#PageList1 .widget-content').css('display','none');
+  //$('#PageList1').append($('#myWidgetPageList'));
   $('#myWidgetPageList li').removeClass("selected");
   var myPathname = window.location.pathname;
   var myOrigin = window.location.origin;

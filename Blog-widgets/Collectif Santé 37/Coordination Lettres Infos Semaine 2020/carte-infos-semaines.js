@@ -467,6 +467,11 @@
                   [43.07, 8.39],
                   [41.29, 9.74]
                 ]),
+                title: 'vol vers la Corse',
+                flyTo: {
+                      lat: 42.19,
+                      lng: 9.08
+                    },
                 hasevents: false
               },
                {
@@ -475,6 +480,11 @@
                   [14.905, -61.500],
                   [14.377, -60.762]
                 ]),
+                title: 'vol vers la Martinique',
+                flyTo: {
+                      lat: 14.7297,
+                      lng: -60.9655
+                    },
                 hasevents: false
               },
              {
@@ -483,6 +493,11 @@
                   [16.5572, -61.971],
                   [15.7881, -60.946]
                 ]),
+                title: 'vol vers la Guadeloupe',
+                flyTo: {
+                      lat: 16.228,
+                      lng: -61.526
+                    },
                 hasevents: false
               },
               {
@@ -491,6 +506,11 @@
                   [6.16, -55.08],
                   [1.88, -51.16]
                 ]),
+                title: 'vol vers la Guyane',
+                flyTo: {
+                      lat: 3.945,
+                      lng: -53.13
+                    },
                 hasevents: false
               },
               {
@@ -499,6 +519,11 @@
                   [-19.6496, 54.5825],
                   [-21.6107, 58.1036]
                 ]),
+                title: 'vol vers la Réunion',
+                flyTo: {
+                      lat: -20.887,
+                      lng: 55.455
+                    },
                 hasevents: false
               },
               {
@@ -596,7 +621,32 @@
               while (!autresDepts[j].hasevents);
               localState.nextStateName = autresDepts[j].name; // name of the next state
               localState.icon = 'fa-plane'; // and define its properties
-              switch (autresDepts[i].name) {
+              if (autresDepts[i].name == 'Hexagone') {
+                localState.title = "retour vers l'Hexagone"; // like its title
+                localState.bounds = autresDepts[i].bounds;
+                localState.onClick = function(btn, map) { // and its callback
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      map.flyToBounds(btn.options.states[j].bounds);
+                      break;
+                    }
+                  }
+                };
+              }
+              else {
+                localState.title = autresDepts[i].title; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  map.flyTo(autresDepts[i].flyTo, 6);
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                } 
+              }
+              /*switch (autresDepts[i].name) {
                 case 'Corse':
                   localState.title = 'vol vers la Corse'; // like its title
                   localState.onClick = function(btn, map) { // and its callback
@@ -684,7 +734,7 @@
                       }
                     }
                   };
-              }
+              }*/
               states.push(localState);
             }
             if (states.length > 1) {

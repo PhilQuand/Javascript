@@ -621,7 +621,7 @@
               while (!autresDepts[j].hasevents);
               localState.nextStateName = autresDepts[j].name; // name of the next state
               localState.icon = 'fa-plane'; // and define its properties
-              if (autresDepts[i].name == 'Hexagone') {
+              /*if (autresDepts[i].name == 'Hexagone') {
                 localState.title = "retour vers l'Hexagone"; // like its title
                 localState.bounds = autresDepts[i].bounds;
                 localState.onClick = function(btn, map) { // and its callback
@@ -645,8 +645,8 @@
                     }
                   }
                 } 
-              }
-              /*switch (autresDepts[i].name) {
+              }*/
+              switch (autresDepts[i].name) {
                 case 'Corse':
                   localState.title = 'vol vers la Corse'; // like its title
                   localState.onClick = function(btn, map) { // and its callback
@@ -734,7 +734,7 @@
                       }
                     }
                   };
-              }*/
+              }
               states.push(localState);
             }
             if (states.length > 1) {

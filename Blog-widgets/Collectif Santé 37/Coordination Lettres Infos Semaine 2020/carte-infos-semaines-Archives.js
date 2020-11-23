@@ -1,7 +1,7 @@
     var archi = [
            {
           svgInfos: ['Semaine 47', 'du 16 novembre', 'au 21 novembre', '2020'],
-          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 46.html',
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 47.html',
         },
            {
           svgInfos: ['Semaine 46', 'du 09 novembre', 'au 13 novembre', '2020'],

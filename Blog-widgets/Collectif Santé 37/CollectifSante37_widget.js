@@ -549,6 +549,117 @@ function createSummaryAndThumb(pID, isRegular) {
 }
 </script>
 
+<!-- styles de paragraphe -->
+<style>
+h1 { 
+  display: block;
+  color: #D52C1E;
+  font-size: 2em;
+  //font-size:x-large;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h2 {
+  display: block;
+  color: black;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h3 { 
+  display: block;
+  color: black;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h4 { 
+  display: block;
+  color: black;
+  font-size: 1em;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h5 { 
+  display: block;
+  color: black;
+  font-size: .83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+h6 { 
+  display: block;
+  color: black;
+  font-size: .67em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+</style>
+<style>
+/*.mySumReg img {
+  max-height: 50px;
+}*/
+.header {
+  text-align: justify;
+  font-family: "Arial Rounded MT Bold"; 
+  font-size:18px;
+  color: #666666;
+  line-height: 1.4;
+  //font-style: italic;
+  //background-color: #FEFEE2;
+  //padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  //padding-left: 1em;
+  //padding-right: 1em;
+  margin-bottom: 0.5em;
+}
+.author {
+  font-weight: bold;
+}
+.corps {
+  text-align: justify;
+  //padding: 1em;
+  //background-color: rgba(0, 0, 0, 0.04);
+  background-color: #F4F4F4;
+}
+.incrustation {
+  background-color: #e8f6f8;
+}
+.incrustation, .corps {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+h1 {
+  color: #D52C1E;
+  font-size:x-large;
+}
+.furthermore {
+  text-align: right;
+  font-style: italic;
+}
+</style>
 <!-- alignement de deux images de même taille -->
 <style>
 /*.avatar-image-container {
@@ -578,6 +689,142 @@ function createSummaryAndThumb(pID, isRegular) {
         margin-right: auto;
         width: 80%; 
     }
+}
+</style>
+<!-- alignement vignette et texte -->
+<style>
+.VignetteBR.flex {
+    display: flex; 
+    align-items: flex-start;
+    width: 100%; 
+}
+.VignetteBR.flex .divImg {
+    max-width: 200px; 
+    width: 30%; 
+    //margin-bottom: 1em;
+}
+.VignetteBR.flex.left .divImg {
+    margin-right: 1em;
+}
+.VignetteBR.flex.right {
+    flex-direction: row-reverse;
+}
+.VignetteBR.flex.right .divImg {
+    margin-left: 0.5em;
+}
+.VignetteBR.flex .divText, .VignetteBR.flex .divImg img {
+    width: 100%;
+}
+.VignetteBR.flex .divImg.relief img {
+    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
+}
+@media (max-width: 1100px) {
+    .VignetteBR.flex {
+        display: block; 
+    }
+    .VignetteBR.flex .divText, .VignetteBR.flex .divImg {
+        display: block;
+        width: 100%; 
+        max-width: 100%;
+        margin-bottom: 1em;
+    }
+    .VignetteBR.flex .divImg img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+}
+.VignetteBR.float {
+    display: block; 
+}
+.VignetteBR.float .divImg {
+    max-width: 200px; 
+    width: 40%; 
+    margin-top: 0.5em;
+    //margin-bottom: 0.5em;
+}
+.VignetteBR.float.left .divImg {
+    margin-right: 1em;
+    float: left;
+}
+.VignetteBR.float.right .divImg {
+    margin-left: 1em;
+    float: right;
+}
+.VignetteBR.float .divText, .VignetteBR.float .divImg img {
+    width: 100%; 
+}
+.VignetteBR.float .divImg.relief img {
+    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
+}
+@media (max-width: 1100px) {
+    .VignetteBR.float .divText, .VignetteBR.float .divImg {
+        display: block;
+        width: 100%; 
+        max-width: 100%;
+        margin-bottom: 1em;
+    }
+    .VignetteBR.float .divImg img {
+        display: block;
+        max-width: 200px; 
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+}
+</style>
+<!--style>
+/* pour création pdf */
+/*.fr-FR, .en-EN, .de-DE, .es-ES, .it-IT, .pt-PT {
+ display: none;
+}*/
+.VignetteBR {
+    display: block; 
+}
+.VignetteBR .divImg {
+    max-width: 200px; 
+    width: 40%; 
+    margin-top: 0.5em;
+    //margin-bottom: 0.5em;
+}
+.VignetteBR.left .divImg {
+    margin-right: 1em;
+    float: left;
+}
+.VignetteBR.right .divImg {
+    margin-left: 0.5em;
+    float: right;
+}
+.VignetteBR .divText, .VignetteBR .divImg img {
+    width: 100%; 
+}
+.VignetteBR .divImg.relief img {
+    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
+</style-->
+<style>
+/* pour rendre les vidéo "responsive" (voir sbipsetlab...) */
+.video-wrapper {
+	width: 560px;
+	max-width: 100%;
+    margin: 2em auto 2em auto;
+}
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	//padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 </style>
 
@@ -772,8 +1019,10 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
 $(document).ready(function() {
   $('.gallery-container').Shaders({
         images: [
-          "https://1.bp.blogspot.com/-K-k7-J6EuZ4/X6V8RlEGQFI/AAAAAAAAnVQ/kcJobe8uDCwccf0J3SaxuYC4eog5eoW8QCLcBGAsYHQ/s0/Affichette%2Bde%25CC%2581passements%2Bverso.jpg",
-          "https://1.bp.blogspot.com/-GSpCAKD61js/X6V8Rn8wGkI/AAAAAAAAnVU/luYVX6c_rUUFmtiu_aa32bweDZzu2GvywCLcBGAsYHQ/s0/Affichette%2Bde%25CC%2581passements%2Brecto%2Bpaysage%2Bfinal.jpg",
+          //"https://1.bp.blogspot.com/-SBiL7ij6FJQ/X8DZwp0K98I/AAAAAAAAnas/yrwo67TMd6gOGLP-BVIqoxtw5tgfkKSJwCLcBGAsYHQ/s0/IMG_3766%2B%25281%2529.jpeg",
+          "https://1.bp.blogspot.com/-0HZlOUs3e_o/X8FxrXLHJKI/AAAAAAAAnbY/DO_WVoEt7hMa7_JYaIQ7ppff774ltltzgCLcBGAsYHQ/s16000/Image%2B27-11-2020%2Ba%25CC%2580%2B22.36.jpeg",
+          "https://1.bp.blogspot.com/-1cKRsisDK4Y/X8FxUi5CVMI/AAAAAAAAnbM/V-FUZI4AiQoopZUjfRCMkw77QRGRnodqQCLcBGAsYHQ/s0/appel%2B28%2Bnovembre%2B2020%2Bplus%2Bp1.jpg",
+          "https://1.bp.blogspot.com/-RudJAxImUwA/X8FxUm-T6WI/AAAAAAAAnbI/M04AWaYHGhIxi5Lgqil9drbGPvkeCk4QwCLcBGAsYHQ/s0/appel%2B28%2Bnovembre%2B2020%2Bplus%2Bp2.jpg",
         ],
         imageSize: {
           x: 1600,

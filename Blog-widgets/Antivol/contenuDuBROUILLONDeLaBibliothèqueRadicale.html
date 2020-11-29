@@ -8,17 +8,33 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+ <!-- jQuery et GSAP->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script-->
 </head>
 <body>
 <div class="SIURFFMR right" >
 <span class="divImg">
-<a href="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="374" data-original-width="497" src="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg"/></a>
+<!--a href="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg" style="display: block; padding: 1em 0; text-align: center; ">
+<img alt="" border="0" data-original-height="374" data-original-width="497" src="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg"/>
+</a-->
+<a href="https://1.bp.blogspot.com/-sdndlmKg1mQ/X8PZdNgtR3I/AAAAAAAAncE/PA1jCmmWs5stLjRJ9DZaRMkocxmQ5LEuwCLcBGAsYHQ/s0/library-5641389_1920.jpg" style="display: block; padding: 1em 0; text-align: center; ">
+<img alt="" border="0" data-original-height="374" data-original-width="497" src="https://1.bp.blogspot.com/-sdndlmKg1mQ/X8PZdNgtR3I/AAAAAAAAncE/PA1jCmmWs5stLjRJ9DZaRMkocxmQ5LEuwCLcBGAsYHQ/s0/library-5641389_1920.jpg"/>
+</a>
 </span>
 <span class="divText">
 <p>Découvrez, grâce au tableau ci-dessous, l’ensemble des œuvres (livres, BD, films, chansons, etc.) citées dans notre « Médiathèque radicale ». Un lien sur les images, figurant dans la dernière colonne à droite, vous redirige vers l’article où l’œuvre est citée.</p>
-<!--p>Voici les livres, bandes dessinées, films, chansons, citations, etc., présentés dans les article de notre Médiathèque Radicale et propres à nourrir une culture comme telle. Soit, comme le rappelle notre manifeste, une manière de penser et d’agir qui « cherche à aller à la racine des problèmes et à la hauteur des solutions ». </p>
-<p> Ils s’adressent à toutes et tous, membres de L’Antivol ou non, débutants ou aguerris en radicalité, passionnés de l’écrit, du son ou/et de l’image.</p-->
 </span></div>
+<!--script>
+$(function () { // wait for document ready
+/*gsap.to(".SIURFFMR img", { keyframes: [
+  //{duration: 1, x: -200 },
+  //{ duration: 1, backgroundColor: "#f38630", delay: 0.5 }, 
+  { duration: 1, x: 0, rotation: -360, delay: 0.5 }
+]});*/
+/*TweenMax.to(".SIURFFMR img", 2, {opacity:1, scaleX:0.1, scaleY:0.1, width:300, height:250, transformOrigin:"center", marginTop:0, ease:Power1.easeIn});*/
+});
+</script-->
 <style>
 .SIURFFMR {
     display: flex; 
@@ -59,6 +75,35 @@
     .SIURFFMR .divText, .SIURFFMR .divImg {
         width: 100%; 
     }
+}
+.SIURFFMR .divImg img {
+  //background-color: red;
+  animation-name: stretch;
+  animation-duration: 2.5s; 
+  //animation-timing-function: ease-out; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(.2);
+    //background-color: red;
+    border-radius: 100%;
+  }
+  /*10% {
+    transform: scale(1.);
+    border-radius: 0%;
+    //background-color: orange;
+  }*/
+  100% {
+    transform: scale(1.);
+    //transform: scale(0.8);
+    //background-color: yellow;
+  }
 }
 </style>
   <div id="loading">

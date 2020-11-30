@@ -2699,19 +2699,42 @@ function loadOpenStreetWorld(map) {
 
 };
 
-// Constructeur de la carte Mapbox pour LeafLet
 function loadMapBox(map) {
-  var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNqcmZlOWFwMjBuMnQ0NW1qN3VhczNhMW4ifQ.OSyAGC_JQQUISRiSuc8ghg';
+  // Usage:  Load different file types with one callback
+  Promise.all([
+    // Début ressources utilisées pour construire la carte MapBox
+    load.js('https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'),
+    load.css('https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css')
+    // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
 
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    //id: 'mapbox.light',
-    accessToken: mapboxAccessToken
-  }).addTo(map);
+  ]).then(
+    function() {
+      console.log('Everything has loaded!');
 
+      //var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNqcmZlOWFwMjBuMnQ0NW1qN3VhczNhMW4ifQ.OSyAGC_JQQUISRiSuc8ghg';
+      /*var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
+
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        //id: 'mapbox.light',
+        accessToken: mapboxAccessToken
+      }).addTo(map);*/
+      L.mapbox.accessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
+      // Downsample tiles for faster load times on slow internet connections by
+      // adjusting the format property in styleLayer. See
+      // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
+      L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
+        tileLayer: {
+          format: 'jpg70'
+        }
+      }).addTo(map);
+    }).catch(function() {
+    console.log('Oh no, epic failure!');
+  });
 };
+
 
 // Constructeur de la carte GeoJSON des régions françaises pour LeafLet
 function loadRegFranceJSONN(map, getColor) {

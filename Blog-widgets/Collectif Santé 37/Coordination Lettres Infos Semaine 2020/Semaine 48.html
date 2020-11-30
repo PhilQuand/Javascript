@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaines 38</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+Malgré les difficultés actuelles, nous avons pu tenir une Assemblée Générale riche ce samedi 28 novembre. Près de 40 comités présents, plus de 80 participants ! Une réussite qui est aussi la marque d'une situation dégradée du droit à la santé.
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 250px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 48</li>
+<li><strong>Dates</strong>: du 23 au 27 novembre 2020</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2020/11/Infos-semaine-48-du-23-au-27-Novembre-2020-1.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:image012.jpg@01D6C705.B0503A20</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/11/image012-1.jpg" />
+<h3>cid:image013.jpg@01D6C705.B0503A20</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2020/11/image013.jpg" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">Édito  : </span></b><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">Malgré les difficultés actuelles, nous avons pu tenir une Assemblée Générale riche ce samedi 28 novembre. Près de 40 comités présents, plus de 80 participants ! Une réussite qui est aussi la marque d'une situation dégradée du droit à la santé.</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">Sommaire :</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-indent: -18pt;"><span style="font-size: 22pt; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">L’écho des comités : pages 2, 3, et 4</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-indent: -18pt;"><span style="font-size: 22pt; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">Autres infos locales : pages 4 et 5</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-indent: -18pt;"><span style="font-size: 22pt; font-family: Symbol;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">      </span></span><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">Dossiers :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">-</span></b><b><span style="font-size: 18pt; font-family: Arial, sans-serif;"> Intervention de Michèle Leflon dans l’Huma : page 6</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">- </span></b><b><span style="font-size: 18pt; font-family: Arial, sans-serif;">M. Le 1<sup>er</sup> Ministre à Brest : page 6</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">- </span></b><b><span style="font-size: 18pt; font-family: Arial, sans-serif;">Psychiatrie, lettre du Printemps aux parlementaires page 7</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 18pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-indent: -18pt;"><span style="font-size: 18pt; font-family: Symbol; color: black;">·<span style="font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">       </span></span><b><span style="font-size: 22pt; font-family: Arial, sans-serif;">Culture et santé :</span></b></p>
+<p class="ListParagraph" style="margin: 0cm 0cm 8pt 54pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-size: 18pt; font-family: Arial, sans-serif;">Les graphistes ont « la parole » : page 7</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #7030a0;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #7030a0;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;">L’écho des comités :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">CONCARNEAU - 29</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">Communiqué de presse du comité</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">Polémique ou réquisitoire ?</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 18pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-size: 12.5pt; font-family: Arial, sans-serif; color: black;">Un article paru récemment dans la presse locale pour pointer la mauvaise gestion de la crise du Covid 19 par le gouvernement a fait réagir les élus locaux de la République en Marche volant au secours de nos gouvernants.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 18pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-size: 12.5pt; font-family: Arial, sans-serif; color: black;">Le comité de défense de l’hôpital de Concarneau n’a pas pour vocation de se lancer dans un débat politique, mais il tient à souligner la responsabilité du gouvernement actuel, comme des précédents depuis plus de 30 ans dans la catastrophe sanitaire que nous subissons.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/11/Concarneau-Communiqu%C3%A9-de-presse-Pol%C3%A9mique-ou-r%C3%A9quisitoire-Novembre-2020.pdf"><b><span style="font-family: Arial, sans-serif;">Le communiqué</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: #00b050;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">AUBAGNE - 13</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<h1 style="margin: 1.4pt 0cm 8pt 21.6pt; text-indent: -21.6pt; font-size: 24pt; font-family: 'Times New Roman', serif; color: #00000a; text-align: center;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: black;">Le comité demande le bilan du Covid à l’ARS</span></h1>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: justify;"><span style="font-family: Arial, sans-serif;">Alors que nous vivons une crise sanitaire sans précédent, les 3 collectifs de défense de l'hôpital public d'Aubagne (citoyens, médecins et maires) constatent combien il était important de se mobiliser pendant 4 ans pour le maintien du service de réanimation du centre hospitalier Edmond Garcin. </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: justify;"><span style="font-family: Arial, sans-serif;">Rappelons-le, le service réanimation de l'hôpital d'Aubagne reste à ce jour le seul service de réanimation public entre Marseille et Toulon, couvrant ainsi un territoire de plus de 240 000 habitants.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: justify;"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/11/Aubagne-23-11-2020-Com-Presse-ho%CC%82pital.pdf"><b><span style="font-family: Arial, sans-serif;">Le communiqué</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">DOLE - 39</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><img id="&lt;image012.jpg@01D6C705.B0503A20&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image012.jpg@01D6C705.B0503A20" alt="image012.jpg" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: #00b0f0;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">JUVISY – LONGJUMEAU - ORSAY</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">68.900 signataires de la pétition</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">20.500 sur <a style="color: #954f72;" href="http://change.org/">change.org</a> et 48.400 sur papier Hôpitaux de Juvisy, Longjumeau, Orsay</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">Malgré le Covid la casse continue</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">Résistons </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><span style="font-family: Arial, sans-serif;"><a style="color: #954f72;" href="http://coordination-defense-sante.org/a-la-une-3/hopital-tract-manif-evry-03-12-20/">http://coordination-defense-sante.org/a-la-une-3/hopital-tract-manif-evry-03-12-20/</a></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: #002060;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: white;">MONTREUIL</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">Rectificatif : la semaine dernière, nous avons attribué au comité de Montreuil la lettre adressée aux parlementaires. C'est une lettre unitaire des organisations de retraié-e-s au plan national. Toutes nos excuses !</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 18.399999618530273px; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: yellow;" align="center"><b><span style="font-size: 14pt; line-height: 21.466665267944336px; font-family: Arial, sans-serif;">TOURS</span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 18.399999618530273px; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-size: 14pt; line-height: 21.466665267944336px; font-family: Arial, sans-serif; background-color: yellow; background-position: initial initial; background-repeat: initial initial;"> </span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 18.399999618530273px; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-size: 14pt; line-height: 21.466665267944336px; font-family: Arial, sans-serif;">Jeudi 3 décembre à 15h devant la préfecture : tous les salariés demanderont une égalité de traitement</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/11/sanitaire-social-medicosocial-tous-pareil.odt"><b><span style="font-family: Arial, sans-serif; color: #0070c0;">sanitaire, social, medicosocial tous pareils</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;">Autres infos locales :</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: #ec9ba4;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: windowtext;">CRETEIL – 94</span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 8pt; line-height: 18.399999618530273px; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif; color: windowtext;">Rassemblement à 8 h devant l'entrée principale d'H. Mondor en soutien à l'hôpital public et en solidarité avec les personnels de santé</span></b></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 18.399999618530273px; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-family: Arial, sans-serif;">A cette occasion, la Coordination lancera sa commission d’enquête sur la gestion de la COVID19 dans le sud francilien (77 91 94)</span></p>
+<p class="MsoBodyText" style="margin: 0cm 0cm 7pt; line-height: 18.399999618530273px; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/11/Communique-de-presse-de-la-Coordination-30-novembre-2020.pdf">Communique de presse de la Coordination du GHU Mondor 30 novembre 2020</a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: windowtext;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: red;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">PARIS HOTEL DIEU</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">Nous ne laisserons pas faire…</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">Le S.A.U de l’Hôtel Dieu doit rouvrir immédiatement.</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif;">« On manque de lits, de services à Paris… A l’hôpital Hôtel-Dieu, des unités peuvent et doivent rouvrir »</span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-family: Arial, sans-serif;">Les organisations CGT dénoncent la grave décision prise par Martin HIRSCH et Olivier VERAN d’avoir, en pleine crise sanitaire, sans la moindre concertation et de manière radicale, fermé les urgences de l’Hôtel Dieu et déployé brutalement l’ensemble de ses professionnels.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-family: Arial, sans-serif;">La crise sanitaire impacte l’ensemble des citoyens et les professionnels de santé en première ligne. L’hôpital Hôtel-Dieu, au cœur de la capitale, a un rôle prépondérant dans l’offre de soins nécessaire à la réponse aux besoins.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-family: Arial, sans-serif;">De plus, les décideurs ne prennent pas en compte l’ampleur d’une telle décision face à l’ensemble des menaces. Notamment en cas d’attentats, avec une véritable analyse liée au plan VIGIPIRATE éle vé, multipliant les facteurs de risque (covid-19 + VIGIPIRATE élevé), mais aussi de la saturation des activités et des services d’urgences des établissements hospitaliers parisiens en cette période hivernale.</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/11/Hotel-dieu-Communiqu%C3%A9-de-presse-lh%C3%B4tel-Dieu-doit-vivre-au-coeur-de-Paris-Novembre-2020.pdf"><b><span style="font-family: Arial, sans-serif;">Le communiqué</span></b></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; background-color: #ffc000;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">SEINE SAINT DENIS - 93</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 1.4pt; margin-left: 0cm; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif; color: #363135;">Notre centre de santé dentaire du 93 ne doit pas fermer !</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 1.4pt; margin-left: 0cm; text-align: center;" align="center"><b><span style="font-family: Arial, sans-serif; color: #363135;">Pétition à signer en ligne</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;">La direction de la Caisse primaire d’assurance-maladie de la Seine-Saint-Denis vient d’annoncer qu’elle veut fermer d’ici le 31 décembre le Centre de santé dentaire qu’elle gère, situé à La Courneuve.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;">Les chirurgiens-dentistes et assistants ont immédiatement écrit à la direction, et affirment leur détermination à se « battre jusqu’au bout pour le maintien aux droits d’accès aux soins dentaires des patients du 93 ».</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;">Ce centre dentaire est le dernier du département, après que ceux d’Aulnay et d’Aubervilliers ont été supprimés il y a trois ans.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;">On y soigne tous les habitants de la Seine-Saint-Denis, le département le plus pauvre de France, le plus frappé par le chômage et les licenciements. Ce centre appartient aux assurés. C’est le nôtre. Hors de question qu’on nous l’enlève !</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-top: 18pt; text-align: justify;"><span style="font-family: Arial, sans-serif;">Dans la diversité de nos sensibilités, nous lançons un appel à tous les élus, militants, syndicalistes, responsables associatifs de la Seine-Saint-Denis, pour empêcher cette fermeture et obtenir que la direction de la CPAM revienne sur son choix.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: justify;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center;" align="center"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center;" align="center"><span style="font-family: Arial, sans-serif;"><a style="color: #954f72;" href="https://www.change.org/p/direction-de-la-cpam-de-la-seine-saint-denis-notre-centre-de-sant%C3%A9-dentaire-du-93-ne-doit-pas-fermer"><b>La pétition</b></a></span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center;" align="center"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;">Dossiers :</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><b><span style="font-family: Arial, sans-serif;">Intervention de Michèle Leflon dans l’Huma</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;">1<b>. La pandémie de Covid 19 semble démontrer une forte dépendance de notre système de santé. Dans quelle mesure et dans quels domaines précisément ?</b></span></p>
+<p class="MsoBodyTextCxSpFirst" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyTextCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><b><span style="font-family: Arial, sans-serif;">2.Les politiques de libéralisation du secteur de la santé peuvent-elles être incriminées dans cette situation ?</span></b></p>
+<p class="MsoBodyTextCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyTextCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><b><span style="font-family: Arial, sans-serif;">3. Comment en sortir et à quelles conditions ?</span></b></p>
+<p class="MsoBodyTextCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoBodyTextCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-family: Arial, sans-serif; color: #0066b3;"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2018/01/tribunehumaml.pdf">http://coordination-defense-sante.org/wp-content/uploads/2018/01/tribunehumaml.pdf</a></span></b></p>
+<p class="MsoBodyTextCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"> </p>
+<p class="MsoBodyTextCxSpLast" style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"> </p>
+<p class="MsoNormalCxSpFirst" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: black;">Visite de Jean Castex à l’hôpital de Brest: les syndicats mis au placard</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif; color: #202222;">Au cours du déplacement du premier ministre dans l’établissement, vendredi, les syndicalistes ont été confinés dans une partie de l’hôpital, avec interdiction d’en sortir. On leur avait pourtant promis, s’ils étaient sages, qu’ils rencontreraient le chef du gouvernement.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><a style="color: #954f72;" href="https://www.mediapart.fr/journal/france/211120/visite-de-jean-castex-l-hopital-de-brest-les-syndicats-mis-au-placard?onglet=full"><b><span style="font-family: Arial, sans-serif;">L’article</span></b></a></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 14pt; font-family: Arial, sans-serif;">PSYCHIATRIE</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-right: 0cm; margin-bottom: 1.4pt; margin-left: 0cm; text-align: center; line-height: normal;" align="center"><b><span style="font-family: Arial, sans-serif;">Le Printemps de la Psychiatrie lance un appel aux députés et sénateurs <br />sur la situation de la psychiatrie</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;">Prévenir les isolements, stopper les contentions </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;">Le 19 juin dernier, le Conseil constitutionnel a obligé le législateur à préciser le cadre des pratiques d’isolement et de contention mécanique des patients en psychiatrie en introduisant l’action du Juge des Libertés et de la Détention (JLD). Parallèlement, la Contrôleuse Générale des Lieux de Privation de Liberté (CGLPL) a dénoncé les conditions scandaleuses d’utilisation de ces pratiques. </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;">Le mouvement pour le Printemps de la psychiatrie, rassemblant les soignants, les soignés et les familles de soignés - réunis ce jour en Assemblée générale – tient d’abord à affirmer unanimement que ces deux pratiques ne sont pas de nature thérapeutique. Elles ont une finalité sécuritaire. Les rationalisations qui affirment le contraire doivent être déconstruites.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: justify; line-height: normal;"><span style="font-family: Arial, sans-serif;">En ce qui concerne la contention mécanique du patient par des sangles sur un lit, il est établi qu’elle accentue la peur, accroît la souffrance, elle est vécue comme humiliante et au bout du compte constitue un traumatisme pour le patient. Les pratiques alternatives permettent de l’éviter, comme en atteste la raréfaction de ces contentions vers la fin du siècle dernier. Les institutions psychiatriques ayant développé les dispositifs de « soins sectoriels » ont pu se doter de moyens humains, matériels et immatériels (conceptions de soin) jusqu’à faire disparaître les sangles des services de soins. Cela parallèlement à la disparition des murs autour de ces hôpitaux. Cette évolution, améliorant la situation des soignés, suscitait la fierté chez les soignants.</span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: justify; line-height: normal;"><b><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #21409a;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/wp-content/uploads/2020/11/Psychiatrie-Pr%C3%A9venir-les-isolements-stopper-les-contentions-Appel-public-aux-parlementaires-21-11-20.pdf"><b><span style="font-family: Arial, sans-serif; color: #0066b3;">Le communiqué</span></b></a></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 22pt; font-family: Arial, sans-serif; color: #0070c0;">Culture et santé :</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"> </p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><b><span style="font-family: Arial, sans-serif;">Des artistes dessinent pour la Santé</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><img id="&lt;image013.jpg@01D6C705.B0503A20&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:image013.jpg@01D6C705.B0503A20" alt="image013.jpg" border="0" /></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; line-height: normal;"><b><span style="font-family: Arial, sans-serif;"> </span></b></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><a style="color: #954f72;" href="https://formesdesluttes.org/"><b><span style="font-family: Arial, sans-serif;">Images hôpital (formesdesluttes.org)</span></b></a></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 8pt; text-align: center; line-height: normal;" align="center"><span style="font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a; line-height: normal;"><span style="font-family: Arial, sans-serif; color: black;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="font-family: Helvetica; font-size: 12px; margin-bottom: 10pt; text-align: center; line-height: normal; background-color: yellow;" align="center"><b><span style="font-family: 'Times New Roman', serif;">« Toutes les infos sur le site de la Coordination Nationale »</span></b></p>
+<p class="MsoNormalCxSpMiddle" style="margin: 14pt 0cm 10pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: #00000a; text-align: center; line-height: normal;" align="center"><span style="font-size: 12pt; font-family: Arial, sans-serif;"> </span></p>
+<p class="MsoNormalCxSpMiddle" style="margin: 14pt 0cm 10pt; font-size: 12pt; font-family: 'Times New Roman', serif; color: #00000a; text-align: center; line-height: normal;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><span style="font-size: 12pt; font-family: Arial, sans-serif;">http://coordination-defense-sante.org/</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleGoldIcon",
+          title: 'Manifestations du 15 octobre',
+        }, {
+          class: "marker-2",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -627,7 +627,7 @@ h1 {
     }
     .VignetteBR.float .divImg img {
         display: block;
-        max-width: 200px; 
+        //max-width: 200px; 
         margin-left: auto;
         margin-right: auto;
         width: 80%; 

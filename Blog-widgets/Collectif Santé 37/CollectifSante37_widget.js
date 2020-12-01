@@ -767,7 +767,7 @@ h1 {
     }
     .VignetteBR.float .divImg img {
         display: block;
-        max-width: 200px; 
+        //max-width: 200px; 
         margin-left: auto;
         margin-right: auto;
         width: 80%; 
@@ -1019,10 +1019,16 @@ Mutualisation de la gallerie de photos du post "Des protections et des tests pou
 $(document).ready(function() {
   $('.gallery-container').Shaders({
         images: [
-          //"https://1.bp.blogspot.com/-SBiL7ij6FJQ/X8DZwp0K98I/AAAAAAAAnas/yrwo67TMd6gOGLP-BVIqoxtw5tgfkKSJwCLcBGAsYHQ/s0/IMG_3766%2B%25281%2529.jpeg",
           "https://1.bp.blogspot.com/-0HZlOUs3e_o/X8FxrXLHJKI/AAAAAAAAnbY/DO_WVoEt7hMa7_JYaIQ7ppff774ltltzgCLcBGAsYHQ/s16000/Image%2B27-11-2020%2Ba%25CC%2580%2B22.36.jpeg",
           "https://1.bp.blogspot.com/-1cKRsisDK4Y/X8FxUi5CVMI/AAAAAAAAnbM/V-FUZI4AiQoopZUjfRCMkw77QRGRnodqQCLcBGAsYHQ/s0/appel%2B28%2Bnovembre%2B2020%2Bplus%2Bp1.jpg",
           "https://1.bp.blogspot.com/-RudJAxImUwA/X8FxUm-T6WI/AAAAAAAAnbI/M04AWaYHGhIxi5Lgqil9drbGPvkeCk4QwCLcBGAsYHQ/s0/appel%2B28%2Bnovembre%2B2020%2Bplus%2Bp2.jpg",
+          "https://1.bp.blogspot.com/-gI9-jWEmJyM/X8Zhr_YXr1I/AAAAAAAAndA/1FVLztezz_ArhoYsJeyu2cDrCvrbmF60gCLcBGAsYHQ/s0/DSC05114.jpg",
+          "https://1.bp.blogspot.com/-H8PceU5KJU0/X8Zhr4I0gjI/AAAAAAAAnc8/XswNBkCR4lQfyQTnPSW0ronJlOeKSCmjgCLcBGAsYHQ/s0/DSC05127.jpg",
+          "https://1.bp.blogspot.com/-LJN7Le2NwxU/X8ZhrgLj5VI/AAAAAAAAnc4/6mQOsGgMoF4W7DHmtJIa-8uyvOIBIa30wCLcBGAsYHQ/s0/DSC05148.jpg",
+          "https://1.bp.blogspot.com/-Nj7DcRzUbkM/X8ZhsZUY7LI/AAAAAAAAndE/6WUAqEpP_yEt5c86c94aNfwYF9M5hBUhACLcBGAsYHQ/s0/DSC05149.jpg",
+          "https://1.bp.blogspot.com/-wRD5WuBJtRQ/X8ZhsoB0rgI/AAAAAAAAndI/Y2ng7SI5bMkXdIS759jbyVyMrl_VMmkSACLcBGAsYHQ/s0/DSC05153.jpg",
+          "https://1.bp.blogspot.com/-49yIM1y-7-c/X8ZhslNCFxI/AAAAAAAAndM/FAn8fl9bIikEXEV1JZJi_HsT3DbsVF3hQCLcBGAsYHQ/s0/DSC05157.jpg",
+          "https://1.bp.blogspot.com/-FKUk-ntzXPY/X8ZhtCbddnI/AAAAAAAAndU/Ih35w3634RstIvF2f_sSpSDfUYkM3MaWwCLcBGAsYHQ/s0/DSC05173.jpg"
         ],
         imageSize: {
           x: 1600,

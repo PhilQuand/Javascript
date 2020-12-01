@@ -92,6 +92,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/HongKong.png",
     lat: 22.44,
     lng: 114.13 },
+    Hongrie : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Hongrie.png",
+      lat: 47.50,
+      lng: 19.04 },
     Illinois      : 
     { 
     //img :"https://philquand.github.io/Javascript/flagsRepository/Illinois.png",
@@ -200,6 +204,10 @@ var flagsRepository = {
     { img :"https://philquand.github.io/Javascript/flagsRepository/Australie.png",
       lat: -42.48 ,
       lng: 146.54 },
+    Thailand : 
+    { img :"https://philquand.github.io/Javascript/flagsRepository/Thailand.png",
+      lat: 13.79,
+      lng: 100.50 },
     Tunisie : 
     { img :"https://philquand.github.io/Javascript/flagsRepository/Tunisie.png",
       lat: 35.5 ,

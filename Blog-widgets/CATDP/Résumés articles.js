@@ -368,7 +368,7 @@ h6 {
     }
 }
 .VignetteBR.float {
-    display: block; 
+    //display: block; 
 }
 .VignetteBR.float .divImg {
     max-width: 200px; 

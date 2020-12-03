@@ -770,7 +770,7 @@ h1 {
         //max-width: 200px; 
         margin-left: auto;
         margin-right: auto;
-        width: 80%; 
+        //width: 80%; 
     }
 }
 </style>

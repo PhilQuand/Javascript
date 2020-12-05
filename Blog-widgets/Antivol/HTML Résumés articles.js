@@ -703,9 +703,9 @@ var printNavHash = function() {
       $(".corpsBR nav ul li a circle").css('fill', 'transparent')
       $(this).find("circle").css('fill', '#4a00ff');
     });
-    articleFancy.afterClose = function(instance, current) {
+    /*articleFancy.afterClose = function(instance, current) {
       $(".corpsBR #navCorpsBR ul li a").first().click();
-    };
+    };*/
     var printHash = function() {
       $(".corpsBR nav ul li a circle").css('opacity', '1')
       if (window.location.hash == '' || window.location.hash == '#more') $(".corpsBR #navCorpsBR ul li a").first().click();

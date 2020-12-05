@@ -402,7 +402,7 @@ h6 {
         //max-width: 200px; 
         margin-left: auto;
         margin-right: auto;
-        width: 80%; 
+        //width: 80%; 
     }
 }
 </style>
@@ -1085,6 +1085,31 @@ $(document).ready(function() {
 </div>
 <a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
 <!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
+<style>
+/* pour rendre les vidéo "responsive" (voir sbipsetlab...) */
+.video-wrapper {
+	width: 560px;
+	max-width: 100%;
+    margin: 2em auto 2em auto;
+}
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	//padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
 <style>
 .articleFancy {
     padding: 0 0 0 0;

@@ -28,11 +28,11 @@
 </style>
 <style>
 .mySumFeat, .mySumReg {
-line-height: 1.6;
+  line-height: 1.6;
 }
 .mySumFeat {
-color: black;
-font-size: 125%;
+  color: black;
+  font-size: 20px;
 }
 .mySumReg {
 color: grey;
@@ -573,9 +573,9 @@ h1 {
 .VignetteBR.flex .divText, .VignetteBR.flex .divImg img {
     width: 100%;
 }
-.VignetteBR.flex .divImg img {
+/*.VignetteBR.flex .divImg img {
     box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
-}
+}*/
 @media (max-width: 1100px) {
     .VignetteBR.flex {
         display: block; 
@@ -615,7 +615,10 @@ h1 {
 .VignetteBR.float .divText, .VignetteBR.float .divImg img {
     width: 100%; 
 }
-.VignetteBR.float .divImg img {
+/*.VignetteBR.float .divImg img {
+    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
+}*/
+.VignetteBR .relief img {
     box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
 }
 @media (max-width: 1100px) {
@@ -630,7 +633,7 @@ h1 {
         //max-width: 200px; 
         margin-left: auto;
         margin-right: auto;
-        width: 80%; 
+        //width: 80%; 
     }
 }
 </style>
@@ -659,6 +662,100 @@ h1 {
 .VignetteBR .divText, .VignetteBR .divImg img {
     width: 100%; 
 }
-.VignetteBR .divImg img {
+.VignetteBR .relief img {
     box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
+}
 </style-->
+<script>
+var printNavHash = function() {
+  $(".corpsBR").wrapInner("<div class='innerWrapBR'></div>");
+  var navCorpsBR = $('<nav id="navCorpsBR"></nav>');
+  $(".corpsBR article").each(function(index) {
+    var idArtcle = $(this).attr('id');
+    if (jQuery.type(idArtcle) == 'undefined') {
+      $(this).attr('id', 'article-' + index);
+      navCorpsBR.append('<li><a href="#article-' + index + '"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');
+    }
+    else {
+      navCorpsBR.append('<li><a href="#' + idArtcle + '"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');
+    }
+  })
+  if (navCorpsBR.has('li').length > 0) {
+    navCorpsBR.wrapInner('<ul></ul>"');
+    $(".corpsBR").append(navCorpsBR);
+  }
+  $(document).ready(function() {
+
+    $(".corpsBR").css('position','relative');
+    $(".corpsBR").css('display','grid');
+    $(".corpsBR").css('grid-template-columns','1fr min-content ');
+
+    var nbArticles = $(".corpsBR article").length;
+    var navHeight = nbArticles * 30 + 30;
+    $(".corpsBR #navCorpsBR").css('height', navHeight + 'px')
+    $(".corpsBR #navCorpsBR ul li a").hover(function() {
+      $(this).find("circle").css('fill', '#4a00ff');
+      $(this).find("circle").css('opacity', '0.3');
+    }, function() {
+      printHash();
+    });
+    $(".corpsBR #navCorpsBR ul li a").click(function() {
+      $(".corpsBR nav ul li a circle").css('fill', 'transparent')
+      $(this).find("circle").css('fill', '#4a00ff');
+    });
+    articleFancy.afterClose = function(instance, current) {
+      $(".corpsBR #navCorpsBR ul li a").first().click();
+    };
+    var printHash = function() {
+      $(".corpsBR nav ul li a circle").css('opacity', '1')
+      if (window.location.hash == '' || window.location.hash == '#more') $(".corpsBR #navCorpsBR ul li a").first().click();
+      else $(".corpsBR #navCorpsBR ul li a[href$='" + window.location.hash + "']").click();
+    };
+
+    // Print initial hash
+    printHash();
+
+    window.onhashchange = printHash;
+  });
+
+};
+</script>
+<style>
+/*.corpsBR {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}*/
+.corpsBR nav ul li a circle:hover {
+    fill: #4a00ff;
+}
+.corpsBR .innerWrapBR {
+  grid-column: 1 / 2;
+  padding-right: 1.5em;
+}
+.corpsBR .innerWrapBR article:before {
+  display: block; 
+  content: " "; 
+  margin-top: -100px; 
+  height: 100px; 
+  visibility: hidden; 
+}
+.corpsBR #navCorpsBR {
+//position: -webkit-sticky;
+//height: 200px;
+position: sticky !important;
+top: 150px;
+margin-top: 50px;
+}
+.corpsBR #navCorpsBR svg {
+  width: 15px;
+  height: 15px;
+}
+.corpsBR #navCorpsBR span {
+  display: none;
+}
+.corpsBR #navCorpsBR ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+</style>

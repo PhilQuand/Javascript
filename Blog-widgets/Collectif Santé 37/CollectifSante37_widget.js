@@ -360,14 +360,14 @@ function getMyInnerLinkContent(theURL) {
 </script>
 <style>
 .mySumFeat, .mySumReg {
-line-height: 1.6;
+  line-height: 1.6;
 }
 .mySumFeat {
-color: black;
-font-size: 125%;
+  color: black;
+  font-size: 125%;
 }
 .mySumReg {
-color: grey;
+   color: grey;
 }
 @media screen and (max-width: 425px) {
   .mySumReg div img {
@@ -700,7 +700,8 @@ h1 {
 }
 .VignetteBR.flex .divImg {
     max-width: 200px; 
-    width: 30%; 
+    //width: 30%; 
+    width: 100%; 
     //margin-bottom: 1em;
 }
 .VignetteBR.flex.left .divImg {

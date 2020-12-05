@@ -66,5 +66,5 @@ var articleFancy = {
   },
   afterClose = function(instance, current) {
     $(".corpsBR #navCorpsBR ul li a").first().click();
-  };
+  }
 };

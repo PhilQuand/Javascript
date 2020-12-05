@@ -63,7 +63,7 @@ var articleFancy = {
     if (jQuery.type(footFancyHeight) != 'undefined') corpsFancyHeight = corpsFancyHeight - footFancyHeight;
     $('.articleFancyClass .corpsFancy').css('height', corpsFancyHeight + 'px');
     windowParent.window.scrollTo(0, 0);
-  }
+  },
   afterClose = function(instance, current) {
     $(".corpsBR #navCorpsBR ul li a").first().click();
   };

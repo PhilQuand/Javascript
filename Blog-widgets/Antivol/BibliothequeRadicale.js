@@ -64,4 +64,7 @@ var articleFancy = {
     $('.articleFancyClass .corpsFancy').css('height', corpsFancyHeight + 'px');
     windowParent.window.scrollTo(0, 0);
   }
+  afterClose = function(instance, current) {
+    $(".corpsBR #navCorpsBR ul li a").first().click();
+  };
 };

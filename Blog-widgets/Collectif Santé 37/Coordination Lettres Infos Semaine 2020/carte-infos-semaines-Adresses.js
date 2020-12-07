@@ -369,6 +369,8 @@ var inpAddress = [
   lat: 48.864520, lng:  2.442650	},
 { inpText: "AUBAGNE",
   lat: 43.29217, lng:  5.56868	},
+{ inpText: "MOÛTIERS",
+  lat: 45.48402, lng:  6.52953	},
 { inpText: "PAMIERS",
   lat: 43.11356, lng:  1.612530	},
 { inpText: "HAUTE CORSE",

@@ -554,8 +554,8 @@ function createSummaryAndThumb(pID, isRegular) {
 h1 { 
   display: block;
   color: #D52C1E;
-  font-size: 2em;
-  //font-size:x-large;
+  font-size:1.8em; 
+  line-height:120%;
   margin-top: 0.67em;
   margin-bottom: 0.67em;
   margin-left: 0;
@@ -612,6 +612,14 @@ h6 {
   margin-right: 0;
   font-weight: bold;
 }
+@media (max-width: 600px) {
+    h1 {
+        font-size:1.4em; 
+    }
+    h2 {
+        font-size:1.2em; 
+    }
+}
 </style>
 <style>
 /*.mySumReg img {
@@ -651,10 +659,10 @@ h6 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-h1 {
+/*h1 {
   color: #D52C1E;
   font-size:x-large;
-}
+}*/
 .furthermore {
   text-align: right;
   font-style: italic;

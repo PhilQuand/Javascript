@@ -13,7 +13,6 @@
 <!-- End FancyBox -->
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
 
-
 <style>
 .incrustation {
   background-color: #e8f6f8;

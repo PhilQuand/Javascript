@@ -784,15 +784,15 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="AlaUne"></div>');
-  $('.page_body').append('<div class="img-foreground gallery-container"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
+  //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
 }
 </script>
 <script>
 $(document).ready(function() {
-  $('#AlaUne').AlaUne({
-      src: '<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FDemainLeGrandSoir%2Femission-sur-la-situation-de-lh%C3%B4pital-public%2F" frameborder="0" ></iframe>',
-      //src: "https://thumbnailer.mixcloud.com/unsafe/600x600/defaults/cloudcasts/7.png",
+  $('#ACCEUIL-AlaUne').AlaUne({
+      //src: '<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FDemainLeGrandSoir%2Femission-sur-la-situation-de-lh%C3%B4pital-public%2F" frameborder="0" ></iframe>',
+      src: "https://1.bp.blogspot.com/-2uPXbiBtqh8/X9Zx2Q6WR3I/AAAAAAAAnp8/FBPF9FuF3XwBZJN4dPFTk7SNm1C_Ge2cgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-12-13%2Ba%25CC%2580%2B20.55.36.jpg",
       fancyClass: {
             baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -805,19 +805,19 @@ $(document).ready(function() {
         /*{
           dataType: "inline",
           dataSrc: '<img src="https://1.bp.blogspot.com/-jKqQHNaVL34/X29erAHnc_I/AAAAAAAAnKw/ojxM3Qp_5O0ycDTdE8BNF_VTJKiWp0AZQCLcBGAsYHQ/s0/1600935189987_report%2B3%2Boct.jpg" />'
-        },*/ 
+        }, 
         {
           dataType: "iframe",
           dataSrc: "https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FDemainLeGrandSoir%2Femission-sur-la-situation-de-lh%C3%B4pital-public%2F"
         },
-        /*{
+        {
           dataType: "images",
           dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
         }*/
-        /*{
+        {
           dataType: "video",
-          dataSrc: "https://www.youtube.com/watch?v=OdPaf_H5On4&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
-        },*/
+          dataSrc: "https://www.youtube.com/watch?v=rJVdjLA3umc&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+        },
     ]
   });
 });

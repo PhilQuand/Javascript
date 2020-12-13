@@ -12,6 +12,8 @@
 <script type="text/javascript" src="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/Blog-widgets/IDST/tooltipster-sideTip-calendar.css" />
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
 <!--style>
 .tooltipster-sidetip.tooltipster-calendar .tooltipStyle {
   font-size: 0.9em;

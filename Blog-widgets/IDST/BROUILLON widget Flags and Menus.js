@@ -1,4 +1,4 @@
-j<!-- begin of customized social share buttons P.Q.-->
+<!-- begin of customized social share buttons P.Q.-->
 <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet' type='text/css' />
 <!--script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' type='text/javascript'></script-->
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' type='text/javascript'></script>

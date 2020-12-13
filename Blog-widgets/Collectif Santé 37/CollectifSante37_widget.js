@@ -553,73 +553,7 @@ function createSummaryAndThumb(pID, isRegular) {
 <!-- styles de paragraphe -->
 <style>
 h1 { 
-  display: block;
   color: #D52C1E;
-  font-size:1.8em; 
-  line-height:120%;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-h2 {
-  display: block;
-  color: black;
-  font-size: 1.5em;
-  margin-top: 0.83em;
-  margin-bottom: 0.83em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-h3 { 
-  display: block;
-  color: black;
-  font-size: 1.17em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-h4 { 
-  display: block;
-  color: black;
-  font-size: 1em;
-  margin-top: 1.33em;
-  margin-bottom: 1.33em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-h5 { 
-  display: block;
-  color: black;
-  font-size: .83em;
-  margin-top: 1.67em;
-  margin-bottom: 1.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-h6 { 
-  display: block;
-  color: black;
-  font-size: .67em;
-  margin-top: 2.33em;
-  margin-bottom: 2.33em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-@media (max-width: 600px) {
-    h1 {
-        font-size:1.4em; 
-    }
-    h2 {
-        font-size:1.2em; 
-    }
 }
 </style>
 <style>
@@ -660,10 +594,6 @@ h6 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-/*h1 {
-  color: #D52C1E;
-  font-size:x-large;
-}*/
 .furthermore {
   text-align: right;
   font-style: italic;

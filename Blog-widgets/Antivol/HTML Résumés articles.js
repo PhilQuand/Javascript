@@ -417,7 +417,7 @@ $(document).ready(function() {
   $('.widget.Attribution').css('display', 'none');
 });
 </script>
-<style>
+<!--style>
 h1 { 
   display: block;
   color: #D52C1E;
@@ -479,7 +479,7 @@ h6 {
   margin-right: 0;
   font-weight: bold;
 }
-</style>
+</style-->
 <style>
 .mySumReg img {
   max-height: 50px;
@@ -520,7 +520,6 @@ h6 {
 }
 h1 {
   color: #D52C1E;
-  font-size:x-large;
 }
 .furthermore {
   text-align: right;

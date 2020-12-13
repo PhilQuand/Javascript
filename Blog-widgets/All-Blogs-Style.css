@@ -41,6 +41,9 @@
 .VignetteBR.float .divText, .VignetteBR.float .divImg img {
     width: 100%; 
 }
+.VignetteBR.flex .divImg, .VignetteBR.float .divImg {
+    max-width: 200px; 
+}
 @media (max-width: 1100px) {
     .VignetteBR.flex {
         display: block; 

@@ -23,9 +23,6 @@
 .VignetteBR.flex .divText, .VignetteBR.flex .divImg img {
     width: 100%;
 }
-.VignetteBR.flex .divImg.relief img {
-    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
-}
 @media (max-width: 1100px) {
     .VignetteBR.flex {
         display: block; 
@@ -63,9 +60,6 @@
 .VignetteBR.float .divText, .VignetteBR.float .divImg img {
     width: 100%; 
 }
-.VignetteBR.float .divImg.relief img {
-    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
-}
 @media (max-width: 1100px) {
     .VignetteBR.float .divText, .VignetteBR.float .divImg {
         display: block;
@@ -80,6 +74,9 @@
         margin-right: auto;
         //width: 80%; 
     }
+}
+.VignetteBR .relief img {
+    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
 }
 </style>
 <!--style>
@@ -107,7 +104,7 @@
 .VignetteBR .divText, .VignetteBR .divImg img {
     width: 100%; 
 }
-.VignetteBR .divImg.relief img {
+.VignetteBR .relief img {
     box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
 </style-->
 <style>

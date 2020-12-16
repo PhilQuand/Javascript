@@ -263,7 +263,7 @@
       }
        else if (props.provider === 'youtube') {
         return '<li class="transl ' + props.provider + ' ' + props.theme + '">' +
-          '<a href="https://www.youtube.com/channel/UC5int1ZaO_AdX1yD2z5VA7Q/playlists">' +
+          '<a href="https://www.youtube.com/channel/UC5int1ZaO_AdX1yD2z5VA7Q/playlists" title="Access to IDST on YouTube">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +
           '</a>' +
           '</li>';

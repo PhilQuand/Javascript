@@ -55,6 +55,9 @@
         },
         email: {
           url: 'mailto:?subject=|t|&body=You might want to check this out: |u|'
+        },
+        youtube: {
+          url: 'https://www.youtube.com/channel/UC5int1ZaO_AdX1yD2z5VA7Q/playlists'
         }
       }
     };

@@ -170,7 +170,7 @@
   $.fn.share.defaults = {
     popupWidth: 640,
     popupHeight: 528,
-    channels: ['facebook', 'twitter', 'linkedin', 'googleplus', 'pdf', 'email'],
+    channels: ['facebook', 'twitter', 'linkedin', 'googleplus', 'pdf', 'email', youtube],
     itemTriggerClass: 'js-share',
     containerTemplate: function(props) {
       return '<ul class="sharing-providers"></ul>';
@@ -192,7 +192,8 @@
         'reddit': 'fab fa-reddit-alien',
         'digg': 'fab fa-digg',
         'pdf': 'fas fa-file-pdf',
-        'email': 'fas fa-envelope'
+        'email': 'fas fa-envelope',
+        'youtube': 'fas fa-youtube'
       }
 
       // Special handling for email and Google+
@@ -257,7 +258,14 @@
           '</a>' +
           '</li>';
       }
-      else {
+       else if (props.provider === 'youtube') {
+        return '<li class="transl ' + props.provider + ' ' + props.theme + '">' +
+          '<a href="https://www.youtube.com/channel/UC5int1ZaO_AdX1yD2z5VA7Q/playlists">' +
+          '<i class="' + iconClasses[props.provider] + '"></i>' +
+          '</a>' +
+          '</li>';
+      }
+     else {
         return '<li class="transl ' + props.provider + ' ' + props.theme + '">' +
           '<a href="#" data-href="' + props.href + '" title="Share this page ' + (props.provider === 'email' ? 'via ' : 'on ') + providerName + '" class="' + props.itemTriggerClass + ' ' + props.provider + '">' +
           '<i class="' + iconClasses[props.provider] + '"></i>' +

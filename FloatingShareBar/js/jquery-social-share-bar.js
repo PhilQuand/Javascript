@@ -196,7 +196,7 @@
         'digg': 'fab fa-digg',
         'pdf': 'fas fa-file-pdf',
         'email': 'fas fa-envelope',
-        'youtube': 'fas fa-youtube'
+        'youtube': 'fab fa-youtube'
       }
 
       // Special handling for email and Google+

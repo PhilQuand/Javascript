@@ -170,7 +170,7 @@
   $.fn.share.defaults = {
     popupWidth: 640,
     popupHeight: 528,
-    channels: ['facebook', 'twitter', 'linkedin', 'googleplus', 'pdf', 'email', 'youtube''],
+    channels: ['facebook', 'twitter', 'linkedin', 'googleplus', 'pdf', 'email', 'youtube'],
     itemTriggerClass: 'js-share',
     containerTemplate: function(props) {
       return '<ul class="sharing-providers"></ul>';

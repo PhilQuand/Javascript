@@ -2,7 +2,7 @@
          {
           svgInfos: ['Semaine 52', 'du 23 dec.', 'au 27 dec.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 52.html',
-          idGlinkID: 'PreviousLetters'
+          idGlinkID: 'Letters2019'
         },
        {
           svgInfos: ['Semaine 51', 'du 16 dec.', 'au 20 dec.', '2019'],

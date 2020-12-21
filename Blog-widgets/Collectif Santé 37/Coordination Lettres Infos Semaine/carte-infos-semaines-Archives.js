@@ -1,4 +1,4 @@
-    var archi = [
+    var archi2019 = [
          {
           svgInfos: ['Semaine 52', 'du 23 dec.', 'au 27 dec.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 52.html',

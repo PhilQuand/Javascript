@@ -1,7 +1,5 @@
     var archi2019 = [
          {
-        imgID: 'svgBlue',
-        svgInfos: ["Mois de décembre", '2019'],
           svgInfosCarte: ['Semaine 52', 'du 23 dec.', 'au 27 dec.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 52.html',
           idGlinkID: 'Letters2019'
@@ -15,12 +13,12 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 50.html',
         },
         {
+        imgID: 'svgBlue',
+        svgInfos: ["Mois de décembre", '2019'],
           svgInfosCarte: ['Semaine 49', 'du 02 dec.', 'au 06 dec.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 49.html',
         },
         {
-        imgID: 'svgBlue',
-        svgInfos: ["Mois de novrmbre", '2019'],
           svgInfosCarte: ['Semaine 48', 'du 25 nov.', 'au 29 nov.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 48.html',
         },
@@ -33,12 +31,12 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 46.html',
         },
         {
-          svgInfosCarte: ['Semaine 45', 'du 04 nov.', 'au 08 nov.', '2019'],
+         imgID: 'svgBlue',
+         svgInfos: ["Mois de novrmbre", '2019'],
+         svgInfosCarte: ['Semaine 45', 'du 04 nov.', 'au 08 nov.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 45.html',
         },
         {
-        imgID: 'svgBlue',
-        svgInfos: ["Mois d'octobre", '2019'],
           svgInfosCarte: ['Semaine 44', 'du 28 oct.', 'au 01 nov.', '2019'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 44.html',
         },
@@ -56,7 +54,7 @@
        },
          {
         imgID: 'svgBlue',
-        svgInfos: ["Mois de septembre", '2019'],
+        svgInfos: ["Mois d'octobre", '2019'],
         svgInfosCarte: ['Semaine 40', 'du 30 sept.', 'au 04 oct.', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 40.html',
        },
@@ -73,12 +71,12 @@
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 37.html'
        },
         {
+        imgID: 'svgBlue',
+        svgInfos: ["Mois de septembre", '2019'],
         svgInfosCarte: ['Semaine 36', 'du 2 sept.', 'au 6 sept.', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 36.html'
       },
        {
-        imgID: 'svgBlue',
-        svgInfos: ["Mois d'août", '2019'],
         svgInfosCarte: ['Semaine 35', 'du 26 août', 'au 30 août', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 35.html'
       },
@@ -91,12 +89,12 @@
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 33.html'
       },
       {
+        imgID: 'svgBlue',
+        svgInfos: ["Mois d'août", '2019'],
         svgInfosCarte: ['Semaine 32', 'du 5 août', 'au 9 août', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 32.html'
       },
      {
-        imgID: 'svgBlue',
-        svgInfos: ['Mois de juillet', '2019'],
         svgInfosCarte: ['Semaine 31', 'du 29 juillet', 'au 2 août', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 31.html'
       },
@@ -113,12 +111,12 @@
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 28.html'
       },
        {
+        imgID: 'svgBlue',
+        svgInfos: ['Mois de juillet', '2019'],
         svgInfosCarte: ['Semaine 27', 'du 1 juillet', 'au 5 juillet', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 27.html'
       },
        {
-        imgID: 'svgBlue',
-        svgInfos: ['Mois de juin', '2019'],
         svgInfosCarte: ['Semaine 26', 'du 24 juin', 'au 28 juin', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 26.html'
       },
@@ -131,7 +129,9 @@
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 24.html'
       },
        {
-        svgInfosCarte: ['Semaine 23', 'du 03 juin', 'au 07 juin', '2019'],
+       imgID: 'svgBlue',
+       svgInfos: ['Mois de juin', '2019'],
+       svgInfosCarte: ['Semaine 23', 'du 03 juin', 'au 07 juin', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 23 bis.html'
       },
       {

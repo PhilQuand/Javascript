@@ -115,7 +115,7 @@
       $('body').append('<div w3-include-html="https://philquand.github.io/Javascript/MediaPlayer/myMediaPlayer.html"></div>');
       $('video').each(function(index, value) {
         $(this).wrap('<div class="cinema-traquage-video-wrapper"><div class="cinema-traquage-video-container"></div></div>');
-        $(this).data('options','{"prefix":"media","show":{"fullscreen":true}}');
+        $(this).attr('data-options','{"prefix":"media","show":{"fullscreen":true}}');
       });
       $(document).ready(function() {
         includeHTML();

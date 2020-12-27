@@ -115,10 +115,6 @@
             }
           );
 
-          $('video').each(function() {
-            const player = new MediaPlayer(this, MediaPlayerConfig);
-          });
-
           /*var promise = $('.media-control.media-play').click(); 
           if (promise) {
               //Older browsers may not return a promise, according to the MDN website
@@ -126,6 +122,10 @@
           }*/
 
         });
+        $('video').each(function() {
+          const player = new MediaPlayer(this, MediaPlayerConfig);
+        });
+
       })
 
     }).catch(function() {

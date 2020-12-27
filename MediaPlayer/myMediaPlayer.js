@@ -80,6 +80,7 @@
   ]).then(
     function() {
       console.log('Everything has loaded!');
+      $('body').append('<div w3-include-html="https://philquand.github.io/Javascript/MediaPlayer/myMediaPlayer.html"></div>');
       $(document).ready(function() {
         /*$('.audioFancy').find('audio').each(function() {
           const $target = this;

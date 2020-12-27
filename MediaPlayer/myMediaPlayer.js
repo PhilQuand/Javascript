@@ -1,4 +1,33 @@
 (function($) {
+  var MediaPlayerConfig = {
+    prefix: 'media',
+    lang: {
+      play: 'play',
+      pause: 'pause',
+      mute: 'mute',
+      unmute: 'unmute',
+      volume: 'volume',
+      currentTime: 'current time',
+      remainingTime: 'remaining time',
+      enterFullscreen: 'enter fullscreen',
+      leaveFullscreen: 'leave fullscreen',
+      download: 'download'
+    },
+    svgs: {
+      play: '#symbol-play',
+      pause: '#symbol-pause',
+      mute: '#symbol-mute',
+      unmute: '#symbol-unmute',
+      volume: '#symbol-volume',
+      currentTime: '#symbol-currentTime',
+      remainingTime: '#symbol-remainingTime',
+      enterFullscreen: '#symbol-enterFullscreen',
+      leaveFullscreen: '#symbol-leaveFullscreen',
+      download: '#symbol-download'
+    },
+    timeDir: 'ltr',
+    volumeDir: 'ltr'
+  };
   var load = (function() {
     // Function which returns a function: https://davidwalsh.name/javascript-functions
     function _load(tag) {
@@ -85,6 +114,10 @@
               volumeDir: 'ltr'
             }
           );
+
+          $('video').each(function() {
+            const player = new MediaPlayer(this, MediaPlayerConfig);
+          });
 
           /*var promise = $('.media-control.media-play').click(); 
           if (promise) {

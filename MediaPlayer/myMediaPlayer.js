@@ -125,8 +125,9 @@
           const player = new MediaPlayer(this, MediaPlayerConfig);
         });
         $('video').each(function(index, value) {
-          var videoWidth = $(this).css('width');
-          var videoHeight = $(this).css('height');
+          $(this).css('width','100%');
+          var videoWidth = $(this).attr('data-width');
+          var videoHeight = $(this).attr('data-height');
           $(this).parents('.cinema-traquage-video-wrapper').css('width', videoWidth);
           $(this).parents('.cinema-traquage-video-container').css('padding-bottom', videoHeight).css('padding-bottom', '+=50px');
         });

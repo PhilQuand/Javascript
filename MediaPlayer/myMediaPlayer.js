@@ -113,18 +113,18 @@
               timeDir: 'ltr',
               volumeDir: 'ltr'
             }
-          );*/
+          );
+
+        });*/
+        $('audio, video').each(function() {
+          const player = new MediaPlayer(this, MediaPlayerConfig);
+        });
 
           /*var promise = $('.media-control.media-play').click(); 
           if (promise) {
               //Older browsers may not return a promise, according to the MDN website
               promise.catch(function(error) { console.error(error); });
           }*/
-
-        });
-        $('audio, video').each(function() {
-          const player = new MediaPlayer(this, MediaPlayerConfig);
-        });
 
       })
 

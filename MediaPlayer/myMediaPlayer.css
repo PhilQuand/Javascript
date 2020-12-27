@@ -7,16 +7,19 @@
 .media-fullscreen {
     display: none;
 }
-.media-player {
+.audioFancy, .media-player {
     width: 70%;
     margin-right: auto;
     margin-left: auto;
+}
+.audioFancy .media-player {
+    width: 100%;
 }
 .noAudioDownload .media-control.media-download {
     display: none;
 }
 @media screen and (max-width: 800px) {
-  .media-player {
+  .audioFancy, .media-player {
     width: 100%;
   }
 }

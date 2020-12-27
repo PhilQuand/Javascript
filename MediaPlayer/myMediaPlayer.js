@@ -113,7 +113,7 @@
     function() {
       console.log('Everything has loaded!');
       $('body').append('<div w3-include-html="https://philquand.github.io/Javascript/MediaPlayer/myMediaPlayer.html"></div>');
-      $('video').each(function(index, value) {
+      $('audio, video').each(function(index, value) {
         $(this).wrap('<div class="cinema-traquage-video-wrapper"><div class="cinema-traquage-video-container"></div></div>');
         $(this).attr('data-options','{"prefix":"media","show":{"fullscreen":true}}');
       });

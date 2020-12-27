@@ -115,43 +115,15 @@
       $('body').append('<div w3-include-html="https://philquand.github.io/Javascript/MediaPlayer/myMediaPlayer.html"></div>');
       $(document).ready(function() {
         includeHTML();
-        /*$('.audioFancy').find('audio').each(function() {
-           const $target = this;
-           const player = new MediaPlayer(
-             $target, {
-               prefix: 'media',
-               lang: {
-                 play: 'play',
-                 pause: 'pause',
-                 mute: 'mute',
-                 unmute: 'unmute',
-                 volume: 'volume',
-                 currentTime: 'current time',
-                 remainingTime: 'remaining time',
-                 enterFullscreen: 'enter fullscreen',
-                 leaveFullscreen: 'leave fullscreen',
-                 download: 'download'
-               },
-               svgs: {
-                 play: '#symbol-play',
-                 pause: '#symbol-pause',
-                 mute: '#symbol-mute',
-                 unmute: '#symbol-unmute',
-                 volume: '#symbol-volume',
-                 currentTime: '#symbol-currentTime',
-                 remainingTime: '#symbol-remainingTime',
-                 enterFullscreen: '#symbol-enterFullscreen',
-                 leaveFullscreen: '#symbol-leaveFullscreen',
-                 download: '#symbol-download'
-               },
-               timeDir: 'ltr',
-               volumeDir: 'ltr'
-             }
-           );
-
-         });*/
         $('audio, video').each(function() {
           const player = new MediaPlayer(this, MediaPlayerConfig);
+        });
+        $('video').each(function(index, value) {
+          var videoWidth = $(this).css('width');
+          var videoHeight = $(this).css('height');
+          var videoWrapper = $(this).wrap('<div class="cinema-traquage-video-wrapper"><div class="cinema-traquage-video-container"></div></div>');
+          $(this).parents('.cinema-traquage-video-wrapper').css('width', videoWidth);
+          $(this).parents('.cinema-traquage-video-container').css('padding-bottom', videoHeight).css('padding-bottom', '+=50px');
         });
 
         /*var promise = $('.media-control.media-play').click(); 

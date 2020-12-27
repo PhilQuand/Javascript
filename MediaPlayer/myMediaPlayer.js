@@ -81,7 +81,7 @@
     function() {
       console.log('Everything has loaded!');
       $(document).ready(function() {
-        $('.audioFancy').find('audio').each(function() {
+        /*$('.audioFancy').find('audio').each(function() {
           const $target = this;
           const player = new MediaPlayer(
             $target, {
@@ -113,7 +113,7 @@
               timeDir: 'ltr',
               volumeDir: 'ltr'
             }
-          );
+          );*/
 
           /*var promise = $('.media-control.media-play').click(); 
           if (promise) {
@@ -122,7 +122,7 @@
           }*/
 
         });
-        $('video').each(function() {
+        $('audio, video').each(function() {
           const player = new MediaPlayer(this, MediaPlayerConfig);
         });
 

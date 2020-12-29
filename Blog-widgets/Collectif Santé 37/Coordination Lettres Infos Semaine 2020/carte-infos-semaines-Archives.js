@@ -1,12 +1,16 @@
     var archi = [
            {
+          svgInfos: ['Semaine 52', 'du 21 déc.', 'au 25 déc.', '2020'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 52.html',
+        },
+           {
           svgInfos: ['Semaine 51', 'du 14 déc.', 'au 18 déc.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 51.html',
+           idGlinkID: 'PreviousLetters'
         },
            {
           svgInfos: ['Semaine 50', 'du 07 déc.', 'au 11 déc.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 50.html',
-           idGlinkID: 'PreviousLetters'
         },
            {
           svgInfos: ['Semaine 49', 'du 30 nov.', 'au 04 déc.', '2020'],

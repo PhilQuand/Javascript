@@ -1,0 +1,184 @@
+/*.infosComités {
+   display: block;
+}*/
+.infoComité img { 
+   /*max-width: 200px;*/
+   width: 400px;
+   //width: auto;
+   max-width: 600px;
+}
+.infoDoc img { 
+   max-width: 400px;
+}
+.coordCN img { 
+   width: 800px;
+   max-width: 80%;
+}
+.styled {
+    float: right;
+    max-width: 100px !important;   /* Largeur du formulaire */
+    border: 0;
+    line-height: 1.5;
+    padding: 0 10px;
+    margin-bottom: 1em;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    //background-color: rgba(208, 225, 226, 1);
+    //background-color: rgba(162, 196, 201, 1);
+    background-color: rgba(220, 0, 0, 1);
+
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    //background-color: rgba(162, 196, 201, 1);
+    background-color: rgba(208, 225, 226, 1);
+
+}
+
+/*.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}*/
+.infoEvents-wrapper {
+    display: none;
+}
+#MapLetters { 
+    width:10vw; 
+    max-width: 100px; 
+    min-width: 50px;
+   display: block;
+   margin-top: 2.0em;
+   margin-left: 10%;
+   margin-right: 0;
+}
+#infoMap-wrapper {
+    padding: 0 0 0 0;
+    margin: 0 auto;
+    width: 800px;
+    max-width: 100%;
+}
+#infoMap {
+    width: 100%;
+    height: 600px;
+    //max-height: 70vh;
+    overflow: hidden;
+}
+.markerPopUp .popupRow {
+  display: flex;
+}
+.markerPopUp .popupCol1, .markerPopUp .popupCol2 {
+  padding: 10px;
+}
+.markerPopUp .popupCol1 {
+  flex: 22%;
+}
+.markerPopUp .popupCol2 {
+  flex: 78%;
+}
+.bannerCoord-1, bannerCoord-2 {
+    display: flex
+    padding:.5em .75em;
+    background:white;
+}
+.bannerCoord-1 img, .bannerCoord-1 img {
+    align-items: stretch;
+}
+.bannerCoord-1 {
+    width: 25vw;
+    max-width: 150px;
+}
+.bannerCoord-1 img {
+    width: 100%;
+}
+.bannerCoord-2 {
+    width: 50vw;
+    max-width: 300px;
+}
+.bannerCoord-2 img {
+    width: 49%;
+}
+.legend {
+    padding:.5em .75em;
+    line-height: 18px;
+    color: #555;
+    background:white;
+}
+.legend img {
+    width: 11px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    //margin-right: 1em;
+    opacity: 0.7;
+}
+/*   position: relative; z-index: 100000;*/
+.datepick {
+   position: relative; z-index: 100000;
+}
+.getFancyFocus:focus {
+  outline: none;
+}
+.ui-datepicker {
+  width: 216px;
+  height: auto;
+  margin: 5px auto 0;
+  font: 9pt Arial, sans-serif;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+}
+.DateRange-wrapper  {
+    display: flex;
+    justify-content: flex-end;
+    background:white;
+    padding: 3px;
+}
+.DateRange-wrapper input {
+    padding: 5px 5px 5px 5px;
+    width: 100px;
+    height: 15px;
+}
+.DateRange-wrapper button {
+    font-size: 16px;
+    //padding: 2px 2px 2px 2px;
+    height: 28px;
+}
+.popupHead {
+    padding-bottom: 10px;
+}
+.popupBody {
+    width: 100%;
+    max-height: calc(100% - 60px);
+    overflow: auto;
+    //padding: 10px 15px 10px 15px;
+}
+.markerPopUp .popupRow {
+  display: flex;
+}
+.markerPopUp .popupCol1, .markerPopUp .popupCol2 {
+  padding: 10px;
+}
+.markerPopUp .popupCol1 {
+  flex: 22%;
+}
+.markerPopUp .popupCol2 {
+  flex: 78%;
+}
+/* Week picker */
+#ui-datepicker-div > table > tbody > tr:hover {
+    background-color: #808080;
+}
+@media (max-width: 550px) {
+   .DateRange-wrapper span {
+       display: none;
+   }
+}

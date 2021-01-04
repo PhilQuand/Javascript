@@ -44,7 +44,7 @@
         },
            {
           imgID: 'svgBlue',
-          svgInfos: ["Moi d'octobre, '2020'],
+          svgInfos: ["Moi d'octobre", '2020'],
           svgInfosCarte: ['Semaine 44', 'du 26 oct.', 'au 30 oct.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 44.html',
         },

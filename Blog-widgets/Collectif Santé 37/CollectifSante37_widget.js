@@ -730,14 +730,18 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   //top: 75px;
   top: 1em;
   left: 1em;
-  width: 20%;
-  max-width: 600px;
+  width: 30%;
+  max-width: 800px;
   //height: 100%;
   //pointer-events: none;
   cursor:pointer;
 }
+/*.img-foreground img {
+    object-fit: cover;
+    object-fit: fill;
+}*/
 .img-foreground {
-  //background-color: red;
+  background-color: white;
   animation-name: stretch;
   animation-duration: 2.5s; 
   //animation-timing-function: ease-out; 
@@ -760,7 +764,7 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
     //background-color: orange;
   }
   100% {
-    transform: scale(2.);
+    transform: scale(1.);
     //transform: scale(0.8);
     //background-color: yellow;
   }
@@ -780,21 +784,21 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-4c9MRQiEeb8/Xka1VOFAoFI/AAAAAAAAk-c/j8BJiF1bV1wABPVcnicsgbs9ouZ2nKMVwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.png" /></a>');
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-hxTYiKnKI1A/XklzVPvsmJI/AAAAAAAAk_g/8vb0ElqOgdgLKvjT17apdQ9CP779ZtPlwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.jpg" /></a>');
   
-  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-DYdZzA-CRZU/XoHet8_fCWI/AAAAAAAAlRg/R4T6v1XagJ0ckuzhD8MDG6H6IQddEdDrwCLcBGAsYHQ/s1600/coronavirus_generic.png" /></a>');
-  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
+   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
 
   $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
+  //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-g0dGBLohyHo/X-nvcIF8S4I/AAAAAAAAnww/l0b9VhWJCt4SWr1ICzfoxecMSfkG4nZCgCLcBGAsYHQ/s0/274dmwv4.gif" />');
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      //src: '<iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FDemainLeGrandSoir%2Femission-sur-la-situation-de-lh%C3%B4pital-public%2F" frameborder="0" ></iframe>',
-      src: "https://1.bp.blogspot.com/-2uPXbiBtqh8/X9Zx2Q6WR3I/AAAAAAAAnp8/FBPF9FuF3XwBZJN4dPFTk7SNm1C_Ge2cgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-12-13%2Ba%25CC%2580%2B20.55.36.jpg",
+      //src: '<p style="padding:1em;" align=center>Mardi <span style="color: blue;">5 janvier, à 11h place Jean Jaurès à Tours,</span> <br/>à l'+"'"+'occasion de la venue de Macron, <br/>un rassemblement aura lieu avec la venue d'+"'"+'une délégation de salariées de l'+"'"+'ADMR de Blois en grève depuis le 21 décembre.</p>',
+      src: "https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg",
       fancyClass: {
-            baseClass: 'demain20200923AlaUneBaseClass',
+        baseClass: 'demain20200923AlaUneBaseClass',
       },
       href: [
         /*{
@@ -804,19 +808,19 @@ $(document).ready(function() {
         },*/
         /*{
           dataType: "inline",
-          dataSrc: '<img src="https://1.bp.blogspot.com/-jKqQHNaVL34/X29erAHnc_I/AAAAAAAAnKw/ojxM3Qp_5O0ycDTdE8BNF_VTJKiWp0AZQCLcBGAsYHQ/s0/1600935189987_report%2B3%2Boct.jpg" />'
-        }, 
-        {
+          dataSrc: '<p>Mardi <span style="color: blue;">5 janvier, à 11h place Jean Jaurès à Tours,</span> à l'+"'"+'occasion de la venue de Macron, un rassemblement aura lieu avec la venue d'+"'"+'une délégation de salariées de l'+"'"+'ADMR de Blois en grève depuis le 21 décembre. Elles défendent leurs conditions de travail et la revalorisation de de leur salaire. Nous les avions rencontrées sur <a href="https://collectifsante37.blogspot.com/2020/12/les-invisibles-se-rebiffent.html">leur piquet de grève, le 28 décembre dernier</a>.</p><p>En décembre c'+"'"+'était aussi la lutte des exclus du Ségur pour les 183 €, une occasion de remettre en lumière ces revendications.</p>'
+        },*/
+        /*{
           dataType: "iframe",
-          dataSrc: "https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FDemainLeGrandSoir%2Femission-sur-la-situation-de-lh%C3%B4pital-public%2F"
-        },
-        {
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Animations-Une/arbre-de-noel-tournant.html"
+        },*/
+        /*{
           dataType: "images",
           dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
-        }*/
+        },*/
         {
           dataType: "video",
-          dataSrc: "https://www.youtube.com/watch?v=rJVdjLA3umc&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+          dataSrc: "https://www.youtube.com/watch?v=s45Lh2yf3Yg&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },
     ]
   });

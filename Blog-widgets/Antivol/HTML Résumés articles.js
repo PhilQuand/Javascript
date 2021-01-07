@@ -168,7 +168,7 @@ function compSumAndImg(strx, chop, imgtag) {
           if (isTagtoSum(s,i)) {
             //if(chopCount < chopIn) chop += s[i].indexOf(">") + 1
             curS = '<' + s[i];
-            if(chopCount < chopIn) {
+            if(chopCount < chopIn && !isTagMore(s,i)) {
               chop += s[i].indexOf(">") + 2;
             } else isFinished = true;
           }
@@ -185,6 +185,7 @@ function compSumAndImg(strx, chop, imgtag) {
         }
       }
       //if( isFinished ) i = s.length;
+      if( isFinished ) break;
     }
     strx = news.join("");
   }
@@ -195,7 +196,6 @@ function compSumAndImg(strx, chop, imgtag) {
   strx = strx.substring(0, chop);
   result.summary = strx + '...';
   return result;
-}
 
 function isTagtoSum(s,i) {
   //if(s[i][0] == 'a' || s[i].indexOf('/a>') > -1) {
@@ -209,6 +209,12 @@ function isTagtoSum(s,i) {
     return true;
   } 
   if( s[i].indexOf('em>') > -1 ) {
+    return true;
+  } 
+  return false;
+}
+function isTagMore(s,i) {
+  if( s[i].indexOf('name="more"') > -1 ) {
     return true;
   } 
   return false;
@@ -253,6 +259,7 @@ function endDiv(s) {
     return true;
   }
   return false;
+}
 }
 
 img_thumb_width_reg = 180; // Image Thumbnail Width

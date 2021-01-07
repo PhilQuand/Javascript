@@ -12,6 +12,7 @@
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js'></script>
 <!-- End FancyBox -->
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+<script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
 
 <style>
 .incrustation {
@@ -261,35 +262,6 @@ function loadCATDPTimeLine() {
   });
 }*/
 </script>
-<!--style>
-/* pour création pdf */
-/*.fr-FR, .en-EN, .de-DE, .es-ES, .it-IT, .pt-PT {
- display: none;
-}*/
-.VignetteBR {
-    display: block; 
-}
-.VignetteBR .divImg {
-    max-width: 200px; 
-    width: 40%; 
-    margin-top: 0.5em;
-    //margin-bottom: 0.5em;
-}
-.VignetteBR.left .divImg {
-    margin-right: 1em;
-    float: left;
-}
-.VignetteBR.right .divImg {
-    margin-left: 0.5em;
-    float: right;
-}
-.VignetteBR .divText, .VignetteBR .divImg img {
-    width: 100%; 
-}
-.VignetteBR .divImg.relief img {
-    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
-</style-->
-<!-- fin alignement vignette et texte -->
 <style>
 .mySumFeat {
 line-height: 1.6;
@@ -313,7 +285,7 @@ line-height: 1.6;
 }
 </style>
 <script>
-function compSumAndImg(strx, chop, imgtag) {
+/*function compSumAndImg(strx, chop, imgtag) {
   var result = {
     img: '',
     summary: ''
@@ -444,61 +416,6 @@ function endDiv(s) {
   return false;
 }
 
-/*function getInnerLinkContent(theURL) {
-  var xmlhttp = false;
-  loadXMLDoc(theURL);
-  if (xmlhttp == false) {
-    //alert("timeout");
-    return '';
-  }
-  else {
-    var allText = xmlhttp.responseText;
-    return getBody(allText);
-  }
-
-  function getBody(content) {
-    return getPart(content, 'post-body entry-content float-container', 0, 'no').split("widget PopularPosts")[0].split("post-bottom")[0] ;
-  }
-
-  function getPart(content, element, iIndex, iShow) {
-    var indices = [];
-    var idx = content.indexOf(element);
-    while (idx != -1) {
-      indices.push(idx);
-      idx = content.indexOf(element, idx + 1);
-    }
-    if( iShow == 'yes' ) {
-      for (var i = 0; i < indices.length; i++) {
-        var x = indices[i];
-        x = content.indexOf(">", x + 1);
-        var y = content.lastIndexOf("</body>");
-        var z = content.slice(x + 1, y);
-        alert('getBody for ' + element + ' :\ni = ' + i + '\n' + z);
-      }
-    }
-    var x = indices[iIndex];
-    x = content.indexOf(">", x + 1);
-    var y = content.lastIndexOf("</body>");
-    return content.slice(x + 1, y);
-  }
-
-  function loadXMLDoc(theURL) {
-    if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari, SeaMonkey
-      xmlhttp = new XMLHttpRequest();
-    }
-    else { // code for IE6, IE5
-      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        //alert(xmlhttp.responseText);
-      }
-    }
-    xmlhttp.open("GET", theURL, false);
-    xmlhttp.send();
-  }
-}*/
-
 img_thumb_width_reg = 180; // Image Thumbnail Width
 img_thumb_height_reg = 180; // Image Thumbnail Height
 img_thumb_width_feat = 360; // Image Thumbnail Width
@@ -516,10 +433,6 @@ function createSummaryAndThumbfromDiv(div, isRegular) {
   var imgtag = "";
   var img = div.getElementsByTagName("img");
   var summ = summary_noimg;
-  /*if (isRegular && (img.length >= 1)) {
-    imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-height:' + img_thumb_height + 'px;width:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width + 'px" height="auto"/></span>';
-    summ = summary_img;
-  }*/
   if( img.length >= 1 ) {
     if (isRegular) {
       //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-width:' + img_thumb_width_reg + 'px;height:auto;"><img src="' + img[0].src + '" height="' + img_thumb_height_reg + 'px" width="auto"/></span>';
@@ -542,7 +455,7 @@ function createSummaryAndThumbfromDiv(div, isRegular) {
   if( isRegular ) summary = '<div style="position: 0;" class="mySumReg">' + imgtag + resul.summary + '</div>';
   else summary = '<div style="position: 0;" class="mySumFeat">' + imgtag + resul.summary + '</div>';
   div.innerHTML = summary;
-}
+}*/
 
 function getMyInnerLinkContent(theURL) {
   var xmlhttp = false;

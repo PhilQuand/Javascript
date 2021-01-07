@@ -150,6 +150,11 @@ summary_img_feat = 400; // Length of Summary Text if post has Image Thumbnail
 
 function createSummaryAndThumb(pID, isRegular) {
   var div = document.getElementById(pID);
+  createSummaryAndThumbfromDiv(div, isRegular);
+}
+function createSummaryAndThumbfromDiv(div, isRegular) {
+//function createSummaryAndThumb(pID, isRegular) {
+//  var div = document.getElementById(pID);
   var imgtag = "";
   var img = div.getElementsByTagName("img");
   var summ = summary_noimg;

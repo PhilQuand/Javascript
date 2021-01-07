@@ -124,7 +124,7 @@ $(document).ready(function() {
 // if calendarFancy defined, it's the url of an iFrame fancyox otherwise fancybox is of div with div id as #calendarFancy_content
   $('#share-bar').share({
     //'channels': ['facebook', 'twitter', 'linkedin', 'pdf', 'email'],
-    'channels': ['epingleFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email'],
+    'channels': ['epingleFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email', 'youtube'],
     //epingleFancy: 'https://philquand.github.io/Javascript/Blog-widgets/IDST/Congrès-IDST-Nov-2019/CongresIDST.html'
   });
   var pathname = window.location.pathname;
@@ -2157,16 +2157,6 @@ function compSumAndImg(strx, chop, Lang, preLang, isFB) {
   //for (var iLang = 0; iLang < LangForSummary.length; iLang++) {
   //var Lang = LangForSummary[iLang];
   var goOn = true;
-  /*var goOn = false;
-  if (Lang == '') {
-    goOn = true;
-  }
-  else {
-    var langHandler = document.getElementById(Lang + 'Handler');
-    if (langHandler.style.display != "none") {
-      goOn = true;
-    }
-  }*/
   if (goOn) {
    var chopIn = chop;
    var chopCount = 0;
@@ -2198,9 +2188,6 @@ function compSumAndImg(strx, chop, Lang, preLang, isFB) {
           if ((isToDelete > 0) && isendDiv) {
             isToDelete--;
           }
-          /*if ( !(isToDelete > 0) )  {
-            news.push(s[i].substring(s[i].indexOf(">") + 1, s[i].length));
-          }*/
           if (!(isToDelete > 0)) {
             var curS = '';
             if (isFB == 'no' && isTagtoSum(s,i)) {
@@ -2245,22 +2232,6 @@ function compSumAndImg(strx, chop, Lang, preLang, isFB) {
   result.summary = strxOutput;
   return result;
 }
-
-/*function SummaryOff(s) {
-  var myTag = s.substring(0, s.indexOf(">"));
-  if ((myTag.indexOf('div') > -1) && (myTag.indexOf('data-summary="no"') > -1)) {
-    return true;
-  }
-  return false;
-}
-
-function SummaryOn(s) {
-  var myTag = s.substring(0, s.indexOf(">"));
-  if ((myTag.indexOf('div') > -1) && (myTag.indexOf('data-summary="yes"') > -1)) {
-    return true;
-  }
-  return false;
-}*/
 
 function isTagtoSum(s,i) {
   //if(s[i][0] == 'a' || s[i].indexOf('/a>') > -1) {

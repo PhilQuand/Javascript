@@ -9,7 +9,7 @@
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
 <!-- End FancyBox -->
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
-
+<script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
 
 <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
 <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
@@ -376,7 +376,7 @@ function getMyInnerLinkContent(theURL) {
   }
 }
 </style>
-<script>
+<!--script>
 function compSumAndImg(strx, chop, imgtag) {
   var result = {
     img: '',
@@ -548,7 +548,7 @@ function createSummaryAndThumb(pID, isRegular) {
   else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   div.innerHTML = summary;
 }
-</script>
+</script-->
 
 <!-- styles de paragraphe -->
 <style>
@@ -785,9 +785,9 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-hxTYiKnKI1A/XklzVPvsmJI/AAAAAAAAk_g/8vb0ElqOgdgLKvjT17apdQ9CP779ZtPlwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.jpg" /></a>');
   
    //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
-  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#images-1"><img class="img-foreground" src="https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png" /></a>');
+  $('.page_body').append('<a href="https://youtu.be/s45Lh2yf3Yg"><img class="img-foreground" src="https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg" /></a>');
 
-  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
+  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-g0dGBLohyHo/X-nvcIF8S4I/AAAAAAAAnww/l0b9VhWJCt4SWr1ICzfoxecMSfkG4nZCgCLcBGAsYHQ/s0/274dmwv4.gif" />');
 }

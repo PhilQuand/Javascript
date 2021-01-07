@@ -56,7 +56,7 @@ function compSumAndImg(strx, chop, imgtag) {
             news.push('<br/>');
             chop += 5;
           }
-          news.push(curS);
+          if(!isFinished) news.push(curS);
         }
       }
       //if( isFinished ) i = s.length;

@@ -16,6 +16,7 @@
 <script src='https://philquand.github.io/Javascript/MediaPlayer/myMediaPlayer.js'></script>
 <!-- Fin audio toolbar -->
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+<script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
 
 <style>
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {
@@ -123,7 +124,7 @@ button.subscribe-button.pill-button:hover .tooltiptext {
 // tooltip du bouton s'inscrire
 $('button.subscribe-button.pill-button').append('<span class="tooltiptext">Pour recevoir notre lettre d'+ "'" + 'information</span>')
 </script>
-<script>
+<!--script>
 function compSumAndImg(strx, chop, imgtag) {
   var result = {
     img: '',
@@ -299,7 +300,7 @@ function createSummaryAndThumb(pID, isRegular) {
   else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   div.innerHTML = summary;
 }
-</script>
+</script-->
 <!--style>
 .bg-photo-overlay {
     background-image: url("https://1.bp.blogspot.com/-opaaRwNbCfA/XgNT-fyxG8I/AAAAAAAAkrk/TDWOtKZ4BoU__SfluVUzrYej6tKInUzoQCLcBGAsYHQ/s1600/Bord%2Bde%2BLoire%2B1200.png");

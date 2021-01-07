@@ -1,4 +1,3 @@
-<script>
 function compSumAndImg(strx, chop, imgtag) {
   var result = {
     img: '',
@@ -174,4 +173,3 @@ function createSummaryAndThumb(pID, isRegular) {
   else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   div.innerHTML = summary;
 }
-</script>

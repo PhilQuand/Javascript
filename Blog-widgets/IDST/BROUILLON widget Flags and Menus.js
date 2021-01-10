@@ -155,7 +155,7 @@ $(document).ready(function() {
 // if calendarFancy defined, it's the url of an iFrame fancyox otherwise fancybox is of div with div id as #calendarFancy_content
   $('#share-bar').share({
     //'channels': ['facebook', 'twitter', 'linkedin', 'pdf', 'email'],
-    'channels': ['epingleFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email'],
+    'channels': ['epingleFancy', 'facebook', 'twitter', 'linkedin', 'pdf', 'email', 'youtube'],
     //epingleFancy: 'https://philquand.github.io/Javascript/Blog-widgets/IDST/Congrès-IDST-Nov-2019/CongresIDST.html'
   });
   var pathname = window.location.pathname;

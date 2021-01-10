@@ -10,7 +10,7 @@
       //  chargements des dépendances js
       load.js('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js'),
       load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
-      load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/hi-base4-util.js'),
+      load.js('https://philquand.github.io/Javascript/Hi-base64/hi-base64.js'),
     ]).then(function() {
       console.log('Everything has loaded!');
       if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {

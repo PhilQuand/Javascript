@@ -5,7 +5,7 @@
       //  chargements des dépendances css
       //  chargements des dépendances js
       load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'),
-      load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/hi-base4-util.js'),
+      load.js('https://philquand.github.io/Javascript/Hi-base64/hi-base64.js'),
     ]).then(
     function() {
     var _options = { fancyClass: articleFancy, Num: "SCTLP" };

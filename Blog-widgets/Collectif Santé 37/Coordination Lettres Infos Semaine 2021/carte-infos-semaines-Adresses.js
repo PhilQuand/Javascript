@@ -67,7 +67,7 @@ var inpAddress = [
   lat: 48.57706, lng:  -3.82618},
 { inpText: "TOURS",
   lat: 47.38846, lng:  0.68957},
-{ inpText: "COLLECTIF NOTRE SANTÉ EN DANGER – 37",
+{ inpText: "COLLECTIF NOTRE SANTÉ EN DANGER",
   lat: 47.38846, lng:  0.68957},
 { inpText: "TOULOUSE",
   lat: 43.60579, lng:  1.44863},

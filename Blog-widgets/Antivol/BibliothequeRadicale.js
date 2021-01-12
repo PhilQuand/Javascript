@@ -1,4 +1,5 @@
 var windowParent = window.parent;
+var afterLoad = function(instance, current) {};
 var articleFancy = {
   idleTime: false,
   smallBtn: false,
@@ -49,7 +50,8 @@ var articleFancy = {
     $('.articleFancyClass .fancybox-button.fancybox-button--arrow_left').attr('title', 'page précédente');
     $('.articleFancyClass .fancybox-button:enabled').css('visibility', 'visible');
     $('.articleFancyClass .fancybox-button:disabled').css('visibility', 'hidden');
-  },
+    afterLoad(instance, current);
+},
   onUpdate: function(opts, obj) {
 
     var documentInnerHeight = windowParent.window.innerHeight;

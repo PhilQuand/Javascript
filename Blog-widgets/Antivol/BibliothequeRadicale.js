@@ -1,5 +1,5 @@
 var windowParent = window.parent;
-var articleFancy-afterLoad = function(instance, current) {};
+var articleFancyAfterLoad = function(instance, current) {};
 var articleFancy = {
   idleTime: false,
   smallBtn: false,
@@ -50,7 +50,7 @@ var articleFancy = {
     $('.articleFancyClass .fancybox-button.fancybox-button--arrow_left').attr('title', 'page précédente');
     $('.articleFancyClass .fancybox-button:enabled').css('visibility', 'visible');
     $('.articleFancyClass .fancybox-button:disabled').css('visibility', 'hidden');
-    articleFancy-afterLoad(instance, current);
+    articleFancyAfterLoad(instance, current);
 },
   onUpdate: function(opts, obj) {
 

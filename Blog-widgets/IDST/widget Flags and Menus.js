@@ -29,18 +29,48 @@
 <!--div id='calendarFancy_content' style='margin-left: auto; margin-right: 0;'-->
 <div id='epingleFancy_content' style='margin-left: auto; margin-right: 0;'>
 <div style="width: 100%; margin: 0;">
-<!-- article récupéré dela page luttes, mis en forme sur https://unminify.com et cache des drapeaux (display none des img correspondants)-->
+<!-- article récupéré dela page luttes, alternatives ou critique puis :
+1) mis en forme sur https://unminify.com 
+2) remise en forme sur une seule ligne de la première balise <a avec la fonction javascript onclick
+3) cache des drapeaux ("display: none" à la place de "float: right" des img correspondants)-->
 <article style="background: rgba(190, 201, 228, 0.5);">
     <div class="item-content float-container res-title">
         <h3 style="display: block;">
-            <a href="https://www.linternationaledessavoirspourtous.org/2021/01/participez-au-forum-social-mondial-fsm.html?lang=fr" onclick="return function gotoOnClick(e) { window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;); return false;}(this);" data-lngloc="fr-FR">
+            <a href="https://www.linternationaledessavoirspourtous.org/2021/01/participez-au-forum-social-mondial-fsm.html?lang=fr" onclick="return function gotoOnClick(e) {window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;);return false;}(this);" data-lngloc="fr-FR">
                 <div class="local-lang fr-FR" style="display: block;">Participez au Forum Social Mondial (FSM) !</div>
                 <div class="local-lang en-EN" style="display: none;">Let participate to the World Social Forum (WSF)!</div>
                 <div class="local-lang es-ES" style="display: none;">Participar en el Forum Social Mundial (FSM)!</div>
             </a>
-            <img src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png" width="32" height="32" alt="es-ES" border="0" style="cursor: pointer; margin-left: 5px; display: none;" onclick="return setSumFlagsOnClick(this);" class="local-flags es-ES" />
-            <img src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png" width="32" height="32" alt="en-EN" border="0" style="cursor: pointer; margin-left: 5px; display: none;" onclick="return setSumFlagsOnClick(this);" class="local-flags en-EN" />
-            <img src="https://philquand.github.io/Javascript/flagsRepository/France.png" width="32" height="32" alt="fr-FR" border="0" style="cursor: pointer; margin-left: 5px; display: none;" onclick="return setSumFlagsOnClick(this);" class="local-flags fr-FR" />
+            <img
+                alt="es-ES"
+                border="0"
+                class="local-flags es-ES"
+                height="32"
+                onclick="return setSumFlagsOnClick(this);"
+                src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png"
+                style="cursor: pointer; margin-left: 5px; display: none;"
+                width="32"
+            />
+            <img
+                alt="en-EN"
+                border="0"
+                class="local-flags en-EN"
+                height="32"
+                onclick="return setSumFlagsOnClick(this);"
+                src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png"
+                style="cursor: pointer; margin-left: 5px; display: none;"
+                width="32"
+            />
+            <img
+                alt="fr-FR"
+                border="0"
+                class="local-flags fr-FR"
+                height="32"
+                onclick="return setSumFlagsOnClick(this);"
+                src="https://philquand.github.io/Javascript/flagsRepository/France.png"
+                style="cursor: pointer; margin-left: 5px; display: none;"
+                width="32"
+            />
         </h3>
 
         <h3 style="display: none;">
@@ -53,12 +83,12 @@
             <div class="local-lang en-EN" style="display: none;">Blog editorial team</div>
             <div class="local-lang es-ES" style="display: none;">La redacción del blog</div>
         </h2>
-        <img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)" />
+        <img border="0" class="res-img" onclick="showSummary(this)" src="" style="display: none;" width="40px" />
     </div>
 
     <div style="display: block;">
         <div class="post-header item-content float-container">
-            <span class="imgSum"><img data-img="yes" src="https://1.bp.blogspot.com/-eqf7xJPUEs8/YABlWL6VacI/AAAAAAAAn6k/zq4U6PN-7CAmRzcb4Mfh9-CBukX_VKuyACLcBGAsYHQ/s0/ImageFSM.jpg" width="180px" height="auto" /></span>
+            <span class="imgSum"><img data-img="yes" height="auto" src="https://1.bp.blogspot.com/-eqf7xJPUEs8/YABlWL6VacI/AAAAAAAAn6k/zq4U6PN-7CAmRzcb4Mfh9-CBukX_VKuyACLcBGAsYHQ/s0/ImageFSM.jpg" width="180px" /></span>
             <div class="incrustation">
                 <div class="local-lang fr-FR" style="display: block;">
                     Le <a href="https://wsf2021.net/20-anos-fsm/">FSM</a> fête ses 20 ans du 23 au 31 janvier 2021, hélas pour cette année en ligne, mais il tient bon&nbsp;! Dans ce cadre, l’Internationale des Savoirs pour Tous participe à

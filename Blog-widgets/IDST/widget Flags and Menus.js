@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/Blog-widgets/IDST/tooltipster-sideTip-calendar.css" />
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
-<script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
+<!--script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script-->
 
 <!--style>
 .tooltipster-sidetip.tooltipster-calendar .tooltipStyle {
@@ -30,30 +30,47 @@
 <div id='epingleFancy_content' style='margin-left: auto; margin-right: 0;'>
 <div style="width: 100%; margin: 0;">
 <!-- article récupéré dela page luttes, mis en forme sur https://unminify.com et cache des drapeaux (display none des img correspondants)-->
-<article style="background-color: rgba(190, 201, 228, 0.498039); background-position: initial initial; background-repeat: initial initial;">
+<article style="background: rgba(190, 201, 228, 0.5);">
     <div class="item-content float-container res-title">
-        <h3 style="display: block;"><a href="https://www.linternationaledessavoirspourtous.org/2020/05/coronavirus-la-science-ne-marche-pas.html?lang=fr" onclick="return function gotoOnClick(e) {
-  //alert(e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;));
-  window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;);
-  return false;
-}(this);" data-lngloc="fr-FR"><div class="local-lang fr-FR" style="display: block;">Coronavirus : la science ne marche pas dans l’urgence !</div></a>
-<img style="display:none" src="https://philquand.github.io/Javascript/flagsRepository/France.png" width="32" height="32" alt="fr-FR" border="0" style="cursor:pointer; margin-left: 5px; float: right;" onclick="return setSumFlagsOnClick(this);" class="local-flags fr-FR" />
-</h3>
+        <h3 style="display: block;">
+            <a href="https://www.linternationaledessavoirspourtous.org/2021/01/participez-au-forum-social-mondial-fsm.html?lang=fr" onclick="return function gotoOnClick(e) { window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;); return false;}(this);" data-lngloc="fr-FR">
+                <div class="local-lang fr-FR" style="display: block;">Participez au Forum Social Mondial (FSM) !</div>
+                <div class="local-lang en-EN" style="display: none;">Let participate to the World Social Forum (WSF)!</div>
+                <div class="local-lang es-ES" style="display: none;">Participar en el Forum Social Mundial (FSM)!</div>
+            </a>
+            <img src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png" width="32" height="32" alt="es-ES" border="0" style="cursor: pointer; margin-left: 5px; display: none;" onclick="return setSumFlagsOnClick(this);" class="local-flags es-ES" />
+            <img src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png" width="32" height="32" alt="en-EN" border="0" style="cursor: pointer; margin-left: 5px; display: none;" onclick="return setSumFlagsOnClick(this);" class="local-flags en-EN" />
+            <img src="https://philquand.github.io/Javascript/flagsRepository/France.png" width="32" height="32" alt="fr-FR" border="0" style="cursor: pointer; margin-left: 5px; display: none;" onclick="return setSumFlagsOnClick(this);" class="local-flags fr-FR" />
+        </h3>
 
-        <h3 style="display: none;"><div class="local-lang fr-FR" style="display: block;">Coronavirus : la science ne marche pas dans l’urgence !</div></h3>
-        <h2 class="authors"><div class="local-lang fr-FR" style="display: block;">Bruno Canard</div></h2>
-        <img border="0" class="res-img" onclick="showSummary(this)" src="" style="display: none;" width="40px" />
+        <h3 style="display: none;">
+            <div class="local-lang fr-FR" style="display: block;">Participez au Forum Social Mondial (FSM) !</div>
+            <div class="local-lang en-EN" style="display: none;">Let participate to the World Social Forum (WSF)!</div>
+            <div class="local-lang es-ES" style="display: none;">Participar en el Forum Social Mundial (FSM)!</div>
+        </h3>
+        <h2 class="authors">
+            <div class="local-lang fr-FR" style="display: block;">La Rédaction du blog</div>
+            <div class="local-lang en-EN" style="display: none;">Blog editorial team</div>
+            <div class="local-lang es-ES" style="display: none;">La redacción del blog</div>
+        </h2>
+        <img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)" />
     </div>
 
     <div style="display: block;">
         <div class="post-header item-content float-container">
-            <span class="imgSum">
-                <img data-img="yes" height="auto" src="https://1.bp.blogspot.com/-7TmFfABs0rA/XsQNFJyjCtI/AAAAAAAAl_0/WiQ6bLA4HOYEcijyQGaO7r138pZs6TtDwCK4BGAsYHg/CoronavirusSurLeFrontScientifique.jpg" width="180px" />
-            </span>
+            <span class="imgSum"><img data-img="yes" src="https://1.bp.blogspot.com/-eqf7xJPUEs8/YABlWL6VacI/AAAAAAAAn6k/zq4U6PN-7CAmRzcb4Mfh9-CBukX_VKuyACLcBGAsYHQ/s0/ImageFSM.jpg" width="180px" height="auto" /></span>
             <div class="incrustation">
                 <div class="local-lang fr-FR" style="display: block;">
-                    Je suis Bruno Canard, directeur de recherche CNRS à Aix-Marseille. Mon équipe travaille sur les virus à ARN (acide ribonucléique), dont font partie les coronavirus. En 2002, notre jeune équipe travaillait sur la dengue,
-                    ce qui m’a valu d’être invité à une conférence internationale où il a été question des coronavirus, une grande famille de virus que je ne connaissais pas....
+                    Le <a href="https://wsf2021.net/20-anos-fsm/">FSM</a> fête ses 20 ans du 23 au 31 janvier 2021, hélas pour cette année en ligne, mais il tient bon&nbsp;! Dans ce cadre, l’Internationale des Savoirs pour Tous participe à
+                    l’organisation du VI Forum Social Mondial <strong>Science et Démocratie </strong>(FSMSD), en partenariat notamment avec la Fundación Asamblea de ciudadanos y ciudadanas del Mediterráneo et le Réseau...
+                </div>
+                <div class="local-lang en-EN" style="display: none;">
+                    The <a href="https://wsf2021.net/20-anos-fsm/">WSF</a> is celebrating its 20th anniversary from 23 to 31&nbsp;January&nbsp;2021, alas for this year online but it's still going strong! In this context, the International
+                    of Knowledge for All (IKA) is participating in the organization of the VI World Social Forum <strong>Science and Democracy</strong> (WSFSD), in partnership with the Fundación Asamblea de...
+                </div>
+                <div class="local-lang es-ES" style="display: none;">
+                    El <a href="https://wsf2021.net/20-anos-fsm/">FSM</a> celebra su 20º aniversario del 23 al 31 de enero de 2021, por desgracia para este año en línea, pero está aguantando! En este contexto, la International del Saber
+                    para Todos (IDST) participa en la organización del VI Foro Social Mundial <strong>Ciencia y Democracia</strong>, en asociación con la Fundación Asamblea de ciudadanos y...
                 </div>
             </div>
             <div style="text-align: right; display: none;">
@@ -2147,6 +2164,204 @@ function removeHtmlTagforAllLangs(strxInput, chopInput, LangForSummary, preLang,
     summary: strxOutput
   };
   return result;
+}
+function compSumAndImg(strx, chop, Lang, preLang, isFB) {
+  var result = {
+    img: '',
+    summary: ''
+  };
+  var strxOutput = '';
+  //for (var iLang = 0; iLang < LangForSummary.length; iLang++) {
+  //var Lang = LangForSummary[iLang];
+  var goOn = true;
+  /*var goOn = false;
+  if (Lang == '') {
+    goOn = true;
+  }
+  else {
+    var langHandler = document.getElementById(Lang + 'Handler');
+    if (langHandler.style.display != "none") {
+      goOn = true;
+    }
+  }*/
+  if (goOn) {
+   var chopIn = chop;
+   var chopCount = 0;
+   msg = '';
+    if (strx.indexOf("<") != -1) {
+      var s = strx.split("<");
+      var news = [];
+      var isToDelete = 0;
+      var isFinished = false;
+      for (var i = 0; i < s.length; i++) {
+        if (result.img == '') {
+          var myTag = s[i].substring(0, s[i].indexOf(">"));
+          if ((myTag.indexOf('img') != -1) && (myTag.indexOf('src=') != -1)) {
+            var mySrc = myTag.split('src');
+            var myDelim = mySrc[1].substring(mySrc[1].indexOf("http") - 1, mySrc[1].indexOf("http"));
+            var myHref = mySrc[1].split(myDelim);
+            result.img = myHref[1];
+          }
+        }
+        var isdebDiv = debDiv(s[i]);
+        if (isdebDiv) {
+          var debToDelete = debDivToDelete(s[i], Lang, preLang);
+          if ((isToDelete != 0) || debToDelete) {
+            isToDelete++;
+          }
+        }
+        if (s[i].indexOf(">") != -1) {
+          var isendDiv = endDiv(s[i]);
+          if ((isToDelete > 0) && isendDiv) {
+            isToDelete--;
+          }
+          /*if ( !(isToDelete > 0) )  {
+            news.push(s[i].substring(s[i].indexOf(">") + 1, s[i].length));
+          }*/
+          if (!(isToDelete > 0)) {
+            var curS = '';
+            if (isFB == 'no' && isTagtoSum(s,i)) {
+              //if(chopCount < chopIn) chop += s[i].indexOf(">") + 1
+              curS = '<' + s[i];
+              if (chopCount < chopIn) {
+                chop += s[i].indexOf(">") + 2;
+              }
+              else isFinished = true;
+            }
+            else {
+              curS = s[i].substring(s[i].indexOf(">") + 1, s[i].length);
+            }
+            chopCount += (s[i].length - s[i].indexOf(">") - 1);
+            // insert two line breaks after authors
+            if ((i > 1) && (s[i - 2] == '/span>') && (s[i - 1] == '/strong>') && (s[i].indexOf('/p>') == 0)) {
+              news.push('<br/>');
+              chop += 5;
+            }
+          }
+          news.push(curS);
+        }
+        //if( isFinished ) i = s.length;
+      }
+      strx = news.join("");
+    }
+
+    // begin of substitution of coded typo characters
+    //strx = strx.replace(/\&\#8217\;/g,"'");
+    //strx = strx.replace(/\&\#171\;/g,"«");
+    //strx = strx.replace(/\&\#187\;/g,"H");
+    //strx = strx.replace(/\&\#8239\;/g," ");
+    //strx = strx.replace(/\&\#160\;/g," ");
+    // end of substitution of coded typo characters
+
+    if (msg != '') alert('news.length : ' + news.length + '\ns.length : ' + s.length + '\nmsg : \n' + msg);
+    chop = (chop < strx.length - 1) ? chop : strx.length - 1;
+    if(chop != strx.length - 1) while (strx.charAt(chop) != ' ') chop--;
+    strxOutput = strx.substring(0, chop);
+    //alert('lang = '+ Lang + 'strx : \n' + strxOutput);        }
+  }
+  result.summary = strxOutput;
+  return result;
+}
+
+/*function SummaryOff(s) {
+  var myTag = s.substring(0, s.indexOf(">"));
+  if ((myTag.indexOf('div') > -1) && (myTag.indexOf('data-summary="no"') > -1)) {
+    return true;
+  }
+  return false;
+}
+function SummaryOn(s) {
+  var myTag = s.substring(0, s.indexOf(">"));
+  if ((myTag.indexOf('div') > -1) && (myTag.indexOf('data-summary="yes"') > -1)) {
+    return true;
+  }
+  return false;
+}*/
+
+function isTagtoSum(s,i) {
+  //if(s[i][0] == 'a' || s[i].indexOf('/a>') > -1) {
+  if( s[i][0] == 'a' && s[i+1].indexOf('img') != 0 ) {
+    return true; 
+  } 
+  if( s[i].indexOf('/a>') > -1 && s[i-1].indexOf('img') != 0 ) {
+    return true; 
+  } 
+  if( s[i].indexOf('strong') > -1 ) {
+    return true;
+  } 
+  if( s[i].indexOf('em>') > -1 ) {
+    //return true;
+  } 
+  return false;
+}
+
+function debDivToDelete(s, Lang, preLang) {
+  var myTag = s.substring(0, s.indexOf(">"));
+  if ((myTag.indexOf('div') > -1) && (myTag.indexOf(preLang) > -1) && !(myTag.indexOf(preLang + Lang + '"') > -1)) {
+    return true;
+  }
+  if ((myTag.indexOf('div') > -1) && (myTag.indexOf('data-summary="no"') > -1)) {
+    return true;
+  }
+  if ( (myTag.indexOf('script') == 0) ) {
+    return true;
+  }
+  if ( myTag.indexOf('style') == 0 ) {
+    return true;
+  }
+  return false;
+}
+
+function debDiv(s) {
+  var myTag = s.substring(0, s.indexOf(">"));
+  if (myTag.indexOf('div') > -1 && !(myTag.indexOf('/') > -1)) {
+    return true;
+  }
+  if ( (myTag.indexOf('script') == 0) && !((myTag.indexOf('/script') > -1) || (myTag[myTag.length-1] == '/'))) {
+    return true;
+  }
+  if ( (myTag.indexOf('style') == 0) && !((myTag.indexOf('/style') > -1) || (myTag[myTag.length-1] == '/'))) {
+    return true;
+  }
+  return false;
+}
+
+function endDiv(s) {
+  var myTag = s.substring(0, s.indexOf(">"));
+  if (myTag.indexOf('div') > -1 && myTag.indexOf('/') > -1) {
+    return true;
+  }
+  if (myTag.indexOf('/script') == 0 ) {
+    return true;
+  }
+  if (myTag.indexOf('/style') == 0 ) {
+    return true;
+  }
+  return false;
+}
+
+function createSummaryAndThumb(pID, isRegular) {
+  var div = document.getElementById(pID);
+  var imgtag = "";
+  var img = div.getElementsByTagName("img");
+  var summ = summary_noimg;
+  if (img.length >= 1) {
+    if (isRegular) {
+      //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-width:' + img_thumb_width + 'px;height:auto;"><img src="' + img[0].src + '" height="' + img_thumb_height + 'px" width="auto"/></span>';
+      imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-width:' + img_thumb_width + 'px;height:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width + 'px" height="auto"/></span>';
+      //imgtag = '<span style="overflow:hidden; border: none; margin:0 15px 10px 0; float:left; max-height:' + img_thumb_height + 'px;width:auto;"><img src="' + img[0].src + '" width="' + img_thumb_width + 'px" height="auto"/></span>';
+      summ = summary_img_reg;
+    }
+    else {
+      imgtag = '<center><img src="' + img[0].src + '" width= 60%" height="auto"/></center>';
+      summ = summary_img_feat;
+    }
+  }
+  //var summary = imgtag + '<div>' + removeHtmlTagforAllLangs(div.innerHTML, summ, LangForSummary) + '</div>';
+  var summary;
+  if (isRegular) summary = imgtag + '<div class="mySumReg">' + removeHtmlTagforAllLangs(div.innerHTML, summ, LangForSummary, 'lang="', 'no').summary + '</div>';
+  else summary = imgtag + '<div class="mySumFeat">' + removeHtmlTagforAllLangs(div.innerHTML, summ, LangForSummary, 'lang="', 'no').summary + '</div>';
+  div.innerHTML = summary;
 }
 // Fin des scripts, à ne pas supprimer (voir) getBody
 </script>

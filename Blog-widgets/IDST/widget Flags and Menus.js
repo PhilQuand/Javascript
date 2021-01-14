@@ -31,12 +31,19 @@
 <div style="width: 100%; margin: 0;">
 <!-- article récupéré dela page luttes, alternatives ou critique puis :
 1) mis en forme sur https://unminify.com 
-2) remise en forme sur une seule ligne de la première balise <a avec la fonction javascript onclick
+2) remettre sur une même ligne la première balise <a avec son href 
 3) cache des drapeaux ("display: none" à la place de "float: right" des img correspondants)-->
 <article style="background: rgba(190, 201, 228, 0.5);">
     <div class="item-content float-container res-title">
         <h3 style="display: block;">
-            <a href="https://www.linternationaledessavoirspourtous.org/2021/01/participez-au-forum-social-mondial-fsm.html?lang=fr" onclick="return function gotoOnClick(e) {window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;);return false;}(this);" data-lngloc="fr-FR">
+            <a href="https://www.linternationaledessavoirspourtous.org/2021/01/participez-au-forum-social-mondial-fsm.html?lang=en"
+                onclick="return function gotoOnClick(e) {
+  //alert(e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;));
+  window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;);
+  return false;
+}(this);"
+                data-lngloc="fr-FR"
+            >
                 <div class="local-lang fr-FR" style="display: block;">Participez au Forum Social Mondial (FSM) !</div>
                 <div class="local-lang en-EN" style="display: none;">Let participate to the World Social Forum (WSF)!</div>
                 <div class="local-lang es-ES" style="display: none;">Participar en el Forum Social Mundial (FSM)!</div>
@@ -104,7 +111,7 @@
                 </div>
             </div>
             <div style="text-align: right; display: none;">
-                <a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=fr" title="À l’origine de notre Internationale">Lire la suite</a>
+                <a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=en" title="À l’origine de notre Internationale">Read more</a>
             </div>
         </div>
     </div>

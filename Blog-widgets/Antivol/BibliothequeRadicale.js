@@ -49,9 +49,11 @@ var articleFancy = {
     $('.articleFancyClass .fancybox-button.fancybox-button--arrow_left').attr('title', 'page précédente');
     $('.articleFancyClass .fancybox-button:enabled').css('visibility', 'visible');
     $('.articleFancyClass .fancybox-button:disabled').css('visibility', 'hidden');
-    current.opts.postLoad(instance, current);
-},
-  postLoad: function(instance, current) {},
+    if( jQuery.type(current.opts.postLoad) != 'undefined' ) {
+      current.opts.postLoad(instance, current);
+    }
+  },
+  //postLoad: function(instance, current) {},
   onUpdate: function(opts, obj) {
 
     var documentInnerHeight = windowParent.window.innerHeight;

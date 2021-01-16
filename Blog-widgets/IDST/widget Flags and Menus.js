@@ -2260,7 +2260,10 @@ function compSumAndImg(strx, chop, Lang, preLang, isFB) {
             if (isFB == 'no' && isTagtoSum(s,i)) {
               //if(chopCount < chopIn) chop += s[i].indexOf(">") + 1
               curS = '<' + s[i];
+              //Without no more
               if (chopCount < chopIn) {
+              //With no more
+              //f (chopCount < chopIn && !isTagMore(s, i)) {
                 chop += s[i].indexOf(">") + 2;
               }
               else isFinished = true;
@@ -2275,10 +2278,14 @@ function compSumAndImg(strx, chop, Lang, preLang, isFB) {
               chop += 5;
             }
           }
-          news.push(curS);
+         //Without no more
+         news.push(curS);
+         //With no more
+         //if(!isFinished) news.push(curS);
         }
-        //if( isFinished ) i = s.length;
-      }
+        //With no more
+        //if (isFinished) break;
+     }
       strx = news.join("");
     }
 
@@ -2332,6 +2339,12 @@ function isTagtoSum(s,i) {
   return false;
 }
 
+  function isTagMore(s, i) {
+    if (s[i].indexOf('name="more"') > -1) {
+      return true;
+    }
+    return false;
+  }
 function debDivToDelete(s, Lang, preLang) {
   var myTag = s.substring(0, s.indexOf(">"));
   if ((myTag.indexOf('div') > -1) && (myTag.indexOf(preLang) > -1) && !(myTag.indexOf(preLang + Lang + '"') > -1)) {
@@ -2399,8 +2412,7 @@ function createSummaryAndThumb(pID, isRegular) {
   if (isRegular) summary = imgtag + '<div class="mySumReg">' + removeHtmlTagforAllLangs(div.innerHTML, summ, LangForSummary, 'lang="', 'no').summary + '</div>';
   else summary = imgtag + '<div class="mySumFeat">' + removeHtmlTagforAllLangs(div.innerHTML, summ, LangForSummary, 'lang="', 'no').summary + '</div>';
   div.innerHTML = summary;
-}
-// Fin des scripts, à ne pas supprimer (voir) getBody
+}// Fin des scripts, à ne pas supprimer (voir) getBody
 </script>
 <script>
 // Ressources pour cartes LeafLet

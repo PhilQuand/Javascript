@@ -94,7 +94,8 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       loc = loc.split('#');
       loc = loc[0];
       if (options.href.length > 1)
-        $(_this).children(":first").wrap('<a href="' + loc + '#' + randNum + '-1"></a>');
+        if (jQuery.type(options.linkNum) != 'undefined') $(_this).children(":first").wrap('<a href="' + loc + '#' + randNum + '-' + options.linkNum + '"></a>');
+        else $(_this).children(":first").wrap('<a href="' + loc + '#' + randNum + '-1"></a>');
       else
         $(_this).children(":first").wrap('<a href="' + loc + '#' + randNum + '"></a>');
       // pour déclencher: https://latouraineinsoumise.blogspot.com/#images-1

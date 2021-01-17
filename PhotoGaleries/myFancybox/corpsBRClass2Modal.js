@@ -14,8 +14,10 @@
         };
         if (jQuery.type(options.fancyClass) != 'undefined') _options.fancyClass = options.fancyClass;
         if (jQuery.type(options.src) != 'undefined') _options.src = options.src;
-        var href = [];
         var hrefURL = options.href;
+        var url = window.location.href;
+        if (url.indexOf(hrefURL[0]) > -1) _options.linkNum = 2;
+        var href = [];
         _options.href = href;
         for (var i = 0; i < hrefURL.length; i++) {
           var result = getMyInnerLinkContent(hrefURL[i]);

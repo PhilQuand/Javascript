@@ -33,10 +33,10 @@
 1) mis en forme sur https://unminify.com 
 2) remettre sur une même ligne la première balise <a avec son href 
 3) cache des drapeaux ("display: none" à la place de "float: right" des img correspondants)-->
-<article style="background: rgba(190, 201, 228, 0.5);">
+<article style="background-color: rgba(190, 201, 228, 0.5); background-position: initial initial; background-repeat: initial initial;">
     <div class="item-content float-container res-title">
         <h3 style="display: block;">
-            <a href="https://www.linternationaledessavoirspourtous.org/2021/01/participez-au-forum-social-mondial-fsm.html?lang=en"
+            <a href="https://www.linternationaledessavoirspourtous.org/2021/01/participez-au-forum-social-mondial-fsm.html?lang=fr"
                 onclick="return function gotoOnClick(e) {
   //alert(e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;));
   window.location = e.href + '&amp;lngloc=' + e.getAttribute(&quot;data-lngloc&quot;);
@@ -47,36 +47,47 @@
                 <div class="local-lang fr-FR" style="display: block;">Participez au Forum Social Mondial (FSM) !</div>
                 <div class="local-lang en-EN" style="display: none;">Let participate to the World Social Forum (WSF)!</div>
                 <div class="local-lang es-ES" style="display: none;">Participar en el Forum Social Mundial (FSM)!</div>
+                <div class="local-lang pt-PT" style="display: none;">Participar no Forúm Social Mundial (FSM) !</div>
             </a>
             <img
+                src="https://philquand.github.io/Javascript/flagsRepository/Portugal.png"
+                width="32"
+                height="32"
+                alt="pt-PT"
+                border="0"
+                style="cursor: pointer; margin-left: 5px; display: none;"
+                onclick="return setSumFlagsOnClick(this);"
+                class="local-flags pt-PT"
+            />
+            <img
+                src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png"
+                width="32"
+                height="32"
                 alt="es-ES"
                 border="0"
-                class="local-flags es-ES"
-                height="32"
-                onclick="return setSumFlagsOnClick(this);"
-                src="https://philquand.github.io/Javascript/flagsRepository/Espagne.png"
                 style="cursor: pointer; margin-left: 5px; display: none;"
-                width="32"
+                onclick="return setSumFlagsOnClick(this);"
+                class="local-flags es-ES"
             />
             <img
+                src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png"
+                width="32"
+                height="32"
                 alt="en-EN"
                 border="0"
-                class="local-flags en-EN"
-                height="32"
-                onclick="return setSumFlagsOnClick(this);"
-                src="https://philquand.github.io/Javascript/flagsRepository/RoyaumesUnis.png"
                 style="cursor: pointer; margin-left: 5px; display: none;"
-                width="32"
+                onclick="return setSumFlagsOnClick(this);"
+                class="local-flags en-EN"
             />
             <img
+                src="https://philquand.github.io/Javascript/flagsRepository/France.png"
+                width="32"
+                height="32"
                 alt="fr-FR"
                 border="0"
-                class="local-flags fr-FR"
-                height="32"
-                onclick="return setSumFlagsOnClick(this);"
-                src="https://philquand.github.io/Javascript/flagsRepository/France.png"
                 style="cursor: pointer; margin-left: 5px; display: none;"
-                width="32"
+                onclick="return setSumFlagsOnClick(this);"
+                class="local-flags fr-FR"
             />
         </h3>
 
@@ -84,39 +95,44 @@
             <div class="local-lang fr-FR" style="display: block;">Participez au Forum Social Mondial (FSM) !</div>
             <div class="local-lang en-EN" style="display: none;">Let participate to the World Social Forum (WSF)!</div>
             <div class="local-lang es-ES" style="display: none;">Participar en el Forum Social Mundial (FSM)!</div>
+            <div class="local-lang pt-PT" style="display: none;">Participar no Forúm Social Mundial (FSM) !</div>
         </h3>
         <h2 class="authors">
             <div class="local-lang fr-FR" style="display: block;">La Rédaction du blog</div>
             <div class="local-lang en-EN" style="display: none;">Blog editorial team</div>
             <div class="local-lang es-ES" style="display: none;">La redacción del blog</div>
+            <div class="local-lang pt-PT" style="display: none;">a redacção do blogue</div>
         </h2>
-        <img border="0" class="res-img" onclick="showSummary(this)" src="" style="display: none;" width="40px" />
+        <img style="display: none;" class="res-img" src="" border="0" width="40px" onclick="showSummary(this)" />
     </div>
 
     <div style="display: block;">
         <div class="post-header item-content float-container">
-            <span class="imgSum"><img data-img="yes" height="auto" src="https://1.bp.blogspot.com/-eqf7xJPUEs8/YABlWL6VacI/AAAAAAAAn6k/zq4U6PN-7CAmRzcb4Mfh9-CBukX_VKuyACLcBGAsYHQ/s0/ImageFSM.jpg" width="180px" /></span>
+            <span class="imgSum"><img data-img="yes" src="https://1.bp.blogspot.com/-eqf7xJPUEs8/YABlWL6VacI/AAAAAAAAn6k/zq4U6PN-7CAmRzcb4Mfh9-CBukX_VKuyACLcBGAsYHQ/s0/ImageFSM.jpg" width="180px" height="auto" /></span>
             <div class="incrustation">
                 <div class="local-lang fr-FR" style="display: block;">
                     Le <a href="https://wsf2021.net/20-anos-fsm/">FSM</a> fête ses 20 ans du 23 au 31 janvier 2021, hélas pour cette année en ligne, mais il tient bon&nbsp;! Dans ce cadre, l’Internationale des Savoirs pour Tous participe à
-                    l’organisation du VI Forum Social Mondial <strong>Science et Démocratie </strong>(FSMSD), en partenariat notamment avec la Fundación Asamblea de ciudadanos y ciudadanas del Mediterráneo et le Réseau...
+                    l’organisation du VI Forum Social Mondial <strong>Science et Démocratie </strong>(FSMSD), en partenariat notamment avec la Fundación Asamblea de ciudadanos y ciudadanas del Mediterráneo et le...
                 </div>
                 <div class="local-lang en-EN" style="display: none;">
                     The <a href="https://wsf2021.net/20-anos-fsm/">WSF</a> is celebrating its 20th anniversary from 23 to 31&nbsp;January&nbsp;2021, alas for this year online but it's still going strong! In this context, the International
-                    of Knowledge for All (IKA) is participating in the organization of the VI World Social Forum <strong>Science and Democracy</strong> (WSFSD), in partnership with the Fundación Asamblea de...
+                    of Knowledge for All (IKA) is participating in the organization of the VI World Social Forum <strong>Science and Democracy</strong> (WSFSD), in partnership with the Fundación...
                 </div>
                 <div class="local-lang es-ES" style="display: none;">
                     El <a href="https://wsf2021.net/20-anos-fsm/">FSM</a> celebra su 20º aniversario del 23 al 31 de enero de 2021, por desgracia para este año en línea, pero está aguantando! En este contexto, la International del Saber
-                    para Todos (IDST) participa en la organización del VI Foro Social Mundial <strong>Ciencia y Democracia</strong>, en asociación con la Fundación Asamblea de ciudadanos y...
+                    para Todos (IDST) participa en la organización del VI Foro Social Mundial <strong>Ciencia y Democracia</strong>, en asociación con la Fundación Asamblea de ciudadanos...
+                </div>
+                <div class="local-lang pt-PT" style="display: none;">
+                    O <a href="https://wsf2021.net/20-anos-fsm/">FSM</a> está a celebrar o seu 20º aniversário de 23 a 30 de Janeiro de 2021, infelizmente para este ano online, mas está a decorrer em linha! Neste contexto, la Internacional
+                    do Saber para Todos participa na organização do VI Fórum Social Mundial <strong>Ciência e Democracia</strong> (FSMCD), em parceria com a Fundación...
                 </div>
             </div>
             <div style="text-align: right; display: none;">
-                <a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=en" title="À l’origine de notre Internationale">Read more</a>
+                <a class="jump-link myflat-button ripple" href="https://www.linternationaledessavoirspourtous.org/2019/01/a-lorigine-de-notre-internationale.html?lang=fr" title="À l’origine de notre Internationale">Lire la suite</a>
             </div>
         </div>
     </div>
 </article>
-
 </div>
 </div>
 

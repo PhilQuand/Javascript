@@ -180,6 +180,7 @@ $(document).ready(function() {
                 select.css('display','block');
               } else {
                 $('th select').each(function() {
+                  var thIndex = $(this).index();
                   dataDisplay = $(this).data('display');
                   if( (typeof dataDisplay === "undefined") || dataDisplay != 'none' )  {
                     $(this).css('display','block');

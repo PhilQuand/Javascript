@@ -91,36 +91,24 @@ $(document).ready(function() {
     $('#table').DataTable({
       data: data,
       columns: [{
-          data: "Article sur L'AntIvol",
-          title: "Titre du média <br/>et lien vers l'article sur L'Antivol"
+          data: "Nature de l'œuvre",
+          title: "Nature de l'œuvre"
         },
         {
           data: "Auteur",
           title: "Auteur"
         },
         {
-          data: "Édition",
-          title: "Édition"
+          data: "Titre",
+          title: "Titre"
         },
         {
           data: "Année",
           title: "Année"
         },
         {
-          data: "Type",
-          title: "Type"
-        },
-        {
-          data: "Vignette",
-          title: "Vignette de l'Article sur L'AntIvol"
-        },
-        {
-          data: "Auteur de l'article sur L'Antivol",
-          title: "Auteur de l'article sur L'Antivol"
-        },
-        {
-          data: "Date sur L'Antivol",
-          title: "Date de publication sur L'Antivol"
+          data: "Vignette liée à l'article sur L'Antivol",
+          title: "Lien vers l'article sur L'Antivol"
         },
       ],
       initComplete: function() {

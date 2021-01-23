@@ -199,7 +199,7 @@ $(document).ready(function() {
             } else {
               var optlVal=d;
             }
-            if(optlVal != '' && optlVal != '">"') {
+            if(optlVal != '' && optlVal.indexOf('<img ') == -1) {
               select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
               optEmpty = false;
             }

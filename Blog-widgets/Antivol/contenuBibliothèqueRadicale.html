@@ -144,7 +144,14 @@ $(document).ready(function() {
 
           var optEmpty = true;
           var allColumnData = column.data();
-          column.data().unique().sort().each(function(d, j) {
+          var newColumnData = [];
+          for (var i = 0; i < allColumnData.length; i++) {
+            var optValMul = allColumnData.split('<br/>')
+            for (var i = 0; i < optValMul.length; i++) {
+              newColumnData.push(optValMul[i]);
+            }
+          }
+          newColumnData.unique().sort().each(function(d, j) {
             if (isValidSelector(d) && (typeof $(d).html() !== "undefined")) {
               var optlVal = $(d).html();
             }

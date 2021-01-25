@@ -143,6 +143,7 @@ $(document).ready(function() {
             });
 
           var optEmpty = true;
+          var allColumnData = column.data();
           column.data().unique().sort().each(function(d, j) {
             if (isValidSelector(d) && (typeof $(d).html() !== "undefined")) {
               var optlVal = $(d).html();

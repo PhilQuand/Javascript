@@ -146,9 +146,9 @@ $(document).ready(function() {
           var allColumnData = column.data();
           var newColumnData = [];
           for (var i = 0; i < allColumnData.length; i++) {
-            var optValMul = allColumnData.split('<br/>')
-            for (var i = 0; i < optValMul.length; i++) {
-              newColumnData.push(optValMul[i]);
+            var optValMul = allColumnData[i].split('<br/>')
+            for (var j = 0; j < optValMul.length; i++) {
+              newColumnData.push(optValMul[j]);
             }
           }
           newColumnData.unique().sort().each(function(d, j) {

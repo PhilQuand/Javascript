@@ -148,9 +148,12 @@ $(document).ready(function() {
             } else {
               var optlVal=d;
             }
-            if(optlVal != '' && optlVal.indexOf('<img ') == -1) {
-              select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
-              optEmpty = false;
+            if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
+              var optValMul = optlVal.split('<br/>')
+              for (var i = 0; i < ioptValMul.length; i++) {
+                select.append('<option value="' + optValMul[i] + '">' + optValMul[i] + '</option>');
+                optEmpty = false;
+              }
             }
           });
           if( optEmpty) {

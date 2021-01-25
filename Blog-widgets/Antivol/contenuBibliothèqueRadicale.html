@@ -139,7 +139,7 @@ $(document).ready(function() {
               }
               column
 //                .search(val ? '^' + val + '$' : '', true, false)
-                .search('<br/>'* + val + '<br/>'*)
+                .search(val ? '(<br\/>)*' + val + '(<br\/>)*' : '', true, false)
                 .draw();
             });
 

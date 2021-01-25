@@ -79,7 +79,7 @@ $(document).ready(function() {
   // Table du BROUILLON de L'Antivol
   //var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1xf3z6GWPcegkHynveirkPV-w9P9_N7Wvb5SR6SWEfSw/edit?usp=sharing';
   var loading = document.getElementById('loading');
-  if( loading == null) return;
+  if (loading == null) return;
 
   Tabletop.init({
     key: SHEET_ID,
@@ -125,14 +125,15 @@ $(document).ready(function() {
               var val = $.fn.dataTable.util.escapeRegex(
                 $(this).val()
               );
-              if( val != '') {
-                $('th select').css('display','none');
-                select.css('display','block');
-              } else {
+              if (val != '') {
+                $('th select').css('display', 'none');
+                select.css('display', 'block');
+              }
+              else {
                 $('th select').each(function() {
                   dataDisplay = $(this).data('display');
-                  if( (typeof dataDisplay === "undefined") || dataDisplay != 'none' )  {
-                    $(this).css('display','block');
+                  if ((typeof dataDisplay === "undefined") || dataDisplay != 'none') {
+                    $(this).css('display', 'block');
                   }
                 });
               }
@@ -144,9 +145,10 @@ $(document).ready(function() {
           var optEmpty = true;
           column.data().unique().sort().each(function(d, j) {
             if (isValidSelector(d) && (typeof $(d).html() !== "undefined")) {
-              var optlVal=$(d).html();
-            } else {
-              var optlVal=d;
+              var optlVal = $(d).html();
+            }
+            else {
+              var optlVal = d;
             }
             if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
               var optValMul = optlVal.split('<br/>')
@@ -156,22 +158,25 @@ $(document).ready(function() {
               }
             }
           });
-          if( optEmpty) {
-            select.css('display','none');
-            select.data('display','none');
+          if (optEmpty) {
+            select.css('display', 'none');
+            select.data('display', 'none');
           }
         });
-function isValidSelector(selector) {
-    if (typeof(selector) !== 'string') {
-        return false;
-    }
-    try {
-        var $element = $(selector);
-    } catch(error) {
-        return false;
-    }
-    return true;
-}      }
+
+        function isValidSelector(selector) {
+          if (typeof(selector) !== 'string') {
+            return false;
+          }
+          try {
+            var $element = $(selector);
+          }
+          catch (error) {
+            return false;
+          }
+          return true;
+        }
+      }
     });
     loading.style.display = 'none';
   }

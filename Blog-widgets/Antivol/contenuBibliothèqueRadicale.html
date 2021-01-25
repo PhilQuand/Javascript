@@ -151,19 +151,26 @@ $(document).ready(function() {
               newColumnData.push(optValMul[j]);
             }
           }
-          newColumnData.unique().sort().each(function(d, j) {
-            if (isValidSelector(d) && (typeof $(d).html() !== "undefined")) {
-              var optlVal = $(d).html();
-            }
-            else {
-              var optlVal = d;
-            }
+          newColumnData = sortUnique(newColumnData)
+          function sortUnique(array) {
+    "use strict";
+    var table = {}, key, i;
+    for (i = 0; i < array.length; i++) {
+        table[[array[i]]] = '';
+    }
+    i = 0;
+    for (key in table) {
+        array[i++] = key;
+    }
+    array.length = i;
+    return array.sort();
+}
+
+          for (var i = 0; i < newColumnData.length; i++) {
+            var optlVal = newColumnData[i];
             if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
-              var optValMul = optlVal.split('<br/>')
-              for (var i = 0; i < optValMul.length; i++) {
-                select.append('<option value="' + optValMul[i] + '">' + optValMul[i] + '</option>');
+                select.append('<option value="' + optVal + '">' + optVal + '</option>');
                 optEmpty = false;
-              }
             }
           });
           if (optEmpty) {

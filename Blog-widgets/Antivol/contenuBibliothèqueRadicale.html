@@ -152,7 +152,7 @@ $(document).ready(function() {
             }
             if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
               var optValMul = optlVal.split('<br/>')
-              for (var i = 0; i < ioptValMul.length; i++) {
+              for (var i = 0; i < optValMul.length; i++) {
                 select.append('<option value="' + optValMul[i] + '">' + optValMul[i] + '</option>');
                 optEmpty = false;
               }

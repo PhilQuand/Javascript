@@ -138,17 +138,15 @@ $(document).ready(function() {
                 });
               }
               column
-//                .search(val ? '^' + val + '$' : '', true, false)
-//                .search(val ? '^' + val + '$|<br>' + val + '$|^' + val+ '<br>|<br>' + val + '<br>' : '', true, false)
-                .search(val)
-                .draw();
-            });
+            .search(val ? "(^"+val+"$)|(^" + val+ ",)|(, " + val+ "$)|(, " + val+ ",)" : '',true,false)
+            .draw();
+          });
 
           var optEmpty = true;
           var allColumnData = column.data();
           var newColumnData = [];
           for (var i = 0; i < allColumnData.length; i++) {
-            var optValMul = allColumnData[i].split('<br/>')
+            var optValMul = allColumnData[i].split(', ')
             for (var j = 0; j < optValMul.length; j++) {
               newColumnData.push(optValMul[j]);
             }

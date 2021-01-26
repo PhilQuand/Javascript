@@ -142,6 +142,20 @@ h6 {
     box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
 }
 
+.flexSong {
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: flex-start; 
+    justify-content: center; 
+    width: 100%; "
+}
+.flexSong div {
+    font-style: italic; 
+    width: 50%; 
+    //max-width: 800px;
+    margin-bottom: 1em;
+}
+
 /* pour rendre les vidéo "responsive" (voir sbipsetlab...) */
 .video-wrapper {
 	width: 560px;

@@ -155,6 +155,21 @@ h6 {
     //max-width: 800px;
     margin-bottom: 1em;
 }
+@media (max-width: 1024px) {
+    .flexSong {
+        display: block; 
+    }
+    .flexSong div,
+    .flexSong div.left,
+    .flexSong div.right {
+        clear: both;
+        display: block;
+        width: 100%; 
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
+    }
+}
 
 /* pour rendre les vidéo "responsive" (voir sbipsetlab...) */
 .video-wrapper {

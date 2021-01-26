@@ -77,7 +77,7 @@ $(document).ready(function() {
   // Table de L'Antivol
   var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1bO7gWZNTsqRI2RKtIpRz8cc5BNGDFomCZagGkDLyhEU/edit?usp=sharing';
   // Table du BROUILLON de L'Antivol
-  //var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1xf3z6GWPcegkHynveirkPV-w9P9_N7Wvb5SR6SWEfSw/edit?usp=sharing';
+  if( jQuery.type(SHEET_ID) == 'undefined' ) var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1xf3z6GWPcegkHynveirkPV-w9P9_N7Wvb5SR6SWEfSw/edit?usp=sharing';
   var loading = document.getElementById('loading');
   if (loading == null) return;
 

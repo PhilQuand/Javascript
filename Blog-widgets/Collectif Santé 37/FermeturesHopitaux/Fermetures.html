@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>l'&Eacute;cho des Comit&eacute;s</title>
+<!-- jQuery for FancyBox 3-->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Add fancyBox 3 -->
+<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
+<!-- End FancyBox -->
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+<script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
+
+<link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+<script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+
+<script src='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson'></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<style>
+#map {
+    width: 75%;
+    height: 750px;
+  }
+</style>
+<center>
+<h1>Hôpitaux publics</h1>
+<h2><em>État des lieux, état des luttes</em></h2>
+<div id='map'></div>
+</center>
+<script>
+var iconH = 'https://lh3.googleusercontent.com/-8P0ZYXXIcqY/WfLk1fFdUuI/AAAAAAAAgQ4/i2DPCGdX5QAq2XaprQLQti7hA15smergQCEwYBhgL/w280-h278-p/A704AFB1-77E5-4992-91D7-7235E9294F69.png'
+
+var meteoLuttesPopUps = [{
+
+  flag: iconH,
+
+  lat: 47.349080,
+
+  lng: 0.711388,
+
+  doc: "<center style='color: blue'>CH Tours</center>Environ 200 lits/places<br/>Fermeture de la Maternité publique du Beffroi en 2004<br/>2017/2022 : annonce de la <strong>suppression de 400 lits et 400 postes ;<br/>Fermetures annoncées de Clocheville, Ermitage et CPU</strong>,<br/>Maternité de niveau 3<br/><br/><em>Pôles santé privé lucratif au nord et au sud de Tours</em>",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.408003,
+
+  lng: 0.981240,
+
+  doc: "<center style='color: blue'>CH Amboise-Château-Renault</center>2003 : <strong>fermeture maternité</strong><br/>2018 : Maison périnatale et chirurgie, fragiles",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.190482,
+
+  lng: 0.291724,
+
+  doc: "<center style='color: blue'>CH Chinon</center>2003 : <strong>fermeture chirurgie</strong>, <em>transfert de l'activité à la clinique Jeanne d'Arc</em><br/>La maternité de niveau 1 reste fragile, fonctionne en coopération (GCS) avec la clinique pour le bloc opératoire",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.129023,
+
+  lng: 1.002209,
+
+  doc: "<center style='color: blue'>CH Loches</center>1992 : <strong>fermeture de la maternité</strong><br/>Centre de périnatalité (consultations et ambulatoire)",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 46.634018,
+
+  lng: 1.059301,
+
+  doc: "<center style='color: blue'>CH Le Blanc</center>Maternité menacée depuis plusieurs année,  <strong>fermée été 2018</strong><br/>Forte mobilisation de la population et des élu-es.<br/>Démission de 72 élu-es<br/>Occupation, évacuation policière, manifestation à Paris.<br/>Marche 'des oreilles' jusqu'à Paris en décembre<br/><br/><center><strong>Plus de maternité à moins de<br/>52 km (Châtellerault)<br/>59 km (Châteauroux)</strong><br/>Seule maternité du département pour 308 000 habitant-es<br/>Suicide sur le lieu de travail d'un radiologue en octobre 2018<br/><em>Clinique privée Vitalia : chirurgie surtout</em></center>",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 46.799343,
+
+  lng: 1.696592,
+
+  doc: "<center style='color: blue'>CH Châteauroux</center><br/><center>Seule maternité du département<br/>pour 308 000 habitant-es<br/>Suicide d'un radiologue en octobre 2018</center><br/><em>Clinique privée Vitalia : chirurgie surtout</em>",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 46.569237,
+
+  lng: 1.984531,
+
+  doc: "<center style='color: blue'>CH La Châtre</center><br/><center>Pas de chirurgie<br/>Pas de maternité</center>",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 46.958222,
+
+  lng: 1.995639,
+
+  doc: "<center style='color: blue'>CH Issoudin</center><br/><center>Chirurgie <strong>fermée</strong><br/>Pas de maternité</center>",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.227821,
+
+  lng: 2.052502,
+
+  doc: "<center style='color: blue'>CH Vierzon</center><br/>2018 : menaces sur maternité, chirurgie et pédiatrie.<br/>Mobilisation de la population : recul de l'ARS, pour le moment.<br/><br/><em>établissement privé lucratif Korian Chirurgie</em>",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.084137,
+
+  lng: 2.436292,
+
+  doc: "<center style='color: blue'>CH Bourges</center><br/>2017 : <strong>40 lits fermés</strong><br/>orthopédie/chirurgie/médecine<br/>2018 : urgences et néonatalité menacés.<br/><br/>Marche blanche en juin 2018.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 46.734150,
+
+  lng: 2.512481,
+
+  doc: "<center style='color: blue'>CH Saint Amand Montrond</center><br/>Chirurgie <strong>fermée</strong> depuis 2012<br/>Maternité publique 15 lits<br/><br/><em>Clinique privée groupe Elsan chirurgie</em>.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 48.170395,
+
+  lng: 2.250717,
+
+  doc: "<center style='color: blue'>CH Pithiviers</center><br/> <strong>Fermeture Chirurgie</strong> en 1998<br/><strong>Fermeture Maternité</strong> en 2016.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.902270,
+
+  lng: 1.926132,
+
+  doc: "<center style='color: blue'>CH Orléans</center><br/>En 2017<strong>Fermeture de 10 lits et suppression de 10 postes à la maternité</strong><br/>et de <strong>11 lits en pédiatrie</strong>.<br/><br/><em>maternité/chirurgie/cancérologie dans un établissement privé lucratif à Saran.</em>",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.998613,
+
+  lng: 2.773198,
+
+  doc: "<center style='color: blue'>CH Montargis</center><br/>2018 menaces sur la chirurgie<br/>Collectif de soutien en lutte.<br/><br/>Maternité publique.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.690999,
+
+  lng: 2.635491,
+
+  doc: "<center style='color: blue'>CH Gien</center><br/><center><strong>Fermeture chirurgie</strong><br/><br/>Maternité publique</center>.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.932869,
+
+  lng: 0.740827,
+
+  doc: "<center style='color: blue'>CH Saint-Calais</center><center>Maternité <strong>fermée</strong><br/>Mobilisation en 2018 pour sauver<br/>les urgences de nuit, la médecine, les soins de suite.</center>.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 48.316956,
+
+  lng: 0.838290,
+
+  doc: "<center style='color: blue'>CH Nogent-le-Rotrou</center><strong>Maternité publique fermée</strong> en 2008<br/>centre de périnatalité.<br/><br/>Maternité à <strong>60 km</strong><br/>(Le Mans ou Chartres)<br/><br/><strong>chirurgie fermée</strong>.<br/>il reste 7 places en chirurgie ambulatoire.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 48.729789,
+
+  lng: 1.382265,
+
+  doc: "<center style='color: blue'>CH Dreux</center>2017 : Galère aux urgences.<br/>50% des urgentistes démissionnent.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 48.442861,
+
+  lng: 1.480833,
+
+  doc: "<center style='color: blue'>CH Chartres</center><strong>96 lits menacés</strong> de fermeture d'ici 2020.<br/>2018 : tensions dans les Ehpads de l'hôpital, faute de personnel.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 48.074521,
+
+  lng: 1.358258,
+
+  doc: "<center style='color: blue'>CH Châteaudun</center><strong>Chirurgie fermée</strong> en 2009.<br/>Chirurgie ambulatoire (10 places)<br/><strong>Maternité fermée</strong> en 2018 malgré une forte mobilisation.",
+}, 
+
+{
+
+  flag: iconH,
+
+  lat: 47.360604,
+
+  lng: 1.743047,
+
+  doc: "<center style='color: blue'>CH Romorantin</center>suppression de 15 lits en psychiatrie.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.603244,
+
+  lng: 1.343969,
+
+  doc: "<center style='color: blue'>CH Blois</center>2014 : suppression de lits en psychiatrie.<br/>2018 : <strong>80 lits en moins</strong><br/>. gel de 12 lits SSR<br/>. fermeture de 11 lits et suppression de 7 postes en <strong>maternité</strong> <br/>. suppression de 5 postes en <strong>chirurgie</strong><br/>. 77 lits <strong>ehpad</strong> menacés (vente en projet)<br/>; <strong>urgences</strong> 11 praticiens sur 32 postes budgétisés.<br/><br/><em>Polyclinique groupe St Gatien</em>.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.759498,
+
+  lng: 0.863169,
+
+  doc: "<center style='color: blue'>CH Montoire</center>Fermeture de 15 lits soins de suite<br/>et de 5 lits soins palliatifs.",
+},
+
+{
+
+  flag: iconH,
+
+  lat: 47.794637,
+
+  lng: 1.064092,
+
+  doc: "<center style='color: blue'>CH Vendôme</center>Maternité publique <strong>fermée</strong> en 1998.<br/>Chirurgie publique <strong>fermée</strong> en 1999.<br/><br/><em>Activités reprises dans le privé lucratif</em>.",
+}];
+</script>
+<script>
+// Ressources pour cartes LeafLet
+var load = (function() {
+  // Function which returns a function: https://davidwalsh.name/javascript-functions
+  function _load(tag) {
+    return function(url) {
+      // This promise will be used by Promise.all to determine success or failure
+      return new Promise(function(resolve, reject) {
+        var element = document.createElement(tag);
+        var parent = 'body';
+        var attr = 'src';
+
+        // Important success and error for the promise
+        element.onload = function() {
+          resolve(url);
+        };
+        element.onerror = function() {
+          reject(url);
+        };
+
+        // Need to set different attributes depending on tag type
+        switch (tag) {
+          case 'script':
+            element.async = true;
+            break;
+          case 'link':
+            element.type = 'text/css';
+            element.rel = 'stylesheet';
+            attr = 'href';
+            parent = 'head';
+        }
+
+        // Inject into document to kick off loading
+        element[attr] = url;
+        document[parent].appendChild(element);
+      });
+    };
+  }
+
+  return {
+    css: _load('link'),
+    js: _load('script'),
+    img: _load('img')
+  }
+})();
+// Constructeur de la carte LeafLet
+function loadMap() {
+  L.map('map').remove();
+  var map = L.map('map');
+
+  map.createPane('labels');
+
+  // This pane is above markers but below popups
+  map.getPane('labels').style.zIndex = 650;
+
+  // Layers in this pane are non-interactive and do not obscure mouse/touch events
+  map.getPane('labels').style.pointerEvents = 'none';
+
+
+  /*var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+
+  var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+    attribution: cartodbAttribution
+  }).addTo(map);
+
+  var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+    attribution: cartodbAttribution,
+    pane: 'labels'
+  }).addTo(map);*/
+
+  return map;
+
+};
+
+function add2Layer(myLayer, inputCollection, setCallBack, iconSize) {
+
+  // définition de la classe FlagIcon
+  var FlagIcon = L.Icon.extend({
+    options: {
+      iconSize: iconSize, // size of the icon
+      iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+      popupAnchor: [-3, -15] // point from which the popup should open relative to the iconAnchor
+    }
+  });
+
+  for (var i = 0; i < inputCollection.length; i++) {
+    var input = inputCollection[i];
+
+    // définition des lieux (icons)
+    var myIcon = new FlagIcon({
+      iconUrl: input.flag
+    });
+
+    // définition des markers associés au groupe météo des luttes
+    var marker = L.marker([input.lat, input.lng], {
+      icon: myIcon
+    }).addTo(myLayer);
+
+    marker.bindPopup(input.doc).openPopup();
+    marker.getPopup().on('remove', function() {
+      setCallBack();
+    });
+  }
+};
+
+function zoomRemove( map ) {
+  //remove zoom functions
+  map.removeControl(map.zoomControl);
+  map.touchZoom.disable();
+  map.doubleClickZoom.disable();
+  map.scrollWheelZoom.disable();
+  map.boxZoom.disable();
+  map.keyboard.disable();
+}
+
+// Copyright (c) 2013 Ryan Clark
+// https://gist.github.com/rclark/5779673
+L.TopoJSON = L.GeoJSON.extend({
+  addData: function(jsonData) {
+    if (jsonData.type === "Topology") {
+      for (key in jsonData.objects) {
+        geojson = topojson.feature(jsonData, jsonData.objects[key]);
+        L.GeoJSON.prototype.addData.call(this, geojson);
+      }
+    }
+    else {
+      L.GeoJSON.prototype.addData.call(this, jsonData);
+    }
+  }
+});
+
+// Constructeur de la carte TopoJSON avec pays pour LeafLet
+function loadMapTopoJSON(map, colorDeb, colorFin, colorStyle) {
+  // Usage:  Load different file types with one callback
+  Promise.all([
+    //load.css('lib/highlighter.css'),
+    //load.img('images/logo.png')
+    //load.js('lib/main.js'), 
+
+    // Début ressources utilisées pour construire la carte mondiale colorée TopoJSON
+    // ressources chroma.js utilisées pour construire la carte TopoJSON colorée
+    //load.js('https://drive.google.com/uc?export=download&id=1vAhVcT9intE5QEkcuu3UQOBEutYjKtaO'),
+    load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
+    // ressources utilisées pour construire la carte TopoSJON
+    load.js('https://d3js.org/topojson.v1.min.js'),
+    // données de la carte TopoSJON
+    //load.js('https://drive.google.com/uc?export=download&id=1WZyHrCgJmR3mCAdQMHicqT0yjKASiJpE')
+    load.js('https://philquand.github.io/Javascript/LeafLet/countries.topo.json')
+    // Fint ressources utilisées pour construire la carte mondiale colorée TopoJSON
+
+  ]).then(function() {
+    console.log('Everything has loaded!');
+
+    topoLayer = new L.TopoJSON(),
+      colorScale = chroma
+      //.scale(['#D5E3FF', '#003171'])
+      .scale([colorDeb, colorFin])
+      .domain([0, 1]);
+
+    addTopoData(worldCountries);
+
+    function addTopoData(topoData) {
+      topoLayer.addData(topoData);
+      topoLayer.addTo(map);
+      topoLayer.eachLayer(handleLayer);
+    }
+
+    function handleLayer(layer) {
+      var randomValue = Math.random(),
+        fillColor = colorScale(randomValue).hex();
+
+      layer.setStyle({
+        fillColor: fillColor,
+        fillOpacity: 1,
+        color: colorStyle,
+        weight: 1,
+        opacity: .5
+      });
+
+    }
+  }).catch(function() {
+    console.log('Oh no, epic failure!');
+  });
+};
+
+// Constructeur de la planisphère openstreetmap pour LeafLet
+function loadOpenStreetWorld(map) {
+
+  var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+
+  var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: cartodbAttribution
+  }).addTo(map);
+
+  /*var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+    attribution: cartodbAttribution,
+    pane: 'labels'
+  }).addTo(map);*/
+
+};
+
+// Constructeur de la carte Mapbox pour LeafLet
+function loadMapBox(map) {
+  var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNqcmZlOWFwMjBuMnQ0NW1qN3VhczNhMW4ifQ.OSyAGC_JQQUISRiSuc8ghg';
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    //id: 'mapbox.light',
+    accessToken: mapboxAccessToken
+  }).addTo(map);
+
+};
+
+// Constructeur de la carte GeoJSON des régions françaises pour LeafLet
+function loadRegFranceJSONN(map, getColor) {
+  // Usage:  Load different file types with one callback
+  Promise.all([
+    // GeoJSON des régions françaises
+    //load.js('https://drive.google.com/uc?export=download&id=1hrJGwENimzW4gmf812yAZQk1z1KivZSU')
+    load.js('https://philquand.github.io/Javascript/LeafLet/regionsFranceData.js')
+  ]).then(function() {
+    console.log('Everything has loaded!');
+
+    function styleReg(feature) {
+      return {
+        fillColor: getColor(feature.properties.nom),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.7
+      };
+    }
+
+    L.geoJson(regionsFranceData, {
+      style: styleReg
+    }).addTo(map);
+
+  }).catch(function() {
+    console.log('Oh no, epic failure!');
+  });
+};
+
+// Constructeur de la carte GeoJSON des départements françaises pour LeafLet
+function loadDeptFranceJSONN(map, getColor, getFilter) {
+  // Usage:  Load different file types with one callback
+  Promise.all([
+    // GeoJSON des régions françaises
+    //load.js('https://drive.google.com/uc?export=download&id=1D_ajtPoOkMWqaz8o8LkKPYjRd-LuxjJw')
+    load.js('https://philquand.github.io/Javascript/LeafLet/deptsFranceData.js')
+  ]).then(function() {
+    console.log('Everything has been loaded!');
+
+    function styleReg(feature) {
+      return {
+        fillColor: getColor(feature.properties.nom),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        fillOpacity: 0.5
+      };
+    }
+
+    function filterReg(feature, layer) {
+      return getFilter(feature.properties.nom);
+    }
+
+    L.geoJson(deptsFranceData, {
+      style: styleReg,
+      filter: filterReg
+    }).addTo(map);
+
+  }).catch(function() {
+    console.log('Oh no, epic failure!');
+  });
+};
+</script>
+<script>
+(function() {
+
+  'use strict'
+
+  var map = loadMap();
+
+  // ajout de la planisphère openstreet
+  // loadOpenStreetWorld(map);
+  // ajout de la couche mondiale colorée TopoJSON
+  //loadMapTopoJSON(map, '#D5E3FF', '#aab8de', '#555');
+
+  // ajout de la couche MapBox
+  // loadMapBox(map);
+
+  /*function getRegColor(a) {
+    return a == "Centre-Val de Loire" ? '#C7E9C0' :
+      'white';
+  };
+  loadRegFranceJSONN(map, getRegColor);*/
+
+  function getDeptColor(a) {
+    return a == "Centre-Val de Loire" ? '#b3e2cd' :
+      a == "Loiret" ? '#fdcdac' :
+      a == "Cher" ? '#cbd5e8' :
+      a == "Eure-et-Loir" ? '#fff2ae' :
+      a == "Indre" ? '#fff2ae' :
+      a == "Loir-et-Cher" ? '#e6f5c9' :
+      a == "Indre-et-Loire" ? '#f4cae4' :
+      'white';
+  }
+
+  function getDeptFilter(a) {
+    return a == "Centre-Val de Loire" ? true :
+      a == "Loiret" ? true :
+      a == "Cher" ? true :
+      a == "Eure-et-Loir" ? true :
+      a == "Indre" ? true :
+      a == "Loir-et-Cher" ? true :
+      a == "Indre-et-Loire" ? true :
+      false;
+  }
+
+  loadDeptFranceJSONN(map, getDeptColor, getDeptFilter);
+
+  //zoomRemove(map);
+
+  function setMapView() {
+    map.setView({
+      lat: 47.65,
+      lng: 1.65
+    }, 8);
+  }
+  setMapView();
+
+  // definition du groupe météo des luttes
+  var meteoLuttes = L.layerGroup();
+
+  add2Layer(meteoLuttes, meteoLuttesPopUps, setMapView, [20, 20]);
+
+  meteoLuttes.addTo(map);
+  
+function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties) {
+        var properties = feature.properties;
+        var popupContent = $('<div></div>');
+        popupContent.append(properties.adresse);
+        popupContent.append('<br>' + properties.commune);
+        layer.bindPopup(popupContent.html());
+    }
+}
+
+  //var myLayer = L.geoJSON().addTo(map);
+  //myLayer.addData(geojsonFeature);
+ L.geoJSON(geojsonFeature, {
+    onEachFeature: onEachFeature
+}).addTo(map); 
+  loadOpenStreetWorld(map);
+
+}());
+</script>
+</body>
+</html>

@@ -157,6 +157,38 @@ $(document).ready(function() {
     if( data["Postes (p.)"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Postes (p.)</span><br>' + data["Postes (p.)"] + '</div>');
     return popupContent.html();
   }
+    var divBannerCoord, divLegend;
+    var options;
+
+    var divBannerCoordHTML = '';
+    if (typeof options !== 'undefined' && typeof options.divBannerCoordHTML !== 'undefined') var divBannerCoordHTML = options.divBannerCoordHTML;
+    var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
+
+    var iconMarkers = iconMarkersBuilder();
+    var iconMarkersLength = iconMarkers.length;
+    function iconMarkersBuilder() {
+ var resBlueIcon = new L.Icon({
+	iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+	shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+	iconSize: [13, 20],
+	iconAnchor: [6, 20],
+	popupAnchor: [1, -17],
+	shadowSize: [20, 20]
+});
+     var iconMarkers = [{
+        class: "marker-0",
+        icon: simpleRedIcon,
+        title: 'Coordination'
+      }, {
+        class: "marker-1",
+        title: 'Échos'
+      }, {
+        class: "marker-res",
+        icon: resBlueIcon,
+        title: 'Autres Infos'
+      }];
+      return iconMarkers;
+    };
   var storedData = $('#dataStore').html();
   if (storedData == '') {
     loadData()
@@ -164,7 +196,8 @@ $(document).ready(function() {
   else {
     storedData = JSON.parse(storedData);
     for (i = 0; i < storedData.length; i++) {
-       storedData[i].doc = dataPopUp(storedData[i])
+       storedData[i].doc = dataPopUp(storedData[i]);
+       storedData[i].iconMarker = iconMarkers[2];
     }
     runData(storedData);
   }
@@ -329,20 +362,6 @@ $(document).ready(function() {
         img: _load('img')
       }
     })();
-    var divBannerCoord, divLegend;
-    var options;
-
-    var divBannerCoordHTML = '';
-    if (typeof options !== 'undefined' && typeof options.divBannerCoordHTML !== 'undefined') var divBannerCoordHTML = options.divBannerCoordHTML;
-    var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
-
-    if (typeof options === 'undefined' || typeof options.iconMarkers === 'undefined') {
-      var iconMarkersLength = 0;
-    }
-    else {
-      var iconMarkers = options.iconMarkers;
-      var iconMarkersLength = iconMarkers.length;
-    }
 
     function setMapView() {
       /*map.setView({

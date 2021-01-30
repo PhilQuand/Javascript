@@ -116,6 +116,27 @@
   <!--script src="script.js"></script-->
 </body>
 </html>
+<style>
+.popBody {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+.popItem {
+  margin-top: 1em;
+}
+.popLieux {
+  width: 100%;
+  max-width: 100%;
+  background-color: #00b0f0;
+  text-align: center;
+  font-size: 125%;
+}
+.popTitle {
+  font-style: italic;
+  font-weight: bold;
+}
+</style>
 <script>
 $(document).ready(function() {
 
@@ -127,11 +148,13 @@ $(document).ready(function() {
        data[i].PopUp = popupContent;
     }*/
     var popupContent = $('<div></div>');
-    popupContent.append(data.LIEUX);
-    if( data["SUPPRESSIONS"] != '') popupContent.append('<br><h1>Suppressions</h1><br>' + data["SUPPRESSIONS"]);
-    if( data["MENACES"] != '') popupContent.append('<br><h1>Menaces</h1><br>' + data["MENACES"]);
-    if( data["Pertes lit"] != '') popupContent.append('<br><h1>Pertes lit</h1><br>' + data["Pertes lit"]);
-    if( data["Postes (p.)"] != '') popupContent.append('<br><h1>Postes (p.)</h1><br>' + data["Postes (p.)"]);
+    var popupBody = $('<div class="popBody"></div>');
+    popupContent.append(popupBody);
+    popupBody.append('<div class="popLieux">' + data.LIEUX + '</div>');
+    if( data["SUPPRESSIONS"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Suppressions</span><br>' + data["SUPPRESSIONS"] + '</div>');
+    if( data["MENACES"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Menaces</span><br>' + data["MENACES"] + '</div>');
+    if( data["Pertes lit"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Pertes lit</span><br>' + data["Pertes lit"] + '</div>');
+    if( data["Postes (p.)"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Postes (p.)</span><br>' + data["Postes (p.)"] + '</div>');
     return popupContent.html();
   }
   var storedData = $('#dataStore').html();
@@ -140,9 +163,9 @@ $(document).ready(function() {
   }
   else {
     storedData = JSON.parse(storedData);
-    /*for (i = 0; i < storedData.length; i++) {
+    for (i = 0; i < storedData.length; i++) {
        storedData[i].doc = dataPopUp(storedData[i])
-    }*/
+    }
     runData(storedData);
   }
 

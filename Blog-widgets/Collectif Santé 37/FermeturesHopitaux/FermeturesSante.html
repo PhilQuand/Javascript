@@ -103,6 +103,10 @@
     <p>Chargement ...</p>
   </div>
   <div id="infoMap-wrapper" style="width:800px">
+  <div id="dataStore" style="display:none"></div>
+  <!--div id="dataStore" style="display:none">
+  [{"LIEUX":"Abbeville - 80","COMMUNE":"Abbeville","INSEE":"80100","SUPPRESSIONS":"Réduction néonatalité 2014","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":50.10935000200004,"lng":1.8330300000000648,"doc":"Abbeville - 80<br><h1>Suppressions</h1><br>Réduction néonatalité 2014"},{"LIEUX":"Agen - 47\n Fusion avec Nérac - 47","COMMUNE":"Agen","INSEE":"47001","SUPPRESSIONS":"2016","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":44.215857549065035,"lng":0.6402127859018361,"doc":"Agen - 47\n Fusion avec Nérac - 47<br><h1>Suppressions</h1><br>2016"},{"LIEUX":"Aire sur Adour - 40\n Polyclinique des Chênes","COMMUNE":"Aire sur Adour","INSEE":"40001","SUPPRESSIONS":"Menaces sociales 2014\n Maternité","MENACES":"CRAINTE POUR 2017","Pertes lit":"","Postes (p.)":"","lat":43.644739149449784,"lng":-0.2937875612121769,"doc":"Aire sur Adour - 40\n Polyclinique des Chênes<br><h1>Suppressions</h1><br>Menaces sociales 2014\n Maternité"},{"LIEUX":"Aix en Provence - 13","COMMUNE":"Aix en Provence","INSEE":"13001","SUPPRESSIONS":"","MENACES":"1 service de Médecine menacée 2012","Pertes lit":"","Postes (p.)":"","lat":43.526950000000056,"lng":5.446340000000021,"doc":"Aix en Provence - 13<br><h1>Suppressions</h1><br>"},{"LIEUX":"Aix les Bains - 73","COMMUNE":"Aix les Bains","INSEE":"73008","SUPPRESSIONS":"Chir\n Clinique Herbert","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":45.62523375883678,"lng":5.912417974400468,"doc":"Aix les Bains - 73<br><h1>Suppressions</h1><br>Chir\n Clinique Herbert"},{"LIEUX":"Albertville - 73","COMMUNE":"Albertville","INSEE":"73011","SUPPRESSIONS":"Cf. Moutiers","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":45.74359728495392,"lng":6.421530432884062,"doc":"Albertville - 73<br><h1>Suppressions</h1><br>Cf. Moutiers"},{"LIEUX":"Albertville – CHAM - 73\n Cf. Fusion avec Moûtiers 2005","COMMUNE":"Albertville","INSEE":"73011","SUPPRESSIONS":"Clinique La Concorde fermée","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":45.74359728495392,"lng":6.421530432884062,"doc":"Albertville – CHAM - 73\n Cf. Fusion avec Moûtiers 2005<br><h1>Suppressions</h1><br>Clinique La Concorde fermée"},{"LIEUX":"Albi clinique Claude-Bernard - 81\n Albi clinique Toulouse-Lautrec","COMMUNE":"Albi","INSEE":"81004","SUPPRESSIONS":"Fusion 2017 dans le groupe ELSAN\n Vente prévisible de Toulouse-Lautrec","MENACES":"Maternité et urgences 2012","Pertes lit":"","Postes (p.)":"","lat":43.905687042409944,"lng":2.0740087962654914,"doc":"Albi clinique Claude-Bernard - 81\n Albi clinique Toulouse-Lautrec<br><h1>Suppressions</h1><br>Fusion 2017 dans le groupe ELSAN\n Vente prévisible de Toulouse-Lautrec"},{"LIEUX":"Albi Hôpital - 81","COMMUNE":"Albi","INSEE":"81004","SUPPRESSIONS":"Endocrinologie chute de 27 à 11 lits 2008\n Endocrinologie 2009 de 11 à 7 litstransférés cardiologie !\n Ophtalmologie 2000\n Otorhinolaryngologie 2000\n Stomatologie 2000\n Urologie 2008\n Endocrinologie complète 2012\n Nettoyage et entretien privatisés 2012","MENACES":"Chute accès IRM 2009 : pas d'accès à l'installation neuve de la clinique Claude Bernard et refus de 0,5 journée.","Pertes lit":"Perte de 50 lits entre 2000 et 2010\n 44 lits long séjour 2012\n 20 lits SSR 2016","Postes (p.)":"","lat":43.905687042409944,"lng":2.0740087962654914,"doc":"Albi Hôpital - 81<br><h1>Suppressions</h1><br>Endocrinologie chute de 27 à 11 lits 2008\n Endocrinologie 2009 de 11 à 7 litstransférés cardiologie !\n Ophtalmologie 2000\n Otorhinolaryngologie 2000\n Stomatologie 2000\n Urologie 2008\n Endocrinologie complète 2012\n Nettoyage et entretien privatisés 2012"},{"LIEUX":"Alençon - 61","COMMUNE":"Alençon","INSEE":"61001","SUPPRESSIONS":"","MENACES":"","Pertes lit":"- Réduction de moyens 2014\n - environ 30 lits 2015","Postes (p.)":"","lat":48.43350179916321,"lng":0.0637920309487836,"doc":"Alençon - 61<br><h1>Suppressions</h1><br>"}]
+  </div-->
   <div id="infoMap" class="dispInfoMap"></div>
   </div>
   <table id="table" class="table table-striped table-bordered"></table>
@@ -111,34 +115,187 @@
 </html>
 <script>
 $(document).ready(function() {
-  // Table des Fermetures
-  var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing';
-  var loading = document.getElementById('loading');
-  if (loading == null) return;
 
-  Tabletop.init({
-    key: SHEET_ID,
-    callback: buildTable,
-    simpleSheet: true
-  });
-
-  function dataPopUp(data){
-    for (i = 0; i < data.length; i++) {
+  function dataPopUp(data) {
+    /*for (i = 0; i < data.length; i++) {
        var popupContent = $('<div></div>');
        popupContent.append(data[i].LIEUX);
        popupContent.append('<br><h1>Suppressions</h1><br>' + data[i].SUPPRESSIONS);
        data[i].PopUp = popupContent;
+    }*/
+    var popupContent = $('<div></div>');
+    popupContent.append(data.LIEUX);
+    popupContent.append('<br><h1>Suppressions</h1><br>' + data.SUPPRESSIONS);
+    return popupContent.html();
+  }
+  var storedData = $('#dataStore').html();
+  if (storedData == '') {
+    function loadData() {
+      // Table des Fermetures
+      var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing';
+      var loading = document.getElementById('loading');
+      if (loading == null) return;
+
+      Tabletop.init({
+        key: SHEET_ID,
+        callback: buildTable,
+        simpleSheet: true
+      });
+
+      function buildTable(data, tabletop) {
+        //var output = [];
+        var indexCal = 0;
+        var indexRes = 0;
+        var indexEnd = data.length;
+        var indexEnd = 100;
+
+        add2Layer(indexCal)
+
+        function add2Layer(indexLoc) {
+          var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE + ', France';
+          indexCal++;
+          //if (typeof lieux !== 'undefined') {
+          L.esri.Geocoding.geocode({
+              requestParams: {
+                maxLocations: 1
+              }
+            })
+            .text(lieux)
+            .run(function(error, results, response) {
+              var _this = this
+              if (error) {
+                console.log(error);
+                console.log(lieux);
+                return;
+              }
+              if (!error && typeof results.results !== 'undefined') {
+                indexRes++;
+                /*console.log('input adresse:', results.results[0].text);
+                console.log('first result lat', results.results[0].latlng.lat);
+                console.log('first result lng', results.results[0].latlng.lng);*/
+                /*infoPopUps = {
+                  lat: results.results[0].latlng.lat,
+                  lng: results.results[0].latlng.lng,
+                  doc: dataPopUp(data[indexLoc]),
+                  //input: inputCollection[indexLoc]
+                  //iconMarker: input.iconMarker
+                };
+                output.push(infoPopUps);*/
+                /*input.newItemLocation.html(JSON.stringify(infoPopUps));*/
+                data[indexLoc].lat = results.results[0].latlng.lat;
+                data[indexLoc].lng = results.results[0].latlng.lng;
+                data[indexLoc].doc = dataPopUp(data[indexLoc]);
+              }
+              else {
+                data[indexLoc].doc = 'Failed geoloc';
+              }
+              if (indexCal < indexEnd) {
+                add2Layer(indexCal)
+                //endMarkerBuild(indexEvent, setCallBack);
+              }
+              else {
+                console.log('achieved');
+                if (indexEnd < data.length) {
+                  data.splice(indexEnd, data.length - 1)
+                }
+                $('#dataStore').html(JSON.stringify(data));
+                runData(data);
+                //endMarkerBuild(output, setMapView);
+                //var map = initMap('infoMap');
+              }
+            });
+          //}
+          /*else {
+            if (typeof input.newItemLocation !== 'undefined') {
+              infoPopUps = {
+                lat: input.lat,
+                lng: input.lng,
+                iconMarker: input.iconMarker
+              };
+              input.newItemLocation.html(JSON.stringify(infoPopUps));
+            }
+            indexEvent[indexCal].push(input);
+            output.push(input);
+            if (indexEvent[indexCal].length < itemsLength) return output;
+            if (indexCal < indexEnd) {
+              indexEvent.push([]);
+              indexCal++;
+              var result = getMyInnerLinkContent();
+              return output;
+            }
+            endMarkerBuild(indexEvent, setCallBack);
+            return output;
+            output.push('Failed type 2');
+            console.log('Failed');
+            if (indexCal < indexEnd) {
+              add2Layer(inputCollection, indexCal)
+              //endMarkerBuild(indexEvent, setCallBack);
+            }
+            else {
+              console.log('achieved');
+              runData(output);
+              //endMarkerBuild(output, setMapView);
+              //var map = initMap('infoMap');
+            }
+          }*/
+
+          loading.style.display = 'none';
+        }
+
+
+      }
     }
   }
-  function buildTable(data, tabletop) {
-    dataPopUp(data);
-    var divBannerCoord, divLegend;
-    var output = [];
-    var indexCal = 0;
-    var indexRes = 0;
-    var indexEnd = data.length;
-    var indexEnd = 10;
+  else {
+    storedData = JSON.parse(storedData);
+    runData(storedData);
+  }
 
+  function runData(indexEvent) {
+    var load = (function() {
+      // Function which returns a function: https://davidwalsh.name/javascript-functions
+      function _load(tag) {
+        return function(url) {
+          // This promise will be used by Promise.all to determine success or failure
+          return new Promise(function(resolve, reject) {
+            var element = document.createElement(tag);
+            var parent = 'body';
+            var attr = 'src';
+
+            // Important success and error for the promise
+            element.onload = function() {
+              resolve(url);
+            };
+            element.onerror = function() {
+              reject(url);
+            };
+
+            // Need to set different attributes depending on tag type
+            switch (tag) {
+              case 'script':
+                element.async = true;
+                break;
+              case 'link':
+                element.type = 'text/css';
+                element.rel = 'stylesheet';
+                attr = 'href';
+                parent = 'head';
+            }
+
+            // Inject into document to kick off loading
+            element[attr] = url;
+            document[parent].appendChild(element);
+          });
+        };
+      }
+
+      return {
+        css: _load('link'),
+        js: _load('script'),
+        img: _load('img')
+      }
+    })();
+    var divBannerCoord, divLegend;
     var options;
 
     var divBannerCoordHTML = '';
@@ -152,6 +309,7 @@ $(document).ready(function() {
       var iconMarkers = options.iconMarkers;
       var iconMarkersLength = iconMarkers.length;
     }
+
     function setMapView() {
       /*map.setView({
         lat: 47,
@@ -167,97 +325,9 @@ $(document).ready(function() {
         [49.03, 8.08]
       ]);
     }
+
     var map = initMap('infoMap');
-    add2Layer(data, setMapView, indexCal)
-
-    function add2Layer(inputCollection, setCallBack, indexLoc) {
-      var lieux = inputCollection[indexLoc].COMMUNE + ',' + inputCollection[indexLoc].INSEE + ', France';
-      indexCal++;
-      if (typeof lieux !== 'undefined') {
-        L.esri.Geocoding.geocode({
-            requestParams: {
-              maxLocations: 1
-            }
-          })
-          .text(lieux)
-          .run(function(error, results, response) {
-            var _this = this
-            if (error) {
-              console.log(error);
-              console.log(lieux);
-              return;
-            }
-            if (!error && typeof results.results !== 'undefined') {
-              indexRes++;
-              /*console.log('input adresse:', results.results[0].text);
-              console.log('first result lat', results.results[0].latlng.lat);
-              console.log('first result lng', results.results[0].latlng.lng);*/
-              infoPopUps = {
-                lat: results.results[0].latlng.lat,
-                lng: results.results[0].latlng.lng,
-                doc: inputCollection[indexLoc].PopUp.html(),
-                input: inputCollection[indexLoc]
-                //iconMarker: input.iconMarker
-              };
-              /*input.newItemLocation.html(JSON.stringify(infoPopUps));
-              input = {
-                lat: results.results[0].latlng.lat,
-                lng: results.results[0].latlng.lng,
-                //doc: input.doc,
-                //iconMarker: input.iconMarker
-              }*/
-              //indexEvent[indexCal].push(input);
-              output.push(infoPopUps);
-            }
-            else {
-              output.push('Failed type 1');
-            }
-            if (indexCal < indexEnd) {
-              add2Layer(inputCollection, setCallBack, indexCal)
-              //endMarkerBuild(indexEvent, setCallBack);
-            }
-            else {
-              console.log('achieved');
-              endMarkerBuild(output, setCallBack);
-              //var map = initMap('infoMap');
-            }
-          });
-      }
-      else {
-        /*if (typeof input.newItemLocation !== 'undefined') {
-          infoPopUps = {
-            lat: input.lat,
-            lng: input.lng,
-            iconMarker: input.iconMarker
-          };
-          input.newItemLocation.html(JSON.stringify(infoPopUps));
-        }
-        indexEvent[indexCal].push(input);
-        output.push(input);
-        if (indexEvent[indexCal].length < itemsLength) return output;
-        if (indexCal < indexEnd) {
-          indexEvent.push([]);
-          indexCal++;
-          var result = getMyInnerLinkContent();
-          return output;
-        }
-        endMarkerBuild(indexEvent, setCallBack);
-        return output;*/
-        output.push('Failed type 2');
-        console.log('Failed');
-        if (indexCal < indexEnd) {
-          add2Layer(inputCollection, setCallBack, indexCal)
-          //endMarkerBuild(indexEvent, setCallBack);
-        }
-        else {
-          console.log('achieved');
-          endMarkerBuild(output, setCallBack);
-          //var map = initMap('infoMap');
-        }
-      }
-
-      loading.style.display = 'none';
-    }
+    endMarkerBuild(indexEvent, setMapView);
 
     function endMarkerBuild(indexEvent, setCallBack) {
       markers = L.markerClusterGroup({
@@ -268,13 +338,13 @@ $(document).ready(function() {
         //console.log('href n°', i, " n° events ", indexEvent[i].length);
 
         //for (j = 0; j < indexEvent[i].length; j++) {
-          for (k = 0; k < iconMarkersLength; k++) {
-            if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
-              iconMarkers[k].nbMapEvents++;
-            }
+        for (k = 0; k < iconMarkersLength; k++) {
+          if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
+            iconMarkers[k].nbMapEvents++;
           }
-          marker = makePopUp(indexEvent[i], setCallBack);
-          markers.addLayer(marker);
+        }
+        marker = makePopUp(indexEvent[i], setCallBack);
+        markers.addLayer(marker);
         //}
       }
       divLegend.innerHTML = '';
@@ -758,49 +828,6 @@ $(document).ready(function() {
 
     }
 
-  var load = (function() {
-    // Function which returns a function: https://davidwalsh.name/javascript-functions
-    function _load(tag) {
-      return function(url) {
-        // This promise will be used by Promise.all to determine success or failure
-        return new Promise(function(resolve, reject) {
-          var element = document.createElement(tag);
-          var parent = 'body';
-          var attr = 'src';
-
-          // Important success and error for the promise
-          element.onload = function() {
-            resolve(url);
-          };
-          element.onerror = function() {
-            reject(url);
-          };
-
-          // Need to set different attributes depending on tag type
-          switch (tag) {
-            case 'script':
-              element.async = true;
-              break;
-            case 'link':
-              element.type = 'text/css';
-              element.rel = 'stylesheet';
-              attr = 'href';
-              parent = 'head';
-          }
-
-          // Inject into document to kick off loading
-          element[attr] = url;
-          document[parent].appendChild(element);
-        });
-      };
-    }
-
-    return {
-      css: _load('link'),
-      js: _load('script'),
-      img: _load('img')
-    }
-  })();
     /*$('#table').DataTable({
       data: data,
       "language": {

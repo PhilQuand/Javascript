@@ -1,666 +1,1011 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>l'&Eacute;cho des Comit&eacute;s</title>
-<!-- jQuery for FancyBox 3-->
-<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <title>IRE 2018 template: Google Sheets to interactive table</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
 
-<!-- Add fancyBox 3 -->
-<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
-<!-- End FancyBox -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
 <script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
 
-<link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
-<script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.js"></script>
 
 <script src='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson'></script>
 
-<base target="_blank">
-
 </head>
 <body>
+<div class="SIURFFMR right" >
+<span class="divImg">
+<a href="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="374" data-original-width="497" src="https://1.bp.blogspot.com/-MSeYJtpxGa8/X6BBh8MAzsI/AAAAAAAAnUU/w9GODhabLeEimx5Prd0kheif9EtIv9n1wCLcBGAsYHQ/s0/DoGrpVeU0AEuCp1%255B107%255D.jpg"/></a>
+</span>
+<span class="divText">
+<p>Découvrez, grâce au tableau ci-dessous, l’ensemble des œuvres (livres, BD, films, chansons, etc.) citées dans notre « Médiathèque radicale ». Un lien sur les images, figurant dans la dernière colonne à droite, vous redirige vers l’article où l’œuvre est citée.</p>
+<!--p>Voici les livres, bandes dessinées, films, chansons, citations, etc., présentés dans les article de notre Médiathèque Radicale et propres à nourrir une culture comme telle. Soit, comme le rappelle notre manifeste, une manière de penser et d’agir qui « cherche à aller à la racine des problèmes et à la hauteur des solutions ». </p>
+<p> Ils s’adressent à toutes et tous, membres de L’Antivol ou non, débutants ou aguerris en radicalité, passionnés de l’écrit, du son ou/et de l’image.</p-->
+</span></div>
 <style>
-#map {
-    width: 75%;
-    height: 750px;
-  }
+.SIURFFMR {
+    display: flex; 
+    align-items: center;
+    width: 100%; 
+    padding: 1em;
+}
+.SIURFFMR .divImg {
+    max-width: 450px; 
+    width: 30%; 
+    //margin-bottom: 1em;
+}
+.SIURFFMR.left .divImg {
+    margin-right: 0.5em;
+}
+.SIURFFMR.right {
+    flex-direction: row-reverse;
+}
+.SIURFFMR.right .divImg {
+    margin-left: 0.5em;
+}
+.SIURFFMR .divText {
+    width: 100%; 
+}
+.SIURFFMR .divImg img {
+    width: 100%;
+}
+@media (max-width: 1100px) {
+    .SIURFFMR {
+        display: block; 
+    }
+    .SIURFFMR .divImg img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+    .SIURFFMR .divText, .SIURFFMR .divImg {
+        width: 100%; 
+    }
+}
 </style>
-<center>
-<h1>Hôpitaux publics</h1>
-<h2><em>État des lieux, état des luttes</em></h2>
-<div id='map'></div>
-</center>
-<script>
-var iconH = 'https://lh3.googleusercontent.com/-8P0ZYXXIcqY/WfLk1fFdUuI/AAAAAAAAgQ4/i2DPCGdX5QAq2XaprQLQti7hA15smergQCEwYBhgL/w280-h278-p/A704AFB1-77E5-4992-91D7-7235E9294F69.png'
-
-var meteoLuttesPopUps = [{
-
-  flag: iconH,
-
-  lat: 47.349080,
-
-  lng: 0.711388,
-
-  doc: "<center style='color: blue'>CH Tours</center>Environ 200 lits/places<br/>Fermeture de la Maternité publique du Beffroi en 2004<br/>2017/2022 : annonce de la <strong>suppression de 400 lits et 400 postes ;<br/>Fermetures annoncées de Clocheville, Ermitage et CPU</strong>,<br/>Maternité de niveau 3<br/><br/><em>Pôles santé privé lucratif au nord et au sud de Tours</em>",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.408003,
-
-  lng: 0.981240,
-
-  doc: "<center style='color: blue'>CH Amboise-Château-Renault</center>2003 : <strong>fermeture maternité</strong><br/>2018 : Maison périnatale et chirurgie, fragiles",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.190482,
-
-  lng: 0.291724,
-
-  doc: "<center style='color: blue'>CH Chinon</center>2003 : <strong>fermeture chirurgie</strong>, <em>transfert de l'activité à la clinique Jeanne d'Arc</em><br/>La maternité de niveau 1 reste fragile, fonctionne en coopération (GCS) avec la clinique pour le bloc opératoire",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.129023,
-
-  lng: 1.002209,
-
-  doc: "<center style='color: blue'>CH Loches</center>1992 : <strong>fermeture de la maternité</strong><br/>Centre de périnatalité (consultations et ambulatoire)",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 46.634018,
-
-  lng: 1.059301,
-
-  doc: "<center style='color: blue'>CH Le Blanc</center>Maternité menacée depuis plusieurs année,  <strong>fermée été 2018</strong><br/>Forte mobilisation de la population et des élu-es.<br/>Démission de 72 élu-es<br/>Occupation, évacuation policière, manifestation à Paris.<br/>Marche 'des oreilles' jusqu'à Paris en décembre<br/><br/><center><strong>Plus de maternité à moins de<br/>52 km (Châtellerault)<br/>59 km (Châteauroux)</strong><br/>Seule maternité du département pour 308 000 habitant-es<br/>Suicide sur le lieu de travail d'un radiologue en octobre 2018<br/><em>Clinique privée Vitalia : chirurgie surtout</em></center>",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 46.799343,
-
-  lng: 1.696592,
-
-  doc: "<center style='color: blue'>CH Châteauroux</center><br/><center>Seule maternité du département<br/>pour 308 000 habitant-es<br/>Suicide d'un radiologue en octobre 2018</center><br/><em>Clinique privée Vitalia : chirurgie surtout</em>",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 46.569237,
-
-  lng: 1.984531,
-
-  doc: "<center style='color: blue'>CH La Châtre</center><br/><center>Pas de chirurgie<br/>Pas de maternité</center>",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 46.958222,
-
-  lng: 1.995639,
-
-  doc: "<center style='color: blue'>CH Issoudin</center><br/><center>Chirurgie <strong>fermée</strong><br/>Pas de maternité</center>",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.227821,
-
-  lng: 2.052502,
-
-  doc: "<center style='color: blue'>CH Vierzon</center><br/>2018 : menaces sur maternité, chirurgie et pédiatrie.<br/>Mobilisation de la population : recul de l'ARS, pour le moment.<br/><br/><em>établissement privé lucratif Korian Chirurgie</em>",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.084137,
-
-  lng: 2.436292,
-
-  doc: "<center style='color: blue'>CH Bourges</center><br/>2017 : <strong>40 lits fermés</strong><br/>orthopédie/chirurgie/médecine<br/>2018 : urgences et néonatalité menacés.<br/><br/>Marche blanche en juin 2018.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 46.734150,
-
-  lng: 2.512481,
-
-  doc: "<center style='color: blue'>CH Saint Amand Montrond</center><br/>Chirurgie <strong>fermée</strong> depuis 2012<br/>Maternité publique 15 lits<br/><br/><em>Clinique privée groupe Elsan chirurgie</em>.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 48.170395,
-
-  lng: 2.250717,
-
-  doc: "<center style='color: blue'>CH Pithiviers</center><br/> <strong>Fermeture Chirurgie</strong> en 1998<br/><strong>Fermeture Maternité</strong> en 2016.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.902270,
-
-  lng: 1.926132,
-
-  doc: "<center style='color: blue'>CH Orléans</center><br/>En 2017<strong>Fermeture de 10 lits et suppression de 10 postes à la maternité</strong><br/>et de <strong>11 lits en pédiatrie</strong>.<br/><br/><em>maternité/chirurgie/cancérologie dans un établissement privé lucratif à Saran.</em>",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.998613,
-
-  lng: 2.773198,
-
-  doc: "<center style='color: blue'>CH Montargis</center><br/>2018 menaces sur la chirurgie<br/>Collectif de soutien en lutte.<br/><br/>Maternité publique.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.690999,
-
-  lng: 2.635491,
-
-  doc: "<center style='color: blue'>CH Gien</center><br/><center><strong>Fermeture chirurgie</strong><br/><br/>Maternité publique</center>.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.932869,
-
-  lng: 0.740827,
-
-  doc: "<center style='color: blue'>CH Saint-Calais</center><center>Maternité <strong>fermée</strong><br/>Mobilisation en 2018 pour sauver<br/>les urgences de nuit, la médecine, les soins de suite.</center>.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 48.316956,
-
-  lng: 0.838290,
-
-  doc: "<center style='color: blue'>CH Nogent-le-Rotrou</center><strong>Maternité publique fermée</strong> en 2008<br/>centre de périnatalité.<br/><br/>Maternité à <strong>60 km</strong><br/>(Le Mans ou Chartres)<br/><br/><strong>chirurgie fermée</strong>.<br/>il reste 7 places en chirurgie ambulatoire.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 48.729789,
-
-  lng: 1.382265,
-
-  doc: "<center style='color: blue'>CH Dreux</center>2017 : Galère aux urgences.<br/>50% des urgentistes démissionnent.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 48.442861,
-
-  lng: 1.480833,
-
-  doc: "<center style='color: blue'>CH Chartres</center><strong>96 lits menacés</strong> de fermeture d'ici 2020.<br/>2018 : tensions dans les Ehpads de l'hôpital, faute de personnel.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 48.074521,
-
-  lng: 1.358258,
-
-  doc: "<center style='color: blue'>CH Châteaudun</center><strong>Chirurgie fermée</strong> en 2009.<br/>Chirurgie ambulatoire (10 places)<br/><strong>Maternité fermée</strong> en 2018 malgré une forte mobilisation.",
-}, 
-
-{
-
-  flag: iconH,
-
-  lat: 47.360604,
-
-  lng: 1.743047,
-
-  doc: "<center style='color: blue'>CH Romorantin</center>suppression de 15 lits en psychiatrie.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.603244,
-
-  lng: 1.343969,
-
-  doc: "<center style='color: blue'>CH Blois</center>2014 : suppression de lits en psychiatrie.<br/>2018 : <strong>80 lits en moins</strong><br/>. gel de 12 lits SSR<br/>. fermeture de 11 lits et suppression de 7 postes en <strong>maternité</strong> <br/>. suppression de 5 postes en <strong>chirurgie</strong><br/>. 77 lits <strong>ehpad</strong> menacés (vente en projet)<br/>; <strong>urgences</strong> 11 praticiens sur 32 postes budgétisés.<br/><br/><em>Polyclinique groupe St Gatien</em>.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.759498,
-
-  lng: 0.863169,
-
-  doc: "<center style='color: blue'>CH Montoire</center>Fermeture de 15 lits soins de suite<br/>et de 5 lits soins palliatifs.",
-},
-
-{
-
-  flag: iconH,
-
-  lat: 47.794637,
-
-  lng: 1.064092,
-
-  doc: "<center style='color: blue'>CH Vendôme</center>Maternité publique <strong>fermée</strong> en 1998.<br/>Chirurgie publique <strong>fermée</strong> en 1999.<br/><br/><em>Activités reprises dans le privé lucratif</em>.",
-}];
-</script>
-<script>
-// Ressources pour cartes LeafLet
-var load = (function() {
-  // Function which returns a function: https://davidwalsh.name/javascript-functions
-  function _load(tag) {
-    return function(url) {
-      // This promise will be used by Promise.all to determine success or failure
-      return new Promise(function(resolve, reject) {
-        var element = document.createElement(tag);
-        var parent = 'body';
-        var attr = 'src';
-
-        // Important success and error for the promise
-        element.onload = function() {
-          resolve(url);
-        };
-        element.onerror = function() {
-          reject(url);
-        };
-
-        // Need to set different attributes depending on tag type
-        switch (tag) {
-          case 'script':
-            element.async = true;
-            break;
-          case 'link':
-            element.type = 'text/css';
-            element.rel = 'stylesheet';
-            attr = 'href';
-            parent = 'head';
-        }
-
-        // Inject into document to kick off loading
-        element[attr] = url;
-        document[parent].appendChild(element);
-      });
-    };
-  }
-
-  return {
-    css: _load('link'),
-    js: _load('script'),
-    img: _load('img')
-  }
-})();
-// Constructeur de la carte LeafLet
-function loadMap() {
-  L.map('map').remove();
-  var map = L.map('map');
-
-  map.createPane('labels');
-
-  // This pane is above markers but below popups
-  map.getPane('labels').style.zIndex = 650;
-
-  // Layers in this pane are non-interactive and do not obscure mouse/touch events
-  map.getPane('labels').style.pointerEvents = 'none';
-
-
-  /*var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
-
-  var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-    attribution: cartodbAttribution
-  }).addTo(map);
-
-  var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
-    attribution: cartodbAttribution,
-    pane: 'labels'
-  }).addTo(map);*/
-
-  return map;
-
-};
-
-function add2Layer(myLayer, inputCollection, setCallBack, iconSize) {
-
-  // définition de la classe FlagIcon
-  var FlagIcon = L.Icon.extend({
-    options: {
-      iconSize: iconSize, // size of the icon
-      iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
-      popupAnchor: [-3, -15] // point from which the popup should open relative to the iconAnchor
-    }
-  });
-
-  for (var i = 0; i < inputCollection.length; i++) {
-    var input = inputCollection[i];
-
-    // définition des lieux (icons)
-    var myIcon = new FlagIcon({
-      iconUrl: input.flag
-    });
-
-    // définition des markers associés au groupe météo des luttes
-    var marker = L.marker([input.lat, input.lng], {
-      icon: myIcon
-    }).addTo(myLayer);
-
-    marker.bindPopup(input.doc).openPopup();
-    marker.getPopup().on('remove', function() {
-      setCallBack();
-    });
-  }
-};
-
-function zoomRemove( map ) {
-  //remove zoom functions
-  map.removeControl(map.zoomControl);
-  map.touchZoom.disable();
-  map.doubleClickZoom.disable();
-  map.scrollWheelZoom.disable();
-  map.boxZoom.disable();
-  map.keyboard.disable();
-}
-
-// Copyright (c) 2013 Ryan Clark
-// https://gist.github.com/rclark/5779673
-L.TopoJSON = L.GeoJSON.extend({
-  addData: function(jsonData) {
-    if (jsonData.type === "Topology") {
-      for (key in jsonData.objects) {
-        geojson = topojson.feature(jsonData, jsonData.objects[key]);
-        L.GeoJSON.prototype.addData.call(this, geojson);
-      }
-    }
-    else {
-      L.GeoJSON.prototype.addData.call(this, jsonData);
-    }
-  }
-});
-
-// Constructeur de la carte TopoJSON avec pays pour LeafLet
-function loadMapTopoJSON(map, colorDeb, colorFin, colorStyle) {
-  // Usage:  Load different file types with one callback
-  Promise.all([
-    //load.css('lib/highlighter.css'),
-    //load.img('images/logo.png')
-    //load.js('lib/main.js'), 
-
-    // Début ressources utilisées pour construire la carte mondiale colorée TopoJSON
-    // ressources chroma.js utilisées pour construire la carte TopoJSON colorée
-    //load.js('https://drive.google.com/uc?export=download&id=1vAhVcT9intE5QEkcuu3UQOBEutYjKtaO'),
-    load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
-    // ressources utilisées pour construire la carte TopoSJON
-    load.js('https://d3js.org/topojson.v1.min.js'),
-    // données de la carte TopoSJON
-    //load.js('https://drive.google.com/uc?export=download&id=1WZyHrCgJmR3mCAdQMHicqT0yjKASiJpE')
-    load.js('https://philquand.github.io/Javascript/LeafLet/countries.topo.json')
-    // Fint ressources utilisées pour construire la carte mondiale colorée TopoJSON
-
-  ]).then(function() {
-    console.log('Everything has loaded!');
-
-    topoLayer = new L.TopoJSON(),
-      colorScale = chroma
-      //.scale(['#D5E3FF', '#003171'])
-      .scale([colorDeb, colorFin])
-      .domain([0, 1]);
-
-    addTopoData(worldCountries);
-
-    function addTopoData(topoData) {
-      topoLayer.addData(topoData);
-      topoLayer.addTo(map);
-      topoLayer.eachLayer(handleLayer);
-    }
-
-    function handleLayer(layer) {
-      var randomValue = Math.random(),
-        fillColor = colorScale(randomValue).hex();
-
-      layer.setStyle({
-        fillColor: fillColor,
-        fillOpacity: 1,
-        color: colorStyle,
-        weight: 1,
-        opacity: .5
-      });
-
-    }
-  }).catch(function() {
-    console.log('Oh no, epic failure!');
-  });
-};
-
-// Constructeur de la planisphère openstreetmap pour LeafLet
-function loadOpenStreetWorld(map) {
-
-  var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
-
-  var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-    attribution: cartodbAttribution
-  }).addTo(map);
-
-  /*var positronLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
-    attribution: cartodbAttribution,
-    pane: 'labels'
-  }).addTo(map);*/
-
-};
-
-// Constructeur de la carte Mapbox pour LeafLet
-function loadMapBox(map) {
-  var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNqcmZlOWFwMjBuMnQ0NW1qN3VhczNhMW4ifQ.OSyAGC_JQQUISRiSuc8ghg';
-
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    //id: 'mapbox.light',
-    accessToken: mapboxAccessToken
-  }).addTo(map);
-
-};
-
-// Constructeur de la carte GeoJSON des régions françaises pour LeafLet
-function loadRegFranceJSONN(map, getColor) {
-  // Usage:  Load different file types with one callback
-  Promise.all([
-    // GeoJSON des régions françaises
-    //load.js('https://drive.google.com/uc?export=download&id=1hrJGwENimzW4gmf812yAZQk1z1KivZSU')
-    load.js('https://philquand.github.io/Javascript/LeafLet/regionsFranceData.js')
-  ]).then(function() {
-    console.log('Everything has loaded!');
-
-    function styleReg(feature) {
-      return {
-        fillColor: getColor(feature.properties.nom),
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        fillOpacity: 0.7
-      };
-    }
-
-    L.geoJson(regionsFranceData, {
-      style: styleReg
-    }).addTo(map);
-
-  }).catch(function() {
-    console.log('Oh no, epic failure!');
-  });
-};
-
-// Constructeur de la carte GeoJSON des départements françaises pour LeafLet
-function loadDeptFranceJSONN(map, getColor, getFilter) {
-  // Usage:  Load different file types with one callback
-  Promise.all([
-    // GeoJSON des régions françaises
-    //load.js('https://drive.google.com/uc?export=download&id=1D_ajtPoOkMWqaz8o8LkKPYjRd-LuxjJw')
-    load.js('https://philquand.github.io/Javascript/LeafLet/deptsFranceData.js')
-  ]).then(function() {
-    console.log('Everything has been loaded!');
-
-    function styleReg(feature) {
-      return {
-        fillColor: getColor(feature.properties.nom),
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        fillOpacity: 0.5
-      };
-    }
-
-    function filterReg(feature, layer) {
-      return getFilter(feature.properties.nom);
-    }
-
-    L.geoJson(deptsFranceData, {
-      style: styleReg,
-      filter: filterReg
-    }).addTo(map);
-
-  }).catch(function() {
-    console.log('Oh no, epic failure!');
-  });
-};
-</script>
-<script>
-(function() {
-
-  'use strict'
-
-  var map = loadMap();
-
-  // ajout de la planisphère openstreet
-  // loadOpenStreetWorld(map);
-  // ajout de la couche mondiale colorée TopoJSON
-  //loadMapTopoJSON(map, '#D5E3FF', '#aab8de', '#555');
-
-  // ajout de la couche MapBox
-  // loadMapBox(map);
-
-  /*function getRegColor(a) {
-    return a == "Centre-Val de Loire" ? '#C7E9C0' :
-      'white';
-  };
-  loadRegFranceJSONN(map, getRegColor);*/
-
-  function getDeptColor(a) {
-    return a == "Centre-Val de Loire" ? '#b3e2cd' :
-      a == "Loiret" ? '#fdcdac' :
-      a == "Cher" ? '#cbd5e8' :
-      a == "Eure-et-Loir" ? '#fff2ae' :
-      a == "Indre" ? '#fff2ae' :
-      a == "Loir-et-Cher" ? '#e6f5c9' :
-      a == "Indre-et-Loire" ? '#f4cae4' :
-      'white';
-  }
-
-  function getDeptFilter(a) {
-    return a == "Centre-Val de Loire" ? true :
-      a == "Loiret" ? true :
-      a == "Cher" ? true :
-      a == "Eure-et-Loir" ? true :
-      a == "Indre" ? true :
-      a == "Loir-et-Cher" ? true :
-      a == "Indre-et-Loire" ? true :
-      false;
-  }
-
-  loadDeptFranceJSONN(map, getDeptColor, getDeptFilter);
-
-  //zoomRemove(map);
-
-  function setMapView() {
-    map.setView({
-      lat: 47.65,
-      lng: 1.65
-    }, 8);
-  }
-  setMapView();
-
-  // definition du groupe météo des luttes
-  var meteoLuttes = L.layerGroup();
-
-  add2Layer(meteoLuttes, meteoLuttesPopUps, setMapView, [20, 20]);
-
-  meteoLuttes.addTo(map);
-  
-function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
-    if (feature.properties) {
-        var properties = feature.properties;
-        var popupContent = $('<div></div>');
-        popupContent.append(properties.adresse);
-        popupContent.append('<br>' + properties.commune);
-        layer.bindPopup(popupContent.html());
-    }
-}
-
-  //var myLayer = L.geoJSON().addTo(map);
-  //myLayer.addData(geojsonFeature);
- L.geoJSON(geojsonFeature, {
-    onEachFeature: onEachFeature
-}).addTo(map); 
-  loadOpenStreetWorld(map);
-
-}());
-</script>
+  <div id="loading">
+    <p>Chargement ...</p>
+  </div>
+  <div id="infoMap-wrapper" style="width:800px">
+  <div id="dataStore" style="display:none"></div>
+  <!--div id="dataStore" style="display:none">
+  [{"LIEUX":"Abbeville - 80","COMMUNE":"Abbeville","INSEE":"80100","SUPPRESSIONS":"Réduction néonatalité 2014","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":50.10935000200004,"lng":1.8330300000000648,"doc":"Abbeville - 80<br><h1>Suppressions</h1><br>Réduction néonatalité 2014"},{"LIEUX":"Agen - 47\n Fusion avec Nérac - 47","COMMUNE":"Agen","INSEE":"47001","SUPPRESSIONS":"2016","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":44.215857549065035,"lng":0.6402127859018361,"doc":"Agen - 47\n Fusion avec Nérac - 47<br><h1>Suppressions</h1><br>2016"},{"LIEUX":"Aire sur Adour - 40\n Polyclinique des Chênes","COMMUNE":"Aire sur Adour","INSEE":"40001","SUPPRESSIONS":"Menaces sociales 2014\n Maternité","MENACES":"CRAINTE POUR 2017","Pertes lit":"","Postes (p.)":"","lat":43.644739149449784,"lng":-0.2937875612121769,"doc":"Aire sur Adour - 40\n Polyclinique des Chênes<br><h1>Suppressions</h1><br>Menaces sociales 2014\n Maternité"},{"LIEUX":"Aix en Provence - 13","COMMUNE":"Aix en Provence","INSEE":"13001","SUPPRESSIONS":"","MENACES":"1 service de Médecine menacée 2012","Pertes lit":"","Postes (p.)":"","lat":43.526950000000056,"lng":5.446340000000021,"doc":"Aix en Provence - 13<br><h1>Suppressions</h1><br>"},{"LIEUX":"Aix les Bains - 73","COMMUNE":"Aix les Bains","INSEE":"73008","SUPPRESSIONS":"Chir\n Clinique Herbert","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":45.62523375883678,"lng":5.912417974400468,"doc":"Aix les Bains - 73<br><h1>Suppressions</h1><br>Chir\n Clinique Herbert"},{"LIEUX":"Albertville - 73","COMMUNE":"Albertville","INSEE":"73011","SUPPRESSIONS":"Cf. Moutiers","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":45.74359728495392,"lng":6.421530432884062,"doc":"Albertville - 73<br><h1>Suppressions</h1><br>Cf. Moutiers"},{"LIEUX":"Albertville – CHAM - 73\n Cf. Fusion avec Moûtiers 2005","COMMUNE":"Albertville","INSEE":"73011","SUPPRESSIONS":"Clinique La Concorde fermée","MENACES":"","Pertes lit":"","Postes (p.)":"","lat":45.74359728495392,"lng":6.421530432884062,"doc":"Albertville – CHAM - 73\n Cf. Fusion avec Moûtiers 2005<br><h1>Suppressions</h1><br>Clinique La Concorde fermée"},{"LIEUX":"Albi clinique Claude-Bernard - 81\n Albi clinique Toulouse-Lautrec","COMMUNE":"Albi","INSEE":"81004","SUPPRESSIONS":"Fusion 2017 dans le groupe ELSAN\n Vente prévisible de Toulouse-Lautrec","MENACES":"Maternité et urgences 2012","Pertes lit":"","Postes (p.)":"","lat":43.905687042409944,"lng":2.0740087962654914,"doc":"Albi clinique Claude-Bernard - 81\n Albi clinique Toulouse-Lautrec<br><h1>Suppressions</h1><br>Fusion 2017 dans le groupe ELSAN\n Vente prévisible de Toulouse-Lautrec"},{"LIEUX":"Albi Hôpital - 81","COMMUNE":"Albi","INSEE":"81004","SUPPRESSIONS":"Endocrinologie chute de 27 à 11 lits 2008\n Endocrinologie 2009 de 11 à 7 litstransférés cardiologie !\n Ophtalmologie 2000\n Otorhinolaryngologie 2000\n Stomatologie 2000\n Urologie 2008\n Endocrinologie complète 2012\n Nettoyage et entretien privatisés 2012","MENACES":"Chute accès IRM 2009 : pas d'accès à l'installation neuve de la clinique Claude Bernard et refus de 0,5 journée.","Pertes lit":"Perte de 50 lits entre 2000 et 2010\n 44 lits long séjour 2012\n 20 lits SSR 2016","Postes (p.)":"","lat":43.905687042409944,"lng":2.0740087962654914,"doc":"Albi Hôpital - 81<br><h1>Suppressions</h1><br>Endocrinologie chute de 27 à 11 lits 2008\n Endocrinologie 2009 de 11 à 7 litstransférés cardiologie !\n Ophtalmologie 2000\n Otorhinolaryngologie 2000\n Stomatologie 2000\n Urologie 2008\n Endocrinologie complète 2012\n Nettoyage et entretien privatisés 2012"},{"LIEUX":"Alençon - 61","COMMUNE":"Alençon","INSEE":"61001","SUPPRESSIONS":"","MENACES":"","Pertes lit":"- Réduction de moyens 2014\n - environ 30 lits 2015","Postes (p.)":"","lat":48.43350179916321,"lng":0.0637920309487836,"doc":"Alençon - 61<br><h1>Suppressions</h1><br>"}]
+  </div-->
+  <div id="infoMap" class="dispInfoMap"></div>
+  </div>
+  <table id="table" class="table table-striped table-bordered"></table>
+  <!--script src="script.js"></script-->
 </body>
 </html>
+<script>
+$(document).ready(function() {
+
+  function dataPopUp(data) {
+    /*for (i = 0; i < data.length; i++) {
+       var popupContent = $('<div></div>');
+       popupContent.append(data[i].LIEUX);
+       popupContent.append('<br><h1>Suppressions</h1><br>' + data[i].SUPPRESSIONS);
+       data[i].PopUp = popupContent;
+    }*/
+    var popupContent = $('<div></div>');
+    popupContent.append(data.LIEUX);
+    popupContent.append('<br><h1>Suppressions</h1><br>' + data.SUPPRESSIONS);
+    return popupContent.html();
+  }
+  var storedData = $('#dataStore').html();
+  if (storedData == '') {
+    function loadData() {
+      // Table des Fermetures
+      var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing';
+      var loading = document.getElementById('loading');
+      if (loading == null) return;
+
+      Tabletop.init({
+        key: SHEET_ID,
+        callback: buildTable,
+        simpleSheet: true
+      });
+
+      function buildTable(data, tabletop) {
+        //var output = [];
+        var indexCal = 0;
+        var indexRes = 0;
+        var indexEnd = data.length;
+        var indexEnd = 100;
+
+        add2Layer(indexCal)
+
+        function add2Layer(indexLoc) {
+          var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE + ', France';
+          indexCal++;
+          //if (typeof lieux !== 'undefined') {
+          L.esri.Geocoding.geocode({
+              requestParams: {
+                maxLocations: 1
+              }
+            })
+            .text(lieux)
+            .run(function(error, results, response) {
+              var _this = this
+              if (error) {
+                console.log(error);
+                console.log(lieux);
+                return;
+              }
+              if (!error && typeof results.results !== 'undefined') {
+                indexRes++;
+                /*console.log('input adresse:', results.results[0].text);
+                console.log('first result lat', results.results[0].latlng.lat);
+                console.log('first result lng', results.results[0].latlng.lng);*/
+                /*infoPopUps = {
+                  lat: results.results[0].latlng.lat,
+                  lng: results.results[0].latlng.lng,
+                  doc: dataPopUp(data[indexLoc]),
+                  //input: inputCollection[indexLoc]
+                  //iconMarker: input.iconMarker
+                };
+                output.push(infoPopUps);*/
+                /*input.newItemLocation.html(JSON.stringify(infoPopUps));*/
+                data[indexLoc].lat = results.results[0].latlng.lat;
+                data[indexLoc].lng = results.results[0].latlng.lng;
+                data[indexLoc].doc = dataPopUp(data[indexLoc]);
+              }
+              else {
+                data[indexLoc].doc = 'Failed geoloc';
+              }
+              if (indexCal < indexEnd) {
+                add2Layer(indexCal)
+                //endMarkerBuild(indexEvent, setCallBack);
+              }
+              else {
+                console.log('achieved');
+                if (indexEnd < data.length) {
+                  data.splice(indexEnd, data.length - 1)
+                }
+                $('#dataStore').html(JSON.stringify(data));
+                runData(data);
+                //endMarkerBuild(output, setMapView);
+                //var map = initMap('infoMap');
+              }
+            });
+          //}
+          /*else {
+            if (typeof input.newItemLocation !== 'undefined') {
+              infoPopUps = {
+                lat: input.lat,
+                lng: input.lng,
+                iconMarker: input.iconMarker
+              };
+              input.newItemLocation.html(JSON.stringify(infoPopUps));
+            }
+            indexEvent[indexCal].push(input);
+            output.push(input);
+            if (indexEvent[indexCal].length < itemsLength) return output;
+            if (indexCal < indexEnd) {
+              indexEvent.push([]);
+              indexCal++;
+              var result = getMyInnerLinkContent();
+              return output;
+            }
+            endMarkerBuild(indexEvent, setCallBack);
+            return output;
+            output.push('Failed type 2');
+            console.log('Failed');
+            if (indexCal < indexEnd) {
+              add2Layer(inputCollection, indexCal)
+              //endMarkerBuild(indexEvent, setCallBack);
+            }
+            else {
+              console.log('achieved');
+              runData(output);
+              //endMarkerBuild(output, setMapView);
+              //var map = initMap('infoMap');
+            }
+          }*/
+
+          loading.style.display = 'none';
+        }
+
+
+      }
+    }
+  }
+  else {
+    storedData = JSON.parse(storedData);
+    runData(storedData);
+  }
+
+  function runData(indexEvent) {
+    var load = (function() {
+      // Function which returns a function: https://davidwalsh.name/javascript-functions
+      function _load(tag) {
+        return function(url) {
+          // This promise will be used by Promise.all to determine success or failure
+          return new Promise(function(resolve, reject) {
+            var element = document.createElement(tag);
+            var parent = 'body';
+            var attr = 'src';
+
+            // Important success and error for the promise
+            element.onload = function() {
+              resolve(url);
+            };
+            element.onerror = function() {
+              reject(url);
+            };
+
+            // Need to set different attributes depending on tag type
+            switch (tag) {
+              case 'script':
+                element.async = true;
+                break;
+              case 'link':
+                element.type = 'text/css';
+                element.rel = 'stylesheet';
+                attr = 'href';
+                parent = 'head';
+            }
+
+            // Inject into document to kick off loading
+            element[attr] = url;
+            document[parent].appendChild(element);
+          });
+        };
+      }
+
+      return {
+        css: _load('link'),
+        js: _load('script'),
+        img: _load('img')
+      }
+    })();
+    var divBannerCoord, divLegend;
+    var options;
+
+    var divBannerCoordHTML = '';
+    if (typeof options !== 'undefined' && typeof options.divBannerCoordHTML !== 'undefined') var divBannerCoordHTML = options.divBannerCoordHTML;
+    var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
+
+    if (typeof options === 'undefined' || typeof options.iconMarkers === 'undefined') {
+      var iconMarkersLength = 0;
+    }
+    else {
+      var iconMarkers = options.iconMarkers;
+      var iconMarkersLength = iconMarkers.length;
+    }
+
+    function setMapView() {
+      /*map.setView({
+        lat: 47,
+        lng: 1.689
+      }, 6);*/
+      map.fitBounds([
+        [51.10, 2.47],
+        [48.37, -5.16],
+        [43.38, -1.85],
+        [42.47, 3.16],
+        [43.80, 7.96],
+        [49.03, 8.08],
+        [49.03, 8.08]
+      ]);
+    }
+
+    var map = initMap('infoMap');
+    endMarkerBuild(indexEvent, setMapView);
+
+    function endMarkerBuild(indexEvent, setCallBack) {
+      markers = L.markerClusterGroup({
+        maxClusterRadius: 5
+      }).addTo(map);
+
+      for (i = 0; i < indexEvent.length; i++) {
+        //console.log('href n°', i, " n° events ", indexEvent[i].length);
+
+        //for (j = 0; j < indexEvent[i].length; j++) {
+        for (k = 0; k < iconMarkersLength; k++) {
+          if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
+            iconMarkers[k].nbMapEvents++;
+          }
+        }
+        marker = makePopUp(indexEvent[i], setCallBack);
+        markers.addLayer(marker);
+        //}
+      }
+      divLegend.innerHTML = '';
+      for (k = 0; k < iconMarkersLength; k++) {
+        if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
+          if (typeof iconMarkers[k].icon === 'undefined') {
+            divLegend.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+          }
+          else {
+            divLegend.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+          }
+        }
+      }
+      if (divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
+      divBannerCoord.innerHTML = divBannerCoordHTML;
+      $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
+
+      Promise.all([
+        //  chargements des dépendances css
+        load.css('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'),
+        load.css('https://use.fontawesome.com/releases/v5.0.6/css/all.css'),
+        //  chargements des dépendances js
+        load.js('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'),
+        //load.js('https://philquand.github.io/Javascript/LeafLet/leaflet-button/L.Control.Button.js'),
+      ]).then(function() {
+        console.log('Everything has loaded!');
+        checkautresDepts(map, indexEvent);
+
+        function checkautresDepts(map, indexEvent) {
+          //console.log("iconMarkers length : " + iconMarkers.length)
+          var autresDepts = [{
+              name: 'Corse',
+              bounds: L.latLngBounds([
+                [43.07, 8.39],
+                [41.29, 9.74]
+              ]),
+              /*title: 'vol vers la Corse',
+              flyTo: {
+                    lat: 42.19,
+                    lng: 9.08
+                  },*/
+              hasevents: false
+            },
+            {
+              name: 'Martinique',
+              bounds: L.latLngBounds([
+                [14.905, -61.500],
+                [14.377, -60.762]
+              ]),
+              /*title: 'vol vers la Martinique',
+              flyTo: {
+                    lat: 14.7297,
+                    lng: -60.9655
+                  },*/
+              hasevents: false
+            },
+            {
+              name: 'Guadeloupe',
+              bounds: L.latLngBounds([
+                [16.5572, -61.971],
+                [15.7881, -60.946]
+              ]),
+              /*title: 'vol vers la Guadeloupe',
+              flyTo: {
+                    lat: 16.228,
+                    lng: -61.526
+                  },*/
+              hasevents: false
+            },
+            {
+              name: 'Guyane',
+              bounds: L.latLngBounds([
+                [6.16, -55.08],
+                [1.88, -51.16]
+              ]),
+              /*title: 'vol vers la Guyane',
+              flyTo: {
+                    lat: 3.945,
+                    lng: -53.13
+                  },*/
+              hasevents: false
+            },
+            {
+              name: 'La Réunion',
+              bounds: L.latLngBounds([
+                [-19.6496, 54.5825],
+                [-21.6107, 58.1036]
+              ]),
+              /*title: 'vol vers la Réunion',
+              flyTo: {
+                    lat: -20.887,
+                    lng: 55.455
+                  },*/
+              hasevents: false
+            },
+            {
+              name: 'Hexagone',
+              bounds: L.latLngBounds([
+                [51.10, 2.47],
+                [48.37, -5.16],
+                [43.38, -1.85],
+                [42.47, 3.16],
+                [43.80, 7.96],
+                [49.03, 8.08],
+                [49.03, 8.08]
+              ]),
+              hasevents: false
+            }
+          ];
+          autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
+          /*var button = new L.Control.Button(autresDepts[0], {
+            position: 'bottomleft',
+            className: 'autresDepts styled'
+          });
+          button.addTo(map);
+          var Corse = function () {
+                    map.setView({
+                      lat: 42.19,
+                      lng:  9.08
+                    }, 6);
+          };
+          var Guyane = function () {
+                    map.setView({
+                      lat: 3.945,
+                      lng:  -53.13
+                    }, 6);
+          };
+          var Hexagone = function () {
+                    map.fitBounds([
+                      [51.10, 2.47],
+                      [48.37, -5.16],
+                      [43.38, -1.85],
+                      [42.47, 3.16],
+                      [43.80, 7.96],
+                      [49.03, 8.08],
+                      [49.03, 8.08]
+                    ]);
+          };
+          $('.autresDepts').css('background-color','green');
+          $('.autresDepts').css('bottom','125px');
+          $('.autresDepts').css('left','20px');
+          var button2Index = 0;
+          button.on('click', function (){
+               var button1Index = button2Index;
+               button2Index = button2Index + 1;
+               if( button2Index == autresDepts.length ) button2Index = 0;
+               //alert(button2Index);
+          $('.autresDepts').html(autresDepts[button2Index]);
+               var autresDeptsFunc = autresDepts[button1Index] +  '()';
+               eval(autresDeptsFunc);
+          });*/
+          /*var button1 = new L.Control.Button('Toggle me  1', {
+            toggleButton: 'active'
+          });
+          button1.addTo(map);
+          button1.on('click', function () {
+              if (button1.isToggled()) {
+              $(this)._container.html('buttonis on');
+             alert('button on!');
+              } else {
+             alert('button off!');
+              $(this)._container.html('buttonis off');
+              }
+          }); 
+          var button2 = new L.Control.Button('Toggle me  2', {
+            toggleButton: 'active'
+          });
+          button2.addTo(map);
+          button2.on('click', function () {
+              if (button2.isToggled()) {
+              $(this)._container.html('buttonis on');
+             alert('button on!');
+              } else {
+             alert('button off!');
+              $(this)._container.html('buttonis off');
+              }
+          });*/
+          var states = [];
+          for (var i = 0; i < autresDepts.length; i++) {
+            if (!autresDepts[i].hasevents) continue
+            var localState = {};
+            localState.stateName = autresDepts[i].name; // name the state
+            j = i;
+            do {
+              j = j + 1;
+              if (j == autresDepts.length) j = 0;
+            }
+            while (!autresDepts[j].hasevents);
+            localState.nextStateName = autresDepts[j].name; // name of the next state
+            localState.icon = 'fa-plane'; // and define its properties
+            /*if (autresDepts[i].name == 'Hexagone') {
+              localState.title = "retour vers l'Hexagone"; // like its title
+              localState.bounds = autresDepts[i].bounds;
+              localState.onClick = function(btn, map) { // and its callback
+                for (var j = 0; j < btn.options.states.length; j++) {
+                  if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                    btn.state(btn.options.states[j].nextStateName); // change state on click!
+                    map.flyToBounds(btn.options.states[j].bounds);
+                    break;
+                  }
+                }
+              };
+            }
+            else {
+              localState.title = autresDepts[i].title; // like its title
+              localState.onClick = function(btn, map) { // and its callback
+                map.flyTo(autresDepts[i].flyTo, 6);
+                for (var j = 0; j < btn.options.states.length; j++) {
+                  if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                    btn.state(btn.options.states[j].nextStateName); // change state on click!
+                    break;
+                  }
+                }
+              } 
+            }*/
+            switch (autresDepts[i].name) {
+              case 'Corse':
+                localState.title = 'vol vers la Corse'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  map.flyTo({
+                    lat: 42.19,
+                    lng: 9.08
+                  }, 6);
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              case 'Martinique':
+                localState.title = 'vol vers la Martinique'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  map.flyTo({
+                    lat: 14.7297,
+                    lng: -60.9655
+                  }, 6);
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              case 'Guadeloupe':
+                localState.title = 'vol vers la Guadeloupe'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  map.flyTo({
+                    lat: 16.228,
+                    lng: -61.526
+                  }, 6);
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              case 'Guyane':
+                localState.title = 'vol vers la Guyane'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  map.flyTo({
+                    lat: 3.945,
+                    lng: -53.13
+                  }, 6);
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              case 'La Réunion':
+                localState.title = 'vol vers la Réunion'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  map.flyTo({
+                    lat: -20.887,
+                    lng: 55.455
+                  }, 6);
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              default:
+                localState.title = "retour vers l'Hexagone"; // like its title
+                localState.bounds = autresDepts[i].bounds;
+                localState.onClick = function(btn, map) { // and its callback
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      map.flyToBounds(btn.options.states[j].bounds);
+                      break;
+                    }
+                  }
+                };
+            }
+            states.push(localState);
+          }
+          if (states.length > 1) {
+            var stateChangingButton = L.easyButton({
+              states: states
+              /*[{
+                      stateName: 'zoom-to-forest',        // name the state
+                      icon:      'fa-plane',               // and define its properties
+                      title:     'zoom to a forest',      // like its title
+                      onClick: function(btn, map) {       // and its callback
+                          map.setView([46.25,-121.8],10);
+                          btn.state('zoom-to-school');    // change state on click!
+                      }
+                  }, {
+                      stateName: 'zoom-to-school',
+                      icon:      'fa-paper-plane',
+                      title:     'zoom to a school',
+                      onClick: function(btn, map) {
+                          map.setView([42.3748204,-71.1161913],16);
+                          btn.state('zoom-to-forest');
+                      }
+              }]*/
+            });
+
+            stateChangingButton.addTo(map);
+          }
+
+          function checkautresDeptsBounds(autresDepts, indexEvent) {
+            for (i = 0; i < indexEvent.length; i++) {
+              for (j = 0; j < indexEvent[i].length; j++) {
+                for (k = 0; k < autresDepts.length; k++) {
+                  if (autresDepts[k].bounds.contains(indexEvent[i][j])) {
+                    autresDepts[k].hasevents = true;
+                  }
+                }
+              }
+            }
+            return autresDepts;
+          };
+
+        };
+
+      }).catch(function() {
+        console.log('Oh no, epic failure!');
+      });
+    };
+
+    function makePopUp(input, setCallBack) {
+
+      if (typeof input.iconMarker === 'undefined' || typeof input.iconMarker.icon === 'undefined' || input.iconMarker.icon == '') {
+        var marker = L.marker([input.lat, input.lng]);
+      }
+      else {
+        var marker = L.marker([input.lat, input.lng], {
+          icon: input.iconMarker.icon
+        });
+      }
+      marker.bindPopup(input.doc, {
+        maxWidth: 400,
+        minWidth: 250,
+        maxHeight: 300,
+        className: 'popupCustom',
+        autoPan: true,
+        closeButton: true,
+        autoPanPadding: [5, 5]
+      });
+      marker.getPopup().on('remove', function() {
+        setCallBack();
+      });
+      return marker;
+    }
+
+    function initMap(idMap) {
+
+      'use strict'
+
+      var map = loadMap(idMap);
+
+      //zoomRemove(map);
+      map.options.minZoom = 5;
+      map.options.maxZoom = 8;
+
+      function setMapView() {
+        /*map.setView({
+          lat: 47,
+          lng: 1.689
+        }, 6);*/
+        map.fitBounds([
+          [51.10, 2.47],
+          [48.37, -5.16],
+          [43.38, -1.85],
+          [42.47, 3.16],
+          [43.80, 7.96],
+          [49.03, 8.08],
+          [49.03, 8.08]
+        ]);
+      }
+      setMapView();
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+
+      var results = L.layerGroup().addTo(map);
+
+      var redIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      searchControl.on('results', function(data) {
+        results.clearLayers();
+        for (var i = data.results.length - 1; i >= 0; i--) {
+          results.addLayer(L.marker(data.results[i].latlng, {
+            icon: redIcon
+          }));
+        }
+      });
+
+      var bannerCoord = L.control({
+        //position: 'topright'
+        position: 'bottomleft'
+      });
+
+      bannerCoord.onAdd = function(map) {
+        divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
+        return divBannerCoord;
+      };
+
+      bannerCoord.addTo(map);
+
+      var legend = L.control({
+        position: 'bottomright'
+      });
+
+      legend.onAdd = function(map) {
+        divLegend = L.DomUtil.create('div', 'legend');
+        return divLegend;
+      };
+
+      legend.addTo(map);
+      //checkautresDepts(map, iconMarkers);
+
+      return map;
+      // Constructeur de la carte LeafLet
+      function loadMap(idMap) {
+        L.map(idMap).remove();
+        var map = L.map(idMap);
+
+        map.createPane('labels');
+
+        // This pane is above markers but below popups
+        map.getPane('labels').style.zIndex = 650;
+
+        // Layers in this pane are non-interactive and do not obscure mouse/touch events
+        map.getPane('labels').style.pointerEvents = 'none';
+
+
+        return map;
+
+      };
+
+      function zoomRemove(map) {
+        //remove zoom functions
+        map.removeControl(map.zoomControl);
+        map.touchZoom.disable();
+        map.doubleClickZoom.disable();
+        map.scrollWheelZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+      }
+
+    }
+
+    /*$('#table').DataTable({
+      data: data,
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
+     },
+     columns: [{
+          data: "Dénomination du lieu",
+          title: "Lieu"
+        },
+        {
+          data: "Suppression",
+          title: "Suppression"
+        },
+        {
+          data: "Menaces",
+          title: "Menaces"
+        },
+        {
+          data: "Pertes de lits",
+          title: "Pertes de lits"
+        },
+        {
+          data: "Pertes de postes",
+          title: "Pertes de postes"
+        },
+      ],
+      initComplete: function() {
+        var myApi = this.api();
+        var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
+        var footertr = $("<tr></tr>").appendTo(footer);
+        var myColumnsi = this.api().columns();
+        this.api().columns().every(function() {
+          var column = this;
+          var myfooter = $("<th></th>").appendTo(footertr);
+          var select = $('<select><option value=""></option></select>')
+            .appendTo(myfooter)
+            .on('change', function() {
+              var val = $.fn.dataTable.util.escapeRegex(
+                $(this).val()
+              );
+              if (val != '') {
+                $('th select').css('display', 'none');
+                select.css('display', 'block');
+              }
+              else {
+                $('th select').each(function() {
+                  dataDisplay = $(this).data('display');
+                  if ((typeof dataDisplay === "undefined") || dataDisplay != 'none') {
+                    $(this).css('display', 'block');
+                  }
+                });
+              }
+              column
+            .search(val ? "(^"+val+"$)|(^" + val+ ",)|(, " + val+ "$)|(, " + val+ ",)" : '',true,false)
+            .draw();
+          });
+
+          var optEmpty = true;
+          var allColumnData = column.data();
+          var newColumnData = [];
+          for (var i = 0; i < allColumnData.length; i++) {
+            var optValMul = allColumnData[i].split(', ')
+            for (var j = 0; j < optValMul.length; j++) {
+              newColumnData.push(optValMul[j]);
+            }
+          }
+          newColumnData = sortUnique(newColumnData)
+          function sortUnique(array) {
+    "use strict";
+    var table = {}, key, i;
+    for (i = 0; i < array.length; i++) {
+        table[[array[i]]] = '';
+    }
+    i = 0;
+    for (key in table) {
+        array[i++] = key;
+    }
+    array.length = i;
+    return array.sort();
+}
+
+          for (var i = 0; i < newColumnData.length; i++) {
+            var optlVal = newColumnData[i];
+            if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
+                select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
+                optEmpty = false;
+            }
+          };
+          if (optEmpty) {
+            select.css('display', 'none');
+            select.data('display', 'none');
+          }
+        });
+
+        function isValidSelector(selector) {
+          if (typeof(selector) !== 'string') {
+            return false;
+          }
+          try {
+            var $element = $(selector);
+          }
+          catch (error) {
+            return false;
+          }
+          return true;
+        }
+      }
+    });*/
+  }
+});
+</script>
+<style>
+div.dataTables_wrapper div.dataTables_length {
+   margin-left: 1em;
+}
+div.dataTables_wrapper div.dataTables_length select {
+    width: 100%;
+}
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Arial, sans-serif;
+  //font-size: 12px;
+}
+
+.table-striped {
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+td, th, hr {
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+}
+
+th:hover {
+  background-color: #f7f7f7;
+}
+
+tfoot {
+    display: table-header-group;
+}
+
+input {
+  font-size: 16px;
+  margin-right: 1.5em;
+}
+
+input, td, th {
+  padding: 10px;
+  //vertical-align: bottom;
+}
+//à vérifier pour les images
+.table-striped td img {
+  width: 100px;
+  padding: 5px;
+  vertical-align: bottom;
+}
+
+.table-striped thead th {
+  background:#E42421;
+  color:white;
+}
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(228, 36, 33, 0.04);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background:#FFFFFF;
+}
+.table-striped tbody tr:hover {
+  background:#BDC3C7;
+  color:#FFFFFF;
+}
+</style>

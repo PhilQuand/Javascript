@@ -50,7 +50,8 @@
 <body>
 <div class="SIURFFMR right" >
 <span class="divImg">
-<a href="https://1.bp.blogspot.com/-bfJdO3Tjoso/YBVdnhay_4I/AAAAAAAAoCs/P-4TMPf0mksbtxzNdRh1JcvKknx5BxJIgCLcBGAsYHQ/s0/reforme-hopital-public.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="374" data-original-width="497" src="https://1.bp.blogspot.com/-bfJdO3Tjoso/YBVdnhay_4I/AAAAAAAAoCs/P-4TMPf0mksbtxzNdRh1JcvKknx5BxJIgCLcBGAsYHQ/s0/reforme-hopital-public.jpg"/></a>
+<a href="https://1.bp.blogspot.com/-5one8y9NJ90/YBXHCXEmcoI/AAAAAAAAoDI/3MZAUOI27Rc93YhvkIFa1vImvOBcP4DTACLcBGAsYHQ/s0/reforme-hopital-public.jpg" style="display: block; padding: 1em 0; text-align: center; ">
+<img alt="" border="0" data-original-height="374" data-original-width="497" src="https://1.bp.blogspot.com/-5one8y9NJ90/YBXHCXEmcoI/AAAAAAAAoDI/3MZAUOI27Rc93YhvkIFa1vImvOBcP4DTACLcBGAsYHQ/s0/reforme-hopital-public.jpg"/></a>
 </span>
 <span class="divText">
 <p><strong>Suppressions - Destructions - Réductions d'hôpitaux et de services, surtout publics</strong></p>
@@ -433,11 +434,7 @@ $(document).ready(function() {
       }
     })();
 
-    function setMapView() {
-      /*map.setView({
-        lat: 47,
-        lng: 1.689
-      }, 6);*/
+    function setDefaultMapView() {
       map.fitBounds([
         [51.10, 2.47],
         [48.37, -5.16],
@@ -447,6 +444,17 @@ $(document).ready(function() {
         [49.03, 8.08],
         [49.03, 8.08]
       ]);
+    }
+    function setMapView() {
+      /*map.fitBounds([
+        [51.10, 2.47],
+        [48.37, -5.16],
+        [43.38, -1.85],
+        [42.47, 3.16],
+        [43.80, 7.96],
+        [49.03, 8.08],
+        [49.03, 8.08]
+      ]);*/
     }
 
     map = initMap('infoMap');
@@ -499,6 +507,19 @@ $(document).ready(function() {
       ]).then(
       function() {
         console.log('Everything has loaded!');
+
+            var defaultViewButton = L.easyButton({
+              states: [{
+                      stateName: 'default-view',        // name the state
+                      icon:      'fa-home',      // and define its properties
+                      title:     'vue par défaut',      // like its title
+                      onClick: function(btn, map) {     // and its callback
+                          setDefaultMapView();
+                      }
+                      }]
+            });
+            defaultViewButton.addTo(map);
+
         checkautresDepts(map, indexEvent);
 
         function checkautresDepts(map, indexEvent) {
@@ -583,73 +604,6 @@ $(document).ready(function() {
             }
           ];
           autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
-          /*var button = new L.Control.Button(autresDepts[0], {
-            position: 'bottomleft',
-            className: 'autresDepts styled'
-          });
-          button.addTo(map);
-          var Corse = function () {
-                    map.setView({
-                      lat: 42.19,
-                      lng:  9.08
-                    }, 6);
-          };
-          var Guyane = function () {
-                    map.setView({
-                      lat: 3.945,
-                      lng:  -53.13
-                    }, 6);
-          };
-          var Hexagone = function () {
-                    map.fitBounds([
-                      [51.10, 2.47],
-                      [48.37, -5.16],
-                      [43.38, -1.85],
-                      [42.47, 3.16],
-                      [43.80, 7.96],
-                      [49.03, 8.08],
-                      [49.03, 8.08]
-                    ]);
-          };
-          $('.autresDepts').css('background-color','green');
-          $('.autresDepts').css('bottom','125px');
-          $('.autresDepts').css('left','20px');
-          var button2Index = 0;
-          button.on('click', function (){
-               var button1Index = button2Index;
-               button2Index = button2Index + 1;
-               if( button2Index == autresDepts.length ) button2Index = 0;
-               //alert(button2Index);
-          $('.autresDepts').html(autresDepts[button2Index]);
-               var autresDeptsFunc = autresDepts[button1Index] +  '()';
-               eval(autresDeptsFunc);
-          });*/
-          /*var button1 = new L.Control.Button('Toggle me  1', {
-            toggleButton: 'active'
-          });
-          button1.addTo(map);
-          button1.on('click', function () {
-              if (button1.isToggled()) {
-              $(this)._container.html('buttonis on');
-             alert('button on!');
-              } else {
-             alert('button off!');
-              $(this)._container.html('buttonis off');
-              }
-          }); 
-          var button2 = new L.Control.Button('Toggle me  2', {
-            toggleButton: 'active'
-          });
-          button2.addTo(map);
-          button2.on('click', function () {
-              if (button2.isToggled()) {
-              $(this)._container.html('buttonis on');
-             alert('button on!');
-              } else {
-             alert('button off!');
-              $(this)._container.html('buttonis off');
-              }
-          });*/
           var states = [];
           for (var i = 0; i < autresDepts.length; i++) {
             if (!autresDepts[i].hasevents) continue
@@ -663,31 +617,6 @@ $(document).ready(function() {
             while (!autresDepts[j].hasevents);
             localState.nextStateName = autresDepts[j].name; // name of the next state
             localState.icon = 'fa-plane'; // and define its properties
-            /*if (autresDepts[i].name == 'Hexagone') {
-              localState.title = "retour vers l'Hexagone"; // like its title
-              localState.bounds = autresDepts[i].bounds;
-              localState.onClick = function(btn, map) { // and its callback
-                for (var j = 0; j < btn.options.states.length; j++) {
-                  if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                    btn.state(btn.options.states[j].nextStateName); // change state on click!
-                    map.flyToBounds(btn.options.states[j].bounds);
-                    break;
-                  }
-                }
-              };
-            }
-            else {
-              localState.title = autresDepts[i].title; // like its title
-              localState.onClick = function(btn, map) { // and its callback
-                map.flyTo(autresDepts[i].flyTo, 6);
-                for (var j = 0; j < btn.options.states.length; j++) {
-                  if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                    btn.state(btn.options.states[j].nextStateName); // change state on click!
-                    break;
-                  }
-                }
-              } 
-            }*/
             switch (autresDepts[i].name) {
               case 'Corse':
                 localState.title = 'vol vers la Corse'; // like its title

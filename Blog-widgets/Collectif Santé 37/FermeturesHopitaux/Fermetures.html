@@ -200,7 +200,8 @@
 };*/
 </style>
 <script>
-$(document).ready(function() {
+(function($) {
+  //$(document).ready(function() {
 
   function dataPopUp(data) {
     /*for (i = 0; i < data.length; i++) {
@@ -213,44 +214,45 @@ $(document).ready(function() {
     var popupBody = $('<div class="popBody"></div>');
     popupContent.append(popupBody);
     popupBody.append('<div class="popLieux">' + data.LIEUX + '</div>');
-    if( data["SUPPRESSIONS"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Suppressions</span><br>' + data["SUPPRESSIONS"] + '</div>');
-    if( data["MENACES"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Menaces</span><br>' + data["MENACES"] + '</div>');
-    if( data["Pertes lits"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Pertes lit</span><br>' + data["Pertes lits"] + '</div>');
-    if( data["Pertes postes"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Pertes postes</span><br>' + data["Pertes postes"] + '</div>');
+    if (data["SUPPRESSIONS"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Suppressions</span><br>' + data["SUPPRESSIONS"] + '</div>');
+    if (data["MENACES"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Menaces</span><br>' + data["MENACES"] + '</div>');
+    if (data["Pertes lits"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Pertes lit</span><br>' + data["Pertes lits"] + '</div>');
+    if (data["Pertes postes"] != '') popupBody.append('<div class="popItem"><span class="popTitle">Pertes postes</span><br>' + data["Pertes postes"] + '</div>');
     return popupContent.html();
   }
-    var divBannerCoord, divLegend;
-    var options;
+  var divBannerCoord, divLegend;
+  var options;
 
-    var divBannerCoordHTML = '';
-    if (typeof options !== 'undefined' && typeof options.divBannerCoordHTML !== 'undefined') var divBannerCoordHTML = options.divBannerCoordHTML;
-    var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
+  var divBannerCoordHTML = '';
+  if (typeof options !== 'undefined' && typeof options.divBannerCoordHTML !== 'undefined') var divBannerCoordHTML = options.divBannerCoordHTML;
+  var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
 
-    var iconMarkers = iconMarkersBuilder();
-    var iconMarkersLength = iconMarkers.length;
-    function iconMarkersBuilder() {
- var resBlueIcon = new L.Icon({
-	iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
-	shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-	iconSize: [13, 20],
-	iconAnchor: [6, 20],
-	popupAnchor: [1, -17],
-	shadowSize: [20, 20]
-});
-     var iconMarkers = [{
-        class: "marker-0",
-        icon: simpleRedIcon,
-        title: 'Coordination'
-      }, {
-        class: "marker-1",
-        title: 'Échos'
-      }, {
-        class: "marker-res",
-        icon: resBlueIcon,
-        title: 'Autres Infos'
-      }];
-      return iconMarkers;
-    };
+  var iconMarkers = iconMarkersBuilder();
+  var iconMarkersLength = iconMarkers.length;
+
+  function iconMarkersBuilder() {
+    var resBlueIcon = new L.Icon({
+      iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+      shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+      iconSize: [13, 20],
+      iconAnchor: [6, 20],
+      popupAnchor: [1, -17],
+      shadowSize: [20, 20]
+    });
+    var iconMarkers = [{
+      class: "marker-0",
+      icon: simpleRedIcon,
+      title: 'Coordination'
+    }, {
+      class: "marker-1",
+      title: 'Échos'
+    }, {
+      class: "marker-res",
+      icon: resBlueIcon,
+      title: 'Autres Infos'
+    }];
+    return iconMarkers;
+  };
   var storedData = $('#dataStore').html();
   if (storedData == '') {
     loadData()
@@ -288,7 +290,7 @@ $(document).ready(function() {
         /*if(isNaN(data[indexLoc].INSEE)) console.log(data[indexLoc].INSEE + ' isNaN vrai');
         else console.log(data[indexLoc].INSEE + ' isNaN faux');
         if(data[indexLoc].INSEE !== 'MTQ' && data[indexLoc].INSEE !== 'GLP' && data[indexLoc].INSEE !== 'GUF' && data[indexLoc].INSEE !== 'REU' ) lieux += ', France';*/
-        if(!isNaN(data[indexLoc].INSEE))  lieux += ', France';
+        if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';
         indexCal++;
         //if (typeof lieux !== 'undefined') {
         L.esri.Geocoding.geocode({
@@ -384,427 +386,70 @@ $(document).ready(function() {
     var map;
     runTable();
     runMap(indexEvent);
-      $('#btData').click(function(e) {
-        if ($('#btData').html() == 'Carte') {
-          $('#btData').html('Données');
-          $('#infoMap-wrapper').css('display', 'block')
-          map.invalidateSize();
-          $('#table_wrapper').css('display', 'none')
-          //$('#table').css('display', 'none')
-        }
-        else {
-          $('#btData').html('Carte');
-          $('#infoMap-wrapper').css('display', 'none')
-          $('#table_wrapper').css('display', 'block')
-          //$('#table').css('display', 'block')
-       }
-        $('#btData').css('display', 'block')
-      });
-      $('#btData').trigger("click");
-    function runMap(indexEvent){
-    var load = (function() {
-      // Function which returns a function: https://davidwalsh.name/javascript-functions
-      function _load(tag) {
-        return function(url) {
-          // This promise will be used by Promise.all to determine success or failure
-          return new Promise(function(resolve, reject) {
-            var element = document.createElement(tag);
-            var parent = 'body';
-            var attr = 'src';
-
-            // Important success and error for the promise
-            element.onload = function() {
-              resolve(url);
-            };
-            element.onerror = function() {
-              reject(url);
-            };
-
-            // Need to set different attributes depending on tag type
-            switch (tag) {
-              case 'script':
-                element.async = true;
-                break;
-              case 'link':
-                element.type = 'text/css';
-                element.rel = 'stylesheet';
-                attr = 'href';
-                parent = 'head';
-            }
-
-            // Inject into document to kick off loading
-            element[attr] = url;
-            document[parent].appendChild(element);
-          });
-        };
-      }
-
-      return {
-        css: _load('link'),
-        js: _load('script'),
-        img: _load('img')
-      }
-    })();
-
-    function setDefaultMapView() {
-      map.fitBounds([
-        [51.10, 2.47],
-        [48.37, -5.16],
-        [43.38, -1.85],
-        [42.47, 3.16],
-        [43.80, 7.96],
-        [49.03, 8.08],
-        [49.03, 8.08]
-      ]);
-    }
-    function setMapView() {
-      /*map.fitBounds([
-        [51.10, 2.47],
-        [48.37, -5.16],
-        [43.38, -1.85],
-        [42.47, 3.16],
-        [43.80, 7.96],
-        [49.03, 8.08],
-        [49.03, 8.08]
-      ]);*/
-    }
-
-    map = initMap('infoMap');
-    for (i = 0; i < indexEvent.length; i++) {
-       indexEvent[i].doc = dataPopUp(indexEvent[i]);
-       indexEvent[i].iconMarker = iconMarkers[2];
-    }
-    endMarkerBuild(indexEvent, setMapView);
-
-    function endMarkerBuild(indexEvent, setCallBack) {
-      markers = L.markerClusterGroup({
-        maxClusterRadius: 5
-      }).addTo(map);
-
-      for (i = 0; i < indexEvent.length; i++) {
-        //console.log('href n°', i, " n° events ", indexEvent[i].length);
-
-        //for (j = 0; j < indexEvent[i].length; j++) {
-        for (k = 0; k < iconMarkersLength; k++) {
-          if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
-            iconMarkers[k].nbMapEvents++;
-          }
-        }
-        marker = makePopUp(indexEvent[i], setCallBack);
-        markers.addLayer(marker);
-        //}
-      }
-      divLegend.innerHTML = '';
-      for (k = 0; k < iconMarkersLength; k++) {
-        if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-          if (typeof iconMarkers[k].icon === 'undefined') {
-            divLegend.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-          }
-          else {
-            divLegend.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-          }
-        }
-      }
-      if (divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
-      divBannerCoord.innerHTML = divBannerCoordHTML;
-      $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
-
-      Promise.all([
-        //  chargements des dépendances css
-        load.css('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'),
-        load.css('https://use.fontawesome.com/releases/v5.0.6/css/all.css'),
-        //  chargements des dépendances js
-        load.js('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'),
-        //load.js('https://philquand.github.io/Javascript/LeafLet/leaflet-button/L.Control.Button.js'),
-      ]).then(
-      function() {
-        console.log('Everything has loaded!');
-
-            var defaultViewButton = L.easyButton({
-              states: [{
-                      stateName: 'default-view',        // name the state
-                      icon:      'fa-home',      // and define its properties
-                      title:     'vue par défaut',      // like its title
-                      onClick: function(btn, map) {     // and its callback
-                          setDefaultMapView();
-                      }
-                      }]
-            });
-            defaultViewButton.addTo(map);
-
-        checkautresDepts(map, indexEvent);
-
-        function checkautresDepts(map, indexEvent) {
-          //console.log("iconMarkers length : " + iconMarkers.length)
-          var autresDepts = [{
-              name: 'Corse',
-              bounds: L.latLngBounds([
-                [43.07, 8.39],
-                [41.29, 9.74]
-              ]),
-              /*title: 'vol vers la Corse',
-              flyTo: {
-                    lat: 42.19,
-                    lng: 9.08
-                  },*/
-              hasevents: false
-            },
-            {
-              name: 'Martinique',
-              bounds: L.latLngBounds([
-                [14.905, -61.500],
-                [14.377, -60.762]
-              ]),
-              /*title: 'vol vers la Martinique',
-              flyTo: {
-                    lat: 14.7297,
-                    lng: -60.9655
-                  },*/
-              hasevents: false
-            },
-            {
-              name: 'Guadeloupe',
-              bounds: L.latLngBounds([
-                [16.5572, -61.971],
-                [15.7881, -60.946]
-              ]),
-              /*title: 'vol vers la Guadeloupe',
-              flyTo: {
-                    lat: 16.228,
-                    lng: -61.526
-                  },*/
-              hasevents: false
-            },
-            {
-              name: 'Guyane',
-              bounds: L.latLngBounds([
-                [6.16, -55.08],
-                [1.88, -51.16]
-              ]),
-              /*title: 'vol vers la Guyane',
-              flyTo: {
-                    lat: 3.945,
-                    lng: -53.13
-                  },*/
-              hasevents: false
-            },
-            {
-              name: 'LaRéunion',
-              bounds: L.latLngBounds([
-                [-19.6496, 54.5825],
-                [-21.6107, 58.1036]
-              ]),
-              /*title: 'vol vers la Réunion',
-              flyTo: {
-                    lat: -20.887,
-                    lng: 55.455
-                  },*/
-              hasevents: false
-            },
-            {
-              name: 'Hexagone',
-              bounds: L.latLngBounds([
-                [51.10, 2.47],
-                [48.37, -5.16],
-                [43.38, -1.85],
-                [42.47, 3.16],
-                [43.80, 7.96],
-                [49.03, 8.08],
-                [49.03, 8.08]
-              ]),
-              hasevents: false
-            }
-          ];
-          autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
-          var states = [];
-          for (var i = 0; i < autresDepts.length; i++) {
-            if (!autresDepts[i].hasevents) continue
-            var localState = {};
-            localState.stateName = autresDepts[i].name; // name the state
-            j = i;
-            do {
-              j = j + 1;
-              if (j == autresDepts.length) j = 0;
-            }
-            while (!autresDepts[j].hasevents);
-            localState.nextStateName = autresDepts[j].name; // name of the next state
-            localState.icon = 'fa-plane'; // and define its properties
-            switch (autresDepts[i].name) {
-              case 'Corse':
-                localState.title = 'vol vers la Corse'; // like its title
-                localState.onClick = function(btn, map) { // and its callback
-                  map.flyTo({
-                    lat: 42.19,
-                    lng: 9.08
-                  }, 6);
-                  for (var j = 0; j < btn.options.states.length; j++) {
-                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                      btn.state(btn.options.states[j].nextStateName); // change state on click!
-                      break;
-                    }
-                  }
-                };
-                break;
-              case 'Martinique':
-                localState.title = 'vol vers la Martinique'; // like its title
-                localState.onClick = function(btn, map) { // and its callback
-                  map.flyTo({
-                    lat: 14.7297,
-                    lng: -60.9655
-                  }, 6);
-                  for (var j = 0; j < btn.options.states.length; j++) {
-                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                      btn.state(btn.options.states[j].nextStateName); // change state on click!
-                      break;
-                    }
-                  }
-                };
-                break;
-              case 'Guadeloupe':
-                localState.title = 'vol vers la Guadeloupe'; // like its title
-                localState.onClick = function(btn, map) { // and its callback
-                  map.flyTo({
-                    lat: 16.228,
-                    lng: -61.526
-                  }, 6);
-                  for (var j = 0; j < btn.options.states.length; j++) {
-                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                      btn.state(btn.options.states[j].nextStateName); // change state on click!
-                      break;
-                    }
-                  }
-                };
-                break;
-              case 'Guyane':
-                localState.title = 'vol vers la Guyane'; // like its title
-                localState.onClick = function(btn, map) { // and its callback
-                  map.flyTo({
-                    lat: 3.945,
-                    lng: -53.13
-                  }, 6);
-                  for (var j = 0; j < btn.options.states.length; j++) {
-                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                      btn.state(btn.options.states[j].nextStateName); // change state on click!
-                      break;
-                    }
-                  }
-                };
-                break;
-              case 'LaRéunion':
-                localState.title = 'vol vers la Réunion'; // like its title
-                localState.onClick = function(btn, map) { // and its callback
-                  map.flyTo({
-                    lat: -20.887,
-                    lng: 55.455
-                  }, 6);
-                  for (var j = 0; j < btn.options.states.length; j++) {
-                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                      btn.state(btn.options.states[j].nextStateName); // change state on click!
-                      break;
-                    }
-                  }
-                };
-                break;
-              default:
-                localState.title = "retour vers l'Hexagone"; // like its title
-                localState.bounds = autresDepts[i].bounds;
-                localState.onClick = function(btn, map) { // and its callback
-                  for (var j = 0; j < btn.options.states.length; j++) {
-                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                      btn.state(btn.options.states[j].nextStateName); // change state on click!
-                      map.flyToBounds(btn.options.states[j].bounds);
-                      break;
-                    }
-                  }
-                };
-            }
-            states.push(localState);
-          }
-          if (states.length > 1) {
-            var stateChangingButton = L.easyButton({
-              states: states
-              /*[{
-                      stateName: 'zoom-to-forest',        // name the state
-                      icon:      'fa-plane',               // and define its properties
-                      title:     'zoom to a forest',      // like its title
-                      onClick: function(btn, map) {       // and its callback
-                          map.setView([46.25,-121.8],10);
-                          btn.state('zoom-to-school');    // change state on click!
-                      }
-                  }, {
-                      stateName: 'zoom-to-school',
-                      icon:      'fa-paper-plane',
-                      title:     'zoom to a school',
-                      onClick: function(btn, map) {
-                          map.setView([42.3748204,-71.1161913],16);
-                          btn.state('zoom-to-forest');
-                      }
-              }]*/
-            });
-
-            stateChangingButton.addTo(map);
-          }
-
-          function checkautresDeptsBounds(autresDepts, indexEvent) {
-            for (i = 0; i < indexEvent.length; i++) {
-                for (k = 0; k < autresDepts.length; k++) {
-                  if (autresDepts[k].bounds.contains(indexEvent[i])) {
-                    autresDepts[k].hasevents = true;
-                  }
-                }
-            }
-            return autresDepts;
-          };
-
-        };
-
-      
-      }
-      ).catch(function() {
-        console.log('Oh no, epic failure!');
-      });
-    };
-
-    function makePopUp(input, setCallBack) {
-
-      if (typeof input.iconMarker === 'undefined' || typeof input.iconMarker.icon === 'undefined' || input.iconMarker.icon == '') {
-        var marker = L.marker([input.lat, input.lng]);
+    $('#btData').click(function(e) {
+      if ($('#btData').html() == 'Carte') {
+        $('#btData').html('Données');
+        $('#infoMap-wrapper').css('display', 'block')
+        map.invalidateSize();
+        $('#table_wrapper').css('display', 'none')
+        //$('#table').css('display', 'none')
       }
       else {
-        var marker = L.marker([input.lat, input.lng], {
-          icon: input.iconMarker.icon
-        });
+        $('#btData').html('Carte');
+        $('#infoMap-wrapper').css('display', 'none')
+        $('#table_wrapper').css('display', 'block')
+        //$('#table').css('display', 'block')
       }
-      marker.bindPopup(input.doc, {
-        maxWidth: 400,
-        minWidth: 250,
-        maxHeight: 300,
-        className: 'popupCustom',
-        autoPan: true,
-        closeButton: true,
-        autoPanPadding: [5, 5]
-      });
-      marker.getPopup().on('remove', function() {
-        setCallBack();
-      });
-      return marker;
-    }
+      $('#btData').css('display', 'block')
+    });
+    $('#btData').trigger("click");
 
-    function initMap(idMap) {
+    function runMap(indexEvent) {
+      var load = (function() {
+        // Function which returns a function: https://davidwalsh.name/javascript-functions
+        function _load(tag) {
+          return function(url) {
+            // This promise will be used by Promise.all to determine success or failure
+            return new Promise(function(resolve, reject) {
+              var element = document.createElement(tag);
+              var parent = 'body';
+              var attr = 'src';
 
-      'use strict'
+              // Important success and error for the promise
+              element.onload = function() {
+                resolve(url);
+              };
+              element.onerror = function() {
+                reject(url);
+              };
 
-      var map = loadMap(idMap);
+              // Need to set different attributes depending on tag type
+              switch (tag) {
+                case 'script':
+                  element.async = true;
+                  break;
+                case 'link':
+                  element.type = 'text/css';
+                  element.rel = 'stylesheet';
+                  attr = 'href';
+                  parent = 'head';
+              }
 
-      //zoomRemove(map);
-      map.options.minZoom = 5;
-      map.options.maxZoom = 8;
+              // Inject into document to kick off loading
+              element[attr] = url;
+              document[parent].appendChild(element);
+            });
+          };
+        }
 
-      function setMapView() {
-        /*map.setView({
-          lat: 47,
-          lng: 1.689
-        }, 6);*/
+        return {
+          css: _load('link'),
+          js: _load('script'),
+          img: _load('img')
+        }
+      })();
+
+      function setDefaultMapView() {
         map.fitBounds([
           [51.10, 2.47],
           [48.37, -5.16],
@@ -815,200 +460,563 @@ $(document).ready(function() {
           [49.03, 8.08]
         ]);
       }
-      setMapView();
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-
-      var searchControl = L.esri.Geocoding.geosearch().addTo(map);
-
-      var results = L.layerGroup().addTo(map);
-
-      var redIcon = new L.Icon({
-        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
-      searchControl.on('results', function(data) {
-        results.clearLayers();
-        for (var i = data.results.length - 1; i >= 0; i--) {
-          results.addLayer(L.marker(data.results[i].latlng, {
-            icon: redIcon
-          }));
-        }
-      });
-
-      var bannerCoord = L.control({
-        //position: 'topright'
-        position: 'bottomleft'
-      });
-
-      bannerCoord.onAdd = function(map) {
-        divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
-        return divBannerCoord;
-      };
-
-      bannerCoord.addTo(map);
-
-      var legend = L.control({
-        position: 'bottomright'
-      });
-
-      legend.onAdd = function(map) {
-        divLegend = L.DomUtil.create('div', 'legend');
-        return divLegend;
-      };
-
-      legend.addTo(map);
-      //checkautresDepts(map, iconMarkers);
-
-      return map;
-      // Constructeur de la carte LeafLet
-      function loadMap(idMap) {
-        L.map(idMap).remove();
-        var map = L.map(idMap);
-
-        map.createPane('labels');
-
-        // This pane is above markers but below popups
-        map.getPane('labels').style.zIndex = 650;
-
-        // Layers in this pane are non-interactive and do not obscure mouse/touch events
-        map.getPane('labels').style.pointerEvents = 'none';
-
-
-        return map;
-
-      };
-
-      function zoomRemove(map) {
-        //remove zoom functions
-        map.removeControl(map.zoomControl);
-        map.touchZoom.disable();
-        map.doubleClickZoom.disable();
-        map.scrollWheelZoom.disable();
-        map.boxZoom.disable();
-        map.keyboard.disable();
+      function setMapView() {
+        /*map.fitBounds([
+          [51.10, 2.47],
+          [48.37, -5.16],
+          [43.38, -1.85],
+          [42.47, 3.16],
+          [43.80, 7.96],
+          [49.03, 8.08],
+          [49.03, 8.08]
+        ]);*/
       }
 
-    }
-}
-    function runTable(){
-    $('#table').DataTable({
-      data: indexEvent,
-      "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
-     },
-     columns: [{
-          data: "LIEUX",
-          title: "Lieux"
-        },
-        {
-          data: "SUPPRESSIONS",
-          title: "Suppressions"
-        },
-        {
-          data: "MENACES",
-          title: "Menaces"
-        },
-        {
-          data: "Pertes lits",
-          title: "Pertes de lits"
-        },
-        {
-          data: "Pertes postes",
-          title: "Pertes de postes"
-        },
-      ],
-      initComplete: function() {
-        var myApi = this.api();
-        var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
-        var footertr = $("<tr></tr>").appendTo(footer);
-        var myColumnsi = this.api().columns();
-        this.api().columns().every(function() {
-          var column = this;
-          var myfooter = $("<th></th>").appendTo(footertr);
-          var select = $('<select><option value=""></option></select>')
-            .appendTo(myfooter)
-            .on('change', function() {
-              var val = $.fn.dataTable.util.escapeRegex(
-                $(this).val()
-              );
-              if (val != '') {
-                $('th select').css('display', 'none');
-                select.css('display', 'block');
-              }
-              else {
-                $('th select').each(function() {
-                  dataDisplay = $(this).data('display');
-                  if ((typeof dataDisplay === "undefined") || dataDisplay != 'none') {
-                    $(this).css('display', 'block');
-                  }
-                });
-              }
-              column
-            .search(val ? "(^"+val+"$)|(^" + val+ ",)|(, " + val+ "$)|(, " + val+ ",)" : '',true,false)
-            .draw();
-          });
+      map = initMap('infoMap');
+      for (i = 0; i < indexEvent.length; i++) {
+        indexEvent[i].doc = dataPopUp(indexEvent[i]);
+        indexEvent[i].iconMarker = iconMarkers[2];
+      }
+      endMarkerBuild(indexEvent, setMapView);
 
-          var optEmpty = true;
-          var allColumnData = column.data();
-          var newColumnData = [];
-          for (var i = 0; i < allColumnData.length; i++) {
-            var optValMul = allColumnData[i].split(', ')
-            for (var j = 0; j < optValMul.length; j++) {
-              newColumnData.push(optValMul[j]);
+      function endMarkerBuild(indexEvent, setCallBack) {
+        markers = L.markerClusterGroup({
+          maxClusterRadius: 5
+        }).addTo(map);
+
+        for (i = 0; i < indexEvent.length; i++) {
+          //console.log('href n°', i, " n° events ", indexEvent[i].length);
+
+          //for (j = 0; j < indexEvent[i].length; j++) {
+          for (k = 0; k < iconMarkersLength; k++) {
+            if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
+              iconMarkers[k].nbMapEvents++;
             }
           }
-          newColumnData = sortUnique(newColumnData)
-          function sortUnique(array) {
-    "use strict";
-    var table = {}, key, i;
-    for (i = 0; i < array.length; i++) {
-        table[[array[i]]] = '';
-    }
-    i = 0;
-    for (key in table) {
-        array[i++] = key;
-    }
-    array.length = i;
-    return array.sort();
-}
-
-          for (var i = 0; i < newColumnData.length; i++) {
-            var optlVal = newColumnData[i];
-            if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
-                select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
-                optEmpty = false;
+          marker = makePopUp(indexEvent[i], setCallBack);
+          markers.addLayer(marker);
+          //}
+        }
+        divLegend.innerHTML = '';
+        for (k = 0; k < iconMarkersLength; k++) {
+          if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
+            if (typeof iconMarkers[k].icon === 'undefined') {
+              divLegend.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
             }
-          };
-          if (optEmpty) {
-            select.css('display', 'none');
-            select.data('display', 'none');
+            else {
+              divLegend.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+            }
+          }
+        }
+        if (divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
+        divBannerCoord.innerHTML = divBannerCoordHTML;
+        $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
+
+        Promise.all([
+          //  chargements des dépendances css
+          load.css('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'),
+          load.css('https://use.fontawesome.com/releases/v5.0.6/css/all.css'),
+          //  chargements des dépendances js
+          load.js('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'),
+          //load.js('https://philquand.github.io/Javascript/LeafLet/leaflet-button/L.Control.Button.js'),
+        ]).then(
+          function() {
+            console.log('Everything has loaded!');
+
+            var defaultViewButton = L.easyButton({
+              states: [{
+                stateName: 'default-view', // name the state
+                icon: 'fa-home', // and define its properties
+                title: 'vue par défaut', // like its title
+                onClick: function(btn, map) { // and its callback
+                  setDefaultMapView();
+                }
+              }]
+            });
+            defaultViewButton.addTo(map);
+
+            checkautresDepts(map, indexEvent);
+
+            function checkautresDepts(map, indexEvent) {
+              //console.log("iconMarkers length : " + iconMarkers.length)
+              var autresDepts = [{
+                  name: 'Corse',
+                  bounds: L.latLngBounds([
+                    [43.07, 8.39],
+                    [41.29, 9.74]
+                  ]),
+                  /*title: 'vol vers la Corse',
+                  flyTo: {
+                        lat: 42.19,
+                        lng: 9.08
+                      },*/
+                  hasevents: false
+                },
+                {
+                  name: 'Martinique',
+                  bounds: L.latLngBounds([
+                    [14.905, -61.500],
+                    [14.377, -60.762]
+                  ]),
+                  /*title: 'vol vers la Martinique',
+                  flyTo: {
+                        lat: 14.7297,
+                        lng: -60.9655
+                      },*/
+                  hasevents: false
+                },
+                {
+                  name: 'Guadeloupe',
+                  bounds: L.latLngBounds([
+                    [16.5572, -61.971],
+                    [15.7881, -60.946]
+                  ]),
+                  /*title: 'vol vers la Guadeloupe',
+                  flyTo: {
+                        lat: 16.228,
+                        lng: -61.526
+                      },*/
+                  hasevents: false
+                },
+                {
+                  name: 'Guyane',
+                  bounds: L.latLngBounds([
+                    [6.16, -55.08],
+                    [1.88, -51.16]
+                  ]),
+                  /*title: 'vol vers la Guyane',
+                  flyTo: {
+                        lat: 3.945,
+                        lng: -53.13
+                      },*/
+                  hasevents: false
+                },
+                {
+                  name: 'LaRéunion',
+                  bounds: L.latLngBounds([
+                    [-19.6496, 54.5825],
+                    [-21.6107, 58.1036]
+                  ]),
+                  /*title: 'vol vers la Réunion',
+                  flyTo: {
+                        lat: -20.887,
+                        lng: 55.455
+                      },*/
+                  hasevents: false
+                },
+                {
+                  name: 'Hexagone',
+                  bounds: L.latLngBounds([
+                    [51.10, 2.47],
+                    [48.37, -5.16],
+                    [43.38, -1.85],
+                    [42.47, 3.16],
+                    [43.80, 7.96],
+                    [49.03, 8.08],
+                    [49.03, 8.08]
+                  ]),
+                  hasevents: false
+                }
+              ];
+              autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
+              var states = [];
+              for (var i = 0; i < autresDepts.length; i++) {
+                if (!autresDepts[i].hasevents) continue
+                var localState = {};
+                localState.stateName = autresDepts[i].name; // name the state
+                j = i;
+                do {
+                  j = j + 1;
+                  if (j == autresDepts.length) j = 0;
+                }
+                while (!autresDepts[j].hasevents);
+                localState.nextStateName = autresDepts[j].name; // name of the next state
+                localState.icon = 'fa-plane'; // and define its properties
+                switch (autresDepts[i].name) {
+                  case 'Corse':
+                    localState.title = 'vol vers la Corse'; // like its title
+                    localState.onClick = function(btn, map) { // and its callback
+                      map.flyTo({
+                        lat: 42.19,
+                        lng: 9.08
+                      }, 6);
+                      for (var j = 0; j < btn.options.states.length; j++) {
+                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                          btn.state(btn.options.states[j].nextStateName); // change state on click!
+                          break;
+                        }
+                      }
+                    };
+                    break;
+                  case 'Martinique':
+                    localState.title = 'vol vers la Martinique'; // like its title
+                    localState.onClick = function(btn, map) { // and its callback
+                      map.flyTo({
+                        lat: 14.7297,
+                        lng: -60.9655
+                      }, 6);
+                      for (var j = 0; j < btn.options.states.length; j++) {
+                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                          btn.state(btn.options.states[j].nextStateName); // change state on click!
+                          break;
+                        }
+                      }
+                    };
+                    break;
+                  case 'Guadeloupe':
+                    localState.title = 'vol vers la Guadeloupe'; // like its title
+                    localState.onClick = function(btn, map) { // and its callback
+                      map.flyTo({
+                        lat: 16.228,
+                        lng: -61.526
+                      }, 6);
+                      for (var j = 0; j < btn.options.states.length; j++) {
+                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                          btn.state(btn.options.states[j].nextStateName); // change state on click!
+                          break;
+                        }
+                      }
+                    };
+                    break;
+                  case 'Guyane':
+                    localState.title = 'vol vers la Guyane'; // like its title
+                    localState.onClick = function(btn, map) { // and its callback
+                      map.flyTo({
+                        lat: 3.945,
+                        lng: -53.13
+                      }, 6);
+                      for (var j = 0; j < btn.options.states.length; j++) {
+                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                          btn.state(btn.options.states[j].nextStateName); // change state on click!
+                          break;
+                        }
+                      }
+                    };
+                    break;
+                  case 'LaRéunion':
+                    localState.title = 'vol vers la Réunion'; // like its title
+                    localState.onClick = function(btn, map) { // and its callback
+                      map.flyTo({
+                        lat: -20.887,
+                        lng: 55.455
+                      }, 6);
+                      for (var j = 0; j < btn.options.states.length; j++) {
+                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                          btn.state(btn.options.states[j].nextStateName); // change state on click!
+                          break;
+                        }
+                      }
+                    };
+                    break;
+                  default:
+                    localState.title = "retour vers l'Hexagone"; // like its title
+                    localState.bounds = autresDepts[i].bounds;
+                    localState.onClick = function(btn, map) { // and its callback
+                      for (var j = 0; j < btn.options.states.length; j++) {
+                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                          btn.state(btn.options.states[j].nextStateName); // change state on click!
+                          map.flyToBounds(btn.options.states[j].bounds);
+                          break;
+                        }
+                      }
+                    };
+                }
+                states.push(localState);
+              }
+              if (states.length > 1) {
+                var stateChangingButton = L.easyButton({
+                  states: states
+                  /*[{
+                          stateName: 'zoom-to-forest',        // name the state
+                          icon:      'fa-plane',               // and define its properties
+                          title:     'zoom to a forest',      // like its title
+                          onClick: function(btn, map) {       // and its callback
+                              map.setView([46.25,-121.8],10);
+                              btn.state('zoom-to-school');    // change state on click!
+                          }
+                      }, {
+                          stateName: 'zoom-to-school',
+                          icon:      'fa-paper-plane',
+                          title:     'zoom to a school',
+                          onClick: function(btn, map) {
+                              map.setView([42.3748204,-71.1161913],16);
+                              btn.state('zoom-to-forest');
+                          }
+                  }]*/
+                });
+
+                stateChangingButton.addTo(map);
+              }
+
+              function checkautresDeptsBounds(autresDepts, indexEvent) {
+                for (i = 0; i < indexEvent.length; i++) {
+                  for (k = 0; k < autresDepts.length; k++) {
+                    if (autresDepts[k].bounds.contains(indexEvent[i])) {
+                      autresDepts[k].hasevents = true;
+                    }
+                  }
+                }
+                return autresDepts;
+              };
+
+            };
+
+
+          }
+        ).catch(function() {
+          console.log('Oh no, epic failure!');
+        });
+      };
+
+      function makePopUp(input, setCallBack) {
+
+        if (typeof input.iconMarker === 'undefined' || typeof input.iconMarker.icon === 'undefined' || input.iconMarker.icon == '') {
+          var marker = L.marker([input.lat, input.lng]);
+        }
+        else {
+          var marker = L.marker([input.lat, input.lng], {
+            icon: input.iconMarker.icon
+          });
+        }
+        marker.bindPopup(input.doc, {
+          maxWidth: 400,
+          minWidth: 250,
+          maxHeight: 300,
+          className: 'popupCustom',
+          autoPan: true,
+          closeButton: true,
+          autoPanPadding: [5, 5]
+        });
+        marker.getPopup().on('remove', function() {
+          setCallBack();
+        });
+        return marker;
+      }
+
+      function initMap(idMap) {
+
+        'use strict'
+
+        var map = loadMap(idMap);
+
+        //zoomRemove(map);
+        map.options.minZoom = 5;
+        map.options.maxZoom = 8;
+
+        function setMapView() {
+          /*map.setView({
+            lat: 47,
+            lng: 1.689
+          }, 6);*/
+          map.fitBounds([
+            [51.10, 2.47],
+            [48.37, -5.16],
+            [43.38, -1.85],
+            [42.47, 3.16],
+            [43.80, 7.96],
+            [49.03, 8.08],
+            [49.03, 8.08]
+          ]);
+        }
+        setMapView();
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+
+        var results = L.layerGroup().addTo(map);
+
+        var redIcon = new L.Icon({
+          iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41]
+        });
+        searchControl.on('results', function(data) {
+          results.clearLayers();
+          for (var i = data.results.length - 1; i >= 0; i--) {
+            results.addLayer(L.marker(data.results[i].latlng, {
+              icon: redIcon
+            }));
           }
         });
 
-        function isValidSelector(selector) {
-          if (typeof(selector) !== 'string') {
-            return false;
-          }
-          try {
-            var $element = $(selector);
-          }
-          catch (error) {
-            return false;
-          }
-          return true;
+        var bannerCoord = L.control({
+          //position: 'topright'
+          position: 'bottomleft'
+        });
+
+        bannerCoord.onAdd = function(map) {
+          divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
+          return divBannerCoord;
+        };
+
+        bannerCoord.addTo(map);
+
+        var legend = L.control({
+          position: 'bottomright'
+        });
+
+        legend.onAdd = function(map) {
+          divLegend = L.DomUtil.create('div', 'legend');
+          return divLegend;
+        };
+
+        legend.addTo(map);
+        //checkautresDepts(map, iconMarkers);
+
+        return map;
+        // Constructeur de la carte LeafLet
+        function loadMap(idMap) {
+          L.map(idMap).remove();
+          var map = L.map(idMap);
+
+          map.createPane('labels');
+
+          // This pane is above markers but below popups
+          map.getPane('labels').style.zIndex = 650;
+
+          // Layers in this pane are non-interactive and do not obscure mouse/touch events
+          map.getPane('labels').style.pointerEvents = 'none';
+
+
+          return map;
+
+        };
+
+        function zoomRemove(map) {
+          //remove zoom functions
+          map.removeControl(map.zoomControl);
+          map.touchZoom.disable();
+          map.doubleClickZoom.disable();
+          map.scrollWheelZoom.disable();
+          map.boxZoom.disable();
+          map.keyboard.disable();
         }
+
       }
-    });
+    }
+
+    function runTable() {
+      $('#table').DataTable({
+        data: indexEvent,
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
+        },
+        columns: [{
+            data: "LIEUX",
+            title: "Lieux"
+          },
+          {
+            data: "SUPPRESSIONS",
+            title: "Suppressions"
+          },
+          {
+            data: "MENACES",
+            title: "Menaces"
+          },
+          {
+            data: "Pertes lits",
+            title: "Pertes de lits"
+          },
+          {
+            data: "Pertes postes",
+            title: "Pertes de postes"
+          },
+        ],
+        initComplete: function() {
+          var myApi = this.api();
+          var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
+          var footertr = $("<tr></tr>").appendTo(footer);
+          var myColumnsi = this.api().columns();
+          this.api().columns().every(function() {
+            var column = this;
+            var myfooter = $("<th></th>").appendTo(footertr);
+            var select = $('<select><option value=""></option></select>')
+              .appendTo(myfooter)
+              .on('change', function() {
+                var val = $.fn.dataTable.util.escapeRegex(
+                  $(this).val()
+                );
+                if (val != '') {
+                  $('th select').css('display', 'none');
+                  select.css('display', 'block');
+                }
+                else {
+                  $('th select').each(function() {
+                    dataDisplay = $(this).data('display');
+                    if ((typeof dataDisplay === "undefined") || dataDisplay != 'none') {
+                      $(this).css('display', 'block');
+                    }
+                  });
+                }
+                column
+                  .search(val ? "(^" + val + "$)|(^" + val + ",)|(, " + val + "$)|(, " + val + ",)" : '', true, false)
+                  .draw();
+              });
+
+            var optEmpty = true;
+            var allColumnData = column.data();
+            var newColumnData = [];
+            for (var i = 0; i < allColumnData.length; i++) {
+              var optValMul = allColumnData[i].split(', ')
+              for (var j = 0; j < optValMul.length; j++) {
+                newColumnData.push(optValMul[j]);
+              }
+            }
+            newColumnData = sortUnique(newColumnData)
+
+            function sortUnique(array) {
+              "use strict";
+              var table = {},
+                key, i;
+              for (i = 0; i < array.length; i++) {
+                table[[array[i]]] = '';
+              }
+              i = 0;
+              for (key in table) {
+                array[i++] = key;
+              }
+              array.length = i;
+              return array.sort();
+            }
+
+            for (var i = 0; i < newColumnData.length; i++) {
+              var optlVal = newColumnData[i];
+              if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
+                select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
+                optEmpty = false;
+              }
+            };
+            if (optEmpty) {
+              select.css('display', 'none');
+              select.data('display', 'none');
+            }
+          });
+
+          function isValidSelector(selector) {
+            if (typeof(selector) !== 'string') {
+              return false;
+            }
+            try {
+              var $element = $(selector);
+            }
+            catch (error) {
+              return false;
+            }
+            return true;
+          }
+        }
+      });
     }
   }
-});
+  //});
+})(jQuery);
 </script>
 <style>
 div.dataTables_wrapper div.dataTables_length {

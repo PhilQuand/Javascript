@@ -201,7 +201,7 @@
 <script>
 (function($) {
 
-  var needsUpdate = false;
+  var dataStoreNeedsUpdate = false;
 
   // spécial pour le site de la CN
   $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources externes)').css('display', 'none');
@@ -266,7 +266,7 @@
   if (storedData == '') loadData()
   else {
     storedData = JSON.parse(storedData);
-    if (needsUpdate) loadData();
+    if (dataStoreNeedsUpdate) loadData();
     else runData(storedData)
   }
 
@@ -963,7 +963,8 @@
     }
   }
   //});
-})(jQuery);</script>
+})(jQuery);
+</script>
 <style>
 div.dataTables_wrapper div.dataTables_length {
    margin-left: 1em;

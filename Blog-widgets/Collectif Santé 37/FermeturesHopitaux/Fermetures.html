@@ -200,6 +200,9 @@
 </style>
 <script>
 (function($) {
+
+  var needsUpdate = false;
+  
   // spécial pour le site de la CN
  	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources externes)').css('display', 'none');
 	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Données Lettre)').css('display', 'none');
@@ -260,12 +263,11 @@
     return iconMarkers;
   };
   var storedData = $('#dataStore').html();
-  if (storedData == '') {
-    loadData()
-  }
+  if (storedData == '' ) loadData()
   else {
     storedData = JSON.parse(storedData);
-    runData(storedData);
+    if (needsUpdate) loadData();
+    else runData(storedData)
   }
 
   function loadData() {
@@ -289,13 +291,36 @@
       var indexEnd = data.length;
       //var indexEnd = 10;
 
-      add2Layer(indexCal)
+              if (indexEnd < data.length) {
+                data.splice(indexEnd, data.length - 1)
+              }
+
+      function makeLocation(location){
+        var lieux = location.COMMUNE + ',' + location.INSEE;
+        if (!isNaN(location)) lieux += ', France';
+        return lieux;
+      }
+
+      var allreadyGeoLoc = checkAllreadyGeoLoc(storedData);
+      function checkAllreadyGeoLoc(data){
+        var allreadyGeoLoc = {};
+        for (i = 0; i < storedData.length; i++) {
+          var lieux = makeLocation(storedData[i]);
+          allreadyGeoLoc[lieux] = {};
+          allreadyGeoLoc[lieux].lat = storedData[i].lat;
+          allreadyGeoLoc[lieux].lng = storedData[i].lng;
+        }
+        return allreadyGeoLoc;          
+      }
+      
+      add2Layer(indexCal);
 
       function add2Layer(indexLoc) {
-        var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE;
-        if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';
+        /*var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE;
+        if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';*/
+        var lieux = makeLocation(data[indexLoc]);
         indexCal++;
-        //if (typeof lieux !== 'undefined') {
+        if (typeof allreadyGeoLoc == 'undefined' || typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined'  || typeof allreadyGeoLoc[lieux].lng == 'undefined') {
         L.esri.Geocoding.geocode({
             requestParams: {
               maxLocations: 1
@@ -316,61 +341,25 @@
               console.log('first result lng', results.results[0].latlng.lng);*/
               data[indexLoc].lat = results.results[0].latlng.lat;
               data[indexLoc].lng = results.results[0].latlng.lng;
-              //data[indexLoc].doc = dataPopUp(data[indexLoc]);
-              data[indexLoc].iconMarker = iconMarkers[2];
             }
             else {
               data[indexLoc].doc = 'Failed geoloc';
             }
+          });
+        }
+        else {
+              data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
+              data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
+        }
+              data[indexLoc].iconMarker = iconMarkers[2];
             if (indexCal < indexEnd) {
               add2Layer(indexCal)
-              //endMarkerBuild(indexEvent, setCallBack);
             }
             else {
               console.log('achieved');
-              if (indexEnd < data.length) {
-                data.splice(indexEnd, data.length - 1)
-              }
               $('#dataStore').html(JSON.stringify(data));
               runData(data);
-              //endMarkerBuild(output, setMapView);
-              //var map = initMap('infoMap');
             }
-          });
-        //}
-        /*else {
-          if (typeof input.newItemLocation !== 'undefined') {
-            infoPopUps = {
-              lat: input.lat,
-              lng: input.lng,
-              iconMarker: input.iconMarker
-            };
-            input.newItemLocation.html(JSON.stringify(infoPopUps));
-          }
-          indexEvent[indexCal].push(input);
-          output.push(input);
-          if (indexEvent[indexCal].length < itemsLength) return output;
-          if (indexCal < indexEnd) {
-            indexEvent.push([]);
-            indexCal++;
-            var result = getMyInnerLinkContent();
-            return output;
-          }
-          endMarkerBuild(indexEvent, setCallBack);
-          return output;
-          output.push('Failed type 2');
-          console.log('Failed');
-          if (indexCal < indexEnd) {
-            add2Layer(inputCollection, indexCal)
-            //endMarkerBuild(indexEvent, setCallBack);
-          }
-          else {
-            console.log('achieved');
-            runData(output);
-            //endMarkerBuild(output, setMapView);
-            //var map = initMap('infoMap');
-          }
-        }*/
       }
     }
   }

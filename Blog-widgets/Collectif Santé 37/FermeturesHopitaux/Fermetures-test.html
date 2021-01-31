@@ -201,7 +201,7 @@
 <script>
 (function($) {
 
-  var dataStoreNeedsUpdate = false;
+  var dataStoreNeedsUpdate = true;
 
   // spécial pour le site de la CN
   $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources externes)').css('display', 'none');
@@ -289,13 +289,14 @@
       var indexCal = 0;
       var indexRes = 0;
       var indexEnd = data.length;
-      var indexEnd = 10;
+      //var indexEnd = 10;
 
       if (indexEnd < data.length) {
         data.splice(indexEnd, data.length - 1)
-      } else if (indexEnd > data.length) indexEnd = data.length;
+      }
 
       function makeLocation(location) {
+        if(location.LIEUX.indexOf(location.COMMUNE) == -1) console.log(location.LIEUX + '<br> do not include<br>' + location.COMMUNE);
         var lieux = location.COMMUNE + ',' + location.INSEE;
         if (!isNaN(location)) lieux += ', France';
         return lieux;
@@ -321,7 +322,7 @@
         if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';*/
         var lieux = makeLocation(data[indexLoc]);
         indexCal++;
-        //if (typeof allreadyGeoLoc == 'undefined' || typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined') {
+        if (typeof allreadyGeoLoc == 'undefined' || typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined') {
           L.esri.Geocoding.geocode({
               requestParams: {
                 maxLocations: 1
@@ -342,19 +343,18 @@
                 console.log('first result lng', results.results[0].latlng.lng);*/
                 data[indexLoc].lat = results.results[0].latlng.lat;
                 data[indexLoc].lng = results.results[0].latlng.lng;
+                data[indexLoc].iconMarker = iconMarkers[2];
               }
               else {
                 data[indexLoc].doc = 'Failed geoloc';
               }
-              checkIfEnd(indexLoc);
             });
-        /*}
+        }
         else {
           data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
           data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
-        }*/
-        function checkIfEnd(indexLoc) {
-        data[indexLoc].iconMarker = iconMarkers[2];
+          data[indexLoc].iconMarker = allreadyGeoLoc[indexLoc].iconMarker;
+        }
         if (indexCal < indexEnd) {
           add2Layer(indexCal)
         }
@@ -362,7 +362,6 @@
           console.log('achieved');
           $('#dataStore').html(JSON.stringify(data));
           runData(data);
-        }
         }
       }
     }
@@ -725,8 +724,8 @@
           var marker = L.marker([input.lat, input.lng]);
         }
         else {
-        if (typeof input.lat === 'undefined' || typeof input.lat === 'undefined' ){
-        console.log('error in makePopUp');
+        if (typeof input.lat === 'undefined' || typeof input.lngn === 'undefined') {
+        console.log('erreur');
         }
           var marker = L.marker([input.lat, input.lng], {
             icon: input.iconMarker.icon

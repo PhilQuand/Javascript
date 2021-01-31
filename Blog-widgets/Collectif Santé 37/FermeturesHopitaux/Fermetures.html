@@ -202,12 +202,12 @@
 (function($) {
 
   var needsUpdate = false;
-  
+
   // spécial pour le site de la CN
- 	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources externes)').css('display', 'none');
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Données Lettre)').css('display', 'none');
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Images + infos semaine + pdf)').css('display', 'none');
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources internes)').css('display', 'none');
+  $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources externes)').css('display', 'none');
+  $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Données Lettre)').css('display', 'none');
+  $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Images + infos semaine + pdf)').css('display', 'none');
+  $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources internes)').css('display', 'none');
   // fin spécial pour le site de la CN
 
   function dataPopUp(data) {
@@ -263,7 +263,7 @@
     return iconMarkers;
   };
   var storedData = $('#dataStore').html();
-  if (storedData == '' ) loadData()
+  if (storedData == '') loadData()
   else {
     storedData = JSON.parse(storedData);
     if (needsUpdate) loadData();
@@ -291,18 +291,19 @@
       var indexEnd = data.length;
       //var indexEnd = 10;
 
-              if (indexEnd < data.length) {
-                data.splice(indexEnd, data.length - 1)
-              }
+      if (indexEnd < data.length) {
+        data.splice(indexEnd, data.length - 1)
+      }
 
-      function makeLocation(location){
+      function makeLocation(location) {
         var lieux = location.COMMUNE + ',' + location.INSEE;
         if (!isNaN(location)) lieux += ', France';
         return lieux;
       }
 
       var allreadyGeoLoc = checkAllreadyGeoLoc(storedData);
-      function checkAllreadyGeoLoc(data){
+
+      function checkAllreadyGeoLoc(data) {
         var allreadyGeoLoc = {};
         for (i = 0; i < storedData.length; i++) {
           var lieux = makeLocation(storedData[i]);
@@ -310,9 +311,9 @@
           allreadyGeoLoc[lieux].lat = storedData[i].lat;
           allreadyGeoLoc[lieux].lng = storedData[i].lng;
         }
-        return allreadyGeoLoc;          
+        return allreadyGeoLoc;
       }
-      
+
       add2Layer(indexCal);
 
       function add2Layer(indexLoc) {
@@ -320,46 +321,46 @@
         if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';*/
         var lieux = makeLocation(data[indexLoc]);
         indexCal++;
-        if (typeof allreadyGeoLoc == 'undefined' || typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined'  || typeof allreadyGeoLoc[lieux].lng == 'undefined') {
-        L.esri.Geocoding.geocode({
-            requestParams: {
-              maxLocations: 1
-            }
-          })
-          .text(lieux)
-          .run(function(error, results, response) {
-            var _this = this
-            if (error) {
-              console.log(error);
-              console.log(lieux);
-              return;
-            }
-            if (!error && typeof results.results !== 'undefined') {
-              indexRes++;
-              /*console.log('input adresse:', results.results[0].text);
-              console.log('first result lat', results.results[0].latlng.lat);
-              console.log('first result lng', results.results[0].latlng.lng);*/
-              data[indexLoc].lat = results.results[0].latlng.lat;
-              data[indexLoc].lng = results.results[0].latlng.lng;
-            }
-            else {
-              data[indexLoc].doc = 'Failed geoloc';
-            }
-          });
+        if (typeof allreadyGeoLoc == 'undefined' || typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined') {
+          L.esri.Geocoding.geocode({
+              requestParams: {
+                maxLocations: 1
+              }
+            })
+            .text(lieux)
+            .run(function(error, results, response) {
+              var _this = this
+              if (error) {
+                console.log(error);
+                console.log(lieux);
+                return;
+              }
+              if (!error && typeof results.results !== 'undefined') {
+                indexRes++;
+                /*console.log('input adresse:', results.results[0].text);
+                console.log('first result lat', results.results[0].latlng.lat);
+                console.log('first result lng', results.results[0].latlng.lng);*/
+                data[indexLoc].lat = results.results[0].latlng.lat;
+                data[indexLoc].lng = results.results[0].latlng.lng;
+              }
+              else {
+                data[indexLoc].doc = 'Failed geoloc';
+              }
+            });
         }
         else {
-              data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
-              data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
+          data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
+          data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
         }
-              data[indexLoc].iconMarker = iconMarkers[2];
-            if (indexCal < indexEnd) {
-              add2Layer(indexCal)
-            }
-            else {
-              console.log('achieved');
-              $('#dataStore').html(JSON.stringify(data));
-              runData(data);
-            }
+        data[indexLoc].iconMarker = iconMarkers[2];
+        if (indexCal < indexEnd) {
+          add2Layer(indexCal)
+        }
+        else {
+          console.log('achieved');
+          $('#dataStore').html(JSON.stringify(data));
+          runData(data);
+        }
       }
     }
   }
@@ -778,10 +779,10 @@
         var redIcon = new L.Icon({
           iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
           shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-      iconSize: [13, 20],
-      iconAnchor: [6, 20],
-      popupAnchor: [1, -17],
-      shadowSize: [20, 20]
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
         });
         searchControl.on('results', function(data) {
           results.clearLayers();
@@ -962,8 +963,7 @@
     }
   }
   //});
-})(jQuery);
-</script>
+})(jQuery);</script>
 <style>
 div.dataTables_wrapper div.dataTables_length {
    margin-left: 1em;

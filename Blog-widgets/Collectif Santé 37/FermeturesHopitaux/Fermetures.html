@@ -214,7 +214,7 @@
   $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources internes)').css('display', 'none');
   // fin spécial pour le site de la CN
 
-  var popupStruc = {titre : 'LIEUX', hidden : ["LATITUDE","LONGITUDE","COMMUNE","INSEE","lat","lng","iconMarker"]}
+  var popupStruc = {title : 'LIEUX', hidden : ["LATITUDE","LONGITUDE","COMMUNE","INSEE","lat","lng","iconMarker"]}
   //var popupStruc = {titre : 'LIEUX', properties : ["SUPPRESSIONS","MENACES","Pertes lits","Pertes postes"]}
   var deepEqual = function (x, y) {
   if (x === y) {
@@ -256,7 +256,7 @@ return*/
     var popupContent = $('<div></div>');
     var popupBody = $('<div class="popBody"></div>');
     popupContent.append(popupBody);
-    popupBody.append('<div class="popLieux">' + data[popupStruc.titre] + '</div>');
+    popupBody.append('<div class="popLieux">' + data[popupStruc.title] + '</div>');
     for( var i=0; i <  popupStruc.properties.length; i++) {
       var item = popupStruc.properties[i];
       if (data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' +item + '</span><br>' + data[item] + '</div>');
@@ -533,6 +533,7 @@ return*/
 
     loading.css('display','none');
     var map;
+    makePopupProperties(indexEvent[0]);
     runTable();
     runMap(indexEvent);
     $('#btData').click(function(e) {
@@ -553,6 +554,22 @@ return*/
     });
     $('#btData').trigger("click");
 
+    function makePopupProperties(data) {
+      if (typeof popupStruc.properties == 'undefined') {
+        var dataKeys = Object.getOwnPropertyNames(data)
+        if (typeof popupStruc.hidden == 'undefined') popupStruc.hidden = [];
+        popupStruc.hidden.push(popupStruc.title)
+        popupStruc.properties = [];
+        for (var i = 0; i < dataKeys.length; i++) {
+          var keyStatus = true;
+          for (var j = 0; j < popupStruc.hidden.length; j++) {
+            if (dataKeys[i] == popupStruc.hidden[j]) keyStatus = false;
+          }
+          if (keyStatus == true) popupStruc.properties.push(dataKeys[i]);
+        }
+      }
+    } 
+         
     function runMap(indexEvent) {
       var load = (function() {
         // Function which returns a function: https://davidwalsh.name/javascript-functions
@@ -598,23 +615,6 @@ return*/
         }
       })();
 
-      makePopupProperties(indexEvent[0]);
-      function makePopupProperties(data) {
-        if (typeof popupStruc.properties == 'undefined') {
-          var dataKeys = Object.getOwnPropertyNames(data)
-          if (typeof popupStruc.hidden == 'undefined') popupStruc.hidden = [];
-          popupStruc.hidden.push(popupStruc.titre)
-          popupStruc.properties = [];
-          for (var i = 0; i < dataKeys.length; i++) {
-            var keyStatus = true;
-            for (var j = 0; j < popupStruc.hidden.length; j++) {
-              if (dataKeys[i] == popupStruc.hidden[j]) keyStatus = false;
-            }
-            if (keyStatus == true) popupStruc.properties.push(dataKeys[i]);
-          }
-        }
-      }
-      
       function setDefaultMapView() {
         map.fitBounds([
           [51.10, 2.47],
@@ -1036,38 +1036,24 @@ return*/
     }
 
     function runTable() {
+      var item = popupStruc.title;
+      var columns = [{data: item, title: item, selectable: true}];
+      for( i=0; i < popupStruc.properties.length; i++) {
+        var item = popupStruc.properties[i];
+        columns.push({data: item, title: item, selectable: false});
+      }
       $('#table').DataTable({
         data: indexEvent,
         "language": {
           "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
         },
-        columns: [{
-            data: "LIEUX",
-            title: "Lieux"
-          },
-          {
-            data: "SUPPRESSIONS",
-            title: "Suppressions"
-          },
-          {
-            data: "MENACES",
-            title: "Menaces"
-          },
-          {
-            data: "Pertes lits",
-            title: "Pertes de lits"
-          },
-          {
-            data: "Pertes postes",
-            title: "Pertes de postes"
-          },
-        ],
+        columns: columns,
         initComplete: function() {
           var myApi = this.api();
           var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
           var footertr = $("<tr></tr>").appendTo(footer);
           var myColumnsi = this.api().columns();
-          this.api().columns().every(function() {
+          this.api().columns().every(function(element) {
             var column = this;
             var myfooter = $("<th></th>").appendTo(footertr);
             var select = $('<select><option value=""></option></select>')
@@ -1093,45 +1079,50 @@ return*/
                   .draw();
               });
 
-            var optEmpty = true;
-            var allColumnData = column.data();
-            var newColumnData = [];
-            for (var i = 0; i < allColumnData.length; i++) {
-              var optValMul = allColumnData[i].split(', ')
-              for (var j = 0; j < optValMul.length; j++) {
-                newColumnData.push(optValMul[j]);
-              }
-            }
-            newColumnData = sortUnique(newColumnData)
-
-            function sortUnique(array) {
-              "use strict";
-              var table = {},
-                key, i;
-              for (i = 0; i < array.length; i++) {
-                table[[array[i]]] = '';
-              }
-              i = 0;
-              for (key in table) {
-                array[i++] = key;
-              }
-              array.length = i;
-              return array.sort();
-            }
-
-            for (var i = 0; i < newColumnData.length; i++) {
-              var optlVal = newColumnData[i];
-              if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
-                select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
-                optEmpty = false;
-              }
-            };
-            if (optEmpty) {
+            if (!columns[element].selectable) {
               select.css('display', 'none');
               select.data('display', 'none');
             }
-          });
+            else {
+              var optEmpty = true;
+              var allColumnData = column.data();
+              var newColumnData = [];
+              for (var i = 0; i < allColumnData.length; i++) {
+                var optValMul = allColumnData[i].split(', ')
+                for (var j = 0; j < optValMul.length; j++) {
+                  newColumnData.push(optValMul[j]);
+                }
+              }
+              newColumnData = sortUnique(newColumnData)
 
+              function sortUnique(array) {
+                "use strict";
+                var table = {},
+                  key, i;
+                for (i = 0; i < array.length; i++) {
+                  table[[array[i]]] = '';
+                }
+                i = 0;
+                for (key in table) {
+                  array[i++] = key;
+                }
+                array.length = i;
+                return array.sort();
+              }
+
+              for (var i = 0; i < newColumnData.length; i++) {
+                var optlVal = newColumnData[i];
+                if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
+                  select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
+                  optEmpty = false;
+                }
+              };
+              if (optEmpty) {
+                select.css('display', 'none');
+                select.data('display', 'none');
+              }
+            }
+          });
           function isValidSelector(selector) {
             if (typeof(selector) !== 'string') {
               return false;
@@ -1206,25 +1197,28 @@ input, td, th {
   vertical-align: bottom;
 }
 
-.table-striped thead th {
+div.dataTables_wrapper .table-striped thead th {
   background:#E42421;
   color:white;
 }
-.table-striped th {
+div.dataTables_wrapper .table-striped th {
   max-width: 200px !important;
 }
-.table-striped th select{
+div.dataTables_wrapper .table-striped th select{
   max-width: 100% !important;
 }
-.table-striped tbody tr:nth-of-type(even) {
+div.dataTables_wrapper .table-striped tbody tr:nth-of-type(even) {
   background-color: rgba(228, 36, 33, 0.04);
 }
-.table-striped tbody tr:nth-of-type(odd) {
+div.dataTables_wrapper .table-striped tbody tr:nth-of-type(odd) {
   background:#FFFFFF;
 }
-.table-striped tbody tr:hover {
+div.dataTables_wrapper .table-striped tbody tr:hover {
   background:#BDC3C7;
   color:#FFFFFF;
+}
+div.dataTables_wrapper .table-striped select {
+  background:white;
 }
 .easy-button-button {
    padding:  0 0 0 0;

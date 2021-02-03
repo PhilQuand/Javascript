@@ -953,50 +953,58 @@ return*/
         }
         setMapView();
 
-        //var openstreetMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        var openstreetMap = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
-         L.tileLayer(openstreetMap, {
-          attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        //loadMapBox(map);
-        // Constructeur de la carte Mapbox pour LeafLet
-        function loadMapBox(map) {
-          // Usage:  Load different file types with one callback
-          Promise.all([
-            // Début ressources utilisées pour construire la carte MapBox
-            load.js('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'),
-            load.css('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css'),
-            load.js('https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js'),
-            // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
-
-          ]).then(
-            function() {
-              console.log('Everything has loaded!');
-
-              var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
-
-              /*
-              // Downsample tiles for faster load times on slow internet connections by
-              // adjusting the format property in styleLayer. See
-              // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
-              L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
-                tileLayer: {
-                  format: 'jpg70'
-                }
+        // Constructeur du fond de carte pour LeafLet
+        loadMapPicture(map);
+        function loadMapPicture(map, typpMap) {
+          //var openstreetMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+          var openstreetMap = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+          switch (typpMap) {
+            case "openstreet":
+              L.tileLayer(openstreetMap, {
+                attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
               }).addTo(map);
-              */
-              var gl = L.mapboxGL({
-                accessToken: mapboxAccessToken,
-                // get your own MapTiler token at https://cloud.maptiler.com/ or use MapBox style
-                //style: 'https://api.maptiler.com/maps/basic/style.json?key=gbetYLSD5vR8MdtZ88AQ'
-                style: 'mapbox://styles/mapbox/streets-v11',
-              }).addTo(map);
-            }).catch(function() {
-            console.log('Oh no, epic failure!');
-          });
-        };        
+              break;
+            case "mapBox":
+              // Usage:  Load different file types with one callback
+              Promise.all([
+                // Début ressources utilisées pour construire la carte MapBox
+                load.js('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'),
+                load.css('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css'),
+                load.js('https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js'),
+                // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
 
+              ]).then(
+                function() {
+                  console.log('Everything has loaded!');
+
+                  var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
+
+                  /*
+                  // Downsample tiles for faster load times on slow internet connections by
+                  // adjusting the format property in styleLayer. See
+                  // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
+                  L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
+                    tileLayer: {
+                      format: 'jpg70'
+                    }
+                  }).addTo(map);
+                  */
+                  var gl = L.mapboxGL({
+                    accessToken: mapboxAccessToken,
+                    // get your own MapTiler token at https://cloud.maptiler.com/ or use MapBox style
+                    //style: 'https://api.maptiler.com/maps/basic/style.json?key=gbetYLSD5vR8MdtZ88AQ'
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                  }).addTo(map);
+                }).catch(function() {
+                console.log('Oh no, epic failure!');
+              });
+              break;
+            default:
+              L.tileLayer(openstreetMap, {
+                attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+              }).addTo(map);
+          }
+        };
         var searchControl = L.esri.Geocoding.geosearch().addTo(map);
 
         var results = L.layerGroup().addTo(map);

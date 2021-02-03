@@ -953,9 +953,12 @@ return*/
         }
         setMapView();
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //var openstreetMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var openstreetMap = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+         L.tileLayer(openstreetMap, {
           attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+
         //loadMapBox(map);
         // Constructeur de la carte Mapbox pour LeafLet
         function loadMapBox(map) {

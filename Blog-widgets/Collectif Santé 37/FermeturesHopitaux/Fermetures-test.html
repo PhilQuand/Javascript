@@ -567,6 +567,12 @@ return*/
       var iconMarkersLength = iconMarkers.length;
       var map, onSetDefaultMapView;
 
+      var outMarkers = [];
+      function removeAreaMarkers() {
+        for (i = 0; i < outMarkers.length; i++) {
+          markers.removeLayer(indexEvent[outMarkers[i]].marker);
+        }
+      }
       function setDefaultMapView() {
         map.fitBounds([
           [51.10, 2.47],
@@ -1149,7 +1155,15 @@ return*/
                   var areaCode = layer.feature.properties.code;
                   var areaGeometry = layer.feature.geometry;
                   var areaName = layer.feature.properties.nom;
+                  var inMarkers = [];
                   var areaNum = getNumItems();
+          function addAreaMarkers() {
+            removeAreaMarkers()
+            for (i = 0; i < inMarkers.length; i++) {
+              markers.addLayer(indexEvent[inMarkers[i]].marker);
+            }
+            outMarkers = inMarkers;
+          }
                   var areaPopup = dataPopUp();
                   var fillColor = thisColor(areaNum);
                   layer.setStyle({
@@ -1199,6 +1213,7 @@ return*/
                       //var isinsideD = false;
                       //var isinsideD2 = false;
                       if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
+                        inMarkers.push(idx);
                         d += 1;
                         //isinsideD2 = true;
                       }
@@ -1213,18 +1228,34 @@ return*/
                       var dString = d.toString();
                       var dbisString = dbis.toString();
                       console.log('les deux méthodes donnent des résultats différents pour le département ' + areaCode + ' d = ' + dString + ' et dbis = ' + dbisString);
-                    }*/                    
+                    }*/
                     return d;
-                  function inside(point, TopoGeom) {
-                    var insideVal = false;
-                    if (TopoGeom["type"] == "MultiPolygon") {
-                      for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
-                        var polygon = TopoGeom["coordinates"][i][0];
+
+                    function inside(point, TopoGeom) {
+                      var insideVal = false;
+                      if (TopoGeom["type"] == "MultiPolygon") {
+                        for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
+                          var polygon = TopoGeom["coordinates"][i][0];
+                          // Le point est-il dans le polygone
+                          if (isInsidePolygon(point, polygon)) {
+                            insideVal = true;
+                            for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
+                              var polygon = TopoGeom["coordinates"][i][j];
+                              // Le point est-il dans l'un des trous du polygone
+                              if (isInsidePolygon(point, polygon)) {
+                                insideVal = false;
+                              }
+                            }
+                          }
+                        }
+                      }
+                      else {
+                        var polygon = TopoGeom["coordinates"][0];
                         // Le point est-il dans le polygone
                         if (isInsidePolygon(point, polygon)) {
                           insideVal = true;
-                          for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
-                            var polygon = TopoGeom["coordinates"][i][j];
+                          for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
+                            var polygon = TopoGeom["coordinates"][j];
                             // Le point est-il dans l'un des trous du polygone
                             if (isInsidePolygon(point, polygon)) {
                               insideVal = false;
@@ -1232,63 +1263,50 @@ return*/
                           }
                         }
                       }
-                    }
-                    else {
-                      var polygon = TopoGeom["coordinates"][0];
-                      // Le point est-il dans le polygone
-                      if (isInsidePolygon(point, polygon)) {
-                        insideVal = true;
-                        for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
-                          var polygon = TopoGeom["coordinates"][j];
-                          // Le point est-il dans l'un des trous du polygone
-                          if (isInsidePolygon(point, polygon)) {
-                            insideVal = false;
-                          }
+
+                      return insideVal;
+                      // ray-casting algorithm based on
+                      // https://github.com/substack/point-in-polygon/blob/master/index.js
+
+                      function isInsidePolygon(point, vs) {
+                        var x = point[0],
+                          y = point[1];
+
+                        var inside = false;
+                        for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                          var xi = vs[i][0],
+                            yi = vs[i][1];
+                          var xj = vs[j][0],
+                            yj = vs[j][1];
+
+                          var intersect = ((yi > y) != (yj > y)) &&
+                            (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                          if (intersect) inside = !inside;
                         }
+
+                        return inside;
+
                       }
                     }
-
-                    return insideVal;
-                    // ray-casting algorithm based on
-                    // https://github.com/substack/point-in-polygon/blob/master/index.js
-
-                    function isInsidePolygon(point, vs) {
-                      var x = point[0],
-                        y = point[1];
-
-                      var inside = false;
-                      for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-                        var xi = vs[i][0],
-                          yi = vs[i][1];
-                        var xj = vs[j][0],
-                          yj = vs[j][1];
-
-                        var intersect = ((yi > y) != (yj > y)) &&
-                          (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-                        if (intersect) inside = !inside;
-                      }
-
-                      return inside;
-
-                    }
-                  }
                   }
 
                   function touchLayer() {
 
-                    this.bindPopup(areaPopup, {
+                    clickLayer()
+                    /*this.bindPopup(areaPopup, {
                       setLatLng: areaBounds.getCenter(),
                       sticky: true,
                       maxHeight: 160,
                       maxWidth: 400,
                       minWidth: 250
                     }).openPopup();
-                    this.getPopup().on('remove', function() {});
+                    this.getPopup().on('remove', function() {});*/
                   }
 
                   function enterLayer() {}
 
                   function clickLayer() {
+                    addAreaMarkers()
                     if( typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
                     this.bindPopup(areaPopup, {
                       sticky: true,
@@ -1308,6 +1326,7 @@ return*/
                       _this.setStyle({
                         fillOpacity: 1
                       });
+                      removeAreaMarkers()
                     }
                   }
 
@@ -1409,6 +1428,8 @@ return*/
         }
 
       }
+      $('.leaflet-control-zoom').wrap('<div class="topLeftControls"></div>');
+      $( '.geocoder-control.leaflet-control' ).appendTo( $( '.topLeftControls' ) );
       $('#btData').click(function(e) {
         if ($('#btData').html() == 'Carte') {
           $('#btData').html('Données');
@@ -1655,4 +1676,14 @@ div.dataTables_wrapper .table-striped select {
 .leaflet-container.default-cursor-enabled {
     cursor: default;
 }
+.topLeftControls {
+    display: flex; 
+    align-items: flex-start;
+    width: 100%; 
+}
+/*.topLeftControls > * {
+    flex: 1 100%;
+    margin-left: auto; 
+    margin-right: auto;
+}*/
 </style>

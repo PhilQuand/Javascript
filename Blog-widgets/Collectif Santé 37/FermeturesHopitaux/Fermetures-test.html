@@ -583,7 +583,6 @@ return*/
         return;
       }
 
-
       function iconMarkersBuilder(popupStruc) {
         var resBlueIcon = new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
@@ -625,18 +624,22 @@ return*/
         return popupContent.html();
       }
 
+      var markers = L.markerClusterGroup({
+        maxClusterRadius: 5
+      });
       map = initMap('infoMap', indexEvent);
       for (i = 0; i < indexEvent.length; i++) {
         indexEvent[i].doc = dataPopUp(indexEvent[i], popupStruc);
         indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
       }
+      function addMarkers(map) {
+        markers.addTo(map);
+      }
+      function removeMarkers() {
+        markers.remove();
+      }
       endMarkerBuild(indexEvent, setMapView);
-
       function endMarkerBuild(indexEvent, setCallBack) {
-        markers = L.markerClusterGroup({
-          maxClusterRadius: 5
-        }).addTo(map);
-
         for (i = 0; i < indexEvent.length; i++) {
           for (k = 0; k < iconMarkersLength; k++) {
             if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
@@ -967,6 +970,7 @@ return*/
         );        
         function openstreetCallback(option) {
           option["baseMaps"]['sans filtre'].addTo(option["map"]);
+          addMarkers(option["map"]);
           option["baseMaps"]['sans filtre'] = L.tileLayer('')
           option["baseMaps"]['sans filtre'].addTo(option["map"]);
           loadMapPicture({
@@ -979,30 +983,17 @@ return*/
         }        
         function builDeptsCallback(option) {
           L.control.layers(option["baseMaps"], null).addTo(option["map"]);
-map.on('baselayerchange', function(eventLayer){
-    if (eventLayer.name === 'filtre depts'){
-        map.addControl(option["legend"]);
-    } 
-    else {
-        map.removeControl(option["legend"]);
-    } 
-});
-          /*option["map"].on('baselayerchange', function(e) {
-            //alert('Changed to ' + e.name);
-            if (e.name == 'filtre depts') {
-              $('.legend').css('display', 'block');
+          map.on('baselayerchange', function(eventLayer) {
+            if (eventLayer.name === 'filtre depts') {
+              map.addControl(option["legend"]);
+              removeMarkers();
             }
             else {
-              $('.legend').css('display', 'none');
+              map.removeControl(option["legend"]);
+              addMarkers(option["map"]);
             }
-          });*/
-        }        
-        /*var baseMaps = {
-          "Sans filtre": layerOpenstreet,
-          "Filtre depts": layerDepts
-        };
-        var overlayMaps = {};
-        L.control.layers(baseMaps, null).addTo(map);*/
+          });
+        }       
         function loadMapPicture(option) {
           switch (option["typMap"]) {
             case "openstreet":

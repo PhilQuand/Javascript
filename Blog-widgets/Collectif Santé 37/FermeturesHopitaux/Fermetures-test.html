@@ -1170,7 +1170,7 @@ return*/
                     layer.on({
                       click: clickLayer,
                       //mouseover: enterLayer,
-                      //mouseout: leaveLayer
+                      //mouseout: leaveLayer,
                     });
                   }
 
@@ -1273,60 +1273,50 @@ return*/
                     }
                   }
                   }
-                  /*function getColor() {
-                     //var area = layer.feature.properties.nom;
-                     
-                     var d = 0;
-                     for (var idx=0; idx<indexEvent.length; idx++) {
-                       if (area == indexEvent[idx].INSEEdept) {
-                         d += 1;
-                       }
-                     }
-                     return thisColor(d);
-                     //return thisColor(10);
-                   }*/
 
                   function touchLayer() {
 
                     this.bindPopup(areaPopup, {
+                      setLatLng: areaBounds.getCenter(),
                       sticky: true,
                       maxHeight: 160,
                       maxWidth: 400,
                       minWidth: 250
-                    })
+                    }).openPopup();
                     this.getPopup().on('remove', function() {});
                   }
 
                   function enterLayer() {}
 
                   function clickLayer() {
+                    if( typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
                     this.bindPopup(areaPopup, {
                       sticky: true,
                       maxHeight: 160,
                       maxWidth: 400,
                       minWidth: 250
-                    }).openPopup()
+                    }).openPopup();
+                    this.getPopup().setLatLng(areaBounds.getCenter())
+                    //this.getPopup().on('remove', function() {});
                     var _this = this
-                    this.getPopup().on('remove', function() {
-                      _this.setStyle({
-                        fillOpacity: 1
-                      });
-                    });
                     this.setStyle({
                       fillOpacity: 0
                     });
                     option["map"].fitBounds(areaBounds);
                     onSetDefaultMapView = function() {
-                    _this.getPopup().remove();
+                      _this.getPopup().remove();
+                      _this.setStyle({
+                        fillOpacity: 1
+                      });
                     }
                   }
 
-                  function leaveLayer() {
+                  /*function leaveLayer() {
                     this.bringToBack();
                     this.setStyle({
                       fillOpacity: 1
                     });
-                  }
+                  }*/
                }
                 
                //option["baseMaps"]["filtre depts"] = L.layerGroup([clusterLayer['sans filtre'], clusterLayer['topoLayer']]);

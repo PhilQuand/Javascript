@@ -974,15 +974,24 @@ return*/
           });
         }        
         function builDeptsCallback(option) {
+          loadMapPicture({
+            typMap: "builRegs",
+            baseMaps: baseMaps,
+            data: indexEvent,
+            map: map,
+            callback: builRegsCallback
+          });
+        }        
+        function builRegsCallback(option) {
           L.control.layers(option["baseMaps"], null).addTo(option["map"]);
           map.on('baselayerchange', function(eventLayer) {
-            if (eventLayer.name === 'filtre depts') {
-              map.addControl(option["legend"]);
-              removeMarkers();
-            }
-            else {
+            if (eventLayer.name == 'sans filtre') {
               map.removeControl(option["legend"]);
               addMarkers();
+            }
+            else {
+              map.addControl(option["legend"]);
+              removeMarkers();
             }
           });
           addMarkers();
@@ -1008,6 +1017,11 @@ return*/
               loadMapbox(option);
               break;
             case "builDepts":
+              option["loadClusteringTyp"] = "builDepts";
+              loadClustering(option, option["data"]);
+              break;
+            case "builRegs":
+              option["loadClusteringTyp"] = "builRegs";
               loadClustering(option, option["data"]);
               break;
             default:
@@ -1065,7 +1079,8 @@ return*/
           function loadClustering(option) {
             // Constructeur de la carte TopoJSON avec pays pour LeafLet
             // ajout de l'échelle des couleurs pour les cartes TopoJSON
-            var grades = [0, 1, 2, 5, 10, 15, 20, 25];
+            if( option["loadClusteringTyp"] == "builDepts") var grades = [0, 1, 2, 5, 10, 15, 20, 25];
+            else var grades = [0, 20, 30, 40, 55, 60, 80, 100];
             // ajout des couche départements et régions colorées TopoJSON
             loadMapTopoJSON(option, '#D5E3FF', '#003171', '#555');
 
@@ -1105,7 +1120,11 @@ return*/
                   .domain([0, 1]);
 
                 var codePopup = {};
-                addTopoData(deptsFranceData);
+                if( option["loadClusteringTyp"] == "builDepts" ) {
+                  addTopoData(deptsFranceData);
+                } else {
+                  addTopoData(regionsFranceData);
+                }
 
                 function addTopoData(topoData) {
 
@@ -1158,7 +1177,7 @@ return*/
                   var inMarkers = [];
                   var areaNum = getNumItems();
                   function addAreaMarkers() {
-                    removeAreaMarkers()
+                    //removeAreaMarkers()
                     for (i = 0; i < inMarkers.length; i++) {
                       markers.addLayer(indexEvent[inMarkers[i]].marker);
                     }
@@ -1306,8 +1325,8 @@ return*/
                   function enterLayer() {}
 
                   function clickLayer() {
-                    addAreaMarkers()
                     if( typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
+                    addAreaMarkers()
                     this.bindPopup(areaPopup, {
                       sticky: true,
                       maxHeight: 160,
@@ -1339,11 +1358,21 @@ return*/
                }
                 
                //option["baseMaps"]["filtre depts"] = L.layerGroup([clusterLayer['sans filtre'], clusterLayer['topoLayer']]);
-               option["baseMaps"]["filtre depts"] = topoLayer;
+               if (option["loadClusteringTyp"] == "builDepts") {
+                 option["baseMaps"]["filtre depts"] = topoLayer;
+               }
+               else {
+                 option["baseMaps"]["filtre regs"] = topoLayer;
+               }
                if (typeof option["callback"] == 'undefined') {
-                  if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre depts'].addTo(option["map"]);
-                }
-                else option["callback"](option);
+                 if (option["loadClusteringTyp"] == "builDepts") {
+                   if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre depts'].addTo(option["map"]);
+                 }
+                 else {
+                   if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre regs'].addTo(option["map"]);
+                 }
+               }
+               else option["callback"](option);
                 
               }
               )/*.catch(function() {

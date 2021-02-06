@@ -565,7 +565,7 @@ return*/
       var popupStruc = makePopupProperties(indexEvent[0]);
       var iconMarkers = iconMarkersBuilder(popupStruc);
       var iconMarkersLength = iconMarkers.length;
-      var map;
+      var map, onSetDefaultMapView;
 
       function setDefaultMapView() {
         map.fitBounds([
@@ -577,6 +577,7 @@ return*/
           [49.03, 8.08],
           [49.03, 8.08]
         ]);
+        if( typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
       }
 
       function setMapView() {
@@ -627,20 +628,22 @@ return*/
       var markers = L.markerClusterGroup({
         maxClusterRadius: 5
       });
-      map = initMap('infoMap', indexEvent);
       for (i = 0; i < indexEvent.length; i++) {
         indexEvent[i].doc = dataPopUp(indexEvent[i], popupStruc);
         indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
+          for (k = 0; k < iconMarkersLength; k++) {
+            if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
+              iconMarkers[k].nbMapEvents++;
+            }
+          }
+          indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
+          //markers.addLayer(indexEvent[i].marker);
       }
-      function addMarkers(map) {
-        markers.addTo(map);
-      }
-      function removeMarkers() {
-        markers.remove();
-      }
-      endMarkerBuild(indexEvent, setMapView);
-      function endMarkerBuild(indexEvent, setCallBack) {
-        for (i = 0; i < indexEvent.length; i++) {
+      map = initMap('infoMap', indexEvent);
+      markers.addTo(map);
+      endMarkerBuild(indexEvent);
+      function endMarkerBuild(indexEvent) {
+        /*for (i = 0; i < indexEvent.length; i++) {
           for (k = 0; k < iconMarkersLength; k++) {
             if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
               iconMarkers[k].nbMapEvents++;
@@ -648,8 +651,7 @@ return*/
           }
           marker = makePopUp(indexEvent[i], setCallBack);
           markers.addLayer(marker);
-          //}
-        }
+        }*/
         divLegend.innerHTML = '';
         for (k = 0; k < iconMarkersLength; k++) {
           if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
@@ -927,29 +929,14 @@ return*/
 
         'use strict'
 
-        var map = loadMap(idMap);
+        map = loadMap(idMap);
 
         //zoomRemove(map);
         map.options.minZoom = 5;
         //map.options.maxZoom = 8;
         map.options.maxZoom = 12;
 
-        function setMapView() {
-          /*map.setView({
-            lat: 47,
-            lng: 1.689
-          }, 6);*/
-          map.fitBounds([
-            [51.10, 2.47],
-            [48.37, -5.16],
-            [43.38, -1.85],
-            [42.47, 3.16],
-            [43.80, 7.96],
-            [49.03, 8.08],
-            [49.03, 8.08]
-          ]);
-        }
-        setMapView();
+        setDefaultMapView();
 
         // Constructeur du fond de carte pour LeafLet
         var baseMaps = {}
@@ -970,7 +957,6 @@ return*/
         );        
         function openstreetCallback(option) {
           option["baseMaps"]['sans filtre'].addTo(option["map"]);
-          addMarkers(option["map"]);
           option["baseMaps"]['sans filtre'] = L.tileLayer('')
           option["baseMaps"]['sans filtre'].addTo(option["map"]);
           loadMapPicture({
@@ -990,9 +976,22 @@ return*/
             }
             else {
               map.removeControl(option["legend"]);
-              addMarkers(option["map"]);
+              addMarkers();
             }
           });
+          addMarkers();
+
+          function addMarkers() {
+            for (i = 0; i < indexEvent.length; i++) {
+              markers.addLayer(indexEvent[i].marker);
+            }
+          }
+          function removeMarkers() {
+            //markers.remove();
+            for (i = 0; i < indexEvent.length; i++) {
+              markers.removeLayer(indexEvent[i].marker);
+            }
+          }
         }       
         function loadMapPicture(option) {
           switch (option["typMap"]) {
@@ -1146,6 +1145,7 @@ return*/
                 function handleLayer(layer) {
                   //var randomValue = Math.random(),
 
+                  var areaBounds = layer.getBounds();
                   var areaCode = layer.feature.properties.code;
                   var areaGeometry = layer.feature.geometry;
                   var areaName = layer.feature.properties.nom;
@@ -1305,15 +1305,26 @@ return*/
                       maxHeight: 160,
                       maxWidth: 400,
                       minWidth: 250
-                    })
-                    this.getPopup().on('remove', function() {});
+                    }).openPopup()
+                    var _this = this
+                    this.getPopup().on('remove', function() {
+                      _this.setStyle({
+                        fillOpacity: 1
+                      });
+                    });
+                    this.setStyle({
+                      fillOpacity: 0
+                    });
+                    option["map"].fitBounds(areaBounds);
+                    onSetDefaultMapView = function() {
+                    _this.getPopup().remove();
+                    }
                   }
 
                   function leaveLayer() {
                     this.bringToBack();
                     this.setStyle({
-                      weight: 1,
-                      opacity: .5
+                      fillOpacity: 1
                     });
                   }
                }

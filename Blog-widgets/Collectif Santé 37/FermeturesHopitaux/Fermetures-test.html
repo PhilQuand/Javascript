@@ -1157,13 +1157,13 @@ return*/
                   var areaName = layer.feature.properties.nom;
                   var inMarkers = [];
                   var areaNum = getNumItems();
-          function addAreaMarkers() {
-            removeAreaMarkers()
-            for (i = 0; i < inMarkers.length; i++) {
-              markers.addLayer(indexEvent[inMarkers[i]].marker);
-            }
-            outMarkers = inMarkers;
-          }
+                  function addAreaMarkers() {
+                    removeAreaMarkers()
+                    for (i = 0; i < inMarkers.length; i++) {
+                      markers.addLayer(indexEvent[inMarkers[i]].marker);
+                    }
+                    outMarkers = inMarkers;
+                  }
                   var areaPopup = dataPopUp();
                   var fillColor = thisColor(areaNum);
                   layer.setStyle({

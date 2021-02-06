@@ -495,8 +495,8 @@ return*/
     } else $('#dataStore').html(JSON.stringify(indexEvent));
 
     loading.css('display','none');
-    runTable(indexEvent);
     runMap(indexEvent);
+    runTable(indexEvent);
 
     function makePopupProperties(data) {
       var popupStruc = {};
@@ -1431,12 +1431,13 @@ map.on('baselayerchange', function(eventLayer){
           $('#table_wrapper').css('display', 'block')
           //$('#table').css('display', 'block')
         }
-        $('#btData').css('display', 'block')
+        //$('#btData').css('display', 'block')
       });
       $('#btData').trigger("click");
     }
 
     function runTable(data) {
+      $('#btData').css("display","block");
       var popupStruc = makePopupProperties(indexEvent[0]);
       var item = popupStruc.title;
       var columns = [{

@@ -195,9 +195,13 @@
   font-weight: bold;
 }
 .popNum {
-  /*font-style: italic;
-  font-weight: bold;*/
-  font-size: 300%;
+  /*font-style: italic;*/
+  font-weight: bold;
+  font-size: 150%;
+}
+.popNote {
+  font-style: italic;
+  /*font-weight: bold;*/
 }
 #table_wrapper {
   display: none;
@@ -1093,7 +1097,7 @@ return*/
               var colorDeb = '#D5E3FF';
               var colorFin = '#003171';
               var colorStyle = '#555';
-            } 
+            }
             // ajout des couche départements et régions colorées TopoJSON
             loadMapTopoJSON(option);
 
@@ -1122,159 +1126,193 @@ return*/
                 load.js('https://philquand.github.io/Javascript/LeafLet/deptsFranceData.js'),
                 load.js('https://philquand.github.io/Javascript/LeafLet/regionsFranceData.js')
               ]).then(
-              function() {
-                console.log('Everything has been loaded!');
+                function() {
+                  console.log('Everything has been loaded!');
 
 
-                var topoLayer = new L.TopoJSON();
-                var colorScale = chroma
-                  //.scale(['#D5E3FF', '#003171'])
-                  .scale([colorDeb, colorFin])
-                  .domain([0, 1]);
+                  var topoLayer = new L.TopoJSON();
+                  var colorScale = chroma
+                    //.scale(['#D5E3FF', '#003171'])
+                    .scale([colorDeb, colorFin])
+                    .domain([0, 1]);
 
-                var codePopup = {};
-                if( option["typMap"] == "builDepts" ) {
-                  var baseMapsName = "filtre depts";
-                  addTopoData(deptsFranceData);
-                } else {
-                  var baseMapsName = "filtre regs"
-                  addTopoData(regionsFranceData);
-                }
-
-                function addTopoData(topoData) {
-
-                  topoLayer.addData(topoData);
-                  //topoLayer.addTo(map);
-                  topoLayer.eachLayer(handleLayer);
-                  
-                  option["legend"][baseMapsName] = L.control({
-                    position: 'bottomright'
-                  });
-                  option["legend"][baseMapsName].onAdd = function(map) {
-
-                    var div = L.DomUtil.create('div', 'info legend'),
-
-                      labels = [];
-
-                    // loop through our density intervals and generate a label with a colored square for each interval
-                    for (var i = grades.length - 1; i >= 0; i--) {
-                      //for (var i = 0; i < grades.length; i++) {
-                      var legColor = thisColor(grades[i] + 1)
-                      div.innerHTML +=
-                        '<i style="background:' + legColor + '"></i><span>' +
-                        grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
-                    }
-
-                    return div;
-                  };
-
-                }
-
-                function thisColor(d) {
-                  var nbMax = grades.length;
-                  for (var i = nbMax - 1; i >= 0; i--) {
-                    if (d > grades[i]) {
-                      var retColor = colorScale(i / nbMax).hex();
-                      return retColor;
-                    }
-                  }
-                  return 'white';
-                }
-
-
-                function handleLayer(layer) {
-                  //var randomValue = Math.random(),
-
-                  var areaBounds = layer.getBounds();
-                  var areaCode = layer.feature.properties.code;
-                  var areaGeometry = layer.feature.geometry;
-                  var areaName = layer.feature.properties.nom;
-                  var inMarkers = [];
-                  var areaNum = getNumItems();
-                  function addAreaMarkers() {
-                    //removeAreaMarkers()
-                    for (i = 0; i < inMarkers.length; i++) {
-                      markers.addLayer(indexEvent[inMarkers[i]].marker);
-                    }
-                    outMarkers = inMarkers;
-                  }
-                  var areaPopup = dataPopUp();
-                  var fillColor = thisColor(areaNum);
-                  layer.setStyle({
-                    fillColor: fillColor,
-                    //fillColor: getColor,
-                    fillOpacity: 1,
-                    color: colorStyle,
-                    weight: 1,
-                    opacity: .5
-                  });
-
-                  if ("ontouchstart" in document.documentElement) {
-                    layer.on({
-                      click: touchLayer,
-                    });
+                  var enterPopup = 0;
+                  if (option["typMap"] == "builDepts") {
+                    var baseMapsName = "filtre depts";
+                    addTopoData(deptsFranceData);
                   }
                   else {
-                    layer.on({
-                      click: clickLayer,
-                      //mouseover: enterLayer,
-                      //mouseout: leaveLayer,
+                    var baseMapsName = "filtre regs"
+                    addTopoData(regionsFranceData);
+                  }
+
+                  function addTopoData(topoData) {
+
+                    topoLayer.addData(topoData);
+                    //topoLayer.addTo(map);
+                    topoLayer.eachLayer(handleLayer);
+
+                    option["legend"][baseMapsName] = L.control({
+                      position: 'bottomright'
                     });
-                  }
+                    option["legend"][baseMapsName].onAdd = function(map) {
 
-                  function dataPopUp() {
-                    var popupContent = $("<div></div>");
-                    var popupBody = $("<div class='popBody'></div>");
-                    popupContent.append(popupBody);
-                    popupBody.append("<div class='popLieux'>" + areaName + "</div>");
-                    switch (areaNum) {
-                      case 0:
-                        popupBody.append("<div class='popItem'><span class='popTitle'>Aucun &#232;tablissement<br>concern&#232;</span><br></div>");
-                        break;
-                      case 1:
-                        popupBody.append("<div class='popItem'><span class='popTitle'>Un &#232;tablissement<br>concern&#232;</span></div>");
-                        break;
-                      default:
-                        popupBody.append("<div class='popItem'><span class='popTitle'>Nombre d&#39;&#232;tablissements<br>concern&#232;s</span><p class='popNum'>" + areaNum + "</p></div>");
+                      var div = L.DomUtil.create('div', 'info legend'),
+
+                        labels = [];
+
+                      // loop through our density intervals and generate a label with a colored square for each interval
+                      for (var i = grades.length - 1; i >= 0; i--) {
+                        //for (var i = 0; i < grades.length; i++) {
+                        var legColor = thisColor(grades[i] + 1)
+                        div.innerHTML +=
+                          '<i style="background:' + legColor + '"></i><span>' +
+                          grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
+                      }
+
+                      return div;
                     };
-                    return popupContent.html();
+
                   }
 
-                  function getNumItems() {
-                    var d = 0;
-                    //var dbis = 0;
-                    for (var idx = 0; idx < option["data"].length; idx++) {
-                      //var isinsideD = false;
-                      //var isinsideD2 = false;
-                      if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                        inMarkers.push(idx);
-                        d += 1;
-                        //isinsideD2 = true;
+                  function thisColor(d) {
+                    var nbMax = grades.length;
+                    for (var i = nbMax - 1; i >= 0; i--) {
+                      if (d > grades[i]) {
+                        var retColor = colorScale(i / nbMax).hex();
+                        return retColor;
                       }
-                      /*if (typeof option["data"][idx].INSEEdept !== 'undefined' && areaCode == option["data"][idx].INSEEdept) {
-                        isinsideD = true;
-                      }
-                      if(isinsideD !== isinsideD2) {
-                        console.log('les deux méthodes donnent des résultats différents pour le point : COMMUNE = ' + option["data"][idx].COMMUNE + ' LIEUX = ' + option["data"][idx].LIEUX + ' x = ' + option["data"][idx].lng + ' y = ' + option["data"][idx].lat+ ' d = ' + isinsideD + ' et dbis = ' + isinsideD2);
-                      }*/
                     }
-                    /*if (d !== dbis) {
-                      var dString = d.toString();
-                      var dbisString = dbis.toString();
-                      console.log('les deux méthodes donnent des résultats différents pour le département ' + areaCode + ' d = ' + dString + ' et dbis = ' + dbisString);
-                    }*/
-                    return d;
+                    return 'white';
+                  }
 
-                    function inside(point, TopoGeom) {
-                      var insideVal = false;
-                      if (TopoGeom["type"] == "MultiPolygon") {
-                        for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
-                          var polygon = TopoGeom["coordinates"][i][0];
+
+                  function handleLayer(layer) {
+                    //var randomValue = Math.random(),
+
+                    var areaBounds = layer.getBounds();
+                    var areaCode = layer.feature.properties.code;
+                    var areaGeometry = layer.feature.geometry;
+                    var areaName = layer.feature.properties.nom;
+                    var inMarkers = [];
+                    var areaNum = getNumItems();
+                    var areaEnterCode, areaBindPopup;
+;
+
+                    function addAreaMarkers() {
+                      //removeAreaMarkers()
+                      for (i = 0; i < inMarkers.length; i++) {
+                        markers.addLayer(indexEvent[inMarkers[i]].marker);
+                      }
+                      outMarkers = inMarkers;
+                    }
+                    // Create an element to hold all your text and markup
+                    var container = $('<div />');
+
+                    // Delegate all event handling for the container itself and its contents to the container
+                    container.on('click', '.smallPolygonLink', function() {
+                      enterPopup = areaName;
+                      var myevent = layer["_events"];
+                      var myclick = layer["_events"]["click"][0];
+                      myclick["fn"]();
+                      //layer.unbindPopup();
+                    });
+
+                    // Insert whatever you want into the container, using whichever approach you prefer
+                    container.html(dataPopUp);
+                    var areaDataPopUp = container[0];
+
+                    var fillColor = thisColor(areaNum);
+                    layer.setStyle({
+                      fillColor: fillColor,
+                      //fillColor: getColor,
+                      fillOpacity: 1,
+                      color: colorStyle,
+                      weight: 1,
+                      opacity: .5
+                    });
+
+                    if ("ontouchstart" in document.documentElement) {
+                      layer.on({
+                        click: touchLayer,
+                      });
+                    }
+                    else {
+                      layer.on({
+                        click: clickLayer,
+                        //mouseover: enterLayer,
+                        //mouseout: leaveLayer,
+                      });
+                    }
+
+                    function dataPopUp() {
+                      var popupContent = $("<div></div>");
+                      var popupBody = $("<div class='popBody'></div>");
+                      popupContent.append(popupBody);
+                      popupBody.append("<div class='popLieux'>" + areaName + "</div>");
+                      switch (areaNum) {
+                        case 0:
+                          popupBody.append("<div class='popItem'><span class='popTitle'>Aucun &#232;tablissement concern&#232;</span><br></div>");
+                          break;
+                        case 1:
+                          popupBody.append("<div class='popItem'><span class='popTitle'>Un &#232;tablissement concern&#232;</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
+                          break;
+                        default:
+                          popupBody.append("<div class='popItem'><span class='popTitle'>Nombre d&#39;&#232;tablissements concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
+                      };
+                      return popupContent.html();
+                    }
+
+                    function getNumItems() {
+                      var d = 0;
+                      //var dbis = 0;
+                      for (var idx = 0; idx < option["data"].length; idx++) {
+                        //var isinsideD = false;
+                        //var isinsideD2 = false;
+                        if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
+                          inMarkers.push(idx);
+                          d += 1;
+                          //isinsideD2 = true;
+                        }
+                        /*if (typeof option["data"][idx].INSEEdept !== 'undefined' && areaCode == option["data"][idx].INSEEdept) {
+                          isinsideD = true;
+                        }
+                        if(isinsideD !== isinsideD2) {
+                          console.log('les deux méthodes donnent des résultats différents pour le point : COMMUNE = ' + option["data"][idx].COMMUNE + ' LIEUX = ' + option["data"][idx].LIEUX + ' x = ' + option["data"][idx].lng + ' y = ' + option["data"][idx].lat+ ' d = ' + isinsideD + ' et dbis = ' + isinsideD2);
+                        }*/
+                      }
+                      /*if (d !== dbis) {
+                        var dString = d.toString();
+                        var dbisString = dbis.toString();
+                        console.log('les deux méthodes donnent des résultats différents pour le département ' + areaCode + ' d = ' + dString + ' et dbis = ' + dbisString);
+                      }*/
+                      return d;
+
+                      function inside(point, TopoGeom) {
+                        var insideVal = false;
+                        if (TopoGeom["type"] == "MultiPolygon") {
+                          for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
+                            var polygon = TopoGeom["coordinates"][i][0];
+                            // Le point est-il dans le polygone
+                            if (isInsidePolygon(point, polygon)) {
+                              insideVal = true;
+                              for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
+                                var polygon = TopoGeom["coordinates"][i][j];
+                                // Le point est-il dans l'un des trous du polygone
+                                if (isInsidePolygon(point, polygon)) {
+                                  insideVal = false;
+                                }
+                              }
+                            }
+                          }
+                        }
+                        else {
+                          var polygon = TopoGeom["coordinates"][0];
                           // Le point est-il dans le polygone
                           if (isInsidePolygon(point, polygon)) {
                             insideVal = true;
-                            for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
-                              var polygon = TopoGeom["coordinates"][i][j];
+                            for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
+                              var polygon = TopoGeom["coordinates"][j];
                               // Le point est-il dans l'un des trous du polygone
                               if (isInsidePolygon(point, polygon)) {
                                 insideVal = false;
@@ -1282,113 +1320,105 @@ return*/
                             }
                           }
                         }
-                      }
-                      else {
-                        var polygon = TopoGeom["coordinates"][0];
-                        // Le point est-il dans le polygone
-                        if (isInsidePolygon(point, polygon)) {
-                          insideVal = true;
-                          for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
-                            var polygon = TopoGeom["coordinates"][j];
-                            // Le point est-il dans l'un des trous du polygone
-                            if (isInsidePolygon(point, polygon)) {
-                              insideVal = false;
-                            }
+
+                        return insideVal;
+                        // ray-casting algorithm based on
+                        // https://github.com/substack/point-in-polygon/blob/master/index.js
+
+                        function isInsidePolygon(point, vs) {
+                          var x = point[0],
+                            y = point[1];
+
+                          var inside = false;
+                          for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                            var xi = vs[i][0],
+                              yi = vs[i][1];
+                            var xj = vs[j][0],
+                              yj = vs[j][1];
+
+                            var intersect = ((yi > y) != (yj > y)) &&
+                              (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                            if (intersect) inside = !inside;
                           }
+
+                          return inside;
+
                         }
-                      }
-
-                      return insideVal;
-                      // ray-casting algorithm based on
-                      // https://github.com/substack/point-in-polygon/blob/master/index.js
-
-                      function isInsidePolygon(point, vs) {
-                        var x = point[0],
-                          y = point[1];
-
-                        var inside = false;
-                        for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-                          var xi = vs[i][0],
-                            yi = vs[i][1];
-                          var xj = vs[j][0],
-                            yj = vs[j][1];
-
-                          var intersect = ((yi > y) != (yj > y)) &&
-                            (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-                          if (intersect) inside = !inside;
-                        }
-
-                        return inside;
-
                       }
                     }
-                  }
 
-                  function touchLayer() {
+                    function touchLayer() {
 
-                    clickLayer()
-                    /*this.bindPopup(areaPopup, {
-                      setLatLng: areaBounds.getCenter(),
-                      sticky: true,
-                      maxHeight: 160,
-                      maxWidth: 400,
-                      minWidth: 250
-                    }).openPopup();
-                    this.getPopup().on('remove', function() {});*/
-                  }
+                      clickLayer()
+                      /*this.bindPopup(areaPopup, {
+                        setLatLng: areaBounds.getCenter(),
+                        sticky: true,
+                        maxHeight: 160,
+                        maxWidth: 400,
+                        minWidth: 250
+                      }).openPopup();
+                      this.getPopup().on('remove', function() {});*/
+                    }
 
-                  function enterLayer() {}
+                    function enterLayer() {
+                    }
 
-                  function clickLayer() {
-                    if( typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
-                    addAreaMarkers()
-                    this.bindPopup(areaPopup, {
-                      sticky: true,
-                      maxHeight: 160,
-                      maxWidth: 400,
-                      minWidth: 250
-                    }).openPopup();
-                    this.getPopup().setLatLng(areaBounds.getCenter())
-                    //this.getPopup().on('remove', function() {});
-                    var _this = this
-                    this.setStyle({
-                      fillOpacity: 0
-                    });
-                    option["map"].fitBounds(areaBounds, {padding: [100, 100]});
-                    //option["map"].setView(areaBounds.getCenter(), 9);
-                    onSetDefaultMapView = function() {
-                      _this.getPopup().remove();
-                      _this.setStyle({
+                    function clickLayer() {
+                      if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
+                      if (enterPopup != areaName) {
+                        this.bindPopup(areaDataPopUp).openPopup();
+                        var areaPopup = this.getPopup();
+                        areaPopup.setLatLng(areaBounds.getCenter());
+                        return;
+                      }
+                      map.closePopup();
+                      addAreaMarkers()
+                      layer.setStyle({
+                        fillOpacity: 0
+                      });
+                      areaBindPopup = this['unbindPopup'];
+                      if (typeof areaBindPopup !== 'undefined') {
+                        this.unbindPopup();
+                      }
+                      enterPopup = 0;
+                      option["map"].fitBounds(areaBounds, {
+                        padding: [100, 100]
+                      });
+                      var _this = layer;
+                      onSetDefaultMapView = function() {
+                        //_this.getPopup().remove();
+                        _this.setStyle({
+                          fillOpacity: 1
+                        });
+                        removeAreaMarkers()
+                      }
+                    }
+
+                    /*function leaveLayer() {
+                      this.bringToBack();
+                      this.setStyle({
                         fillOpacity: 1
                       });
-                      removeAreaMarkers()
-                    }
+                    }*/
                   }
 
-                  /*function leaveLayer() {
-                    this.bringToBack();
-                    this.setStyle({
-                      fillOpacity: 1
-                    });
-                  }*/
-               }
-                
-               //option["baseMaps"]["filtre depts"] = L.layerGroup([clusterLayer['sans filtre'], clusterLayer['topoLayer']]);
-               option["baseMaps"][baseMapsName] = topoLayer;
-               if (typeof option["callback"] == 'undefined') {
-                 if (option["typMap"] == "builDepts") {
-                   if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre depts'].addTo(option["map"]);
-                 }
-                 else {
-                   if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre regs'].addTo(option["map"]);
-                 }
-               }
-               else option["callback"](option);
-                
-              }
-              )/*.catch(function() {
-                console.log('Oh no, epic failure!');
-              });*/
+                  //option["baseMaps"]["filtre depts"] = L.layerGroup([clusterLayer['sans filtre'], clusterLayer['topoLayer']]);
+                  option["baseMaps"][baseMapsName] = topoLayer;
+                  if (typeof option["callback"] == 'undefined') {
+                    if (option["typMap"] == "builDepts") {
+                      if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre depts'].addTo(option["map"]);
+                    }
+                    else {
+                      if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre regs'].addTo(option["map"]);
+                    }
+                  }
+                  else option["callback"](option);
+
+                }
+              )
+              /*.catch(function() {
+                              console.log('Oh no, epic failure!');
+                            });*/
             };
           };
         };
@@ -1723,4 +1753,4 @@ div.dataTables_wrapper .table-striped select {
     margin-left: auto; 
     margin-right: auto;
 }*/
-</style>
+</style>lpmo

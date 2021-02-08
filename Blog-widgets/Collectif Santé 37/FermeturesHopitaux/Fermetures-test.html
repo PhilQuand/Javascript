@@ -1027,20 +1027,20 @@
               removeMarkers();
             }
           });
-          addMarkers();
-
-          function addMarkers() {
-            for (i = 0; i < indexEvent.length; i++) {
-              markers.addLayer(indexEvent[i].marker);
-            }
-          }
-          function removeMarkers() {
-            //markers.remove();
-            for (i = 0; i < indexEvent.length; i++) {
-              markers.removeLayer(indexEvent[i].marker);
-            }
-          }
         }       
+
+        addMarkers();
+        function addMarkers() {
+          for (i = 0; i < indexEvent.length; i++) {
+            markers.addLayer(indexEvent[i].marker);
+          }
+        }
+        function removeMarkers() {
+          for (i = 0; i < indexEvent.length; i++) {
+            markers.removeLayer(indexEvent[i].marker);
+          }
+        }
+        
         function loadMapPicture(option) {
           switch (option["typMap"]) {
             case "openstreet":

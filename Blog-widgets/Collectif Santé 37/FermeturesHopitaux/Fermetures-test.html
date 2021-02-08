@@ -261,12 +261,7 @@
     return*/
   }
 
-  var divBannerCoord, divLegend;
   var options;
-
-  var divBannerCoordHTML = '';
-  if (typeof options !== 'undefined' && typeof options.divBannerCoordHTML !== 'undefined') var divBannerCoordHTML = options.divBannerCoordHTML;
-  var divBannerCoordImgCount = (divBannerCoordHTML.match(/<img/g) || []).length;
 
   if ($('#dataStore').length == 0) var storedData = '';
   else var storedData = $('#dataStore').html();
@@ -623,7 +618,7 @@
         }, {
           class: "bleu",
           icon: resBlueIcon,
-          title: 'les bleus'
+          title: 'établissements'
         }];
         return iconMarkers;
       };
@@ -646,13 +641,8 @@
       for (i = 0; i < indexEvent.length; i++) {
         indexEvent[i].doc = dataPopUp(indexEvent[i], popupStruc);
         indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
-          for (k = 0; k < iconMarkersLength; k++) {
-            if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
-              iconMarkers[k].nbMapEvents++;
-            }
-          }
-          indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
-          //markers.addLayer(indexEvent[i].marker);
+        indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
+        //markers.addLayer(indexEvent[i].marker);
       }
       map = initMap('infoMap', indexEvent);
       markers.addTo(map);
@@ -667,20 +657,6 @@
           marker = makePopUp(indexEvent[i], setCallBack);
           markers.addLayer(marker);
         }*/
-        divLegend.innerHTML = '';
-        for (k = 0; k < iconMarkersLength; k++) {
-          if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-            if (typeof iconMarkers[k].icon === 'undefined') {
-              divLegend.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-            }
-            else {
-              divLegend.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-            }
-          }
-        }
-        if (divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
-        divBannerCoord.innerHTML = divBannerCoordHTML;
-        $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
 
         Promise.all([
           //  chargements des dépendances css
@@ -1016,10 +992,12 @@
         function builRegsCallback(option) {
           L.control.layers(option["baseMaps"], null).addTo(option["map"]);
           map.on('baselayerchange', function(eventLayer) {
+            map.removeControl(legendAllMarkers);
             map.removeControl(option["legend"]["filtre depts"]);
             map.removeControl(option["legend"]["filtre regs"]);
             setDefaultMapView();
             if (eventLayer.name == 'sans filtre') {
+              map.addControl(legendAllMarkers);
               addMarkers();
             }
             else {
@@ -1029,6 +1007,57 @@
           });
         }       
 
+      var legendAllMarkers = addLegend()
+      function addLegend() {
+        for (var k = 0; k < iconMarkersLength; k++) {
+          iconMarkers[k].nbMapEvents = 0;
+        }
+        for (var i = 0; i < indexEvent.length; i++) {
+          for (var k = 0; k < iconMarkersLength; k++) {
+            if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
+              iconMarkers[k].nbMapEvents++;
+            }
+          }
+        }
+        var legendAllMarkers = L.control({
+          position: 'bottomright'
+        });
+
+        legendAllMarkers.onAdd = function(map) {
+          var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
+          divlegendAllMarkers.innerHTML = '';
+          for (var k = 0; k < iconMarkersLength; k++) {
+            if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
+              if (typeof iconMarkers[k].icon === 'undefined') {
+                divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+              }
+              else {
+                divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+              }
+            }
+          }
+          return divlegendAllMarkers;
+        };
+
+        legendAllMarkers.addTo(map);
+        return legendAllMarkers;
+      }
+
+        bannerCoord();
+        function bannerCoord() {
+          bannerCoord = L.control({
+            //position: 'topright'
+            position: 'bottomleft'
+          });
+
+          bannerCoord.onAdd = function(map) {
+            var divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
+            divBannerCoord.innerHTML = '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>';
+            return divBannerCoord;
+          };
+
+          bannerCoord.addTo(map);
+      }
         addMarkers();
         function addMarkers() {
           for (i = 0; i < indexEvent.length; i++) {
@@ -1221,7 +1250,6 @@
                     var inMarkers = [];
                     var areaNum = getNumItems();
                     var areaEnterCode, areaBindPopup;
-;
 
                     function addAreaMarkers() {
                       //removeAreaMarkers()
@@ -1467,28 +1495,7 @@
             }));
           }
         });
-
-        var bannerCoord = L.control({
-          //position: 'topright'
-          position: 'bottomleft'
-        });
-
-        bannerCoord.onAdd = function(map) {
-          divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
-          return divBannerCoord;
-        };
-
-        bannerCoord.addTo(map);
-
-        var legend = L.control({
-          position: 'bottomright'
-        });
-        legend.onAdd = function(map) {
-          divLegend = L.DomUtil.create('div', 'legend');
-          return divLegend;
-        };
-        legend.addTo(map);
-
+    
         return map;
         // Constructeur de la carte LeafLet
         function loadMap(idMap) {
@@ -1750,6 +1757,10 @@ div.dataTables_wrapper .table-striped select {
 }
 .leaflet-control-zoom.leaflet-bar.leaflet-control a:link, .leaflet-control-zoom.leaflet-bar.leaflet-control a:visited {
 	 color: black;		
+}
+.bannerCoord img {
+    width: 25vw;
+    max-width: 150px;
 }
 .legend {
     padding:.5em .75em;

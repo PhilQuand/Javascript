@@ -522,7 +522,7 @@
     runTable(indexEvent);*/
 
     function runMap(indexEvent) {
-      var load = (function() {
+      /*var load = (function() {
         // Function which returns a function: https://davidwalsh.name/javascript-functions
         function _load(tag) {
           return function(url) {
@@ -564,7 +564,82 @@
           js: _load('script'),
           img: _load('img')
         }
+      })();*/
+      var load = (function() {
+        // Function which returns a function: https://davidwalsh.name/javascript-functions
+        function _load(tag) {
+          return function(url) {
+            // This promise will be used by Promise.all to determine success or failure
+            return new Promise(function(resolve, reject) {
+              var element = document.createElement(tag);
+              var parent = 'body';
+              var attr = 'src';
+
+              // Important success and error for the promise
+              element.onload = function() {
+                resolve(url);
+              };
+              element.onerror = function() {
+                reject(url);
+              };
+
+              // Need to set different attributes depending on tag type
+              switch (tag) {
+                case 'script':
+                  element.async = true;
+                  break;
+                case 'link':
+                  element.type = 'text/css';
+                  element.rel = 'stylesheet';
+                  attr = 'href';
+                  parent = 'head';
+                  break;
+                case 'json':
+                  let xhr = new XMLHttpRequest();
+
+                  xhr.open('GET', url);
+                  xhr.onreadystatechange = handler;
+                  xhr.responseType = 'json';
+                  xhr.setRequestHeader('Accept', 'application/json');
+                  xhr.send();
+
+                  function handler() {
+                    if (this.readyState === this.DONE) {
+                      if (this.status === 200) {
+                        resolve({
+                          url: url,
+                          val: this.response
+                        });
+                      }
+                      else {
+                        reject(
+                          new Error('getJSON: `' + url + '` failed with status: [' + this.status + ']')
+                        );
+                      }
+                    }
+                  };
+              }
+
+              // Inject into document to kick off loading
+              element[attr] = url;
+              document[parent].appendChild(element);
+            });
+          };
+        }
+
+        return {
+          css: _load('link'),
+          js: _load('script'),
+          img: _load('img'),
+          json: _load('json')
+        }
       })();
+      var loadVal = function(values, url) {
+        for (var i = 0; i < values.length; i++) {
+          if (typeof values[i] === 'object' && values[i]["url"] === url) return values[i]["val"]
+        }
+        return 'not found'
+      }
 
       var popupStruc = makePopupProperties(indexEvent[0]);
       var iconMarkers = iconMarkersBuilder(popupStruc);
@@ -1171,17 +1246,21 @@
                   }
                 }
               });
+              var deptsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json'
+              var regsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json'
               Promise.all([
                 // ressources utilisées pour construire la carte TopoSJON
                 load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
                 load.js('https://d3js.org/topojson.v1.min.js'),
                 // GeoJSON des départements et régions françaises
-                load.js('https://philquand.github.io/Javascript/LeafLet/deptsFranceData.js'),
-                load.js('https://philquand.github.io/Javascript/LeafLet/regionsFranceData.js')
+                load.json(deptsFranceData),
+                load.json(regsFranceData)
               ]).then(
-                function() {
+                function(values) {
                   console.log('Everything has been loaded!');
-
+                  
+                  deptsFranceData = loadVal(values, deptsFranceData);
+                  regsFranceData = loadVal(values, regsFranceData);
 
                   var topoLayer = new L.TopoJSON();
                   var colorScale = chroma
@@ -1196,7 +1275,7 @@
                   }
                   else {
                     var baseMapsName = "filtre regs"
-                    addTopoData(regionsFranceData);
+                    addTopoData(regsFranceData);
                   }
 
                   function addTopoData(topoData) {

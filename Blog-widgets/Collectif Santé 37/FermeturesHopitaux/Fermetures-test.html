@@ -1651,19 +1651,22 @@
     storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
     markers: {
     affect: data => {
-      if (data['SUPPRESSIONS'] !== '') {
+      if (data['SUPPRESSIONS'] !== '' && data['MENACES'] !== '') {
+        return 2;
+      }
+      else if (data['SUPPRESSIONS'] !== '') {
         return 0;
       }
       else if (data['MENACES'] !== '') {
         return 1;
       }
       else {
-        return 2;
+        return 3;
       }
     },
     icons :[{
       icon: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
           iconSize: [13, 20],
           iconAnchor: [6, 20],
@@ -1673,7 +1676,7 @@
       title: 'Établissements avec suppressions',
     }, {
       icon: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-red.png',
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-orange.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
           iconSize: [13, 20],
           iconAnchor: [6, 20],
@@ -1681,6 +1684,16 @@
           shadowSize: [20, 20]
         }),
       title: 'Établissements avec menaces',
+    }, {
+      icon: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-black.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        }),
+      title: 'Établissements avec suppressions et menaces',
     }, {
       icon: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',

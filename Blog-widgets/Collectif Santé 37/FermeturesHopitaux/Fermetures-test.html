@@ -228,6 +228,13 @@
   //var options;
   var popupStrucData = {title : 'COMMUNES', hidden : ["LATITUDE","LONGITUDE","INSEE","lat","lng","iconMarker"]}
   
+  var iconMarkersBuilder = data => {
+    for (var i = 0; i < data.length; i++) {
+      data[i].iconMarker = options['markers']['affect'](data[i]);
+    }
+    return options.markers.icons;
+  }
+  
   var storedData = '';
   if ($('#dataStore').length == 1) {
     storedData = $('#dataStore').html();
@@ -242,8 +249,12 @@
       load.json(storedData),
     ]).then(
       values => {
+        var getDataFromJSON = data => {
+          return data;
+        }
         console.log('Everything has been loaded!');
         storedData = loadVal(values, storedData);
+        storedData = getDataFromJSON(storedData);        
         if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
         else runData(storedData);
       },
@@ -410,7 +421,6 @@
                   else {
                     data[indexLoc].doc = 'Failed geoloc';
                   }
-                  //data[indexLoc].iconMarker = 0;
                   checkIfEnd(indexLoc);
                 });
             }
@@ -426,12 +436,11 @@
               }
               if (data[indexLoc].LATITUDE !== '') data[indexLoc].lat = data[indexLoc].LATITUDE;
               if (data[indexLoc].LONGITUDE !== '') data[indexLoc].lng = data[indexLoc].LONGITUDE;
-              //data[indexLoc].iconMarker = 1;
               checkIfEnd(indexLoc);
             }
 
             function checkIfEnd(indexLoc) {
-              data[indexLoc].iconMarker = 1;
+              //data[indexLoc].iconMarker = 1;
               if (indexCal < indexEnd) {
                 add2Layer(indexCal)
               }
@@ -518,7 +527,7 @@
     function runMap(indexEvent) {
 
       var popupStruc = makePopupProperties(indexEvent[0]);
-      var iconMarkers = iconMarkersBuilder(popupStruc);
+      var iconMarkers = iconMarkersBuilder(indexEvent);
       var iconMarkersLength = iconMarkers.length;
       var map, onSetDefaultMapView;
 
@@ -545,7 +554,7 @@
         return;
       }
 
-      function iconMarkersBuilder(popupStruc) {
+      /*function iconMarkersBuilder(popupStruc) {
         var resBlueIcon = new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
@@ -563,16 +572,16 @@
           shadowSize: [20, 20]
         });
         var iconMarkers = [{
-          class: "rouge",
+          //class: "rouge",
           icon: resRedIcon,
           title: 'les rouges'
         }, {
-          class: "bleu",
+          //class: "bleu",
           icon: resBlueIcon,
           title: 'établissements'
         }];
         return iconMarkers;
-      };
+      };*/
 
       function dataPopUp(data, popupStruc) {
         var popupContent = $('<div></div>');
@@ -964,7 +973,7 @@
         }
         for (var i = 0; i < indexEvent.length; i++) {
           for (var k = 0; k < iconMarkersLength; k++) {
-            if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
+            if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
               iconMarkers[k].nbMapEvents++;
             }
           }
@@ -982,6 +991,7 @@
                 divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
               }
               else {
+                var iconVal = iconMarkers[k].icon;
                 divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
               }
             }
@@ -1635,7 +1645,54 @@
   $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources internes)').css('display', 'none');
   // fin spécial pour le site de la CN
 
-  options = {storedData : 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json'};
+  //options = {storedData : 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json'};
+  options = {
+    //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
+    storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+    markers: {
+    affect: data => {
+      if (data['SUPPRESSIONS'] !== '') {
+        return 0;
+      }
+      else if (data['MENACES'] !== '') {
+        return 1;
+      }
+      else {
+        return 2;
+      }
+    },
+    icons :[{
+      icon: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        }),
+      title: 'Établissements avec suppressions',
+    }, {
+      icon: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-red.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        }),
+      title: 'Établissements avec menaces',
+    }, {
+      icon: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        }),
+      title: 'Autres'
+    }]},
+  };  
   $('#Fermetures').mapAllBlogs(options);
 
 })(jQuery);
@@ -1771,7 +1828,7 @@ div.dataTables_wrapper .table-striped select {
 }
 #infoMap {
     width: 100%;
-    height: 600px;
+    height: 700px;
     //max-height: 70vh;
     overflow: hidden;
 }

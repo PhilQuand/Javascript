@@ -966,42 +966,42 @@
           });
         }       
 
-      var legendAllMarkers = addLegend()
-      function addLegend() {
-        for (var k = 0; k < iconMarkersLength; k++) {
-          iconMarkers[k].nbMapEvents = 0;
-        }
-        for (var i = 0; i < indexEvent.length; i++) {
+        var legendAllMarkers = addLegend()
+        function addLegend() {
           for (var k = 0; k < iconMarkersLength; k++) {
-            if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
-              iconMarkers[k].nbMapEvents++;
-            }
+            iconMarkers[k].nbMapEvents = 0;
           }
-        }
-        var legendAllMarkers = L.control({
-          position: 'bottomright'
-        });
-
-        legendAllMarkers.onAdd = function(map) {
-          var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
-          divlegendAllMarkers.innerHTML = '';
-          for (var k = 0; k < iconMarkersLength; k++) {
-            if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-              if (typeof iconMarkers[k].icon === 'undefined') {
-                divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-              }
-              else {
-                var iconVal = iconMarkers[k].icon;
-                divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+          for (var i = 0; i < indexEvent.length; i++) {
+            for (var k = 0; k < iconMarkersLength; k++) {
+              if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
+                iconMarkers[k].nbMapEvents++;
               }
             }
           }
-          return divlegendAllMarkers;
-        };
+          var legendAllMarkers = L.control({
+            position: 'bottomright'
+          });
 
-        legendAllMarkers.addTo(map);
-        return legendAllMarkers;
-      }
+          legendAllMarkers.onAdd = function(map) {
+            var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
+            divlegendAllMarkers.innerHTML = '';
+            for (var k = 0; k < iconMarkersLength; k++) {
+              if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
+                if (typeof iconMarkers[k].icon === 'undefined') {
+                  divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                }
+                else {
+                  var iconVal = iconMarkers[k].icon;
+                  divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                }
+              }
+            }
+            return divlegendAllMarkers;
+          };
+
+          legendAllMarkers.addTo(map);
+          return legendAllMarkers;
+        }
 
         bannerCoord();
         function bannerCoord() {
@@ -1017,7 +1017,8 @@
           };
 
           bannerCoord.addTo(map);
-      }
+        }
+        
         addMarkers();
         function addMarkers() {
           for (i = 0; i < indexEvent.length; i++) {

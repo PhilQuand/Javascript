@@ -234,18 +234,26 @@
     }
     return options.markers.icons;
   }
+  if (typeof options.controlOverlays == 'undefined') {
+    options.controlOverlays = [{
+      title: 'Autres',
+      isInGroup: data => {
+        return true;
+      }
+    }]
+  }
   var controlOverlays = {};
   for (var i = 0; i < options.controlOverlays.length; i++) {
     controlOverlays[options.controlOverlays[i].title] = new L.layerGroup();
   }
-  var overlays = []; 
+  var overlays = [];
   for (var i = 0; i < options.controlOverlays.length; i++) {
     overlays.push({
-    isInGroup: options.controlOverlays[i].isInGroup,
-    title: options.controlOverlays[i].title,
-    isVisible: true,
+      isInGroup: options.controlOverlays[i].isInGroup,
+      title: options.controlOverlays[i].title,
+      isVisible: true,
     });
-  }
+  };
   var storedData = '';
   if ($('#dataStore').length == 1) {
     storedData = $('#dataStore').html();
@@ -961,10 +969,15 @@
           });
         }        
         function builRegsCallback(option) {
-          L.control.layers(option["baseMaps"], controlOverlays).addTo(option["map"]);
+          var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], controlOverlays).addTo(option["map"]);
           for (var i = 0; i < overlays.length; i++) {
             controlOverlays[overlays[i].title].addTo(map);
           }
+          if (overlays.length == 1) {
+            var controlBasemapsAndOverlaysHTML = controlBasemapsAndOverlays.getContainer();
+            controlBasemapsAndOverlaysHTML.getElementsByClassName("leaflet-control-layers-separator")[0].style.display = "none";
+            controlBasemapsAndOverlaysHTML.getElementsByClassName("leaflet-control-layers-overlays")[0].style.display = "none";
+          };          
           var baselayerName = 'sans filtre';
           map.on('baselayerchange', function(eventLayer) {
             baselayerName = eventLayer.name;

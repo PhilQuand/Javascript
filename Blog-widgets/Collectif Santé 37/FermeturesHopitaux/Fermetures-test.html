@@ -541,18 +541,13 @@
       var iconMarkers = iconMarkersBuilder(indexEvent);
       var iconMarkersLength = iconMarkers.length;
       //var map, onSetDefaultMapView, controlLayers;
-      var map, onSetDefaultMapView;
+      var map, onSetDefaultMapView, refreshIndexEvent;
 
-      var outMarkers = [];
-      function removeAreaMarkers() {
-        for (i = 0; i < outMarkers.length; i++) {
-          for (k = 0; k < overlays.length; k++) {
-            if (overlays[k].isInGroup(indexEvent[outMarkers[i]])) {
-              //overlays[k].group.removeLayer(indexEvent[outMarkers[i]].marker);
-            }
-          }
+      /*function removeAreaMarkers() {
+        for (var i = 0; i < indexEvent.length; i++) {
+          markers.removeLayer(indexEvent[i].marker);
         }
-      }
+      }*/          
       function setDefaultMapView() {
         map.fitBounds([
           [51.10, 2.47],
@@ -967,47 +962,49 @@
         }        
         function builRegsCallback(option) {
           L.control.layers(option["baseMaps"], controlOverlays).addTo(option["map"]);
-          //L.control.layers(option["baseMaps"], controlOverlays);
-  for (var i = 0; i < overlays.length; i++) {
-    controlOverlays[overlays[i].title].addTo(map);
-  }
+          for (var i = 0; i < overlays.length; i++) {
+            controlOverlays[overlays[i].title].addTo(map);
+          }
+          var baselayerName = 'sans filtre';
           map.on('baselayerchange', function(eventLayer) {
-            /*for (var k = 0; k < iconMarkersLength; k++) {
-              controlLayers.removeLayer(overlayGroups[k]);
-            }*/
-            //removeMarkers();
+            baselayerName = eventLayer.name;
             map.removeControl(legendAllMarkers);
             map.removeControl(option["legend"]["filtre depts"]);
             map.removeControl(option["legend"]["filtre regs"]);
             setDefaultMapView();
-            if (eventLayer.name == 'sans filtre') {
+            if (baselayerName == 'sans filtre') {
               map.addControl(legendAllMarkers);
-              //addMarkers();
+              refreshIndexEvent = [];
+              for (i = 0; i < indexEvent.length; i++) {
+                refreshIndexEvent.push(i)
+              }                  
             }
             else {
               map.addControl(option["legend"][eventLayer.name]);
-              //removeMarkers();
+              refreshIndexEvent = [];
             }
-            /*for (var k = 0; k < iconMarkersLength; k++) {
-              controlLayers.addOverlay(overlayGroups[k], iconMarkers[k].title);
-            }*/
+            refreshMarkers(refreshIndexEvent);
           });
           map.on('overlayadd', function(eventLayer) {
             console.log('adding : ' + eventLayer.name)
-            for (var k = 0; k < overlays.length; k++) {
-              if (overlays[k].title == eventLayer.name) {
-                overlays[k].isVisible = true;
-                refreshMarkers();
+            if (baselayerName == 'sans filtre') {
+              for (var k = 0; k < overlays.length; k++) {
+                if (overlays[k].title == eventLayer.name) {
+                  overlays[k].isVisible = true;
+                };
               };
+              refreshMarkers(refreshIndexEvent);
             };
           });
           map.on('overlayremove', function(eventLayer) {
-            console.log('removing : '+ eventLayer.name)
-            for (var k = 0; k < overlays.length; k++) {
-              if (overlays[k].title == eventLayer.name) {
-                overlays[k].isVisible = false;
-                refreshMarkers();
+            console.log('removing : ' + eventLayer.name)
+            if (baselayerName == 'sans filtre') {
+              for (var k = 0; k < overlays.length; k++) {
+                if (overlays[k].title == eventLayer.name) {
+                  overlays[k].isVisible = false;
+                };
               };
+              refreshMarkers(refreshIndexEvent);
             };
           });
         }       
@@ -1066,20 +1063,28 @@
         }
         
         refreshMarkers();
-        function refreshMarkers() {
+        function refreshMarkers(refreshIndexEvent) {
           for (var i = 0; i < indexEvent.length; i++) {
             markers.removeLayer(indexEvent[i].marker);
+          }
+          if (typeof refreshIndexEvent === 'undefined') {
+            refreshIndexEvent = [];
+            for (i = 0; i < indexEvent.length; i++) {
+              refreshIndexEvent.push(i)
+            }
+          }
+          for (var i = 0; i < refreshIndexEvent.length; i++) {
             var isInMarkers = false;
             for (var k = 0; k < overlays.length; k++) {
-              if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[i])) {
+              if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
                 isInMarkers = true;
               }
             }
             if (isInMarkers) {
-              markers.addLayer(indexEvent[i].marker);
+              markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
             }
             else {
-              markers.removeLayer(indexEvent[i].marker);
+              markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
             }
           }
           //markers.refreshClusters();
@@ -1271,17 +1276,6 @@
                     var areaNum = getNumItems();
                     var areaEnterCode, areaBindPopup;
 
-                    function addAreaMarkers() {
-                      //removeAreaMarkers()
-                      for (i = 0; i < inMarkers.length; i++) {
-                        for (k = 0; k < overlays.length; k++) {
-                          if (overlays[k].isInGroup(indexEvent[inMarkers[i]])) {
-                            //overlays[k].group.addLayer(indexEvent[inMarkers[i]].marker);
-                          }
-                        }
-                      }
-                      outMarkers = inMarkers;
-                    }
                     // Create an element to hold all your text and markup
                     var container = $('<div />');
 
@@ -1295,7 +1289,7 @@
                     });
 
                     // Insert whatever you want into the container, using whichever approach you prefer
-                    container.html(dataPopUp);
+                    //container.html(dataPopUp);
                     var areaDataPopUp = container[0];
 
                     var fillColor = thisColor(areaNum);
@@ -1319,6 +1313,66 @@
                         //mouseover: enterLayer,
                         //mouseout: leaveLayer,
                       });
+                    }
+
+                    map.on('overlayadd', function(eventLayer) {
+                      addingOverlay(eventLayer);
+                    });
+                    map.on('overlayremove', function(eventLayer) {
+                      removingOverlay(eventLayer);
+                    });
+ 
+                    function addingOverlay(eventLayer) {
+                      console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                      for (var k = 0; k < overlays.length; k++) {
+                        if (overlays[k].title == eventLayer.name) {
+                          overlays[k].isVisible = true;
+                        };
+                      };
+                      areaNum = getAreaNum(inMarkers);
+                      fillColor = thisColor(areaNum);
+                      layer.setStyle({
+                        fillColor: fillColor,
+                      });
+                      container.html(dataPopUp);
+                      if( layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                    }
+
+                    function removingOverlay(eventLayer) {
+                      console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
+                      for (var k = 0; k < overlays.length; k++) {
+                        if (overlays[k].title == eventLayer.name) {
+                          overlays[k].isVisible = false;
+                        };
+                      };
+                      areaNum = getAreaNum(inMarkers);
+                      fillColor = thisColor(areaNum);
+                      layer.setStyle({
+                        fillColor: fillColor,
+                      });
+                      container.html(dataPopUp);
+                      if( layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                    }
+                    function getAreaNum(refreshIndexEvent) {
+                      var getAreaNumReturn = 0;
+                      if (typeof refreshIndexEvent === 'undefined') {
+                        refreshIndexEvent = [];
+                        for (i = 0; i < indexEvent.length; i++) {
+                          refreshIndexEvent.push(i)
+                        }
+                      }
+                      for (var i = 0; i < refreshIndexEvent.length; i++) {
+                        var isInMarkers = false;
+                        for (var k = 0; k < overlays.length; k++) {
+                          if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                            isInMarkers = true;
+                          }
+                        }
+                        if (isInMarkers) {
+                          getAreaNumReturn++;
+                        }
+                      }
+                      return getAreaNumReturn;
                     }
 
                     function dataPopUp() {
@@ -1436,20 +1490,21 @@
                       this.getPopup().on('remove', function() {});*/
                     }
 
-                    function enterLayer() {
-                    }
+                    //function enterLayer() {}
 
                     function clickLayer() {
                       if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
                       if (enterPopup != areaName) {
+                        // Insert whatever you want into the container, using whichever approach you prefer
                         this.bindPopup(areaDataPopUp).openPopup();
                         var areaPopup = this.getPopup();
                         areaPopup.setLatLng(areaBounds.getCenter());
                         return;
                       }
                       map.closePopup();
-                      addAreaMarkers()
-                      layer.setStyle({
+                      refreshIndexEvent = inMarkers;
+                      refreshMarkers(refreshIndexEvent);
+                       layer.setStyle({
                         fillOpacity: 0
                       });
                       areaBindPopup = this['unbindPopup'];
@@ -1466,16 +1521,12 @@
                         _this.setStyle({
                           fillOpacity: 1
                         });
-                        removeAreaMarkers()
+                        //removeAreaMarkers();
+                        refreshMarkers([]);
                       }
                     }
 
-                    /*function leaveLayer() {
-                      this.bringToBack();
-                      this.setStyle({
-                        fillOpacity: 1
-                      });
-                    }*/
+                    //function leaveLayer() {);
                   }
 
                   //option["baseMaps"]["filtre depts"] = L.layerGroup([clusterLayer['sans filtre'], clusterLayer['topoLayer']]);

@@ -234,7 +234,18 @@
     }
     return options.markers.icons;
   }
-  
+  var controlOverlays = {};
+  for (var i = 0; i < options.controlOverlays.length; i++) {
+    controlOverlays[options.controlOverlays[i].title] = new L.layerGroup();
+  }
+  var overlays = []; 
+  for (var i = 0; i < options.controlOverlays.length; i++) {
+    overlays.push({
+    isInGroup: options.controlOverlays[i].isInGroup,
+    title: options.controlOverlays[i].title,
+    isVisible: true,
+    });
+  }
   var storedData = '';
   if ($('#dataStore').length == 1) {
     storedData = $('#dataStore').html();
@@ -529,12 +540,17 @@
       var popupStruc = makePopupProperties(indexEvent[0]);
       var iconMarkers = iconMarkersBuilder(indexEvent);
       var iconMarkersLength = iconMarkers.length;
+      //var map, onSetDefaultMapView, controlLayers;
       var map, onSetDefaultMapView;
 
       var outMarkers = [];
       function removeAreaMarkers() {
         for (i = 0; i < outMarkers.length; i++) {
-          markers.removeLayer(indexEvent[outMarkers[i]].marker);
+          for (k = 0; k < overlays.length; k++) {
+            if (overlays[k].isInGroup(indexEvent[outMarkers[i]])) {
+              //overlays[k].group.removeLayer(indexEvent[outMarkers[i]].marker);
+            }
+          }
         }
       }
       function setDefaultMapView() {
@@ -604,6 +620,7 @@
         indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
         //markers.addLayer(indexEvent[i].marker);
       }
+
       map = initMap('infoMap', indexEvent);
       markers.addTo(map);
       endMarkerBuild(indexEvent);
@@ -907,7 +924,7 @@
 
         setDefaultMapView();
 
-        // Constructeur du fond de carte pour LeafLet
+       // Constructeur du fond de carte pour LeafLet
         var baseMaps = {}
         var legendMaps = {}
         loadMapPicture({
@@ -949,20 +966,49 @@
           });
         }        
         function builRegsCallback(option) {
-          L.control.layers(option["baseMaps"], null).addTo(option["map"]);
+          L.control.layers(option["baseMaps"], controlOverlays).addTo(option["map"]);
+          //L.control.layers(option["baseMaps"], controlOverlays);
+  for (var i = 0; i < overlays.length; i++) {
+    controlOverlays[overlays[i].title].addTo(map);
+  }
           map.on('baselayerchange', function(eventLayer) {
+            /*for (var k = 0; k < iconMarkersLength; k++) {
+              controlLayers.removeLayer(overlayGroups[k]);
+            }*/
+            //removeMarkers();
             map.removeControl(legendAllMarkers);
             map.removeControl(option["legend"]["filtre depts"]);
             map.removeControl(option["legend"]["filtre regs"]);
             setDefaultMapView();
             if (eventLayer.name == 'sans filtre') {
               map.addControl(legendAllMarkers);
-              addMarkers();
+              //addMarkers();
             }
             else {
               map.addControl(option["legend"][eventLayer.name]);
-              removeMarkers();
+              //removeMarkers();
             }
+            /*for (var k = 0; k < iconMarkersLength; k++) {
+              controlLayers.addOverlay(overlayGroups[k], iconMarkers[k].title);
+            }*/
+          });
+          map.on('overlayadd', function(eventLayer) {
+            console.log('adding : ' + eventLayer.name)
+            for (var k = 0; k < overlays.length; k++) {
+              if (overlays[k].title == eventLayer.name) {
+                overlays[k].isVisible = true;
+                refreshMarkers();
+              };
+            };
+          });
+          map.on('overlayremove', function(eventLayer) {
+            console.log('removing : '+ eventLayer.name)
+            for (var k = 0; k < overlays.length; k++) {
+              if (overlays[k].title == eventLayer.name) {
+                overlays[k].isVisible = false;
+                refreshMarkers();
+              };
+            };
           });
         }       
 
@@ -1019,16 +1065,24 @@
           bannerCoord.addTo(map);
         }
         
-        addMarkers();
-        function addMarkers() {
-          for (i = 0; i < indexEvent.length; i++) {
-            markers.addLayer(indexEvent[i].marker);
-          }
-        }
-        function removeMarkers() {
-          for (i = 0; i < indexEvent.length; i++) {
+        refreshMarkers();
+        function refreshMarkers() {
+          for (var i = 0; i < indexEvent.length; i++) {
             markers.removeLayer(indexEvent[i].marker);
+            var isInMarkers = false;
+            for (var k = 0; k < overlays.length; k++) {
+              if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[i])) {
+                isInMarkers = true;
+              }
+            }
+            if (isInMarkers) {
+              markers.addLayer(indexEvent[i].marker);
+            }
+            else {
+              markers.removeLayer(indexEvent[i].marker);
+            }
           }
+          //markers.refreshClusters();
         }
         
         function loadMapPicture(option) {
@@ -1220,7 +1274,11 @@
                     function addAreaMarkers() {
                       //removeAreaMarkers()
                       for (i = 0; i < inMarkers.length; i++) {
-                        markers.addLayer(indexEvent[inMarkers[i]].marker);
+                        for (k = 0; k < overlays.length; k++) {
+                          if (overlays[k].isInGroup(indexEvent[inMarkers[i]])) {
+                            //overlays[k].group.addLayer(indexEvent[inMarkers[i]].marker);
+                          }
+                        }
                       }
                       outMarkers = inMarkers;
                     }
@@ -1650,6 +1708,31 @@
   options = {
     //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
     storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+    controlOverlays: [{
+        title: 'Établissements avec suppressions',
+        isInGroup: data => {
+          if (data['SUPPRESSIONS'] != '') {
+            return true;
+          } else return false;
+        }
+      },
+      {
+        title: 'Établissements avec menaces',
+        isInGroup: data => {
+          if (data['MENACES'] != '') {
+            return true;
+          } else return false;
+        }
+      },
+      {
+        title: 'Autres',
+        isInGroup: data => {
+          if (data['SUPPRESSIONS'] == '' && data['MENACES'] == '') {
+            return true;
+          } else return false;
+        }
+      },
+    ],
     markers: {
     affect: data => {
       if (data['SUPPRESSIONS'] !== '' && data['MENACES'] !== '') {
@@ -1705,7 +1788,8 @@
           shadowSize: [20, 20]
         }),
       title: 'Autres'
-    }]},
+    }]
+    },
   };  
   $('#Fermetures').mapAllBlogs(options);
 
@@ -1842,7 +1926,7 @@ div.dataTables_wrapper .table-striped select {
 }
 #infoMap {
     width: 100%;
-    height: 700px;
+    height: 750px;
     //max-height: 70vh;
     overflow: hidden;
 }

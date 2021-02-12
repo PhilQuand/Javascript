@@ -234,7 +234,26 @@
     }
     return options.markers.icons;
   }
-  
+  if (typeof options.controlOverlays == 'undefined') {
+    options.controlOverlays = [{
+      title: 'Autres',
+      isInGroup: data => {
+        return true;
+      }
+    }]
+  }
+  var controlOverlays = {};
+  for (var i = 0; i < options.controlOverlays.length; i++) {
+    controlOverlays[options.controlOverlays[i].title] = new L.layerGroup();
+  }
+  var overlays = [];
+  for (var i = 0; i < options.controlOverlays.length; i++) {
+    overlays.push({
+      isInGroup: options.controlOverlays[i].isInGroup,
+      title: options.controlOverlays[i].title,
+      isVisible: true,
+    });
+  };
   var storedData = '';
   if ($('#dataStore').length == 1) {
     storedData = $('#dataStore').html();
@@ -529,14 +548,14 @@
       var popupStruc = makePopupProperties(indexEvent[0]);
       var iconMarkers = iconMarkersBuilder(indexEvent);
       var iconMarkersLength = iconMarkers.length;
-      var map, onSetDefaultMapView;
+      //var map, onSetDefaultMapView, controlLayers;
+      var map, onSetDefaultMapView, refreshIndexEvent;
 
-      var outMarkers = [];
-      function removeAreaMarkers() {
-        for (i = 0; i < outMarkers.length; i++) {
-          markers.removeLayer(indexEvent[outMarkers[i]].marker);
+      /*function removeAreaMarkers() {
+        for (var i = 0; i < indexEvent.length; i++) {
+          markers.removeLayer(indexEvent[i].marker);
         }
-      }
+      }*/          
       function setDefaultMapView() {
         map.fitBounds([
           [51.10, 2.47],
@@ -604,6 +623,7 @@
         indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
         //markers.addLayer(indexEvent[i].marker);
       }
+
       map = initMap('infoMap', indexEvent);
       markers.addTo(map);
       endMarkerBuild(indexEvent);
@@ -907,7 +927,7 @@
 
         setDefaultMapView();
 
-        // Constructeur du fond de carte pour LeafLet
+       // Constructeur du fond de carte pour LeafLet
         var baseMaps = {}
         var legendMaps = {}
         loadMapPicture({
@@ -949,20 +969,56 @@
           });
         }        
         function builRegsCallback(option) {
-          L.control.layers(option["baseMaps"], null).addTo(option["map"]);
+          var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], controlOverlays).addTo(option["map"]);
+          for (var i = 0; i < overlays.length; i++) {
+            controlOverlays[overlays[i].title].addTo(map);
+          }
+          if (overlays.length == 1) {
+            var controlBasemapsAndOverlaysHTML = controlBasemapsAndOverlays.getContainer();
+            controlBasemapsAndOverlaysHTML.getElementsByClassName("leaflet-control-layers-separator")[0].style.display = "none";
+            controlBasemapsAndOverlaysHTML.getElementsByClassName("leaflet-control-layers-overlays")[0].style.display = "none";
+          };          
+          var baselayerName = 'sans filtre';
           map.on('baselayerchange', function(eventLayer) {
+            baselayerName = eventLayer.name;
             map.removeControl(legendAllMarkers);
             map.removeControl(option["legend"]["filtre depts"]);
             map.removeControl(option["legend"]["filtre regs"]);
             setDefaultMapView();
-            if (eventLayer.name == 'sans filtre') {
+            if (baselayerName == 'sans filtre') {
               map.addControl(legendAllMarkers);
-              addMarkers();
+              refreshIndexEvent = [];
+              for (i = 0; i < indexEvent.length; i++) {
+                refreshIndexEvent.push(i)
+              }                  
             }
             else {
               map.addControl(option["legend"][eventLayer.name]);
-              removeMarkers();
+              refreshIndexEvent = [];
             }
+            refreshMarkers(refreshIndexEvent);
+          });
+          map.on('overlayadd', function(eventLayer) {
+            console.log('adding : ' + eventLayer.name)
+            if (baselayerName == 'sans filtre') {
+              for (var k = 0; k < overlays.length; k++) {
+                if (overlays[k].title == eventLayer.name) {
+                  overlays[k].isVisible = true;
+                };
+              };
+              refreshMarkers(refreshIndexEvent);
+            };
+          });
+          map.on('overlayremove', function(eventLayer) {
+            console.log('removing : ' + eventLayer.name)
+            if (baselayerName == 'sans filtre') {
+              for (var k = 0; k < overlays.length; k++) {
+                if (overlays[k].title == eventLayer.name) {
+                  overlays[k].isVisible = false;
+                };
+              };
+              refreshMarkers(refreshIndexEvent);
+            };
           });
         }       
 
@@ -1019,16 +1075,32 @@
           bannerCoord.addTo(map);
         }
         
-        addMarkers();
-        function addMarkers() {
-          for (i = 0; i < indexEvent.length; i++) {
-            markers.addLayer(indexEvent[i].marker);
-          }
-        }
-        function removeMarkers() {
-          for (i = 0; i < indexEvent.length; i++) {
+        refreshMarkers();
+        function refreshMarkers(refreshIndexEvent) {
+          for (var i = 0; i < indexEvent.length; i++) {
             markers.removeLayer(indexEvent[i].marker);
           }
+          if (typeof refreshIndexEvent === 'undefined') {
+            refreshIndexEvent = [];
+            for (i = 0; i < indexEvent.length; i++) {
+              refreshIndexEvent.push(i)
+            }
+          }
+          for (var i = 0; i < refreshIndexEvent.length; i++) {
+            var isInMarkers = false;
+            for (var k = 0; k < overlays.length; k++) {
+              if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                isInMarkers = true;
+              }
+            }
+            if (isInMarkers) {
+              markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
+            }
+            else {
+              markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
+            }
+          }
+          //markers.refreshClusters();
         }
         
         function loadMapPicture(option) {
@@ -1217,13 +1289,6 @@
                     var areaNum = getNumItems();
                     var areaEnterCode, areaBindPopup;
 
-                    function addAreaMarkers() {
-                      //removeAreaMarkers()
-                      for (i = 0; i < inMarkers.length; i++) {
-                        markers.addLayer(indexEvent[inMarkers[i]].marker);
-                      }
-                      outMarkers = inMarkers;
-                    }
                     // Create an element to hold all your text and markup
                     var container = $('<div />');
 
@@ -1237,7 +1302,7 @@
                     });
 
                     // Insert whatever you want into the container, using whichever approach you prefer
-                    container.html(dataPopUp);
+                    //container.html(dataPopUp);
                     var areaDataPopUp = container[0];
 
                     var fillColor = thisColor(areaNum);
@@ -1261,6 +1326,66 @@
                         //mouseover: enterLayer,
                         //mouseout: leaveLayer,
                       });
+                    }
+
+                    map.on('overlayadd', function(eventLayer) {
+                      addingOverlay(eventLayer);
+                    });
+                    map.on('overlayremove', function(eventLayer) {
+                      removingOverlay(eventLayer);
+                    });
+ 
+                    function addingOverlay(eventLayer) {
+                      console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                      for (var k = 0; k < overlays.length; k++) {
+                        if (overlays[k].title == eventLayer.name) {
+                          overlays[k].isVisible = true;
+                        };
+                      };
+                      areaNum = getAreaNum(inMarkers);
+                      fillColor = thisColor(areaNum);
+                      layer.setStyle({
+                        fillColor: fillColor,
+                      });
+                      container.html(dataPopUp);
+                      if( layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                    }
+
+                    function removingOverlay(eventLayer) {
+                      console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
+                      for (var k = 0; k < overlays.length; k++) {
+                        if (overlays[k].title == eventLayer.name) {
+                          overlays[k].isVisible = false;
+                        };
+                      };
+                      areaNum = getAreaNum(inMarkers);
+                      fillColor = thisColor(areaNum);
+                      layer.setStyle({
+                        fillColor: fillColor,
+                      });
+                      container.html(dataPopUp);
+                      if( layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                    }
+                    function getAreaNum(refreshIndexEvent) {
+                      var getAreaNumReturn = 0;
+                      if (typeof refreshIndexEvent === 'undefined') {
+                        refreshIndexEvent = [];
+                        for (i = 0; i < indexEvent.length; i++) {
+                          refreshIndexEvent.push(i)
+                        }
+                      }
+                      for (var i = 0; i < refreshIndexEvent.length; i++) {
+                        var isInMarkers = false;
+                        for (var k = 0; k < overlays.length; k++) {
+                          if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                            isInMarkers = true;
+                          }
+                        }
+                        if (isInMarkers) {
+                          getAreaNumReturn++;
+                        }
+                      }
+                      return getAreaNumReturn;
                     }
 
                     function dataPopUp() {
@@ -1378,20 +1503,21 @@
                       this.getPopup().on('remove', function() {});*/
                     }
 
-                    function enterLayer() {
-                    }
+                    //function enterLayer() {}
 
                     function clickLayer() {
                       if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
                       if (enterPopup != areaName) {
+                        // Insert whatever you want into the container, using whichever approach you prefer
                         this.bindPopup(areaDataPopUp).openPopup();
                         var areaPopup = this.getPopup();
                         areaPopup.setLatLng(areaBounds.getCenter());
                         return;
                       }
                       map.closePopup();
-                      addAreaMarkers()
-                      layer.setStyle({
+                      refreshIndexEvent = inMarkers;
+                      refreshMarkers(refreshIndexEvent);
+                       layer.setStyle({
                         fillOpacity: 0
                       });
                       areaBindPopup = this['unbindPopup'];
@@ -1408,16 +1534,12 @@
                         _this.setStyle({
                           fillOpacity: 1
                         });
-                        removeAreaMarkers()
+                        //removeAreaMarkers();
+                        refreshMarkers([]);
                       }
                     }
 
-                    /*function leaveLayer() {
-                      this.bringToBack();
-                      this.setStyle({
-                        fillOpacity: 1
-                      });
-                    }*/
+                    //function leaveLayer() {);
                   }
 
                   //option["baseMaps"]["filtre depts"] = L.layerGroup([clusterLayer['sans filtre'], clusterLayer['topoLayer']]);
@@ -1650,19 +1772,38 @@
   options = {
     //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
     storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+    controlOverlays: [{
+        title: 'Établissements avec suppressions',
+        isInGroup: data => {
+          if (data['SUPPRESSIONS'] != '') {
+            return true;
+          } else return false;
+        }
+      },
+      {
+        title: 'Établissements avec menaces',
+        isInGroup: data => {
+          if (data['MENACES'] != '') {
+            return true;
+          } else return false;
+        }
+      },
+      {
+        title: 'Autres',
+        isInGroup: data => {
+          if (data['SUPPRESSIONS'] == '' && data['MENACES'] == '') {
+            return true;
+          } else return false;
+        }
+      },
+    ],
     markers: {
     affect: data => {
-      if (data['SUPPRESSIONS'] !== '' && data['MENACES'] !== '') {
-        return 2;
-      }
-      else if (data['SUPPRESSIONS'] !== '') {
+      if (data['SUPPRESSIONS'] !== '' || data['MENACES'] !== '') {
         return 0;
       }
-      else if (data['MENACES'] !== '') {
-        return 1;
-      }
       else {
-        return 3;
+        return 1;
       }
     },
     icons :[{
@@ -1674,27 +1815,7 @@
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         }),
-      title: 'Établissements avec suppressions',
-    }, {
-      icon: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-orange.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        }),
-      title: 'Établissements avec menaces',
-    }, {
-      icon: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-black.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        }),
-      title: 'Établissements avec suppressions et menaces',
+      title: 'Établissements avec suppressions ou menaces',
     }, {
       icon: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
@@ -1705,7 +1826,8 @@
           shadowSize: [20, 20]
         }),
       title: 'Autres'
-    }]},
+    }]
+    },
   };  
   $('#Fermetures').mapAllBlogs(options);
 

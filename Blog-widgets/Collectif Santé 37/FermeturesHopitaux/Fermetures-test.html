@@ -1786,17 +1786,11 @@
     ],
     markers: {
     affect: data => {
-      if (data['SUPPRESSIONS'] !== '' && data['MENACES'] !== '') {
-        return 2;
-      }
-      else if (data['SUPPRESSIONS'] !== '') {
+      if (data['SUPPRESSIONS'] !== '' || data['MENACES'] !== '') {
         return 0;
       }
-      else if (data['MENACES'] !== '') {
-        return 1;
-      }
       else {
-        return 3;
+        return 1;
       }
     },
     icons :[{
@@ -1808,27 +1802,7 @@
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         }),
-      title: 'Établissements avec suppressions',
-    }, {
-      icon: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-orange.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        }),
-      title: 'Établissements avec menaces',
-    }, {
-      icon: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-black.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        }),
-      title: 'Établissements avec suppressions et menaces',
+      title: 'Établissements avec suppressions ou menaces',
     }, {
       icon: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',

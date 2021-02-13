@@ -245,15 +245,16 @@
       }
     }]
   }
-  if(typeof options.controlOverlays.title !== 'undefined') var overlayTitle = options.controlOverlays.title;
-  else var overlayTitle = '';
-  var controlOverlays = {};
+  var objectOverlays = {};
+  if(typeof options.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlOverlays.title;
+  else objectOverlays["overlayTitle"] = '';
+  objectOverlays["controlOverlays"] = {};
   for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
-    controlOverlays[options.controlOverlays.overlays[i].title] = new L.layerGroup();
+    objectOverlays["controlOverlays"][options.controlOverlays.overlays[i].title] = new L.layerGroup();
   }
-  var overlays = [];
+  objectOverlays["overlays"] = [];
   for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
-    overlays.push({
+    objectOverlays["overlays"].push({
       isInGroup: options.controlOverlays.overlays[i].isInGroup,
       title: options.controlOverlays.overlays[i].title,
       isVisible: true,
@@ -945,19 +946,19 @@
           });
         }        
         function builRegsCallback(option) {
-          var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], controlOverlays).addTo(option["map"]);
-          for (var i = 0; i < overlays.length; i++) {
-            controlOverlays[overlays[i].title].addTo(map);
+          var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
+          for (var i = 0; i < objectOverlays["overlays"].length; i++) {
+            objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
           }
           
           var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
           var  controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();           
           controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
           var  controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
-          if(overlayTitle != '') {
-            controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + overlayTitle + '</div>')
+          if(objectOverlays["overlayTitle"] != '') {
+            controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + objectOverlays["overlayTitle"] + '</div>')
           };
-          if (overlays.length == 1) {
+          if (objectOverlays["overlays"].length == 1) {
             controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-separator").css("display","none");
             controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display","none");
           };          
@@ -988,9 +989,9 @@
           map.on('overlayadd', function(eventLayer) {
             console.log('adding : ' + eventLayer.name)
             if (baselayerName == 'par défaut') {
-              for (var k = 0; k < overlays.length; k++) {
-                if (overlays[k].title == eventLayer.name) {
-                  overlays[k].isVisible = true;
+              for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                  objectOverlays["overlays"][k].isVisible = true;
                 };
               };
               var iconNum = refreshMarkers(refreshIndexEvent);
@@ -1002,9 +1003,9 @@
           map.on('overlayremove', function(eventLayer) {
             console.log('removing : ' + eventLayer.name)
             if (baselayerName == 'par défaut') {
-              for (var k = 0; k < overlays.length; k++) {
-                if (overlays[k].title == eventLayer.name) {
-                  overlays[k].isVisible = false;
+              for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                  objectOverlays["overlays"][k].isVisible = false;
                 };
               };
               var iconNum = refreshMarkers(refreshIndexEvent);
@@ -1098,8 +1099,8 @@
           var iconNum = [];
           for (var i = 0; i < refreshIndexEvent.length; i++) {
             iconNum.push(false);
-            for (var k = 0; k < overlays.length; k++) {
-              if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+            for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+              if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
                 iconNum[i] = true;
               }
             }
@@ -1347,9 +1348,9 @@
  
                     function addingOverlay(eventLayer) {
                       console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
-                      for (var k = 0; k < overlays.length; k++) {
-                        if (overlays[k].title == eventLayer.name) {
-                          overlays[k].isVisible = true;
+                      for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                        if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                          objectOverlays["overlays"][k].isVisible = true;
                         };
                       };
                       areaNum = getAreaNum(inMarkers);
@@ -1363,9 +1364,9 @@
 
                     function removingOverlay(eventLayer) {
                       console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
-                      for (var k = 0; k < overlays.length; k++) {
-                        if (overlays[k].title == eventLayer.name) {
-                          overlays[k].isVisible = false;
+                      for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                        if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                          objectOverlays["overlays"][k].isVisible = false;
                         };
                       };
                       areaNum = getAreaNum(inMarkers);
@@ -1386,8 +1387,8 @@
                       }
                       for (var i = 0; i < refreshIndexEvent.length; i++) {
                         var isInMarkers = false;
-                        for (var k = 0; k < overlays.length; k++) {
-                          if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                          if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
                             isInMarkers = true;
                           }
                         }

@@ -230,11 +230,11 @@
   
   var iconMarkersBuilder = data => {
     for (var i = 0; i < data.length; i++) {
-      data[i].iconMarker = options['markers']['affect'](data[i]);
+      data[i].iconMarker = options['legend']['affect'](data[i]);
     }
-    return options.markers.icons;
+    return options.legend.icons;
   }
-  if(typeof options['markers'].legendTitle !== 'undefined') var legendTitle = options['markers'].legendTitle;
+  if(typeof options['legend'].title !== 'undefined') var legendTitle = options['legend'].title;
   else var legendTitle = '';
   
   if (typeof options.controlOverlays == 'undefined') {
@@ -245,15 +245,17 @@
       }
     }]
   }
+  if(typeof options.controlOverlays.title !== 'undefined') var overlayTitle = options.controlOverlays.title;
+  else var overlayTitle = '';
   var controlOverlays = {};
-  for (var i = 0; i < options.controlOverlays.length; i++) {
-    controlOverlays[options.controlOverlays[i].title] = new L.layerGroup();
+  for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
+    controlOverlays[options.controlOverlays.overlays[i].title] = new L.layerGroup();
   }
   var overlays = [];
-  for (var i = 0; i < options.controlOverlays.length; i++) {
+  for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
     overlays.push({
-      isInGroup: options.controlOverlays[i].isInGroup,
-      title: options.controlOverlays[i].title,
+      isInGroup: options.controlOverlays.overlays[i].isInGroup,
+      title: options.controlOverlays.overlays[i].title,
       isVisible: true,
     });
   };
@@ -920,9 +922,9 @@
           }
         );        
         function openstreetCallback(option) {
-          option["baseMaps"]['sans filtre'].addTo(option["map"]);
-          option["baseMaps"]['sans filtre'] = L.tileLayer('')
-          option["baseMaps"]['sans filtre'].addTo(option["map"]);
+          option["baseMaps"]['par défaut'].addTo(option["map"]);
+          option["baseMaps"]['par défaut'] = L.tileLayer('')
+          option["baseMaps"]['par défaut'].addTo(option["map"]);
           loadMapPicture({
             typMap: "builDepts",
             baseMaps: baseMaps,
@@ -947,25 +949,36 @@
           for (var i = 0; i < overlays.length; i++) {
             controlOverlays[overlays[i].title].addTo(map);
           }
+          
+          var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
+          var  controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();           
+          controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
+          var  controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
+          if(overlayTitle != '') {
+            controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + overlayTitle + '</div>')
+          };
           if (overlays.length == 1) {
-            var controlBasemapsAndOverlaysHTML = controlBasemapsAndOverlays.getContainer();
-            controlBasemapsAndOverlaysHTML.getElementsByClassName("leaflet-control-layers-separator")[0].style.display = "none";
-            controlBasemapsAndOverlaysHTML.getElementsByClassName("leaflet-control-layers-overlays")[0].style.display = "none";
+            controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-separator").css("display","none");
+            controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display","none");
           };          
-          var baselayerName = 'sans filtre';
+          var baselayerName = 'par défaut';
           map.on('baselayerchange', function(eventLayer) {
             baselayerName = eventLayer.name;
             map.removeControl(legendAllMarkers);
-            map.removeControl(option["legend"]["filtre depts"]);
-            map.removeControl(option["legend"]["filtre regs"]);
+            map.removeControl(option["legend"]["départements"]);
+            map.removeControl(option["legend"]["régions"]);
             setDefaultMapView();
-            if (baselayerName == 'sans filtre') {
-              map.addControl(legendAllMarkers);
+            if (baselayerName == 'par défaut') {
+              //map.addControl(legendAllMarkers);
               refreshIndexEvent = [];
               for (i = 0; i < indexEvent.length; i++) {
                 refreshIndexEvent.push(i)
               }                  
-            }
+              var iconNum = refreshMarkers(refreshIndexEvent);
+              //map.removeControl(legendAllMarkers);
+              legendAllMarkers = addLegend(iconNum)
+              map.addControl(legendAllMarkers);
+           }
             else {
               map.addControl(option["legend"][eventLayer.name]);
               refreshIndexEvent = [];
@@ -974,7 +987,7 @@
           });
           map.on('overlayadd', function(eventLayer) {
             console.log('adding : ' + eventLayer.name)
-            if (baselayerName == 'sans filtre') {
+            if (baselayerName == 'par défaut') {
               for (var k = 0; k < overlays.length; k++) {
                 if (overlays[k].title == eventLayer.name) {
                   overlays[k].isVisible = true;
@@ -988,7 +1001,7 @@
           });
           map.on('overlayremove', function(eventLayer) {
             console.log('removing : ' + eventLayer.name)
-            if (baselayerName == 'sans filtre') {
+            if (baselayerName == 'par défaut') {
               for (var k = 0; k < overlays.length; k++) {
                 if (overlays[k].title == eventLayer.name) {
                   overlays[k].isVisible = false;
@@ -1000,6 +1013,13 @@
               map.addControl(legendAllMarkers);
             };
           });
+
+          function updateLegend() {
+            var iconNum = refreshMarkers(refreshIndexEvent);
+            map.removeControl(legendAllMarkers);
+            legendAllMarkers = addLegend(iconNum)
+            map.addControl(legendAllMarkers);
+          }
         }       
 
         var legendAllMarkers = addLegend()
@@ -1114,11 +1134,11 @@
           function loadOpenstreet(option) {
             //var openstreetMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
             var openstreetMap = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
-            option["baseMaps"]['sans filtre'] = L.tileLayer(openstreetMap, {
+            option["baseMaps"]['par défaut'] = L.tileLayer(openstreetMap, {
               attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
             });
             if (typeof option["callback"] == 'undefined') {
-              if (typeof option["map"] !== 'undefined') option["baseMaps"]['sans filtre'].addTo(option["map"]);
+              if (typeof option["map"] !== 'undefined') option["baseMaps"]['par défaut'].addTo(option["map"]);
             }
             else option["callback"](option);
           };
@@ -1219,11 +1239,11 @@
 
                   var enterPopup = 0;
                   if (option["typMap"] == "builDepts") {
-                    var baseMapsName = "filtre depts";
+                    var baseMapsName = "départements";
                     addTopoData(deptsFranceData);
                   }
                   else {
-                    var baseMapsName = "filtre regs"
+                    var baseMapsName = "régions"
                     addTopoData(regsFranceData);
                   }
 
@@ -1532,14 +1552,13 @@
                     //function leaveLayer() {);
                   }
 
-                  //option["baseMaps"]["filtre depts"] = L.layerGroup([clusterLayer['sans filtre'], clusterLayer['topoLayer']]);
                   option["baseMaps"][baseMapsName] = topoLayer;
                   if (typeof option["callback"] == 'undefined') {
                     if (option["typMap"] == "builDepts") {
-                      if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre depts'].addTo(option["map"]);
+                      if (typeof option["map"] !== 'undefined') option["baseMaps"]['départements'].addTo(option["map"]);
                     }
                     else {
-                      if (typeof option["map"] !== 'undefined') option["baseMaps"]['filtre regs'].addTo(option["map"]);
+                      if (typeof option["map"] !== 'undefined') option["baseMaps"]['régions'].addTo(option["map"]);
                     }
                   }
                   else option["callback"](option);
@@ -1762,33 +1781,39 @@
   options = {
     //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
     storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-    controlOverlays: [{
-        title: 'Établissements avec suppressions',
-        isInGroup: data => {
-          if (data['SUPPRESSIONS'] != '') {
-            return true;
-          } else return false;
-        }
-      },
-      {
-        title: 'Établissements avec menaces',
-        isInGroup: data => {
-          if (data['MENACES'] != '') {
-            return true;
-          } else return false;
-        }
-      },
-      {
-        title: 'Autres',
-        isInGroup: data => {
-          if (data['SUPPRESSIONS'] == '' && data['MENACES'] == '') {
-            return true;
-          } else return false;
-        }
-      },
-    ],
-    markers: {
-    legendTitle : 'Établissements avec',
+    controlOverlays: {
+      title: 'Établissements avec',
+      overlays: [{
+          title: 'suppressions',
+          isInGroup: data => {
+            if (data['SUPPRESSIONS'] != '') {
+              return true;
+            }
+            else return false;
+          }
+        },
+        {
+          title: 'menaces',
+          isInGroup: data => {
+            if (data['MENACES'] != '') {
+              return true;
+            }
+            else return false;
+          }
+        },
+        {
+          title: 'autres',
+          isInGroup: data => {
+            if (data['SUPPRESSIONS'] == '' && data['MENACES'] == '') {
+              return true;
+            }
+            else return false;
+          }
+        },
+      ]
+    },
+    legend: {
+    title : 'Établissements avec',
     affect: data => {
       if (data['SUPPRESSIONS'] !== '' || data['MENACES'] !== '') {
         return 0;

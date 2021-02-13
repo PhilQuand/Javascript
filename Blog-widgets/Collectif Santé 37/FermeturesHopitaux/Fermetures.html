@@ -234,6 +234,9 @@
     }
     return options.markers.icons;
   }
+  if(typeof options['markers'].legendTitle !== 'undefined') var legendTitle = options['markers'].legendTitle;
+  else var legendTitle = '';
+  
   if (typeof options.controlOverlays == 'undefined') {
     options.controlOverlays = [{
       title: 'Autres',
@@ -572,35 +575,6 @@
       function setMapView() {
         return;
       }
-
-      /*function iconMarkersBuilder(popupStruc) {
-        var resBlueIcon = new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        });
-        var resRedIcon = new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-red.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        });
-        var iconMarkers = [{
-          //class: "rouge",
-          icon: resRedIcon,
-          title: 'les rouges'
-        }, {
-          //class: "bleu",
-          icon: resBlueIcon,
-          title: 'établissements'
-        }];
-        return iconMarkers;
-      };*/
 
       function dataPopUp(data, popupStruc) {
         var popupContent = $('<div></div>');
@@ -1006,7 +980,10 @@
                   overlays[k].isVisible = true;
                 };
               };
-              refreshMarkers(refreshIndexEvent);
+              var iconNum = refreshMarkers(refreshIndexEvent);
+              map.removeControl(legendAllMarkers);
+              legendAllMarkers = addLegend(iconNum)
+              map.addControl(legendAllMarkers);
             };
           });
           map.on('overlayremove', function(eventLayer) {
@@ -1017,20 +994,31 @@
                   overlays[k].isVisible = false;
                 };
               };
-              refreshMarkers(refreshIndexEvent);
+              var iconNum = refreshMarkers(refreshIndexEvent);
+              map.removeControl(legendAllMarkers);
+              legendAllMarkers = addLegend(iconNum)
+              map.addControl(legendAllMarkers);
             };
           });
         }       
 
         var legendAllMarkers = addLegend()
-        function addLegend() {
+        function addLegend(iconNum) {
+          if (typeof iconNum === 'undefined') {
+            iconNum = [];
+            for (i = 0; i < indexEvent.length; i++) {
+              iconNum.push(true)
+            }
+          }
           for (var k = 0; k < iconMarkersLength; k++) {
             iconMarkers[k].nbMapEvents = 0;
           }
           for (var i = 0; i < indexEvent.length; i++) {
-            for (var k = 0; k < iconMarkersLength; k++) {
-              if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
-                iconMarkers[k].nbMapEvents++;
+            if (iconNum[i]) {
+              for (var k = 0; k < iconMarkersLength; k++) {
+                if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
+                  iconMarkers[k].nbMapEvents++;
+                }
               }
             }
           }
@@ -1041,6 +1029,7 @@
           legendAllMarkers.onAdd = function(map) {
             var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
             divlegendAllMarkers.innerHTML = '';
+            if(legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + legendTitle + '</span>';
             for (var k = 0; k < iconMarkersLength; k++) {
               if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
                 if (typeof iconMarkers[k].icon === 'undefined') {
@@ -1086,21 +1075,22 @@
               refreshIndexEvent.push(i)
             }
           }
+          var iconNum = [];
           for (var i = 0; i < refreshIndexEvent.length; i++) {
-            var isInMarkers = false;
+            iconNum.push(false);
             for (var k = 0; k < overlays.length; k++) {
               if (overlays[k].isVisible && overlays[k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
-                isInMarkers = true;
+                iconNum[i] = true;
               }
             }
-            if (isInMarkers) {
+            if (iconNum[i]) {
               markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
             }
             else {
               markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
             }
           }
-          //markers.refreshClusters();
+          return iconNum;
         }
         
         function loadMapPicture(option) {
@@ -1798,6 +1788,7 @@
       },
     ],
     markers: {
+    legendTitle : 'Établissements avec',
     affect: data => {
       if (data['SUPPRESSIONS'] !== '' || data['MENACES'] !== '') {
         return 0;
@@ -1815,7 +1806,7 @@
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         }),
-      title: 'Établissements avec suppressions ou menaces',
+      title: 'suppressions ou menaces',
     }, {
       icon: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
@@ -1825,7 +1816,7 @@
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         }),
-      title: 'Autres'
+      title: 'autres'
     }]
     },
   };  

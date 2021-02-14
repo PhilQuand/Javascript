@@ -213,6 +213,75 @@
 };*/
 </style>
 <script>
+  var isOKString = data => {
+    if (jQuery.type(data) === 'string' && data != '') return true;
+    else return false;
+  }
+  
+  /*var readUrl = url => {
+
+    var para_str = '';
+
+    // Checking url is defined or not
+    if (url == undefined) {
+      /* url variable is not defined */
+      // get url parameters
+      url = location.search; // e.g. ?num1=43&num2=23
+      var parts = url.substring(1).split('&');
+      para_str = parts[0];
+
+    }
+    else {
+
+      /* url variable is defined */
+      var split_url = url.split('?');
+      para_str = split_url[1];
+      if (para_str != undefined) {
+        var parts = para_str.split('&');
+      }
+    }
+
+    // Check arguments are defined or not
+    if (para_str != undefined && para_str != '') {
+      var parameter_obj = {}; // Object
+
+      // looping through all arguments and store in Object
+      for (var i = 0; i < parts.length; i++) {
+        var split_val = parts[i].split('=');
+
+        // Check argument is available or not e.g. ?num1=43&
+        if (split_val[0] == undefined || split_val[0] == '')
+          continue;
+        var value = split_val[1];
+        // Check value is available or not e.g. ?num1=43&num2= or ?num1=43&num2
+        if (value == undefined) {
+          value = ""; // Assign space if value is not defined
+        }
+
+        parameter_obj[split_val[0]] = value;
+
+      }
+
+      // Print all arguments
+      for (var val in parameter_obj) {
+        $("ul").append("<li>" + val + ' = ' + parameter_obj[val] + "</li>");
+      }
+
+    }
+    else {
+      $("ul").append('<li>No arugment found</li>');
+    }
+
+  };*/
+  var readUrlParam = name => {
+    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
+    // example.com?someparam=name&otherparam=8&id=6
+    // readUrlParam('someparam'); // name
+    // readUrlParam('id');        // 6
+    // readUrlParam('notavar');   // null*/
+  };
+  
 (function($) {
   $.fn.mapAllBlogs = function(options) {
   var loading = $('<div id="loading"/>');
@@ -260,35 +329,86 @@
       isVisible: true,
     });
   };
-  var storedData = '';
-  if ($('#dataStore').length == 1) {
+  
+  if (typeof options.storedData !== 'undefined') {
+    if (!isValidUrl(options.storedData)) {
+      loading.html('storedData ne semble pas être une adresse correcte...');
+    }
+    else {
+      storedData = options.storedData
+      console.log('loading data from file' + storedData)
+      Promise.all([
+        // chargement des données au format Geojson
+        load.json(storedData),
+      ]).then(
+        values => {
+          var getJSONFromFile = data => {
+            return data;
+          }
+          //console.log('Everything has been loaded!');
+          storedData = loadVal(values, storedData);
+          storedData = getJSONFromFile(storedData);
+          if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
+          else {
+            var data = getDataFromJSON(storedData);
+            if (typeof data !== 'undefined') {
+              runData(data);
+            }
+          }
+        },
+        reason => {
+          //console.log(reason);
+          loading.html(options.storedData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
+        }
+      );
+    }
+  }
+  else if ($('#dataStore').length == 1) {
     storedData = $('#dataStore').html();
     storedData = JSON.parse(storedData);
     if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
     else runData(storedData)
   }
-  else if (isValidUrl(options.storedData) || !isValidUrl(options.storedData)) {
-    storedData = options.storedData
-    Promise.all([
-      // chargement des données au format Geojson
-      load.json(storedData),
-    ]).then(
-      values => {
-        var getDataFromJSON = data => {
-          return data;
-        }
-        console.log('Everything has been loaded!');
-        storedData = loadVal(values, storedData);
-        storedData = getDataFromJSON(storedData);        
-        if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
-        else runData(storedData);
-      },
-      reason => {
-        console.log(reason)
-      }
-    );
-  } else loadData();
+  else loadData();
+    
 
+  function getDataFromJSON(storedData) {
+    if (jQuery.isArray(storedData)) {
+      //fichier au format interne
+      console.log("fichier de données au format interne.")
+      return storedData
+    }
+    else {
+      try {
+        //fichier au format GeoJson
+        //throw "trying to read file as GeoJSON : erreur n°0";
+        if (storedData.type != "FeatureCollection") throw "trying to read file as GeoJSON : erreur n°1";
+        if (!jQuery.isArray(storedData.features)) throw "trying to read file as GeoJSON : erreur n°2";
+        var data = [];
+        var features = storedData.features;
+        for (var i = 0; i < features.length; i++) {
+          var newItem = {};
+          newItem["lng"] = features[i]["geometry"]["coordinates"][0];
+          newItem["lat"] = features[i]["geometry"]["coordinates"][1];
+          var properties = features[i]["properties"];
+          for (var prop in properties) {
+            newItem[prop] = properties[prop];
+          }
+          data.push(newItem);
+        }
+        console.log("fichier de données au format GeoJSON.")
+        return data;
+      }
+      catch (err) { //We can also throw from try block and catch it here
+        console.log(err);
+        loading.html(options.storedData + " :<br>n'est pas un fichier de données d'un format reconnu");
+      }
+      finally {
+        //code for finally block
+      }
+    }
+  };
+  
   function loadData() {
     var villesINSEE = 'https://philquand.github.io/Javascript/LeafLet/json/cities.json'
     Promise.all([
@@ -1778,34 +1898,27 @@
   $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources internes)').css('display', 'none');
   // fin spécial pour le site de la CN
 
-  //options = {storedData : 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json'};
   options = {
-    //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
-    storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+    storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
+    //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
     controlOverlays: {
       title: 'Établissements avec',
       overlays: [{
           title: 'suppressions',
           isInGroup: data => {
-            if (data['SUPPRESSIONS'] != '') {
-              return true;
-            }
-            else return false;
+            return isOKString(data['SUPPRESSION']);
           }
         },
         {
           title: 'menaces',
           isInGroup: data => {
-            if (data['MENACES'] != '') {
-              return true;
-            }
-            else return false;
+            return isOKString(data['MENACES']);
           }
         },
         {
           title: 'autres',
           isInGroup: data => {
-            if (data['SUPPRESSIONS'] == '' && data['MENACES'] == '') {
+            if (!isOKString(data['SUPPRESSIONS']) && !isOKString(data['MENACES'])) {
               return true;
             }
             else return false;
@@ -1814,17 +1927,17 @@
       ]
     },
     legend: {
-    title : 'Établissements avec',
-    affect: data => {
-      if (data['SUPPRESSIONS'] !== '' || data['MENACES'] !== '') {
-        return 0;
-      }
-      else {
-        return 1;
-      }
-    },
-    icons :[{
-      icon: new L.Icon({
+      title: 'Établissements avec',
+      affect: data => {
+        if (isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES'])) {
+          return 0;
+        }
+        else {
+          return 1;
+        }
+      },
+      icons: [{
+        icon: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
           iconSize: [13, 20],
@@ -1832,9 +1945,9 @@
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         }),
-      title: 'suppressions ou menaces',
-    }, {
-      icon: new L.Icon({
+        title: 'suppressions ou menaces',
+      }, {
+        icon: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
           iconSize: [13, 20],
@@ -1842,8 +1955,8 @@
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         }),
-      title: 'autres'
-    }]
+        title: 'autres'
+      }]
     },
   };  
   $('#Fermetures').mapAllBlogs(options);

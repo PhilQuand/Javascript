@@ -784,12 +784,12 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-4c9MRQiEeb8/Xka1VOFAoFI/AAAAAAAAk-c/j8BJiF1bV1wABPVcnicsgbs9ouZ2nKMVwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.png" /></a>');
   //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-hxTYiKnKI1A/XklzVPvsmJI/AAAAAAAAk_g/8vb0ElqOgdgLKvjT17apdQ9CP779ZtPlwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.jpg" /></a>');
   
-   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
-  $('.page_body').append('<a href="https://youtu.be/s45Lh2yf3Yg"><img class="img-foreground" src="https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg" /></a>');
+  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
+  //$('.page_body').append('<a href="https://youtu.be/s45Lh2yf3Yg"><img class="img-foreground" src="https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg" /></a>');
 
   //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
-  //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-g0dGBLohyHo/X-nvcIF8S4I/AAAAAAAAnww/l0b9VhWJCt4SWr1ICzfoxecMSfkG4nZCgCLcBGAsYHQ/s0/274dmwv4.gif" />');
+  $('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
 }
 </script>
 <script>

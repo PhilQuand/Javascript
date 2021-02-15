@@ -251,19 +251,19 @@ var readUrlParam = name => {
   // readUrlParam('notavar');   // null*/
 };
 (function($) {
-  $.fn.mapAllBlogs = function(options) {
+$.fn.mapAllBlogs = function(options) {
   var loading = $('<div id="loading"/>');
   loading.append('<p>Chargement ...</p>');
   $(this).append(loading);
-  
+
   var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div></div>');
   $(this).append(infoMapWrapper);
-  
-  var dataTable =$('<table id="table" class="table table-striped table-bordered" />');
+
+  var dataTable = $('<table id="table" class="table table-striped table-bordered" />');
   $(this).append(dataTable);
-  
+
   var popupStrucData, iconMarkersBuilder, legendTitle, objectOverlays;
-  
+
   var optionsData = readUrlParam('options');
   if (typeof optionsData !== 'undefined') {
     loadFromJSON(optionsData,
@@ -275,12 +275,12 @@ var readUrlParam = name => {
       }
     );
   }
-  else runMapandTable();
+  else runMapandTable(options);
 
-  function runMapandTable(optionsData) {
-  
+  function runMapandTable(options) {
+
     if (typeof options.popupData !== 'undefined') popupStrucData = options.popupData;
-    else  popupStrucData = {
+    else popupStrucData = {
       hidden: ["lat", "lng"]
     }
 
@@ -319,18 +319,18 @@ var readUrlParam = name => {
 
     if (typeof storedData !== 'undefined') {
       options.storedData = storedData;
-    }    
+    }
     if (typeof options.storedData !== 'undefined') {
-      loadFromJSON(options.storedData, 
-      (storedData) => {
-        var data = getDataFromJSON(storedData);
-        if (typeof data !== 'undefined') {
-          runData(data);
+      loadFromJSON(options.storedData,
+        (storedData) => {
+          var data = getDataFromJSON(storedData);
+          if (typeof data !== 'undefined') {
+            runData(data);
+          }
+        },
+        (storedData) => {
+          loading.html(storedData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
         }
-      },
-      (storedData) => {
-        loading.html(storedData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
-      }
       );
     }
     else if ($('#dataStore').length == 1) {
@@ -380,1212 +380,1227 @@ var readUrlParam = name => {
         }
       }
     };
-  }
 
-  function loadData() {
-    var villesINSEE = 'https://philquand.github.io/Javascript/LeafLet/json/cities.json'
-    Promise.all([
-      // chargement du code INSEE des villes
-      // d'après https://www.data.gouv.fr/fr/datasets/regions-departements-villes-et-villages-de-france-et-doutre-mer/
-      load.json(villesINSEE),
-    ]).then(
-      function(values) {
-        console.log('Everything has been loaded!');
-        villesINSEE = loadVal(values, villesINSEE)
-        //villesINSEE = values[0]['val'];
-        // Table des Fermetures
-        var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing';
-        // Table de test (10 lignes)
-        //var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1PbgwjD-HodM0JdnlRtQvmTlagE3CzBExjfpCua6-dh4/edit?usp=sharing';
+    function loadData() {
+      var villesINSEE = 'https://philquand.github.io/Javascript/LeafLet/json/cities.json'
+      Promise.all([
+        // chargement du code INSEE des villes
+        // d'après https://www.data.gouv.fr/fr/datasets/regions-departements-villes-et-villages-de-france-et-doutre-mer/
+        load.json(villesINSEE),
+      ]).then(
+        function(values) {
+          console.log('Everything has been loaded!');
+          villesINSEE = loadVal(values, villesINSEE)
+          //villesINSEE = values[0]['val'];
+          // Table des Fermetures
+          var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing';
+          // Table de test (10 lignes)
+          //var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1PbgwjD-HodM0JdnlRtQvmTlagE3CzBExjfpCua6-dh4/edit?usp=sharing';
 
-        Tabletop.init({
-          key: SHEET_ID,
-          callback: buildTable,
-          simpleSheet: true
-        });
+          Tabletop.init({
+            key: SHEET_ID,
+            callback: buildTable,
+            simpleSheet: true
+          });
 
-        function buildTable(data, tabletop) {
-          //var output = [];
-          var indexCal = 0;
-          var indexRes = 0;
-          var indexEnd = data.length;
-          //var indexEnd = 10;
+          function buildTable(data, tabletop) {
+            //var output = [];
+            var indexCal = 0;
+            var indexRes = 0;
+            var indexEnd = data.length;
+            //var indexEnd = 10;
 
-          if (indexEnd < data.length) {
-            data.splice(indexEnd, data.length - 1)
-          }
-          else if (indexEnd > data.length) indexEnd = data.length;
+            if (indexEnd < data.length) {
+              data.splice(indexEnd, data.length - 1)
+            }
+            else if (indexEnd > data.length) indexEnd = data.length;
 
-          function makeLocation(location) {
-            var lieux = location.COMMUNE + ',' + location.INSEE;
-            if (!isNaN(location)) lieux += ', France';
-            return lieux;
-          }
+            function makeLocation(location) {
+              var lieux = location.COMMUNE + ',' + location.INSEE;
+              if (!isNaN(location)) lieux += ', France';
+              return lieux;
+            }
 
-          if (storedData !== '') {
-            var storedDataHasChanged = checkStoredData();
-            if (storedDataHasChanged) loading.find('p').html('storedData et data sont différents');
-            else loading.find('p').html('storedData et data sont identiques');
-            return;
-          }
-          var allreadyGeoLoc = checkAllreadyGeoLoc();
-
-          function checkStoredData() {
             if (storedData !== '') {
-              if (data.length !== storedData.length) {
-                console.log('storedData and data have different length')
-                return true;
-              }
-              var dataJSON = $('<div></div>')
-              dataJSON.html(JSON.stringify(data));
-              dataJSON = JSON.parse(dataJSON.html());
-              for (var i = 0; i < data.length; i++) {
-                delete storedData[i].iconMarker;
-                delete storedData[i].lat;
-                delete storedData[i].lng;
-                if (!deepEqual(storedData[i], dataJSON[i])) {
-                  console.log('storedData and data are different on (at least) rank ' + eval(i + 2))
-                  return true;
-                }
-              }
-              return false;
-            }
-            else return false;
-          }
-
-          function checkAllreadyGeoLoc() {
-            var allreadyGeoLoc = {};
-            for (var i = 0; i < data.length; i++) {
-              var lieux = makeLocation(data[i]);
-              if (typeof allreadyGeoLoc[lieux] == 'undefined') {
-                var coordLatLng = getGPSfromVillesINSEE(data[i]);
-                if (typeof coordLatLng !== 'undefined') {
-                  allreadyGeoLoc[lieux] = {};
-                  allreadyGeoLoc[lieux].lat = coordLatLng.lat;
-                  allreadyGeoLoc[lieux].lng = coordLatLng.lng;
-                  allreadyGeoLoc[lieux].INSEEname = coordLatLng.INSEEname;
-                  allreadyGeoLoc[lieux].INSEEzip = coordLatLng.INSEEzip;
-                  allreadyGeoLoc[lieux].INSEEcode = coordLatLng.INSEEcode;
-                  allreadyGeoLoc[lieux].INSEEdept = coordLatLng.INSEEdept;
-                }
-              }
-            }
-            return allreadyGeoLoc;
-
-            function getGPSfromVillesINSEE(locData) {
-              for (var i = 0; i < villesINSEE.length; i++) {
-                var zip = villesINSEE[i]["zip_code"];
-                var insee = villesINSEE[i]["insee_code"];
-                var name = villesINSEE[i]["name"].toUpperCase();
-                var nameLoc = locData.COMMUNE.toUpperCase();
-                /*if (locData.INSEE == 987 && (zip == null || insee == null)) {
-                  console.log(locData.INSEE)
-                }*/
-                var isMatched = false;
-                var department = parseInt(villesINSEE[i]["department_code"]);
-                if (zip == null || insee == null) {
-                  if (nameLoc == nameLoc && department == locData.INSEE) isMatched = true;
-                }
-                else {
-                  var zipInt = parseInt(zip);
-                  var inseeInt = parseInt(insee);
-                  if (zipInt == locData.INSEE || inseeInt == locData.INSEE || insee == locData.INSEE) isMatched = true;
-                }
-                if (isMatched) {
-                  var splitedLocName = nameLoc.split(" ");
-                  var debName = splitedLocName[0];
-                  if (name.indexOf(debName) > -1) {
-                    var coordLatLng = {};
-                    coordLatLng.lat = villesINSEE[i]["gps_lat"];
-                    coordLatLng.lng = villesINSEE[i]["gps_lng"];
-                    coordLatLng.INSEEname = villesINSEE[i]["name"];
-                    coordLatLng.INSEEzip = villesINSEE[i]["zip_code"];
-                    coordLatLng.INSEEcode = villesINSEE[i]["insee_code"];
-                    coordLatLng.INSEEdept = villesINSEE[i]["department_code"];
-                    return coordLatLng;
-                  }
-                }
-              }
+              var storedDataHasChanged = checkStoredData();
+              if (storedDataHasChanged) loading.find('p').html('storedData et data sont différents');
+              else loading.find('p').html('storedData et data sont identiques');
               return;
             }
-          }
+            var allreadyGeoLoc = checkAllreadyGeoLoc();
 
-          add2Layer(indexCal);
+            function checkStoredData() {
+              if (storedData !== '') {
+                if (data.length !== storedData.length) {
+                  console.log('storedData and data have different length')
+                  return true;
+                }
+                var dataJSON = $('<div></div>')
+                dataJSON.html(JSON.stringify(data));
+                dataJSON = JSON.parse(dataJSON.html());
+                for (var i = 0; i < data.length; i++) {
+                  delete storedData[i].iconMarker;
+                  delete storedData[i].lat;
+                  delete storedData[i].lng;
+                  if (!deepEqual(storedData[i], dataJSON[i])) {
+                    console.log('storedData and data are different on (at least) rank ' + eval(i + 2))
+                    return true;
+                  }
+                }
+                return false;
+              }
+              else return false;
+            }
 
-          function add2Layer(indexLoc) {
-            /*var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE;
-            if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';*/
-            var lieux = makeLocation(data[indexLoc]);
-            indexCal++;
-            if ((data[indexLoc].LATITUDE == '' || data[indexLoc].LONGITUDE == '') && (typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined')) {
-              L.esri.Geocoding.geocode({
-                  requestParams: {
-                    maxLocations: 1
+            function checkAllreadyGeoLoc() {
+              var allreadyGeoLoc = {};
+              for (var i = 0; i < data.length; i++) {
+                var lieux = makeLocation(data[i]);
+                if (typeof allreadyGeoLoc[lieux] == 'undefined') {
+                  var coordLatLng = getGPSfromVillesINSEE(data[i]);
+                  if (typeof coordLatLng !== 'undefined') {
+                    allreadyGeoLoc[lieux] = {};
+                    allreadyGeoLoc[lieux].lat = coordLatLng.lat;
+                    allreadyGeoLoc[lieux].lng = coordLatLng.lng;
+                    allreadyGeoLoc[lieux].INSEEname = coordLatLng.INSEEname;
+                    allreadyGeoLoc[lieux].INSEEzip = coordLatLng.INSEEzip;
+                    allreadyGeoLoc[lieux].INSEEcode = coordLatLng.INSEEcode;
+                    allreadyGeoLoc[lieux].INSEEdept = coordLatLng.INSEEdept;
                   }
-                })
-                .text(lieux)
-                .run(function(error, results, response) {
-                  var _this = this
-                  if (error) {
-                    console.log(error);
-                    console.log(lieux);
-                    return;
-                  }
-                  if (!error && typeof results.results !== 'undefined') {
-                    indexRes++;
-                    data[indexLoc].lat = results.results[0].latlng.lat;
-                    data[indexLoc].lng = results.results[0].latlng.lng;
+                }
+              }
+              return allreadyGeoLoc;
+
+              function getGPSfromVillesINSEE(locData) {
+                for (var i = 0; i < villesINSEE.length; i++) {
+                  var zip = villesINSEE[i]["zip_code"];
+                  var insee = villesINSEE[i]["insee_code"];
+                  var name = villesINSEE[i]["name"].toUpperCase();
+                  var nameLoc = locData.COMMUNE.toUpperCase();
+                  /*if (locData.INSEE == 987 && (zip == null || insee == null)) {
+                    console.log(locData.INSEE)
+                  }*/
+                  var isMatched = false;
+                  var department = parseInt(villesINSEE[i]["department_code"]);
+                  if (zip == null || insee == null) {
+                    if (nameLoc == nameLoc && department == locData.INSEE) isMatched = true;
                   }
                   else {
-                    data[indexLoc].doc = 'Failed geoloc';
+                    var zipInt = parseInt(zip);
+                    var inseeInt = parseInt(insee);
+                    if (zipInt == locData.INSEE || inseeInt == locData.INSEE || insee == locData.INSEE) isMatched = true;
                   }
-                  checkIfEnd(indexLoc);
-                });
-            }
-            else {
-              if (typeof allreadyGeoLoc[lieux] !== 'undefined') {
-                data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
-                data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
-                data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
-                data[indexLoc].INSEEname = allreadyGeoLoc[lieux].INSEEname;
-                data[indexLoc].INSEEzip = allreadyGeoLoc[lieux].INSEEzip;
-                data[indexLoc].INSEEcode = allreadyGeoLoc[lieux].INSEEcode;
-                data[indexLoc].INSEEdept = allreadyGeoLoc[lieux].INSEEdept;
-              }
-              if (data[indexLoc].LATITUDE !== '') data[indexLoc].lat = data[indexLoc].LATITUDE;
-              if (data[indexLoc].LONGITUDE !== '') data[indexLoc].lng = data[indexLoc].LONGITUDE;
-              checkIfEnd(indexLoc);
-            }
-
-            function checkIfEnd(indexLoc) {
-              //data[indexLoc].iconMarker = 1;
-              if (indexCal < indexEnd) {
-                add2Layer(indexCal)
-              }
-              else {
-                for (var i = 0; i < data.length; i++) {
-                  delete data[i].INSEEname;
-                  delete data[i].INSEEzip;
-                  delete data[i].INSEEcode;
-                  delete data[i].INSEEdept;
-                }
-                runData(data);
-              }
-            }
-          }
-        }
-      }
-    ).catch(function() {
-      console.log('Oh no, epic failure!');
-    });
-  } 
-  function runData(indexEvent) {
-    // À conserver pour exporter des données...
-    /*exportData(indexEvent)
-    return;
-    function exportData(indexEvent) {
-      var expCOMMUNE = indexEvent[0].COMMUNE;
-        if(indexEvent[0].INSEEcode == null) var expINSEE = indexEvent[0].INSEEdept;
-        else var expINSEE = indexEvent[0].INSEEcode;
-      for (i = 1; i < indexEvent.length; i++) {
-        expCOMMUNE += ',' + indexEvent[i].INSEEname;
-        if(indexEvent[i].INSEEcode == null) expINSEE += ',' + indexEvent[i].INSEEdept;
-        else expINSEE += ',' + indexEvent[i].INSEEcode;
-      }
-      $('#exportCOMMUNE').html(expCOMMUNE);
-      $('#exportINSEE').html(expINSEE);
-      for (i = 1; i < indexEvent.length; i++) {
-        delete indexEvent[i].INSEEname;
-        delete indexEvent[i].INSEEzip;
-        delete indexEvent[i].INSEEcode;
-        delete indexEvent[i].INSEEdept;
-      }      
-      $('#dataStore').html(JSON.stringify(indexEvent));
-      console.log('achieved');
-      loading.find('p').html('Les données de type COMMUNE et INSEE ont été exportées avec succés');
-    }*/
-    console.log('achieved');
-
-    if ($('#dataStore').length == 0) {
-      var dataStore = $('<div id="dataStore" style="display:none"></div>')
-      $('#infoMap-wrapper').prepend(dataStore)
-    }
-    else var dataStore = $('#dataStore');
-    var valGeoJSON = getGeoJSONFromData(indexEvent);
-    dataStore.html(JSON.stringify(valGeoJSON));
-
-    if ($('#optStore').length == 0) {
-      var optStore = $('<div id="optStore" style="display:none"></div>')
-      $('#infoMap-wrapper').prepend(optStore)
-    }
-    else var optStore = $('#optStore');
-    optStore.html(JSON.stringify(options));
-
-
-    function getGeoJSONFromData(indexEvent) {
-      var valGeoJSON = {};
-      valGeoJSON["type"] = "FeatureCollection";
-      valGeoJSON["features"] = [];
-      for (var i = 0; i < indexEvent.length; i++) {
-        var newItem = {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point"
-          }
-        };
-        newItem["geometry"]["coordinates"] = [indexEvent[i]["lng"], indexEvent[i]["lat"]];
-        newItem["properties"] = clone(indexEvent[i]);
-        delete newItem["properties"].lng;
-        delete newItem["properties"].lat;
-        valGeoJSON["features"].push(newItem);
-      }
-      return valGeoJSON;
-    };
-
-    loading.css('display', 'none');
-    var map_invalidateSize = runMap(indexEvent);
-
-    /*var btData = $('<button type="button" class="styled" id="btData"></button>')
-    $("#infoMap-wrapper").prepend(btData);
-    btData.click(function(e) {
-      if ($('#btData').html() == 'Carte') {
-        btDataCarte(map_invalidateSize);
-      }
-      else {
-        btDataTable();
-      }
-    });
-    btDataCarte(map_invalidateSize);
-    function btDataTable() {
-      $('#btData').html('Carte');
-      $('#infoMap-wrapper > :not(#btData)').css('display', 'none')
-      $('#table_wrapper').css('display', 'block')
-      //$('#table').css('display', 'block')
-    }
-
-    function btDataCarte(map_invalidateSize) {
-      $('#btData').html('Données');
-      $('#infoMap-wrapper > :not(#btData)').css('display', 'block')
-      map_invalidateSize();
-      $('#table_wrapper').css('display', 'none')
-      //$('#table').css('display', 'none')
-    }
-    runTable(indexEvent);*/
-
-    function runMap(indexEvent) {
-
-      var popupStruc = makePopupProperties(indexEvent[0]);
-      var iconMarkers = iconMarkersBuilder(indexEvent);
-      var iconMarkersLength = iconMarkers.length;
-      //var map, onSetDefaultMapView, controlLayers;
-      var map, onSetDefaultMapView, refreshIndexEvent;
-
-      /*function removeAreaMarkers() {
-        for (var i = 0; i < indexEvent.length; i++) {
-          markers.removeLayer(indexEvent[i].marker);
-        }
-      }*/
-      function setDefaultMapView() {
-        map.fitBounds([
-          [51.10, 2.47],
-          [48.37, -5.16],
-          [43.38, -1.85],
-          [42.47, 3.16],
-          [43.80, 7.96],
-          [49.03, 8.08],
-          [49.03, 8.08]
-        ]);
-        if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
-      }
-
-      function setMapView() {
-        return;
-      }
-
-      function dataPopUp(data, popupStruc) {
-        var popupContent = $('<div></div>');
-        var popupBody = $('<div class="popBody"></div>');
-        popupContent.append(popupBody);
-        var dataTitle = data[popupStruc.title];
-        if( typeof data[popupStruc.title] !== 'undefined') {
-          popupBody.append('<div class="popLieux">' + data[popupStruc.title] + '</div>');
-        }
-        for (var i = 0; i < popupStruc.properties.length; i++) {
-          var item = popupStruc.properties[i];
-          if (data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[item] + '</div>');
-        }
-        return popupContent.html();
-      }
-
-      var markers = L.markerClusterGroup({
-        maxClusterRadius: 5
-      });
-      for (i = 0; i < indexEvent.length; i++) {
-        indexEvent[i].doc = dataPopUp(indexEvent[i], popupStruc);
-        indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
-        indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
-        //markers.addLayer(indexEvent[i].marker);
-      }
-
-      map = initMap('infoMap', indexEvent);
-      markers.addTo(map);
-      endMarkerBuild(indexEvent);
-
-      function endMarkerBuild(indexEvent) {
-        /*for (i = 0; i < indexEvent.length; i++) {
-          for (k = 0; k < iconMarkersLength; k++) {
-            if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
-              iconMarkers[k].nbMapEvents++;
-            }
-          }
-          marker = makePopUp(indexEvent[i], setCallBack);
-          markers.addLayer(marker);
-        }*/
-
-        Promise.all([
-          //  chargements des dépendances css
-          load.css('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'),
-          load.css('https://use.fontawesome.com/releases/v5.0.6/css/all.css'),
-          //  chargements des dépendances js
-          load.js('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'),
-          //load.js('https://philquand.github.io/Javascript/LeafLet/leaflet-button/L.Control.Button.js'),
-        ]).then(
-          function() {
-            console.log('Everything has loaded!');
-
-            var defaultViewButton = L.easyButton({
-              states: [{
-                stateName: 'default-view', // name the state
-                icon: 'fa-home', // and define its properties
-                title: 'vue par défaut', // like its title
-                onClick: function(btn, map) { // and its callback
-                  setDefaultMapView();
-                }
-              }]
-            });
-            defaultViewButton.addTo(map);
-
-            checkautresDepts(map, indexEvent);
-
-            function checkautresDepts(map, indexEvent) {
-              var autresDepts = [{
-                  name: 'Corse',
-                  bounds: L.latLngBounds([
-                    [43.07, 8.39],
-                    [41.29, 9.74]
-                  ]),
-                  hasevents: false
-                },
-                {
-                  name: 'Martinique',
-                  bounds: L.latLngBounds([
-                    [14.905, -61.500],
-                    [14.377, -60.762]
-                  ]),
-                  hasevents: false
-                },
-                {
-                  name: 'Guadeloupe',
-                  bounds: L.latLngBounds([
-                    [16.5572, -61.971],
-                    [15.7881, -60.946]
-                  ]),
-                  hasevents: false
-                },
-                {
-                  name: 'Guyane',
-                  bounds: L.latLngBounds([
-                    [6.16, -55.08],
-                    [1.88, -51.16]
-                  ]),
-                  hasevents: false
-                },
-                {
-                  name: 'LaRéunion',
-                  bounds: L.latLngBounds([
-                    [-19.6496, 54.5825],
-                    [-21.6107, 58.1036]
-                  ]),
-                  hasevents: false
-                },
-                {
-                  name: 'Hexagone',
-                  bounds: L.latLngBounds([
-                    [51.10, 2.47],
-                    [48.37, -5.16],
-                    [43.38, -1.85],
-                    [42.47, 3.16],
-                    [43.80, 7.96],
-                    [49.03, 8.08],
-                    [49.03, 8.08]
-                  ]),
-                  hasevents: false
-                }
-              ];
-              autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
-              var states = [];
-              for (var i = 0; i < autresDepts.length; i++) {
-                if (!autresDepts[i].hasevents) continue
-                var localState = {};
-                localState.stateName = autresDepts[i].name; // name the state
-                j = i;
-                do {
-                  j = j + 1;
-                  if (j == autresDepts.length) j = 0;
-                }
-                while (!autresDepts[j].hasevents);
-                localState.nextStateName = autresDepts[j].name; // name of the next state
-                localState.icon = 'fa-plane'; // and define its properties
-                switch (autresDepts[i].name) {
-                  case 'Corse':
-                    localState.title = 'vol vers la Corse'; // like its title
-                    localState.onClick = function(btn, map) { // and its callback
-                      map.flyTo({
-                        lat: 42.19,
-                        lng: 9.08
-                      }, 6);
-                      for (var j = 0; j < btn.options.states.length; j++) {
-                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                          btn.state(btn.options.states[j].nextStateName); // change state on click!
-                          break;
-                        }
-                      }
-                    };
-                    break;
-                  case 'Martinique':
-                    localState.title = 'vol vers la Martinique'; // like its title
-                    localState.onClick = function(btn, map) { // and its callback
-                      map.flyTo({
-                        lat: 14.7297,
-                        lng: -60.9655
-                      }, 6);
-                      for (var j = 0; j < btn.options.states.length; j++) {
-                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                          btn.state(btn.options.states[j].nextStateName); // change state on click!
-                          break;
-                        }
-                      }
-                    };
-                    break;
-                  case 'Guadeloupe':
-                    localState.title = 'vol vers la Guadeloupe'; // like its title
-                    localState.onClick = function(btn, map) { // and its callback
-                      map.flyTo({
-                        lat: 16.228,
-                        lng: -61.526
-                      }, 6);
-                      for (var j = 0; j < btn.options.states.length; j++) {
-                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                          btn.state(btn.options.states[j].nextStateName); // change state on click!
-                          break;
-                        }
-                      }
-                    };
-                    break;
-                  case 'Guyane':
-                    localState.title = 'vol vers la Guyane'; // like its title
-                    localState.onClick = function(btn, map) { // and its callback
-                      map.flyTo({
-                        lat: 3.945,
-                        lng: -53.13
-                      }, 6);
-                      for (var j = 0; j < btn.options.states.length; j++) {
-                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                          btn.state(btn.options.states[j].nextStateName); // change state on click!
-                          break;
-                        }
-                      }
-                    };
-                    break;
-                  case 'LaRéunion':
-                    localState.title = 'vol vers la Réunion'; // like its title
-                    localState.onClick = function(btn, map) { // and its callback
-                      map.flyTo({
-                        lat: -20.887,
-                        lng: 55.455
-                      }, 6);
-                      for (var j = 0; j < btn.options.states.length; j++) {
-                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                          btn.state(btn.options.states[j].nextStateName); // change state on click!
-                          break;
-                        }
-                      }
-                    };
-                    break;
-                  default:
-                    localState.title = "retour vers l'Hexagone"; // like its title
-                    localState.bounds = autresDepts[i].bounds;
-                    localState.onClick = function(btn, map) { // and its callback
-                      for (var j = 0; j < btn.options.states.length; j++) {
-                        if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                          btn.state(btn.options.states[j].nextStateName); // change state on click!
-                          map.flyToBounds(btn.options.states[j].bounds);
-                          break;
-                        }
-                      }
-                    };
-                }
-                states.push(localState);
-              }
-              if (states.length > 1) {
-                var stateChangingButton = L.easyButton({
-                  states: states
-                  /*[{
-                          stateName: 'zoom-to-forest',        // name the state
-                          icon:      'fa-plane',               // and define its properties
-                          title:     'zoom to a forest',      // like its title
-                          onClick: function(btn, map) {       // and its callback
-                              map.setView([46.25,-121.8],10);
-                              btn.state('zoom-to-school');    // change state on click!
-                          }
-                      }, {
-                          stateName: 'zoom-to-school',
-                          icon:      'fa-paper-plane',
-                          title:     'zoom to a school',
-                          onClick: function(btn, map) {
-                              map.setView([42.3748204,-71.1161913],16);
-                              btn.state('zoom-to-forest');
-                          }
-                  }]*/
-                });
-
-                stateChangingButton.addTo(map);
-              }
-
-              function checkautresDeptsBounds(autresDepts, indexEvent) {
-                for (i = 0; i < indexEvent.length; i++) {
-                  for (k = 0; k < autresDepts.length; k++) {
-                    if (autresDepts[k].bounds.contains(indexEvent[i])) {
-                      autresDepts[k].hasevents = true;
+                  if (isMatched) {
+                    var splitedLocName = nameLoc.split(" ");
+                    var debName = splitedLocName[0];
+                    if (name.indexOf(debName) > -1) {
+                      var coordLatLng = {};
+                      coordLatLng.lat = villesINSEE[i]["gps_lat"];
+                      coordLatLng.lng = villesINSEE[i]["gps_lng"];
+                      coordLatLng.INSEEname = villesINSEE[i]["name"];
+                      coordLatLng.INSEEzip = villesINSEE[i]["zip_code"];
+                      coordLatLng.INSEEcode = villesINSEE[i]["insee_code"];
+                      coordLatLng.INSEEdept = villesINSEE[i]["department_code"];
+                      return coordLatLng;
                     }
                   }
                 }
-                return autresDepts;
-              };
+                return;
+              }
+            }
 
-            };
+            add2Layer(indexCal);
 
+            function add2Layer(indexLoc) {
+              /*var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE;
+              if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';*/
+              var lieux = makeLocation(data[indexLoc]);
+              indexCal++;
+              if ((data[indexLoc].LATITUDE == '' || data[indexLoc].LONGITUDE == '') && (typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined')) {
+                L.esri.Geocoding.geocode({
+                    requestParams: {
+                      maxLocations: 1
+                    }
+                  })
+                  .text(lieux)
+                  .run(function(error, results, response) {
+                    var _this = this
+                    if (error) {
+                      console.log(error);
+                      console.log(lieux);
+                      return;
+                    }
+                    if (!error && typeof results.results !== 'undefined') {
+                      indexRes++;
+                      data[indexLoc].lat = results.results[0].latlng.lat;
+                      data[indexLoc].lng = results.results[0].latlng.lng;
+                    }
+                    else {
+                      data[indexLoc].doc = 'Failed geoloc';
+                    }
+                    checkIfEnd(indexLoc);
+                  });
+              }
+              else {
+                if (typeof allreadyGeoLoc[lieux] !== 'undefined') {
+                  data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
+                  data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
+                  data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
+                  data[indexLoc].INSEEname = allreadyGeoLoc[lieux].INSEEname;
+                  data[indexLoc].INSEEzip = allreadyGeoLoc[lieux].INSEEzip;
+                  data[indexLoc].INSEEcode = allreadyGeoLoc[lieux].INSEEcode;
+                  data[indexLoc].INSEEdept = allreadyGeoLoc[lieux].INSEEdept;
+                }
+                if (data[indexLoc].LATITUDE !== '') data[indexLoc].lat = data[indexLoc].LATITUDE;
+                if (data[indexLoc].LONGITUDE !== '') data[indexLoc].lng = data[indexLoc].LONGITUDE;
+                checkIfEnd(indexLoc);
+              }
 
+              function checkIfEnd(indexLoc) {
+                //data[indexLoc].iconMarker = 1;
+                if (indexCal < indexEnd) {
+                  add2Layer(indexCal)
+                }
+                else {
+                  for (var i = 0; i < data.length; i++) {
+                    delete data[i].INSEEname;
+                    delete data[i].INSEEzip;
+                    delete data[i].INSEEcode;
+                    delete data[i].INSEEdept;
+                  }
+                  runData(data);
+                }
+              }
+            }
           }
-        ).catch(function() {
-          console.log('Oh no, epic failure!');
-        });
+        }
+      ).catch(function() {
+        console.log('Oh no, epic failure!');
+      });
+    }
+
+    function runData(indexEvent) {
+      // À conserver pour exporter des données...
+      /*exportData(indexEvent)
+      return;
+      function exportData(indexEvent) {
+        var expCOMMUNE = indexEvent[0].COMMUNE;
+          if(indexEvent[0].INSEEcode == null) var expINSEE = indexEvent[0].INSEEdept;
+          else var expINSEE = indexEvent[0].INSEEcode;
+        for (i = 1; i < indexEvent.length; i++) {
+          expCOMMUNE += ',' + indexEvent[i].INSEEname;
+          if(indexEvent[i].INSEEcode == null) expINSEE += ',' + indexEvent[i].INSEEdept;
+          else expINSEE += ',' + indexEvent[i].INSEEcode;
+        }
+        $('#exportCOMMUNE').html(expCOMMUNE);
+        $('#exportINSEE').html(expINSEE);
+        for (i = 1; i < indexEvent.length; i++) {
+          delete indexEvent[i].INSEEname;
+          delete indexEvent[i].INSEEzip;
+          delete indexEvent[i].INSEEcode;
+          delete indexEvent[i].INSEEdept;
+        }      
+        $('#dataStore').html(JSON.stringify(indexEvent));
+        console.log('achieved');
+        loading.find('p').html('Les données de type COMMUNE et INSEE ont été exportées avec succés');
+      }*/
+      console.log('achieved');
+
+      if ($('#dataStore').length == 0) {
+        var dataStore = $('<div id="dataStore" style="display:none"></div>')
+        $('#infoMap-wrapper').prepend(dataStore)
+      }
+      else var dataStore = $('#dataStore');
+      var valGeoJSON = getGeoJSONFromData(indexEvent);
+      dataStore.html(JSON.stringify(valGeoJSON));
+
+      if ($('#optStore').length == 0) {
+        var optStore = $('<div id="optStore" style="display:none"></div>')
+        $('#infoMap-wrapper').prepend(optStore)
+      }
+      else var optStore = $('#optStore');
+      optStore.html(JSON.stringify(options));
+
+
+      function getGeoJSONFromData(indexEvent) {
+        var valGeoJSON = {};
+        valGeoJSON["type"] = "FeatureCollection";
+        valGeoJSON["features"] = [];
+        for (var i = 0; i < indexEvent.length; i++) {
+          var newItem = {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point"
+            }
+          };
+          newItem["geometry"]["coordinates"] = [indexEvent[i]["lng"], indexEvent[i]["lat"]];
+          newItem["properties"] = clone(indexEvent[i]);
+          delete newItem["properties"].lng;
+          delete newItem["properties"].lat;
+          valGeoJSON["features"].push(newItem);
+        }
+        return valGeoJSON;
       };
 
-      function makePopUp(input, setCallBack) {
+      loading.css('display', 'none');
+      var map_invalidateSize = runMap(indexEvent);
 
-        if (typeof input.iconMarker === 'undefined' || typeof input.iconMarker.icon === 'undefined' || input.iconMarker.icon == '') {
-          var marker = L.marker([input.lat, input.lng]);
+      /*var btData = $('<button type="button" class="styled" id="btData"></button>')
+      $("#infoMap-wrapper").prepend(btData);
+      btData.click(function(e) {
+        if ($('#btData').html() == 'Carte') {
+          btDataCarte(map_invalidateSize);
         }
         else {
-          if (typeof input.lat === 'undefined' || typeof input.lat === 'undefined') {
-            console.log('error in makePopUp');
-          }
-          var marker = L.marker([input.lat, input.lng], {
-            icon: input.iconMarker.icon
-          });
+          btDataTable();
         }
-        marker.bindPopup(input.doc, {
-          maxWidth: 400,
-          minWidth: 250,
-          maxHeight: 300,
-          className: 'popupCustom',
-          autoPan: true,
-          closeButton: true,
-          autoPanPadding: [5, 5]
-        });
-        marker.getPopup().on('remove', function() {
-          setCallBack();
-        });
-        return marker;
+      });
+      btDataCarte(map_invalidateSize);
+      function btDataTable() {
+        $('#btData').html('Carte');
+        $('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+        $('#table_wrapper').css('display', 'block')
+        //$('#table').css('display', 'block')
       }
 
-      function makePopupProperties(indexEvent) {
-        var popupStruc = {};
-        //if (typeof popupStruc.properties == 'undefined') {
-        var dataKeys = Object.getOwnPropertyNames(indexEvent)
-        if (typeof popupStrucData.hidden == 'undefined') popupStruc.hidden = [];
-        popupStrucData.hidden.push(popupStrucData.title)
-        popupStruc.title = popupStrucData.title;
-        popupStruc.properties = [];
-        for (var i = 0; i < dataKeys.length; i++) {
-          var keyStatus = true;
-          for (var j = 0; j < popupStrucData.hidden.length; j++) {
-            if (dataKeys[i] == popupStrucData.hidden[j]) keyStatus = false;
-          }
-          if (keyStatus == true) popupStruc.properties.push(dataKeys[i]);
-        }
-        //}
-        return popupStruc;
+      function btDataCarte(map_invalidateSize) {
+        $('#btData').html('Données');
+        $('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+        map_invalidateSize();
+        $('#table_wrapper').css('display', 'none')
+        //$('#table').css('display', 'none')
       }
+      runTable(indexEvent);*/
 
-      function initMap(idMap, indexEvent) {
+      function runMap(indexEvent) {
 
-        'use strict'
+        var popupStruc = makePopupProperties(indexEvent[0]);
+        var iconMarkers = iconMarkersBuilder(indexEvent);
+        var iconMarkersLength = iconMarkers.length;
+        //var map, onSetDefaultMapView, controlLayers;
+        var map, onSetDefaultMapView, refreshIndexEvent;
 
-        map = loadMap(idMap);
+        /*function removeAreaMarkers() {
+          for (var i = 0; i < indexEvent.length; i++) {
+            markers.removeLayer(indexEvent[i].marker);
+          }
+        }*/
+        function setDefaultMapView() {
+          map.fitBounds([
+            [51.10, 2.47],
+            [48.37, -5.16],
+            [43.38, -1.85],
+            [42.47, 3.16],
+            [43.80, 7.96],
+            [49.03, 8.08],
+            [49.03, 8.08]
+          ]);
+          if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
+        }
 
-        //zoomRemove(map);
-        map.options.minZoom = 5;
-        //map.options.maxZoom = 8;
-        map.options.maxZoom = 12;
+        function setMapView() {
+          return;
+        }
 
-        setDefaultMapView();
+        function dataPopUp(data, popupStruc) {
+          var popupContent = $('<div></div>');
+          var popupBody = $('<div class="popBody"></div>');
+          popupContent.append(popupBody);
+          var dataTitle = data[popupStruc.title];
+          if (typeof data[popupStruc.title] !== 'undefined') {
+            popupBody.append('<div class="popLieux">' + data[popupStruc.title] + '</div>');
+          }
+          for (var i = 0; i < popupStruc.properties.length; i++) {
+            var item = popupStruc.properties[i];
+            if (data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[item] + '</div>');
+          }
+          return popupContent.html();
+        }
 
-        // Constructeur du fond de carte pour LeafLet
-        var baseMaps = {}
-        var legendMaps = {}
-        loadMapPicture({
-          // carte avec les deux couches openstreet et builDepts
-          baseMaps: baseMaps,
-          map: map,
-          callback: openstreetCallback
-          // carte avec la couche openstreet seule
-          /*baseMaps: baseMaps,
-          map: map*/
-          // carte avec la couche openstreet builDepts
-          /*typMap: "builDepts",
-          baseMaps: baseMaps,
-          data: indexEvent,
-          map: map*/
+        var markers = L.markerClusterGroup({
+          maxClusterRadius: 5
         });
-
-        function openstreetCallback(option) {
-          option["baseMaps"]['par défaut'].addTo(option["map"]);
-          option["baseMaps"]['par défaut'] = L.tileLayer('')
-          option["baseMaps"]['par défaut'].addTo(option["map"]);
-          loadMapPicture({
-            typMap: "builDepts",
-            baseMaps: baseMaps,
-            legend: legendMaps,
-            data: indexEvent,
-            map: map,
-            callback: builDeptsCallback
-          });
+        for (i = 0; i < indexEvent.length; i++) {
+          indexEvent[i].doc = dataPopUp(indexEvent[i], popupStruc);
+          indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
+          indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
+          //markers.addLayer(indexEvent[i].marker);
         }
 
-        function builDeptsCallback(option) {
-          loadMapPicture({
-            typMap: "builRegs",
-            baseMaps: baseMaps,
-            legend: legendMaps,
-            data: indexEvent,
-            map: map,
-            callback: builRegsCallback
+        map = initMap('infoMap', indexEvent);
+        markers.addTo(map);
+        endMarkerBuild(indexEvent);
+
+        function endMarkerBuild(indexEvent) {
+          /*for (i = 0; i < indexEvent.length; i++) {
+            for (k = 0; k < iconMarkersLength; k++) {
+              if (indexEvent[i].iconMarker.class == iconMarkers[k].class) {
+                iconMarkers[k].nbMapEvents++;
+              }
+            }
+            marker = makePopUp(indexEvent[i], setCallBack);
+            markers.addLayer(marker);
+          }*/
+
+          Promise.all([
+            //  chargements des dépendances css
+            load.css('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'),
+            load.css('https://use.fontawesome.com/releases/v5.0.6/css/all.css'),
+            //  chargements des dépendances js
+            load.js('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'),
+            //load.js('https://philquand.github.io/Javascript/LeafLet/leaflet-button/L.Control.Button.js'),
+          ]).then(
+            function() {
+              console.log('Everything has loaded!');
+
+              var defaultViewButton = L.easyButton({
+                states: [{
+                  stateName: 'default-view', // name the state
+                  icon: 'fa-home', // and define its properties
+                  title: 'vue par défaut', // like its title
+                  onClick: function(btn, map) { // and its callback
+                    setDefaultMapView();
+                  }
+                }]
+              });
+              defaultViewButton.addTo(map);
+
+              checkautresDepts(map, indexEvent);
+
+              function checkautresDepts(map, indexEvent) {
+                var autresDepts = [{
+                    name: 'Corse',
+                    bounds: L.latLngBounds([
+                      [43.07, 8.39],
+                      [41.29, 9.74]
+                    ]),
+                    hasevents: false
+                  },
+                  {
+                    name: 'Martinique',
+                    bounds: L.latLngBounds([
+                      [14.905, -61.500],
+                      [14.377, -60.762]
+                    ]),
+                    hasevents: false
+                  },
+                  {
+                    name: 'Guadeloupe',
+                    bounds: L.latLngBounds([
+                      [16.5572, -61.971],
+                      [15.7881, -60.946]
+                    ]),
+                    hasevents: false
+                  },
+                  {
+                    name: 'Guyane',
+                    bounds: L.latLngBounds([
+                      [6.16, -55.08],
+                      [1.88, -51.16]
+                    ]),
+                    hasevents: false
+                  },
+                  {
+                    name: 'LaRéunion',
+                    bounds: L.latLngBounds([
+                      [-19.6496, 54.5825],
+                      [-21.6107, 58.1036]
+                    ]),
+                    hasevents: false
+                  },
+                  {
+                    name: 'Hexagone',
+                    bounds: L.latLngBounds([
+                      [51.10, 2.47],
+                      [48.37, -5.16],
+                      [43.38, -1.85],
+                      [42.47, 3.16],
+                      [43.80, 7.96],
+                      [49.03, 8.08],
+                      [49.03, 8.08]
+                    ]),
+                    hasevents: false
+                  }
+                ];
+                autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
+                var states = [];
+                for (var i = 0; i < autresDepts.length; i++) {
+                  if (!autresDepts[i].hasevents) continue
+                  var localState = {};
+                  localState.stateName = autresDepts[i].name; // name the state
+                  j = i;
+                  do {
+                    j = j + 1;
+                    if (j == autresDepts.length) j = 0;
+                  }
+                  while (!autresDepts[j].hasevents);
+                  localState.nextStateName = autresDepts[j].name; // name of the next state
+                  localState.icon = 'fa-plane'; // and define its properties
+                  switch (autresDepts[i].name) {
+                    case 'Corse':
+                      localState.title = 'vol vers la Corse'; // like its title
+                      localState.onClick = function(btn, map) { // and its callback
+                        map.flyTo({
+                          lat: 42.19,
+                          lng: 9.08
+                        }, 6);
+                        for (var j = 0; j < btn.options.states.length; j++) {
+                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                            btn.state(btn.options.states[j].nextStateName); // change state on click!
+                            break;
+                          }
+                        }
+                      };
+                      break;
+                    case 'Martinique':
+                      localState.title = 'vol vers la Martinique'; // like its title
+                      localState.onClick = function(btn, map) { // and its callback
+                        map.flyTo({
+                          lat: 14.7297,
+                          lng: -60.9655
+                        }, 6);
+                        for (var j = 0; j < btn.options.states.length; j++) {
+                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                            btn.state(btn.options.states[j].nextStateName); // change state on click!
+                            break;
+                          }
+                        }
+                      };
+                      break;
+                    case 'Guadeloupe':
+                      localState.title = 'vol vers la Guadeloupe'; // like its title
+                      localState.onClick = function(btn, map) { // and its callback
+                        map.flyTo({
+                          lat: 16.228,
+                          lng: -61.526
+                        }, 6);
+                        for (var j = 0; j < btn.options.states.length; j++) {
+                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                            btn.state(btn.options.states[j].nextStateName); // change state on click!
+                            break;
+                          }
+                        }
+                      };
+                      break;
+                    case 'Guyane':
+                      localState.title = 'vol vers la Guyane'; // like its title
+                      localState.onClick = function(btn, map) { // and its callback
+                        map.flyTo({
+                          lat: 3.945,
+                          lng: -53.13
+                        }, 6);
+                        for (var j = 0; j < btn.options.states.length; j++) {
+                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                            btn.state(btn.options.states[j].nextStateName); // change state on click!
+                            break;
+                          }
+                        }
+                      };
+                      break;
+                    case 'LaRéunion':
+                      localState.title = 'vol vers la Réunion'; // like its title
+                      localState.onClick = function(btn, map) { // and its callback
+                        map.flyTo({
+                          lat: -20.887,
+                          lng: 55.455
+                        }, 6);
+                        for (var j = 0; j < btn.options.states.length; j++) {
+                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                            btn.state(btn.options.states[j].nextStateName); // change state on click!
+                            break;
+                          }
+                        }
+                      };
+                      break;
+                    default:
+                      localState.title = "retour vers l'Hexagone"; // like its title
+                      localState.bounds = autresDepts[i].bounds;
+                      localState.onClick = function(btn, map) { // and its callback
+                        for (var j = 0; j < btn.options.states.length; j++) {
+                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                            btn.state(btn.options.states[j].nextStateName); // change state on click!
+                            map.flyToBounds(btn.options.states[j].bounds);
+                            break;
+                          }
+                        }
+                      };
+                  }
+                  states.push(localState);
+                }
+                if (states.length > 1) {
+                  var stateChangingButton = L.easyButton({
+                    states: states
+                    /*[{
+                            stateName: 'zoom-to-forest',        // name the state
+                            icon:      'fa-plane',               // and define its properties
+                            title:     'zoom to a forest',      // like its title
+                            onClick: function(btn, map) {       // and its callback
+                                map.setView([46.25,-121.8],10);
+                                btn.state('zoom-to-school');    // change state on click!
+                            }
+                        }, {
+                            stateName: 'zoom-to-school',
+                            icon:      'fa-paper-plane',
+                            title:     'zoom to a school',
+                            onClick: function(btn, map) {
+                                map.setView([42.3748204,-71.1161913],16);
+                                btn.state('zoom-to-forest');
+                            }
+                    }]*/
+                  });
+
+                  stateChangingButton.addTo(map);
+                }
+
+                function checkautresDeptsBounds(autresDepts, indexEvent) {
+                  for (i = 0; i < indexEvent.length; i++) {
+                    for (k = 0; k < autresDepts.length; k++) {
+                      if (autresDepts[k].bounds.contains(indexEvent[i])) {
+                        autresDepts[k].hasevents = true;
+                      }
+                    }
+                  }
+                  return autresDepts;
+                };
+
+              };
+
+
+            }
+          ).catch(function() {
+            console.log('Oh no, epic failure!');
           });
+        };
+
+        function makePopUp(input, setCallBack) {
+
+          if (typeof input.iconMarker === 'undefined' || typeof input.iconMarker.icon === 'undefined' || input.iconMarker.icon == '') {
+            var marker = L.marker([input.lat, input.lng]);
+          }
+          else {
+            if (typeof input.lat === 'undefined' || typeof input.lat === 'undefined') {
+              console.log('error in makePopUp');
+            }
+            var marker = L.marker([input.lat, input.lng], {
+              icon: input.iconMarker.icon
+            });
+          }
+          marker.bindPopup(input.doc, {
+            maxWidth: 400,
+            minWidth: 250,
+            maxHeight: 300,
+            className: 'popupCustom',
+            autoPan: true,
+            closeButton: true,
+            autoPanPadding: [5, 5]
+          });
+          marker.getPopup().on('remove', function() {
+            setCallBack();
+          });
+          return marker;
         }
 
-        function builRegsCallback(option) {
-          var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
-          for (var i = 0; i < objectOverlays["overlays"].length; i++) {
-            objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
+        function makePopupProperties(indexEvent) {
+          var popupStruc = {};
+          //if (typeof popupStruc.properties == 'undefined') {
+          var dataKeys = Object.getOwnPropertyNames(indexEvent)
+          if (typeof popupStrucData.hidden == 'undefined') popupStruc.hidden = [];
+          popupStrucData.hidden.push(popupStrucData.title)
+          popupStruc.title = popupStrucData.title;
+          popupStruc.properties = [];
+          for (var i = 0; i < dataKeys.length; i++) {
+            var keyStatus = true;
+            for (var j = 0; j < popupStrucData.hidden.length; j++) {
+              if (dataKeys[i] == popupStrucData.hidden[j]) keyStatus = false;
+            }
+            if (keyStatus == true) popupStruc.properties.push(dataKeys[i]);
+          }
+          //}
+          return popupStruc;
+        }
+
+        function initMap(idMap, indexEvent) {
+
+          'use strict'
+
+          map = loadMap(idMap);
+
+          //zoomRemove(map);
+          map.options.minZoom = 5;
+          //map.options.maxZoom = 8;
+          map.options.maxZoom = 12;
+
+          setDefaultMapView();
+
+          // Constructeur du fond de carte pour LeafLet
+          var baseMaps = {}
+          var legendMaps = {}
+          loadMapPicture({
+            // carte avec les deux couches openstreet et builDepts
+            baseMaps: baseMaps,
+            map: map,
+            callback: openstreetCallback
+            // carte avec la couche openstreet seule
+            /*baseMaps: baseMaps,
+            map: map*/
+            // carte avec la couche openstreet builDepts
+            /*typMap: "builDepts",
+            baseMaps: baseMaps,
+            data: indexEvent,
+            map: map*/
+          });
+
+          function openstreetCallback(option) {
+            option["baseMaps"]['par défaut'].addTo(option["map"]);
+            option["baseMaps"]['par défaut'] = L.tileLayer('')
+            option["baseMaps"]['par défaut'].addTo(option["map"]);
+            loadMapPicture({
+              typMap: "builDepts",
+              baseMaps: baseMaps,
+              legend: legendMaps,
+              data: indexEvent,
+              map: map,
+              callback: builDeptsCallback
+            });
           }
 
-          var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
-          var controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();
-          controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
-          var controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
-          if (objectOverlays["overlayTitle"] != '') {
-            controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + objectOverlays["overlayTitle"] + '</div>')
-          };
-          if (objectOverlays["overlays"].length == 1) {
-            controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-separator").css("display", "none");
-            controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display", "none");
-          };
-          var baselayerName = 'par défaut';
-          map.on('baselayerchange', function(eventLayer) {
-            baselayerName = eventLayer.name;
-            map.removeControl(legendAllMarkers);
-            map.removeControl(option["legend"]["départements"]);
-            map.removeControl(option["legend"]["régions"]);
-            setDefaultMapView();
-            if (baselayerName == 'par défaut') {
-              //map.addControl(legendAllMarkers);
+          function builDeptsCallback(option) {
+            loadMapPicture({
+              typMap: "builRegs",
+              baseMaps: baseMaps,
+              legend: legendMaps,
+              data: indexEvent,
+              map: map,
+              callback: builRegsCallback
+            });
+          }
+
+          function builRegsCallback(option) {
+            var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
+            for (var i = 0; i < objectOverlays["overlays"].length; i++) {
+              objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
+            }
+
+            var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
+            var controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();
+            controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
+            var controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
+            if (objectOverlays["overlayTitle"] != '') {
+              controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + objectOverlays["overlayTitle"] + '</div>')
+            };
+            if (objectOverlays["overlays"].length == 1) {
+              controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-separator").css("display", "none");
+              controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display", "none");
+            };
+            var baselayerName = 'par défaut';
+            map.on('baselayerchange', function(eventLayer) {
+              baselayerName = eventLayer.name;
+              map.removeControl(legendAllMarkers);
+              map.removeControl(option["legend"]["départements"]);
+              map.removeControl(option["legend"]["régions"]);
+              setDefaultMapView();
+              if (baselayerName == 'par défaut') {
+                //map.addControl(legendAllMarkers);
+                refreshIndexEvent = [];
+                for (i = 0; i < indexEvent.length; i++) {
+                  refreshIndexEvent.push(i)
+                }
+                var iconNum = refreshMarkers(refreshIndexEvent);
+                //map.removeControl(legendAllMarkers);
+                legendAllMarkers = addLegend(iconNum)
+                map.addControl(legendAllMarkers);
+              }
+              else {
+                map.addControl(option["legend"][eventLayer.name]);
+                refreshIndexEvent = [];
+              }
+              refreshMarkers(refreshIndexEvent);
+            });
+            map.on('overlayadd', function(eventLayer) {
+              console.log('adding : ' + eventLayer.name)
+              if (baselayerName == 'par défaut') {
+                for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                  if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                    objectOverlays["overlays"][k].isVisible = true;
+                  };
+                };
+                var iconNum = refreshMarkers(refreshIndexEvent);
+                map.removeControl(legendAllMarkers);
+                legendAllMarkers = addLegend(iconNum)
+                map.addControl(legendAllMarkers);
+              };
+            });
+            map.on('overlayremove', function(eventLayer) {
+              console.log('removing : ' + eventLayer.name)
+              if (baselayerName == 'par défaut') {
+                for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                  if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                    objectOverlays["overlays"][k].isVisible = false;
+                  };
+                };
+                var iconNum = refreshMarkers(refreshIndexEvent);
+                map.removeControl(legendAllMarkers);
+                legendAllMarkers = addLegend(iconNum)
+                map.addControl(legendAllMarkers);
+              };
+            });
+
+            function updateLegend() {
+              var iconNum = refreshMarkers(refreshIndexEvent);
+              map.removeControl(legendAllMarkers);
+              legendAllMarkers = addLegend(iconNum)
+              map.addControl(legendAllMarkers);
+            }
+          }
+
+          var legendAllMarkers = addLegend()
+
+          function addLegend(iconNum) {
+            if (typeof iconNum === 'undefined') {
+              iconNum = [];
+              for (i = 0; i < indexEvent.length; i++) {
+                iconNum.push(true)
+              }
+            }
+            for (var k = 0; k < iconMarkersLength; k++) {
+              iconMarkers[k].nbMapEvents = 0;
+            }
+            for (var i = 0; i < indexEvent.length; i++) {
+              if (iconNum[i]) {
+                for (var k = 0; k < iconMarkersLength; k++) {
+                  if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
+                    iconMarkers[k].nbMapEvents++;
+                  }
+                }
+              }
+            }
+            var legendAllMarkers = L.control({
+              position: 'bottomright'
+            });
+
+            legendAllMarkers.onAdd = function(map) {
+              var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
+              divlegendAllMarkers.innerHTML = '';
+              if (legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + legendTitle + '</span>';
+              for (var k = 0; k < iconMarkersLength; k++) {
+                if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
+                  if (typeof iconMarkers[k].icon === 'undefined') {
+                    divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                  }
+                  else {
+                    var iconVal = iconMarkers[k].icon;
+                    divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                  }
+                }
+              }
+              return divlegendAllMarkers;
+            };
+
+            legendAllMarkers.addTo(map);
+            return legendAllMarkers;
+          }
+
+          bannerCoord();
+
+          function bannerCoord() {
+            bannerCoord = L.control({
+              //position: 'topright'
+              position: 'bottomleft'
+            });
+
+            bannerCoord.onAdd = function(map) {
+              var divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
+              divBannerCoord.innerHTML = '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>';
+              return divBannerCoord;
+            };
+
+            bannerCoord.addTo(map);
+          }
+
+          refreshMarkers();
+
+          function refreshMarkers(refreshIndexEvent) {
+            for (var i = 0; i < indexEvent.length; i++) {
+              markers.removeLayer(indexEvent[i].marker);
+            }
+            if (typeof refreshIndexEvent === 'undefined') {
               refreshIndexEvent = [];
               for (i = 0; i < indexEvent.length; i++) {
                 refreshIndexEvent.push(i)
               }
-              var iconNum = refreshMarkers(refreshIndexEvent);
-              //map.removeControl(legendAllMarkers);
-              legendAllMarkers = addLegend(iconNum)
-              map.addControl(legendAllMarkers);
             }
-            else {
-              map.addControl(option["legend"][eventLayer.name]);
-              refreshIndexEvent = [];
-            }
-            refreshMarkers(refreshIndexEvent);
-          });
-          map.on('overlayadd', function(eventLayer) {
-            console.log('adding : ' + eventLayer.name)
-            if (baselayerName == 'par défaut') {
+            var iconNum = [];
+            for (var i = 0; i < refreshIndexEvent.length; i++) {
+              iconNum.push(false);
               for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                  objectOverlays["overlays"][k].isVisible = true;
-                };
-              };
-              var iconNum = refreshMarkers(refreshIndexEvent);
-              map.removeControl(legendAllMarkers);
-              legendAllMarkers = addLegend(iconNum)
-              map.addControl(legendAllMarkers);
+                if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                  iconNum[i] = true;
+                }
+              }
+              if (iconNum[i]) {
+                markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
+              }
+              else {
+                markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
+              }
+            }
+            return iconNum;
+          }
+
+          function loadMapPicture(option) {
+            switch (option["typMap"]) {
+              case "openstreet":
+                loadOpenstreet(option);
+                break;
+              case "mapBox":
+                loadMapbox(option);
+                break;
+              case "builDepts":
+                loadClustering(option, option["data"]);
+                break;
+              case "builRegs":
+                loadClustering(option, option["data"]);
+                break;
+              default:
+                loadOpenstreet(option);
             };
-          });
-          map.on('overlayremove', function(eventLayer) {
-            console.log('removing : ' + eventLayer.name)
-            if (baselayerName == 'par défaut') {
-              for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                  objectOverlays["overlays"][k].isVisible = false;
-                };
-              };
-              var iconNum = refreshMarkers(refreshIndexEvent);
-              map.removeControl(legendAllMarkers);
-              legendAllMarkers = addLegend(iconNum)
-              map.addControl(legendAllMarkers);
-            };
-          });
 
-          function updateLegend() {
-            var iconNum = refreshMarkers(refreshIndexEvent);
-            map.removeControl(legendAllMarkers);
-            legendAllMarkers = addLegend(iconNum)
-            map.addControl(legendAllMarkers);
-          }
-        }
-
-        var legendAllMarkers = addLegend()
-
-        function addLegend(iconNum) {
-          if (typeof iconNum === 'undefined') {
-            iconNum = [];
-            for (i = 0; i < indexEvent.length; i++) {
-              iconNum.push(true)
-            }
-          }
-          for (var k = 0; k < iconMarkersLength; k++) {
-            iconMarkers[k].nbMapEvents = 0;
-          }
-          for (var i = 0; i < indexEvent.length; i++) {
-            if (iconNum[i]) {
-              for (var k = 0; k < iconMarkersLength; k++) {
-                if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
-                  iconMarkers[k].nbMapEvents++;
-                }
-              }
-            }
-          }
-          var legendAllMarkers = L.control({
-            position: 'bottomright'
-          });
-
-          legendAllMarkers.onAdd = function(map) {
-            var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
-            divlegendAllMarkers.innerHTML = '';
-            if (legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + legendTitle + '</span>';
-            for (var k = 0; k < iconMarkersLength; k++) {
-              if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-                if (typeof iconMarkers[k].icon === 'undefined') {
-                  divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-                }
-                else {
-                  var iconVal = iconMarkers[k].icon;
-                  divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-                }
-              }
-            }
-            return divlegendAllMarkers;
-          };
-
-          legendAllMarkers.addTo(map);
-          return legendAllMarkers;
-        }
-
-        bannerCoord();
-
-        function bannerCoord() {
-          bannerCoord = L.control({
-            //position: 'topright'
-            position: 'bottomleft'
-          });
-
-          bannerCoord.onAdd = function(map) {
-            var divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
-            divBannerCoord.innerHTML = '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>';
-            return divBannerCoord;
-          };
-
-          bannerCoord.addTo(map);
-        }
-
-        refreshMarkers();
-
-        function refreshMarkers(refreshIndexEvent) {
-          for (var i = 0; i < indexEvent.length; i++) {
-            markers.removeLayer(indexEvent[i].marker);
-          }
-          if (typeof refreshIndexEvent === 'undefined') {
-            refreshIndexEvent = [];
-            for (i = 0; i < indexEvent.length; i++) {
-              refreshIndexEvent.push(i)
-            }
-          }
-          var iconNum = [];
-          for (var i = 0; i < refreshIndexEvent.length; i++) {
-            iconNum.push(false);
-            for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-              if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
-                iconNum[i] = true;
-              }
-            }
-            if (iconNum[i]) {
-              markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
-            }
-            else {
-              markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
-            }
-          }
-          return iconNum;
-        }
-
-        function loadMapPicture(option) {
-          switch (option["typMap"]) {
-            case "openstreet":
-              loadOpenstreet(option);
-              break;
-            case "mapBox":
-              loadMapbox(option);
-              break;
-            case "builDepts":
-              loadClustering(option, option["data"]);
-              break;
-            case "builRegs":
-              loadClustering(option, option["data"]);
-              break;
-            default:
-              loadOpenstreet(option);
-          };
-
-          function loadOpenstreet(option) {
-            //var openstreetMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-            var openstreetMap = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
-            option["baseMaps"]['par défaut'] = L.tileLayer(openstreetMap, {
-              attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-            });
-            if (typeof option["callback"] == 'undefined') {
-              if (typeof option["map"] !== 'undefined') option["baseMaps"]['par défaut'].addTo(option["map"]);
-            }
-            else option["callback"](option);
-          };
-
-          function loadMapbox(opion) {
-            // Usage:  Load different file types with one callback
-            Promise.all([
-              // Début ressources utilisées pour construire la carte MapBox
-              load.js('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'),
-              load.css('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css'),
-              load.js('https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js'),
-              // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
-
-            ]).then(
-              function() {
-                console.log('Everything has loaded!');
-
-                var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
-
-                /*
-                // Downsample tiles for faster load times on slow internet connections by
-                // adjusting the format property in styleLayer. See
-                // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
-                L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
-                  tileLayer: {
-                    format: 'jpg70'
-                  }
-                }).addTo(map);
-                */
-                option["baseMaps"]['mapbox'] = L.mapboxGL({
-                  accessToken: mapboxAccessToken,
-                  // get your own MapTiler token at https://cloud.maptiler.com/ or use MapBox style
-                  //style: 'https://api.maptiler.com/maps/basic/style.json?key=gbetYLSD5vR8MdtZ88AQ'
-                  style: 'mapbox://styles/mapbox/streets-v11',
-                });
-              }).catch(function() {
-              console.log('Oh no, epic failure!');
-            });
-          };
-
-          function loadClustering(option) {
-            // Constructeur de la carte TopoJSON avec pays pour LeafLet
-            // ajout de l'échelle des couleurs pour les cartes TopoJSON
-            if (option["typMap"] == "builDepts") {
-              var grades = [0, 1, 3, 5, 7, 10, 15, 20];
-              var colorDeb = '#D5E3FF';
-              var colorFin = '#003171';
-              var colorStyle = '#555';
-            }
-            else {
-              var grades = [0, 20, 30, 40, 55, 60, 80, 100];
-              var colorDeb = '#D5E3FF';
-              var colorFin = '#003171';
-              var colorStyle = '#555';
-            }
-            // ajout des couche départements et régions colorées TopoJSON
-            loadMapTopoJSON(option);
-
-            function loadMapTopoJSON(option) {
-              // Usage:  Load different file types with one callback
-              // Copyright (c) 2013 Ryan Clark
-              // https://gist.github.com/rclark/5779673
-              L.TopoJSON = L.GeoJSON.extend({
-                addData: function(jsonData) {
-                  if (jsonData.type === "Topology") {
-                    for (var key in jsonData.objects) {
-                      var geojson = topojson.feature(jsonData, jsonData.objects[key]);
-                      L.GeoJSON.prototype.addData.call(this, geojson);
-                    }
-                  }
-                  else {
-                    L.GeoJSON.prototype.addData.call(this, jsonData);
-                  }
-                }
+            function loadOpenstreet(option) {
+              //var openstreetMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+              var openstreetMap = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+              option["baseMaps"]['par défaut'] = L.tileLayer(openstreetMap, {
+                attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
               });
-              var deptsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json'
-              var regsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json'
+              if (typeof option["callback"] == 'undefined') {
+                if (typeof option["map"] !== 'undefined') option["baseMaps"]['par défaut'].addTo(option["map"]);
+              }
+              else option["callback"](option);
+            };
+
+            function loadMapbox(opion) {
+              // Usage:  Load different file types with one callback
               Promise.all([
-                // ressources utilisées pour construire la carte TopoSJON
-                load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
-                load.js('https://d3js.org/topojson.v1.min.js'),
-                // GeoJSON des départements et régions françaises
-                // d'après https://france-geojson.gregoiredavid.fr
-                load.json(deptsFranceData),
-                load.json(regsFranceData)
+                // Début ressources utilisées pour construire la carte MapBox
+                load.js('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'),
+                load.css('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css'),
+                load.js('https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js'),
+                // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
+
               ]).then(
-                function(values) {
-                  console.log('Everything has been loaded!');
+                function() {
+                  console.log('Everything has loaded!');
 
-                  deptsFranceData = loadVal(values, deptsFranceData);
-                  regsFranceData = loadVal(values, regsFranceData);
+                  var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
 
-                  var topoLayer = new L.TopoJSON();
-                  var colorScale = chroma
-                    //.scale(['#D5E3FF', '#003171'])
-                    .scale([colorDeb, colorFin])
-                    .domain([0, 1]);
-
-                  var enterPopup = 0;
-                  if (option["typMap"] == "builDepts") {
-                    var baseMapsName = "départements";
-                    addTopoData(deptsFranceData);
-                  }
-                  else {
-                    var baseMapsName = "régions"
-                    addTopoData(regsFranceData);
-                  }
-
-                  function addTopoData(topoData) {
-
-                    topoLayer.addData(topoData);
-                    //topoLayer.addTo(map);
-                    topoLayer.eachLayer(handleLayer);
-
-                    option["legend"][baseMapsName] = L.control({
-                      position: 'bottomright'
-                    });
-                    option["legend"][baseMapsName].onAdd = function(map) {
-
-                      var div = L.DomUtil.create('div', 'info legend'),
-
-                        labels = [];
-
-                      // loop through our density intervals and generate a label with a colored square for each interval
-                      for (var i = grades.length - 1; i >= 0; i--) {
-                        //for (var i = 0; i < grades.length; i++) {
-                        var legColor = thisColor(grades[i] + 1)
-                        div.innerHTML +=
-                          '<i style="background:' + legColor + '"></i><span>' +
-                          grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
-                      }
-
-                      return div;
-                    };
-
-                  }
-
-                  function thisColor(d) {
-                    var nbMax = grades.length;
-                    for (var i = nbMax - 1; i >= 0; i--) {
-                      if (d > grades[i]) {
-                        var retColor = colorScale(i / nbMax).hex();
-                        return retColor;
-                      }
+                  /*
+                  // Downsample tiles for faster load times on slow internet connections by
+                  // adjusting the format property in styleLayer. See
+                  // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
+                  L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
+                    tileLayer: {
+                      format: 'jpg70'
                     }
-                    return 'white';
-                  }
+                  }).addTo(map);
+                  */
+                  option["baseMaps"]['mapbox'] = L.mapboxGL({
+                    accessToken: mapboxAccessToken,
+                    // get your own MapTiler token at https://cloud.maptiler.com/ or use MapBox style
+                    //style: 'https://api.maptiler.com/maps/basic/style.json?key=gbetYLSD5vR8MdtZ88AQ'
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                  });
+                }).catch(function() {
+                console.log('Oh no, epic failure!');
+              });
+            };
 
+            function loadClustering(option) {
+              // Constructeur de la carte TopoJSON avec pays pour LeafLet
+              // ajout de l'échelle des couleurs pour les cartes TopoJSON
+              if (option["typMap"] == "builDepts") {
+                var grades = [0, 1, 3, 5, 7, 10, 15, 20];
+                var colorDeb = '#D5E3FF';
+                var colorFin = '#003171';
+                var colorStyle = '#555';
+              }
+              else {
+                var grades = [0, 20, 30, 40, 55, 60, 80, 100];
+                var colorDeb = '#D5E3FF';
+                var colorFin = '#003171';
+                var colorStyle = '#555';
+              }
+              // ajout des couche départements et régions colorées TopoJSON
+              loadMapTopoJSON(option);
 
-                  function handleLayer(layer) {
-                    //var randomValue = Math.random(),
-
-                    var areaBounds = layer.getBounds();
-                    var areaCode = layer.feature.properties.code;
-                    var areaGeometry = layer.feature.geometry;
-                    var areaName = layer.feature.properties.nom;
-                    var inMarkers = [];
-                    var areaNum = getNumItems();
-                    var areaEnterCode, areaBindPopup;
-
-                    // Create an element to hold all your text and markup
-                    var container = $('<div />');
-
-                    // Delegate all event handling for the container itself and its contents to the container
-                    container.on('click', '.smallPolygonLink', function() {
-                      enterPopup = areaName;
-                      var myevent = layer["_events"];
-                      var myclick = layer["_events"]["click"][0];
-                      myclick["fn"]();
-                      //layer.unbindPopup();
-                    });
-
-                    // Insert whatever you want into the container, using whichever approach you prefer
-                    //container.html(dataPopUp);
-                    var areaDataPopUp = container[0];
-
-                    var fillColor = thisColor(areaNum);
-                    layer.setStyle({
-                      fillColor: fillColor,
-                      //fillColor: getColor,
-                      fillOpacity: 1,
-                      color: colorStyle,
-                      weight: 1,
-                      opacity: .5
-                    });
-
-                    if ("ontouchstart" in document.documentElement) {
-                      layer.on({
-                        click: touchLayer,
-                      });
+              function loadMapTopoJSON(option) {
+                // Usage:  Load different file types with one callback
+                // Copyright (c) 2013 Ryan Clark
+                // https://gist.github.com/rclark/5779673
+                L.TopoJSON = L.GeoJSON.extend({
+                  addData: function(jsonData) {
+                    if (jsonData.type === "Topology") {
+                      for (var key in jsonData.objects) {
+                        var geojson = topojson.feature(jsonData, jsonData.objects[key]);
+                        L.GeoJSON.prototype.addData.call(this, geojson);
+                      }
                     }
                     else {
-                      layer.on({
-                        click: clickLayer,
-                        //mouseover: enterLayer,
-                        //mouseout: leaveLayer,
-                      });
+                      L.GeoJSON.prototype.addData.call(this, jsonData);
+                    }
+                  }
+                });
+                var deptsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json'
+                var regsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json'
+                Promise.all([
+                  // ressources utilisées pour construire la carte TopoSJON
+                  load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
+                  load.js('https://d3js.org/topojson.v1.min.js'),
+                  // GeoJSON des départements et régions françaises
+                  // d'après https://france-geojson.gregoiredavid.fr
+                  load.json(deptsFranceData),
+                  load.json(regsFranceData)
+                ]).then(
+                  function(values) {
+                    console.log('Everything has been loaded!');
+
+                    deptsFranceData = loadVal(values, deptsFranceData);
+                    regsFranceData = loadVal(values, regsFranceData);
+
+                    var topoLayer = new L.TopoJSON();
+                    var colorScale = chroma
+                      //.scale(['#D5E3FF', '#003171'])
+                      .scale([colorDeb, colorFin])
+                      .domain([0, 1]);
+
+                    var enterPopup = 0;
+                    if (option["typMap"] == "builDepts") {
+                      var baseMapsName = "départements";
+                      addTopoData(deptsFranceData);
+                    }
+                    else {
+                      var baseMapsName = "régions"
+                      addTopoData(regsFranceData);
                     }
 
-                    map.on('overlayadd', function(eventLayer) {
-                      addingOverlay(eventLayer);
-                    });
-                    map.on('overlayremove', function(eventLayer) {
-                      removingOverlay(eventLayer);
-                    });
+                    function addTopoData(topoData) {
 
-                    function addingOverlay(eventLayer) {
-                      console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
-                      for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                        if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                          objectOverlays["overlays"][k].isVisible = true;
-                        };
+                      topoLayer.addData(topoData);
+                      //topoLayer.addTo(map);
+                      topoLayer.eachLayer(handleLayer);
+
+                      option["legend"][baseMapsName] = L.control({
+                        position: 'bottomright'
+                      });
+                      option["legend"][baseMapsName].onAdd = function(map) {
+
+                        var div = L.DomUtil.create('div', 'info legend'),
+
+                          labels = [];
+
+                        // loop through our density intervals and generate a label with a colored square for each interval
+                        for (var i = grades.length - 1; i >= 0; i--) {
+                          //for (var i = 0; i < grades.length; i++) {
+                          var legColor = thisColor(grades[i] + 1)
+                          div.innerHTML +=
+                            '<i style="background:' + legColor + '"></i><span>' +
+                            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
+                        }
+
+                        return div;
                       };
-                      areaNum = getAreaNum(inMarkers);
-                      fillColor = thisColor(areaNum);
-                      layer.setStyle({
-                        fillColor: fillColor,
-                      });
-                      container.html(dataPopUp);
-                      if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+
                     }
 
-                    function removingOverlay(eventLayer) {
-                      console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
-                      for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                        if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                          objectOverlays["overlays"][k].isVisible = false;
-                        };
-                      };
-                      areaNum = getAreaNum(inMarkers);
-                      fillColor = thisColor(areaNum);
-                      layer.setStyle({
-                        fillColor: fillColor,
-                      });
-                      container.html(dataPopUp);
-                      if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
-                    }
-
-                    function getAreaNum(refreshIndexEvent) {
-                      var getAreaNumReturn = 0;
-                      if (typeof refreshIndexEvent === 'undefined') {
-                        refreshIndexEvent = [];
-                        for (i = 0; i < indexEvent.length; i++) {
-                          refreshIndexEvent.push(i)
+                    function thisColor(d) {
+                      var nbMax = grades.length;
+                      for (var i = nbMax - 1; i >= 0; i--) {
+                        if (d > grades[i]) {
+                          var retColor = colorScale(i / nbMax).hex();
+                          return retColor;
                         }
                       }
-                      for (var i = 0; i < refreshIndexEvent.length; i++) {
-                        var isInMarkers = false;
+                      return 'white';
+                    }
+
+
+                    function handleLayer(layer) {
+                      //var randomValue = Math.random(),
+
+                      var areaBounds = layer.getBounds();
+                      var areaCode = layer.feature.properties.code;
+                      var areaGeometry = layer.feature.geometry;
+                      var areaName = layer.feature.properties.nom;
+                      var inMarkers = [];
+                      var areaNum = getNumItems();
+                      var areaEnterCode, areaBindPopup;
+
+                      // Create an element to hold all your text and markup
+                      var container = $('<div />');
+
+                      // Delegate all event handling for the container itself and its contents to the container
+                      container.on('click', '.smallPolygonLink', function() {
+                        enterPopup = areaName;
+                        var myevent = layer["_events"];
+                        var myclick = layer["_events"]["click"][0];
+                        myclick["fn"]();
+                        //layer.unbindPopup();
+                      });
+
+                      // Insert whatever you want into the container, using whichever approach you prefer
+                      //container.html(dataPopUp);
+                      var areaDataPopUp = container[0];
+
+                      var fillColor = thisColor(areaNum);
+                      layer.setStyle({
+                        fillColor: fillColor,
+                        //fillColor: getColor,
+                        fillOpacity: 1,
+                        color: colorStyle,
+                        weight: 1,
+                        opacity: .5
+                      });
+
+                      if ("ontouchstart" in document.documentElement) {
+                        layer.on({
+                          click: touchLayer,
+                        });
+                      }
+                      else {
+                        layer.on({
+                          click: clickLayer,
+                          //mouseover: enterLayer,
+                          //mouseout: leaveLayer,
+                        });
+                      }
+
+                      map.on('overlayadd', function(eventLayer) {
+                        addingOverlay(eventLayer);
+                      });
+                      map.on('overlayremove', function(eventLayer) {
+                        removingOverlay(eventLayer);
+                      });
+
+                      function addingOverlay(eventLayer) {
+                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
                         for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                          if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
-                            isInMarkers = true;
+                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                            objectOverlays["overlays"][k].isVisible = true;
+                          };
+                        };
+                        areaNum = getAreaNum(inMarkers);
+                        fillColor = thisColor(areaNum);
+                        layer.setStyle({
+                          fillColor: fillColor,
+                        });
+                        container.html(dataPopUp);
+                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                      }
+
+                      function removingOverlay(eventLayer) {
+                        console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
+                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                            objectOverlays["overlays"][k].isVisible = false;
+                          };
+                        };
+                        areaNum = getAreaNum(inMarkers);
+                        fillColor = thisColor(areaNum);
+                        layer.setStyle({
+                          fillColor: fillColor,
+                        });
+                        container.html(dataPopUp);
+                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                      }
+
+                      function getAreaNum(refreshIndexEvent) {
+                        var getAreaNumReturn = 0;
+                        if (typeof refreshIndexEvent === 'undefined') {
+                          refreshIndexEvent = [];
+                          for (i = 0; i < indexEvent.length; i++) {
+                            refreshIndexEvent.push(i)
                           }
                         }
-                        if (isInMarkers) {
-                          getAreaNumReturn++;
+                        for (var i = 0; i < refreshIndexEvent.length; i++) {
+                          var isInMarkers = false;
+                          for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                            if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                              isInMarkers = true;
+                            }
+                          }
+                          if (isInMarkers) {
+                            getAreaNumReturn++;
+                          }
                         }
+                        return getAreaNumReturn;
                       }
-                      return getAreaNumReturn;
-                    }
 
-                    function dataPopUp() {
-                      var popupContent = $("<div></div>");
-                      var popupBody = $("<div class='popBody'></div>");
-                      popupContent.append(popupBody);
-                      popupBody.append("<div class='popLieux'>" + areaName + "</div>");
-                      switch (areaNum) {
-                        case 0:
-                          popupBody.append("<div class='popItem'><span class='popTitle'>Aucun &#232;tablissement concern&#232;</span><br></div>");
-                          break;
-                        case 1:
-                          popupBody.append("<div class='popItem'><span class='popTitle'>Un &#232;tablissement concern&#232;</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
-                          break;
-                        default:
-                          popupBody.append("<div class='popItem'><span class='popTitle'>Nombre d&#39;&#232;tablissements concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
-                      };
-                      return popupContent.html();
-                    }
+                      function dataPopUp() {
+                        var popupContent = $("<div></div>");
+                        var popupBody = $("<div class='popBody'></div>");
+                        popupContent.append(popupBody);
+                        popupBody.append("<div class='popLieux'>" + areaName + "</div>");
+                        switch (areaNum) {
+                          case 0:
+                            popupBody.append("<div class='popItem'><span class='popTitle'>Aucun &#232;tablissement concern&#232;</span><br></div>");
+                            break;
+                          case 1:
+                            popupBody.append("<div class='popItem'><span class='popTitle'>Un &#232;tablissement concern&#232;</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
+                            break;
+                          default:
+                            popupBody.append("<div class='popItem'><span class='popTitle'>Nombre d&#39;&#232;tablissements concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
+                        };
+                        return popupContent.html();
+                      }
 
-                    function getNumItems() {
-                      var d = 0;
-                      //var dbis = 0;
-                      for (var idx = 0; idx < option["data"].length; idx++) {
-                        //var isinsideD = false;
-                        //var isinsideD2 = false;
-                        if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                          inMarkers.push(idx);
-                          d += 1;
-                          //isinsideD2 = true;
+                      function getNumItems() {
+                        var d = 0;
+                        //var dbis = 0;
+                        for (var idx = 0; idx < option["data"].length; idx++) {
+                          //var isinsideD = false;
+                          //var isinsideD2 = false;
+                          if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
+                            inMarkers.push(idx);
+                            d += 1;
+                            //isinsideD2 = true;
+                          }
+                          /*if (typeof option["data"][idx].INSEEdept !== 'undefined' && areaCode == option["data"][idx].INSEEdept) {
+                            isinsideD = true;
+                          }
+                          if(isinsideD !== isinsideD2) {
+                            console.log('les deux méthodes donnent des résultats différents pour le point : COMMUNE = ' + option["data"][idx].COMMUNE + ' LIEUX = ' + option["data"][idx].LIEUX + ' x = ' + option["data"][idx].lng + ' y = ' + option["data"][idx].lat+ ' d = ' + isinsideD + ' et dbis = ' + isinsideD2);
+                          }*/
                         }
-                        /*if (typeof option["data"][idx].INSEEdept !== 'undefined' && areaCode == option["data"][idx].INSEEdept) {
-                          isinsideD = true;
-                        }
-                        if(isinsideD !== isinsideD2) {
-                          console.log('les deux méthodes donnent des résultats différents pour le point : COMMUNE = ' + option["data"][idx].COMMUNE + ' LIEUX = ' + option["data"][idx].LIEUX + ' x = ' + option["data"][idx].lng + ' y = ' + option["data"][idx].lat+ ' d = ' + isinsideD + ' et dbis = ' + isinsideD2);
+                        /*if (d !== dbis) {
+                          var dString = d.toString();
+                          var dbisString = dbis.toString();
+                          console.log('les deux méthodes donnent des résultats différents pour le département ' + areaCode + ' d = ' + dString + ' et dbis = ' + dbisString);
                         }*/
-                      }
-                      /*if (d !== dbis) {
-                        var dString = d.toString();
-                        var dbisString = dbis.toString();
-                        console.log('les deux méthodes donnent des résultats différents pour le département ' + areaCode + ' d = ' + dString + ' et dbis = ' + dbisString);
-                      }*/
-                      return d;
+                        return d;
 
-                      function inside(point, TopoGeom) {
-                        var insideVal = false;
-                        if (TopoGeom["type"] == "MultiPolygon") {
-                          for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
-                            var polygon = TopoGeom["coordinates"][i][0];
+                        function inside(point, TopoGeom) {
+                          var insideVal = false;
+                          if (TopoGeom["type"] == "MultiPolygon") {
+                            for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
+                              var polygon = TopoGeom["coordinates"][i][0];
+                              // Le point est-il dans le polygone
+                              if (isInsidePolygon(point, polygon)) {
+                                insideVal = true;
+                                for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
+                                  var polygon = TopoGeom["coordinates"][i][j];
+                                  // Le point est-il dans l'un des trous du polygone
+                                  if (isInsidePolygon(point, polygon)) {
+                                    insideVal = false;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                          else {
+                            var polygon = TopoGeom["coordinates"][0];
                             // Le point est-il dans le polygone
                             if (isInsidePolygon(point, polygon)) {
                               insideVal = true;
-                              for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
-                                var polygon = TopoGeom["coordinates"][i][j];
+                              for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
+                                var polygon = TopoGeom["coordinates"][j];
                                 // Le point est-il dans l'un des trous du polygone
                                 if (isInsidePolygon(point, polygon)) {
                                   insideVal = false;
@@ -1593,314 +1608,300 @@ var readUrlParam = name => {
                               }
                             }
                           }
-                        }
-                        else {
-                          var polygon = TopoGeom["coordinates"][0];
-                          // Le point est-il dans le polygone
-                          if (isInsidePolygon(point, polygon)) {
-                            insideVal = true;
-                            for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
-                              var polygon = TopoGeom["coordinates"][j];
-                              // Le point est-il dans l'un des trous du polygone
-                              if (isInsidePolygon(point, polygon)) {
-                                insideVal = false;
-                              }
+
+                          return insideVal;
+                          // ray-casting algorithm based on
+                          // https://github.com/substack/point-in-polygon/blob/master/index.js
+
+                          function isInsidePolygon(point, vs) {
+                            var x = point[0],
+                              y = point[1];
+
+                            var inside = false;
+                            for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                              var xi = vs[i][0],
+                                yi = vs[i][1];
+                              var xj = vs[j][0],
+                                yj = vs[j][1];
+
+                              var intersect = ((yi > y) != (yj > y)) &&
+                                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                              if (intersect) inside = !inside;
                             }
+
+                            return inside;
+
                           }
                         }
+                      }
 
-                        return insideVal;
-                        // ray-casting algorithm based on
-                        // https://github.com/substack/point-in-polygon/blob/master/index.js
+                      function touchLayer() {
 
-                        function isInsidePolygon(point, vs) {
-                          var x = point[0],
-                            y = point[1];
+                        //clickLayer()
+                        this.bindPopup(areaPopup, {
+                          setLatLng: areaBounds.getCenter(),
+                          sticky: true,
+                          maxHeight: 160,
+                          maxWidth: 400,
+                          minWidth: 250
+                        }).openPopup();
+                        this.getPopup().on('remove', function() {});
+                      }
 
-                          var inside = false;
-                          for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-                            var xi = vs[i][0],
-                              yi = vs[i][1];
-                            var xj = vs[j][0],
-                              yj = vs[j][1];
+                      //function enterLayer() {}
 
-                            var intersect = ((yi > y) != (yj > y)) &&
-                              (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-                            if (intersect) inside = !inside;
-                          }
-
-                          return inside;
-
+                      function clickLayer() {
+                        if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
+                        if (enterPopup != areaName) {
+                          // Insert whatever you want into the container, using whichever approach you prefer
+                          this.bindPopup(areaDataPopUp).openPopup();
+                          var areaPopup = this.getPopup();
+                          areaPopup.setLatLng(areaBounds.getCenter());
+                          return;
                         }
-                      }
-                    }
-
-                    function touchLayer() {
-
-                      //clickLayer()
-                      this.bindPopup(areaPopup, {
-                        setLatLng: areaBounds.getCenter(),
-                        sticky: true,
-                        maxHeight: 160,
-                        maxWidth: 400,
-                        minWidth: 250
-                      }).openPopup();
-                      this.getPopup().on('remove', function() {});
-                    }
-
-                    //function enterLayer() {}
-
-                    function clickLayer() {
-                      if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
-                      if (enterPopup != areaName) {
-                        // Insert whatever you want into the container, using whichever approach you prefer
-                        this.bindPopup(areaDataPopUp).openPopup();
-                        var areaPopup = this.getPopup();
-                        areaPopup.setLatLng(areaBounds.getCenter());
-                        return;
-                      }
-                      map.closePopup();
-                      refreshIndexEvent = inMarkers;
-                      refreshMarkers(refreshIndexEvent);
-                      layer.setStyle({
-                        fillOpacity: 0
-                      });
-                      areaBindPopup = this['unbindPopup'];
-                      if (typeof areaBindPopup !== 'undefined') {
-                        this.unbindPopup();
-                      }
-                      enterPopup = 0;
-                      option["map"].fitBounds(areaBounds, {
-                        padding: [100, 100]
-                      });
-                      var _this = layer;
-                      onSetDefaultMapView = function() {
-                        //_this.getPopup().remove();
-                        _this.setStyle({
-                          fillOpacity: 1
+                        map.closePopup();
+                        refreshIndexEvent = inMarkers;
+                        refreshMarkers(refreshIndexEvent);
+                        layer.setStyle({
+                          fillOpacity: 0
                         });
-                        //removeAreaMarkers();
-                        refreshMarkers([]);
+                        areaBindPopup = this['unbindPopup'];
+                        if (typeof areaBindPopup !== 'undefined') {
+                          this.unbindPopup();
+                        }
+                        enterPopup = 0;
+                        option["map"].fitBounds(areaBounds, {
+                          padding: [100, 100]
+                        });
+                        var _this = layer;
+                        onSetDefaultMapView = function() {
+                          //_this.getPopup().remove();
+                          _this.setStyle({
+                            fillOpacity: 1
+                          });
+                          //removeAreaMarkers();
+                          refreshMarkers([]);
+                        }
+                      }
+
+                      //function leaveLayer() {);
+                    }
+
+                    option["baseMaps"][baseMapsName] = topoLayer;
+                    if (typeof option["callback"] == 'undefined') {
+                      if (option["typMap"] == "builDepts") {
+                        if (typeof option["map"] !== 'undefined') option["baseMaps"]['départements'].addTo(option["map"]);
+                      }
+                      else {
+                        if (typeof option["map"] !== 'undefined') option["baseMaps"]['régions'].addTo(option["map"]);
                       }
                     }
+                    else option["callback"](option);
 
-                    //function leaveLayer() {);
                   }
-
-                  option["baseMaps"][baseMapsName] = topoLayer;
-                  if (typeof option["callback"] == 'undefined') {
-                    if (option["typMap"] == "builDepts") {
-                      if (typeof option["map"] !== 'undefined') option["baseMaps"]['départements'].addTo(option["map"]);
-                    }
-                    else {
-                      if (typeof option["map"] !== 'undefined') option["baseMaps"]['régions'].addTo(option["map"]);
-                    }
-                  }
-                  else option["callback"](option);
-
-                }
-              )
-              /*.catch(function() {
-                              console.log('Oh no, epic failure!');
-                            });*/
+                )
+                /*.catch(function() {
+                                console.log('Oh no, epic failure!');
+                              });*/
+              };
             };
           };
-        };
 
-        var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+          var searchControl = L.esri.Geocoding.geosearch().addTo(map);
 
-        var results = L.layerGroup().addTo(map);
+          var results = L.layerGroup().addTo(map);
 
-        var redIcon = new L.Icon({
-          iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        });
-        searchControl.on('results', function(data) {
-          results.clearLayers();
-          for (var i = data.results.length - 1; i >= 0; i--) {
-            results.addLayer(L.marker(data.results[i].latlng, {
-              icon: redIcon
-            }));
-          }
-        });
-
-        return map;
-        // Constructeur de la carte LeafLet
-        function loadMap(idMap) {
-          L.map(idMap).remove();
-          var map = L.map(idMap);
-
-          map.createPane('labels');
-
-          // This pane is above markers but below popups
-          map.getPane('labels').style.zIndex = 650;
-
-          // Layers in this pane are non-interactive and do not obscure mouse/touch events
-          map.getPane('labels').style.pointerEvents = 'none';
-
-
-          return map;
-
-        };
-
-        function zoomRemove(map) {
-          //remove zoom functions
-          map.removeControl(map.zoomControl);
-          map.touchZoom.disable();
-          map.doubleClickZoom.disable();
-          map.scrollWheelZoom.disable();
-          map.boxZoom.disable();
-          map.keyboard.disable();
-        }
-
-      }
-      var map_invalidateSize = function() {
-        map.invalidateSize();
-      }
-      $('.leaflet-control-zoom').wrap('<div class="topLeftControls"></div>');
-      $('.geocoder-control.leaflet-control').appendTo($('.topLeftControls'));
-      return map_invalidateSize
-    }
-
-    function runTable(data) {
-      var popupStruc = makePopupProperties(indexEvent[0]);
-
-      function makePopupProperties(indexEvent) {
-        var popupStruc = {};
-        //if (typeof popupStruc.properties == 'undefined') {
-        var dataKeys = Object.getOwnPropertyNames(indexEvent)
-        if (typeof popupStrucData.hidden == 'undefined') popupStruc.hidden = [];
-        popupStrucData.hidden.push(popupStrucData.title)
-        popupStruc.title = popupStrucData.title;
-        popupStruc.properties = [];
-        for (var i = 0; i < dataKeys.length; i++) {
-          var keyStatus = true;
-          for (var j = 0; j < popupStrucData.hidden.length; j++) {
-            if (dataKeys[i] == popupStrucData.hidden[j]) keyStatus = false;
-          }
-          if (keyStatus == true) popupStruc.properties.push(dataKeys[i]);
-        }
-        //}
-        return popupStruc;
-      }
-
-      var item = popupStruc.title;
-      var columns = [{
-        data: item,
-        title: item,
-        selectable: true
-      }];
-      for (i = 0; i < popupStruc.properties.length; i++) {
-        var item = popupStruc.properties[i];
-        columns.push({
-          data: item,
-          title: item,
-          selectable: false
-        });
-      }
-      $('#table').DataTable({
-        data: indexEvent,
-        "language": {
-          "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
-        },
-        columns: columns,
-        initComplete: function() {
-          var myApi = this.api();
-          var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
-          var footertr = $("<tr></tr>").appendTo(footer);
-          var myColumnsi = this.api().columns();
-          this.api().columns().every(function(element) {
-            var column = this;
-            var myfooter = $("<th></th>").appendTo(footertr);
-            var select = $('<select><option value=""></option></select>')
-              .appendTo(myfooter)
-              .on('change', function() {
-                var val = $.fn.dataTable.util.escapeRegex(
-                  $(this).val()
-                );
-                if (val != '') {
-                  $('th select').css('display', 'none');
-                  select.css('display', 'block');
-                }
-                else {
-                  $('th select').each(function() {
-                    dataDisplay = $(this).data('display');
-                    if ((typeof dataDisplay === "undefined") || dataDisplay != 'none') {
-                      $(this).css('display', 'block');
-                    }
-                  });
-                }
-                column
-                  .search(val ? "(^" + val + "$)|(^" + val + ",)|(, " + val + "$)|(, " + val + ",)" : '', true, false)
-                  .draw();
-              });
-
-            if (!columns[element].selectable) {
-              select.css('display', 'none');
-              select.data('display', 'none');
-            }
-            else {
-              var optEmpty = true;
-              var allColumnData = column.data();
-              var newColumnData = [];
-              for (var i = 0; i < allColumnData.length; i++) {
-                var optValMul = allColumnData[i].split(', ')
-                for (var j = 0; j < optValMul.length; j++) {
-                  newColumnData.push(optValMul[j]);
-                }
-              }
-              newColumnData = sortUnique(newColumnData)
-
-              function sortUnique(array) {
-                "use strict";
-                var table = {},
-                  key, i;
-                for (i = 0; i < array.length; i++) {
-                  table[[array[i]]] = '';
-                }
-                i = 0;
-                for (key in table) {
-                  array[i++] = key;
-                }
-                array.length = i;
-                return array.sort();
-              }
-
-              for (var i = 0; i < newColumnData.length; i++) {
-                var optlVal = newColumnData[i];
-                if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
-                  select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
-                  optEmpty = false;
-                }
-              };
-              if (optEmpty) {
-                select.css('display', 'none');
-                select.data('display', 'none');
-              }
+          var redIcon = new L.Icon({
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [13, 20],
+            iconAnchor: [6, 20],
+            popupAnchor: [1, -17],
+            shadowSize: [20, 20]
+          });
+          searchControl.on('results', function(data) {
+            results.clearLayers();
+            for (var i = data.results.length - 1; i >= 0; i--) {
+              results.addLayer(L.marker(data.results[i].latlng, {
+                icon: redIcon
+              }));
             }
           });
 
-          function isValidSelector(selector) {
-            if (typeof(selector) !== 'string') {
-              return false;
-            }
-            try {
-              var $element = $(selector);
-            }
-            catch (error) {
-              return false;
-            }
-            return true;
+          return map;
+          // Constructeur de la carte LeafLet
+          function loadMap(idMap) {
+            L.map(idMap).remove();
+            var map = L.map(idMap);
+
+            map.createPane('labels');
+
+            // This pane is above markers but below popups
+            map.getPane('labels').style.zIndex = 650;
+
+            // Layers in this pane are non-interactive and do not obscure mouse/touch events
+            map.getPane('labels').style.pointerEvents = 'none';
+
+
+            return map;
+
+          };
+
+          function zoomRemove(map) {
+            //remove zoom functions
+            map.removeControl(map.zoomControl);
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
+            map.boxZoom.disable();
+            map.keyboard.disable();
           }
+
         }
-      });
+        var map_invalidateSize = function() {
+          map.invalidateSize();
+        }
+        $('.leaflet-control-zoom').wrap('<div class="topLeftControls"></div>');
+        $('.geocoder-control.leaflet-control').appendTo($('.topLeftControls'));
+        return map_invalidateSize
+      }
+
+      function runTable(data) {
+        var popupStruc = makePopupProperties(indexEvent[0]);
+
+        function makePopupProperties(indexEvent) {
+          var popupStruc = {};
+          //if (typeof popupStruc.properties == 'undefined') {
+          var dataKeys = Object.getOwnPropertyNames(indexEvent)
+          if (typeof popupStrucData.hidden == 'undefined') popupStruc.hidden = [];
+          popupStrucData.hidden.push(popupStrucData.title)
+          popupStruc.title = popupStrucData.title;
+          popupStruc.properties = [];
+          for (var i = 0; i < dataKeys.length; i++) {
+            var keyStatus = true;
+            for (var j = 0; j < popupStrucData.hidden.length; j++) {
+              if (dataKeys[i] == popupStrucData.hidden[j]) keyStatus = false;
+            }
+            if (keyStatus == true) popupStruc.properties.push(dataKeys[i]);
+          }
+          //}
+          return popupStruc;
+        }
+
+        var item = popupStruc.title;
+        var columns = [{
+          data: item,
+          title: item,
+          selectable: true
+        }];
+        for (i = 0; i < popupStruc.properties.length; i++) {
+          var item = popupStruc.properties[i];
+          columns.push({
+            data: item,
+            title: item,
+            selectable: false
+          });
+        }
+        $('#table').DataTable({
+          data: indexEvent,
+          "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
+          },
+          columns: columns,
+          initComplete: function() {
+            var myApi = this.api();
+            var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
+            var footertr = $("<tr></tr>").appendTo(footer);
+            var myColumnsi = this.api().columns();
+            this.api().columns().every(function(element) {
+              var column = this;
+              var myfooter = $("<th></th>").appendTo(footertr);
+              var select = $('<select><option value=""></option></select>')
+                .appendTo(myfooter)
+                .on('change', function() {
+                  var val = $.fn.dataTable.util.escapeRegex(
+                    $(this).val()
+                  );
+                  if (val != '') {
+                    $('th select').css('display', 'none');
+                    select.css('display', 'block');
+                  }
+                  else {
+                    $('th select').each(function() {
+                      dataDisplay = $(this).data('display');
+                      if ((typeof dataDisplay === "undefined") || dataDisplay != 'none') {
+                        $(this).css('display', 'block');
+                      }
+                    });
+                  }
+                  column
+                    .search(val ? "(^" + val + "$)|(^" + val + ",)|(, " + val + "$)|(, " + val + ",)" : '', true, false)
+                    .draw();
+                });
+
+              if (!columns[element].selectable) {
+                select.css('display', 'none');
+                select.data('display', 'none');
+              }
+              else {
+                var optEmpty = true;
+                var allColumnData = column.data();
+                var newColumnData = [];
+                for (var i = 0; i < allColumnData.length; i++) {
+                  var optValMul = allColumnData[i].split(', ')
+                  for (var j = 0; j < optValMul.length; j++) {
+                    newColumnData.push(optValMul[j]);
+                  }
+                }
+                newColumnData = sortUnique(newColumnData)
+
+                function sortUnique(array) {
+                  "use strict";
+                  var table = {},
+                    key, i;
+                  for (i = 0; i < array.length; i++) {
+                    table[[array[i]]] = '';
+                  }
+                  i = 0;
+                  for (key in table) {
+                    array[i++] = key;
+                  }
+                  array.length = i;
+                  return array.sort();
+                }
+
+                for (var i = 0; i < newColumnData.length; i++) {
+                  var optlVal = newColumnData[i];
+                  if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
+                    select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
+                    optEmpty = false;
+                  }
+                };
+                if (optEmpty) {
+                  select.css('display', 'none');
+                  select.data('display', 'none');
+                }
+              }
+            });
+
+            function isValidSelector(selector) {
+              if (typeof(selector) !== 'string') {
+                return false;
+              }
+              try {
+                var $element = $(selector);
+              }
+              catch (error) {
+                return false;
+              }
+              return true;
+            }
+          }
+        });
+      }
     }
   }
-  };
+};
 })(jQuery);
 (function($) {
 

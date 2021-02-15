@@ -1,4 +1,4 @@
-var options = {
+this["options"] = {
   //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
   storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
   //storedData: 'https://shrtm.nu/ep90',

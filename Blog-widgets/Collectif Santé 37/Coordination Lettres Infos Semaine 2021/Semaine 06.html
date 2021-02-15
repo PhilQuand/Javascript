@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaines 38</title>
+<!-- jQuery for FancyBox 3-->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+Édito  : I have a « bad dream »
+<br>
+Une femme se réveille après quelques années de coma :
+<br>
+Des soignants lui annoncent une bonne nouvelle : la dette publique n’existe plus, mais…Elle doit :
+<br>
+Des millions d’euros à l’hôpital où elle a été soignée
+<br>
+Des centaines de milliers d’euros aux écoles qui ont accueilli ses enfants
+<br>
+Des milliers d’euros pour l’électicité
+<br>
+Faire 60 kilomètres pour trouver un médecin et payer le péage pour emprunter la route nationale
+<br>
+Pour payer la dette, les services publics, la Sécurité Sociale ont été supprimés !
+<center>R. Leverrier</center>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 250px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 05</li>
+<li><strong>Dates</strong>: du 1er au 5 jfévrier 2021</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2021/02/Infos-semaine-5-du-1-au-5-Février-2021-1.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:image004.jpg@01D6FE11.BAFED3D0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/02/image004.jpg" />
+<h3>cid:image005.jpg@01D6FE11.BAFED3D0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/02/image005-1.jpg" />
+<h3>cid:image006.jpg@01D6FE11.BAFED3D0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/02/image006.jpg" />
+<h3>cid:image007.jpg@01D6FE11.BAFED3D0</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/02/image007.jpg" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="text-align: justify; background: #B4C6E7; mso-background-themecolor: accent1; mso-background-themetint: 102;"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;">Édito </span></b><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; mso-bidi-font-weight: bold;">: Les
+établissements de santé travaillent en ce moment sur l’évaluation de la qualité
+des soins et de la prise en charge, sachant que depuis 2017 l’accréditation des
+établissements de santé a un impact financier et plus encore depuis « ma
+santé 2022 ».</span></p>
+<p class="MsoNormal" style="text-align: justify; background: #B4C6E7; mso-background-themecolor: accent1; mso-background-themetint: 102;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; mso-bidi-font-weight: bold;">En préambule au manuel d’accréditation il est
+dit ; « améliorer la qualité et la sécurité du parcours de santé
+du patient au sein de son territoire, au plus près de son lieu de vie, avec une
+meilleure attention portée à ses besoins et à ses choix….. La qualité du
+parcours du patient nécessite l’action coordonnée des acteurs de la prévention,
+de la promotion de la santé, du sanitaire, du social et intègre les facteurs
+déterminants de la santé. »</span></p>
+<p class="MsoNormal" style="text-align: justify; background: #B4C6E7; mso-background-themecolor: accent1; mso-background-themetint: 102;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; mso-bidi-font-weight: bold;">Alors là, bravo, nous ne pouvons qu’approuver. Oui
+mais, une page plus loin il est noté : « il convient désormais
+de passer d’une logique de moyens à une logique de résultats », ce qui
+pourrait s’entendre comme faire mieux avec moins, d’autant qu’en continuant la
+lecture, il est noté : « améliorer la pertinence ». Être
+pertinent aujourd’hui pour les directions d’établissements, sous la houlette
+des ARS, c’est aller au bout de la mise en place des GHT, rationnaliser à
+l’extrême, supprimer des lits et des postes, créer les conditions de fragilisation
+qui permettront au secteur privé de remporter les appels à projets pour les
+activités les plus rentables.</span></p>
+<p class="MsoNormal" style="text-align: justify; background: #B4C6E7; mso-background-themecolor: accent1; mso-background-themetint: 102;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; mso-bidi-font-weight: bold;">Et pour les personnels hospitaliers, c’est une
+injonction paradoxale de plus qui les amène à la démission, au burn-out ou
+parfois plus.</span></p>
+<p class="MsoNormal" style="text-align: justify; background: #B4C6E7; mso-background-themecolor: accent1; mso-background-themetint: 102;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; mso-bidi-font-weight: bold;">Il y a péril imminent pour nos hôpitaux :
+continuons à agir ensemble pour les défendre.<span style="mso-spacerun: yes;"> 
+</span></span></p>
+<p class="MsoNormal" style="text-align: justify; background: #B4C6E7; mso-background-themecolor: accent1; mso-background-themetint: 102;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; mso-bidi-font-weight: bold;">Hélène Derrien</span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm;"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 18.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Sommaire :</span></b></p>
+<p class="MsoNormal" style="text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 36.0pt; margin: 0cm 0cm 0cm 36.0pt;"><!-- [if !supportLists]--><span style="font-size: 18.0pt; line-height: 107%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol;"><span style="mso-list: Ignore;">·<span style="font: 7.0pt 'Times New Roman';">     </span></span></span><!--[endif]--><b style="mso-bidi-font-weight: normal;"><span style="font-size: 18.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">L’écho des comités : pages 2 et 3</span></b></p>
+<p class="MsoListParagraphCxSpFirst" style="text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 36.0pt;"><!-- [if !supportLists]--><span style="font-size: 18.0pt; line-height: 107%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol;"><span style="mso-list: Ignore;">·<span style="font: 7.0pt 'Times New Roman';">    
+</span></span></span><!--[endif]--><b style="mso-bidi-font-weight: normal;"><span style="font-size: 18.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Autres
+infos locales : page 4</span></b></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin-bottom: 0cm; mso-add-space: auto; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 36.0pt;"><!-- [if !supportLists]--><span style="font-size: 22.0pt; line-height: 107%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol;"><span style="mso-list: Ignore;">·<span style="font: 7.0pt 'Times New Roman';">    </span></span></span><!--[endif]--><b style="mso-bidi-font-weight: normal;"><span style="font-size: 18.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Dossiers :</span></b> <b style="mso-bidi-font-weight: normal;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">action
+symbolique devant le ministère, perte d’autonomie, Covid et vaccins, des moyens
+pour l’hôpital </span></b><b style="mso-bidi-font-weight: normal;"><span style="font-size: 18.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">page 5</span></b></p>
+<p class="MsoListParagraphCxSpLast" style="text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 36.0pt;"><!-- [if !supportLists]--><span style="font-size: 18.0pt; line-height: 107%; font-family: Symbol; mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol;"><span style="mso-list: Ignore;">·<span style="font: 7.0pt 'Times New Roman';">    
+</span></span></span><!--[endif]--><b style="mso-bidi-font-weight: normal;"><span style="font-size: 18.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Culture
+et santé : page 6</span></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0070c0;">L’écho des comités :</span></b></p>
+<p class="MsoNormal" style="text-align: center; background: yellow;" align="center"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;">FEURS
+- 42</span></b></p>
+<p class="MsoNormal"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #333333; background: white;">Le comité a organisé une
+conférence de presse en développant les points suivants, indispensables au
+maintien du centre hospitalier :</span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background: white;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #333333; mso-fareast-language: FR;">1) La notion de
+Territoire du Forez</span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background: white;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #333333; mso-fareast-language: FR;">2) Un Hôpital
+Public qui fait ses preuves</span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background: white;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #333333; mso-fareast-language: FR;">3) Un Hôpital
+inscrit dans une dynamique du réseau Ville-Hôpital</span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background: white;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #333333; mso-fareast-language: FR;">4) Importance
+d'une démocratie participative ; </span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background: white;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #333333; mso-fareast-language: FR;">Lire la suite :</span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal;"><a href="http://coordination-defense-sante.org/2021/02/le-forez-un-hopital-qui-a-fait-ses-preuves-et-qui-doit-rester/"><span class="LienInternet"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; background: white;">http://coordination-defense-sante.org/2021/02/le-forez-un-hopital-qui-a-fait-ses-preuves-et-qui-doit-rester/</span></span></a></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; background: white;"> </span></p>
+<p class="MsoNormal" style="text-align: center; background: #7030A0;" align="center"><b><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: white; mso-themecolor: background1;">LURE - 70</span></b></p>
+<p style="margin-bottom: 0cm; text-align: justify; background: white;"><span style="font-family: 'Arial',sans-serif; color: #333333;">Visite de solidarité avec
+le<strong><span style="font-family: 'Arial',sans-serif;"> centre de
+vaccination de Lure, installé espace du Sapeur</span></strong>. Superbes installations fonctionnelles, belle convivialité à l'accueil, dévouement exemplaire des élus, des personnels soignants et des nombreux bénévoles sans qui cela ne fonctionnerait pas. <strong><span style="font-family: 'Arial',sans-serif;">Un
+grand Bravo et un immense Merci à toutes et tous.</span></strong></span></p>
+<p style="margin-bottom: 0cm; text-align: justify; background: white;"><strong><u><span style="font-family: 'Arial',sans-serif; color: #333333;">Par contre angoisse et
+mécontentement de tous les présents.</span></u></strong><span style="font-family: 'Arial',sans-serif; color: #333333;"> Le centre de Lure reçoit depuis la
+semaine passée des flacons Moderna, soit 4 flacons de 10 doses chacun. Une 11<sup>ème</sup> dose serait possible mais l’ARS refuse sans aucune explication.</span></p>
+<p style="margin-bottom: 0cm; text-align: justify; background: white;"><span style="font-family: 'Arial',sans-serif; color: #333333;">Lire la suite :</span></p>
+<p style="margin-bottom: 0cm; text-align: justify; background: white;"><span style="font-family: 'Arial',sans-serif; color: #333333; background: white;"> </span><span style="color: black; mso-color-alt: windowtext;"><a href="http://coordination-defense-sante.org/2021/02/le-cv-70-vacciner-plus-cest-possible-que-fait-lars/" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-family: 'Arial',sans-serif; color: #0069a6; background: white;">http://coordination-defense-sante.org/2021/02/le-cv-70-vacciner-plus-cest-possible-que-fait-lars/</span></span></a></span></p>
+<p style="margin-bottom: 0cm; text-align: justify; background: white;"><b style="mso-bidi-font-weight: normal;"><span style="font-family: 'Arial',sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="text-align: center; background: lime;" align="center"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;">DOLE
+- 39</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; background: white;">Après le succès du rassemblement du 4 février devant
+l'hôpital de Dole, largement relayé par la Presse, la balle est dans le camp de
+l'ARS qui doit entendre les besoins de la population, de ses élus et des
+personnels soignants. Nous voulons le maintien de TOUTE la chirurgie à
+l'hôpital Pasteur et les moyens financiers nécessaires à son fonctionnement, à
+la formation et au recrutement de médecins et personnels revalorisés et en nombre
+suffisant.</span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a href="http://chng.it/kR5JtvCrHh"><span class="LienInternet"><b><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Pour
+signer la pétition :</span></b></span></a></p>
+<p class="MsoNormal"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Et pour en savoir plus, l’info-flash du comité :</span></p>
+<p class="MsoNormal"><a href="http://coordination-defense-sante.org/2021/02/dole-infoflash-n11/" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0069a6; background: white;">http://coordination-defense-sante.org/2021/02/dole-infoflash-n11/</span></span></a></p>
+<p class="MsoNormal" style="text-align: center; background: #00B0F0;" align="center"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;">CRÉTEIL
+- 94</span></b></p>
+<p class="MsoNormal"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; mso-bidi-font-weight: bold;">La coordination de vigilance du
+GHU Henri Mondor lance une pétition-appel aux Val de Marnais-es :</span></p>
+<p class="MsoNormal" style="text-align: justify;"><strong><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #363135;">« Ensemble
+brisons la loi du silence, pour que le Groupement Hospitalier Universitaire
+(GHU) Henri Mondor / Albert Chenevier / Emile Roux reste un hôpital de
+référence dans le Sud-Francilien »</span></strong></p>
+<p class="MsoNormal" style="text-align: justify;"><strong><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #363135;">La
+pétition :</span></strong></p>
+<p class="MsoNormal" style="margin-bottom: 0cm;"><a href="http://coordination-defense-sante.org/2021/02/appel-aux-val-de-marnais-es-et-petition-lances-par-la-coordination-de-vigilance-du-ghu/" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0069a6; background: white;">http://coordination-defense-sante.org/2021/02/appel-aux-val-de-marnais-es-et-petition-lances-par-la-coordination-de-vigilance-du-ghu/</span></span></a></p>
+<p class="MsoNormal"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;"> </span></p>
+<p class="MsoNormal" style="text-align: center; background: #FF9900;" align="center"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;">TOURS
+– COLLECTIF NSED 37</span></b></p>
+<p class="MsoNormal"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Le
+comité appelle au soutien des aides à domicile de l’ADMR de Blois qui sont en
+grève </span></b></p>
+<p style="text-align: justify; background: white;"><span style="font-family: 'Arial',sans-serif; color: #333333;">« A l'heure actuelle, elles continuent leur lutte qui a
+gagné un écho au niveau national. Elles sont interviewées par des journaux
+nationaux, notamment le Monde, et sont devenues un exemple pour ceux et celles
+qui sont </span><span style="color: black; mso-color-alt: windowtext;"><a href="http://dit.es/" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;">d</span></span><span class="LienInternet"><span style="font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; text-decoration: none; text-underline: none;">it-es</span></span></a></span><u><span style="font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;"> </span></u><span style="font-family: 'Arial',sans-serif; color: #333333;">essentiel-les
+mais non</span><span style="font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;"> </span><span style="color: black; mso-color-alt: windowtext;"><a href="http://reconnue.es/" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext; text-decoration: none; text-underline: none;">reconnue.es</span></span></a></span><span style="font-family: 'Arial',sans-serif; color: #333333;">. »</span></p>
+<p style="background: white;"><b><span style="font-family: 'Arial',sans-serif; color: #333333;">Il faut qu'elles gagnent ! Soutenons leur lutte. C'est une
+période cruciale.</span></b></p>
+<p style="background: white;"><span style="color: black; mso-color-alt: windowtext;"><a href="https://drive.google.com/file/d/1466uA5sqJbHGhBDeN_Uj2tnvTBtCqHJr/view?usp=sharing" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-family: 'Arial',sans-serif; color: #0069a6; background: white;">Popularisons leur lutte</span></span></a></span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background: white;"><span style="color: black; mso-color-alt: windowtext;"><a href="https://www.lemonde.fr/economie/article/2021/02/12/des-aides-a-domicile-en-greve-dans-le-loir-et-cher-on-est-prises-pour-des-riens-du-tout-alors-que-notre-travail-est-essentiel_6069662_3234.html" target="_blank" rel="noopener"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #0069a6; mso-fareast-language: FR;">https://www.lemonde.fr/economie/article/2021/02/12/des-aides-a-domicile-en-greve-dans-le-loir-et-cher-on-est-prises-pour-des-riens-du-tout-alors-que-notre-travail-est-essentiel_6069662_3234.html</span></a></span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background: white;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #333333; mso-fareast-language: FR;"> </span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background: white;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #333333; mso-fareast-language: FR;"> </span></p>
+<p class="MsoNormal" style="text-align: center; background: lime;" align="center"><b style="mso-bidi-font-weight: normal;"><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: black; mso-color-alt: windowtext;">NORD
+ESSONNE - 91</span></b></p>
+<p class="MsoNormal"><a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjEmMaBhuTuAhVl7eAKHawNDJwQFjABegQIARAC&amp;url=https%3A%2F%2Fwww.hospimedia.fr%2Factualite%2Finterviews%2F20210129-cedric-lussiez-directeur-du-ce-n-est-pas&amp;usg=AOvVaw3mWN--5HLjmpixaF6esVnp"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #333333; background: white; text-decoration: none; text-underline: none;">Le
+projet du futur hôpital « Paris Saclay » revu par le directeur
+M.<span style="mso-spacerun: yes;">  </span>Lussiez :</span></a><u></u></p>
+<p class="MsoNormal" style="margin-bottom: 2.25pt; line-height: normal; mso-outline-level: 3;"><a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjEmMaBhuTuAhVl7eAKHawNDJwQFjABegQIARAC&amp;url=https%3A%2F%2Fwww.hospimedia.fr%2Factualite%2Finterviews%2F20210129-cedric-lussiez-directeur-du-ce-n-est-pas&amp;usg=AOvVaw3mWN--5HLjmpixaF6esVnp"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #1a0dab; background: white; mso-fareast-language: FR;">"Ce
+n'est pas un simple jeu de dominos entre nos sites…</span></a></p>
+<p class="MsoNormal"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman',serif; mso-fareast-font-family: 'Times New Roman'; mso-fareast-language: FR;"> </span></p>
+<p class="MsoNormal"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; mso-fareast-language: FR;">Le conseil municipal de Chilly Mazarin vote une motion contre la fermeture
+de l’hôpital de Longjumeau</span></p>
+<p class="MsoNormal"><a href="http://coordination-defense-sante.org/2021/02/hopital-de-longjumeau/" target="_blank" rel="noopener"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0069a6; background: white;">http://coordination-defense-sante.org/2021/02/hopital-de-longjumeau/</span></a></p>
+<p class="MsoNormal" style="text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0070c0;">Autres infos locales :</span></b></p>
+<p class="MsoNormal" style="text-align: center; background: #E0109B;" align="center"><b><span style="font-size: 14pt; line-height: 107%; font-family: Arial, sans-serif;">PÔLE
+DE PSYCHIATRIE DU CHU DE TOURS - 37</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; color: #333333; background-position: initial initial; background-repeat: initial initial;">Le
+18 février, un collectif de plus de 100 membres du personnel appelle à une
+journée de grève et à une Assemblée Générale. Le but est d'évoquer et
+éventuellement proposer des suites en termes de luttes, les questions de
+sous-effectif (structurel et lié à l'absentéisme non-remplacé), aux conditions
+de travail très dégradées par des années d'abandon de la psychiatrie, ainsi
+qu'un projet de regroupement de l'ensemble des services de psychiatrie d'intra
+sur un même site, alors qu'actuellement les 4 services sont répartis sur
+plusieurs sites, plus ou moins en fonction de la géographie des secteurs.</span></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; color: #333333; background-position: initial initial; background-repeat: initial initial;">Lire
+la suite : </span><a href="http://coordination-defense-sante.org/2021/02/nouvelles-tourangelles/" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; color: #0069a6; background-position: initial initial; background-repeat: initial initial;">http://coordination-defense-sante.org/2021/02/nouvelles-tourangelles/</span></span></a></p>
+<p class="MsoNormal" style="text-align: center; background: yellow;" align="center"><b><span style="font-size: 14pt; line-height: 107%; font-family: Arial, sans-serif;">DOURDAN
+- 91</span></b></p>
+<p class="MsoNormal"><a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjcmqWPhOTuAhUR6RoKHUc_DhQQFjAAegQIBBAC&amp;url=https%3A%2F%2Fwww.sfmu.org%2Ffr%2Factualites%2Factualites-de-l-urgences%2Fles-hopitaux-de-corbeil-et-d-arpajon-essonne-renforcent-leurs-filieres-de-soins-avec-plusieurs-projets-d-investissement%2Fnew_id%2F67097&amp;usg=AOvVaw202cYYRs5bsqOrf4n702dr"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: windowtext; mso-bidi-font-weight: bold; text-decoration: none; text-underline: none;">Craintes pour l’hôpital de Dourdan qui risque d’être absorbé par celui
+d’Arpajon : le comité est en train de se reconstituer :</span></a><u></u></p>
+<p class="MsoNormal" style="margin-bottom: 2.25pt; line-height: normal; mso-outline-level: 3;"><a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjcmqWPhOTuAhUR6RoKHUc_DhQQFjAAegQIBBAC&amp;url=https%3A%2F%2Fwww.sfmu.org%2Ffr%2Factualites%2Factualites-de-l-urgences%2Fles-hopitaux-de-corbeil-et-d-arpajon-essonne-renforcent-leurs-filieres-de-soins-avec-plusieurs-projets-d-investissement%2Fnew_id%2F67097&amp;usg=AOvVaw202cYYRs5bsqOrf4n702dr"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #1a0dab; background-position: initial initial; background-repeat: initial initial;">Actualités
+de l'Urgence - APM / Société Française de ... - SFMU</span></a></p>
+<p class="MsoNormal" style="margin-bottom: 2.25pt; line-height: normal; mso-outline-level: 3;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; color: #0070c0; mso-bidi-font-weight: bold;"> </span></p>
+<p class="MsoNormal" style="text-align: center; background: red;" align="center"><b><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: white; mso-themecolor: background1;">FORCALQUIER
+- 04</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; mso-bidi-font-weight: bold;">L’USD
+CGT a appelé à un rassemblement le 11 février à 13H.30 devant le centre
+d’accueil spécialisé de Forcalquier pour exiger des moyens pour la santé :</span></p>
+<p class="gmail-msonospacing" style="margin-bottom: 0cm; text-align: justify;"><span style="font-family: 'Arial',sans-serif;">« L'Etat providence ne doit pas
+être là pour sauver les banques mais pour sauver des vies ! Car toutes les vies
+sont importantes !</span></p>
+<p class="gmail-msonospacing" style="margin-bottom: 0cm; text-align: justify;"><span style="font-family: 'Arial',sans-serif;"> </span></p>
+<p class="gmail-msonospacing" style="margin-bottom: 0cm; text-align: justify;"><span style="font-family: 'Arial',sans-serif;">Cela impose d'arrêter le pillage en
+cours des caisses de la sécurité sociale !</span></p>
+<p class="gmail-msonospacing" style="margin-bottom: 0cm; text-align: justify;"><span style="font-family: 'Arial',sans-serif;">Cela impose d'arrêter de sacrifier les
+personnes les plus vulnérables et la jeunesse !</span></p>
+<p class="gmail-msonospacing" style="margin-bottom: 0cm; text-align: justify;"><span style="font-family: 'Arial',sans-serif;">Cela impose d'interdire les
+licenciements comme certains pays l'ont fait !</span></p>
+<p class="gmail-msonospacing" style="margin-bottom: 0cm; text-align: justify;"><span style="font-family: 'Arial',sans-serif;">Cela impose de réquisitionner des moyens
+de production pour soigner la population !</span></p>
+<p class="gmail-msonospacing" style="margin-bottom: 0cm; text-align: justify;"><span style="font-family: 'Arial',sans-serif;">Cela impose d'arrêter les fermetures de
+lits et de services comme c'est encore le cas actuellement ! »</span>                                          <span style="font-size: 11.0pt; line-height: 107%; font-family: 'Calibri',sans-serif; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-ansi-language: FR; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;"><br style="mso-special-character: line-break; page-break-before: always;" clear="all" /></span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><!-- [if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Image2" o:spid="_x0000_s1027" type="#_x0000_t75"
+ style='position:absolute;left:0;text-align:left;margin-left:70.85pt;
+ margin-top:297.65pt;width:143.45pt;height:191.35pt;z-index:5;visibility:visible;
+ mso-wrap-style:square;mso-wrap-distance-left:0;mso-wrap-distance-top:0;
+ mso-wrap-distance-right:0;mso-wrap-distance-bottom:0;
+ mso-position-horizontal:absolute;mso-position-horizontal-relative:page;
+ mso-position-vertical:absolute;mso-position-vertical-relative:page'
+ o:allowincell="f">
+ <v:imagedata src="file:////Users/Philippe/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image001.jpg"
+  o:title=""/>
+ <w:wrap type="square" side="largest" anchorx="page" anchory="page"/>
+</v:shape><![endif]--><!-- [if !vml]--><img src="cid:clip_image001.jpg" width="143" height="191" align="left" /><!--[endif]--><!-- [if gte vml 1]><v:shape id="Image3"
+ o:spid="_x0000_s1026" type="#_x0000_t75" style='position:absolute;left:0;
+ text-align:left;margin-left:298.5pt;margin-top:297.65pt;width:255.1pt;
+ height:191.35pt;z-index:6;visibility:visible;mso-wrap-style:square;
+ mso-wrap-distance-left:0;mso-wrap-distance-top:0;mso-wrap-distance-right:0;
+ mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+ mso-position-horizontal-relative:page;mso-position-vertical:absolute;
+ mso-position-vertical-relative:page' o:allowincell="f">
+ <v:imagedata src="file:////Users/Philippe/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image002.jpg"
+  o:title=""/>
+ <w:wrap type="square" side="largest" anchorx="page" anchory="page"/>
+</v:shape><![endif]--><!-- [if !vml]--><img src="cid:clip_image002.jpg" width="256" height="191" align="left" /><!--[endif]--><b><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0070c0;">Dossier :</span></b></p>
+<p class="MsoNormal" style="text-align: center; background: #FF66FF;" align="center"><b><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #ff0066;">ACTION SYMBOLIQUE DEVANT LE
+MINISTERE </span></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Pour
+la Saint-Valentin,  une déclaration
+d’amour à l’hôpital public</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Des délégations  des comités inter hôpitaux, inter- urgences,
+interbloc, de la CGT santé et action et action sociale, de Sud Santé Sociaux ,
+de la CFE CGC santé social, de l’APH, l’AMUF et de la Coordination Nationale
+des comités de défense des hôpitaux et maternités de proximité étaient devant
+le ministère ce dimanche 14 février, bravant le froid.</span></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">En pleine crise sanitaire, le
+ministère était aux abonnés absents.</span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><a href="https://www.lepoint.fr/societe/devant-le-ministere-de-la-sante-des-soignants-disent-leur-amour-pour-l-hopital-public-14-02-2021-2413925_23.php"><span class="LienInternet"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">L’article des Echos</span></span></a></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><span style="font-family: 'Arial',sans-serif;"> </span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">PERTE
+D’AUTONOMIE</span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; mso-bidi-font-weight: bold;">Dans
+le cadre des actions pour la Sécurité Sociale, le collectif parisien de la
+Convergence Nationale des collectifs de défense des services publics a organisé
+une visioconférence sur la perte d’autonomie :</span></p>
+<p class="MsoNormal"><a href="http://coordination-defense-sante.org/2021/02/le-collectif-parisien-de-convergence-des-services-publics-a-organise-une-video-conference-sur-la-perte-dautonomie/" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; color: #0069a6; background-position: initial initial; background-repeat: initial initial;">http://coordination-defense-sante.org/2021/02/le-collectif-parisien-de-convergence-des-services-publics-a-organise-une-video-conference-sur-la-perte-dautonomie/</span></span></a></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">COVID
+ET VACCINS</span></b></p>
+<p class="MsoNormal"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Fabien Roussel, secrétaire national du PCF écrit au
+Président de la République pour demander la levée des brevets sur les
+vaccins :</span></p>
+<p class="MsoNormal"><a href="https://www.pcf.fr/actualite_lev_e_des_brevets_vaccins_fabien_roussel_crit_emmanuel_macron" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; color: #0069a6; background-position: initial initial; background-repeat: initial initial;">https://www.pcf.fr/actualite_lev_e_des_brevets_vaccins_fabien_roussel_crit_emmanuel_macron</span></span></a></p>
+<p class="MsoNormal" style="line-height: normal; background-position: initial initial; background-repeat: initial initial;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #2a303b; mso-font-kerning: 1.0pt; mso-fareast-language: FR;">Tribune dans le Monde du 09/02/21 : Covid-19 : faut-il libérer
+les brevets des vaccins pour en produire plus ? </span><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #2a303b; mso-fareast-language: FR;">Face à l’urgence
+sanitaire, l’idée de s’affranchir des contraintes de la propriété
+intellectuelle fait son chemin :</span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background-position: initial initial; background-repeat: initial initial;"><a href="https://www.lemonde.fr/les-decodeurs/article/2021/02/09/covid-19-faut-il-liberer-les-brevets-des-vaccins-pour-en-produire-plus_6069314_4355770.html" target="_blank" rel="noopener"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: blue; mso-fareast-language: FR;">https://www.lemonde.fr/les-decodeurs/article/2021/02/09/covid-19-faut-il-liberer-les-brevets-des-vaccins-pour-en-produire-plus_6069314_4355770.html</span></a></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background-position: initial initial; background-repeat: initial initial;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #1f497d; mso-fareast-language: FR;"> </span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; text-align: justify; line-height: normal; background-position: initial initial; background-repeat: initial initial;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #2a303b; letter-spacing: 0.05pt; background-position: initial initial; background-repeat: initial initial;">Le psychiatre
+franco-brésilien Carlos Parada appelle, dans une tribune au
+« Monde », à ne pas respecter les délais des brevets pour endiguer le
+plus vite possible l’épidémie, rappelant l’exemple du Brésil et de l’Inde, qui
+avaient distribué gratuitement le générique de l’AZT pour enrayer l’épidémie de
+sida.</span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background-position: initial initial; background-repeat: initial initial;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: #1f497d; mso-fareast-language: FR;"> </span></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background-position: initial initial; background-repeat: initial initial;"><span style="font-size: 12pt; font-family: Arial, sans-serif; background-position: initial initial; background-repeat: initial initial;"> </span><a href="https://www.lemonde.fr/idees/article/2021/02/03/les-vaccins-contre-le-covid-19-sont-un-bien-commun-ils-ne-peuvent-appartenir-a-personne_6068591_3232.html" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #2e74b5; background-position: initial initial; background-repeat: initial initial;">https://www.lemonde.fr/idees/article/2021/02/03/les-vaccins-contre-le-covid-19-sont-un-bien-commun-ils-ne-peuvent-appartenir-a-personne_6068591_3232.html</span></span></a></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background-position: initial initial; background-repeat: initial initial;"><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #2e74b5; background-position: initial initial; background-repeat: initial initial;"> </span></p>
+<div style="border: 1pt solid black; padding: 1pt 4pt; background-position: initial initial; background-repeat: initial initial;">
+<p class="MsoNormal" style="margin-bottom: 0cm; text-align: justify; line-height: normal; border: none; padding: 0cm; background-position: initial initial; background-repeat: initial initial;"><b><span style="font-size: 12pt; font-family: Arial, sans-serif; background-position: initial initial; background-repeat: initial initial;">Une pétition à l’appel de 46 organisations, dont
+la Coordination Nationale, et de personnalités demande la levée des brevets
+pour les vaccins ; cette pétition renvoie également sur l’initiative
+citoyenne européenne « pas de profit sur la pandémie </span></b></p>
+<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; border: none; padding: 0cm; background-position: initial initial; background-repeat: initial initial;"><a href="https://www.wesign.it/fr/sante/brevets-sur-les-vaccins-anti-covid-stop-requisition-"><span class="LienInternet"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif;">https://www.wesign.it/fr/sante/brevets-sur-les-vaccins-anti-covid-stop-requisition-</span></span></a></p>
+<p class="MsoNormal" style="border: none; padding: 0cm; background-position: initial initial; background-repeat: initial initial;"> </p>
+</div>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">DES
+MOYENS POUR L’HÔPITAL </span></b></p>
+<h1 style="margin-top: 0cm; text-align: justify; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; color: windowtext; mso-bidi-font-weight: bold;">Pétition du SNPHARE (syndicat national des
+praticiens hospitaliers anesthésiste réanimateurs) : « </span><b><span style="font-size: 12.0pt; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: windowtext; mso-font-kerning: 1.0pt; mso-fareast-language: FR;">L'hôpital a besoin de médecins et de pharmaciens ! » :</span></b><span style="font-size: 12pt; font-family: Arial, sans-serif; color: #333333; background-position: initial initial; background-repeat: initial initial;"> </span></h1>
+<p class="MsoNormal" style="margin-bottom: 0cm;"><a href="http://chng.it/QMtcLpJxsx"><span class="LienInternet"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; background-position: initial initial; background-repeat: initial initial;">http://chng.it/QMtcLpJxsx</span></span></a></p>
+<p class="MsoNormal"><b><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">Refonder l’hôpital :</span></b><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">
+numéro 30 de la revue « Progressistes » : </span><a href="https://revue-progressistes.org/2020/12/24/progressistes-n30/"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; mso-fareast-font-family: 'Times New Roman'; color: blue; mso-font-kerning: 1.0pt; mso-fareast-language: FR;">Progressistes n°30</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-size: 11.0pt; line-height: 107%; font-family: 'Calibri',sans-serif; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-ansi-language: FR; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;"> </span></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0070c0;">Culture et santé :</span></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: #0070c0;"> </span></b></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; color: #333333; background-position: initial initial; background-repeat: initial initial;">Podcast
+audio d'Educpod, bibliothèque audio du Réseau Education Populaire avec
+Christophe Prudhomme, porte-parole de l'AMUF, médecin du SAMU du 93 et membre
+de la CGT santé :</span></p>
+<p class="MsoNormal"><a href="https://podcast.ausha.co/reseau-education-populaire/entretien-avec-christophe-prudhomme-sur-la-covid19-et-les-vaccins-05-02-2021" target="_blank" rel="noopener"><span class="LienInternet"><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; color: #0069a6; background-position: initial initial; background-repeat: initial initial;">https://podcast.ausha.co/reseau-education-populaire/entretien-avec-christophe-prudhomme-sur-la-covid19-et-les-vaccins-05-02-2021</span></span></a><span style="font-size: 12pt; line-height: 107%; font-family: Arial, sans-serif; color: #333333; background-position: initial initial; background-repeat: initial initial;">   </span></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif; mso-bidi-font-weight: bold;">Et
+comme le couvre-feu nous laisse de très longues soirées, n’hésitez pas à
+écouter cette conférence de Johann Chapoutot et Stéphane Velut organisée par le
+CIH :</span></p>
+<p class="Default"> </p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;"> </span><a href="https://www.youtube.com/watch?v=VA0jej9v0gU&amp;feature=youtu.be"><span class="LienInternet"><span style="font-size: 12.0pt; line-height: 107%; font-family: 'Arial',sans-serif;">https://www.youtube.com/watch?v=VA0jej9v0gU&amp;feature=youtu.be</span></span></a></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 22.0pt; line-height: 107%; font-family: 'Arial',sans-serif;"> </span></b></p>
+<p class="MsoNormal" style="margin-bottom: 10.0pt; text-align: center; line-height: 14.0pt; background: yellow;" align="center"><b><span style="font-size: 12pt; font-family: 'Times New Roman', serif;">« Toutes les infos sur le site de la Coordination
+Nationale »</span></b></p>
+<p class="MsoNormal" style="margin-bottom: 10.0pt; text-align: center; line-height: 115%;" align="center"><span style="font-size: 12.0pt; mso-bidi-font-size: 14.0pt; line-height: 115%; font-family: 'Arial',sans-serif; mso-fareast-language: AR-SA;"> </span></p>
+<p class="MsoNormal" style="margin-bottom: 10.0pt; text-align: center; line-height: 115%;" align="center"><span style="font-size: 12.0pt; mso-bidi-font-size: 14.0pt; line-height: 115%; font-family: 'Arial',sans-serif; mso-fareast-language: AR-SA;"> </span></p>
+<p class="MsoNormal" style="margin-bottom: 10.0pt; text-align: center; line-height: 115%;" align="center"><span style="font-size: 12.0pt; mso-bidi-font-size: 14.0pt; line-height: 115%; font-family: 'Arial',sans-serif; mso-fareast-language: AR-SA;"> </span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 12pt; font-family: 'Liberation Serif', serif; color: #00000a;"><span style="font-size: 11.0pt; line-height: 107%; font-family: 'Calibri',sans-serif; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-ansi-language: FR; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;"><a href="http://coordination-defense-sante.org/"><span style="font-size: 12.0pt; mso-bidi-font-size: 14.0pt; line-height: 107%; font-family: 'Arial',sans-serif; color: blue; mso-fareast-language: AR-SA;">http://coordination-defense-sante.org/</span></a></span><!--EndFragment-->    </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleGoldIcon",
+          title: 'Manifestations du 15 octobre',
+        }, {
+          class: "marker-2",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -645,7 +645,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
-      /*var btData = $('<button type="button" class="styled" id="btData"></button>')
+      var btData = $('<button type="button" class="styled" id="btData"></button>')
       $("#infoMap-wrapper").prepend(btData);
       btData.click(function(e) {
         if ($('#btData').html() == 'Carte') {
@@ -658,20 +658,22 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       btDataCarte(map_invalidateSize);
       function btDataTable() {
         $('#btData').html('Carte');
-        $('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+        //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+        $('#infoMap-wrapper > #infoMap').css('display', 'none')
         $('#table_wrapper').css('display', 'block')
         //$('#table').css('display', 'block')
       }
 
       function btDataCarte(map_invalidateSize) {
         $('#btData').html('Données');
-        $('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+        //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+        $('#infoMap-wrapper > #infoMap').css('display', 'block')
         map_invalidateSize();
         $('#table_wrapper').css('display', 'none')
         //$('#table').css('display', 'none')
       }
-      runTable(indexEvent);*/
-
+      runTable(indexEvent);
+      
       function runMap(indexEvent) {
 
         var popupStruc = makePopupProperties(indexEvent[0]);
@@ -1767,6 +1769,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
 
       function runTable(data) {
+        
         var popupStruc = makePopupProperties(indexEvent[0]);
 
         function makePopupProperties(indexEvent) {
@@ -1775,6 +1778,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           var dataKeys = Object.getOwnPropertyNames(indexEvent)
           if (typeof popupStrucData.hidden == 'undefined') popupStruc.hidden = [];
           popupStrucData.hidden.push(popupStrucData.title)
+          popupStrucData.hidden.push('doc')
+          popupStrucData.hidden.push('marker')
           popupStruc.title = popupStrucData.title;
           popupStruc.properties = [];
           for (var i = 0; i < dataKeys.length; i++) {

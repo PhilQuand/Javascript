@@ -210,153 +210,13 @@
   margin-right: auto;
 };*/
 </style>
-<!--script>
-  var isOKString = data => {
-    if (jQuery.type(data) === 'string' && data != '') return true;
-    else return false;
-  }
-  
-  /*var readUrl = url => {
-
-    var para_str = '';
-
-    // Checking url is defined or not
-    if (url == undefined) {
-      //url variable is not defined 
-      // get url parameters
-      url = location.search; // e.g. ?num1=43&num2=23
-      var parts = url.substring(1).split('&');
-      para_str = parts[0];
-
-    }
-    else {
-
-      //url variable is defined //
-      var split_url = url.split('?');
-      para_str = split_url[1];
-      if (para_str != undefined) {
-        var parts = para_str.split('&');
-      }
-    }
-
-    // Check arguments are defined or not
-    if (para_str != undefined && para_str != '') {
-      var parameter_obj = {}; // Object
-
-      // looping through all arguments and store in Object
-      for (var i = 0; i < parts.length; i++) {
-        var split_val = parts[i].split('=');
-
-        // Check argument is available or not e.g. ?num1=43&
-        if (split_val[0] == undefined || split_val[0] == '')
-          continue;
-        var value = split_val[1];
-        // Check value is available or not e.g. ?num1=43&num2= or ?num1=43&num2
-        if (value == undefined) {
-          value = ""; // Assign space if value is not defined
-        }
-
-        parameter_obj[split_val[0]] = value;
-
-      }
-
-      // Print all arguments
-      for (var val in parameter_obj) {
-        $("ul").append("<li>" + val + ' = ' + parameter_obj[val] + "</li>");
-      }
-
-    }
-    else {
-      $("ul").append('<li>No arugment found</li>');
-    }
-
-  };*/
-  var readUrlParam = name => {
-    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return results[1] || 0;
-    // example.com?someparam=name&otherparam=8&id=6
-    // readUrlParam('someparam'); // name
-    // readUrlParam('id');        // 6
-    // readUrlParam('notavar');   // null*/
-  };
-  
-  var clone = originalObject => { 
-    if((typeof originalObject !== 'object') || originalObject === null){ 
-        throw new TypeError("originalObject parameter must be an object which is not null"); 
-    } 
-  
-    var deepCopy = JSON.parse(JSON.stringify(originalObject)); 
-  
-    // Une petite récursivité 
-    function deepProto(originalObject, deepCopy){ 
-        deepCopy.__proto__ = Object.create(originalObject.constructor.prototype); 
-        for(var attribute in originalObject){ 
-            if(typeof originalObject[attribute] === 'object' && originalObject[attribute] !== null){ 
-                deepProto(originalObject[attribute], deepCopy[attribute]); 
-            } 
-        } 
-    } 
-    deepProto(originalObject, deepCopy); 
-  
-    return deepCopy; 
-} 
-</script-->
-<script>  
-(function($) {
-  $.fn.mapAllBlogs = function(options) {
-  var loading = $('<div id="loading"/>');
-  loading.append('<p>Chargement ...</p>');
-  $(this).append(loading);
-  
-  var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div></div>');
-  $(this).append(infoMapWrapper);
-  
-  var dataTable =$('<table id="table" class="table table-striped table-bordered" />');
-  $(this).append(dataTable);
-  
-  //var options;
-  if(typeof options.popupData !== 'undefined') var popupStrucData = options.popupData;
-  else var popupStrucData = {hidden : ["lat","lng"]}
-  
-  var iconMarkersBuilder = data => {
-    for (var i = 0; i < data.length; i++) {
-      data[i].iconMarker = options['legend']['affect'](data[i]);
-    }
-    return options.legend.icons;
-  }
-  if(typeof options['legend'].title !== 'undefined') var legendTitle = options['legend'].title;
-  else var legendTitle = '';
-  
-  if (typeof options.controlOverlays == 'undefined') {
-    options.controlOverlays = [{
-      title: 'Autres',
-      isInGroup: data => {
-        return true;
-      }
-    }]
-  }
-  var objectOverlays = {};
-  if(typeof options.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlOverlays.title;
-  else objectOverlays["overlayTitle"] = '';
-  objectOverlays["controlOverlays"] = {};
-  for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
-    objectOverlays["controlOverlays"][options.controlOverlays.overlays[i].title] = new L.layerGroup();
-  }
-  objectOverlays["overlays"] = [];
-  for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
-    objectOverlays["overlays"].push({
-      isInGroup: options.controlOverlays.overlays[i].isInGroup,
-      title: options.controlOverlays.overlays[i].title,
-      isVisible: true,
-    });
-  };
-  
+<script> 
+function loadFromJSON(storedData, setCallBack) {
   if (typeof options.storedData !== 'undefined') {
     if (!isValidUrl(options.storedData)) {
       loading.html('storedData ne semble pas être une adresse correcte...');
     }
     else {
-      storedData = options.storedData
       console.log('loading data from file : ' + storedData)
       Promise.all([
         // chargement des données au format Geojson
@@ -371,10 +231,7 @@
           storedData = getJSONFromFile(storedData);
           if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
           else {
-            var data = getDataFromJSON(storedData);
-            if (typeof data !== 'undefined') {
-              runData(data);
-            }
+              setCallBack(storedData);
           }
         },
         reason => {
@@ -384,53 +241,117 @@
       );
     }
   }
-  else if ($('#dataStore').length == 1) {
-    storedData = $('#dataStore').html();
-    storedData = JSON.parse(storedData);
-    storedData = getDataFromJSON(storedData);
-    if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
-    else runData(storedData)
-  }
-  else loadData();
-    
-
-  function getDataFromJSON(storedData) {
-    if (jQuery.isArray(storedData)) {
-      //fichier au format interne
-      console.log("fichier de données au format interne.")
-      return storedData
-    }
-    else {
-      try {
-        //fichier au format GeoJson
-        //throw "trying to read file as GeoJSON : erreur n°0";
-        if (storedData.type != "FeatureCollection") throw "trying to read file as GeoJSON : erreur n°1";
-        if (!jQuery.isArray(storedData.features)) throw "trying to read file as GeoJSON : erreur n°2";
-        var data = [];
-        var features = storedData.features;
-        for (var i = 0; i < features.length; i++) {
-          var newItem = {};
-          newItem["lng"] = features[i]["geometry"]["coordinates"][0];
-          newItem["lat"] = features[i]["geometry"]["coordinates"][1];
-          var properties = features[i]["properties"];
-          for (var prop in properties) {
-            newItem[prop] = properties[prop];
-          }
-          data.push(newItem);
-        }
-        console.log("fichier de données au format GeoJSON.")
-        return data;
-      }
-      catch (err) { //We can also throw from try block and catch it here
-        console.log(err);
-        loading.html(options.storedData + " :<br>n'est pas un fichier de données d'un format reconnu");
-      }
-      finally {
-        //code for finally block
-      }
-    }
-  };
+}
+(function($) {
+  $.fn.mapAllBlogs = function(options) {
+  var loading = $('<div id="loading"/>');
+  loading.append('<p>Chargement ...</p>');
+  $(this).append(loading);
   
+  var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div></div>');
+  $(this).append(infoMapWrapper);
+  
+  var dataTable =$('<table id="table" class="table table-striped table-bordered" />');
+  $(this).append(dataTable);
+  
+  var popupStrucData, iconMarkersBuilder, legendTitle, objectOverlays;
+  
+  runMapandTable();
+  function runMapandTable(dataJSON) {
+    if (typeof options.popupData !== 'undefined') popupStrucData = options.popupData;
+    else  popupStrucData = {
+      hidden: ["lat", "lng"]
+    }
+
+    iconMarkersBuilder = data => {
+      for (var i = 0; i < data.length; i++) {
+        data[i].iconMarker = options['legend']['affect'](data[i]);
+      }
+      return options.legend.icons;
+    }
+    if (typeof options['legend'].title !== 'undefined') legendTitle = options['legend'].title;
+    else legendTitle = '';
+
+    if (typeof options.controlOverlays == 'undefined') {
+      options.controlOverlays = [{
+        title: 'Autres',
+        isInGroup: data => {
+          return true;
+        }
+      }]
+    }
+    objectOverlays = {};
+    if (typeof options.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlOverlays.title;
+    else objectOverlays["overlayTitle"] = '';
+    objectOverlays["controlOverlays"] = {};
+    for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
+      objectOverlays["controlOverlays"][options.controlOverlays.overlays[i].title] = new L.layerGroup();
+    }
+    objectOverlays["overlays"] = [];
+    for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
+      objectOverlays["overlays"].push({
+        isInGroup: options.controlOverlays.overlays[i].isInGroup,
+        title: options.controlOverlays.overlays[i].title,
+        isVisible: true,
+      });
+    };
+
+    if (typeof options.storedData !== 'undefined') {
+      loadFromJSON(options.storedData, (storedData) => { 
+            var data = getDataFromJSON(storedData);
+            if (typeof data !== 'undefined') {
+              runData(data);
+            }
+      });
+    }
+    else if ($('#dataStore').length == 1) {
+      storedData = $('#dataStore').html();
+      storedData = JSON.parse(storedData);
+      storedData = getDataFromJSON(storedData);
+      if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
+      else runData(storedData);
+    }
+    else loadData();
+
+
+    function getDataFromJSON(storedData) {
+      if (jQuery.isArray(storedData)) {
+        //fichier au format interne
+        console.log("fichier de données au format interne.")
+        return storedData
+      }
+      else {
+        try {
+          //fichier au format GeoJson
+          //throw "trying to read file as GeoJSON : erreur n°0";
+          if (storedData.type != "FeatureCollection") throw "trying to read file as GeoJSON : erreur n°1";
+          if (!jQuery.isArray(storedData.features)) throw "trying to read file as GeoJSON : erreur n°2";
+          var data = [];
+          var features = storedData.features;
+          for (var i = 0; i < features.length; i++) {
+            var newItem = {};
+            newItem["lng"] = features[i]["geometry"]["coordinates"][0];
+            newItem["lat"] = features[i]["geometry"]["coordinates"][1];
+            var properties = features[i]["properties"];
+            for (var prop in properties) {
+              newItem[prop] = properties[prop];
+            }
+            data.push(newItem);
+          }
+          console.log("fichier de données au format GeoJSON.")
+          return data;
+        }
+        catch (err) { //We can also throw from try block and catch it here
+          console.log(err);
+          loading.html(options.storedData + " :<br>n'est pas un fichier de données d'un format reconnu");
+        }
+        finally {
+          //code for finally block
+        }
+      }
+    };
+  }
+
   function loadData() {
     var villesINSEE = 'https://philquand.github.io/Javascript/LeafLet/json/cities.json'
     Promise.all([

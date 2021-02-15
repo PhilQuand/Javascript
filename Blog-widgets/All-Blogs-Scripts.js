@@ -119,6 +119,41 @@ var deepEqual = function(x, y) {
   return*/
 }
 
+var isOKString = data => {
+  if (jQuery.type(data) === 'string' && data != '') return true;
+  else return false;
+}
+
+var readUrlParam = name => {
+  var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  return results[1] || 0;
+  // example.com?someparam=name&otherparam=8&id=6
+  // readUrlParam('someparam'); // name
+  // readUrlParam('id');        // 6
+  // readUrlParam('notavar');   // null*/
+};
+
+var clone = originalObject => {
+  if ((typeof originalObject !== 'object') || originalObject === null) {
+    throw new TypeError("originalObject parameter must be an object which is not null");
+  }
+
+  var deepCopy = JSON.parse(JSON.stringify(originalObject));
+
+  // Une petite récursivité 
+  function deepProto(originalObject, deepCopy) {
+    deepCopy.__proto__ = Object.create(originalObject.constructor.prototype);
+    for (var attribute in originalObject) {
+      if (typeof originalObject[attribute] === 'object' && originalObject[attribute] !== null) {
+        deepProto(originalObject[attribute], deepCopy[attribute]);
+      }
+    }
+  }
+  deepProto(originalObject, deepCopy);
+
+  return deepCopy;
+} 
+  
 function compSumAndImg(strx, chop, imgtag) {
   var result = {
     img: '',

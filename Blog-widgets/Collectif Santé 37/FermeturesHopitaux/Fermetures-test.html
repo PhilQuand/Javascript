@@ -211,9 +211,9 @@
 };*/
 </style>
 <script> 
-function loadFromJSON(storedData, setCallBack) {
-  if (typeof options.storedData !== 'undefined') {
-    if (!isValidUrl(options.storedData)) {
+function loadFromJSON(storedData, setCallBack, seOntError) {
+  if (typeof storedData !== 'undefined') {
+    if (!isValidUrl(storedData)) {
       loading.html('storedData ne semble pas être une adresse correcte...');
     }
     else {
@@ -229,19 +229,27 @@ function loadFromJSON(storedData, setCallBack) {
           //console.log('Everything has been loaded!');
           storedData = loadVal(values, storedData);
           storedData = getJSONFromFile(storedData);
-          if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
-          else {
+          //if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
+          //else {
               setCallBack(storedData);
-          }
+          //}
         },
         reason => {
           //console.log(reason);
-          loading.html(options.storedData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
+          seOntError(storedData);
         }
       );
     }
   }
-}
+};
+var readUrlParam = name => {
+  var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  if(results != null && results != NULL) return results[1] || 0;
+  // example.com?someparam=name&otherparam=8&id=6
+  // readUrlParam('someparam'); // name
+  // readUrlParam('id');        // 6
+  // readUrlParam('notavar');   // null*/
+};
 (function($) {
   $.fn.mapAllBlogs = function(options) {
   var loading = $('<div id="loading"/>');
@@ -256,8 +264,21 @@ function loadFromJSON(storedData, setCallBack) {
   
   var popupStrucData, iconMarkersBuilder, legendTitle, objectOverlays;
   
-  runMapandTable();
-  function runMapandTable(dataJSON) {
+  var optionsData = readUrlParam('options');
+  if (typeof optionsData !== 'undefined') {
+    loadFromJSON(optionsData,
+      (optionsData) => {
+        runMapandTable(optionsData);
+      },
+      (optionsData) => {
+        loading.html(optionsData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
+      }
+    );
+  }
+  else runMapandTable();
+
+  function runMapandTable(optionsData) {
+  
     if (typeof options.popupData !== 'undefined') popupStrucData = options.popupData;
     else  popupStrucData = {
       hidden: ["lat", "lng"]
@@ -296,20 +317,29 @@ function loadFromJSON(storedData, setCallBack) {
       });
     };
 
+    if (typeof storedData !== 'undefined') {
+      options.storedData = storedData;
+    }    
     if (typeof options.storedData !== 'undefined') {
-      loadFromJSON(options.storedData, (storedData) => { 
-            var data = getDataFromJSON(storedData);
-            if (typeof data !== 'undefined') {
-              runData(data);
-            }
-      });
+      loadFromJSON(options.storedData, 
+      (storedData) => {
+        var data = getDataFromJSON(storedData);
+        if (typeof data !== 'undefined') {
+          runData(data);
+        }
+      },
+      (storedData) => {
+        loading.html(storedData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
+      }
+      );
     }
     else if ($('#dataStore').length == 1) {
       storedData = $('#dataStore').html();
       storedData = JSON.parse(storedData);
       storedData = getDataFromJSON(storedData);
-      if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
-      else runData(storedData);
+      //if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
+      //else runData(storedData);
+      runData(storedData);
     }
     else loadData();
 
@@ -583,6 +613,14 @@ function loadFromJSON(storedData, setCallBack) {
     else var dataStore = $('#dataStore');
     var valGeoJSON = getGeoJSONFromData(indexEvent);
     dataStore.html(JSON.stringify(valGeoJSON));
+
+    if ($('#optStore').length == 0) {
+      var optStore = $('<div id="optStore" style="display:none"></div>')
+      $('#infoMap-wrapper').prepend(optStore)
+    }
+    else var optStore = $('#optStore');
+    optStore.html(JSON.stringify(options));
+
 
     function getGeoJSONFromData(indexEvent) {
       var valGeoJSON = {};

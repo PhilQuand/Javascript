@@ -244,7 +244,7 @@ function loadFromJSON(storedData, setCallBack, seOntError) {
 };
 var readUrlParam = name => {
   var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
-  if(results != null && results != NULL) return results[1] || 0;
+  if(results != null) return results[1] || 0;
   // example.com?someparam=name&otherparam=8&id=6
   // readUrlParam('someparam'); // name
   // readUrlParam('id');        // 6

@@ -251,7 +251,7 @@ var readUrlParam = name => {
   // readUrlParam('notavar');   // null*/
 };
 (function($) {
-$.fn.mapAllBlogs = function(options) {
+$.fn.mapAllBlogs = function(optionsPlugIn) {
   var loading = $('<div id="loading"/>');
   loading.append('<p>Chargement ...</p>');
   $(this).append(loading);
@@ -275,7 +275,7 @@ $.fn.mapAllBlogs = function(options) {
       }
     );
   }
-  else runMapandTable(options);
+  else runMapandTable(optionsPlugIn);
 
   function runMapandTable(options) {
 

@@ -124,15 +124,6 @@ var isOKString = data => {
   else return false;
 }
 
-var readUrlParam = name => {
-  var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
-  return results[1] || 0;
-  // example.com?someparam=name&otherparam=8&id=6
-  // readUrlParam('someparam'); // name
-  // readUrlParam('id');        // 6
-  // readUrlParam('notavar');   // null*/
-};
-
 var clone = originalObject => {
   if ((typeof originalObject !== 'object') || originalObject === null) {
     throw new TypeError("originalObject parameter must be an object which is not null");
@@ -154,6 +145,86 @@ var clone = originalObject => {
   return deepCopy;
 } 
   
+function loadFromJSON(storedData, setCallBack, seOntError) {
+  if (typeof storedData !== 'undefined') {
+    if (!isValidUrl(storedData)) {
+      loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
+    }
+    else {
+      console.log('loading data from file : ' + storedData)
+      Promise.all([
+        // chargement des données au format Geojson
+        load.json(storedData),
+      ]).then(
+        values => {
+          var getJSONFromFile = data => {
+            return data;
+          }
+          //console.log('Everything has been loaded!');
+          storedData = loadVal(values, storedData);
+          storedData = getJSONFromFile(storedData);
+          //if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
+          //else {
+              setCallBack(storedData);
+          //}
+        },
+        reason => {
+          //console.log(reason);
+          seOntError(storedData);
+        }
+      );
+    }
+  }
+};
+
+function loadFromJS(storedData, setCallBack, setOntError) {
+  if (typeof storedData !== 'undefined') {
+    if (!isValidUrl(storedData)) {
+      loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
+    }
+    else {
+      console.log('loading data from file : ' + storedData)
+      Promise.all([
+        // chargement des données Javascript
+        load.js(storedData),
+      ]).then(
+        values => {
+          setCallBack();
+        },
+        reason => {
+          //console.log(reason);
+          if(typeof setOntError !== 'undefined' ) setOntError();
+        }
+      );
+    }
+  }
+};
+
+var readUrlParam = name => {
+  var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  if(results != null) return results[1] || 0;
+  // example.com?someparam=name&otherparam=8&id=6
+  // readUrlParam('someparam'); // name
+  // readUrlParam('id');        // 6
+  // readUrlParam('notavar');   // null*/
+};
+
+var stringifyJSO2V = function(obj, prop) {
+  var placeholder = '____PLACEHOLDER____';
+  var fns = [];
+  var json = JSON.stringify(obj, function(key, value) {
+    if (typeof value === 'function') {
+      fns.push(value);
+      return placeholder;
+    }
+    return value;
+  }, 2);
+  json = json.replace(new RegExp('"' + placeholder + '"', 'g'), function(_) {
+    return fns.shift();
+  });
+  return 'this["' + prop + '"] = ' + json + ';';
+};
+
 function compSumAndImg(strx, chop, imgtag) {
   var result = {
     img: '',

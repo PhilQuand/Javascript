@@ -320,45 +320,68 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
   function runMapandTable(options) {
 
+    if (typeof options == 'undefined' ) var options = {};
     if (typeof options.popupData !== 'undefined') popupStrucData = options.popupData;
     else popupStrucData = {
-      hidden: ["lat", "lng"]
+      hidden: ["lat", "lng", "iconMarker"]
     }
 
-    iconMarkersBuilder = data => {
-      for (var i = 0; i < data.length; i++) {
-        data[i].iconMarker = options['legend']['affect'](data[i]);
-      }
-      return options.legend.icons;
-    }
-    if (typeof options['legend'].title !== 'undefined') legendTitle = options['legend'].title;
-    else legendTitle = '';
-
-    if (typeof options.controlOverlays == 'undefined') {
-      options.controlOverlays = [{
-        title: 'Autres',
-        isInGroup: data => {
-          return true;
+    if (typeof options['legend'] == 'undefined') {
+      legendTitle = '';
+      iconMarkersBuilder = data => {
+        for (var i = 0; i < data.length; i++) {
+          data[i].iconMarker = 0;
         }
-      }]
+        return [{
+        icon: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        }),
+        title: 'établissements'        
+      }];
+      }
     }
+    else {
+      if (typeof options['legend'].title !== 'undefined') legendTitle = options['legend'].title;
+      else legendTitle = '';
+      iconMarkersBuilder = data => {
+        for (var i = 0; i < data.length; i++) {
+          data[i].iconMarker = options['legend']['affect'](data[i]);
+        }
+        return options.legend.icons;
+      }
+    }
+    
     objectOverlays = {};
-    if (typeof options.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlOverlays.title;
-    else objectOverlays["overlayTitle"] = '';
-    objectOverlays["controlOverlays"] = {};
-    for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
-      objectOverlays["controlOverlays"][options.controlOverlays.overlays[i].title] = new L.layerGroup();
+    if (typeof options['controlOverlays'] == 'undefined') {
+      objectOverlays["overlayTitle"] = 'Autres';
+      objectOverlays["controlOverlays"] = {"Autres" : new L.layerGroup()};
+      objectOverlays["overlays"] = [{isInGroup: data => {return true;}, title: 'Autres', isVisible: true }];
     }
-    objectOverlays["overlays"] = [];
-    for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
-      objectOverlays["overlays"].push({
-        isInGroup: options.controlOverlays.overlays[i].isInGroup,
-        title: options.controlOverlays.overlays[i].title,
-        isVisible: true,
-      });
-    };
+    else {
+      if (typeof options.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlOverlays.title;
+      else objectOverlays["overlayTitle"] = '';
+      objectOverlays["controlOverlays"] = {};
+      for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
+        objectOverlays["controlOverlays"][options.controlOverlays.overlays[i].title] = new L.layerGroup();
+      }
+      objectOverlays["overlays"] = [];
+      for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
+        objectOverlays["overlays"].push({
+          isInGroup: options.controlOverlays.overlays[i].isInGroup,
+          title: options.controlOverlays.overlays[i].title,
+          isVisible: true,
+        });
+      };
+    }
+
 
     var storedData = readUrlParam('data');
+    storedData = "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json"
     if (typeof storedData !== 'undefined') {
       options.storedData = storedData;
     }
@@ -1837,11 +1860,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         }
 
         var item = popupStruc.title;
-        var columns = [{
-          data: item,
-          title: item,
-          selectable: true
-        }];
+        if (typeof item === 'undefined') {
+          var columns = [];
+        }
+        else {
+          var columns = [{
+            data: item,
+            title: item,
+            selectable: true
+          }];
+        }
         for (i = 0; i < popupStruc.properties.length; i++) {
           var item = popupStruc.properties[i];
           columns.push({
@@ -1963,7 +1991,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   // fin spécial pour le site de la CN
 
 
-  optionsVersion1 = {
+  /*optionsVersion1 = {
     //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
     storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
     //storedData: 'https://shrtm.nu/ep90',
@@ -2030,7 +2058,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }]
     },
   };  
-  $('#Fermetures').mapAllBlogs(optionsVersion1);
+  $('#Fermetures').mapAllBlogs(optionsVersion1);*/
+  $('#Fermetures').mapAllBlogs();
 
 })(jQuery);
 </script>

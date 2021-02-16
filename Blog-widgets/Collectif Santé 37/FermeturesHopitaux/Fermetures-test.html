@@ -292,13 +292,9 @@ var stringifyJSO2V = function(obj, prop) {
 
 (function($) {
 $.fn.mapAllBlogs = function(optionsPlugIn) {
-  /*var loading = $('<div id="loading"/>');
+  var loading = $('<div id="loading"/>');
   loading.append('<p>Chargement ...</p>');
-  $(this).append(loading);*/
-  var loading = $('<p>Chargement ...</p>');
-  var loadingDIV = $('<div id="loading"/>');
-  loadingDIV.append(loading);
-  $(this).append(loadingDIV);
+  $(this).append(loading);
 
 
   var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div></div>');

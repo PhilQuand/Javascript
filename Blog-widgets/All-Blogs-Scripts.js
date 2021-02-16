@@ -148,7 +148,8 @@ var clone = originalObject => {
 function loadFromJSON(storedData, setCallBack, seOntError) {
   if (typeof storedData !== 'undefined') {
     if (!isValidUrl(storedData)) {
-      loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
+      //loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
+      loading.innerHTML = storedData + '<br> ne semble pas être une adresse correcte...';
     }
     else {
       console.log('loading data from file : ' + storedData)
@@ -180,7 +181,8 @@ function loadFromJSON(storedData, setCallBack, seOntError) {
 function loadFromJS(storedData, setCallBack, setOntError) {
   if (typeof storedData !== 'undefined') {
     if (!isValidUrl(storedData)) {
-      loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
+      //loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
+      loading.innerHTML = storedData + '<br> ne semble pas être une adresse correcte...';
     }
     else {
       console.log('loading data from file : ' + storedData)

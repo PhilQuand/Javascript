@@ -210,7 +210,7 @@
   margin-right: auto;
 };*/
 </style>
-<script> 
+<!--script> 
 function loadFromJSON(storedData, setCallBack, seOntError) {
   if (typeof storedData !== 'undefined') {
     if (!isValidUrl(storedData)) {
@@ -287,12 +287,19 @@ var stringifyJSO2V = function(obj, prop) {
   });
   return 'this["' + prop + '"] = ' + json + ';';
 };
+</script-->
+<script>
 
 (function($) {
 $.fn.mapAllBlogs = function(optionsPlugIn) {
-  var loading = $('<div id="loading"/>');
+  /*var loading = $('<div id="loading"/>');
   loading.append('<p>Chargement ...</p>');
-  $(this).append(loading);
+  $(this).append(loading);*/
+  var loading = $('<p>Chargement ...</p>');
+  var loadingDIV = $('<div id="loading"/>');
+  loadingDIV.append(loading);
+  $(this).append(loadingDIV);
+
 
   var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div></div>');
   $(this).append(infoMapWrapper);

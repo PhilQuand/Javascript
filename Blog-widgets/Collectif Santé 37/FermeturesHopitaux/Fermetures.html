@@ -210,7 +210,7 @@
   margin-right: auto;
 };*/
 </style>
-<script> 
+<!--script> 
 function loadFromJSON(storedData, setCallBack, seOntError) {
   if (typeof storedData !== 'undefined') {
     if (!isValidUrl(storedData)) {
@@ -272,7 +272,7 @@ var readUrlParam = name => {
   // readUrlParam('id');        // 6
   // readUrlParam('notavar');   // null*/
 };
-var stringifyForJS = function(obj, prop) {
+var stringifyJSO2V = function(obj, prop) {
   var placeholder = '____PLACEHOLDER____';
   var fns = [];
   var json = JSON.stringify(obj, function(key, value) {
@@ -287,12 +287,15 @@ var stringifyForJS = function(obj, prop) {
   });
   return 'this["' + prop + '"] = ' + json + ';';
 };
+</script-->
+<script>
 
 (function($) {
 $.fn.mapAllBlogs = function(optionsPlugIn) {
   var loading = $('<div id="loading"/>');
   loading.append('<p>Chargement ...</p>');
   $(this).append(loading);
+
 
   var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div></div>');
   $(this).append(infoMapWrapper);
@@ -355,6 +358,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       });
     };
 
+    var storedData = readUrlParam('data');
     if (typeof storedData !== 'undefined') {
       options.storedData = storedData;
     }
@@ -474,7 +478,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   return true;
                 }
                 var dataJSON = $('<div></div>')
-                dataJSON.html(stringifyForJS(data));
+                dataJSON.html(JSON.stringify(data));
                 dataJSON = JSON.parse(dataJSON.html());
                 for (var i = 0; i < data.length; i++) {
                   delete storedData[i].iconMarker;
@@ -638,7 +642,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           delete indexEvent[i].INSEEcode;
           delete indexEvent[i].INSEEdept;
         }      
-        $('#dataStore').html(stringifyForJS(indexEvent));
+        $('#dataStore').html(JSON.stringify(indexEvent));
         console.log('achieved');
         loading.find('p').html('Les données de type COMMUNE et INSEE ont été exportées avec succés');
       }*/
@@ -650,14 +654,14 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
       else var dataStore = $('#dataStore');
       var valGeoJSON = getGeoJSONFromData(indexEvent);
-      dataStore.html(stringifyForJS(valGeoJSON));
+      dataStore.html(JSON.stringify(valGeoJSON));
 
       if ($('#optStore').length == 0) {
         var optStore = $('<div id="optStore" style="display:none"></div>')
         $('#infoMap-wrapper').prepend(optStore)
       }
       else var optStore = $('#optStore');
-      var optStoreSTR = stringifyForJS(options, 'options');
+      var optStoreSTR = stringifyJSO2V(options, 'options');
       optStore.html(optStoreSTR);
 
 

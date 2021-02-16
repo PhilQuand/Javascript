@@ -214,7 +214,7 @@
 function loadFromJSON(storedData, setCallBack, seOntError) {
   if (typeof storedData !== 'undefined') {
     if (!isValidUrl(storedData)) {
-      loading.html('storedData ne semble pas être une adresse correcte...');
+      loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
     }
     else {
       console.log('loading data from file : ' + storedData)
@@ -242,6 +242,28 @@ function loadFromJSON(storedData, setCallBack, seOntError) {
     }
   }
 };
+function loadFromJS(storedData, setCallBack, setOntError) {
+  if (typeof storedData !== 'undefined') {
+    if (!isValidUrl(storedData)) {
+      loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
+    }
+    else {
+      console.log('loading data from file : ' + storedData)
+      Promise.all([
+        // chargement des données Javascript
+        load.js(storedData),
+      ]).then(
+        values => {
+          setCallBack();
+        },
+        reason => {
+          //console.log(reason);
+          if(typeof setOntError !== 'undefined' ) setOntError();
+        }
+      );
+    }
+  }
+};
 var readUrlParam = name => {
   var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
   if(results != null) return results[1] || 0;
@@ -250,6 +272,22 @@ var readUrlParam = name => {
   // readUrlParam('id');        // 6
   // readUrlParam('notavar');   // null*/
 };
+var stringifyForJS = function(obj, prop) {
+  var placeholder = '____PLACEHOLDER____';
+  var fns = [];
+  var json = JSON.stringify(obj, function(key, value) {
+    if (typeof value === 'function') {
+      fns.push(value);
+      return placeholder;
+    }
+    return value;
+  }, 2);
+  json = json.replace(new RegExp('"' + placeholder + '"', 'g'), function(_) {
+    return fns.shift();
+  });
+  return 'this["' + prop + '"] = ' + json + ';';
+};
+
 (function($) {
 $.fn.mapAllBlogs = function(optionsPlugIn) {
   var loading = $('<div id="loading"/>');
@@ -266,9 +304,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
   var optionsData = readUrlParam('options');
   if (typeof optionsData !== 'undefined') {
-    loadFromJSON(optionsData,
-      (optionsData) => {
-        runMapandTable(optionsData);
+    loadFromJS(optionsData,
+      () => {
+        runMapandTable(options);
       },
       (optionsData) => {
         loading.html(optionsData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
@@ -436,7 +474,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   return true;
                 }
                 var dataJSON = $('<div></div>')
-                dataJSON.html(JSON.stringify(data));
+                dataJSON.html(stringifyForJS(data));
                 dataJSON = JSON.parse(dataJSON.html());
                 for (var i = 0; i < data.length; i++) {
                   delete storedData[i].iconMarker;
@@ -600,7 +638,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           delete indexEvent[i].INSEEcode;
           delete indexEvent[i].INSEEdept;
         }      
-        $('#dataStore').html(JSON.stringify(indexEvent));
+        $('#dataStore').html(stringifyForJS(indexEvent));
         console.log('achieved');
         loading.find('p').html('Les données de type COMMUNE et INSEE ont été exportées avec succés');
       }*/
@@ -612,14 +650,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
       else var dataStore = $('#dataStore');
       var valGeoJSON = getGeoJSONFromData(indexEvent);
-      dataStore.html(JSON.stringify(valGeoJSON));
+      dataStore.html(stringifyForJS(valGeoJSON));
 
       if ($('#optStore').length == 0) {
         var optStore = $('<div id="optStore" style="display:none"></div>')
         $('#infoMap-wrapper').prepend(optStore)
       }
       else var optStore = $('#optStore');
-      optStore.html(JSON.stringify(options));
+      var optStoreSTR = stringifyForJS(options, 'options');
+      optStore.html(optStoreSTR);
 
 
       function getGeoJSONFromData(indexEvent) {
@@ -645,7 +684,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
-      /*var btData = $('<button type="button" class="styled" id="btData"></button>')
+      var btData = $('<button type="button" class="styled" id="btData"></button>')
       $("#infoMap-wrapper").prepend(btData);
       btData.click(function(e) {
         if ($('#btData').html() == 'Carte') {
@@ -658,20 +697,22 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       btDataCarte(map_invalidateSize);
       function btDataTable() {
         $('#btData').html('Carte');
-        $('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+        //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+        $('#infoMap-wrapper > #infoMap').css('display', 'none')
         $('#table_wrapper').css('display', 'block')
         //$('#table').css('display', 'block')
       }
 
       function btDataCarte(map_invalidateSize) {
         $('#btData').html('Données');
-        $('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+        //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+        $('#infoMap-wrapper > #infoMap').css('display', 'block')
         map_invalidateSize();
         $('#table_wrapper').css('display', 'none')
         //$('#table').css('display', 'none')
       }
-      runTable(indexEvent);*/
-
+      runTable(indexEvent);
+      
       function runMap(indexEvent) {
 
         var popupStruc = makePopupProperties(indexEvent[0]);
@@ -1767,6 +1808,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
 
       function runTable(data) {
+        
         var popupStruc = makePopupProperties(indexEvent[0]);
 
         function makePopupProperties(indexEvent) {
@@ -1775,6 +1817,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           var dataKeys = Object.getOwnPropertyNames(indexEvent)
           if (typeof popupStrucData.hidden == 'undefined') popupStruc.hidden = [];
           popupStrucData.hidden.push(popupStrucData.title)
+          popupStrucData.hidden.push('doc')
+          popupStrucData.hidden.push('marker')
           popupStruc.title = popupStrucData.title;
           popupStruc.properties = [];
           for (var i = 0; i < dataKeys.length; i++) {
@@ -1914,7 +1958,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources internes)').css('display', 'none');
   // fin spécial pour le site de la CN
 
-  options = {
+
+  optionsVersion1 = {
     //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
     storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
     //storedData: 'https://shrtm.nu/ep90',
@@ -1932,7 +1977,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         },
         {
           title: 'menaces',
-          isInGroup: data => {
+          isInGroup: function(data) {
             return isOKString(data['MENACES']);
           }
         },
@@ -1949,7 +1994,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     legend: {
       title: 'Établissements avec',
-      affect: data => {
+      test: function(){},
+      affect: function(data) {
         if (isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES'])) {
           return 0;
         }
@@ -1980,7 +2026,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }]
     },
   };  
-  $('#Fermetures').mapAllBlogs(options);
+  $('#Fermetures').mapAllBlogs(optionsVersion1);
 
 })(jQuery);
 </script>

@@ -377,6 +377,8 @@ var inpAddress = [
   lat: 43.11356, lng:  1.612530	},
 { inpText: "EPERNAY",
   lat: 49.04518, lng:  3.9548	},
+{ inpText: "BEAUJON",
+  lat: 45.26654, lng:  4.57645	},
 { inpText: "SEINE-SAINT-DENIS",
   lat: 48.91761912, lng:  2.4784	},
 { inpText: "CHATEAU DU LOIR",

@@ -255,14 +255,14 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           data[i].iconMarker = 0;
         }
         return [{
-        icon: new L.Icon({
+        icon: {leaflet: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
           iconSize: [13, 20],
           iconAnchor: [6, 20],
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
-        }),
+        })},
         title: 'établissements'        
       }];
       }
@@ -633,38 +633,40 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
-      var btData = $('<button type="button" class="styled" id="btData"></button>')
-      $("#infoMap-wrapper").prepend(btData);
-      btData.click(function(e) {
-        if ($('#btData').html() == 'Carte') {
-          btDataCarte(map_invalidateSize);
-        }
-        else {
-          btDataTable();
-        }
-      });
-      btDataCarte(map_invalidateSize);
-      function btDataTable() {
-        $('#btData').html('Carte');
-        //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
-        $('#infoMap-wrapper > #infoMap').css('display', 'none')
-        $('#table_wrapper').css('display', 'block')
-        //$('#table').css('display', 'block')
-      }
+      if (typeof popupStrucData.properties !== 'undefined') {
+        var btData = $('<button type="button" class="styled" id="btData"></button>')
+        $("#infoMap-wrapper").prepend(btData);
+        btData.click(function(e) {
+          if ($('#btData').html() == 'Carte') {
+            btDataCarte(map_invalidateSize);
+          }
+          else {
+            btDataTable();
+          }
+        });
+        btDataCarte(map_invalidateSize);
 
-      function btDataCarte(map_invalidateSize) {
-        $('#btData').html('Données');
-        //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
-        $('#infoMap-wrapper > #infoMap').css('display', 'block')
-        map_invalidateSize();
-        $('#table_wrapper').css('display', 'none')
-        //$('#table').css('display', 'none')
+        function btDataTable() {
+          $('#btData').html('Carte');
+          //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+          $('#infoMap-wrapper > #infoMap').css('display', 'none')
+          $('#table_wrapper').css('display', 'block')
+          //$('#table').css('display', 'block')
+        }
+
+        function btDataCarte(map_invalidateSize) {
+          $('#btData').html('Données');
+          //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+          $('#infoMap-wrapper > #infoMap').css('display', 'block')
+          map_invalidateSize();
+          $('#table_wrapper').css('display', 'none')
+          //$('#table').css('display', 'none')
+        }
+        runTable(indexEvent);
       }
-      runTable(indexEvent);
       
       function runMap(indexEvent) {
 
-        var popupStruc = makePopupProperties(indexEvent[0]);
         var iconMarkers = iconMarkersBuilder(indexEvent);
         var iconMarkersLength = iconMarkers.length;
         //var map, onSetDefaultMapView, controlLayers;
@@ -692,29 +694,47 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           return;
         }
 
-        function dataPopUp(data, popupStruc) {
+        function dataPopUp(data) {
           var popupContent = $('<div></div>');
           var popupBody = $('<div class="popBody"></div>');
           popupContent.append(popupBody);
-          var dataTitle = data[popupStruc.title];
-          if (typeof data[popupStruc.title] !== 'undefined') {
-            popupBody.append('<div class="popLieux">' + data[popupStruc.title] + '</div>');
+          if (typeof popupStrucData.title !== 'undefined') {
+            var title = popupStrucData.title;
+            if (typeof data !== 'undefined' && typeof data[title] !== 'undefined') {
+              popupBody.append('<div class="popLieux">' + data[title] + '</div>');
+            }
           }
-          for (var i = 0; i < popupStruc.properties.length; i++) {
-            var item = popupStruc.properties[i];
-            if (data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[item] + '</div>');
+          if (typeof popupStrucData.properties !== 'undefined') {
+            var properties = popupStrucData.properties;
           }
+          else {
+            var hidden = popupStrucData.hidden
+            if (typeof hidden === 'undefined') hidden = [];
+            hidden = hidden.concat(["lat", "lng", "iconMarker"]);
+            if (typeof popupStrucData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
+            var dataKeys = Object.getOwnPropertyNames(indexEvent)
+            var properties = [];
+            for (var i = 0; i < dataKeys.length; i++) {
+              var keyStatus = true;
+              for (var j = 0; j < hidden.length; j++) {
+                if (dataKeys[i] == hidden[j]) keyStatus = false;
+              }
+              if (keyStatus == true) properties.push(dataKeys[i]);
+            }
+          }
+          for (var i = 0; i < properties.length; i++) {
+              var item = properties[i];
+              if (data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[item] + '</div>');
+            }
           return popupContent.html();
         }
-
         var markers = L.markerClusterGroup({
           maxClusterRadius: 5
         });
         for (i = 0; i < indexEvent.length; i++) {
-          indexEvent[i].doc = dataPopUp(indexEvent[i], popupStruc);
           indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
+          indexEvent[i].doc = dataPopUp(indexEvent[i]);
           indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
-          //markers.addLayer(indexEvent[i].marker);
         }
 
         map = initMap('infoMap', indexEvent);
@@ -972,7 +992,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               console.log('error in makePopUp');
             }
             var marker = L.marker([input.lat, input.lng], {
-              icon: input.iconMarker.icon
+              icon: input.iconMarker.icon.leaflet
             });
           }
           marker.bindPopup(input.doc, {
@@ -990,7 +1010,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           return marker;
         }
 
-        function makePopupProperties(indexEvent) {
+        /*function makePopupProperties(indexEvent) {
           var popupStruc = {};
           //if (typeof popupStruc.properties == 'undefined') {
           var dataKeys = Object.getOwnPropertyNames(indexEvent)
@@ -1007,7 +1027,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }
           //}
           return popupStruc;
-        }
+        }*/
 
         function initMap(idMap, indexEvent) {
 
@@ -1174,12 +1194,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               if (legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + legendTitle + '</span>';
               for (var k = 0; k < iconMarkersLength; k++) {
                 if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-                  if (typeof iconMarkers[k].icon === 'undefined') {
+                  if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
                     divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
                   }
                   else {
-                    var iconVal = iconMarkers[k].icon;
-                    divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                    var iconVal = iconMarkers[k].icon.leaflet;
+                    divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
                   }
                 }
               }
@@ -1755,12 +1775,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         $('.geocoder-control.leaflet-control').appendTo($('.topLeftControls'));
         return map_invalidateSize
       }
-
       function runTable(data) {
         
-        var popupStruc = makePopupProperties(indexEvent[0]);
-
-        function makePopupProperties(indexEvent) {
+        /*function makePopupProperties(indexEvent) {
           var popupStruc = {};
           //if (typeof popupStruc.properties == 'undefined') {
           var dataKeys = Object.getOwnPropertyNames(indexEvent)
@@ -1779,9 +1796,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }
           //}
           return popupStruc;
-        }
+        }*/
 
-        var item = popupStruc.title;
+        var item = popupStrucData.title;
         if (typeof item === 'undefined') {
           var columns = [];
         }
@@ -1792,8 +1809,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             selectable: true
           }];
         }
-        for (i = 0; i < popupStruc.properties.length; i++) {
-          var item = popupStruc.properties[i];
+        for (i = 0; i < popupStrucData.properties.length; i++) {
+          var item = popupStrucData.properties[i];
           columns.push({
             data: item,
             title: item,
@@ -1919,7 +1936,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     //storedData: 'https://shrtm.nu/ep90',
     popupData : {
       title: 'COMMUNE',
-      hidden: ["LATITUDE", "LONGITUDE", "INSEE", "lat", "lng", "iconMarker"]
+      properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]
     },
     controlOverlays: {
       title: 'Établissements avec',
@@ -1958,24 +1975,24 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         }
       },
       icons: [{
-        icon: new L.Icon({
+        icon: {leaflet: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
           iconSize: [13, 20],
           iconAnchor: [6, 20],
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
-        }),
+        })},
         title: 'suppressions ou menaces',
       }, {
-        icon: new L.Icon({
+        icon: {leaflet: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
           iconSize: [13, 20],
           iconAnchor: [6, 20],
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
-        }),
+        })},
         title: 'autres'
       }]
     },

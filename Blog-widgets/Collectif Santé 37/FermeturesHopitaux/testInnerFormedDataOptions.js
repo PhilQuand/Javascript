@@ -1,8 +1,8 @@
 this["options"] = {
   storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-  popupData: {
+  popupData : {
     title: 'COMMUNE',
-    hidden: ["LATITUDE", "LONGITUDE", "INSEE", "lat", "lng", "iconMarker"]
+    properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]
   },
   controlOverlays: {
     title: 'Établissements avec',

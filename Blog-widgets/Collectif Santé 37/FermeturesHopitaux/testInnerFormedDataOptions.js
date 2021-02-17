@@ -1,8 +1,10 @@
 this["options"] = {
+  //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
   storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-  popupData : {
+  //storedData: 'https://shrtm.nu/ep90',
+  popupData: {
     title: 'COMMUNE',
-    properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]
+    hidden: ["LATITUDE", "LONGITUDE", "INSEE", "lat", "lng", "iconMarker"]
   },
   controlOverlays: {
     title: 'Établissements avec',

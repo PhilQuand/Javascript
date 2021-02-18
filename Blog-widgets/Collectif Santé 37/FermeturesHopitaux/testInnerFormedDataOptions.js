@@ -1,10 +1,8 @@
 this["options"] = {
-  //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
   storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-  //storedData: 'https://shrtm.nu/ep90',
   popupData: {
     title: 'COMMUNE',
-    hidden: ["LATITUDE", "LONGITUDE", "INSEE", "lat", "lng", "iconMarker"]
+    properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]
   },
   controlOverlays: {
     title: 'Établissements avec',
@@ -43,25 +41,33 @@ this["options"] = {
       }
     },
     icons: [{
-      icon: new L.Icon({
-        iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
-        shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-        iconSize: [13, 20],
-        iconAnchor: [6, 20],
-        popupAnchor: [1, -17],
-        shadowSize: [20, 20]
-      }),
+      icon: {
+        leaflet: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        })
+      },
       title: 'suppressions ou menaces',
+      colorBG: '#9A26CA',
+      colorFG: '#F8F8F8',
     }, {
-      icon: new L.Icon({
-        iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
-        shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-        iconSize: [13, 20],
-        iconAnchor: [6, 20],
-        popupAnchor: [1, -17],
-        shadowSize: [20, 20]
-      }),
-      title: 'autres'
+      icon: {
+        leaflet: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        })
+      },
+      title: 'autres',
+      colorBG: '#2781CA',
+      colorFG: '#FFFFFF',
     }]
   },
 };  

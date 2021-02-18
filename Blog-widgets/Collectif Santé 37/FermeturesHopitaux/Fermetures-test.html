@@ -225,7 +225,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   var dataTable = $('<table id="table" class="table table-striped table-bordered" />');
   $(this).append(dataTable);
 
-  var popupStrucData, iconMarkersBuilder, legendTitle, objectOverlays;
+  var iconMarkersBuilder, legendTitle, objectOverlays;
 
   var optionsData = readUrlParam('options');
   if (typeof optionsData !== 'undefined') {
@@ -243,10 +243,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   function runMapandTable(options) {
 
     if (typeof options == 'undefined' ) var options = {};
-    if (typeof options.popupData !== 'undefined') popupStrucData = options.popupData;
-    else popupStrucData = {
-      hidden: ["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]
-    }
 
     if (typeof options['legend'] == 'undefined') {
       legendTitle = '';
@@ -633,7 +629,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
-      if (typeof popupStrucData.properties !== 'undefined') {
+      if (typeof options.popupData.properties !== 'undefined') {
         var btData = $('<button type="button" class="styled" id="btData"></button>')
         $("#infoMap-wrapper").prepend(btData);
         btData.click(function(e) {
@@ -698,20 +694,20 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           var popupContent = $('<div></div>');
           var popupBody = $('<div class="popBody"></div>');
           popupContent.append(popupBody);
-          if (typeof popupStrucData.title !== 'undefined') {
-            var title = popupStrucData.title;
+          if (typeof options.popupData.title !== 'undefined') {
+            var title = options.popupData.title;
             if (typeof data !== 'undefined' && typeof data[title] !== 'undefined') {
-              popupBody.append('<div class="popLieux">' + data[title] + '</div>');
+              popupBody.append('<div class="popLieux" style="color:' + data.iconMarker.colorFG +'; background-color:' + data.iconMarker.colorBG +';">' + data[title] + '</div>');
             }
           }
-          if (typeof popupStrucData.properties !== 'undefined') {
-            var properties = popupStrucData.properties;
+          if (typeof options.popupData.properties !== 'undefined') {
+            var properties = options.popupData.properties;
           }
           else {
-            var hidden = popupStrucData.hidden
+            var hidden = options.popupData.hidden
             if (typeof hidden === 'undefined') hidden = [];
-            hidden = hidden.concat(["lat", "lng", "iconMarker"]);
-            if (typeof popupStrucData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
+            hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
+            if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
             var dataKeys = Object.getOwnPropertyNames(indexEvent)
             var properties = [];
             for (var i = 0; i < dataKeys.length; i++) {
@@ -1009,25 +1005,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           });
           return marker;
         }
-
-        /*function makePopupProperties(indexEvent) {
-          var popupStruc = {};
-          //if (typeof popupStruc.properties == 'undefined') {
-          var dataKeys = Object.getOwnPropertyNames(indexEvent)
-          if (typeof popupStrucData.hidden == 'undefined') popupStruc.hidden = [];
-          popupStrucData.hidden.push(popupStrucData.title)
-          popupStruc.title = popupStrucData.title;
-          popupStruc.properties = [];
-          for (var i = 0; i < dataKeys.length; i++) {
-            var keyStatus = true;
-            for (var j = 0; j < popupStrucData.hidden.length; j++) {
-              if (dataKeys[i] == popupStrucData.hidden[j]) keyStatus = false;
-            }
-            if (keyStatus == true) popupStruc.properties.push(dataKeys[i]);
-          }
-          //}
-          return popupStruc;
-        }*/
 
         function initMap(idMap, indexEvent) {
 
@@ -1777,28 +1754,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
       function runTable(data) {
         
-        /*function makePopupProperties(indexEvent) {
-          var popupStruc = {};
-          //if (typeof popupStruc.properties == 'undefined') {
-          var dataKeys = Object.getOwnPropertyNames(indexEvent)
-          if (typeof popupStrucData.hidden == 'undefined') popupStruc.hidden = [];
-          popupStrucData.hidden.push(popupStrucData.title)
-          popupStrucData.hidden.push('doc')
-          popupStrucData.hidden.push('marker')
-          popupStruc.title = popupStrucData.title;
-          popupStruc.properties = [];
-          for (var i = 0; i < dataKeys.length; i++) {
-            var keyStatus = true;
-            for (var j = 0; j < popupStrucData.hidden.length; j++) {
-              if (dataKeys[i] == popupStrucData.hidden[j]) keyStatus = false;
-            }
-            if (keyStatus == true) popupStruc.properties.push(dataKeys[i]);
-          }
-          //}
-          return popupStruc;
-        }*/
-
-        var item = popupStrucData.title;
+        var item = options.popupData.title;
         if (typeof item === 'undefined') {
           var columns = [];
         }
@@ -1809,8 +1765,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             selectable: true
           }];
         }
-        for (i = 0; i < popupStrucData.properties.length; i++) {
-          var item = popupStrucData.properties[i];
+        for (i = 0; i < options.popupData.properties.length; i++) {
+          var item = options.popupData.properties[i];
           columns.push({
             data: item,
             title: item,
@@ -1984,6 +1940,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           shadowSize: [20, 20]
         })},
         title: 'suppressions ou menaces',
+        colorBG: '#9A26CA',
+        colorFG: '#F8F8F8',
       }, {
         icon: {leaflet: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
@@ -1993,7 +1951,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         })},
-        title: 'autres'
+        title: 'autres',
+        colorBG: '#2781CA',
+        colorFG: '#FFFFFF',
       }]
     },
   };  

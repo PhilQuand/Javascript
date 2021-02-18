@@ -39,12 +39,9 @@
 
 <!--Load carte-infos-semaines -->
   <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
-  <!--script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Adresses.js"></script>
-  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Archives.js"></script>
-  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Icons.js"></script>
-  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.js"></script>
-<script src='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson'></script-->
-
+<!-- Full screen plugin -->
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
 </head>
 <body>
 <div class="SIURFFMR right" >
@@ -1715,6 +1712,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           function loadMap(idMap) {
             L.map(idMap).remove();
             var map = L.map(idMap);
+
+            map.addControl(new L.Control.Fullscreen({
+              title: {
+                'false': 'Voir en plein écran',
+                'true': 'Quitter le plein écran'
+              }
+            }));
 
             map.createPane('labels');
 

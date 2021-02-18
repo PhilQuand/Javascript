@@ -243,6 +243,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   function runMapandTable(options) {
 
     if (typeof options == 'undefined' ) var options = {};
+    if (typeof options.popupData == 'undefined' ) options.popupData = {};
+    
 
     if (typeof options['legend'] == 'undefined') {
       legendTitle = '';
@@ -704,8 +706,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             var properties = options.popupData.properties;
           }
           else {
-            var hidden = options.popupData.hidden
-            if (typeof hidden === 'undefined') hidden = [];
+            var hidden = [];
+            if (typeof options.popupData.hidden !== 'undefined') hidden = options.popupData.hidden;
             hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
             if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
             var dataKeys = Object.getOwnPropertyNames(indexEvent)

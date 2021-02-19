@@ -1672,29 +1672,40 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             switch (options.fondCarte) {
               case 'IGN':
                 loadIGN();
+
+                function loadIGN() {
+                  Promise.all([
+                    // Début ressources utilisées pour construire la carte IGN
+                    load.js('http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'),
+                    load.css('http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.css'),
+                    load.js('http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.js'),
+                    load.css('http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css'),
+                    // Fin ressources utilisées pour construire la carte IGN
+
+                  ]).then(
+                    function() {
+                      console.log('Everything has loaded!');
+
+                      // accés au Geoportail
+                      Gp.Services.getConfig({
+                        apiKey: "f5cse26aiqvu6j4xqtngh5zh",
+                        onSuccess: go
+                      });
+
+                      function go() {
+                        var layer = L.geoportalLayer.WMTS({
+                          layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
+                        });
+                        layer.addTo(map);
+                      }
+                    }).catch(function() {
+                    console.log('Oh no, epic failure!');
+                  });
+
+                };
                 break;
               case 'mapbox':
                 loadMapbox();
-                break;
-              default:
-                var layer = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                  attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-                })
-                layer.addTo(map);
-
-                function loadIGN() {
-                  Gp.Services.getConfig({
-                    apiKey: "f5cse26aiqvu6j4xqtngh5zh",
-                    onSuccess: go
-                  });
-
-                  function go() {
-                    var layer = L.geoportalLayer.WMTS({
-                      layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
-                    });
-                    layer.addTo(map);
-                  }
-                }
 
                 function loadMapbox() {
                   // Usage:  Load different file types with one callback
@@ -1732,8 +1743,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     console.log('Oh no, epic failure!');
                   });
                 };
-
-            };
+                break;
+              default:
+                var layer = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                  attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                })
+                layer.addTo(map);
+            }
 
             map.addControl(new L.Control.Fullscreen({
               title: {
@@ -1908,10 +1924,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
 
   optionsVersion1 = {
-    //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
-    data: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-    //storedData: 'https://shrtm.nu/ep90',
-    fondCarte : 'IGN',
+    //data: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+    //fondCarte : 'IGN',
     popupData : {
       title: 'COMMUNE',
       properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]

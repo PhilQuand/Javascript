@@ -1,5 +1,6 @@
 this["options"] = {
   //data: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+  fondCarte : 'IGN',
   popupData: {
     title: 'COMMUNE',
     properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]

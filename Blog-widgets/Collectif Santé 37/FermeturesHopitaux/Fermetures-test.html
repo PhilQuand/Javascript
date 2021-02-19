@@ -273,36 +273,34 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     }
     
     objectOverlays = {};
-    if (typeof options['controlOverlays'] == 'undefined') {
+     if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlOverlays === 'undefined' ) {
       objectOverlays["overlayTitle"] = 'Autres';
       objectOverlays["controlOverlays"] = {"Autres" : new L.layerGroup()};
       objectOverlays["overlays"] = [{isInGroup: data => {return true;}, title: 'Autres', isVisible: true }];
     }
     else {
-      if (typeof options.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlOverlays.title;
+      if (typeof options.controlLayers.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlLayers.controlOverlays.title;
       else objectOverlays["overlayTitle"] = '';
       objectOverlays["controlOverlays"] = {};
-      for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
-        objectOverlays["controlOverlays"][options.controlOverlays.overlays[i].title] = new L.layerGroup();
-      }
       objectOverlays["overlays"] = [];
-      for (var i = 0; i < options.controlOverlays.overlays.length; i++) {
+      for (var i = 0; i < options.controlLayers.controlOverlays.overlays.length; i++) {
+        objectOverlays["controlOverlays"][options.controlLayers.controlOverlays.overlays[i].title] = new L.layerGroup();
         objectOverlays["overlays"].push({
-          isInGroup: options.controlOverlays.overlays[i].isInGroup,
-          title: options.controlOverlays.overlays[i].title,
+          isInGroup: options.controlLayers.controlOverlays.overlays[i].isInGroup,
+          title: options.controlLayers.controlOverlays.overlays[i].title,
           isVisible: true,
         });
-      };
+      }
     }
 
 
     var storedData = readUrlParam('data');
     //storedData = "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json"
     if (typeof storedData !== 'undefined') {
-      options.storedData = storedData;
+      options.data = storedData;
     }
-    if (typeof options.storedData !== 'undefined') {
-      loadFromJSON(options.storedData,
+    if (typeof options.data !== 'undefined') {
+      loadFromJSON(options.data,
         (storedData) => {
           var data = getDataFromJSON(storedData);
           if (typeof data !== 'undefined') {
@@ -354,7 +352,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         }
         catch (err) { //We can also throw from try block and catch it here
           console.log(err);
-          loading.html(options.storedData + " :<br>n'est pas un fichier de données d'un format reconnu");
+          loading.html(options.data + " :<br>n'est pas un fichier de données d'un format reconnu");
         }
         finally {
           //code for finally block
@@ -661,21 +659,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       
       function runMap(indexEvent) {
 
-
-            switch (options.fondCarte) {
-              case 'IGN':
-        Gp.Services.getConfig({
-          apiKey: "f5cse26aiqvu6j4xqtngh5zh",
-          onSuccess: go
-        });
-                break;
-              default:
-                go()
-            };
-        function go() {
         var iconMarkers = iconMarkersBuilder(indexEvent);
         var iconMarkersLength = iconMarkers.length;
-        //var map, onSetDefaultMapView, controlLayers;
         var map, onSetDefaultMapView, refreshIndexEvent;
 
         /*function removeAreaMarkers() {
@@ -1021,7 +1006,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           'use strict'
 
           map = loadMap(idMap);
-          
+
           //zoomRemove(map);
           map.options.minZoom = 5;
           //map.options.maxZoom = 8;
@@ -1029,28 +1014,22 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
           setDefaultMapView();
 
-          // Constructeur du fond de carte pour LeafLet
-          var baseMaps = {}
+          // Constructeur du contrôlr de carte LeafLet
+          var baseMaps = {
+            'par défaut': L.tileLayer('')
+          };
+          baseMaps['par défaut'].addTo(map);
           var legendMaps = {}
-          loadMapPicture({
-            // carte avec les deux couches openstreet et builDepts
-            baseMaps: baseMaps,
-            map: map,
-            callback: openstreetCallback
-            // carte avec la couche openstreet seule
-            /*baseMaps: baseMaps,
-            map: map*/
-            // carte avec la couche openstreet builDepts
-            /*typMap: "builDepts",
-            baseMaps: baseMaps,
-            data: indexEvent,
-            map: map*/
-          });
 
-          function openstreetCallback(option) {
-            //option["baseMaps"]['par défaut'].addTo(option["map"]);
-            //option["baseMaps"]['par défaut'] = L.tileLayer('');
-            option["baseMaps"]['par défaut'].addTo(option["map"]);
+          if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlMaps === 'undefined' || options.controlLayers.controlMaps  != true ) {
+            var option = {
+              baseMaps: null,
+              legend: legendMaps,
+              map: map,
+            };
+            buildBaseMaps(option)
+          }
+          else {
             loadMapPicture({
               typMap: "builDepts",
               baseMaps: baseMaps,
@@ -1058,8 +1037,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               data: indexEvent,
               map: map,
               callback: builDeptsCallback
+              //callback: buildBaseMaps
             });
           }
+
 
           function builDeptsCallback(option) {
             loadMapPicture({
@@ -1068,11 +1049,11 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               legend: legendMaps,
               data: indexEvent,
               map: map,
-              callback: builRegsCallback
+              callback: buildBaseMaps
             });
           }
 
-          function builRegsCallback(option) {
+          function buildBaseMaps(option) {
             var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
             for (var i = 0; i < objectOverlays["overlays"].length; i++) {
               objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
@@ -1080,7 +1061,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
             var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
             var controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();
-            controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
+            if(option["baseMaps"] !== null) controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
             var controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
             if (objectOverlays["overlayTitle"] != '') {
               controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + objectOverlays["overlayTitle"] + '</div>')
@@ -1246,12 +1227,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
           function loadMapPicture(option) {
             switch (option["typMap"]) {
-              case "openstreet":
-                loadOpenstreet(option);
-                break;
-              case "mapBox":
-                loadMapbox(option);
-                break;
               case "builDepts":
                 loadClustering(option, option["data"]);
                 break;
@@ -1259,66 +1234,34 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 loadClustering(option, option["data"]);
                 break;
               default:
-                loadOpenstreet(option);
+                option["baseMaps"]['par défaut'] = L.tileLayer('');
             };
 
-            function loadOpenstreet(option) {
+            /*function loadOpenstreet(option) {
               option["baseMaps"]['par défaut'] = L.tileLayer('');
               if (typeof option["callback"] == 'undefined') {
                 if (typeof option["map"] !== 'undefined') option["baseMaps"]['par défaut'].addTo(option["map"]);
               }
               else option["callback"](option);
-            };
-
-            function loadMapbox(opion) {
-              // Usage:  Load different file types with one callback
-              Promise.all([
-                // Début ressources utilisées pour construire la carte MapBox
-                load.js('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'),
-                load.css('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css'),
-                load.js('https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js'),
-                // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
-
-              ]).then(
-                function() {
-                  console.log('Everything has loaded!');
-
-                  var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
-
-                  /*
-                  // Downsample tiles for faster load times on slow internet connections by
-                  // adjusting the format property in styleLayer. See
-                  // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
-                  L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
-                    tileLayer: {
-                      format: 'jpg70'
-                    }
-                  }).addTo(map);
-                  */
-                  option["baseMaps"]['mapbox'] = L.mapboxGL({
-                    accessToken: mapboxAccessToken,
-                    // get your own MapTiler token at https://cloud.maptiler.com/ or use MapBox style
-                    //style: 'https://api.maptiler.com/maps/basic/style.json?key=gbetYLSD5vR8MdtZ88AQ'
-                    style: 'mapbox://styles/mapbox/streets-v11',
-                  });
-                }).catch(function() {
-                console.log('Oh no, epic failure!');
-              });
-            };
+            };*/
 
             function loadClustering(option) {
               // Constructeur de la carte TopoJSON avec pays pour LeafLet
               // ajout de l'échelle des couleurs pour les cartes TopoJSON
               if (option["typMap"] == "builDepts") {
                 var grades = [0, 1, 3, 5, 7, 10, 15, 20];
-                var colorDeb = '#D5E3FF';
-                var colorFin = '#003171';
+                //var colorDeb = '#D5E3FF';
+                //var colorFin = '#003171';
+                var colorDeb = '#FFFF00';
+                var colorFin = '#FF0000';
                 var colorStyle = '#555';
               }
               else {
                 var grades = [0, 20, 30, 40, 55, 60, 80, 100];
-                var colorDeb = '#D5E3FF';
-                var colorFin = '#003171';
+                //var colorDeb = '#D5E3FF';
+                //var colorFin = '#003171';
+                var colorDeb = '#FFFF00';
+                var colorFin = '#FF0000';
                 var colorStyle = '#555';
               }
               // ajout des couche départements et régions colorées TopoJSON
@@ -1728,16 +1671,69 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             var map = L.map(idMap);
             switch (options.fondCarte) {
               case 'IGN':
-                var layer = L.geoportalLayer.WMTS({
-                  layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
-                });
+                loadIGN();
+                break;
+              case 'mapbox':
+                loadMapbox();
                 break;
               default:
-                var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                var layer = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                   attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-                });
+                })
+                layer.addTo(map);
+
+                function loadIGN() {
+                  Gp.Services.getConfig({
+                    apiKey: "f5cse26aiqvu6j4xqtngh5zh",
+                    onSuccess: go
+                  });
+
+                  function go() {
+                    var layer = L.geoportalLayer.WMTS({
+                      layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
+                    });
+                    layer.addTo(map);
+                  }
+                }
+
+                function loadMapbox() {
+                  // Usage:  Load different file types with one callback
+                  Promise.all([
+                    // Début ressources utilisées pour construire la carte MapBox
+                    load.js('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'),
+                    load.css('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css'),
+                    load.js('https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js'),
+                    // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
+
+                  ]).then(
+                    function() {
+                      console.log('Everything has loaded!');
+
+                      var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
+
+                      /*
+                      // Downsample tiles for faster load times on slow internet connections by
+                      // adjusting the format property in styleLayer. See
+                      // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
+                      L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
+                        tileLayer: {
+                          format: 'jpg70'
+                        }
+                      }).addTo(map);
+                      */
+                      var layer = L.mapboxGL({
+                        accessToken: mapboxAccessToken,
+                        // get your own MapTiler token at https://cloud.maptiler.com/ or use MapBox style
+                        //style: 'https://api.maptiler.com/maps/basic/style.json?key=gbetYLSD5vR8MdtZ88AQ'
+                        style: 'mapbox://styles/mapbox/streets-v11',
+                      });
+                      layer.addTo(map);
+                    }).catch(function() {
+                    console.log('Oh no, epic failure!');
+                  });
+                };
+
             };
-            layer.addTo(map);
 
             map.addControl(new L.Control.Fullscreen({
               title: {
@@ -1777,7 +1773,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         $('.geocoder-control.leaflet-control').appendTo($('.topLeftControls'));
         return map_invalidateSize
         }
-      }
       function runTable(data) {
         
         var item = options.popupData.title;
@@ -1914,37 +1909,40 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
   optionsVersion1 = {
     //storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
-    storedData: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+    data: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
     //storedData: 'https://shrtm.nu/ep90',
-    //fondCarte : 'IGN',
+    fondCarte : 'IGN',
     popupData : {
       title: 'COMMUNE',
       properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]
     },
-    controlOverlays: {
-      title: 'Établissements avec',
-      overlays: [{
-          title: 'suppressions',
-          isInGroup: data => {
-            return isOKString(data['SUPPRESSIONS']);
-          }
-        },
-        {
-          title: 'menaces',
-          isInGroup: function(data) {
-            return isOKString(data['MENACES']);
-          }
-        },
-        {
-          title: 'autres',
-          isInGroup: data => {
-            if (!isOKString(data['SUPPRESSIONS']) && !isOKString(data['MENACES'])) {
-              return true;
+    controlLayers: {
+      controlMaps: true,
+      controlOverlays: {
+        title: 'Établissements avec',
+        overlays: [{
+            title: 'suppressions',
+            isInGroup: data => {
+              return isOKString(data['SUPPRESSIONS']);
             }
-            else return false;
-          }
-        },
-      ]
+          },
+          {
+            title: 'menaces',
+            isInGroup: function(data) {
+              return isOKString(data['MENACES']);
+            }
+          },
+          {
+            title: 'autres',
+            isInGroup: data => {
+              if (!isOKString(data['SUPPRESSIONS']) && !isOKString(data['MENACES'])) {
+                return true;
+              }
+              else return false;
+            }
+          },
+        ]
+      }
     },
     legend: {
       title: 'Établissements avec',

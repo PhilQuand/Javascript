@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Géoservices - Leaflet avec différents fonds de cartes IGN Plein fenêtre</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* style pour carte plein écran, pour limiter voir la div "carte" */
+#carte {
+height: 100%;
+}
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+</style>
+<!-- Javascript Leaflet-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin="">
+</script>
+
+</head>
+<body>
+<div id="carte" ></div>
+
+<!-- Leaflet map JavaScript -->
+<script>
+var layers = {};
+var overlays = {};//préparation du sélécteur
+// définition des couches et des items du sélecteur
+/** cartes IGN */
+
+layers['Carte IGN'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.MAPS',
+style: 'normal',
+format: 'image/jpeg',
+service: 'WMTS',
+minZoom : 0,
+maxZoom : 18, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+
+layers['IGN Express Standard'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.STANDARD',
+style: 'normal',
+format: 'image/jpeg',
+service: 'WMTS',
+minZoom : 0,
+maxZoom : 18, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+
+layers['Photo Satellite'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'ORTHOIMAGERY.ORTHOPHOTOS',
+style: 'normal',
+format: 'image/jpeg',
+service: 'WMTS',
+minZoom : 0,
+maxZoom : 18, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+
+layers['Plan IGN'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGN',
+style: 'normal',
+format: 'image/jpeg',
+service: 'WMTS',
+minZoom : 0,
+maxZoom : 18, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+
+layers['Carte relief'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'ELEVATION.SLOPES',
+style: 'normal',
+format: 'image/jpeg',
+service: 'WMTS',
+minZoom : 6,
+maxZoom : 14, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+/** parcellaires */
+overlays['Cadastre opaque'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'CADASTRALPARCELS.PARCELS',
+style: 'normal',
+format: 'image/png',
+service: 'WMTS',
+minZoom : 0,
+maxZoom : 18, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+
+overlays['Cadastre orange'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'CADASTRALPARCELS.PARCELS',
+style: 'bdparcellaire_o',
+format: 'image/png',
+service: 'WMTS',
+minZoom : 0,
+maxZoom : 18, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+
+overlays['Cadastre blanc'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'CADASTRALPARCELS.PARCELS',
+style: 'bdparcellaire_b',
+format: 'image/png',
+service: 'WMTS',
+minZoom : 0,
+maxZoom : 18, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+
+overlays['Cadastre noir'] = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+'&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+'&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+'&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+{
+ignApiKey: "f5cse26aiqvu6j4xqtngh5zh",
+ignLayer: 'CADASTRALPARCELS.PARCELS',
+style: 'bdparcellaire',
+format: 'image/png',
+service: 'WMTS',
+minZoom : 0,
+maxZoom : 18, 
+attribution: '&copy; <a href="http://www.ign.fr/">IGN</a>'
+});
+
+/** une couche OpenStreetMap */
+layers['OpenStreetMap'] = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'});
+
+// Centre de la carte avec marqueur explicatif
+var monCentre = [46,3];
+// ma carte
+var macarte = L.map("carte", {
+center: monCentre,
+zoom: 6,
+layers: [layers['Carte IGN']]//définition de l'item par défaut à l'ouverture de la page
+});
+
+// Ajouter un controle pour le choix des couches
+L.control.layers(layers,overlays).addTo(macarte);
+// Affichage de l'echelle
+L.control.scale({'position':'bottomleft','metric':true,'imperial':false}).addTo(macarte);
+// mon marqueur
+var myMarker = L.marker(monCentre).addTo(macarte);
+myMarker.bindPopup("<b>différentes couches IGN (voir sélecteur)</b><br />Zoomer pour voir les parcelles du cadastre<br /><a href='http://moreau.fr.free.fr/informatique/api.htm'>@Lafayette-68</a>").openPopup();
+</script>
+
+<noscript>
+<p>Il semble que JavaScript soit désactivé ou qu'il ne soit pas supporté par votre navigateur.</p>
+<p>Pour afficher Google Maps, activez JavaScript en modifiant les options de votre navigateur, puis essayez à nouveau.</p>
+</noscript> 
+</body>
+</html>
+
+
+

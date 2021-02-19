@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+<script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+<!-- Full screen plugin -->
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+<!-- accés au Geoportail -->
+  <script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'></script>
+  <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.css' rel='stylesheet' />
+  <script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.js'></script>
+  <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css' rel='stylesheet' />
+</head>
+<body>
+<div id="map"></div>
+<style>
+   div#map {
+      width: 100%;
+      height: 800px;
+    }
+</style>
+<script>
+function go() {
+
+
+var svgicon = '<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 44" height="44" width="34" id="svg869" version="1.1"><defs id="defs873" /><g transform="translate(0,-0.07515144)" id="g906"><path style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none" d="m 34.115944,16.845411 c 1e-6,9.303464 -12.254597,21.782319 -17.164252,27.048311 C 12.414388,38.843537 -5.5925368e-7,26.148875 0,16.845411 0,7.5419474 7.6371142,0 17.057972,0 26.47883,0 34.115944,7.5419474 34.115944,16.845411 Z" id="path879" /><path style="fill:#00dec0;fill-opacity:1;fill-rule:evenodd;stroke:none" d="m 32.247931,16.549019 c 10e-7,8.319757 -10.95885,19.479153 -15.34938,24.188342 C 12.841001,36.22116 1.739256,24.868776 1.739256,16.549019 c 0,-8.3197557 6.8296002,-15.0642508 15.254337,-15.0642508 8.424738,0 15.254338,6.7444951 15.254338,15.0642508 z" id="path879-3" /><circle style="fill:#ffffff;fill-opacity:0.98230088;fill-rule:evenodd;stroke:none" id="path901" cx="16.898552" cy="15.517602" r="5.8618126" /></g></svg>';
+var iconurl = 'data:image/svg+xml;base64,' + btoa(svgicon);
+var icondata = L.icon({iconUrl: iconurl,iconSize:[34, 44],iconAnchor:   [17, 44],});
+
+  var layer = L.geoportalLayer.WMTS({
+    layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
+  });
+
+  var map = L.map('map', {
+    zoom: 6,
+    center: L.latLng(48, 2)
+  });
+
+  layer.addTo(map);
+
+  // localisation HTML5 au chargement
+
+  if (navigator.geolocation) {
+    // L'API de geolocalisation est disponible
+    navigator.geolocation.getCurrentPosition(function(position) {
+      // ajout d'un marker sur la position geolocalisee
+      L.marker(L.latLng(position.coords.latitude, position.coords.longitude),{icon:icondata}).addTo(map);
+    });
+  }
+
+  // localisation API leaflet au chargement
+  map.locate();
+
+  // ajout du marker quand la localisation est trouvée
+  /*
+  map.on('locationfound', function(ev) {
+    var geolocLayer = L.marker(ev.latlng,{icon:icondata});
+    geolocLayer.addTo(map);
+  });
+  */
+
+  // ajout du controle fullscreen
+  map.addControl(new L.Control.Fullscreen());
+
+  // ajout du controle de geocodage
+  var search = L.geoportalControl.SearchEngine({
+    collapsed: false,
+    markerStyle: icondata
+  });
+
+  map.addControl(search);
+	
+
+  // ajout de marker au click sur la carte
+  map.on('click', function(e) {
+    // ajout du marker
+    L.marker(e.latlng, {icon: icondata}).addTo(map);
+    
+    
+  });
+
+  var showCircles, bigCircleLayer, littleCircleLayer, circleLayer, bigPopup, littlePopup;
+
+  // Fonction de nettoyage et d'ajout les cercles
+  map.on('layeradd', function(event) {
+    // on agit que dans le cas de l'ajout d'un marker == recherche geocodage ou geoloc
+    if (event.layer instanceof L.Marker) {
+
+
+      if (showCircles == null) {
+        showCircles = L.control.layers(null, null, {
+          position: 'topleft',
+          hideSingleBase: true,
+          collapsed: false
+        })
+        map.addControl(showCircles);
+      }
+			
+      // nettoyage des cercles et des markers présents
+      removeit(map, showCircles, bigCircleLayer);
+      //removeit(map, showCircles, littleCircleLayer);
+      removeit(map, showCircles, bigPopup);
+      //removeit(map, showCircles, littlePopup);
+
+      map.eachLayer(function(layer) {
+        if ((layer instanceof L.Circle || layer instanceof L.Marker) && layer !== event.layer) {
+          map.removeLayer(layer);
+
+        }
+      });
+
+      // on ajoute les cercles centrés sur les markers ajoutés (1km et 100kms)
+      bigCircleLayer = L.circle([event.layer.getLatLng().lat, event.layer.getLatLng().lng], {
+        radius: 1000,
+        color: "#00B798",
+        fillColor: "#fff",
+        fillOpacity: 0.2
+      });
+      /*littleCircleLayer = L.circle([event.layer.getLatLng().lat, event.layer.getLatLng().lng], {
+        radius: 1000,
+        color: "#0B6BA7",
+        fillColor: "#0B6BA7",
+        fillOpacity: 0.2
+      });*/
+			
+      //circleLayer = L.layerGroup([bigCircleLayer, littleCircleLayer]);
+      //circleLayer = L.layerGroup([bigCircleLayer]);
+      //circleLayer.addTo(map);
+			bigCircleLayer.addTo(map);
+
+      showCircles.addOverlay(bigCircleLayer, "10Km");
+      //showCircles.addOverlay(littleCircleLayer, "1Km");
+
+      // on ajoute les labels aux cercles
+      bigPopup = L.popup({
+        autoClose: false
+      }).setLatLng(L.latLng(bigCircleLayer.getBounds().getNorth(), bigCircleLayer.getLatLng().lng)).setContent('<h4 style="text-align:center;">10km</h4>').openOn(map);
+      /*littlePopup = L.popup({
+        autoClose: false
+      }).setLatLng(L.latLng(littleCircleLayer.getBounds().getNorth(), littleCircleLayer.getLatLng().lng)).setContent('<h4 style="text-align:center;">1km</h4>').openOn(map);*/
+
+      setTimeout(function() {
+        removeit(map, showCircles, bigPopup);
+        //removeit(map, showCircles, littlePopup);
+      }, 4000)
+
+      // zoom courant élevé : on centre la carte sur le cercle de 1km
+      // zoom courant faible : on centre la carte sur le cercle de 100km
+      //if (map.getZoom() < 10) {
+      //if (map.getZoom() > 8) {
+        map.fitBounds(bigCircleLayer.getBounds());
+      //} else {
+        //map.fitBounds(littleCircleLayer.getBounds());
+      //}
+    }
+  });
+}
+
+function removeit(map, showCircles, layer) {
+  if (layer != null) {
+    map.removeLayer(layer);
+    showCircles.removeLayer(layer);
+  }
+}
+
+
+Gp.Services.getConfig({
+  apiKey: "f5cse26aiqvu6j4xqtngh5zh",
+  onSuccess: go
+});
+</script>
+</body>
+</html>

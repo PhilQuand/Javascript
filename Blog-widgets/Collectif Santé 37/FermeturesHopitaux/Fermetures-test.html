@@ -1688,7 +1688,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
                       // accés au Geoportail
                       Gp.Services.getConfig({
-                        apiKey: "f5cse26aiqvu6j4xqtngh5zh",
+                        // clé d'accès aux ressources gratuites de l'IGN récupérée sur le compte fiddle de l'IGN"
+                       apiKey: "f5cse26aiqvu6j4xqtngh5zh",
+                        // clé d'accès aux ressources gratuites de l'IGN sécurisée par referer "https://philquand.github.io/"
+                        //apiKey: "85iagcmek80ofvkhz7komcga",
                         onSuccess: go
                       });
 

@@ -625,7 +625,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
-      /*if (typeof options.popupData.properties !== 'undefined') {
+      if (typeof options.popupData.properties !== 'undefined') {
         var btData = $('<button type="button" class="styled" id="btData"></button>')
         $("#infoMap-wrapper").prepend(btData);
         btData.click(function(e) {
@@ -655,7 +655,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           //$('#table').css('display', 'none')
         }
         runTable(indexEvent);
-      }*/
+      }
       
       function runMap(indexEvent) {
 

@@ -21,7 +21,7 @@
 </style>
 <script>
 // Ressources pour cartes LeafLet
-var load = (function() {
+/*var load = (function() {
   // Function which returns a function: https://davidwalsh.name/javascript-functions
   function _load(tag) {
     return function(url) {
@@ -63,7 +63,7 @@ var load = (function() {
     js: _load('script'),
     img: _load('img')
   }
-})();
+})();*/
 // Constructeur de la carte LeafLet
 function loadMap() {
   L.map('map').remove();
@@ -787,16 +787,17 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
   //$('.page_body').append('<a href="https://youtu.be/s45Lh2yf3Yg"><img class="img-foreground" src="https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg" /></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
-  $('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
+  //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
+  //$('.page_body').append('<a href="https://drive.google.com/file/d/1HaK1nE7_U3j-Me6GNb40n4WMr6i6F1u5/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-8oDt1saHmkw/YCwPWpl9NiI/AAAAAAAAoHE/GuKKoYxdYqQRUYkRGS3qXCSAbQChkA-rgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-02-16%2Ba%25CC%2580%2B19.30.01.jpg" /></a>');
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
       //src: '<p style="padding:1em;" align=center>Mardi <span style="color: blue;">5 janvier, à 11h place Jean Jaurès à Tours,</span> <br/>à l'+"'"+'occasion de la venue de Macron, <br/>un rassemblement aura lieu avec la venue d'+"'"+'une délégation de salariées de l'+"'"+'ADMR de Blois en grève depuis le 21 décembre.</p>',
-      src: "https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg",
+      src: "https://1.bp.blogspot.com/-6mclSFt2jYI/YDDzk8xq-gI/AAAAAAAAoM4/Q3cCXcU229sYbsO6sckq9V0TMA2gQS7eQCLcBGAsYHQ/s1612/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-02-20%2Ba%25CC%2580%2B12.32.52.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -814,14 +815,90 @@ $(document).ready(function() {
           dataType: "iframe",
           dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Animations-Une/arbre-de-noel-tournant.html"
         },*/
-        /*{
-          dataType: "images",
-          dataSrc: "https://1.bp.blogspot.com/-q2VTR14q1qk/Xsj-_RM40jI/AAAAAAAAmD4/fgtSYY6FmVMETIbHuAsUYchU696jBXofACK4BGAsYHg/s1600/Azo%2B2020%2B03%2B01%2BMe%25CC%2581gaphone%252Bpetit.png"
-        },*/
         {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-6xN5IOKVqlc/YDDJjjJgF9I/AAAAAAAAoIs/eG5MLJ-hCzcHD1xjZ3W_cGoJN6UzYVr7wCLcBGAsYHQ/s0/151264763_2938037236513095_1239668768229151182_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-vdsRJoTyXAs/YDDJjyywHaI/AAAAAAAAoI0/a4kAZ_1kPXUwl-vhSidDTua5qCc0PruMACLcBGAsYHQ/s0/151266483_2938037553179730_3177803986991351583_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-5ExNxv_0F3A/YDDJji7GD_I/AAAAAAAAoIw/b8_WoZ2DB1oD-XYOVa0qZAWC88ZdOtb0wCLcBGAsYHQ/s0/151826437_2938036899846462_2735295685376607384_o.jpg"
+        } ,
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-c09TtXJQipE/YDDJkNb-tOI/AAAAAAAAoI4/sSPBJdS-mMgDNFn1sNZyC-LN8ByX5Dk3QCLcBGAsYHQ/s0/151858487_2938036753179810_6441386767054519963_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-eKZJfz5-Ong/YDDJkTNVnkI/AAAAAAAAoI8/8Y-CU560KmgmB70XUsV34VX7wvg6LxYtgCLcBGAsYHQ/s0/151971773_2938037993179686_5135077894843320010_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-Oa-VapjE_PA/YDDJkYkCjAI/AAAAAAAAoJA/D9WbI5tn6GwHiLZ0JnQ-tfl6TtfU8MX9QCLcBGAsYHQ/s0/151990294_2938037493179736_8290514873151834490_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-KMp3anrR6vE/YDDJlOa2Y9I/AAAAAAAAoJE/8y9KfOo08jcPgBvknn1_zKH-uflmcAitQCLcBGAsYHQ/s0/151994828_2938036569846495_6694883920474566407_o.jpg"
+        } ,
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-NjwDWKYJ810/YDDJlgPypSI/AAAAAAAAoJI/nwpVxTxVr5cvVPrngKXpfy2-bouITQz1wCLcBGAsYHQ/s0/152009524_2938037129846439_4290188240815009011_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-h7krrVac-6M/YDDJmO5yPxI/AAAAAAAAoJM/QbjH7-7YHFoKOCquOJ_srtLq0ssyuIAGgCLcBGAsYHQ/s0/152039574_2938037023179783_7483827009343316431_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-Y07m1VxvO9Y/YDDJmlrp_8I/AAAAAAAAoJQ/SSy73wd7kRspDTE7g_kLlE_nwI2axT88gCLcBGAsYHQ/s0/152046158_2938037873179698_511646247998840527_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-AuXBbnc97zk/YDDJm9AQ14I/AAAAAAAAoJU/lJYUw9_dlIAi17JfkqqJznsNFzrnqTEOgCLcBGAsYHQ/s0/152046177_2938037796513039_331777280401203078_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-sJBXFlS4BCE/YDDJm3eeXAI/AAAAAAAAoJY/BNC7g7rdJkM5Ynlfw3f-b4OxoXVpZ_0KACLcBGAsYHQ/s0/152145810_2938036563179829_1635880579554905741_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-X2aOMceBdos/YDDJnKJKIRI/AAAAAAAAoJc/Xaf6NGgvRcIczaE_WMvHd1Xg34Uic2Y8gCLcBGAsYHQ/s0/152156160_2938036659846486_7181099859857932674_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-3v4O774wUtk/YDDJnTQYPDI/AAAAAAAAoJg/tr67Rgag2p8r-RdUHxEDceWis1bh7_lngCLcBGAsYHQ/s0/152177844_2938037399846412_4320821088668741423_o.jpg"
+        } ,
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-DSEzec0zvJg/YDDJne5jSEI/AAAAAAAAoJk/ldecZvBGmWsDQcn1RA_EwWJwLIcjO3lAgCLcBGAsYHQ/s0/152181069_2938037716513047_6983682545176241606_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-JSvL5A_e9zc/YDDJnlbh4pI/AAAAAAAAoJo/ynxUfg6GHbMbuHTiGMtwknsLqc_1DGprQCLcBGAsYHQ/s0/152185380_2938036943179791_7884829111096618325_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-C0KPhXVw5Pc/YDDJn8qukOI/AAAAAAAAoJs/oVKem_Xg9Sg6f5xVfHaodxKTELKb6cwTwCLcBGAsYHQ/s0/152261704_2938037633179722_2362623949731590122_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-KOQnM5tzkHs/YDDJoMJ4yRI/AAAAAAAAoJw/8xaytX-FIZcmFRvg9sWOH74CHOHhUbtvwCLcBGAsYHQ/s0/152287893_2938036823179803_5576031197620806065_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-hiXWMBvTlUQ/YDDJoVN2i8I/AAAAAAAAoJ0/hE7d2IZKwb8oqFRj0DeGn1TkSn2TnUtjwCLcBGAsYHQ/s0/152337328_2938036529846499_5798740094180450624_o.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://1.bp.blogspot.com/-C9RHM2HvfIs/YDDJoUHIb1I/AAAAAAAAoJ4/JJyg1_WFrdk0eBvYYNfcoegjRTm3bj3CwCLcBGAsYHQ/s0/152387808_2938037336513085_3038734482534877138_o.jpg"
+        }       
+        /*{
           dataType: "video",
           dataSrc: "https://www.youtube.com/watch?v=s45Lh2yf3Yg&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
-        },
+        },*/
     ]
   });
 });

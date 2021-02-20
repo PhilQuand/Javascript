@@ -15,7 +15,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
   else {
     console.log("WebGL not supported");
   }
-  $.fn.Shaders = function(options) {
+  $.fn.ShadersTest = function(options) {
     if (jQuery.type(options) != 'undefined') {
       if (jQuery.type(options.images) == 'undefined' ||
         jQuery.type(options.imageSize) == 'undefined' ||
@@ -26,7 +26,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
       var imageSize = options.imageSize;
       var randGen = new Generator();
       var CLthis = 'CL' + randGen.getrand();
-      if(jQuery.type(options.clikable) != 'undefined' && options.clikable ==  false)  var galleryClickable = false;
+      if (jQuery.type(options.clikable) != 'undefined' && options.clikable == false) var galleryClickable = false;
       else var galleryClickable = true;
       $(this).addClass(CLthis);
       CLthis = '.' + CLthis;
@@ -74,9 +74,9 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
           load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
         ]).then(function() {
           console.log('Everything has loaded!');
-          if( supportsWebGL ) window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
-          else $(_this).append('<img src="'  + ShadersGalleryoptions.urls[0] + '"/>')
-          if( galleryClickable ) {
+          if (supportsWebGL) window.myGallery[randNum] = new ShadersGallery(ShadersGalleryoptions);
+          else $(_this).append('<img src="' + ShadersGalleryoptions.urls[0] + '"/>')
+          if (galleryClickable) {
             var myGalleryTarget = window.location.href + '#' + randNum + '-1';
             $(_this).wrapInner('<a href="' + myGalleryTarget + '"></a>');
             if (jQuery.type(ShaderGalleryTarget) != 'undefined') {
@@ -88,8 +88,15 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
         });
         console.log(window.myGallery[randNum]);
         $(this).append('<div class="fancyData" style="display:none"></div>');
-        for (var i = 0; i < ShadersGalleryoptions.urls.length; i++) {
-          $(this).find('.fancyData').append('<a class="fancyboxTestSoignants" data-fancybox="' + randNum + '" data-src="' + ShadersGalleryoptions.urls[i] + '" data-thumb="' + ShadersGalleryoptions.urls[i] + '" href="javascript:;">' + randNum + ' #' + i + '</a>');
+        if (typeof options.imagesFancy !== 'undefined') {
+          for (var i = 0; i < options.imagesFancy.length; i++) {
+            $(this).find('.fancyData').append('<a class="fancyboxTestSoignants" data-fancybox="' + randNum + '" data-src="' + options.imagesFancy[i] + '" data-thumb="' + options.imagesFancy[i] + '" href="javascript:;">' + randNum + ' #' + i + '</a>');
+          }
+        }
+        else {
+          for (var i = 0; i < ShadersGalleryoptions.urls.length; i++) {
+            $(this).find('.fancyData').append('<a class="fancyboxTestSoignants" data-fancybox="' + randNum + '" data-src="' + ShadersGalleryoptions.urls[i] + '" data-thumb="' + ShadersGalleryoptions.urls[i] + '" href="javascript:;">' + randNum + ' #' + i + '</a>');
+          }
         }
         $(this).find('a').css("cursor", "pointer");
       });

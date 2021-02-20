@@ -15,7 +15,7 @@ import ShadersGallery from 'https://philquand.github.io/Javascript/PhotoGaleries
   else {
     console.log("WebGL not supported");
   }
-  $.fn.ShadersTest = function(options) {
+  $.fn.Shaders = function(options) {
     if (jQuery.type(options) != 'undefined') {
       if (jQuery.type(options.images) == 'undefined' ||
         jQuery.type(options.imageSize) == 'undefined' ||

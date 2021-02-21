@@ -5,17 +5,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
-    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" /-->
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- contruction d'une table jquery -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<!-- initialisation d'une table jquery avec des données venant d'une Google Sheet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
-    <!--script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script-->
 
-<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
-<script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
+<!-- multi selection sur les colonnes de la table d'après https://github.com/vedmack/yadcf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script>
+
+<!-- ressources communes à tous les blogs... -->
+  <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+  <script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
 
 <!-- Load Leaflet -->
   <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
@@ -1813,13 +1815,32 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             selectable: false
           });
         }
-        $('#table').DataTable({
+    function myCustomFilterFunction(filterVal, columnVal) {
+        switch (filterVal) {
+        case 'sans valeur':
+         if (columnVal === '') {
+            return true;
+         } else return false;
+            break;
+        case 'sans valeur':
+         if (columnVal !== '') {
+            return true;
+         } else return false;
+            break;
+        default:
+         if (columnVal !== '') {
+            return true;
+         } else return false;
+            break;
+        }
+    }
+            $('#table').DataTable({
           data: indexEvent,
           "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
           },
           columns: columns,
-          initComplete: function() {
+          /*initComplete: function() {
             var myApi = this.api();
             var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
             var footertr = $("<tr></tr>").appendTo(footer);
@@ -1894,7 +1915,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 }
               }
             });
-
             function isValidSelector(selector) {
               if (typeof(selector) !== 'string') {
                 return false;
@@ -1907,7 +1927,80 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
               return true;
             }
-          }
+          }*/
+          initComplete: function() {
+            //New datatable API (capital "D")
+            var myTable = $(this).DataTable();
+            yadcf.init(myTable, [{
+                column_number: 0
+              },
+              {
+                column_number: 1,
+                filter_type: 'custom_func',
+                custom_func: myCustomFilterFunction,
+                data: [{
+                  value: 'avec valeur',
+                  label: 'Avec valeur'
+                }, {
+                  value: 'sans valeur',
+                  label: 'Sans valeur'
+                }],
+                filter_default_label: "type de valeur"
+              },
+              {
+                column_number: 2,
+                filter_type: 'custom_func',
+                custom_func: myCustomFilterFunction,
+                data: [{
+                  value: 'avec valeur',
+                  label: 'Avec valeur'
+                }, {
+                  value: 'sans valeur',
+                  label: 'Sans valeur'
+                }],
+                filter_default_label: "type de valeur"
+              },
+              {
+                column_number: 3,
+                filter_type: 'custom_func',
+                custom_func: myCustomFilterFunction,
+                data: [{
+                  value: 'avec valeur',
+                  label: 'Avec valeur'
+                }, {
+                  value: 'sans valeur',
+                  label: 'Sans valeur'
+                }],
+                filter_default_label: "type de valeur"
+              },
+              {
+                column_number: 4,
+                filter_type: 'custom_func',
+                custom_func: myCustomFilterFunction,
+                data: [{
+                  value: 'avec valeur',
+                  label: 'Avec valeur'
+                }, {
+                  value: 'sans valeur',
+                  label: 'Sans valeur'
+                }],
+                filter_default_label: "type de valeur"
+              },
+              {
+                column_number: 5,
+                filter_type: 'custom_func',
+                custom_func: myCustomFilterFunction,
+                data: [{
+                  value: 'avec valeur',
+                  label: 'Avec valeur'
+                }, {
+                  value: 'sans valeur',
+                  label: 'Sans valeur'
+                }],
+                filter_default_label: "type de valeur"
+              }
+            ]);
+          }        
         });
       }
     }

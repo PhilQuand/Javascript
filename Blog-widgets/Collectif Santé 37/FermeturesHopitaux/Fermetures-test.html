@@ -9,10 +9,12 @@
 <!-- contruction d'une table jquery -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<!-- initialisation d'une table jquery avec des données venant d'une Google Sheet -->
+
+<!-- Chargement des données venant d'une Google Sheet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 
 <!-- multi selection sur les colonnes de la table d'après https://github.com/vedmack/yadcf -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script>
 
 <!-- ressources communes à tous les blogs... -->
@@ -1932,7 +1934,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             //New datatable API (capital "D")
             var myTable = $(this).DataTable();
             yadcf.init(myTable, [{
-                column_number: 0
+                column_number: 0,
+                filter_default_label: "Sélectionnez"
               },
               {
                 column_number: 1,
@@ -1945,7 +1948,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   value: 'sans valeur',
                   label: 'Sans valeur'
                 }],
-                filter_default_label: "type de valeur"
+                filter_default_label: "Sélectionnez"
               },
               {
                 column_number: 2,
@@ -1958,7 +1961,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   value: 'sans valeur',
                   label: 'Sans valeur'
                 }],
-                filter_default_label: "type de valeur"
+                filter_default_label: "Sélectionnez"
               },
               {
                 column_number: 3,
@@ -1971,7 +1974,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   value: 'sans valeur',
                   label: 'Sans valeur'
                 }],
-                filter_default_label: "type de valeur"
+                filter_default_label: "Sélectionnez"
               },
               {
                 column_number: 4,
@@ -1984,7 +1987,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   value: 'sans valeur',
                   label: 'Sans valeur'
                 }],
-                filter_default_label: "type de valeur"
+                filter_default_label: "Sélectionnez"
               },
               {
                 column_number: 5,
@@ -1997,7 +2000,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   value: 'sans valeur',
                   label: 'Sans valeur'
                 }],
-                filter_default_label: "type de valeur"
+                filter_default_label: "Sélectionnez"
               }
             ]);
           }        
@@ -2235,6 +2238,16 @@ div.dataTables_wrapper .table-striped select {
     height: 675px;
     /*max-height: 70vh;*/
     overflow: hidden;
+}
+#table_wrapper thead tr th {
+    vertical-align: bottom;
+}
+#table_wrapper thead tr th .yadcf-filter-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 @media (max-width: 550px) {
     #infoMap {

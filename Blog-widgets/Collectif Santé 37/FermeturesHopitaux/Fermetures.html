@@ -1824,11 +1824,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             return true;
          } else return false;
             break;
-        case 'sans valeur':
-         if (columnVal !== '') {
-            return true;
-         } else return false;
-            break;
         default:
          if (columnVal !== '') {
             return true;
@@ -2029,6 +2024,25 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       title: 'COMMUNE',
       properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]
     },
+    tableData: [{    
+    property: 'COMMUNE',
+    filer: 'selection'
+    }, {    
+    property: 'LIEUX',
+    filer: 'Not a value'
+    }, {    
+    property: 'SUPPRESSIONS',
+    filer: 'Not a value'
+    }, {    
+    property: 'MENACES',
+    filer: 'Not a value'
+    }, {    
+    property: 'Pertes lits',
+    filer: 'Not a value'
+    }, {    
+    property: 'Pertes postes',
+    filer: 'Not a value'
+    },],
     controlLayers: {
       controlMaps: true,
       controlOverlays: {

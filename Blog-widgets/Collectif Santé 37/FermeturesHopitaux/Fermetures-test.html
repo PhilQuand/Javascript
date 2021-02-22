@@ -629,7 +629,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
-      if (typeof options.popupData.properties !== 'undefined') {
+      if (typeof options.popupData.properties !== 'undefined' || typeof options.tableData !== 'undefined') {
         var btData = $('<button type="button" class="styled" id="btData"></button>')
         $("#infoMap-wrapper").prepend(btData);
         btData.click(function(e) {
@@ -1797,46 +1797,64 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return map_invalidateSize
         }
       function runTable(data) {
-        
-        var item = options.popupData.title;
-        if (typeof item === 'undefined') {
+
+        var tableColums = [];
+        if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') {
           var columns = [];
+          var properties = options.tableData.properties;
+          for (var i = 0; i < properties.length; i++) {
+            if (jQuery.type(properties[i]['name']) === 'string') {
+              columns.push({
+                data: properties[i]['name'],
+                title: properties[i]['name'],
+                //selectable: false
+              });
+              if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+                var item = {};
+                if (properties[i]['filter'] == 'selection') {
+                  item['column_number'] = i;
+                  item['filter_default_label'] = "Sélectionnez";
+                }
+                else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
+                  if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
+                    item['column_number'] = i;
+                    item['filter_type'] = 'custom_func';
+                    item['custom_func'] = options.tableData['filters'][properties[i]['filter']]['func'];
+                    item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
+                  }
+                }
+                if (jQuery.type(item) !== 'undefined') tableColums.push(item);
+              };
+            }
+          };
         }
         else {
-          var columns = [{
-            data: item,
-            title: item,
-            selectable: true
-          }];
+          var item = options.popupData.title;
+          if (typeof item === 'undefined') {
+            var columns = [];
+          }
+          else {
+            var columns = [{
+              data: item,
+              title: item,
+              //selectable: true
+            }];
+          }
+          for (i = 0; i < options.popupData.properties.length; i++) {
+            var item = options.popupData.properties[i];
+            columns.push({
+              data: item,
+              title: item,
+              //selectable: false
+            });
+          }
         }
-        for (i = 0; i < options.popupData.properties.length; i++) {
-          var item = options.popupData.properties[i];
-          columns.push({
-            data: item,
-            title: item,
-            selectable: false
-          });
+        var initComplete = function() {
+          //New datatable API (capital "D")
+          var myTable = $(this).DataTable();
+          yadcf.init(myTable, tableColums)
         }
-    function myCustomFilterFunction(filterVal, columnVal) {
-        switch (filterVal) {
-        case 'sans valeur':
-         if (columnVal === '') {
-            return true;
-         } else return false;
-            break;
-        case 'sans valeur':
-         if (columnVal !== '') {
-            return true;
-         } else return false;
-            break;
-        default:
-         if (columnVal !== '') {
-            return true;
-         } else return false;
-            break;
-        }
-    }
-            $('#table').DataTable({
+        $('#table').DataTable({
           data: indexEvent,
           "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
@@ -1930,80 +1948,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               return true;
             }
           }*/
-          initComplete: function() {
-            //New datatable API (capital "D")
-            var myTable = $(this).DataTable();
-            yadcf.init(myTable, [{
-                column_number: 0,
-                filter_default_label: "Sélectionnez"
-              },
-              {
-                column_number: 1,
-                filter_type: 'custom_func',
-                custom_func: myCustomFilterFunction,
-                data: [{
-                  value: 'avec valeur',
-                  label: 'Avec valeur'
-                }, {
-                  value: 'sans valeur',
-                  label: 'Sans valeur'
-                }],
-                filter_default_label: "Sélectionnez"
-              },
-              {
-                column_number: 2,
-                filter_type: 'custom_func',
-                custom_func: myCustomFilterFunction,
-                data: [{
-                  value: 'avec valeur',
-                  label: 'Avec valeur'
-                }, {
-                  value: 'sans valeur',
-                  label: 'Sans valeur'
-                }],
-                filter_default_label: "Sélectionnez"
-              },
-              {
-                column_number: 3,
-                filter_type: 'custom_func',
-                custom_func: myCustomFilterFunction,
-                data: [{
-                  value: 'avec valeur',
-                  label: 'Avec valeur'
-                }, {
-                  value: 'sans valeur',
-                  label: 'Sans valeur'
-                }],
-                filter_default_label: "Sélectionnez"
-              },
-              {
-                column_number: 4,
-                filter_type: 'custom_func',
-                custom_func: myCustomFilterFunction,
-                data: [{
-                  value: 'avec valeur',
-                  label: 'Avec valeur'
-                }, {
-                  value: 'sans valeur',
-                  label: 'Sans valeur'
-                }],
-                filter_default_label: "Sélectionnez"
-              },
-              {
-                column_number: 5,
-                filter_type: 'custom_func',
-                custom_func: myCustomFilterFunction,
-                data: [{
-                  value: 'avec valeur',
-                  label: 'Avec valeur'
-                }, {
-                  value: 'sans valeur',
-                  label: 'Sans valeur'
-                }],
-                filter_default_label: "Sélectionnez"
-              }
-            ]);
-          }        
+          initComplete: initComplete
         });
       }
     }
@@ -2028,6 +1973,52 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     popupData : {
       title: 'COMMUNE',
       properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]
+    },
+    tableData: {
+      properties: [{
+        name: 'COMMUNE',
+        filter: 'selection'
+      }, {
+        name: 'LIEUX',
+        filter: 0
+      }, {
+        name: 'SUPPRESSIONS',
+        filter: 0
+      }, {
+        name: 'MENACES',
+        filter: 0
+      }, {
+        name: 'Pertes lits',
+        filter: 0
+      }, {
+        name: 'Pertes postes',
+        filter: 0
+      }],
+      filters: [{
+        data: [{
+          value: 'avec valeur',
+          label: 'Avec valeur'
+        }, {
+          value: 'sans valeur',
+          label: 'Sans valeur'
+        }],
+        func: (filterVal, columnVal) => {
+          switch (filterVal) {
+            case 'sans valeur':
+              if (columnVal === '') {
+                return true;
+              }
+              else return false;
+              break;
+            default:
+              if (columnVal !== '') {
+                return true;
+              }
+              else return false;
+              break;
+          }
+        }
+      }]
     },
     controlLayers: {
       controlMaps: true,
@@ -2240,7 +2231,7 @@ div.dataTables_wrapper .table-striped select {
     overflow: hidden;
 }
 #table_wrapper thead tr th {
-    vertical-align: bottom;
+    vertical-align: top;
 }
 #table_wrapper thead tr th .yadcf-filter-wrapper {
     display: flex;

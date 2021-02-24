@@ -298,7 +298,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
 
     var storedData = readUrlParam('data');
-    //storedData = "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json"
     if (typeof storedData === 'undefined') {
       if (typeof options.data === 'string') var storedData = options.data;
       else if (typeof options.data === 'object' && typeof options.data.base === 'string') var storedData = options.data.base;
@@ -322,9 +321,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           );
         }
       }
-      /*else {
-        options.data.func(options.data.base, runData);
-      }*/
     }
     else if ($('#dataStore').length == 1) {
       storedData = $('#dataStore').html();
@@ -2080,8 +2076,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
   optionsVersion1 = {
     data: {
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         var isValidCoord = function(lat, lng) {
@@ -2387,7 +2384,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
-  $('#Fermetures').mapAllBlogs(optionsVersion2);
+  $('#Fermetures').mapAllBlogs(optionsVersion1);
   //$('#Fermetures').mapAllBlogs();
 
 })(jQuery);

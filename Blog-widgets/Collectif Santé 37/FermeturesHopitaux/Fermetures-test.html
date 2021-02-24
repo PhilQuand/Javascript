@@ -308,12 +308,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         if(storedData.startsWith('https://docs.google.com/spreadsheets')) {
           loadDataFromGoogle(storedData);
         }
-        else if (storedData.endsWith(".json")) {
+        else if (storedData.endsWith(".json") || storedData.endsWith(".geojson")) {
           loadFromJSON(storedData,
             (storedData) => {
               var data = getDataFromJSON(storedData);
               if (typeof data !== 'undefined') {
-                geolocDataWithINSEE(data);
+                geolocData(data);
               }
             },
             (storedData) => {
@@ -322,9 +322,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           );
         }
       }
-      else {
+      /*else {
         options.data.func(options.data.base, runData);
-      }
+      }*/
     }
     else if ($('#dataStore').length == 1) {
       storedData = $('#dataStore').html();
@@ -380,220 +380,284 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
       Tabletop.init({
         key: dataFromGoogle,
-        callback: geolocDataWithINSEE,
+        callback: geolocData,
         simpleSheet: true
       });
-      
-      function buildGeoData(data) {
-        for(var i=0; i<data.length; i++) {
-        }
-        geolocDataWithINSEE(data);
-      };
     };
 
-    function geolocDataWithINSEE(data) {
-      var villesINSEE = 'https://philquand.github.io/Javascript/LeafLet/json/cities.json'
-      Promise.all([
-        // chargement du code INSEE des villes
-        // d'après https://www.data.gouv.fr/fr/datasets/regions-departements-villes-et-villages-de-france-et-doutre-mer/
-        load.json(villesINSEE),
-      ]).then(
-        function(values) {
-          console.log('Everything has been loaded!');
-          villesINSEE = loadVal(values, villesINSEE)
-          //villesINSEE = values[0]['val'];
-          //var output = [];
-          var indexCal = 0;
-          var indexRes = 0;
-          var indexEnd = data.length;
-          //var indexEnd = 10;
+    function geolocData(data) {
+      if (typeof options.data === 'object' && options.data.geolocDataWithINSEE == true) geolocDataWithINSEE(data);
+      else geolocDataWithoutINSEE(data);
 
-          if (indexEnd < data.length) {
-            data.splice(indexEnd, data.length - 1)
+      function geolocDataWithoutINSEE(data) {
+        var indexCal = 0;
+        var indexRes = 0;
+        var indexEnd = data.length;
+
+        if (indexEnd < data.length) {
+          data.splice(indexEnd, data.length - 1)
+        }
+        else if (indexEnd > data.length) indexEnd = data.length;
+
+        var makeLocation = function(iData, iVar) {
+          if (typeof options.data === 'object' && typeof options.data.geolocData !== 'undefined') {
+            return options.data.geolocData(iData, iVar);
           }
-          else if (indexEnd > data.length) indexEnd = data.length;
-
-          /*if (storedData !== '') {
-            var storedDataHasChanged = checkStoredData();
-            if (storedDataHasChanged) loading.find('p').html('storedData et data sont différents');
-            else loading.find('p').html('storedData et data sont identiques');
-            return;
+          else {
+            if (typeof options.data === 'string') var storedData = options.data;
+            else if (typeof options.data === 'object' && typeof options.data.base === 'string') var storedData = options.data.base;
+            else var storedData = 'options.data';
+            loading.html(storedData + "<br>contient des objets qui ont besoin d'être géolocalisés<br>mais la fonction de géolocalisation options.data.geolocData n'est pas définie...");
+            return false;
           }
-          function checkStoredData() {
-            if (storedData !== '') {
-              if (data.length !== storedData.length) {
-                console.log('storedData and data have different length')
-                return true;
-              }
-              var dataJSON = $('<div></div>')
-              dataJSON.html(JSON.stringify(data));
-              dataJSON = JSON.parse(dataJSON.html());
-              for (var i = 0; i < data.length; i++) {
-                delete storedData[i].iconMarker;
-                delete storedData[i].lat;
-                delete storedData[i].lng;
-                if (!deepEqual(storedData[i], dataJSON[i])) {
-                  console.log('storedData and data are different on (at least) rank ' + eval(i + 2))
-                  return true;
-                }
-              }
-              return false;
-            }
-            else return false;
-          }*/
+        };
 
-          var isValidCoord = function(lat, lng) {
-            if (typeof lat === 'undefined') return false;
-            else if (lat == '') return false;
-            else if (typeof lng === 'undefined') return false;
-            else if (lng == '') return false;
-            return true;
-          };
-          var makeLocation = function(iData, iVar) {
-            if (typeof options.data === 'object' && typeof options.data.geolocData !== 'undefined') {
-              return options.data.geolocData(iData, iVar);
+        add2Layer(indexCal);
+
+        function add2Layer(indexLoc) {
+          var lieux = makeLocation(data, indexLoc);
+          indexCal++;
+          L.esri.Geocoding.geocode({
+              requestParams: {
+                maxLocations: 1
+              }
+            })
+            .text(lieux)
+            .run(function(error, results, response) {
+              var _this = this
+              if (error) {
+                console.log(error);
+                console.log(lieux);
+                return;
+              }
+              if (!error && typeof results.results !== 'undefined') {
+                indexRes++;
+                data[indexLoc].lat = results.results[0].latlng.lat;
+                data[indexLoc].lng = results.results[0].latlng.lng;
+              }
+              else {
+                data[indexLoc].doc = 'Failed geoloc';
+              }
+              checkIfEnd();
+            });
+
+          function checkIfEnd() {
+            data[indexLoc].lieux = lieux;
+            if (indexCal < indexEnd) {
+              add2Layer(indexCal)
             }
             else {
-              if (typeof options.data === 'string') var storedData = options.data;
-              else if (typeof options.data === 'object' && typeof options.data.base === 'string') var storedData = options.data.base;
-              else var storedData = 'options.data';
-              loading.html(storedData + "<br>contient des objets qui ont besoin d'être géolocalisés<br>mais la fonction de géolocalisation options.data.geolocData n'est pas définie...");
-              return false;
+              runData(data);
             }
-          };
-          var allreadyGeoLoc = checkAllreadyGeoLoc();
-          if(!allreadyGeoLoc ) return false
+          }
+        }
+      };
 
-          function checkAllreadyGeoLoc() {
-            var allreadyGeoLoc = {};
-            for (var i = 0; i < data.length; i++) {
-              if (!isValidCoord(data[i].lat, data[i].lng)) {
-                var lieux = makeLocation(data, i);
-                if (typeof lieux !== 'undefined') {
-                  if (!lieux) return false
-                  if (typeof allreadyGeoLoc[lieux] == 'undefined') {
-                    var coordLatLng = getGPSfromVillesINSEE(data[i]);
-                    if (typeof coordLatLng !== 'undefined') {
-                      allreadyGeoLoc[lieux] = {};
-                      allreadyGeoLoc[lieux].lat = coordLatLng.lat;
-                      allreadyGeoLoc[lieux].lng = coordLatLng.lng;
-                      allreadyGeoLoc[lieux].INSEEname = coordLatLng.INSEEname;
-                      allreadyGeoLoc[lieux].INSEEzip = coordLatLng.INSEEzip;
-                      allreadyGeoLoc[lieux].INSEEcode = coordLatLng.INSEEcode;
-                      allreadyGeoLoc[lieux].INSEEdept = coordLatLng.INSEEdept;
+      function geolocDataWithINSEE(data) {
+        var villesINSEE = 'https://philquand.github.io/Javascript/LeafLet/json/cities.json'
+        Promise.all([
+          // chargement du code INSEE des villes
+          // d'après https://www.data.gouv.fr/fr/datasets/regions-departements-villes-et-villages-de-france-et-doutre-mer/
+          load.json(villesINSEE),
+        ]).then(
+          function(values) {
+            console.log('Everything has been loaded!');
+            villesINSEE = loadVal(values, villesINSEE)
+            //villesINSEE = values[0]['val'];
+            //var output = [];
+            var indexCal = 0;
+            var indexRes = 0;
+            var indexEnd = data.length;
+            //var indexEnd = 10;
+
+            if (indexEnd < data.length) {
+              data.splice(indexEnd, data.length - 1)
+            }
+            else if (indexEnd > data.length) indexEnd = data.length;
+
+            /*if (storedData !== '') {
+              var storedDataHasChanged = checkStoredData();
+              if (storedDataHasChanged) loading.find('p').html('storedData et data sont différents');
+              else loading.find('p').html('storedData et data sont identiques');
+              return;
+            }
+            function checkStoredData() {
+              if (storedData !== '') {
+                if (data.length !== storedData.length) {
+                  console.log('storedData and data have different length')
+                  return true;
+                }
+                var dataJSON = $('<div></div>')
+                dataJSON.html(JSON.stringify(data));
+                dataJSON = JSON.parse(dataJSON.html());
+                for (var i = 0; i < data.length; i++) {
+                  delete storedData[i].iconMarker;
+                  delete storedData[i].lat;
+                  delete storedData[i].lng;
+                  if (!deepEqual(storedData[i], dataJSON[i])) {
+                    console.log('storedData and data are different on (at least) rank ' + eval(i + 2))
+                    return true;
+                  }
+                }
+                return false;
+              }
+              else return false;
+            }*/
+
+            var isValidCoord = function(lat, lng) {
+              if (typeof lat === 'undefined') return false;
+              else if (lat == '') return false;
+              else if (typeof lng === 'undefined') return false;
+              else if (lng == '') return false;
+              return true;
+            };
+            var makeLocation = function(iData, iVar) {
+              if (typeof options.data === 'object' && typeof options.data.geolocData !== 'undefined') {
+                return options.data.geolocData(iData, iVar);
+              }
+              else {
+                if (typeof options.data === 'string') var storedData = options.data;
+                else if (typeof options.data === 'object' && typeof options.data.base === 'string') var storedData = options.data.base;
+                else var storedData = 'options.data';
+                loading.html(storedData + "<br>contient des objets qui ont besoin d'être géolocalisés<br>mais la fonction de géolocalisation options.data.geolocData n'est pas définie...");
+                return false;
+              }
+            };
+            var allreadyGeoLoc = checkAllreadyGeoLoc();
+            if (!allreadyGeoLoc) return false
+
+            function checkAllreadyGeoLoc() {
+              var allreadyGeoLoc = {};
+              for (var i = 0; i < data.length; i++) {
+                if (!isValidCoord(data[i].lat, data[i].lng)) {
+                  var lieux = makeLocation(data, i);
+                  if (typeof lieux !== 'undefined') {
+                    if (!lieux) return false
+                    if (typeof allreadyGeoLoc[lieux] == 'undefined') {
+                      var coordLatLng = getGPSfromVillesINSEE(data[i]);
+                      if (typeof coordLatLng !== 'undefined') {
+                        allreadyGeoLoc[lieux] = {};
+                        allreadyGeoLoc[lieux].lat = coordLatLng.lat;
+                        allreadyGeoLoc[lieux].lng = coordLatLng.lng;
+                        allreadyGeoLoc[lieux].INSEEname = coordLatLng.INSEEname;
+                        allreadyGeoLoc[lieux].INSEEzip = coordLatLng.INSEEzip;
+                        allreadyGeoLoc[lieux].INSEEcode = coordLatLng.INSEEcode;
+                        allreadyGeoLoc[lieux].INSEEdept = coordLatLng.INSEEdept;
+                      };
                     };
                   };
                 };
               };
-            };
-            return allreadyGeoLoc;
+              return allreadyGeoLoc;
 
-            function getGPSfromVillesINSEE(locData) {
-              for (var i = 0; i < villesINSEE.length; i++) {
-                var zip = villesINSEE[i]["zip_code"];
-                var insee = villesINSEE[i]["insee_code"];
-                var name = villesINSEE[i]["name"].toUpperCase();
-                /*if (locData.INSEE == 987 && (zip == null || insee == null)) {
-                  console.log(locData.INSEE)
-                }*/
-                var isMatched = false;
-                var department = parseInt(villesINSEE[i]["department_code"]);
-                if (zip == null || insee == null) {
-                  if (department == locData.INSEE) isMatched = true;
+              function getGPSfromVillesINSEE(locData) {
+                for (var i = 0; i < villesINSEE.length; i++) {
+                  var zip = villesINSEE[i]["zip_code"];
+                  var insee = villesINSEE[i]["insee_code"];
+                  var name = villesINSEE[i]["name"].toUpperCase();
+                  /*if (locData.INSEE == 987 && (zip == null || insee == null)) {
+                    console.log(locData.INSEE)
+                  }*/
+                  var isMatched = false;
+                  var department = parseInt(villesINSEE[i]["department_code"]);
+                  if (zip == null || insee == null) {
+                    if (department == locData.INSEE) isMatched = true;
+                  }
+                  else {
+                    var zipInt = parseInt(zip);
+                    var inseeInt = parseInt(insee);
+                    if (zipInt == locData.INSEE || inseeInt == locData.INSEE || insee == locData.INSEE) isMatched = true;
+                  }
+                  if (isMatched) {
+                    //var nameLoc = locData.COMMUNE.toUpperCase();
+                    //var splitedLocName = nameLoc.split(" ");
+                    //var debName = splitedLocName[0];
+                    //if (name.indexOf(debName) > -1) {
+                    var coordLatLng = {};
+                    coordLatLng.lat = villesINSEE[i]["gps_lat"];
+                    coordLatLng.lng = villesINSEE[i]["gps_lng"];
+                    coordLatLng.INSEEname = villesINSEE[i]["name"];
+                    coordLatLng.INSEEzip = villesINSEE[i]["zip_code"];
+                    coordLatLng.INSEEcode = villesINSEE[i]["insee_code"];
+                    coordLatLng.INSEEdept = villesINSEE[i]["department_code"];
+                    return coordLatLng;
+                    //}
+                  }
+                }
+                return;
+              }
+            }
+
+            add2Layer(indexCal);
+
+            function add2Layer(indexLoc) {
+              /*var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE;
+              if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';*/
+              indexCal++;
+              if (!isValidCoord(data[indexLoc].lat, data[indexLoc].lng)) {
+                var lieux = makeLocation(data, indexLoc);
+                if (!lieux) return false
+                if ((typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined')) {
+                  L.esri.Geocoding.geocode({
+                      requestParams: {
+                        maxLocations: 1
+                      }
+                    })
+                    .text(lieux)
+                    .run(function(error, results, response) {
+                      var _this = this
+                      if (error) {
+                        console.log(error);
+                        console.log(lieux);
+                        return;
+                      }
+                      if (!error && typeof results.results !== 'undefined') {
+                        indexRes++;
+                        data[indexLoc].lat = results.results[0].latlng.lat;
+                        data[indexLoc].lng = results.results[0].latlng.lng;
+                      }
+                      else {
+                        data[indexLoc].doc = 'Failed geoloc';
+                      }
+                      checkIfEnd();
+                    });
                 }
                 else {
-                  var zipInt = parseInt(zip);
-                  var inseeInt = parseInt(insee);
-                  if (zipInt == locData.INSEE || inseeInt == locData.INSEE || insee == locData.INSEE) isMatched = true;
-                }
-                if (isMatched) {
-                  //var nameLoc = locData.COMMUNE.toUpperCase();
-                  //var splitedLocName = nameLoc.split(" ");
-                  //var debName = splitedLocName[0];
-                  //if (name.indexOf(debName) > -1) {
-                  var coordLatLng = {};
-                  coordLatLng.lat = villesINSEE[i]["gps_lat"];
-                  coordLatLng.lng = villesINSEE[i]["gps_lng"];
-                  coordLatLng.INSEEname = villesINSEE[i]["name"];
-                  coordLatLng.INSEEzip = villesINSEE[i]["zip_code"];
-                  coordLatLng.INSEEcode = villesINSEE[i]["insee_code"];
-                  coordLatLng.INSEEdept = villesINSEE[i]["department_code"];
-                  return coordLatLng;
-                  //}
+                  if (typeof allreadyGeoLoc[lieux] !== 'undefined') {
+                    data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
+                    data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
+                    if (typeof allreadyGeoLoc[lieux].INSEEname !== 'undefined') data[indexLoc].INSEEname = allreadyGeoLoc[lieux].INSEEname;
+                    if (typeof allreadyGeoLoc[lieux].INSEEzip !== 'undefined') data[indexLoc].INSEEzip = allreadyGeoLoc[lieux].INSEEzip;
+                    if (typeof allreadyGeoLoc[lieux].INSEEcode !== 'undefined') data[indexLoc].INSEEcode = allreadyGeoLoc[lieux].INSEEcode;
+                    if (typeof allreadyGeoLoc[lieux].INSEEdept !== 'undefined') data[indexLoc].INSEEdept = allreadyGeoLoc[lieux].INSEEdept;
+                  }
+                  checkIfEnd();
                 }
               }
-              return;
-            }
-          }
+              else checkIfEnd();
 
-          add2Layer(indexCal);
-          function add2Layer(indexLoc) {
-            /*var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE;
-            if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';*/
-            indexCal++;
-            if (!isValidCoord(data[indexLoc].lat, data[indexLoc].lng)) {
-              var lieux = makeLocation(data, indexLoc);
-              if(!lieux ) return false
-              if ((typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined')) {
-                L.esri.Geocoding.geocode({
-                    requestParams: {
-                      maxLocations: 1
-                    }
-                  })
-                  .text(lieux)
-                  .run(function(error, results, response) {
-                    var _this = this
-                    if (error) {
-                      console.log(error);
-                      console.log(lieux);
-                      return;
-                    }
-                    if (!error && typeof results.results !== 'undefined') {
-                      indexRes++;
-                      data[indexLoc].lat = results.results[0].latlng.lat;
-                      data[indexLoc].lng = results.results[0].latlng.lng;
-                    }
-                    else {
-                      data[indexLoc].doc = 'Failed geoloc';
-                    }
-                    checkIfEnd();
-                  });
-              }
-              else {
-                if (typeof allreadyGeoLoc[lieux] !== 'undefined') {
-                  data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
-                  data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
-                  if(typeof allreadyGeoLoc[lieux].INSEEname !== 'undefined') data[indexLoc].INSEEname = allreadyGeoLoc[lieux].INSEEname;
-                  if(typeof allreadyGeoLoc[lieux].INSEEzip !== 'undefined') data[indexLoc].INSEEzip = allreadyGeoLoc[lieux].INSEEzip;
-                  if(typeof allreadyGeoLoc[lieux].INSEEcode !== 'undefined') data[indexLoc].INSEEcode = allreadyGeoLoc[lieux].INSEEcode;
-                  if(typeof allreadyGeoLoc[lieux].INSEEdept !== 'undefined') data[indexLoc].INSEEdept = allreadyGeoLoc[lieux].INSEEdept;
+              function checkIfEnd() {
+                if (indexCal < indexEnd) {
+                  add2Layer(indexCal)
                 }
-                checkIfEnd();
-              }
-            }
-            else checkIfEnd();
-
-            function checkIfEnd() {
-              if (indexCal < indexEnd) {
-                add2Layer(indexCal)
-              }
-              else if (indexEnd > 0) {
-                for (var i = 0; i < data.length; i++) {
-                  if (typeof data[i].INSEEname !== 'undefined') delete data[i].INSEEname;
-                  if (typeof data[i].INSEEzip !== 'undefined') delete data[i].INSEEzip;
-                  if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
-                  if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
+                else if (indexEnd > 0) {
+                  for (var i = 0; i < data.length; i++) {
+                    if (typeof data[i].INSEEname !== 'undefined') delete data[i].INSEEname;
+                    if (typeof data[i].INSEEzip !== 'undefined') delete data[i].INSEEzip;
+                    if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
+                    if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
+                  }
+                  runData(data);
                 }
-                runData(data);
-              }
+              };
             };
-          };
-          
-        }
-        /*).catch(function() {
-          console.log('Oh no, epic failure!');
-        }*/
-      );
+
+          }
+          /*).catch(function() {
+            console.log('Oh no, epic failure!');
+          }*/
+        );
+      }
     }
 
     function runData(indexEvent) {
@@ -2014,30 +2078,25 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   // fin spécial pour le site de la CN
 
 
-  /*optionsVersion1 = {
+  optionsVersion1 = {
     data: {
-      //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
 
       geolocData: function geolocData(iData, iVar) {
         var isValidCoord = function(lat, lng) {
-            if (typeof lat === 'undefined') return false;
-            else if (lat == '') return false;
-            else if (typeof lng === 'undefined') return false;
-            else if (lng == '') return false;
-            return true;
-          };
-        if (typeof iData[iVar].LATITUDE !== 'undefined') {
-          if(iData[iVar].LATITUDE != '') iData[iVar].lat = iData[iVar].LATITUDE;
-          delete iData[iVar].LATITUDE;
-        }
-        if (typeof iData[iVar].LONGITUDE !== 'undefined') {
-          if(iData[iVar].LONGITUDE != '') iData[iVar].lng = iData[iVar].LONGITUDE;
-          delete iData[iVar].LONGITUDE;
-        }
+          if (typeof lat === 'undefined') return false;
+          else if (lat == '') return false;
+          else if (typeof lng === 'undefined') return false;
+          else if (lng == '') return false;
+          return true;
+        };
         if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
-        var lieux = iData[iVar].COMMUNE + ',' + iData[iVar].INSEE;
+        var lieux = iData[iVar].adresse1;
+        lieux += ',' + iData[iVar].ville;
+        lieux += ',' + iData[iVar].cp;
         if (!isNaN(iData[iVar])) lieux += ', France';
+        iData[iVar].lieux = lieux;
         return lieux;
       },
     },
@@ -2049,16 +2108,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     tableData: {
       properties: [{
         name: 'ville',
-        filter: 'selection'
+        //filter: 'selection'
       }, {
         name: 'lieux',
-        filter: 0
+        //filter: 0
       }, {
         name: 'statut',
-        filter: 0
+        filter: 'selection'
       }, {
         name: 'type',
-        filter: 0
+        filter: 'selection'
       }],
       filters: [{
         data: [{
@@ -2181,11 +2240,11 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
              mise à jour le 13/03/2020<br> \
              et disponible sur <a href="https://www.data.gouv.fr/fr/datasets/extraction-des-donnees-du-site-scopesante-de-la-has/#_">data.gouv.fr</a> \
              </center>',
-  };*/
-  optionsVersion1 = {
+  };
+  optionsVersion2 = {
     data: {
-      //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+      base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
 
       geolocData: function geolocData(iData, iVar) {
         var isValidCoord = function(lat, lng) {
@@ -2208,6 +2267,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         if (!isNaN(iData[iVar])) lieux += ', France';
         return lieux;
       },
+      geolocDataWithINSEE: true
     },
     //fondCarte : 'IGN',
     popupData : {
@@ -2327,7 +2387,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
-  $('#Fermetures').mapAllBlogs(optionsVersion1);
+  $('#Fermetures').mapAllBlogs(optionsVersion2);
   //$('#Fermetures').mapAllBlogs();
 
 })(jQuery);

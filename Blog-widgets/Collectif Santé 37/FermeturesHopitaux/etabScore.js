@@ -1,4 +1,99 @@
-this['établissements'] =[
+  function traitement(data, setCallback) {
+    var indexCal = 0;
+    var indexRes = 0;
+    var indexEnd = data.length;
+
+    if (indexEnd < data.length) {
+      data.splice(indexEnd, data.length - 1)
+    }
+    else if (indexEnd > data.length) indexEnd = data.length;
+
+    function makeLocation(location) {
+      var lieux = location.adresse1;
+      lieux += ',' + location.ville;
+      lieux += ',' + location.cp;
+      if (!isNaN(location)) lieux += ', France';
+      return lieux;
+    }
+
+    add2Layer(indexCal);
+
+    function add2Layer(indexLoc) {
+      var lieux = makeLocation(data[indexLoc]);
+      indexCal++;
+        L.esri.Geocoding.geocode({
+            requestParams: {
+              maxLocations: 1
+            }
+          })
+          .text(lieux)
+          .run(function(error, results, response) {
+            var _this = this
+            if (error) {
+              console.log(error);
+              console.log(lieux);
+              return;
+            }
+            if (!error && typeof results.results !== 'undefined') {
+              indexRes++;
+              data[indexLoc].lat = results.results[0].latlng.lat;
+              data[indexLoc].lng = results.results[0].latlng.lng;
+            }
+            else {
+              data[indexLoc].doc = 'Failed geoloc';
+            }
+            checkIfEnd(indexLoc);
+          });
+
+      function checkIfEnd(indexLoc) {
+        data[indexLoc].lieux = lieux;
+        if (indexCal < indexEnd) {
+          add2Layer(indexCal)
+        }
+        else {
+          setCallback(data);
+        }
+      }
+    }
+  };
+
+this['établissements'] = {
+func: traitement,
+/*base: [
+{
+  "nom" : "CH DE FLEYRIAT",
+  "adresse1" : "900 ROUTE DE PARIS",
+  "adresse2" : null,
+  "cedex" : "CEDEX",
+  "cp" : "01440",
+  "ville" : "VIRIAT",
+  "tel" : "0474454647",
+  "fax" : "0474454114",
+  "mail" : "communication@ch-bourg01.fr",
+  "url" : "http://www.ch-bourg-en-bresse.fr/",
+  "statut" : "Public",
+  "type" : "CH",
+  "finess_juridique" : "010780054",
+  "nom_juridique" : "CH FLEYRIAT"
+},
+{
+  "nom" : "CH DE BELLEY",
+  "adresse1" : "52 RUE GEORGES GIRERD",
+  "adresse2" : "BP 139",
+  "cedex" : null,
+  "cp" : "01300",
+  "ville" : "BELLEY",
+  "tel" : "0479425959",
+  "fax" : "0479425996",
+  "mail" : null,
+  "url" : null,
+  "statut" : "Public",
+  "type" : "CH",
+  "finess_juridique" : "010780062",
+  "nom_juridique" : "CH RECAMIER DE BELLEY"
+},
+]};*/
+base: [
 {
   "nom" : "CH DE FLEYRIAT",
   "adresse1" : "900 ROUTE DE PARIS",
@@ -60991,4 +61086,4 @@ this['établissements'] =[
   "finess_juridique" : "970407250",
   "nom_juridique" : "SAS MAYDIA"
 },
-]
+]};

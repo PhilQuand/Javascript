@@ -210,7 +210,6 @@
 };*/
 </style>
 <script>
-
 (function($) {
 $.fn.mapAllBlogs = function(optionsPlugIn) {
   var loading = $('<div id="loading"/>');
@@ -324,8 +323,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 }
               }
             },
-            (storedData) => {
-              loading.html(storedData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
+            (err) => {
+              loading.html(err.message);
             }
           );
         }
@@ -391,13 +390,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     };
 
     function geolocData(data) {
-      var isValidCoord = function(lat, lng) {
+      /*var isValidCoord = function(lat, lng) {
         if (typeof lat === 'undefined') return false;
         else if (lat == '') return false;
         else if (typeof lng === 'undefined') return false;
         else if (lng == '') return false;
         return true;
-      };
+      };*/
       if (typeof options.data === 'object' && options.data.geolocDataWithINSEE == true) geolocDataWithINSEE(data);
       else geolocDataWithoutINSEE(data);
 
@@ -2087,19 +2086,19 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
   optionsEtabScore = {
     data: {
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
 
       geolocData: function geolocData(iData, iVar) {
-        var isValidCoord = function(lat, lng) {
+        /*var isValidCoord = function(lat, lng) {
           if (typeof lat === 'undefined') return false;
           else if (lat == '') return false;
           else if (typeof lng === 'undefined') return false;
           else if (lng == '') return false;
           return true;
-        };
+        };*/
         if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
         var lieux = iData[iVar].adresse1;
         lieux += ',' + iData[iVar].ville;
@@ -2256,13 +2255,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
 
       geolocData: function geolocData(iData, iVar) {
-        var isValidCoord = function(lat, lng) {
+        /*var isValidCoord = function(lat, lng) {
             if (typeof lat === 'undefined') return false;
             else if (lat == '') return false;
             else if (typeof lng === 'undefined') return false;
             else if (lng == '') return false;
             return true;
-          };
+          };*/
         if (typeof iData[iVar].LATITUDE !== 'undefined') {
           if(iData[iVar].LATITUDE != '') iData[iVar].lat = iData[iVar].LATITUDE;
           delete iData[iVar].LATITUDE;

@@ -119,11 +119,6 @@ var deepEqual = function(x, y) {
   return*/
 }
 
-var isOKString = data => {
-  if (jQuery.type(data) === 'string' && data != '') return true;
-  else return false;
-}
-
 var clone = originalObject => {
   if ((typeof originalObject !== 'object') || originalObject === null) {
     throw new TypeError("originalObject parameter must be an object which is not null");
@@ -145,59 +140,69 @@ var clone = originalObject => {
   return deepCopy;
 } 
   
+//exemples of use in Fermeture.html map object
 function loadFromJSON(storedData, setCallBack, setOntError) {
   if (typeof storedData !== 'undefined') {
-    if (!isValidUrl(storedData)) {
-      //loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
-      loading.innerHTML = storedData + '<br> ne semble pas être une adresse correcte...';
-    }
-    else {
-      console.log('loading data from file : ' + storedData)
-      Promise.all([
-        // chargement des données au format Geojson
-        load.json(storedData),
-      ]).then(
-        values => {
-          var getJSONFromFile = data => {
-            return data;
+    try {
+      //jQuery.error('Coucou');
+      if (!isValidUrl(storedData)) {
+        jQuery.error(storedData + '<br> ne semble pas être une adresse correcte...');
+      }
+      else {
+        console.log('loading data from file : ' + storedData)
+        Promise.all([
+          // chargement des données au format Geojson
+          load.json(storedData),
+        ]).then(
+          values => {
+            var getJSONFromFile = data => {
+              return data;
+            }
+            //console.log('Everything has been loaded!');
+            storedData = loadVal(values, storedData);
+            storedData = getJSONFromFile(storedData);
+            //if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
+            //else {
+            setCallBack(storedData);
+            //}
+          },
+          reason => {
+            //console.log(reason);
+            if(typeof setOntError !== 'undefined' ) setOntError(reason);
           }
-          //console.log('Everything has been loaded!');
-          storedData = loadVal(values, storedData);
-          storedData = getJSONFromFile(storedData);
-          //if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
-          //else {
-              setCallBack(storedData);
-          //}
-        },
-        reason => {
-          //console.log(reason);
-          setOntError(storedData);
-        }
-      );
+        );
+      }
+    }
+    catch (err) { //We can also throw from try block and catch it here
+      if(typeof setOntError !== 'undefined' ) setOntError(err);
     }
   }
 };
-
 function loadFromJS(storedData, setCallBack, setOntError) {
   if (typeof storedData !== 'undefined') {
-    if (!isValidUrl(storedData)) {
-      //loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
-      loading.innerHTML = storedData + '<br> ne semble pas être une adresse correcte...';
+    try {
+      //jQuery.error('Coucou');
+      if (!isValidUrl(storedData)) {
+        jQuery.error(storedData + '<br> ne semble pas être une adresse correcte...');
+      }
+      else {
+        console.log('loading data from file : ' + storedData)
+        Promise.all([
+          // chargement des données Javascript
+          load.js(storedData),
+        ]).then(
+          values => {
+            setCallBack();
+          },
+          reason => {
+            //console.log(reason);
+            if (typeof setOntError !== 'undefined') setOntError(reason);
+          }
+        );
+      }
     }
-    else {
-      console.log('loading data from file : ' + storedData)
-      Promise.all([
-        // chargement des données Javascript
-        load.js(storedData),
-      ]).then(
-        values => {
-          setCallBack();
-        },
-        reason => {
-          //console.log(reason);
-          if(typeof setOntError !== 'undefined' ) setOntError();
-        }
-      );
+    catch (err) { //We can also throw from try block and catch it here
+      if (typeof setOntError !== 'undefined') setOntError(err);
     }
   }
 };
@@ -211,6 +216,7 @@ var readUrlParam = name => {
   // readUrlParam('notavar');   // null*/
 };
 
+// necessary to Fermeture.html map object
 var stringifyJSO2V = function(obj, prop) {
   var placeholder = '____PLACEHOLDER____';
   var fns = [];
@@ -226,6 +232,18 @@ var stringifyJSO2V = function(obj, prop) {
   });
   return 'this["' + prop + '"] = ' + json + ';';
 };
+var isOKString = data => {
+  if (jQuery.type(data) === 'string' && data != '') return true;
+  else return false;
+}
+var isValidCoord = function(lat, lng) {
+  if (typeof lat === 'undefined') return false;
+  else if (lat == '') return false;
+  else if (typeof lng === 'undefined') return false;
+  else if (lng == '') return false;
+  return true;
+};
+// end of necessary to Fermeture.html map object
 
 function compSumAndImg(strx, chop, imgtag) {
   var result = {

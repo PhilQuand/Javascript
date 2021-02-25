@@ -328,6 +328,18 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
           );
         }
+        else if (storedData.endsWith(".js")) {
+          loadFromJS(storedData,
+            (procData) => {
+              if (typeof this['data'] !== 'undefined') {
+                geolocData(this['data']);
+              }
+            },
+            (err) => {
+              loading.html(err.message);
+            }
+          );
+        }
       }
     }
     else if ($('#dataStore').length == 1) {
@@ -2083,6 +2095,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
       base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
         if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
@@ -2094,10 +2107,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return lieux;
       },
     },
-    fondCarte : 'IGN',
+    //fondCarte : 'IGN',
     popupData : {
       title: 'ville',
-      properties: ["lieux", "statut", "type"]
+      properties: ["lieu", "statut", "type"]
     },
     tableData: {
       properties: [{
@@ -2179,55 +2192,81 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         }
         else return 3;
       },
-      icons: [{
-        icon: {leaflet: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-gold.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        })},
-        title: 'publics',
-        colorBG: '#FFD326',
-        colorFG: '#0E0E0E',
-      }, {
-        icon: {leaflet: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        })},
-        title: 'privés',
-        colorBG: '#9C2BCB',
-        colorFG: '#F8F8F8',
-      }, {
-        icon: {leaflet: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        })},
-        title: 'privés non lucratifs',
-        colorBG: '#29AD27',
-        colorFG: '#FFFFFF',
-      }, {
-        icon: {leaflet: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
-          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-          iconSize: [13, 20],
-          iconAnchor: [6, 20],
-          popupAnchor: [1, -17],
-          shadowSize: [20, 20]
-        })},
-        title: 'autres',
-        colorBG: '#1E77C8',
-        colorFG: '#FFFFFF',
-      }]
+      icons: [
+        /*{
+          icon: {leaflet: new L.Icon({
+            iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-gold.png',
+            shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+            iconSize: [13, 20],
+            iconAnchor: [6, 20],
+            popupAnchor: [1, -17],
+            shadowSize: [20, 20]
+          })},
+          title: 'publics',
+          colorBG: '#FFD326',
+          colorFG: '#0E0E0E',
+        },*/
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'publics',
+          colorBG: '#2781CA',
+          colorFG: '#FFFFFF',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'privés',
+          colorBG: '#9C2BCB',
+          colorFG: '#F8F8F8',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'privés non lucratifs',
+          colorBG: '#29AD27',
+          colorFG: '#FFFFFF',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'autres',
+          colorBG: '#1E77C8',
+          colorFG: '#FFFFFF',
+        }
+      ]
     },
     banner: '<center style="padding: 1em; text-align: center; background-color: #F0EEE7; width: 100%; height: auto;"> \
              Source: HAS / <a href="https://www.scopesante.fr/#/">www.scopesante.fr</a><br> \

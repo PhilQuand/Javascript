@@ -2094,13 +2094,14 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
         if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
-        var lieux = iData[iVar].adresse1;
+        var lieux = iData[iVar].nom;
         lieux += ',' + iData[iVar].ville;
+        if(iData[iVar].adresse1 != null) lieux += ',' + iData[iVar].adresse1;
         lieux += ',' + iData[iVar].cp;
         if (!isNaN(iData[iVar])) lieux += ', France';
         iData[iVar].lieu = lieux;

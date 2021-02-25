@@ -145,7 +145,7 @@ var clone = originalObject => {
   return deepCopy;
 } 
   
-function loadFromJSON(storedData, setCallBack, seOntError) {
+function loadFromJSON(storedData, setCallBack, setOntError) {
   if (typeof storedData !== 'undefined') {
     if (!isValidUrl(storedData)) {
       //loading.html(storedData + '<br> ne semble pas être une adresse correcte...');
@@ -171,7 +171,7 @@ function loadFromJSON(storedData, setCallBack, seOntError) {
         },
         reason => {
           //console.log(reason);
-          seOntError(storedData);
+          setOntError(storedData);
         }
       );
     }

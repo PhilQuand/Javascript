@@ -1,4 +1,4 @@
-this['data'] = [
+/*this['data'] = [
 {
   "nom" : "CH DE FLEYRIAT",
   "adresse1" : "900 ROUTE DE PARIS",
@@ -258,9 +258,8 @@ this['data'] = [
   "type" : "Etablissement privé à but non lucratif",
   "finess_juridique" : "970103024",
   "nom_juridique" : "A.U.D.R.A."
-}];
-/*base: [
-{
+}];*/
+this['data'] = [{
   "nom" : "CH DE FLEYRIAT",
   "adresse1" : "900 ROUTE DE PARIS",
   "adresse2" : null,
@@ -59067,6 +59066,8 @@ this['data'] = [
   "cedex" : null,
   "cp" : "97150",
   "ville" : "SAINT-MARTIN",
+  "lat": "18.065",
+  "lng": "-63.076",
   "tel" : "0590522525",
   "fax" : "0590522630",
   "mail" : null,
@@ -59275,6 +59276,8 @@ this['data'] = [
   "cedex" : null,
   "cp" : "97150",
   "ville" : "SAINT-MARTIN",
+  "lat" : "18.1015",
+  "lng" : "-63.0476",
   "tel" : null,
   "fax" : null,
   "mail" : null,
@@ -61251,5 +61254,4 @@ this['data'] = [
   "type" : "Etablissement privé à but lucratif",
   "finess_juridique" : "970407250",
   "nom_juridique" : "SAS MAYDIA"
-},
-]};*/
+}];

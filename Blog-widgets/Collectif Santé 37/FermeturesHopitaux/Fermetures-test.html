@@ -2098,25 +2098,30 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
+        var lieu = '';
+        if(iData[iVar].adresse1 != null) lieu += iData[iVar].adresse1 + '<br>';
+        if(iData[iVar].adresse2 != null) lieu += iData[iVar].adresse2 + '<br>';
+        lieu += iData[iVar].ville;
+        lieu += ', ' + iData[iVar].cp;
+        iData[iVar].lieu = lieu;
+        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
         var lieux = iData[iVar].nom;
-        lieux += '<br>' + iData[iVar].ville;
+        lieux += ', ' + iData[iVar].ville;
         if(iData[iVar].adresse1 != null) lieux += ', ' + iData[iVar].adresse1;
         if(iData[iVar].adresse2 != null) lieux += ', ' + iData[iVar].adresse2;
-        lieux += '<br>' + iData[iVar].cp;
-        iData[iVar].lieu = lieux;
-        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
+        lieux += ', ' + iData[iVar].cp;
         if (!isNaN(iData[iVar])) lieux += ', France';
-        else return lieux;
+        return lieux;
       },
     },
     //fondCarte : 'IGN',
     popupData : {
-      title: 'ville',
+      title: 'nom',
       properties: ["lieu", "statut", "type"]
     },
     tableData: {
       properties: [{
-        name: 'ville',
+        name: 'nom',
         //filter: 'selection'
       }, {
         name: 'lieu',

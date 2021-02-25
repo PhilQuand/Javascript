@@ -432,8 +432,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
         function add2Layer(indexLoc) {
           indexCal++;
+          var lieux = makeLocation(data, indexLoc);
           if (!isValidCoord(data[indexLoc].lat, data[indexLoc].lng)) {
-            var lieux = makeLocation(data, indexLoc);
             L.esri.Geocoding.geocode({
                 requestParams: {
                   maxLocations: 1
@@ -2098,14 +2098,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
-        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
         var lieux = iData[iVar].nom;
-        lieux += ',' + iData[iVar].ville;
-        if(iData[iVar].adresse1 != null) lieux += ',' + iData[iVar].adresse1;
-        lieux += ',' + iData[iVar].cp;
-        if (!isNaN(iData[iVar])) lieux += ', France';
+        lieux += '<br>' + iData[iVar].ville;
+        if(iData[iVar].adresse1 != null) lieux += ', ' + iData[iVar].adresse1;
+        if(iData[iVar].adresse2 != null) lieux += ', ' + iData[iVar].adresse2;
+        lieux += '<br>' + iData[iVar].cp;
         iData[iVar].lieu = lieux;
-        return lieux;
+        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
+        if (!isNaN(iData[iVar])) lieux += ', France';
+        else return lieux;
       },
     },
     //fondCarte : 'IGN',

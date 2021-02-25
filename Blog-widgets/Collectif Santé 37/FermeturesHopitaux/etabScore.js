@@ -248,6 +248,8 @@ this['data'] = [
   "cedex" : null,
   "cp" : "97150",
   "ville" : "SAINT-MARTIN",
+  "lat" : "18.1015",
+  "lng" : "-63.0476",
   "tel" : null,
   "fax" : null,
   "mail" : null,

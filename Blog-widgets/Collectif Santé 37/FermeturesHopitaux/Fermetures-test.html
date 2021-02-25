@@ -438,7 +438,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             });
 
           function checkIfEnd() {
-            data[indexLoc].lieux = lieux;
             if (indexCal < indexEnd) {
               add2Layer(indexCal)
             }
@@ -2074,10 +2073,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   // fin spécial pour le site de la CN
 
 
-  optionsVersion1 = {
+  optionsEtabScore = {
     data: {
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2238,7 +2237,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
              et disponible sur <a href="https://www.data.gouv.fr/fr/datasets/extraction-des-donnees-du-site-scopesante-de-la-has/#_">data.gouv.fr</a> \
              </center>',
   };
-  optionsVersion2 = {
+  optionsTESTInnerFormedData = {
     data: {
       base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
@@ -2384,7 +2383,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
-  $('#Fermetures').mapAllBlogs(optionsVersion1);
+  $('#Fermetures').mapAllBlogs(optionsEtabScore);
   //$('#Fermetures').mapAllBlogs();
 
 })(jQuery);

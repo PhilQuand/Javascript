@@ -309,10 +309,19 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         }
         else if (storedData.endsWith(".json") || storedData.endsWith(".geojson")) {
           loadFromJSON(storedData,
-            (storedData) => {
-              var data = getDataFromJSON(storedData);
+            (procData) => {
+              var isGeoJSON = (file) => {
+                if (file.type == "FeatureCollection" && file.features[0].hasOwnProperty('geometry')) return true;
+                else return false;
+              }
+              var data = getDataFromJSON(procData);
               if (typeof data !== 'undefined') {
-                geolocData(data);
+                if (isGeoJSON(procData)) {
+                  runData(data);
+                }
+                else {
+                  geolocData(data);
+                }
               }
             },
             (storedData) => {
@@ -382,6 +391,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     };
 
     function geolocData(data) {
+      var isValidCoord = function(lat, lng) {
+        if (typeof lat === 'undefined') return false;
+        else if (lat == '') return false;
+        else if (typeof lng === 'undefined') return false;
+        else if (lng == '') return false;
+        return true;
+      };
       if (typeof options.data === 'object' && options.data.geolocDataWithINSEE == true) geolocDataWithINSEE(data);
       else geolocDataWithoutINSEE(data);
 
@@ -411,31 +427,34 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         add2Layer(indexCal);
 
         function add2Layer(indexLoc) {
-          var lieux = makeLocation(data, indexLoc);
           indexCal++;
-          L.esri.Geocoding.geocode({
-              requestParams: {
-                maxLocations: 1
-              }
-            })
-            .text(lieux)
-            .run(function(error, results, response) {
-              var _this = this
-              if (error) {
-                console.log(error);
-                console.log(lieux);
-                return;
-              }
-              if (!error && typeof results.results !== 'undefined') {
-                indexRes++;
-                data[indexLoc].lat = results.results[0].latlng.lat;
-                data[indexLoc].lng = results.results[0].latlng.lng;
-              }
-              else {
-                data[indexLoc].doc = 'Failed geoloc';
-              }
-              checkIfEnd();
-            });
+          if (!isValidCoord(data[indexLoc].lat, data[indexLoc].lng)) {
+            var lieux = makeLocation(data, indexLoc);
+            L.esri.Geocoding.geocode({
+                requestParams: {
+                  maxLocations: 1
+                }
+              })
+              .text(lieux)
+              .run(function(error, results, response) {
+                var _this = this
+                if (error) {
+                  console.log(error);
+                  console.log(lieux);
+                  return;
+                }
+                if (!error && typeof results.results !== 'undefined') {
+                  indexRes++;
+                  data[indexLoc].lat = results.results[0].latlng.lat;
+                  data[indexLoc].lng = results.results[0].latlng.lng;
+                }
+                else {
+                  data[indexLoc].doc = 'Failed geoloc';
+                }
+                checkIfEnd();
+              });
+          }
+          else checkIfEnd();
 
           function checkIfEnd() {
             if (indexCal < indexEnd) {
@@ -499,13 +518,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               else return false;
             }*/
 
-            var isValidCoord = function(lat, lng) {
-              if (typeof lat === 'undefined') return false;
-              else if (lat == '') return false;
-              else if (typeof lng === 'undefined') return false;
-              else if (lng == '') return false;
-              return true;
-            };
             var makeLocation = function(iData, iVar) {
               if (typeof options.data === 'object' && typeof options.data.geolocData !== 'undefined') {
                 return options.data.geolocData(iData, iVar);
@@ -2075,8 +2087,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
   optionsEtabScore = {
     data: {
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2092,7 +2105,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         lieux += ',' + iData[iVar].ville;
         lieux += ',' + iData[iVar].cp;
         if (!isNaN(iData[iVar])) lieux += ', France';
-        iData[iVar].lieux = lieux;
+        iData[iVar].lieu = lieux;
         return lieux;
       },
     },
@@ -2106,7 +2119,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         name: 'ville',
         //filter: 'selection'
       }, {
-        name: 'lieux',
+        name: 'lieu',
         //filter: 0
       }, {
         name: 'statut',

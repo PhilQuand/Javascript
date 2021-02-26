@@ -1,4 +1,20 @@
-/*this['data'] = [
+this['data'] = [
+{
+  "nom" : "CL ST ANTOINE",
+  "adresse1" : "AVENUE FONT MOSSON",
+  "adresse2" : null,
+  "cedex" : null,
+  "cp" : "34570",
+  "ville" : "MONTARNAUD",
+  "tel" : "0467029110",
+  "fax" : "0467029111",
+  "mail" : null,
+  "url" : null,
+  "statut" : "Privé",
+  "type" : "Etablissement privé à but lucratif",
+  "finess_juridique" : "340000389",
+  "nom_juridique" : "SAS CL ST ANTOINE"
+},
 {
   "nom" : "CH DE FLEYRIAT",
   "adresse1" : "900 ROUTE DE PARIS",
@@ -258,8 +274,8 @@
   "type" : "Etablissement privé à but non lucratif",
   "finess_juridique" : "970103024",
   "nom_juridique" : "A.U.D.R.A."
-}];*/
-this['data'] = [{
+}];
+/*this['data'] = [{
   "nom" : "CH DE FLEYRIAT",
   "adresse1" : "900 ROUTE DE PARIS",
   "adresse2" : null,
@@ -61254,4 +61270,4 @@ this['data'] = [{
   "type" : "Etablissement privé à but lucratif",
   "finess_juridique" : "970407250",
   "nom_juridique" : "SAS MAYDIA"
-}];
+}];*/

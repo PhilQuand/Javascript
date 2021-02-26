@@ -447,7 +447,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   console.log(lieux);
                   return;
                 }
-                if (!error && typeof results.results !== 'undefined') {
+                //if (!error && typeof results.results !== 'undefined') {
+                if (!error && results.results.length > 0) {
                   indexRes++;
                   data[indexLoc].lat = results.results[0].latlng.lat;
                   data[indexLoc].lng = results.results[0].latlng.lng;
@@ -622,7 +623,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                         console.log(lieux);
                         return;
                       }
-                      if (!error && typeof results.results !== 'undefined') {
+                      //if (!error && typeof results.results !== 'undefined') {
+                      if (!error && results.results.length > 0) {
                         indexRes++;
                         data[indexLoc].lat = results.results[0].latlng.lat;
                         data[indexLoc].lng = results.results[0].latlng.lng;
@@ -2105,12 +2107,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         lieu += ', ' + iData[iVar].cp;
         iData[iVar].lieu = lieu;
         if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
-        var lieux = iData[iVar].nom;
-        lieux += ', ' + iData[iVar].ville;
-        if(iData[iVar].adresse1 != null) lieux += ', ' + iData[iVar].adresse1;
-        if(iData[iVar].adresse2 != null) lieux += ', ' + iData[iVar].adresse2;
-        lieux += ', ' + iData[iVar].cp;
-        if (!isNaN(iData[iVar])) lieux += ', France';
+        var lieux = '';
+        //lieux += iData[iVar].nom;
+        lieux += iData[iVar].ville + ', ';
+        if(iData[iVar].adresse1 != null) lieux += iData[iVar].adresse1 + ', ';
+        if(iData[iVar].adresse2 != null) lieux += iData[iVar].adresse2 + ', ';
+        lieux += iData[iVar].cp + ', ';
+        lieux += 'France';
         return lieux;
       },
     },

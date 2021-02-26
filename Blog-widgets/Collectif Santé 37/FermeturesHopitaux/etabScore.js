@@ -39348,6 +39348,8 @@ this['data'] = [{
   "cedex" : null,
   "cp" : "66760",
   "ville" : "BOURG MADAME",
+  "lat" : "42.434",
+  "lng" : "1.950",
   "tel" : "0468045059",
   "fax" : "0468045472",
   "mail" : null,

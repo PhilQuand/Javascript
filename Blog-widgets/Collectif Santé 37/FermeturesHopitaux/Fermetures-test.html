@@ -380,7 +380,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         }
         catch (err) { //We can also throw from try block and catch it here
           console.log(err);
-          loading.html(options.data + " :<br>n'est pas un fichier de données d'un format reconnu");
+          var data = options.data;
+          if (typeof data === 'object') data = options.data.base;
+          loading.html(data + " :<br>n'est pas un fichier de données d'un format reconnu");
         }
         finally {
           //code for finally block
@@ -2121,7 +2123,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         var lieu = '';
         if(iData[iVar].adresse1 != null) lieu += iData[iVar].adresse1 + '<br>';
         if(iData[iVar].adresse2 != null) lieu += iData[iVar].adresse2 + '<br>';
-        lieu += iData[iVar].ville;
+        if(lieu != null) lieu += iData[iVar].ville;
+        else lieu = iData[iVar].ville;
         lieu += ', ' + iData[iVar].cp;
         iData[iVar].lieu = lieu;
         if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
@@ -2129,7 +2132,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         //lieux += iData[iVar].nom;
         if(iData[iVar].adresse1 != null) lieux += iData[iVar].adresse1 + ', ';
         if(iData[iVar].adresse2 != null) lieux += iData[iVar].adresse2 + ', ';
-        lieux += iData[iVar].ville + ', ';
+        if(lieux != null) lieux += iData[iVar].ville + ', ';
+        else lieux = iData[iVar].ville + ', ';
         lieux += iData[iVar].cp + ', ';
         lieux += 'France';
         return lieux;
@@ -2142,7 +2146,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     //fondCarte : 'IGN',
     popupData : {
       title: 'nom',
-      properties: ["lieu", "département", "région", "statut", "type"]
+      properties: ["lieu", "statut", "type"]
     },
     tableData: {
       properties: [{
@@ -2151,6 +2155,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }, {
         name: 'lieu',
         //filter: 0
+      }, {
+        name: 'département',
+        filter: 'selection'
+      }, {
+        name: 'région',
+        filter: 'selection'
       }, {
         name: 'statut',
         filter: 'selection'

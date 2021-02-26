@@ -709,6 +709,33 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }*/
       console.log('achieved');
 
+      if(typeof options.tableData === 'undefined' || options.tableData.asyncComp != true ) saveData();
+      function saveData(setCallBack) {
+        if ($('#dataStore').length == 0) {
+          var dataStore = $('<div id="dataStore" style="display:none"></div>')
+          $('#infoMap-wrapper').prepend(dataStore)
+        }
+        else var dataStore = $('#dataStore');
+
+        var valGeoJSON = getGeoJSONFromData(indexEvent);
+        for (i = 0; i < valGeoJSON["features"].length; i++) {
+          delete valGeoJSON["features"][i]["properties"]["iconMarker"];
+          delete valGeoJSON["features"][i]["properties"]["marker"];
+          delete valGeoJSON["features"][i]["properties"]["doc"];
+        };
+        dataStore.html(JSON.stringify(valGeoJSON));
+
+        if ($('#optStore').length == 0) {
+          var optStore = $('<div id="optStore" style="display:none"></div>')
+          $('#infoMap-wrapper').prepend(optStore)
+        }
+        else var optStore = $('#optStore');
+        var optStoreSTR = stringifyJSO2V(options, 'options');
+        optStore.html(optStoreSTR);
+        if (typeof setCallBack !== 'undefined') setCallBack();
+        return;
+      };
+      
       function getGeoJSONFromData(indexEvent) {
         var valGeoJSON = {};
         valGeoJSON["type"] = "FeatureCollection";
@@ -858,10 +885,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           baseMaps['par défaut'].addTo(map);
           var legendMaps = {}
 
-          for (var i = 0; i < indexEvent.length; i++) {
-            indexEvent[i]["département"] = "non défini";
-            indexEvent[i]["région"] = "non définie";
-          };
+          if (typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true) {
+            for (var i = 0; i < indexEvent.length; i++) {
+              indexEvent[i]["département"] = "non défini";
+              indexEvent[i]["région"] = "non définie";
+            };
+          }
           // Constructeur du contrôle de carte LeafLet
           addControlLayer();          
           function addControlLayer() {
@@ -900,7 +929,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
 
             function buildBaseMaps(option) {
-              saveData();
+              if(typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true ) saveData(runTableAndButton);
               var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
               for (var i = 0; i < objectOverlays["overlays"].length; i++) {
                 objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
@@ -978,65 +1007,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
             };
             
-            function saveData() {
-              if ($('#dataStore').length == 0) {
-                var dataStore = $('<div id="dataStore" style="display:none"></div>')
-                $('#infoMap-wrapper').prepend(dataStore)
-              }
-              else var dataStore = $('#dataStore');
-
-              var valGeoJSON = getGeoJSONFromData(indexEvent);
-              for (i = 0; i < valGeoJSON["features"].length; i++) {
-                delete valGeoJSON["features"][i]["properties"]["iconMarker"];
-                delete valGeoJSON["features"][i]["properties"]["marker"];
-                delete valGeoJSON["features"][i]["properties"]["doc"];
-              };              
-              dataStore.html(JSON.stringify(valGeoJSON));
-
-              if ($('#optStore').length == 0) {
-                var optStore = $('<div id="optStore" style="display:none"></div>')
-                $('#infoMap-wrapper').prepend(optStore)
-              }
-              else var optStore = $('#optStore');
-              var optStoreSTR = stringifyJSO2V(options, 'options');
-              optStore.html(optStoreSTR);
-              runTableAfterSaveData();
-              return;
-              function runTableAfterSaveData() {
-                if (typeof options.popupData.properties !== 'undefined' || typeof options.tableData !== 'undefined') {
-                  var btData = $('<button type="button" class="styled" id="btData"></button>')
-                  $("#infoMap-wrapper").prepend(btData);
-                  btData.click(function(e) {
-                    if ($('#btData').html() == 'Carte') {
-                      btDataCarte(map_invalidateSize);
-                    }
-                    else {
-                      btDataTable();
-                    }
-                  });
-                  btDataCarte(map_invalidateSize);
-
-                  function btDataTable() {
-                    $('#btData').html('Carte');
-                    //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
-                    $('#infoMap-wrapper > #infoMap').css('display', 'none')
-                    $('#table_wrapper').css('display', 'block')
-                    //$('#table').css('display', 'block')
-                  }
-
-                  function btDataCarte(map_invalidateSize) {
-                    $('#btData').html('Données');
-                    //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
-                    $('#infoMap-wrapper > #infoMap').css('display', 'block')
-                    map_invalidateSize();
-                    $('#table_wrapper').css('display', 'none')
-                    //$('#table').css('display', 'none')
-                  }
-                  runTable(indexEvent);
-                }
-              }
-            };
-
           };
 
           var legendAllMarkers = addLegend()
@@ -1394,8 +1364,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                           //var isinsideD = false;
                           //var isinsideD2 = false;
                           if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                            if( baseMapsName == "départements") option["data"][idx].département = areaName;
-                            else option["data"][idx].région = areaName;
+                            if (typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true) {
+                              if (baseMapsName == "départements") option["data"][idx].département = areaName;
+                              else option["data"][idx].région = areaName;
+                            }
                             inMarkers.push(idx);
                             d += 1;
                             //isinsideD2 = true;
@@ -1947,6 +1919,40 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return map_invalidateSize
       }
 
+      var runTableAndButton = function() {
+        if (typeof options.popupData.properties !== 'undefined' || typeof options.tableData !== 'undefined') {
+          var btData = $('<button type="button" class="styled" id="btData"></button>')
+          $("#infoMap-wrapper").prepend(btData);
+          btData.click(function(e) {
+            if ($('#btData').html() == 'Carte') {
+              btDataCarte(map_invalidateSize);
+            }
+            else {
+              btDataTable();
+            }
+          });
+          btDataCarte(map_invalidateSize);
+
+          function btDataTable() {
+            $('#btData').html('Carte');
+            //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+            $('#infoMap-wrapper > #infoMap').css('display', 'none')
+            $('#table_wrapper').css('display', 'block')
+            //$('#table').css('display', 'block')
+          }
+
+          function btDataCarte(map_invalidateSize) {
+            $('#btData').html('Données');
+            //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+            $('#infoMap-wrapper > #infoMap').css('display', 'block')
+            map_invalidateSize();
+            $('#table_wrapper').css('display', 'none')
+            //$('#table').css('display', 'none')
+          }
+          runTable(indexEvent);
+        }
+      };
+      if(typeof options.tableData === 'undefined' || options.tableData.asyncComp != true ) runTableAndButton();
       function runTable(data) {
 
         var tableColums = [];
@@ -2101,7 +2107,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }*/
           initComplete: initComplete
         });
-      }
+      };
     };
   }
 };
@@ -2123,7 +2129,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScoreWithDeptsAndRegs.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2199,7 +2206,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               break;
           }
         }
-      }]
+      }],
+      //asyncComp: true,
     },
     controlLayers: {
       controlMaps: {

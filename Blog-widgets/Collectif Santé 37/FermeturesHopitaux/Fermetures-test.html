@@ -210,28 +210,6 @@
 };*/
 </style>
 <script>
-var clone = originalObject => { return jQuery.extend(true, {}, originalObject); }
-/*var clone = originalObject => {
-  if ((typeof originalObject !== 'object') || originalObject === null) {
-    throw new TypeError("originalObject parameter must be an object which is not null");
-  }
-
-  var deepCopyArg = JSON.stringify(originalObject);
-  var deepCopy = JSON.parse(deepCopyArg);
-
-  // Une petite récursivité 
-  function deepProto(originalObject, deepCopy) {
-    deepCopy.__proto__ = Object.create(originalObject.constructor.prototype);
-    for (var attribute in originalObject) {
-      if (typeof originalObject[attribute] === 'object' && originalObject[attribute] !== null) {
-        deepProto(originalObject[attribute], deepCopy[attribute]);
-      }
-    }
-  }
-  deepProto(originalObject, deepCopy);
-
-  return deepCopy;
-}*/ 
 (function($) {
 $.fn.mapAllBlogs = function(optionsPlugIn) {
   var loading = $('<div id="loading"/>');

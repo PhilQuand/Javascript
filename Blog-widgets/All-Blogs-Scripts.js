@@ -119,7 +119,7 @@ var deepEqual = function(x, y) {
   return*/
 }
 
-var clone = originalObject => {
+/*var clone = originalObject => {
   if ((typeof originalObject !== 'object') || originalObject === null) {
     throw new TypeError("originalObject parameter must be an object which is not null");
   }
@@ -138,7 +138,8 @@ var clone = originalObject => {
   deepProto(originalObject, deepCopy);
 
   return deepCopy;
-} 
+}*/ 
+var clone = originalObject => { return jQuery.extend(true, {}, originalObject); }
   
 //exemples of use in Fermeture.html map object
 function loadFromJSON(storedData, setCallBack, setOntError) {

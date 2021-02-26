@@ -1,4 +1,4 @@
-this['data'] = [
+/*this['data'] = [
 {
   "nom" : "CL ST ANTOINE",
   "adresse1" : "AVENUE FONT MOSSON",
@@ -274,8 +274,8 @@ this['data'] = [
   "type" : "Etablissement privé à but non lucratif",
   "finess_juridique" : "970103024",
   "nom_juridique" : "A.U.D.R.A."
-}];
-/*this['data'] = [{
+}];*/
+this['data'] = [{
   "nom" : "CH DE FLEYRIAT",
   "adresse1" : "900 ROUTE DE PARIS",
   "adresse2" : null,
@@ -61270,4 +61270,4 @@ this['data'] = [
   "type" : "Etablissement privé à but lucratif",
   "finess_juridique" : "970407250",
   "nom_juridique" : "SAS MAYDIA"
-}];*/
+}];

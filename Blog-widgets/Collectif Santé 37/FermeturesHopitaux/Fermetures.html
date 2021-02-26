@@ -211,7 +211,6 @@
 };*/
 </style>
 <script>
-
 (function($) {
 $.fn.mapAllBlogs = function(optionsPlugIn) {
   var loading = $('<div id="loading"/>');
@@ -299,34 +298,60 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
 
     var storedData = readUrlParam('data');
-    //storedData = "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json"
+    if (typeof storedData === 'undefined') {
+      if (typeof options.data === 'string') var storedData = options.data;
+      else if (typeof options.data === 'object' && typeof options.data.base === 'string') var storedData = options.data.base;
+    };
     if (typeof storedData !== 'undefined') {
-      options.data = storedData;
-    }
-    if (typeof options.data !== 'undefined') {
-      loadFromJSON(options.data,
-        (storedData) => {
-          var data = getDataFromJSON(storedData);
-          if (typeof data !== 'undefined') {
-            runData(data);
-          }
-        },
-        (storedData) => {
-          loading.html(storedData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
+      if (typeof storedData === 'string') {
+        if(storedData.startsWith('https://docs.google.com/spreadsheets')) {
+          loadDataFromGoogle(storedData);
         }
-      );
+        else if (storedData.endsWith(".json") || storedData.endsWith(".geojson")) {
+          loadFromJSON(storedData,
+            (procData) => {
+              var isGeoJSON = (file) => {
+                if (file.type == "FeatureCollection" && file.features[0].hasOwnProperty('geometry')) return true;
+                else return false;
+              }
+              var data = getDataFromJSON(procData);
+              if (typeof data !== 'undefined') {
+                if (isGeoJSON(procData)) {
+                  runData(data);
+                }
+                else {
+                  geolocData(data);
+                }
+              }
+            },
+            (err) => {
+              loading.html(err.message);
+            }
+          );
+        }
+        else if (storedData.endsWith(".js")) {
+          loadFromJS(storedData,
+            (procData) => {
+              if (typeof this['data'] !== 'undefined') {
+                geolocData(this['data']);
+              }
+            },
+            (err) => {
+              loading.html(err.message);
+            }
+          );
+        }
+      }
     }
     else if ($('#dataStore').length == 1) {
       storedData = $('#dataStore').html();
       storedData = JSON.parse(storedData);
       storedData = getDataFromJSON(storedData);
-      //if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
+      //if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData(options.data);
       //else runData(storedData);
       runData(storedData);
     }
-    else loadData();
-
-
+    
     function getDataFromJSON(storedData) {
       if (jQuery.isArray(storedData)) {
         //fichier au format interne
@@ -356,7 +381,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         }
         catch (err) { //We can also throw from try block and catch it here
           console.log(err);
-          loading.html(options.data + " :<br>n'est pas un fichier de données d'un format reconnu");
+          var data = options.data;
+          if (typeof data === 'object') data = options.data.base;
+          loading.html(data + " :<br>n'est pas un fichier de données d'un format reconnu");
         }
         finally {
           //code for finally block
@@ -364,29 +391,108 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
     };
 
-    function loadData() {
-      var villesINSEE = 'https://philquand.github.io/Javascript/LeafLet/json/cities.json'
-      Promise.all([
-        // chargement du code INSEE des villes
-        // d'après https://www.data.gouv.fr/fr/datasets/regions-departements-villes-et-villages-de-france-et-doutre-mer/
-        load.json(villesINSEE),
-      ]).then(
-        function(values) {
-          console.log('Everything has been loaded!');
-          villesINSEE = loadVal(values, villesINSEE)
-          //villesINSEE = values[0]['val'];
-          // Table des Fermetures
-          var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing';
-          // Table de test (10 lignes)
-          //var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1PbgwjD-HodM0JdnlRtQvmTlagE3CzBExjfpCua6-dh4/edit?usp=sharing';
+    function loadDataFromGoogle(dataFromGoogle) {
+      // Table des Fermetures
+      //var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing';
+      // Table de test (10 lignes)
+      //var SHEET_ID = 'https://docs.google.com/spreadsheets/d/1PbgwjD-HodM0JdnlRtQvmTlagE3CzBExjfpCua6-dh4/edit?usp=sharing';
 
-          Tabletop.init({
-            key: SHEET_ID,
-            callback: buildTable,
-            simpleSheet: true
-          });
+      Tabletop.init({
+        key: dataFromGoogle,
+        callback: geolocData,
+        simpleSheet: true
+      });
+    };
 
-          function buildTable(data, tabletop) {
+    function geolocData(data) {
+      if (typeof options.data === 'object' && options.data.geolocDataWithINSEE == true) geolocDataWithINSEE(data);
+      else geolocDataWithoutINSEE(data);
+
+      function geolocDataWithoutINSEE(data) {
+        var indexCal = 0;
+        var indexRes = 0;
+        var indexEnd = data.length;
+
+        if (indexEnd < data.length) {
+          data.splice(indexEnd, data.length - 1)
+        }
+        else if (indexEnd > data.length) indexEnd = data.length;
+
+        var makeLocation = function(iData, iVar) {
+          if (typeof options.data === 'object' && typeof options.data.geolocData !== 'undefined') {
+            return options.data.geolocData(iData, iVar);
+          }
+          else {
+            if (typeof options.data === 'string') var storedData = options.data;
+            else if (typeof options.data === 'object' && typeof options.data.base === 'string') var storedData = options.data.base;
+            else var storedData = 'options.data';
+            loading.html(storedData + "<br>contient des objets qui ont besoin d'être géolocalisés<br>mais la fonction de géolocalisation options.data.geolocData n'est pas définie...");
+            return false;
+          }
+        };
+
+        add2Layer(indexCal);
+
+        function add2Layer(indexLoc) {
+          indexCal++;
+          var lieux = makeLocation(data, indexLoc);
+          if (!isValidCoord(data[indexLoc].lat, data[indexLoc].lng)) {
+            L.esri.Geocoding.geocode({
+                requestParams: {
+                  maxLocations: 1
+                }
+              })
+              .text(lieux)
+              .run(function(error, results, response) {
+                var _this = this
+                if (error) {
+                  if (typeof options.geolocError === 'function') options.geolocError(error, data[indexLoc])
+                  else {
+                    console.log(error);
+                    console.log(lieux);
+                  };
+                  //return;
+                } else {
+                //if (!error && typeof results.results !== 'undefined') {
+                if (!error && results.results.length > 0) {
+                  indexRes++;
+                  data[indexLoc].lat = results.results[0].latlng.lat;
+                  data[indexLoc].lng = results.results[0].latlng.lng;
+                }
+                else {
+                  if (typeof options.geolocError === 'function') options.geolocError("Problème d'accés au résultat de géolocalisation :", data[indexLoc])
+                  else {
+                    console.log(error);
+                    console.log(lieux);
+                  };
+                }}
+                checkIfEnd();
+              });
+          }
+          else checkIfEnd();
+
+          function checkIfEnd() {
+            if (indexCal < indexEnd) {
+              add2Layer(indexCal)
+            }
+            else {
+              runData(data);
+            }
+          }
+        }
+      };
+
+      function geolocDataWithINSEE(data) {
+        var villesINSEE = 'https://philquand.github.io/Javascript/LeafLet/json/cities.json'
+        Promise.all([
+          // chargement du code INSEE des villes
+          // d'après https://www.data.gouv.fr/fr/datasets/regions-departements-villes-et-villages-de-france-et-doutre-mer/
+          load.json(villesINSEE),
+        ]).then(
+          function(values) {
+            console.log('Everything has been loaded!');
+            villesINSEE = loadVal(values, villesINSEE)
+            //villesINSEE = values[0]['val'];
             //var output = [];
             var indexCal = 0;
             var indexRes = 0;
@@ -397,12 +503,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               data.splice(indexEnd, data.length - 1)
             }
             else if (indexEnd > data.length) indexEnd = data.length;
-
-            function makeLocation(location) {
-              var lieux = location.COMMUNE + ',' + location.INSEE;
-              if (!isNaN(location)) lieux += ', France';
-              return lieux;
-            }
 
             /*if (storedData !== '') {
               var storedDataHasChanged = checkStoredData();
@@ -433,25 +533,43 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               else return false;
             }*/
 
+            var makeLocation = function(iData, iVar) {
+              if (typeof options.data === 'object' && typeof options.data.geolocData !== 'undefined') {
+                return options.data.geolocData(iData, iVar);
+              }
+              else {
+                if (typeof options.data === 'string') var storedData = options.data;
+                else if (typeof options.data === 'object' && typeof options.data.base === 'string') var storedData = options.data.base;
+                else var storedData = 'options.data';
+                loading.html(storedData + "<br>contient des objets qui ont besoin d'être géolocalisés<br>mais la fonction de géolocalisation options.data.geolocData n'est pas définie...");
+                return false;
+              }
+            };
             var allreadyGeoLoc = checkAllreadyGeoLoc();
+            if (!allreadyGeoLoc) return false
 
             function checkAllreadyGeoLoc() {
               var allreadyGeoLoc = {};
               for (var i = 0; i < data.length; i++) {
-                var lieux = makeLocation(data[i]);
-                if (typeof allreadyGeoLoc[lieux] == 'undefined') {
-                  var coordLatLng = getGPSfromVillesINSEE(data[i]);
-                  if (typeof coordLatLng !== 'undefined') {
-                    allreadyGeoLoc[lieux] = {};
-                    allreadyGeoLoc[lieux].lat = coordLatLng.lat;
-                    allreadyGeoLoc[lieux].lng = coordLatLng.lng;
-                    allreadyGeoLoc[lieux].INSEEname = coordLatLng.INSEEname;
-                    allreadyGeoLoc[lieux].INSEEzip = coordLatLng.INSEEzip;
-                    allreadyGeoLoc[lieux].INSEEcode = coordLatLng.INSEEcode;
-                    allreadyGeoLoc[lieux].INSEEdept = coordLatLng.INSEEdept;
-                  }
-                }
-              }
+                if (!isValidCoord(data[i].lat, data[i].lng)) {
+                  var lieux = makeLocation(data, i);
+                  if (typeof lieux !== 'undefined') {
+                    if (!lieux) return false
+                    if (typeof allreadyGeoLoc[lieux] == 'undefined') {
+                      var coordLatLng = getGPSfromVillesINSEE(data[i]);
+                      if (typeof coordLatLng !== 'undefined') {
+                        allreadyGeoLoc[lieux] = {};
+                        allreadyGeoLoc[lieux].lat = coordLatLng.lat;
+                        allreadyGeoLoc[lieux].lng = coordLatLng.lng;
+                        allreadyGeoLoc[lieux].INSEEname = coordLatLng.INSEEname;
+                        allreadyGeoLoc[lieux].INSEEzip = coordLatLng.INSEEzip;
+                        allreadyGeoLoc[lieux].INSEEcode = coordLatLng.INSEEcode;
+                        allreadyGeoLoc[lieux].INSEEdept = coordLatLng.INSEEdept;
+                      };
+                    };
+                  };
+                };
+              };
               return allreadyGeoLoc;
 
               function getGPSfromVillesINSEE(locData) {
@@ -459,14 +577,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   var zip = villesINSEE[i]["zip_code"];
                   var insee = villesINSEE[i]["insee_code"];
                   var name = villesINSEE[i]["name"].toUpperCase();
-                  var nameLoc = locData.COMMUNE.toUpperCase();
                   /*if (locData.INSEE == 987 && (zip == null || insee == null)) {
                     console.log(locData.INSEE)
                   }*/
                   var isMatched = false;
                   var department = parseInt(villesINSEE[i]["department_code"]);
                   if (zip == null || insee == null) {
-                    if (nameLoc == nameLoc && department == locData.INSEE) isMatched = true;
+                    if (department == locData.INSEE) isMatched = true;
                   }
                   else {
                     var zipInt = parseInt(zip);
@@ -474,18 +591,19 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     if (zipInt == locData.INSEE || inseeInt == locData.INSEE || insee == locData.INSEE) isMatched = true;
                   }
                   if (isMatched) {
-                    var splitedLocName = nameLoc.split(" ");
-                    var debName = splitedLocName[0];
-                    if (name.indexOf(debName) > -1) {
-                      var coordLatLng = {};
-                      coordLatLng.lat = villesINSEE[i]["gps_lat"];
-                      coordLatLng.lng = villesINSEE[i]["gps_lng"];
-                      coordLatLng.INSEEname = villesINSEE[i]["name"];
-                      coordLatLng.INSEEzip = villesINSEE[i]["zip_code"];
-                      coordLatLng.INSEEcode = villesINSEE[i]["insee_code"];
-                      coordLatLng.INSEEdept = villesINSEE[i]["department_code"];
-                      return coordLatLng;
-                    }
+                    //var nameLoc = locData.COMMUNE.toUpperCase();
+                    //var splitedLocName = nameLoc.split(" ");
+                    //var debName = splitedLocName[0];
+                    //if (name.indexOf(debName) > -1) {
+                    var coordLatLng = {};
+                    coordLatLng.lat = villesINSEE[i]["gps_lat"];
+                    coordLatLng.lng = villesINSEE[i]["gps_lng"];
+                    coordLatLng.INSEEname = villesINSEE[i]["name"];
+                    coordLatLng.INSEEzip = villesINSEE[i]["zip_code"];
+                    coordLatLng.INSEEcode = villesINSEE[i]["insee_code"];
+                    coordLatLng.INSEEdept = villesINSEE[i]["department_code"];
+                    return coordLatLng;
+                    //}
                   }
                 }
                 return;
@@ -497,69 +615,72 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             function add2Layer(indexLoc) {
               /*var lieux = data[indexLoc].COMMUNE + ',' + data[indexLoc].INSEE;
               if (!isNaN(data[indexLoc].INSEE)) lieux += ', France';*/
-              var lieux = makeLocation(data[indexLoc]);
               indexCal++;
-              if ((data[indexLoc].LATITUDE == '' || data[indexLoc].LONGITUDE == '') && (typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined')) {
-                L.esri.Geocoding.geocode({
-                    requestParams: {
-                      maxLocations: 1
-                    }
-                  })
-                  .text(lieux)
-                  .run(function(error, results, response) {
-                    var _this = this
-                    if (error) {
-                      console.log(error);
-                      console.log(lieux);
-                      return;
-                    }
-                    if (!error && typeof results.results !== 'undefined') {
-                      indexRes++;
-                      data[indexLoc].lat = results.results[0].latlng.lat;
-                      data[indexLoc].lng = results.results[0].latlng.lng;
-                    }
-                    else {
-                      data[indexLoc].doc = 'Failed geoloc';
-                    }
-                    checkIfEnd(indexLoc);
-                  });
-              }
-              else {
-                if (typeof allreadyGeoLoc[lieux] !== 'undefined') {
-                  data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
-                  data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
-                  data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
-                  data[indexLoc].INSEEname = allreadyGeoLoc[lieux].INSEEname;
-                  data[indexLoc].INSEEzip = allreadyGeoLoc[lieux].INSEEzip;
-                  data[indexLoc].INSEEcode = allreadyGeoLoc[lieux].INSEEcode;
-                  data[indexLoc].INSEEdept = allreadyGeoLoc[lieux].INSEEdept;
+              if (!isValidCoord(data[indexLoc].lat, data[indexLoc].lng)) {
+                var lieux = makeLocation(data, indexLoc);
+                if (!lieux) return false
+                if ((typeof allreadyGeoLoc[lieux] == 'undefined' || typeof allreadyGeoLoc[lieux].lat == 'undefined' || typeof allreadyGeoLoc[lieux].lng == 'undefined')) {
+                  L.esri.Geocoding.geocode({
+                      requestParams: {
+                        maxLocations: 1
+                      }
+                    })
+                    .text(lieux)
+                    .run(function(error, results, response) {
+                      var _this = this
+                      if (error) {
+                        console.log(error);
+                        console.log(lieux);
+                        return;
+                      }
+                      //if (!error && typeof results.results !== 'undefined') {
+                      if (!error && results.results.length > 0) {
+                        indexRes++;
+                        data[indexLoc].lat = results.results[0].latlng.lat;
+                        data[indexLoc].lng = results.results[0].latlng.lng;
+                      }
+                      else {
+                        data[indexLoc].doc = 'Failed geoloc';
+                      }
+                      checkIfEnd();
+                    });
                 }
-                if (data[indexLoc].LATITUDE !== '') data[indexLoc].lat = data[indexLoc].LATITUDE;
-                if (data[indexLoc].LONGITUDE !== '') data[indexLoc].lng = data[indexLoc].LONGITUDE;
-                checkIfEnd(indexLoc);
+                else {
+                  if (typeof allreadyGeoLoc[lieux] !== 'undefined') {
+                    data[indexLoc].lat = allreadyGeoLoc[lieux].lat;
+                    data[indexLoc].lng = allreadyGeoLoc[lieux].lng;
+                    if (typeof allreadyGeoLoc[lieux].INSEEname !== 'undefined') data[indexLoc].INSEEname = allreadyGeoLoc[lieux].INSEEname;
+                    if (typeof allreadyGeoLoc[lieux].INSEEzip !== 'undefined') data[indexLoc].INSEEzip = allreadyGeoLoc[lieux].INSEEzip;
+                    if (typeof allreadyGeoLoc[lieux].INSEEcode !== 'undefined') data[indexLoc].INSEEcode = allreadyGeoLoc[lieux].INSEEcode;
+                    if (typeof allreadyGeoLoc[lieux].INSEEdept !== 'undefined') data[indexLoc].INSEEdept = allreadyGeoLoc[lieux].INSEEdept;
+                  }
+                  checkIfEnd();
+                }
               }
+              else checkIfEnd();
 
-              function checkIfEnd(indexLoc) {
-                //data[indexLoc].iconMarker = 1;
+              function checkIfEnd() {
                 if (indexCal < indexEnd) {
                   add2Layer(indexCal)
                 }
-                else {
+                else if (indexEnd > 0) {
                   for (var i = 0; i < data.length; i++) {
-                    delete data[i].INSEEname;
-                    delete data[i].INSEEzip;
-                    delete data[i].INSEEcode;
-                    delete data[i].INSEEdept;
+                    if (typeof data[i].INSEEname !== 'undefined') delete data[i].INSEEname;
+                    if (typeof data[i].INSEEzip !== 'undefined') delete data[i].INSEEzip;
+                    if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
+                    if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
                   }
                   runData(data);
                 }
-              }
-            }
+              };
+            };
+
           }
-        }
-      ).catch(function() {
-        console.log('Oh no, epic failure!');
-      });
+          /*).catch(function() {
+            console.log('Oh no, epic failure!');
+          }*/
+        );
+      }
     }
 
     function runData(indexEvent) {
@@ -589,23 +710,33 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }*/
       console.log('achieved');
 
-      if ($('#dataStore').length == 0) {
-        var dataStore = $('<div id="dataStore" style="display:none"></div>')
-        $('#infoMap-wrapper').prepend(dataStore)
-      }
-      else var dataStore = $('#dataStore');
-      var valGeoJSON = getGeoJSONFromData(indexEvent);
-      dataStore.html(JSON.stringify(valGeoJSON));
+      if(typeof options.tableData === 'undefined' || options.tableData.asyncComp != true ) saveData();
+      function saveData(setCallBack) {
+        if ($('#dataStore').length == 0) {
+          var dataStore = $('<div id="dataStore" style="display:none"></div>')
+          $('#infoMap-wrapper').prepend(dataStore)
+        }
+        else var dataStore = $('#dataStore');
 
-      if ($('#optStore').length == 0) {
-        var optStore = $('<div id="optStore" style="display:none"></div>')
-        $('#infoMap-wrapper').prepend(optStore)
-      }
-      else var optStore = $('#optStore');
-      var optStoreSTR = stringifyJSO2V(options, 'options');
-      optStore.html(optStoreSTR);
+        var valGeoJSON = getGeoJSONFromData(indexEvent);
+        for (i = 0; i < valGeoJSON["features"].length; i++) {
+          delete valGeoJSON["features"][i]["properties"]["iconMarker"];
+          delete valGeoJSON["features"][i]["properties"]["marker"];
+          delete valGeoJSON["features"][i]["properties"]["doc"];
+        };
+        dataStore.html(JSON.stringify(valGeoJSON));
 
-
+        if ($('#optStore').length == 0) {
+          var optStore = $('<div id="optStore" style="display:none"></div>')
+          $('#infoMap-wrapper').prepend(optStore)
+        }
+        else var optStore = $('#optStore');
+        var optStoreSTR = stringifyJSO2V(options, 'options');
+        optStore.html(optStoreSTR);
+        if (typeof setCallBack !== 'undefined') setCallBack();
+        return;
+      };
+      
       function getGeoJSONFromData(indexEvent) {
         var valGeoJSON = {};
         valGeoJSON["type"] = "FeatureCollection";
@@ -629,38 +760,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
-      if (typeof options.popupData.properties !== 'undefined' || typeof options.tableData !== 'undefined') {
-        var btData = $('<button type="button" class="styled" id="btData"></button>')
-        $("#infoMap-wrapper").prepend(btData);
-        btData.click(function(e) {
-          if ($('#btData').html() == 'Carte') {
-            btDataCarte(map_invalidateSize);
-          }
-          else {
-            btDataTable();
-          }
-        });
-        btDataCarte(map_invalidateSize);
-
-        function btDataTable() {
-          $('#btData').html('Carte');
-          //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
-          $('#infoMap-wrapper > #infoMap').css('display', 'none')
-          $('#table_wrapper').css('display', 'block')
-          //$('#table').css('display', 'block')
-        }
-
-        function btDataCarte(map_invalidateSize) {
-          $('#btData').html('Données');
-          //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
-          $('#infoMap-wrapper > #infoMap').css('display', 'block')
-          map_invalidateSize();
-          $('#table_wrapper').css('display', 'none')
-          //$('#table').css('display', 'none')
-        }
-        runTable(indexEvent);
-      }
-      
       function runMap(indexEvent) {
 
         var iconMarkers = iconMarkersBuilder(indexEvent);
@@ -707,7 +806,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           else {
             var hidden = [];
             if (typeof options.popupData.hidden !== 'undefined') hidden = options.popupData.hidden;
-            hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
+            //hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
+            hidden = hidden.concat(["lat", "lng", "iconMarker"]);
             if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
             var dataKeys = Object.getOwnPropertyNames(indexEvent)
             var properties = [];
@@ -737,6 +837,839 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         map = initMap('infoMap', indexEvent);
         markers.addTo(map);
         endMarkerBuild(indexEvent);
+
+        function makePopUp(input, setCallBack) {
+
+          if (typeof input.iconMarker === 'undefined' || typeof input.iconMarker.icon === 'undefined' || input.iconMarker.icon == '') {
+            var marker = L.marker([input.lat, input.lng]);
+          }
+          else {
+            if (typeof input.lat === 'undefined' || typeof input.lng === 'undefined') {
+              console.log('error in makePopUp');
+            }
+            var marker = L.marker([input.lat, input.lng], {
+              icon: input.iconMarker.icon.leaflet
+            });
+          }
+          marker.bindPopup(input.doc, {
+            maxWidth: 400,
+            minWidth: 250,
+            maxHeight: 300,
+            className: 'popupCustom',
+            autoPan: true,
+            closeButton: true,
+            autoPanPadding: [5, 5]
+          });
+          marker.getPopup().on('remove', function() {
+            setCallBack();
+          });
+          return marker;
+        }
+
+        function initMap(idMap, indexEvent) {
+
+          'use strict'
+
+          map = loadMap(idMap);
+
+          //zoomRemove(map);
+          map.options.minZoom = 5;
+          //map.options.maxZoom = 8;
+          map.options.maxZoom = 12;
+          map.scrollWheelZoom.disable();
+
+          setDefaultMapView();
+
+          var baseMaps = {
+            'par défaut': L.tileLayer('')
+          };
+          baseMaps['par défaut'].addTo(map);
+          var legendMaps = {}
+
+          if (typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true) {
+            for (var i = 0; i < indexEvent.length; i++) {
+              indexEvent[i]["département"] = "non défini";
+              indexEvent[i]["région"] = "non définie";
+            };
+          }
+          // Constructeur du contrôle de carte LeafLet
+          addControlLayer();          
+          function addControlLayer() {
+            // Constructeur du contrôle de carte LeafLet
+            if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlMaps === 'undefined' || options.controlLayers.controlMaps.on != true) {
+              // Ajout de la seule carte de fond
+              var option = {
+                baseMaps: null,
+                legend: legendMaps,
+                map: map,
+              };
+              buildBaseMaps(option)
+            }
+            else {
+              // Ajout du contrôle
+              loadMapPicture({
+                typMap: "builDepts",
+                baseMaps: baseMaps,
+                legend: legendMaps,
+                data: indexEvent,
+                map: map,
+                callback: builDeptsCallback
+                //callback: buildBaseMaps
+              });
+            }
+
+            function builDeptsCallback(option) {
+              loadMapPicture({
+                typMap: "builRegs",
+                baseMaps: baseMaps,
+                legend: legendMaps,
+                data: indexEvent,
+                map: map,
+                callback: buildBaseMaps
+              });
+            }
+
+            function buildBaseMaps(option) {
+              if(typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true ) saveData(runTableAndButton);
+              var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
+              for (var i = 0; i < objectOverlays["overlays"].length; i++) {
+                objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
+              }
+
+              var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
+              var controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();
+              if (option["baseMaps"] !== null) controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
+              var controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
+              if (objectOverlays["overlayTitle"] != '') {
+                controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + objectOverlays["overlayTitle"] + '</div>')
+              };
+              if (objectOverlays["overlays"].length == 1) {
+                controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-separator").css("display", "none");
+                controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display", "none");
+              };
+              var baselayerName = 'par défaut';
+              map.on('baselayerchange', function(eventLayer) {
+                baselayerName = eventLayer.name;
+                map.removeControl(legendAllMarkers);
+                map.removeControl(option["legend"]["départements"]);
+                map.removeControl(option["legend"]["régions"]);
+                setDefaultMapView();
+                if (baselayerName == 'par défaut') {
+                  //map.addControl(legendAllMarkers);
+                  refreshIndexEvent = [];
+                  for (i = 0; i < indexEvent.length; i++) {
+                    refreshIndexEvent.push(i)
+                  }
+                  var iconNum = refreshMarkers(refreshIndexEvent);
+                  //map.removeControl(legendAllMarkers);
+                  legendAllMarkers = addLegend(iconNum)
+                  map.addControl(legendAllMarkers);
+                }
+                else {
+                  map.addControl(option["legend"][eventLayer.name]);
+                  refreshIndexEvent = [];
+                }
+                refreshMarkers(refreshIndexEvent);
+              });
+              map.on('overlayadd', function(eventLayer) {
+                console.log('adding : ' + eventLayer.name)
+                if (baselayerName == 'par défaut') {
+                  for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                    if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                      objectOverlays["overlays"][k].isVisible = true;
+                    };
+                  };
+                  var iconNum = refreshMarkers(refreshIndexEvent);
+                  map.removeControl(legendAllMarkers);
+                  legendAllMarkers = addLegend(iconNum)
+                  map.addControl(legendAllMarkers);
+                };
+              });
+              map.on('overlayremove', function(eventLayer) {
+                console.log('removing : ' + eventLayer.name)
+                if (baselayerName == 'par défaut') {
+                  for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                    if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                      objectOverlays["overlays"][k].isVisible = false;
+                    };
+                  };
+                  var iconNum = refreshMarkers(refreshIndexEvent);
+                  map.removeControl(legendAllMarkers);
+                  legendAllMarkers = addLegend(iconNum)
+                  map.addControl(legendAllMarkers);
+                };
+              });
+
+              function updateLegend() {
+                var iconNum = refreshMarkers(refreshIndexEvent);
+                map.removeControl(legendAllMarkers);
+                legendAllMarkers = addLegend(iconNum)
+                map.addControl(legendAllMarkers);
+              }
+            };
+            
+          };
+
+          var legendAllMarkers = addLegend()
+          function addLegend(iconNum) {
+            if (typeof iconNum === 'undefined') {
+              iconNum = [];
+              for (i = 0; i < indexEvent.length; i++) {
+                iconNum.push(true)
+              }
+            }
+            for (var k = 0; k < iconMarkersLength; k++) {
+              iconMarkers[k].nbMapEvents = 0;
+            }
+            for (var i = 0; i < indexEvent.length; i++) {
+              if (iconNum[i]) {
+                for (var k = 0; k < iconMarkersLength; k++) {
+                  if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
+                    iconMarkers[k].nbMapEvents++;
+                  }
+                }
+              }
+            }
+            var legendAllMarkers = L.control({
+              position: 'bottomright'
+            });
+
+            legendAllMarkers.onAdd = function(map) {
+              var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
+              divlegendAllMarkers.innerHTML = '';
+              if (legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + legendTitle + '</span>';
+              for (var k = 0; k < iconMarkersLength; k++) {
+                if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
+                  if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
+                    divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                  }
+                  else {
+                    var iconVal = iconMarkers[k].icon.leaflet;
+                    divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                  }
+                }
+              }
+              return divlegendAllMarkers;
+            };
+
+            legendAllMarkers.addTo(map);
+            return legendAllMarkers;
+          }
+
+          if(typeof options.banner !== 'undefined') bannerCoord();
+          function bannerCoord() {
+            bannerCoord = L.control({
+              //position: 'topright'
+              position: 'bottomleft'
+            });
+
+            bannerCoord.onAdd = function(map) {
+              var divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
+              divBannerCoord.innerHTML = options.banner;
+              return divBannerCoord;
+            };
+
+            bannerCoord.addTo(map);
+          }
+
+          refreshMarkers();
+          function refreshMarkers(refreshIndexEvent) {
+            for (var i = 0; i < indexEvent.length; i++) {
+              markers.removeLayer(indexEvent[i].marker);
+            }
+            if (typeof refreshIndexEvent === 'undefined') {
+              refreshIndexEvent = [];
+              for (i = 0; i < indexEvent.length; i++) {
+                refreshIndexEvent.push(i)
+              }
+            }
+            var iconNum = [];
+            for (var i = 0; i < refreshIndexEvent.length; i++) {
+              iconNum.push(false);
+              for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                  iconNum[i] = true;
+                }
+              }
+              if (iconNum[i]) {
+                markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
+              }
+              else {
+                markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
+              }
+            }
+            return iconNum;
+          }
+
+          function loadMapPicture(option) {
+            switch (option["typMap"]) {
+              case "builDepts":
+                loadClustering(option, option["data"]);
+                break;
+              case "builRegs":
+                loadClustering(option, option["data"]);
+                break;
+              default:
+                option["baseMaps"]['par défaut'] = L.tileLayer('');
+            };
+            function loadClustering(option) {
+              // Constructeur de la carte TopoJSON avec pays pour LeafLet
+              // ajout de l'échelle des couleurs pour les cartes TopoJSON
+              if (option["typMap"] == "builDepts") {
+                if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlMaps === 'undefined' || typeof options.controlLayers.controlMaps.gradeDepts === 'undefined')
+                  var grades = [0, 1, 3, 5, 7, 10, 15, 20];
+                else
+                  var grades = options.controlLayers.controlMaps.gradeDepts;
+                //var colorDeb = '#D5E3FF';
+                //var colorFin = '#003171';
+                var colorDeb = '#FFFF00';
+                var colorFin = '#FF0000';
+                var colorStyle = '#555';
+              }
+              else {
+                if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlMaps === 'undefined' || typeof options.controlLayers.controlMaps.gradeRegs === 'undefined')
+                  var grades = [0, 20, 30, 40, 55, 60, 80, 100];
+                else
+                  var grades = options.controlLayers.controlMaps.gradeRegs;
+                //var colorDeb = '#D5E3FF';
+                //var colorFin = '#003171';
+                var colorDeb = '#FFFF00';
+                var colorFin = '#FF0000';
+                var colorStyle = '#555';
+              }
+              // ajout des couche départements et régions colorées TopoJSON
+              loadMapTopoJSON(option);
+
+              function loadMapTopoJSON(option) {
+                // Usage:  Load different file types with one callback
+                // Copyright (c) 2013 Ryan Clark
+                // https://gist.github.com/rclark/5779673
+                L.TopoJSON = L.GeoJSON.extend({
+                  addData: function(jsonData) {
+                    if (jsonData.type === "Topology") {
+                      for (var key in jsonData.objects) {
+                        var geojson = topojson.feature(jsonData, jsonData.objects[key]);
+                        L.GeoJSON.prototype.addData.call(this, geojson);
+                      }
+                    }
+                    else {
+                      L.GeoJSON.prototype.addData.call(this, jsonData);
+                    }
+                  }
+                });
+                var deptsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json'
+                var regsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json'
+                Promise.all([
+                  // ressources utilisées pour construire la carte TopoSJON
+                  load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
+                  load.js('https://d3js.org/topojson.v1.min.js'),
+                  // GeoJSON des départements et régions françaises
+                  // d'après https://france-geojson.gregoiredavid.fr
+                  load.json(deptsFranceData),
+                  load.json(regsFranceData)
+                ]).then(
+                  function(values) {
+                    console.log('Everything has been loaded!');
+
+                    deptsFranceData = loadVal(values, deptsFranceData);
+                    regsFranceData = loadVal(values, regsFranceData);
+
+                    var topoLayer = new L.TopoJSON();
+                    var colorScale = chroma
+                      //.scale(['#D5E3FF', '#003171'])
+                      .scale([colorDeb, colorFin])
+                      .domain([0, 1]);
+
+                    var enterPopup = 0;
+                    if (option["typMap"] == "builDepts") {
+                      var baseMapsName = "départements";
+                      addTopoData(deptsFranceData);
+                    }
+                    else {
+                      var baseMapsName = "régions"
+                      addTopoData(regsFranceData);
+                    }
+
+                    function addTopoData(topoData) {
+
+                      topoLayer.addData(topoData);
+                      //topoLayer.addTo(map);
+                      topoLayer.eachLayer(handleLayer);
+
+                      option["legend"][baseMapsName] = L.control({
+                        position: 'bottomright'
+                      });
+                      option["legend"][baseMapsName].onAdd = function(map) {
+
+                        var div = L.DomUtil.create('div', 'info legend'), labels = [];
+
+                        // loop through our density intervals and generate a label with a colored square for each interval
+                        for (var i = grades.length - 1; i >= 0; i--) {
+                          //for (var i = 0; i < grades.length; i++) {
+                          var legColor = thisColor(grades[i] + 1)
+                          div.innerHTML +=
+                            '<i style="background:' + legColor + '"></i><span>' +
+                            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
+                        }
+
+                        return div;
+                      };
+
+                    }
+
+                    function thisColor(d) {
+                      var nbMax = grades.length;
+                      for (var i = nbMax - 1; i >= 0; i--) {
+                        if (d > grades[i]) {
+                          var retColor = colorScale(i / nbMax).hex();
+                          return retColor;
+                        }
+                      }
+                      return 'white';
+                    }
+
+
+                    function handleLayer(layer) {
+                      //var randomValue = Math.random(),
+
+                      var areaBounds = layer.getBounds();
+                      var areaCode = layer.feature.properties.code;
+                      var areaGeometry = layer.feature.geometry;
+                      var areaName = layer.feature.properties.nom;
+                      var inMarkers = [];
+                      var areaNum = getNumItems();
+                      var areaEnterCode, areaBindPopup;
+
+                      // Create an element to hold all your text and markup
+                      var container = $('<div />');
+
+                      // Delegate all event handling for the container itself and its contents to the container
+                      container.on('click', '.smallPolygonLink', function() {
+                        enterPopup = areaName;
+                        var myevent = layer["_events"];
+                        var myclick = layer["_events"]["click"][0];
+                        myclick["fn"]();
+                        //layer.unbindPopup();
+                      });
+
+                      // Insert whatever you want into the container, using whichever approach you prefer
+                      //container.html(dataPopUp);
+                      var areaDataPopUp = container[0];
+
+                      var fillColor = thisColor(areaNum);
+                      layer.setStyle({
+                        fillColor: fillColor,
+                        //fillColor: getColor,
+                        fillOpacity: 1,
+                        color: colorStyle,
+                        weight: 1,
+                        opacity: .5
+                      });
+
+                      if ("ontouchstart" in document.documentElement) {
+                        layer.on({
+                          click: touchLayer,
+                        });
+                      }
+                      else {
+                        layer.on({
+                          click: clickLayer,
+                          //mouseover: enterLayer,
+                          //mouseout: leaveLayer,
+                        });
+                      }
+
+                      map.on('overlayadd', function(eventLayer) {
+                        addingOverlay(eventLayer);
+                      });
+                      map.on('overlayremove', function(eventLayer) {
+                        removingOverlay(eventLayer);
+                      });
+
+                      function addingOverlay(eventLayer) {
+                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                            objectOverlays["overlays"][k].isVisible = true;
+                          };
+                        };
+                        areaNum = getAreaNum(inMarkers);
+                        fillColor = thisColor(areaNum);
+                        layer.setStyle({
+                          fillColor: fillColor,
+                        });
+                        container.html(dataPopUp);
+                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                      }
+
+                      function removingOverlay(eventLayer) {
+                        console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
+                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                            objectOverlays["overlays"][k].isVisible = false;
+                          };
+                        };
+                        areaNum = getAreaNum(inMarkers);
+                        fillColor = thisColor(areaNum);
+                        layer.setStyle({
+                          fillColor: fillColor,
+                        });
+                        container.html(dataPopUp);
+                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                      }
+
+                      function getAreaNum(refreshIndexEvent) {
+                        var getAreaNumReturn = 0;
+                        if (typeof refreshIndexEvent === 'undefined') {
+                          refreshIndexEvent = [];
+                          for (i = 0; i < indexEvent.length; i++) {
+                            refreshIndexEvent.push(i)
+                          }
+                        }
+                        for (var i = 0; i < refreshIndexEvent.length; i++) {
+                          var isInMarkers = false;
+                          for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                            if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                              isInMarkers = true;
+                            }
+                          }
+                          if (isInMarkers) {
+                            getAreaNumReturn++;
+                          }
+                        }
+                        return getAreaNumReturn;
+                      }
+
+                      function dataPopUp() {
+                        var popupContent = $("<div></div>");
+                        var popupBody = $("<div class='popBody'></div>");
+                        popupContent.append(popupBody);
+                        popupBody.append("<div class='popLieux' style='background-color:" + thisColor(areaNum) + "'>" + areaName + "</div>");
+                        switch (areaNum) {
+                          case 0:
+                            popupBody.append("<div class='popItem'><span class='popTitle'>Aucun &#232;tablissement concern&#232;</span><br></div>");
+                            break;
+                          case 1:
+                            popupBody.append("<div class='popItem'><span class='popTitle'>Un &#232;tablissement concern&#232;</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
+                            break;
+                          default:
+                            popupBody.append("<div class='popItem'><span class='popTitle'>Nombre d&#39;&#232;tablissements concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
+                        };
+                        return popupContent.html();
+                      }
+
+                      function getNumItems() {
+                        var d = 0;
+                        //var dbis = 0;
+                        for (var idx = 0; idx < option["data"].length; idx++) {
+                          //var isinsideD = false;
+                          //var isinsideD2 = false;
+                          if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
+                            if (typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true) {
+                              if (baseMapsName == "départements") option["data"][idx].département = areaName;
+                              else option["data"][idx].région = areaName;
+                            }
+                            inMarkers.push(idx);
+                            d += 1;
+                            //isinsideD2 = true;
+                          }
+                          /*if (typeof option["data"][idx].INSEEdept !== 'undefined' && areaCode == option["data"][idx].INSEEdept) {
+                            isinsideD = true;
+                          }
+                          if(isinsideD !== isinsideD2) {
+                            console.log('les deux méthodes donnent des résultats différents pour le point : COMMUNE = ' + option["data"][idx].COMMUNE + ' LIEUX = ' + option["data"][idx].LIEUX + ' x = ' + option["data"][idx].lng + ' y = ' + option["data"][idx].lat+ ' d = ' + isinsideD + ' et dbis = ' + isinsideD2);
+                          }*/
+                        }
+                        /*if (d !== dbis) {
+                          var dString = d.toString();
+                          var dbisString = dbis.toString();
+                          console.log('les deux méthodes donnent des résultats différents pour le département ' + areaCode + ' d = ' + dString + ' et dbis = ' + dbisString);
+                        }*/
+                        return d;
+
+                        function inside(point, TopoGeom) {
+                          var insideVal = false;
+                          if (TopoGeom["type"] == "MultiPolygon") {
+                            for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
+                              var polygon = TopoGeom["coordinates"][i][0];
+                              // Le point est-il dans le polygone
+                              if (isInsidePolygon(point, polygon)) {
+                                insideVal = true;
+                                for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
+                                  var polygon = TopoGeom["coordinates"][i][j];
+                                  // Le point est-il dans l'un des trous du polygone
+                                  if (isInsidePolygon(point, polygon)) {
+                                    insideVal = false;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                          else {
+                            var polygon = TopoGeom["coordinates"][0];
+                            // Le point est-il dans le polygone
+                            if (isInsidePolygon(point, polygon)) {
+                              insideVal = true;
+                              for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
+                                var polygon = TopoGeom["coordinates"][j];
+                                // Le point est-il dans l'un des trous du polygone
+                                if (isInsidePolygon(point, polygon)) {
+                                  insideVal = false;
+                                }
+                              }
+                            }
+                          }
+
+                          return insideVal;
+                          // ray-casting algorithm based on
+                          // https://github.com/substack/point-in-polygon/blob/master/index.js
+
+                          function isInsidePolygon(point, vs) {
+                            var x = point[0],
+                              y = point[1];
+
+                            var inside = false;
+                            for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                              var xi = vs[i][0],
+                                yi = vs[i][1];
+                              var xj = vs[j][0],
+                                yj = vs[j][1];
+
+                              var intersect = ((yi > y) != (yj > y)) &&
+                                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                              if (intersect) inside = !inside;
+                            }
+
+                            return inside;
+
+                          }
+                        }
+                      }
+
+                      function touchLayer() {
+
+                        //clickLayer()
+                        this.bindPopup(areaPopup, {
+                          setLatLng: areaBounds.getCenter(),
+                          sticky: true,
+                          maxHeight: 160,
+                          maxWidth: 400,
+                          minWidth: 250
+                        }).openPopup();
+                        this.getPopup().on('remove', function() {});
+                      }
+
+                      //function enterLayer() {}
+
+                      function clickLayer() {
+                        if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
+                        if (enterPopup != areaName) {
+                          // Insert whatever you want into the container, using whichever approach you prefer
+                          this.bindPopup(areaDataPopUp).openPopup();
+                          var areaPopup = this.getPopup();
+                          areaPopup.setLatLng(areaBounds.getCenter());
+                          return;
+                        }
+                        map.closePopup();
+                        refreshIndexEvent = inMarkers;
+                        refreshMarkers(refreshIndexEvent);
+                        layer.setStyle({
+                          fillOpacity: 0
+                        });
+                        areaBindPopup = this['unbindPopup'];
+                        if (typeof areaBindPopup !== 'undefined') {
+                          this.unbindPopup();
+                        }
+                        enterPopup = 0;
+                        option["map"].fitBounds(areaBounds, {
+                          padding: [100, 100]
+                        });
+                        var _this = layer;
+                        onSetDefaultMapView = function() {
+                          //_this.getPopup().remove();
+                          _this.setStyle({
+                            fillOpacity: 1
+                          });
+                          //removeAreaMarkers();
+                          refreshMarkers([]);
+                        }
+                      }
+
+                      //function leaveLayer() {);
+                    }
+
+                    option["baseMaps"][baseMapsName] = topoLayer;
+                    if (typeof option["callback"] == 'undefined') {
+                      if (option["typMap"] == "builDepts") {
+                        if (typeof option["map"] !== 'undefined') option["baseMaps"]['départements'].addTo(option["map"]);
+                      }
+                      else {
+                        if (typeof option["map"] !== 'undefined') option["baseMaps"]['régions'].addTo(option["map"]);
+                      }
+                    }
+                    else option["callback"](option);
+
+                  }
+                )
+                /*.catch(function() {
+                                console.log('Oh no, epic failure!');
+                              });*/
+              };
+            };
+          };
+
+          var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+
+          var results = L.layerGroup().addTo(map);
+
+          var redIcon = new L.Icon({
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [13, 20],
+            iconAnchor: [6, 20],
+            popupAnchor: [1, -17],
+            shadowSize: [20, 20]
+          });
+          searchControl.on('results', function(data) {
+            results.clearLayers();
+            for (var i = data.results.length - 1; i >= 0; i--) {
+              results.addLayer(L.marker(data.results[i].latlng, {
+                icon: redIcon
+              }));
+            }
+          });
+
+          return map;
+          // Constructeur de la carte LeafLet
+          function loadMap(idMap) {
+            L.map(idMap).remove();
+            var map = L.map(idMap);
+            switch (options.fondCarte) {
+              case 'IGN':
+                loadIGN();
+
+                function loadIGN() {
+                  Promise.all([
+                    // Début ressources utilisées pour construire la carte IGN
+                    load.js('https://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'),
+                    load.css('https://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.css'),
+                    load.js('https://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.js'),
+                    load.css('https://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css'),
+                    // Fin ressources utilisées pour construire la carte IGN
+
+                  ]).then(
+                    function() {
+                      console.log('Everything has loaded!');
+
+                      // accés au Geoportail
+                      Gp.Services.getConfig({
+                        // clé d'accès aux ressources gratuites de l'IGN récupérée sur le compte fiddle de l'IGN"
+                        apiKey: "f5cse26aiqvu6j4xqtngh5zh",
+                        // clé d'accès aux ressources gratuites de l'IGN sécurisée par referer "https://philquand.github.io/"
+                        //apiKey: "85iagcmek80ofvkhz7komcga",
+                        onSuccess: go
+                      });
+
+                      function go() {
+                        var layer = L.geoportalLayer.WMTS({
+                          layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
+                        });
+                        layer.addTo(map);
+                      }
+                    }).catch(function() {
+                    console.log('Oh no, epic failure!');
+                  });
+
+                };
+                break;
+              case 'mapbox':
+                loadMapbox();
+
+                function loadMapbox() {
+                  // Usage:  Load different file types with one callback
+                  Promise.all([
+                    // Début ressources utilisées pour construire la carte MapBox
+                    load.js('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'),
+                    load.css('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css'),
+                    load.js('https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js'),
+                    // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
+
+                  ]).then(
+                    function() {
+                      console.log('Everything has loaded!');
+
+                      var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
+
+                      /*
+                      // Downsample tiles for faster load times on slow internet connections by
+                      // adjusting the format property in styleLayer. See
+                      // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
+                      L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
+                        tileLayer: {
+                          format: 'jpg70'
+                        }
+                      }).addTo(map);
+                      */
+                      var layer = L.mapboxGL({
+                        accessToken: mapboxAccessToken,
+                        // get your own MapTiler token at https://cloud.maptiler.com/ or use MapBox style
+                        //style: 'https://api.maptiler.com/maps/basic/style.json?key=gbetYLSD5vR8MdtZ88AQ'
+                        style: 'mapbox://styles/mapbox/streets-v11',
+                      });
+                      layer.addTo(map);
+                    }).catch(function() {
+                    console.log('Oh no, epic failure!');
+                  });
+                };
+                break;
+              default:
+                var layer = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                  attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                })
+                layer.addTo(map);
+            }
+
+            map.addControl(new L.Control.Fullscreen({
+              title: {
+                'false': 'Voir en plein écran',
+                'true': 'Quitter le plein écran'
+              }
+            }));
+
+            // `fullscreenchange` Event that's fired when entering or exiting fullscreen.
+            map.on('fullscreenchange', function() {
+              if (map.isFullscreen()) {
+                map.setZoom(7);
+              }
+              else {
+                setDefaultMapView();
+              }
+            });
+            
+            map.createPane('labels');
+
+            // This pane is above markers but below popups
+            map.getPane('labels').style.zIndex = 650;
+
+            // Layers in this pane are non-interactive and do not obscure mouse/touch events
+            map.getPane('labels').style.pointerEvents = 'none';
+
+
+            return map;
+
+          };
+
+          function zoomRemove(map) {
+            //remove zoom functions
+            map.removeControl(map.zoomControl);
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
+            map.boxZoom.disable();
+            map.keyboard.disable();
+          }
+
+        }
 
         function endMarkerBuild(indexEvent) {
           /*for (i = 0; i < indexEvent.length; i++) {
@@ -979,823 +1912,48 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           });
         };
 
-        function makePopUp(input, setCallBack) {
-
-          if (typeof input.iconMarker === 'undefined' || typeof input.iconMarker.icon === 'undefined' || input.iconMarker.icon == '') {
-            var marker = L.marker([input.lat, input.lng]);
-          }
-          else {
-            if (typeof input.lat === 'undefined' || typeof input.lat === 'undefined') {
-              console.log('error in makePopUp');
-            }
-            var marker = L.marker([input.lat, input.lng], {
-              icon: input.iconMarker.icon.leaflet
-            });
-          }
-          marker.bindPopup(input.doc, {
-            maxWidth: 400,
-            minWidth: 250,
-            maxHeight: 300,
-            className: 'popupCustom',
-            autoPan: true,
-            closeButton: true,
-            autoPanPadding: [5, 5]
-          });
-          marker.getPopup().on('remove', function() {
-            setCallBack();
-          });
-          return marker;
-        }
-
-        function initMap(idMap, indexEvent) {
-
-          'use strict'
-
-          map = loadMap(idMap);
-
-          //zoomRemove(map);
-          map.options.minZoom = 5;
-          //map.options.maxZoom = 8;
-          map.options.maxZoom = 12;
-
-          setDefaultMapView();
-
-          // Constructeur du contrôlr de carte LeafLet
-          var baseMaps = {
-            'par défaut': L.tileLayer('')
-          };
-          baseMaps['par défaut'].addTo(map);
-          var legendMaps = {}
-
-          if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlMaps === 'undefined' || options.controlLayers.controlMaps  != true ) {
-            var option = {
-              baseMaps: null,
-              legend: legendMaps,
-              map: map,
-            };
-            buildBaseMaps(option)
-          }
-          else {
-            loadMapPicture({
-              typMap: "builDepts",
-              baseMaps: baseMaps,
-              legend: legendMaps,
-              data: indexEvent,
-              map: map,
-              callback: builDeptsCallback
-              //callback: buildBaseMaps
-            });
-          }
-
-
-          function builDeptsCallback(option) {
-            loadMapPicture({
-              typMap: "builRegs",
-              baseMaps: baseMaps,
-              legend: legendMaps,
-              data: indexEvent,
-              map: map,
-              callback: buildBaseMaps
-            });
-          }
-
-          function buildBaseMaps(option) {
-            var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
-            for (var i = 0; i < objectOverlays["overlays"].length; i++) {
-              objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
-            }
-
-            var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
-            var controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();
-            if(option["baseMaps"] !== null) controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
-            var controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
-            if (objectOverlays["overlayTitle"] != '') {
-              controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + objectOverlays["overlayTitle"] + '</div>')
-            };
-            if (objectOverlays["overlays"].length == 1) {
-              controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-separator").css("display", "none");
-              controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display", "none");
-            };
-            var baselayerName = 'par défaut';
-            map.on('baselayerchange', function(eventLayer) {
-              baselayerName = eventLayer.name;
-              map.removeControl(legendAllMarkers);
-              map.removeControl(option["legend"]["départements"]);
-              map.removeControl(option["legend"]["régions"]);
-              setDefaultMapView();
-              if (baselayerName == 'par défaut') {
-                //map.addControl(legendAllMarkers);
-                refreshIndexEvent = [];
-                for (i = 0; i < indexEvent.length; i++) {
-                  refreshIndexEvent.push(i)
-                }
-                var iconNum = refreshMarkers(refreshIndexEvent);
-                //map.removeControl(legendAllMarkers);
-                legendAllMarkers = addLegend(iconNum)
-                map.addControl(legendAllMarkers);
-              }
-              else {
-                map.addControl(option["legend"][eventLayer.name]);
-                refreshIndexEvent = [];
-              }
-              refreshMarkers(refreshIndexEvent);
-            });
-            map.on('overlayadd', function(eventLayer) {
-              console.log('adding : ' + eventLayer.name)
-              if (baselayerName == 'par défaut') {
-                for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                  if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                    objectOverlays["overlays"][k].isVisible = true;
-                  };
-                };
-                var iconNum = refreshMarkers(refreshIndexEvent);
-                map.removeControl(legendAllMarkers);
-                legendAllMarkers = addLegend(iconNum)
-                map.addControl(legendAllMarkers);
-              };
-            });
-            map.on('overlayremove', function(eventLayer) {
-              console.log('removing : ' + eventLayer.name)
-              if (baselayerName == 'par défaut') {
-                for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                  if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                    objectOverlays["overlays"][k].isVisible = false;
-                  };
-                };
-                var iconNum = refreshMarkers(refreshIndexEvent);
-                map.removeControl(legendAllMarkers);
-                legendAllMarkers = addLegend(iconNum)
-                map.addControl(legendAllMarkers);
-              };
-            });
-
-            function updateLegend() {
-              var iconNum = refreshMarkers(refreshIndexEvent);
-              map.removeControl(legendAllMarkers);
-              legendAllMarkers = addLegend(iconNum)
-              map.addControl(legendAllMarkers);
-            }
-          }
-
-          var legendAllMarkers = addLegend()
-
-          function addLegend(iconNum) {
-            if (typeof iconNum === 'undefined') {
-              iconNum = [];
-              for (i = 0; i < indexEvent.length; i++) {
-                iconNum.push(true)
-              }
-            }
-            for (var k = 0; k < iconMarkersLength; k++) {
-              iconMarkers[k].nbMapEvents = 0;
-            }
-            for (var i = 0; i < indexEvent.length; i++) {
-              if (iconNum[i]) {
-                for (var k = 0; k < iconMarkersLength; k++) {
-                  if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
-                    iconMarkers[k].nbMapEvents++;
-                  }
-                }
-              }
-            }
-            var legendAllMarkers = L.control({
-              position: 'bottomright'
-            });
-
-            legendAllMarkers.onAdd = function(map) {
-              var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
-              divlegendAllMarkers.innerHTML = '';
-              if (legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + legendTitle + '</span>';
-              for (var k = 0; k < iconMarkersLength; k++) {
-                if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-                  if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
-                    divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-                  }
-                  else {
-                    var iconVal = iconMarkers[k].icon.leaflet;
-                    divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-                  }
-                }
-              }
-              return divlegendAllMarkers;
-            };
-
-            legendAllMarkers.addTo(map);
-            return legendAllMarkers;
-          }
-
-          bannerCoord();
-
-          function bannerCoord() {
-            bannerCoord = L.control({
-              //position: 'topright'
-              position: 'bottomleft'
-            });
-
-            bannerCoord.onAdd = function(map) {
-              var divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
-              divBannerCoord.innerHTML = '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>';
-              return divBannerCoord;
-            };
-
-            bannerCoord.addTo(map);
-          }
-
-          refreshMarkers();
-
-          function refreshMarkers(refreshIndexEvent) {
-            for (var i = 0; i < indexEvent.length; i++) {
-              markers.removeLayer(indexEvent[i].marker);
-            }
-            if (typeof refreshIndexEvent === 'undefined') {
-              refreshIndexEvent = [];
-              for (i = 0; i < indexEvent.length; i++) {
-                refreshIndexEvent.push(i)
-              }
-            }
-            var iconNum = [];
-            for (var i = 0; i < refreshIndexEvent.length; i++) {
-              iconNum.push(false);
-              for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
-                  iconNum[i] = true;
-                }
-              }
-              if (iconNum[i]) {
-                markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
-              }
-              else {
-                markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
-              }
-            }
-            return iconNum;
-          }
-
-          function loadMapPicture(option) {
-            switch (option["typMap"]) {
-              case "builDepts":
-                loadClustering(option, option["data"]);
-                break;
-              case "builRegs":
-                loadClustering(option, option["data"]);
-                break;
-              default:
-                option["baseMaps"]['par défaut'] = L.tileLayer('');
-            };
-
-            /*function loadOpenstreet(option) {
-              option["baseMaps"]['par défaut'] = L.tileLayer('');
-              if (typeof option["callback"] == 'undefined') {
-                if (typeof option["map"] !== 'undefined') option["baseMaps"]['par défaut'].addTo(option["map"]);
-              }
-              else option["callback"](option);
-            };*/
-
-            function loadClustering(option) {
-              // Constructeur de la carte TopoJSON avec pays pour LeafLet
-              // ajout de l'échelle des couleurs pour les cartes TopoJSON
-              if (option["typMap"] == "builDepts") {
-                var grades = [0, 1, 3, 5, 7, 10, 15, 20];
-                //var colorDeb = '#D5E3FF';
-                //var colorFin = '#003171';
-                var colorDeb = '#FFFF00';
-                var colorFin = '#FF0000';
-                var colorStyle = '#555';
-              }
-              else {
-                var grades = [0, 20, 30, 40, 55, 60, 80, 100];
-                //var colorDeb = '#D5E3FF';
-                //var colorFin = '#003171';
-                var colorDeb = '#FFFF00';
-                var colorFin = '#FF0000';
-                var colorStyle = '#555';
-              }
-              // ajout des couche départements et régions colorées TopoJSON
-              loadMapTopoJSON(option);
-
-              function loadMapTopoJSON(option) {
-                // Usage:  Load different file types with one callback
-                // Copyright (c) 2013 Ryan Clark
-                // https://gist.github.com/rclark/5779673
-                L.TopoJSON = L.GeoJSON.extend({
-                  addData: function(jsonData) {
-                    if (jsonData.type === "Topology") {
-                      for (var key in jsonData.objects) {
-                        var geojson = topojson.feature(jsonData, jsonData.objects[key]);
-                        L.GeoJSON.prototype.addData.call(this, geojson);
-                      }
-                    }
-                    else {
-                      L.GeoJSON.prototype.addData.call(this, jsonData);
-                    }
-                  }
-                });
-                var deptsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json'
-                var regsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json'
-                Promise.all([
-                  // ressources utilisées pour construire la carte TopoSJON
-                  load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
-                  load.js('https://d3js.org/topojson.v1.min.js'),
-                  // GeoJSON des départements et régions françaises
-                  // d'après https://france-geojson.gregoiredavid.fr
-                  load.json(deptsFranceData),
-                  load.json(regsFranceData)
-                ]).then(
-                  function(values) {
-                    console.log('Everything has been loaded!');
-
-                    deptsFranceData = loadVal(values, deptsFranceData);
-                    regsFranceData = loadVal(values, regsFranceData);
-
-                    var topoLayer = new L.TopoJSON();
-                    var colorScale = chroma
-                      //.scale(['#D5E3FF', '#003171'])
-                      .scale([colorDeb, colorFin])
-                      .domain([0, 1]);
-
-                    var enterPopup = 0;
-                    if (option["typMap"] == "builDepts") {
-                      var baseMapsName = "départements";
-                      addTopoData(deptsFranceData);
-                    }
-                    else {
-                      var baseMapsName = "régions"
-                      addTopoData(regsFranceData);
-                    }
-
-                    function addTopoData(topoData) {
-
-                      topoLayer.addData(topoData);
-                      //topoLayer.addTo(map);
-                      topoLayer.eachLayer(handleLayer);
-
-                      option["legend"][baseMapsName] = L.control({
-                        position: 'bottomright'
-                      });
-                      option["legend"][baseMapsName].onAdd = function(map) {
-
-                        var div = L.DomUtil.create('div', 'info legend'), labels = [];
-
-                        // loop through our density intervals and generate a label with a colored square for each interval
-                        for (var i = grades.length - 1; i >= 0; i--) {
-                          //for (var i = 0; i < grades.length; i++) {
-                          var legColor = thisColor(grades[i] + 1)
-                          div.innerHTML +=
-                            '<i style="background:' + legColor + '"></i><span>' +
-                            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
-                        }
-
-                        return div;
-                      };
-
-                    }
-
-                    function thisColor(d) {
-                      var nbMax = grades.length;
-                      for (var i = nbMax - 1; i >= 0; i--) {
-                        if (d > grades[i]) {
-                          var retColor = colorScale(i / nbMax).hex();
-                          return retColor;
-                        }
-                      }
-                      return 'white';
-                    }
-
-
-                    function handleLayer(layer) {
-                      //var randomValue = Math.random(),
-
-                      var areaBounds = layer.getBounds();
-                      var areaCode = layer.feature.properties.code;
-                      var areaGeometry = layer.feature.geometry;
-                      var areaName = layer.feature.properties.nom;
-                      var inMarkers = [];
-                      var areaNum = getNumItems();
-                      var areaEnterCode, areaBindPopup;
-
-                      // Create an element to hold all your text and markup
-                      var container = $('<div />');
-
-                      // Delegate all event handling for the container itself and its contents to the container
-                      container.on('click', '.smallPolygonLink', function() {
-                        enterPopup = areaName;
-                        var myevent = layer["_events"];
-                        var myclick = layer["_events"]["click"][0];
-                        myclick["fn"]();
-                        //layer.unbindPopup();
-                      });
-
-                      // Insert whatever you want into the container, using whichever approach you prefer
-                      //container.html(dataPopUp);
-                      var areaDataPopUp = container[0];
-
-                      var fillColor = thisColor(areaNum);
-                      layer.setStyle({
-                        fillColor: fillColor,
-                        //fillColor: getColor,
-                        fillOpacity: 1,
-                        color: colorStyle,
-                        weight: 1,
-                        opacity: .5
-                      });
-
-                      if ("ontouchstart" in document.documentElement) {
-                        layer.on({
-                          click: touchLayer,
-                        });
-                      }
-                      else {
-                        layer.on({
-                          click: clickLayer,
-                          //mouseover: enterLayer,
-                          //mouseout: leaveLayer,
-                        });
-                      }
-
-                      map.on('overlayadd', function(eventLayer) {
-                        addingOverlay(eventLayer);
-                      });
-                      map.on('overlayremove', function(eventLayer) {
-                        removingOverlay(eventLayer);
-                      });
-
-                      function addingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
-                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                            objectOverlays["overlays"][k].isVisible = true;
-                          };
-                        };
-                        areaNum = getAreaNum(inMarkers);
-                        fillColor = thisColor(areaNum);
-                        layer.setStyle({
-                          fillColor: fillColor,
-                        });
-                        container.html(dataPopUp);
-                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
-                      }
-
-                      function removingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
-                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                            objectOverlays["overlays"][k].isVisible = false;
-                          };
-                        };
-                        areaNum = getAreaNum(inMarkers);
-                        fillColor = thisColor(areaNum);
-                        layer.setStyle({
-                          fillColor: fillColor,
-                        });
-                        container.html(dataPopUp);
-                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
-                      }
-
-                      function getAreaNum(refreshIndexEvent) {
-                        var getAreaNumReturn = 0;
-                        if (typeof refreshIndexEvent === 'undefined') {
-                          refreshIndexEvent = [];
-                          for (i = 0; i < indexEvent.length; i++) {
-                            refreshIndexEvent.push(i)
-                          }
-                        }
-                        for (var i = 0; i < refreshIndexEvent.length; i++) {
-                          var isInMarkers = false;
-                          for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                            if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
-                              isInMarkers = true;
-                            }
-                          }
-                          if (isInMarkers) {
-                            getAreaNumReturn++;
-                          }
-                        }
-                        return getAreaNumReturn;
-                      }
-
-                      function dataPopUp() {
-                        var popupContent = $("<div></div>");
-                        var popupBody = $("<div class='popBody'></div>");
-                        popupContent.append(popupBody);
-                        popupBody.append("<div class='popLieux' style='background-color:" + thisColor(areaNum) + "'>" + areaName + "</div>");
-                        switch (areaNum) {
-                          case 0:
-                            popupBody.append("<div class='popItem'><span class='popTitle'>Aucun &#232;tablissement concern&#232;</span><br></div>");
-                            break;
-                          case 1:
-                            popupBody.append("<div class='popItem'><span class='popTitle'>Un &#232;tablissement concern&#232;</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
-                            break;
-                          default:
-                            popupBody.append("<div class='popItem'><span class='popTitle'>Nombre d&#39;&#232;tablissements concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
-                        };
-                        return popupContent.html();
-                      }
-
-                      function getNumItems() {
-                        var d = 0;
-                        //var dbis = 0;
-                        for (var idx = 0; idx < option["data"].length; idx++) {
-                          //var isinsideD = false;
-                          //var isinsideD2 = false;
-                          if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                            inMarkers.push(idx);
-                            d += 1;
-                            //isinsideD2 = true;
-                          }
-                          /*if (typeof option["data"][idx].INSEEdept !== 'undefined' && areaCode == option["data"][idx].INSEEdept) {
-                            isinsideD = true;
-                          }
-                          if(isinsideD !== isinsideD2) {
-                            console.log('les deux méthodes donnent des résultats différents pour le point : COMMUNE = ' + option["data"][idx].COMMUNE + ' LIEUX = ' + option["data"][idx].LIEUX + ' x = ' + option["data"][idx].lng + ' y = ' + option["data"][idx].lat+ ' d = ' + isinsideD + ' et dbis = ' + isinsideD2);
-                          }*/
-                        }
-                        /*if (d !== dbis) {
-                          var dString = d.toString();
-                          var dbisString = dbis.toString();
-                          console.log('les deux méthodes donnent des résultats différents pour le département ' + areaCode + ' d = ' + dString + ' et dbis = ' + dbisString);
-                        }*/
-                        return d;
-
-                        function inside(point, TopoGeom) {
-                          var insideVal = false;
-                          if (TopoGeom["type"] == "MultiPolygon") {
-                            for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
-                              var polygon = TopoGeom["coordinates"][i][0];
-                              // Le point est-il dans le polygone
-                              if (isInsidePolygon(point, polygon)) {
-                                insideVal = true;
-                                for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
-                                  var polygon = TopoGeom["coordinates"][i][j];
-                                  // Le point est-il dans l'un des trous du polygone
-                                  if (isInsidePolygon(point, polygon)) {
-                                    insideVal = false;
-                                  }
-                                }
-                              }
-                            }
-                          }
-                          else {
-                            var polygon = TopoGeom["coordinates"][0];
-                            // Le point est-il dans le polygone
-                            if (isInsidePolygon(point, polygon)) {
-                              insideVal = true;
-                              for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
-                                var polygon = TopoGeom["coordinates"][j];
-                                // Le point est-il dans l'un des trous du polygone
-                                if (isInsidePolygon(point, polygon)) {
-                                  insideVal = false;
-                                }
-                              }
-                            }
-                          }
-
-                          return insideVal;
-                          // ray-casting algorithm based on
-                          // https://github.com/substack/point-in-polygon/blob/master/index.js
-
-                          function isInsidePolygon(point, vs) {
-                            var x = point[0],
-                              y = point[1];
-
-                            var inside = false;
-                            for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-                              var xi = vs[i][0],
-                                yi = vs[i][1];
-                              var xj = vs[j][0],
-                                yj = vs[j][1];
-
-                              var intersect = ((yi > y) != (yj > y)) &&
-                                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-                              if (intersect) inside = !inside;
-                            }
-
-                            return inside;
-
-                          }
-                        }
-                      }
-
-                      function touchLayer() {
-
-                        //clickLayer()
-                        this.bindPopup(areaPopup, {
-                          setLatLng: areaBounds.getCenter(),
-                          sticky: true,
-                          maxHeight: 160,
-                          maxWidth: 400,
-                          minWidth: 250
-                        }).openPopup();
-                        this.getPopup().on('remove', function() {});
-                      }
-
-                      //function enterLayer() {}
-
-                      function clickLayer() {
-                        if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
-                        if (enterPopup != areaName) {
-                          // Insert whatever you want into the container, using whichever approach you prefer
-                          this.bindPopup(areaDataPopUp).openPopup();
-                          var areaPopup = this.getPopup();
-                          areaPopup.setLatLng(areaBounds.getCenter());
-                          return;
-                        }
-                        map.closePopup();
-                        refreshIndexEvent = inMarkers;
-                        refreshMarkers(refreshIndexEvent);
-                        layer.setStyle({
-                          fillOpacity: 0
-                        });
-                        areaBindPopup = this['unbindPopup'];
-                        if (typeof areaBindPopup !== 'undefined') {
-                          this.unbindPopup();
-                        }
-                        enterPopup = 0;
-                        option["map"].fitBounds(areaBounds, {
-                          padding: [100, 100]
-                        });
-                        var _this = layer;
-                        onSetDefaultMapView = function() {
-                          //_this.getPopup().remove();
-                          _this.setStyle({
-                            fillOpacity: 1
-                          });
-                          //removeAreaMarkers();
-                          refreshMarkers([]);
-                        }
-                      }
-
-                      //function leaveLayer() {);
-                    }
-
-                    option["baseMaps"][baseMapsName] = topoLayer;
-                    if (typeof option["callback"] == 'undefined') {
-                      if (option["typMap"] == "builDepts") {
-                        if (typeof option["map"] !== 'undefined') option["baseMaps"]['départements'].addTo(option["map"]);
-                      }
-                      else {
-                        if (typeof option["map"] !== 'undefined') option["baseMaps"]['régions'].addTo(option["map"]);
-                      }
-                    }
-                    else option["callback"](option);
-
-                  }
-                )
-                /*.catch(function() {
-                                console.log('Oh no, epic failure!');
-                              });*/
-              };
-            };
-          };
-
-          var searchControl = L.esri.Geocoding.geosearch().addTo(map);
-
-          var results = L.layerGroup().addTo(map);
-
-          var redIcon = new L.Icon({
-            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-            iconSize: [13, 20],
-            iconAnchor: [6, 20],
-            popupAnchor: [1, -17],
-            shadowSize: [20, 20]
-          });
-          searchControl.on('results', function(data) {
-            results.clearLayers();
-            for (var i = data.results.length - 1; i >= 0; i--) {
-              results.addLayer(L.marker(data.results[i].latlng, {
-                icon: redIcon
-              }));
-            }
-          });
-
-          return map;
-          // Constructeur de la carte LeafLet
-          function loadMap(idMap) {
-            L.map(idMap).remove();
-            var map = L.map(idMap);
-            switch (options.fondCarte) {
-              case 'IGN':
-                loadIGN();
-
-                function loadIGN() {
-                  Promise.all([
-                    // Début ressources utilisées pour construire la carte IGN
-                    load.js('https://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'),
-                    load.css('https://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.css'),
-                    load.js('https://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.js'),
-                    load.css('https://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css'),
-                    // Fin ressources utilisées pour construire la carte IGN
-
-                  ]).then(
-                    function() {
-                      console.log('Everything has loaded!');
-
-                      // accés au Geoportail
-                      Gp.Services.getConfig({
-                        // clé d'accès aux ressources gratuites de l'IGN récupérée sur le compte fiddle de l'IGN"
-                       apiKey: "f5cse26aiqvu6j4xqtngh5zh",
-                        // clé d'accès aux ressources gratuites de l'IGN sécurisée par referer "https://philquand.github.io/"
-                        //apiKey: "85iagcmek80ofvkhz7komcga",
-                        onSuccess: go
-                      });
-
-                      function go() {
-                        var layer = L.geoportalLayer.WMTS({
-                          layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
-                        });
-                        layer.addTo(map);
-                      }
-                    }).catch(function() {
-                    console.log('Oh no, epic failure!');
-                  });
-
-                };
-                break;
-              case 'mapbox':
-                loadMapbox();
-
-                function loadMapbox() {
-                  // Usage:  Load different file types with one callback
-                  Promise.all([
-                    // Début ressources utilisées pour construire la carte MapBox
-                    load.js('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'),
-                    load.css('https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css'),
-                    load.js('https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js'),
-                    // Fin ressources utilisées pour construire la carte mondiale colorée MapBox
-
-                  ]).then(
-                    function() {
-                      console.log('Everything has loaded!');
-
-                      var mapboxAccessToken = 'pk.eyJ1IjoicGhpbHF1YW5kIiwiYSI6ImNraTRyZ2d0ZTBzamEycXN5dzcybW00OHQifQ.wAs5l5LUQbq7lcSBNwHOLA';
-
-                      /*
-                      // Downsample tiles for faster load times on slow internet connections by
-                      // adjusting the format property in styleLayer. See
-                      // https://docs.mapbox.com/api/maps/#static-tiles for all format options.
-                      L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11', {
-                        tileLayer: {
-                          format: 'jpg70'
-                        }
-                      }).addTo(map);
-                      */
-                      var layer = L.mapboxGL({
-                        accessToken: mapboxAccessToken,
-                        // get your own MapTiler token at https://cloud.maptiler.com/ or use MapBox style
-                        //style: 'https://api.maptiler.com/maps/basic/style.json?key=gbetYLSD5vR8MdtZ88AQ'
-                        style: 'mapbox://styles/mapbox/streets-v11',
-                      });
-                      layer.addTo(map);
-                    }).catch(function() {
-                    console.log('Oh no, epic failure!');
-                  });
-                };
-                break;
-              default:
-                var layer = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                  attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-                })
-                layer.addTo(map);
-            }
-
-            map.addControl(new L.Control.Fullscreen({
-              title: {
-                'false': 'Voir en plein écran',
-                'true': 'Quitter le plein écran'
-              }
-            }));
-
-            map.createPane('labels');
-
-            // This pane is above markers but below popups
-            map.getPane('labels').style.zIndex = 650;
-
-            // Layers in this pane are non-interactive and do not obscure mouse/touch events
-            map.getPane('labels').style.pointerEvents = 'none';
-
-
-            return map;
-
-          };
-
-          function zoomRemove(map) {
-            //remove zoom functions
-            map.removeControl(map.zoomControl);
-            map.touchZoom.disable();
-            map.doubleClickZoom.disable();
-            map.scrollWheelZoom.disable();
-            map.boxZoom.disable();
-            map.keyboard.disable();
-          }
-
-        }
         var map_invalidateSize = function() {
           map.invalidateSize();
         }
         $('.leaflet-control-zoom').wrap('<div class="topLeftControls"></div>');
         $('.geocoder-control.leaflet-control').appendTo($('.topLeftControls'));
         return map_invalidateSize
+      }
+
+      var runTableAndButton = function() {
+        if (typeof options.popupData.properties !== 'undefined' || typeof options.tableData !== 'undefined') {
+          var btData = $('<button type="button" class="styled" id="btData"></button>')
+          $("#infoMap-wrapper").prepend(btData);
+          btData.click(function(e) {
+            if ($('#btData').html() == 'Carte') {
+              btDataCarte(map_invalidateSize);
+            }
+            else {
+              btDataTable();
+            }
+          });
+          btDataCarte(map_invalidateSize);
+
+          function btDataTable() {
+            $('#btData').html('Carte');
+            //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+            $('#infoMap-wrapper > #infoMap').css('display', 'none')
+            $('#table_wrapper').css('display', 'block')
+            //$('#table').css('display', 'block')
+          }
+
+          function btDataCarte(map_invalidateSize) {
+            $('#btData').html('Données');
+            //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+            $('#infoMap-wrapper > #infoMap').css('display', 'block')
+            map_invalidateSize();
+            $('#table_wrapper').css('display', 'none')
+            //$('#table').css('display', 'none')
+          }
+          runTable(indexEvent);
         }
+      };
+      if(typeof options.tableData === 'undefined' || options.tableData.asyncComp != true ) runTableAndButton();
       function runTable(data) {
 
         var tableColums = [];
@@ -1950,8 +2108,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }*/
           initComplete: initComplete
         });
-      }
-    }
+      };
+    };
   }
 };
 })(jQuery);
@@ -1967,8 +2125,234 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   // fin spécial pour le site de la CN
 
 
-  optionsVersion1 = {
-    //data: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+  optionsEtabScore = {
+    data: {
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScoreWithDeptsAndRegs.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
+
+      geolocData: function geolocData(iData, iVar) {
+        var lieu = '';
+        if(iData[iVar].adresse1 != null) lieu += iData[iVar].adresse1 + '<br>';
+        if(iData[iVar].adresse2 != null) lieu += iData[iVar].adresse2 + '<br>';
+        if(lieu != '') lieu += iData[iVar].ville;
+        else lieu = iData[iVar].ville;
+        lieu += ', ' + iData[iVar].cp;
+        iData[iVar].lieu = lieu;
+        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
+        var lieux = '';
+        //lieux += iData[iVar].nom;
+        if(iData[iVar].adresse1 != null) lieux += iData[iVar].adresse1 + ', ';
+        if(iData[iVar].adresse2 != null) lieux += iData[iVar].adresse2 + ', ';
+        if(lieux != '') lieux += iData[iVar].ville + ', ';
+        else lieux = iData[iVar].ville + ', ';
+        lieux += iData[iVar].cp + ', ';
+        lieux += 'France';
+        return lieux;
+      },
+      geolocError: function geolocData(error, data) {
+        console.log(error);
+        console.log(data);
+      },
+    },
+    //fondCarte : 'IGN',
+    popupData : {
+      title: 'nom',
+      properties: ["lieu", "statut", "type"]
+    },
+    tableData: {
+      properties: [{
+        name: 'nom',
+        //filter: 'selection'
+      }, {
+        name: 'lieu',
+        //filter: 0
+      }, {
+        name: 'département',
+        filter: 'selection'
+      }, {
+        name: 'région',
+        filter: 'selection'
+      }, {
+        name: 'statut',
+        filter: 'selection'
+      }, {
+       name: 'type',
+        filter: 'selection'
+      }],
+      filters: [{
+        data: [{
+          value: 'avec valeur',
+          label: 'Avec valeur'
+        }, {
+          value: 'sans valeur',
+          label: 'Sans valeur'
+        }],
+        func: (filterVal, columnVal) => {
+          switch (filterVal) {
+            case 'sans valeur':
+              if (columnVal === '') {
+                return true;
+              }
+              else return false;
+              break;
+            default:
+              if (columnVal !== '') {
+                return true;
+              }
+              else return false;
+              break;
+          }
+        }
+      }],
+      //asyncComp: true,
+    },
+    controlLayers: {
+      controlMaps: {
+        on: true,
+        gradeDepts: [0, 5, 10, 15, 20, 30, 40, 100],
+        gradeRegs: [0, 100, 150, 200, 250, 300, 350]
+        },
+      controlOverlays: {
+        title: "Type d'établissements",
+        overlays: [{
+            title: 'publics',
+            isInGroup: data => {
+              if(data['statut'] == 'Public') return true;
+              else return false
+            }
+          },
+          {
+            title: 'privés',
+            isInGroup: function(data) {
+              if(data['statut'] !== 'Public') return true;
+              else return false
+            }
+          },
+        ]
+      }
+    },
+    legend: {
+      title: 'Établissements',
+      test: function(){},
+      affect: function(data) {
+        if (data['statut'] == 'Public') {
+          return 0;
+        }
+        else if (data['statut'] == 'Privé') {
+          return 1;
+        }
+        else if (data['statut'] == 'Privé à but non lucratif') {
+          return 2;
+        }
+        else return 3;
+      },
+      icons: [
+        /*{
+          icon: {leaflet: new L.Icon({
+            iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-gold.png',
+            shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+            iconSize: [13, 20],
+            iconAnchor: [6, 20],
+            popupAnchor: [1, -17],
+            shadowSize: [20, 20]
+          })},
+          title: 'publics',
+          colorBG: '#FFD326',
+          colorFG: '#0E0E0E',
+        },*/
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'publics',
+          colorBG: '#2781CA',
+          colorFG: '#FFFFFF',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'privés',
+          colorBG: '#9C2BCB',
+          colorFG: '#F8F8F8',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'privés non lucratifs',
+          colorBG: '#29AD27',
+          colorFG: '#FFFFFF',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'autres',
+          colorBG: '#1E77C8',
+          colorFG: '#FFFFFF',
+        }
+      ]
+    },
+    banner: '<center style="padding: 1em; text-align: center; background-color: #F0EEE7; width: 100%; height: auto;"> \
+             Source: HAS / <a href="https://www.scopesante.fr/#/">www.scopesante.fr</a><br> \
+             mise à jour le 13/03/2020<br> \
+             et disponible sur <a href="https://www.data.gouv.fr/fr/datasets/extraction-des-donnees-du-site-scopesante-de-la-has/#_">data.gouv.fr</a> \
+             </center>',
+  };
+  optionsTESTInnerFormedData = {
+    data: {
+      //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+
+      geolocData: function geolocData(iData, iVar) {
+        if (typeof iData[iVar].LATITUDE !== 'undefined') {
+          if(iData[iVar].LATITUDE != '') iData[iVar].lat = iData[iVar].LATITUDE;
+          delete iData[iVar].LATITUDE;
+        }
+        if (typeof iData[iVar].LONGITUDE !== 'undefined') {
+          if(iData[iVar].LONGITUDE != '') iData[iVar].lng = iData[iVar].LONGITUDE;
+          delete iData[iVar].LONGITUDE;
+        }
+        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
+        var lieux = iData[iVar].COMMUNE + ',' + iData[iVar].INSEE;
+        if (!isNaN(iData[iVar])) lieux += ', France';
+        return lieux;
+      },
+      geolocDataWithINSEE: true
+    },
     //fondCarte : 'IGN',
     popupData : {
       title: 'COMMUNE',
@@ -2021,7 +2405,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }]
     },
     controlLayers: {
-      controlMaps: true,
+      controlMaps: {on: true},
       controlOverlays: {
         title: 'Établissements avec',
         overlays: [{
@@ -2087,8 +2471,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
-  $('#Fermetures').mapAllBlogs(optionsVersion1);
-  //$('#Fermetures').mapAllBlogs();
+  //$('#Fermetures').mapAllBlogs(optionsEtabScore);
+  $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
 
 })(jQuery);
 </script>

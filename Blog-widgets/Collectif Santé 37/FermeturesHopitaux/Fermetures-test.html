@@ -210,6 +210,28 @@
 };*/
 </style>
 <script>
+var clone = originalObject => { return jQuery.extend(true, {}, originalObject); }
+/*var clone = originalObject => {
+  if ((typeof originalObject !== 'object') || originalObject === null) {
+    throw new TypeError("originalObject parameter must be an object which is not null");
+  }
+
+  var deepCopyArg = JSON.stringify(originalObject);
+  var deepCopy = JSON.parse(deepCopyArg);
+
+  // Une petite récursivité 
+  function deepProto(originalObject, deepCopy) {
+    deepCopy.__proto__ = Object.create(originalObject.constructor.prototype);
+    for (var attribute in originalObject) {
+      if (typeof originalObject[attribute] === 'object' && originalObject[attribute] !== null) {
+        deepProto(originalObject[attribute], deepCopy[attribute]);
+      }
+    }
+  }
+  deepProto(originalObject, deepCopy);
+
+  return deepCopy;
+}*/ 
 (function($) {
 $.fn.mapAllBlogs = function(optionsPlugIn) {
   var loading = $('<div id="loading"/>');
@@ -707,23 +729,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }*/
       console.log('achieved');
 
-      if ($('#dataStore').length == 0) {
-        var dataStore = $('<div id="dataStore" style="display:none"></div>')
-        $('#infoMap-wrapper').prepend(dataStore)
-      }
-      else var dataStore = $('#dataStore');
-      var valGeoJSON = getGeoJSONFromData(indexEvent);
-      dataStore.html(JSON.stringify(valGeoJSON));
-
-      if ($('#optStore').length == 0) {
-        var optStore = $('<div id="optStore" style="display:none"></div>')
-        $('#infoMap-wrapper').prepend(optStore)
-      }
-      else var optStore = $('#optStore');
-      var optStoreSTR = stringifyJSO2V(options, 'options');
-      optStore.html(optStoreSTR);
-
-
       function getGeoJSONFromData(indexEvent) {
         var valGeoJSON = {};
         valGeoJSON["type"] = "FeatureCollection";
@@ -943,6 +948,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
 
             function buildBaseMaps(option) {
+              saveData();
               var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
               for (var i = 0; i < objectOverlays["overlays"].length; i++) {
                 objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
@@ -1018,7 +1024,32 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 legendAllMarkers = addLegend(iconNum)
                 map.addControl(legendAllMarkers);
               }
-            }
+            };
+            
+            function saveData() {
+              if ($('#dataStore').length == 0) {
+                var dataStore = $('<div id="dataStore" style="display:none"></div>')
+                $('#infoMap-wrapper').prepend(dataStore)
+              }
+              else var dataStore = $('#dataStore');
+
+              var valGeoJSON = getGeoJSONFromData(indexEvent);
+              for (i = 0; i < valGeoJSON["features"].length; i++) {
+                delete valGeoJSON["features"][i]["properties"]["iconMarker"];
+                delete valGeoJSON["features"][i]["properties"]["marker"];
+                delete valGeoJSON["features"][i]["properties"]["doc"];
+              };              
+              dataStore.html(JSON.stringify(valGeoJSON));
+
+              if ($('#optStore').length == 0) {
+                var optStore = $('<div id="optStore" style="display:none"></div>')
+                $('#infoMap-wrapper').prepend(optStore)
+              }
+              else var optStore = $('#optStore');
+              var optStoreSTR = stringifyJSO2V(options, 'options');
+              optStore.html(optStoreSTR);
+            };
+
           };
 
           var legendAllMarkers = addLegend()
@@ -1376,6 +1407,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                           //var isinsideD = false;
                           //var isinsideD2 = false;
                           if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
+                            if( baseMapsName == "départements") option["data"][idx].département = areaName;
+                            else option["data"][idx].région = areaName;
                             inMarkers.push(idx);
                             d += 1;
                             //isinsideD2 = true;
@@ -2103,8 +2136,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
         var lieu = '';
@@ -2144,7 +2177,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         name: 'statut',
         filter: 'selection'
       }, {
-        name: 'type',
+       name: 'type',
         filter: 'selection'
       }],
       filters: [{

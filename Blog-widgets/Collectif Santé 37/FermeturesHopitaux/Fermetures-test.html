@@ -443,10 +443,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               .run(function(error, results, response) {
                 var _this = this
                 if (error) {
-                  console.log(error);
-                  console.log(lieux);
-                  return;
-                }
+                  if (typeof options.geolocError === 'function') options.geolocError(error, data[indexLoc])
+                  else {
+                    console.log(error);
+                    console.log(lieux);
+                  };
+                  //return;
+                } else {
                 //if (!error && typeof results.results !== 'undefined') {
                 if (!error && results.results.length > 0) {
                   indexRes++;
@@ -454,8 +457,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   data[indexLoc].lng = results.results[0].latlng.lng;
                 }
                 else {
-                  data[indexLoc].doc = 'Failed geoloc';
-                }
+                  if (typeof options.geolocError === 'function') options.geolocError("Problème d'accés au résultat de géolocalisation :", data[indexLoc])
+                  else {
+                    console.log(error);
+                    console.log(lieux);
+                  };
+                }}
                 checkIfEnd();
               });
           }
@@ -2109,12 +2116,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
         var lieux = '';
         //lieux += iData[iVar].nom;
-        lieux += iData[iVar].ville + ', ';
         if(iData[iVar].adresse1 != null) lieux += iData[iVar].adresse1 + ', ';
         if(iData[iVar].adresse2 != null) lieux += iData[iVar].adresse2 + ', ';
+        lieux += iData[iVar].ville + ', ';
         lieux += iData[iVar].cp + ', ';
         lieux += 'France';
         return lieux;
+      },
+      geolocError: function geolocData(error, data) {
+        console.log(error);
+        console.log(data);
       },
     },
     //fondCarte : 'IGN',

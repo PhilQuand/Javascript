@@ -732,38 +732,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
-      if (typeof options.popupData.properties !== 'undefined' || typeof options.tableData !== 'undefined') {
-        var btData = $('<button type="button" class="styled" id="btData"></button>')
-        $("#infoMap-wrapper").prepend(btData);
-        btData.click(function(e) {
-          if ($('#btData').html() == 'Carte') {
-            btDataCarte(map_invalidateSize);
-          }
-          else {
-            btDataTable();
-          }
-        });
-        btDataCarte(map_invalidateSize);
-
-        function btDataTable() {
-          $('#btData').html('Carte');
-          //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
-          $('#infoMap-wrapper > #infoMap').css('display', 'none')
-          $('#table_wrapper').css('display', 'block')
-          //$('#table').css('display', 'block')
-        }
-
-        function btDataCarte(map_invalidateSize) {
-          $('#btData').html('Données');
-          //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
-          $('#infoMap-wrapper > #infoMap').css('display', 'block')
-          map_invalidateSize();
-          $('#table_wrapper').css('display', 'none')
-          //$('#table').css('display', 'none')
-        }
-        runTable(indexEvent);
-      }
-      
       function runMap(indexEvent) {
 
         var iconMarkers = iconMarkersBuilder(indexEvent);
@@ -929,7 +897,38 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
             function buildBaseMaps(option) {
               saveData();
-              var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
+      if (typeof options.popupData.properties !== 'undefined' || typeof options.tableData !== 'undefined') {
+        var btData = $('<button type="button" class="styled" id="btData"></button>')
+        $("#infoMap-wrapper").prepend(btData);
+        btData.click(function(e) {
+          if ($('#btData').html() == 'Carte') {
+            btDataCarte(map_invalidateSize);
+          }
+          else {
+            btDataTable();
+          }
+        });
+        btDataCarte(map_invalidateSize);
+
+        function btDataTable() {
+          $('#btData').html('Carte');
+          //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
+          $('#infoMap-wrapper > #infoMap').css('display', 'none')
+          $('#table_wrapper').css('display', 'block')
+          //$('#table').css('display', 'block')
+        }
+
+        function btDataCarte(map_invalidateSize) {
+          $('#btData').html('Données');
+          //$('#infoMap-wrapper > :not(#btData)').css('display', 'block')
+          $('#infoMap-wrapper > #infoMap').css('display', 'block')
+          map_invalidateSize();
+          $('#table_wrapper').css('display', 'none')
+          //$('#table').css('display', 'none')
+        }
+        runTable(indexEvent);
+      }
+                    var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
               for (var i = 0; i < objectOverlays["overlays"].length; i++) {
                 objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
               }
@@ -2116,14 +2115,14 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
         var lieu = '';
         if(iData[iVar].adresse1 != null) lieu += iData[iVar].adresse1 + '<br>';
         if(iData[iVar].adresse2 != null) lieu += iData[iVar].adresse2 + '<br>';
-        if(lieu != null) lieu += iData[iVar].ville;
+        if(lieu != '') lieu += iData[iVar].ville;
         else lieu = iData[iVar].ville;
         lieu += ', ' + iData[iVar].cp;
         iData[iVar].lieu = lieu;
@@ -2132,7 +2131,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         //lieux += iData[iVar].nom;
         if(iData[iVar].adresse1 != null) lieux += iData[iVar].adresse1 + ', ';
         if(iData[iVar].adresse2 != null) lieux += iData[iVar].adresse2 + ', ';
-        if(lieux != null) lieux += iData[iVar].ville + ', ';
+        if(lieux != '') lieux += iData[iVar].ville + ', ';
         else lieux = iData[iVar].ville + ', ';
         lieux += iData[iVar].cp + ', ';
         lieux += 'France';
@@ -2155,12 +2154,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }, {
         name: 'lieu',
         //filter: 0
-      }, {
+      /*}, {
         name: 'département',
         filter: 'selection'
       }, {
         name: 'région',
-        filter: 'selection'
+        filter: 'selection'*/
       }, {
         name: 'statut',
         filter: 'selection'

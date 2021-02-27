@@ -269,7 +269,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
               var data = getDataFromJSON(procData);
               if (typeof data !== 'undefined') {
-                if (isGeoJSON(procData)) {
+                if (isGeoJSON(procData) && typeof options.data.dataTransformer !== 'function') {
                   runData(data);
                 }
                 else {
@@ -429,7 +429,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               add2Layer(indexCal)
             }
             else {
-              runData(data);
+              if( typeof options.data.dataTransformer === 'function') {
+                options.data.dataTransformer(data, runData);
+              } else runData(data);
             }
           }
         }
@@ -623,7 +625,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
                     if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
                   }
-                  runData(data);
+                  if( typeof options.data.dataTransformer === 'function') {
+                    options.data.dataTransformer(data, runData);
+                  } else runData(data);
                 }
               };
             };
@@ -662,8 +666,21 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         loading.find('p').html('Les données de type COMMUNE et INSEE ont été exportées avec succés');
       }*/
       console.log('achieved');
+      
+      var asyncCompTableData = checkForAsyncCompTableData(indexEvent);
+      function checkForAsyncCompTableData(data) {
+        if (typeof options.tableData === 'undefined' || !jQuery.isArray(options.tableData.properties)) return false;
+        for (var i = 0; i < options.tableData.properties.length; i++) {
+          if (options.tableData.properties[i].name == "département" || options.tableData.properties[i].name == "région") {
+            for (var j = 0; j < data.length; j++) {
+              if (typeof data[j]["département"] === 'undefined' || typeof data[j]["région"] === 'undefined') return true;
+            }
+          }
+        }
+        return false;
+      };
 
-      if(typeof options.tableData === 'undefined' || options.tableData.asyncComp != true ) saveData();
+      if(!asyncCompTableData ) saveData();
       function saveData(setCallBack) {
         if ($('#dataStore').length == 0) {
           var dataStore = $('<div id="dataStore" style="display:none"></div>')
@@ -839,7 +856,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           baseMaps['par défaut'].addTo(map);
           var legendMaps = {}
 
-          if (typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true) {
+          if (asyncCompTableData) {
             for (var i = 0; i < indexEvent.length; i++) {
               indexEvent[i]["département"] = "non défini";
               indexEvent[i]["région"] = "non définie";
@@ -883,7 +900,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
 
             function buildBaseMaps(option) {
-              if(typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true ) saveData(runTableAndButton);
+              if(asyncCompTableData) saveData(runTableAndButton);
               var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
               for (var i = 0; i < objectOverlays["overlays"].length; i++) {
                 objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
@@ -1318,7 +1335,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                           //var isinsideD = false;
                           //var isinsideD2 = false;
                           if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                            if (typeof options.tableData !== 'undefined' && options.tableData.asyncComp == true) {
+                            if (asyncCompTableData) {
                               if (baseMapsName == "départements") option["data"][idx].département = areaName;
                               else option["data"][idx].région = areaName;
                             }
@@ -1906,7 +1923,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           runTable(indexEvent);
         }
       };
-      if(typeof options.tableData === 'undefined' || options.tableData.asyncComp != true ) runTableAndButton();
+      if(!asyncCompTableData ) runTableAndButton();
       function runTable(data) {
 
         var tableColums = [];
@@ -2082,9 +2099,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     data: {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScoreWithDeptsAndRegs.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScoreWithDeptsAndRegs.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2110,6 +2127,32 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         console.log(error);
         console.log(data);
       },
+      dataTransformer: function(inputData, setCallBack) {
+var isValidUrl = function validURL(url) {
+   var urlTest = url;
+   var re = / /gi;
+   var urlTest = urlTest.replace(re, "");
+   /*var re = /é/gi;
+   var urlTest = urlTest.replace(re, "");*/
+   return /^(https?|s?ftp?file):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(urlTest);
+}
+        var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.json';
+        loadFromJSON(outputData,
+          (procData) => {
+            var data = getDataFromJSON(procData);
+            if (typeof data !== 'undefined') {
+              for (var i = 0; i < inputData.length; i++) {
+                inputData[i].newproperty = "nouvelle propriété";
+              }
+              if (typeof setCallBack === 'function') setCallBack(inputData);
+            }
+          },
+          (err) => {
+            console.log(err.message);
+            //loading.html(err.message);
+          }
+        );
+      }
     },
     fondCarte : 'IGN',
     popupData : {
@@ -2124,12 +2167,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         name: 'lieu',
         //filter: 0
       }, {
-        name: 'département',
+        name: 'newproperty',
+        //filter: 0
+      }, {
+        /*name: 'département',
         filter: 'selection'
       }, {
         name: 'région',
         filter: 'selection'
-      }, {
+      }, {*/
         name: 'statut',
         filter: 'selection'
       }, {
@@ -2161,7 +2207,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }
         }
       }],
-      //asyncComp: true,
     },
     controlLayers: {
       controlMaps: {

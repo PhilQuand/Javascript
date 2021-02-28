@@ -2128,10 +2128,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         console.log(data);
       },
       dataTransformer: function(inputData, setCallBack) {
-        var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.json';
-        loadFromJSON(outputData,
+        var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
+        loadFromJS(outputData,
           (procData) => {
-            var data = getDataFromJSON(procData);
+            //var data = this["data"];
             if (typeof data !== 'undefined') {
               for (var i = 0; i < inputData.length; i++) {
                 inputData[i].newproperty = "nouvelle propriété";

@@ -1925,6 +1925,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 if (properties[i]['filter'] == 'selection') {
                   item['column_number'] = i;
                   item['filter_default_label'] = "Sélectionnez";
+                  item['filter_match_mode'] = "exact";
                 }
                 else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
                   if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
@@ -2174,7 +2175,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
           },
           {
-            title: 'privés',
+            title: 'privés lucratifs',
             isInGroup: function(data) {
               if(data['statut'] == 'Privé') return true;
               else return false

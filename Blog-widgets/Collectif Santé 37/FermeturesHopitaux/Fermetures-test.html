@@ -1942,6 +1942,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 if (properties[i]['filter'] == 'selection') {
                   item['column_number'] = i;
                   item['filter_default_label'] = "Sélectionnez";
+                  item['filter_match_mode'] = "exact";
                 }
                 else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
                   if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
@@ -2099,9 +2100,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     data: {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScoreWithDeptsAndRegs.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScoreWithDeptsAndRegs.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2127,7 +2128,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         console.log(error);
         console.log(data);
       },
-      dataTransformer: function(inputData, setCallBack) {
+      /*dataTransformer: function(inputData, setCallBack) {
         var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
         loadFromJS(outputData,
           (procData) => {
@@ -2144,7 +2145,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             //loading.html(err.message);
           }
         );
-      }
+      }*/
     },
     fondCarte : 'IGN',
     popupData : {
@@ -2159,15 +2160,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         name: 'lieu',
         //filter: 0
       }, {
-        name: 'newproperty',
+        /*name: 'newproperty',
         //filter: 0
-      }, {
-        /*name: 'département',
+      }, {*/
+        name: 'département',
         filter: 'selection'
       }, {
         name: 'région',
         filter: 'selection'
-      }, {*/
+      }, {
         name: 'statut',
         filter: 'selection'
       }, {
@@ -2206,7 +2207,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         gradeDepts: [0, 5, 10, 15, 20, 30, 40, 100],
         gradeRegs: [0, 100, 150, 200, 250, 300, 350]
         },
-      controlOverlays: {
+      /*controlOverlays: {
         title: "Type d'établissements",
         overlays: [{
             title: 'publics',
@@ -2219,6 +2220,31 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             title: 'privés',
             isInGroup: function(data) {
               if(data['statut'] !== 'Public') return true;
+              else return false
+            }
+          },
+        ]
+      }*/
+      controlOverlays: {
+        title: "Type d'établissements",
+        overlays: [{
+            title: 'publics',
+            isInGroup: data => {
+              if(data['statut'] == 'Public') return true;
+              else return false
+            }
+          },
+          {
+            title: 'privés lucratifs',
+            isInGroup: function(data) {
+              if(data['statut'] == 'Privé') return true;
+              else return false
+            }
+          },
+          {
+            title: 'privés non lucratifs',
+            isInGroup: function(data) {
+              if(data['statut'] == 'Privé à but non lucratif') return true;
               else return false
             }
           },

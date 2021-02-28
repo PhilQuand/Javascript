@@ -2176,7 +2176,14 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           {
             title: 'privés',
             isInGroup: function(data) {
-              if(data['statut'] !== 'Public') return true;
+              if(data['statut'] == 'Privé') return true;
+              else return false
+            }
+          },
+          {
+            title: 'privés non lucratifs',
+            isInGroup: function(data) {
+              if(data['statut'] == 'Privé à but non lucratif') return true;
               else return false
             }
           },

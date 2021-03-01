@@ -419,21 +419,11 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     console.log(lieux);
                   };
                 }}
-                checkIfEnd();
+                checkIfEnd(indexCal, indexEnd, add2Layer);
               });
           }
-          else checkIfEnd();
+          else checkIfEnd(indexCal, indexEnd, add2Layer);
 
-          function checkIfEnd() {
-            if (indexCal < indexEnd) {
-              add2Layer(indexCal)
-            }
-            else {
-              if( typeof options.data.dataTransformer === 'function') {
-                options.data.dataTransformer(data, runData);
-              } else runData(data);
-            }
-          }
         }
       };
 
@@ -597,7 +587,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       else {
                         data[indexLoc].doc = 'Failed geoloc';
                       }
-                      checkIfEnd();
+                      checkIfEnd(indexCal, indexEnd, add2Layer);
                     });
                 }
                 else {
@@ -609,27 +599,11 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     if (typeof allreadyGeoLoc[lieux].INSEEcode !== 'undefined') data[indexLoc].INSEEcode = allreadyGeoLoc[lieux].INSEEcode;
                     if (typeof allreadyGeoLoc[lieux].INSEEdept !== 'undefined') data[indexLoc].INSEEdept = allreadyGeoLoc[lieux].INSEEdept;
                   }
-                  checkIfEnd();
+                  checkIfEnd(indexCal, indexEnd, add2Layer);
                 }
               }
-              else checkIfEnd();
+              else checkIfEnd(indexCal, indexEnd, add2Layer);
 
-              function checkIfEnd() {
-                if (indexCal < indexEnd) {
-                  add2Layer(indexCal)
-                }
-                else if (indexEnd > 0) {
-                  for (var i = 0; i < data.length; i++) {
-                    if (typeof data[i].INSEEname !== 'undefined') delete data[i].INSEEname;
-                    if (typeof data[i].INSEEzip !== 'undefined') delete data[i].INSEEzip;
-                    if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
-                    if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
-                  }
-                  if( typeof options.data.dataTransformer === 'function') {
-                    options.data.dataTransformer(data, runData);
-                  } else runData(data);
-                }
-              };
             };
 
           }
@@ -638,6 +612,249 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }*/
         );
       }
+      
+      function checkIfEnd(indexCal, indexEnd, add2Layer) {
+        if (indexCal < indexEnd) {
+          add2Layer(indexCal)
+        }
+        else if (indexEnd > 0) {
+          for (var i = 0; i < data.length; i++) {
+            if (typeof data[i].INSEEname !== 'undefined') delete data[i].INSEEname;
+            if (typeof data[i].INSEEzip !== 'undefined') delete data[i].INSEEzip;
+            if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
+            if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
+          }
+          if (typeof options.data.dataTransformer === 'function') {
+            options.data.dataTransformer(data, dataPopUp);
+          }
+          else dataPopUp(data);
+          //indexEvent[i].doc = dataPopUp(indexEvent[i]);
+
+          function dataPopUp(data) {
+            var iconMarkers = iconMarkersBuilder(data);
+            for (var i = 0; i < data.length; i++) {
+              var popupContent = $('<div></div>');
+              var popupBody = $('<div class="popBody"></div>');
+              popupContent.append(popupBody);
+              if (typeof options.popupData.title !== 'undefined') {
+                var title = options.popupData.title;
+                //if (typeof data !== 'undefined' && typeof data[title] !== 'undefined') {
+                popupBody.append('<div class="popLieux" style="color:' + data[i].iconMarker.colorFG + '; background-color:' + data[i].iconMarker.colorBG + ';">' + data[i][title] + '</div>');
+                //}
+              }
+              if (typeof options.popupData.properties !== 'undefined') {
+                var properties = options.popupData.properties;
+              }
+              else {
+                var hidden = [];
+                if (typeof options.popupData.hidden !== 'undefined') hidden = options.popupData.hidden;
+                //hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
+                hidden = hidden.concat(["lat", "lng", "iconMarker"]);
+                if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
+                var dataKeys = Object.getOwnPropertyNames(indexEvent)
+                var properties = [];
+                for (var j = 0; j < dataKeys.length; j++) {
+                  var keyStatus = true;
+                  for (var k = 0; k < hidden.length; k++) {
+                    if (dataKeys[j] == hidden[k]) keyStatus = false;
+                  }
+                  if (keyStatus == true) properties.push(dataKeys[j]);
+                }
+              }
+              for (var j = 0; j < properties.length; j++) {
+                var item = properties[j];
+                if (data[i][item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[i][item] + '</div>');
+              }
+              data[i].doc = popupContent.html();
+            };
+          //if (asyncCompTableData) {
+          //  for (var i = 0; i < indexEvent.length; i++) {
+          //    indexEvent[i]["département"] = "non défini";
+          //    indexEvent[i]["région"] = "non définie";
+          // };
+          //}
+            setDeptsAndRegs(data, "builDepts", goData);
+            function goData(data) {
+              runData(data);
+              saveData(data);
+            };
+
+              function setDeptsAndRegs(data, option, goData) {
+                // Usage:  Load different file types with one callback
+                // Copyright (c) 2013 Ryan Clark
+                // https://gist.github.com/rclark/5779673
+                L.TopoJSON = L.GeoJSON.extend({
+                  addData: function(jsonData) {
+                    if (jsonData.type === "Topology") {
+                      for (var key in jsonData.objects) {
+                        var geojson = topojson.feature(jsonData, jsonData.objects[key]);
+                        L.GeoJSON.prototype.addData.call(this, geojson);
+                      }
+                    }
+                    else {
+                      L.GeoJSON.prototype.addData.call(this, jsonData);
+                    }
+                  }
+                });
+                if (option == "builDepts") var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json'
+                else var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json'
+                Promise.all([
+                  // GeoJSON des départements et régions françaises
+                  // d'après https://france-geojson.gregoiredavid.fr
+                  load.json(topoFile),
+                ]).then(
+                  function(values) {
+                    console.log('Everything has been loaded!');
+
+                    topoVal = loadVal(values, topoFile);
+
+                    var topoLayer = new L.TopoJSON();
+                    
+                    addTopoData(topoVal);
+
+                    function addTopoData(topoData) {
+
+                      topoLayer.addData(topoData);
+                      //topoLayer.addTo(map);
+                      topoLayer.eachLayer(handleLayer);
+                    }
+
+                    function handleLayer(layer) {
+                      //var randomValue = Math.random(),
+
+                      var areaBounds = layer.getBounds();
+                      var areaCode = layer.feature.properties.code;
+                      var areaGeometry = layer.feature.geometry;
+                      var areaName = layer.feature.properties.nom;
+                      var areaNum = getNumItems();
+                      function getNumItems() {
+                        var d = 0;
+                        for (var idx = 0; idx < data.length; idx++) {
+                          if (inside([data[idx].lng, data[idx].lat], areaGeometry)) {
+                            if (option == "builDepts") data[idx].département = areaName;
+                            else data[idx].région = areaName;
+                            d += 1;
+                          }
+                        }
+                        return d;
+
+                        function inside(point, TopoGeom) {
+                          var insideVal = false;
+                          if (TopoGeom["type"] == "MultiPolygon") {
+                            for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
+                              var polygon = TopoGeom["coordinates"][i][0];
+                              // Le point est-il dans le polygone
+                              if (isInsidePolygon(point, polygon)) {
+                                insideVal = true;
+                                for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
+                                  var polygon = TopoGeom["coordinates"][i][j];
+                                  // Le point est-il dans l'un des trous du polygone
+                                  if (isInsidePolygon(point, polygon)) {
+                                    insideVal = false;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                          else {
+                            var polygon = TopoGeom["coordinates"][0];
+                            // Le point est-il dans le polygone
+                            if (isInsidePolygon(point, polygon)) {
+                              insideVal = true;
+                              for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
+                                var polygon = TopoGeom["coordinates"][j];
+                                // Le point est-il dans l'un des trous du polygone
+                                if (isInsidePolygon(point, polygon)) {
+                                  insideVal = false;
+                                }
+                              }
+                            }
+                          }
+
+                          return insideVal;
+                          // ray-casting algorithm based on
+                          // https://github.com/substack/point-in-polygon/blob/master/index.js
+
+                          function isInsidePolygon(point, vs) {
+                            var x = point[0],
+                              y = point[1];
+
+                            var inside = false;
+                            for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                              var xi = vs[i][0],
+                                yi = vs[i][1];
+                              var xj = vs[j][0],
+                                yj = vs[j][1];
+
+                              var intersect = ((yi > y) != (yj > y)) &&
+                                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                              if (intersect) inside = !inside;
+                            }
+
+                            return inside;
+
+                          }
+                        }
+                      }
+
+                    }
+
+                    if (option == "builDepts") setDeptsAndRegs(data, "builRegs", goData);
+                    else goData(data);
+
+                  }
+                )
+                /*.catch(function() {
+                                console.log('Oh no, epic failure!');
+                              });*/
+              };
+            function saveData(indexEvent) {
+              if ($('#dataStore').length == 0) {
+                var dataStore = $('<div id="dataStore" style="display:none"></div>')
+                $('#infoMap-wrapper').prepend(dataStore)
+              }
+              else var dataStore = $('#dataStore');
+
+              var valGeoJSON = getGeoJSONFromData(indexEvent);
+              for (i = 0; i < valGeoJSON["features"].length; i++) {
+                //delete valGeoJSON["features"][i]["properties"]["iconMarker"];
+                delete valGeoJSON["features"][i]["properties"]["marker"];
+                //delete valGeoJSON["features"][i]["properties"]["doc"];
+              };
+              dataStore.html(JSON.stringify(valGeoJSON));
+
+              if ($('#optStore').length == 0) {
+                var optStore = $('<div id="optStore" style="display:none"></div>')
+                $('#infoMap-wrapper').prepend(optStore)
+              }
+              else var optStore = $('#optStore');
+              var optStoreSTR = stringifyJSO2V(options, 'options');
+              optStore.html(optStoreSTR);
+              return;
+
+              function getGeoJSONFromData(indexEvent) {
+                var valGeoJSON = {};
+                valGeoJSON["type"] = "FeatureCollection";
+                valGeoJSON["features"] = [];
+                for (var i = 0; i < indexEvent.length; i++) {
+                  var newItem = {
+                    "type": "Feature",
+                    "geometry": {
+                      "type": "Point"
+                    }
+                  };
+                  newItem["geometry"]["coordinates"] = [indexEvent[i]["lng"], indexEvent[i]["lat"]];
+                  newItem["properties"] = clone(indexEvent[i]);
+                  delete newItem["properties"].lng;
+                  delete newItem["properties"].lat;
+                  valGeoJSON["features"].push(newItem);
+                }
+                return valGeoJSON;
+              };
+            };
+          }
+        }
+      };
     }
 
     function runData(indexEvent) {
@@ -667,72 +884,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }*/
       console.log('achieved');
       
-      var asyncCompTableData = checkForAsyncCompTableData(indexEvent);
-      function checkForAsyncCompTableData(data) {
-        if (typeof options.tableData === 'undefined' || !jQuery.isArray(options.tableData.properties)) return false;
-        for (var i = 0; i < options.tableData.properties.length; i++) {
-          if (options.tableData.properties[i].name == "département" || options.tableData.properties[i].name == "région") {
-            for (var j = 0; j < data.length; j++) {
-              if (typeof data[j]["département"] === 'undefined' || typeof data[j]["région"] === 'undefined') return true;
-            }
-          }
-        }
-        return false;
-      };
-
-      if(!asyncCompTableData ) saveData();
-      function saveData(setCallBack) {
-        if ($('#dataStore').length == 0) {
-          var dataStore = $('<div id="dataStore" style="display:none"></div>')
-          $('#infoMap-wrapper').prepend(dataStore)
-        }
-        else var dataStore = $('#dataStore');
-
-        var valGeoJSON = getGeoJSONFromData(indexEvent);
-        for (i = 0; i < valGeoJSON["features"].length; i++) {
-          delete valGeoJSON["features"][i]["properties"]["iconMarker"];
-          delete valGeoJSON["features"][i]["properties"]["marker"];
-          delete valGeoJSON["features"][i]["properties"]["doc"];
-        };
-        dataStore.html(JSON.stringify(valGeoJSON));
-
-        if ($('#optStore').length == 0) {
-          var optStore = $('<div id="optStore" style="display:none"></div>')
-          $('#infoMap-wrapper').prepend(optStore)
-        }
-        else var optStore = $('#optStore');
-        var optStoreSTR = stringifyJSO2V(options, 'options');
-        optStore.html(optStoreSTR);
-        if (typeof setCallBack !== 'undefined') setCallBack();
-        return;
-      };
-      
-      function getGeoJSONFromData(indexEvent) {
-        var valGeoJSON = {};
-        valGeoJSON["type"] = "FeatureCollection";
-        valGeoJSON["features"] = [];
-        for (var i = 0; i < indexEvent.length; i++) {
-          var newItem = {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point"
-            }
-          };
-          newItem["geometry"]["coordinates"] = [indexEvent[i]["lng"], indexEvent[i]["lat"]];
-          newItem["properties"] = clone(indexEvent[i]);
-          delete newItem["properties"].lng;
-          delete newItem["properties"].lat;
-          valGeoJSON["features"].push(newItem);
-        }
-        return valGeoJSON;
-      };
-
       loading.css('display', 'none');
       var map_invalidateSize = runMap(indexEvent);
 
       function runMap(indexEvent) {
 
-        var iconMarkers = iconMarkersBuilder(indexEvent);
+        var iconMarkers = options.legend.icons;
         var iconMarkersLength = iconMarkers.length;
         var map, onSetDefaultMapView, refreshIndexEvent;
 
@@ -760,47 +917,11 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           return;
         }
 
-        function dataPopUp(data) {
-          var popupContent = $('<div></div>');
-          var popupBody = $('<div class="popBody"></div>');
-          popupContent.append(popupBody);
-          if (typeof options.popupData.title !== 'undefined') {
-            var title = options.popupData.title;
-            if (typeof data !== 'undefined' && typeof data[title] !== 'undefined') {
-              popupBody.append('<div class="popLieux" style="color:' + data.iconMarker.colorFG +'; background-color:' + data.iconMarker.colorBG +';">' + data[title] + '</div>');
-            }
-          }
-          if (typeof options.popupData.properties !== 'undefined') {
-            var properties = options.popupData.properties;
-          }
-          else {
-            var hidden = [];
-            if (typeof options.popupData.hidden !== 'undefined') hidden = options.popupData.hidden;
-            //hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
-            hidden = hidden.concat(["lat", "lng", "iconMarker"]);
-            if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
-            var dataKeys = Object.getOwnPropertyNames(indexEvent)
-            var properties = [];
-            for (var i = 0; i < dataKeys.length; i++) {
-              var keyStatus = true;
-              for (var j = 0; j < hidden.length; j++) {
-                if (dataKeys[i] == hidden[j]) keyStatus = false;
-              }
-              if (keyStatus == true) properties.push(dataKeys[i]);
-            }
-          }
-          for (var i = 0; i < properties.length; i++) {
-              var item = properties[i];
-              if (data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[item] + '</div>');
-            }
-          return popupContent.html();
-        }
         var markers = L.markerClusterGroup({
           maxClusterRadius: 5
         });
         for (i = 0; i < indexEvent.length; i++) {
           indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
-          indexEvent[i].doc = dataPopUp(indexEvent[i]);
           indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
         }
 
@@ -856,12 +977,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           baseMaps['par défaut'].addTo(map);
           var legendMaps = {}
 
-          if (asyncCompTableData) {
-            for (var i = 0; i < indexEvent.length; i++) {
-              indexEvent[i]["département"] = "non défini";
-              indexEvent[i]["région"] = "non définie";
-            };
-          }
           // Constructeur du contrôle de carte LeafLet
           addControlLayer();          
           function addControlLayer() {
@@ -900,7 +1015,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
 
             function buildBaseMaps(option) {
-              if(asyncCompTableData) saveData(runTableAndButton);
               var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
               for (var i = 0; i < objectOverlays["overlays"].length; i++) {
                 objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
@@ -1330,31 +1444,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
                       function getNumItems() {
                         var d = 0;
-                        //var dbis = 0;
                         for (var idx = 0; idx < option["data"].length; idx++) {
-                          //var isinsideD = false;
-                          //var isinsideD2 = false;
                           if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                            if (asyncCompTableData) {
-                              if (baseMapsName == "départements") option["data"][idx].département = areaName;
-                              else option["data"][idx].région = areaName;
-                            }
+                            //if (asyncCompTableData) {
+                            //  if (baseMapsName == "départements") option["data"][idx].département = areaName;
+                            //  else option["data"][idx].région = areaName;
+                            //}
                             inMarkers.push(idx);
                             d += 1;
-                            //isinsideD2 = true;
                           }
-                          /*if (typeof option["data"][idx].INSEEdept !== 'undefined' && areaCode == option["data"][idx].INSEEdept) {
-                            isinsideD = true;
-                          }
-                          if(isinsideD !== isinsideD2) {
-                            console.log('les deux méthodes donnent des résultats différents pour le point : COMMUNE = ' + option["data"][idx].COMMUNE + ' LIEUX = ' + option["data"][idx].LIEUX + ' x = ' + option["data"][idx].lng + ' y = ' + option["data"][idx].lat+ ' d = ' + isinsideD + ' et dbis = ' + isinsideD2);
-                          }*/
                         }
-                        /*if (d !== dbis) {
-                          var dString = d.toString();
-                          var dbisString = dbis.toString();
-                          console.log('les deux méthodes donnent des résultats différents pour le département ' + areaCode + ' d = ' + dString + ' et dbis = ' + dbisString);
-                        }*/
                         return d;
 
                         function inside(point, TopoGeom) {
@@ -1923,7 +2022,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           runTable(indexEvent);
         }
       };
-      if(!asyncCompTableData ) runTableAndButton();
+      runTableAndButton();
       function runTable(data) {
 
         var tableColums = [];
@@ -2128,8 +2227,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         console.log(error);
         console.log(data);
       },
-      /*dataTransformer: function(inputData, setCallBack) {
-        var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
+      dataTransformer: function(inputData, setCallBack) {
+        setCallBack(inputData);
+        /*var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
         loadFromJS(outputData,
           (procData) => {
             //var data = this["data"];
@@ -2144,8 +2244,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             console.log(err.message);
             //loading.html(err.message);
           }
-        );
-      }*/
+        );*/
+      }
     },
     fondCarte : 'IGN',
     popupData : {
@@ -2367,7 +2467,25 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         if (!isNaN(iData[iVar])) lieux += ', France';
         return lieux;
       },
-      geolocDataWithINSEE: true
+      geolocDataWithINSEE: true,
+      /*dataTransformer: function(inputData, setCallBack) {
+        var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
+        loadFromJS(outputData,
+          (procData) => {
+            //var data = this["data"];
+            if (typeof data !== 'undefined') {
+              for (var i = 0; i < inputData.length; i++) {
+                inputData[i].newproperty = "nouvelle propriété";
+              }
+              if (typeof setCallBack === 'function') setCallBack(inputData);
+            }
+          },
+          (err) => {
+            console.log(err.message);
+            //loading.html(err.message);
+          }
+        );
+      }*/
     },
     //fondCarte : 'IGN',
     popupData : {
@@ -2487,8 +2605,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
-  $('#Fermetures').mapAllBlogs(optionsEtabScore);
-  //$('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
+  //$('#Fermetures').mapAllBlogs(optionsEtabScore);
+  $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
 
 })(jQuery);
 </script>

@@ -629,7 +629,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             function dataGoOn(data) {
               if (typeof options.data.dataTransformer === 'function') {
                 var dataTransformer = options.data.dataTransformer(data);
-              }
+                if(dataTransformer) setDeptsAndRegs(data, "builDepts", saveData);
+              } else setDeptsAndRegs(data, "builDepts", saveData);
 
               setDeptsAndRegs(data, "builDepts", saveData);
 
@@ -2127,94 +2128,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
           },
           columns: columns,
-          /*initComplete: function() {
-            var myApi = this.api();
-            var footer = $("<tfoot></tfoot>").insertAfter($(this).find('thead'));
-            var footertr = $("<tr></tr>").appendTo(footer);
-            var myColumnsi = this.api().columns();
-            this.api().columns().every(function(element) {
-              var column = this;
-              var myfooter = $("<th></th>").appendTo(footertr);
-              var select = $('<select><option value=""></option></select>')
-                .appendTo(myfooter)
-                .on('change', function() {
-                  var val = $.fn.dataTable.util.escapeRegex(
-                    $(this).val()
-                  );
-                  if (val != '') {
-                    $('th select').css('display', 'none');
-                    select.css('display', 'block');
-                  }
-                  else {
-                    $('th select').each(function() {
-                      dataDisplay = $(this).data('display');
-                      if ((typeof dataDisplay === "undefined") || dataDisplay != 'none') {
-                        $(this).css('display', 'block');
-                      }
-                    });
-                  }
-                  column
-                    .search(val ? "(^" + val + "$)|(^" + val + ",)|(, " + val + "$)|(, " + val + ",)" : '', true, false)
-                    .draw();
-                });
-
-              if (!columns[element].selectable) {
-                select.css('display', 'none');
-                select.data('display', 'none');
-              }
-              else {
-                var optEmpty = true;
-                var allColumnData = column.data();
-                var newColumnData = [];
-                for (var i = 0; i < allColumnData.length; i++) {
-                  var optValMul = allColumnData[i].split(', ')
-                  for (var j = 0; j < optValMul.length; j++) {
-                    newColumnData.push(optValMul[j]);
-                  }
-                }
-                newColumnData = sortUnique(newColumnData)
-
-                function sortUnique(array) {
-                  "use strict";
-                  var table = {},
-                    key, i;
-                  for (i = 0; i < array.length; i++) {
-                    table[[array[i]]] = '';
-                  }
-                  i = 0;
-                  for (key in table) {
-                    array[i++] = key;
-                  }
-                  array.length = i;
-                  return array.sort();
-                }
-
-                for (var i = 0; i < newColumnData.length; i++) {
-                  var optlVal = newColumnData[i];
-                  if (optlVal != '' && optlVal.indexOf('<img ') == -1) {
-                    select.append('<option value="' + optlVal + '">' + optlVal + '</option>');
-                    optEmpty = false;
-                  }
-                };
-                if (optEmpty) {
-                  select.css('display', 'none');
-                  select.data('display', 'none');
-                }
-              }
-            });
-            function isValidSelector(selector) {
-              if (typeof(selector) !== 'string') {
-                return false;
-              }
-              try {
-                var $element = $(selector);
-              }
-              catch (error) {
-                return false;
-              }
-              return true;
-            }
-          }*/
           initComplete: initComplete
         });
       };
@@ -2240,7 +2153,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/TESTetabScore.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.json',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.geojson',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScoreWithDeptsAndRegs.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/Score/ScoreData.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/etabScore.js',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2266,7 +2179,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         console.log(error);
         console.log(data);
       },
-      dataTransformer: function(inputData) {
+      /*dataTransformer: function(inputData) {
         var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
         loadFromJS(outputData,
           (procData) => {
@@ -2283,9 +2196,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             //loading.html(err.message);
           }
         );
-      }
+      }*/
     },
-    fondCarte : 'IGN',
+    //fondCarte : 'IGN',
     popupData : {
       title: 'nom',
       properties: ["lieu", "statut", "type"]
@@ -2506,7 +2419,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return lieux;
       },
       geolocDataWithINSEE: true,
-      /*dataTransformer: function(inputData, setCallBack) {
+      /*dataTransformer: function(inputData) {
         //setCallBack(inputData);
         //return;       
         var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
@@ -2517,8 +2430,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               for (var i = 0; i < inputData.length; i++) {
                 inputData[i].newproperty = "nouvelle propriété";
               }
-              if (typeof setCallBack === 'function') setCallBack(inputData);
-            }
+              return true;
+            } else return false;
           },
           (err) => {
             console.log(err.message);

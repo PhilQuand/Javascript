@@ -652,8 +652,14 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     }
                   }
                 });
-                if (option == "builDepts") var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json'
-                else var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json'
+                if (option == "builDepts") {
+                  for (var i = 0; i < data.length; i++) data[i]["département"] = "non défini";
+                  var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json';
+                }
+                else {
+                  for (var i = 0; i < data.length; i++) data[i]["région"] = "non définie";
+                  var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json';
+                }
                 Promise.all([
                   // GeoJSON des départements et régions françaises
                   // d'après https://france-geojson.gregoiredavid.fr
@@ -893,6 +899,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
       function runMap(indexEvent) {
 
+        var stateChangingButton ;
         var iconMarkers = iconMarkersBuilder(indexEvent);
         var iconMarkersLength = iconMarkers.length;
         var map, onSetDefaultMapView, refreshIndexEvent;
@@ -1021,14 +1028,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           addControlLayer();          
           function addControlLayer() {
             // Constructeur du contrôle de carte LeafLet
-            if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlMaps === 'undefined' || options.controlLayers.controlMaps.on != true) {
+            if (typeof options.controlLayers === 'undefined' ){
+              var legendAllMarkers = addLegend()
+            } else if (typeof options.controlLayers.controlMaps === 'undefined' || options.controlLayers.controlMaps.on != true) {
               // Ajout de la seule carte de fond
               var option = {
                 baseMaps: null,
                 legend: legendMaps,
                 map: map,
               };
-              buildBaseMaps(option)
+              buildBaseMaps(option);
             }
             else {
               // Ajout du contrôle
@@ -1072,6 +1081,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display", "none");
               };
               var baselayerName = 'par défaut';
+              var legendAllMarkers = addLegend()
               map.on('baselayerchange', function(eventLayer) {
                 baselayerName = eventLayer.name;
                 map.removeControl(legendAllMarkers);
@@ -1088,10 +1098,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   //map.removeControl(legendAllMarkers);
                   legendAllMarkers = addLegend(iconNum)
                   map.addControl(legendAllMarkers);
+                  stateChangingButton.enable();
                 }
                 else {
                   map.addControl(option["legend"][eventLayer.name]);
                   refreshIndexEvent = [];
+                  stateChangingButton.disable();
                 }
                 refreshMarkers(refreshIndexEvent);
               });
@@ -1124,17 +1136,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 };
               });
 
-              function updateLegend() {
+              /*function updateLegend() {
                 var iconNum = refreshMarkers(refreshIndexEvent);
                 map.removeControl(legendAllMarkers);
                 legendAllMarkers = addLegend(iconNum)
                 map.addControl(legendAllMarkers);
-              }
+              }*/
             };
             
           };
 
-          var legendAllMarkers = addLegend()
           function addLegend(iconNum) {
             if (typeof iconNum === 'undefined') {
               iconNum = [];
@@ -1155,7 +1166,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
             }
             var legendAllMarkers = L.control({
-              position: 'bottomright'
+              position: 'topright'
             });
 
             legendAllMarkers.onAdd = function(map) {
@@ -1281,22 +1292,24 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     }
                   }
                 });
-                var deptsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json'
-                var regsFranceData = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json'
+                if (option["typMap"] == "builDepts") {
+                  var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json';
+                }
+                else {
+                  var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json';
+                }
                 Promise.all([
                   // ressources utilisées pour construire la carte TopoSJON
                   load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
                   load.js('https://d3js.org/topojson.v1.min.js'),
                   // GeoJSON des départements et régions françaises
                   // d'après https://france-geojson.gregoiredavid.fr
-                  load.json(deptsFranceData),
-                  load.json(regsFranceData)
+                  load.json(topoFile),
                 ]).then(
                   function(values) {
                     console.log('Everything has been loaded!');
 
-                    deptsFranceData = loadVal(values, deptsFranceData);
-                    regsFranceData = loadVal(values, regsFranceData);
+                    var topoVal = loadVal(values, topoFile);
 
                     var topoLayer = new L.TopoJSON();
                     var colorScale = chroma
@@ -1305,14 +1318,34 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       .domain([0, 1]);
 
                     var enterPopup = 0;
+
+                    var areaNumItems = {};
                     if (option["typMap"] == "builDepts") {
+                       for (var idx = 0; idx < option["data"].length; idx++) {
+                        if (typeof option["data"][idx]["département"] !== 'undefined') {
+                          if (typeof areaNumItems[option["data"][idx]["département"]] === 'undefined') {
+                            areaNumItems[option["data"][idx]["département"]] = 0;
+                          }
+                          areaNumItems[option["data"][idx]["département"]] += 1;
+                        }
+                      }
+                      var areaType = "département"
                       var baseMapsName = "départements";
-                      addTopoData(deptsFranceData);
                     }
                     else {
-                      var baseMapsName = "régions"
-                      addTopoData(regsFranceData);
+                       for (var idx = 0; idx < option["data"].length; idx++) {
+                        if (typeof option["data"][idx]["région"] !== 'undefined') {
+                          if (typeof areaNumItems[option["data"][idx]["région"]] === 'undefined') {
+                            areaNumItems[option["data"][idx]["région"]] = 0;
+                          }
+                          areaNumItems[option["data"][idx]["région"]] += 1;
+                        }
+                      }
+                      var areaType = "région"
+                      var baseMapsName = "régions";
                     }
+                    addTopoData(topoVal);
+                                        
 
                     function addTopoData(topoData) {
 
@@ -1321,7 +1354,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       topoLayer.eachLayer(handleLayer);
 
                       option["legend"][baseMapsName] = L.control({
-                        position: 'bottomright'
+                        position: 'topright'
                       });
                       option["legend"][baseMapsName].onAdd = function(map) {
 
@@ -1483,18 +1516,27 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       }
 
                       function getNumItems() {
-                        var d = 0;
-                        for (var idx = 0; idx < option["data"].length; idx++) {
-                          if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                            //if (asyncCompTableData) {
-                            //  if (baseMapsName == "départements") option["data"][idx].département = areaName;
-                            //  else option["data"][idx].région = areaName;
-                            //}
-                            inMarkers.push(idx);
-                            d += 1;
+                        if (typeof areaNumItems !== 'undefined') {
+                          if (typeof areaNumItems[areaName] !== 'undefined') {
+                            for (var idx = 0; idx < option["data"].length; idx++) {
+                              if (option["data"][idx][areaType] == areaName) {
+                                inMarkers.push(idx);
+                              }
+                            }
+                            return areaNumItems[areaName]
                           }
+                          else return 0;
                         }
-                        return d;
+                        else {
+                          var d = 0;
+                          for (var idx = 0; idx < option["data"].length; idx++) {
+                            if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
+                              inMarkers.push(idx);
+                              d += 1;
+                            }
+                          }
+                          return d;
+                        }
 
                         function inside(point, TopoGeom) {
                           var insideVal = false;
@@ -1977,7 +2019,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   states.push(localState);
                 }
                 if (states.length > 1) {
-                  var stateChangingButton = L.easyButton({
+                  stateChangingButton = L.easyButton({
                     states: states
                     /*[{
                             stateName: 'zoom-to-forest',        // name the state
@@ -2258,24 +2300,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         gradeDepts: [0, 5, 10, 15, 20, 30, 40, 100],
         gradeRegs: [0, 100, 150, 200, 250, 300, 350]
         },
-      /*controlOverlays: {
-        title: "Type d'établissements",
-        overlays: [{
-            title: 'publics',
-            isInGroup: data => {
-              if(data['statut'] == 'Public') return true;
-              else return false
-            }
-          },
-          {
-            title: 'privés',
-            isInGroup: function(data) {
-              if(data['statut'] !== 'Public') return true;
-              else return false
-            }
-          },
-        ]
-      }*/
       controlOverlays: {
         title: "Type d'établissements",
         overlays: [{

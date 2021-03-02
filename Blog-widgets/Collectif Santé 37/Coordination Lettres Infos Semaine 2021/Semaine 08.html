@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2020 semaines 38</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+À l’incertitude du devenir de l’épidémie, à la gravité du contexte social, s’ajoute l’incertitude sur la restriction de nos libertés décidée par le Président de la République seul ! Quand le couvre feu prendra-il fin ? Quand pourrons nous aller au bistrot entre amis ? Le manque de vaccins est aggravé par une mise en œuvre de la vaccination bureaucratique et vectrice d’inégalités sociales.
+Et pendant ce temps, le pouvoir continue à casser le service hospitalier public, comme le projet d’hôpital Nord à Paris, fermant Beaujon et Bichat pour les remplacer par un hôpital neuf et 305 lits de moins ! Il persiste dans l’inaction face au besoin de former massivement médecins et personnels soignants, à mieux les répartir sur l’ensemble du territoire de notre République.
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 250px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 08</li>
+<li><strong>Dates</strong>: du 22 au 27 février 2021</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2021/03/Infos-semaine-8-du-22-au-27-février-2021.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:part6.AD031D1A.2D420233@orange.fr</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/03/Image-4.png" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Édito (ou point fort de la semaine) :</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Le 23 février le journal LIBERATION révélait qu’</span></span><span style="font-family: Cambria
+          Math, serif;"><span style="font-size: 14pt;"><i>un fichier contenant les informations de 500 000 patients a fuité sur Internet et fait la une des médias ces derniers jours. Ce fichier comporte 491 840 lignes. Et à chaque ligne, jusqu’à 60 informations différentes sur une même personne : numéro de Sécurité sociale, date de naissance, groupe sanguin, adresse, numéro de téléphone portable, médecin prescripteur, etc et même e-mail, mot de passe et données de santé.</i></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Ce fichier, dans lequel 478 882 personnes sont identifiées par leurs noms de famille, est majoritairement constitué de résultats provenant de laboratoires de biologie médicale dans le Morbihan, l'Eure, le Loiret, les Côtes-d'Armor et le Loir-et-Cher. Les données sont datées de 2015 à 2020, avec une large partie de 2018 et 2019. Plus inquiétant encore, d'après Damien Bancal, spécialiste de cybersécurité, ces quasi 500 000 profils médicaux ne constitueraient qu'un </span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><i>"extrait"</i></span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"> d'un fichier plus large.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">La presse nous apprend aussi que </span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><i>le fichier n'était effectivement pas anonymisé et qu’il n'était nullement protégé par une couche de chiffrement ; des mesures pourtant fortement recommandées, et même obligatoires pour certaines informations de santé</i></span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">.</span></span></p>
+<p style="margin-bottom: 0.49cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">La CNIL indique dans un communiqué de presse qu’elle procédait actuellement à des contrôles pour constater officiellement la mise à disposition du fichier.</span></span></p>
+<p style="margin-bottom: 0.49cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;" align="justify"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;">« </span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><i><b>Les constatations préliminaires semblent indiquer qu’il s’agit effectivement d’une violation de données d’une ampleur et d’une gravité particulièrement importante, et laissent à penser que les données proviendraient de laboratoires d’analyse médicale.</b></i></span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"> » explique la commission. </span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><i><b>Si ces éléments devaient être confirmés, il incombe aux organismes concernés qui ne l’auraient pas déjà fait, de procéder à une notification auprès de la CNIL, dans les 72 heures suivant le moment où ils en ont pris connaissance.</b></i></span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;">« </span></span></p>
+<p style="margin-bottom: 0.49cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">La CNIL rappelle les obligations des entreprises concernées, surtout quand la fuite de données est susceptible d’engendrer un risque élevé pour les droits et les libertés :</span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"> « </span></span><span style="font-family: Times New Roman,
+          serif;"><span style="font-size: 12pt;"><i><b>Les organismes responsables ont l’obligation d’informer individuellement les personnes concernées du fait que leurs données ont été compromises et publiées en ligne</b></i></span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;">.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Certes le risque zéro n’existe pas et des intrusions malveillantes dans un dispositif informatique sont toujours possibles mais notifier les fuites à la CNIL et en informer les victimes ne suffit pas. En qualité de client potentiel d’un quelconque cabinet médical ou laboratoire d’analyses je m’étonne que l’acquisition ou la location de logiciels n’offrant pas toutes les garanties d’anonymisation et de chiffrement puissent faire l’objet d’offres commerciales en leur direction et que ces offres puissent être retenues.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><span style="font-family: Cambria Math, serif;"><span style="font-size: 10pt;">R. VACHON</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Sommaire :</b></span></span></p>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>L’écho des comités : Pages 3 et 4</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Autres infos locales : Page 5</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossiers : Pages 5 à 7</b></span></span></p>
+</li>
+</ul>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé : Page 8</b></span></span></li>
+</ul>
+<p><span style="font-family: Helvetica; font-size: 12px; color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #9fd22e; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#9fd22e" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>AUCH 32</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Description d’une lutte syndicale exemplaire qui a su mobiliser largement et obtenir gain de cause dans l’équipement en imagerie médicale d’un hôpital public.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://blogs.mediapart.fr/yves-faucoup/blog/170221/lutte-victorieuse-en-faveur-d-un-hopital-public?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=Sharing&amp;xtor=CS3-66&amp;fbclid=IwAR2YjDZ92WBNXHrJvwi1pORvCO20a8YQ_XHe8qQD5EnKyJYEuLa41vLsil4"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’article de Médiapart</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7">
+<tbody>
+<tr>
+<td style="background-color: #d9d9d9; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#d9d9d9" width="588"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>BRIOUDE 47</b></span></span></td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Le Comité de Vigilance de l'Hôpital Public de Brioude voit dans la révision du Schéma Régional de Santé (SRS) concernant les équipements matériels lourds la possibilité pour le Centre Hospitalier de Brioude de se doter d'une IRM qui viendrait compléter l'offre en imagerie médicale après l'installation du scanner.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://defensehopitalbrioude.blogspot.com/2021/02/une-irm-brioude-cest-possible.html"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le communiqué du comité</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #ffc000; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#ffc000" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>DOLE 39</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><b>Malgré un projet de construction d’un nouveau bloc opératoire, d’un montant de 12 millions d’euros l’ARS entend limiter l’activité du service à la chirurgie ambulatoire.</b></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><b>Le comité s’adresse au ministre.</b></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><img id="&lt;part6.AD031D1A.2D420233@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:part6.AD031D1A.2D420233@orange.fr" alt="Image 4" align="bottom" border="0" /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="http://coordination-defense-sante.org/2021/02/dole-menace-sur-la-chirurgie-conventionnelle/"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>La lettre</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #cb04ec; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#cb04ec" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>DOURDAN 91</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le comité de défense de l’hôpital de Dourdan s’oppose au transfert du service de pédiatrie lance une pétition</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.change.org/p/centre-hospitalier-sud-essonne-dourdan-etampes-agence-r%C3%A9gionale-de-sant%C3%A9-idf-sauvons-l-hopital-de-dourdan?recruiter=1181503537&amp;utm_source=share_petition&amp;utm_medium=email&amp;utm_campaign=psf_combo_share_initial&amp;utm_term=374987413eb749cb80b5cdd4979790a3&amp;recruited_by_id=6ee9b9d0-7083-11eb-948f-87276ca38b3d"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>La pétition</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"> </p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7">
+<tbody>
+<tr>
+<td style="background-color: #e9d907; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#e9d907" width="588"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>THOUARS 79</b></span></span></td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Un an apprès le meurtre d’Elodie, le cri du cœur des anciens soignants en psychiatries</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.lanouvellerepublique.fr/thouars/thouars-le-cri-du-coeur-des-anciens-soignants-en-psychiatrie?queryId%5Bquery1%5D=57cd2206459a452f008b4594&amp;queryId%5Bquery2%5D=57c95b34479a452f008b459d&amp;page=0&amp;pageId=57da5cf9459a4552008b4b33"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’article</b></span></span></a></u></span></p>
+<p> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Autres infos locales :</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #bdd6ee; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#bdd6ee" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>CHATEAUROUX – LE BLANC 36</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Chirurgie : Conséquence des insuffisances d’effectif, les fermetures temporaires de lits ne passent pas. </b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.francebleu.fr/amp/infos/sante-sciences/a-l-hopital-de-chateauroux-ces-fermetures-de-lit-temporaires-qui-ne-passent-pas-1613899033?fbclid=IwAR2JEaa9jEOZFfgP3Zdhk6Uq2Yb2qu-JFJcrOiOXl55W9CIpZcFoRyusmnk"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’article de France Bleu</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #f7caac; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#f7caac" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>TOURS 37</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le pôle Psychiatrie, en souffrance depuis des années, réclame des moyens et des effectifs supplémentaires</b></span></span>.</p>
+<p style="margin-bottom: 0.49cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;" align="center"><a style="color: #0563c1;" href="https://www.francebleu.fr/infos/sante-sciences/chru-de-tours-les-personnels-de-la-psychiatrie-appeles-a-la-greve-ce-jeudi-1613659813?fbclid=IwAR3XJFRh4WvV6saFwmz8a_fimmLypDepvNoNEbEbPax2GXedEUwcTmOymiA"><span style="color: #0000ff;"><span style="font-family: Times
+              New Roman, serif;"><span style="font-size: 12pt;"><u><b>Article de France Bleu - 18 02 2021</b></u></span></span></span></a></p>
+<p style="margin-bottom: 0.49cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;" align="center"><a style="color: #0563c1;" href="https://larotative.info/la-psychiatrie-de-tours-a-besoin-4007.html"><span style="color: #0000ff;"><span style="font-family: Times
+              New Roman, serif;"><span style="font-size: 12pt;"><u><b>Article de La Rotative - 17 02 2021</b></u></span></span></span></a></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossier :</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #bf6541; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#bf6541" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Organisation Nationale Syndicale des Sages-Femmes</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’intervention du ministre de la santé devant le Sénat le 17 février fait réagir les sages-femmes qui ne tolèrent plus ces écarts de langage dont usent certains pour dénigrer et dévaloriser leur profession.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://34st1.r.a.d.sendibm1.com/mk/Le%20communiqu%C3%A9-m7UB3pcXoM_tmKZDF9PXcujM"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le communiqué</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #a8d08d; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#a8d08d" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><b><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="fr-FR">Le 8 Mars Journée internationale pour les droits des femmes</span></span></span></b></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le collectif analyse des difficultés d’accès aux soins qui pénalisent plus spécialement les femmes, exprime leurs attentes.</b></span></span></p>
+<p style="margin-bottom: 0.2cm; direction: ltr; line-height: 0.34cm; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="http://coordination-defense-sante.org/2021/02/droits-des-femmes-et-sante/"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’appel</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.2cm; direction: ltr; line-height: 0.34cm; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.2cm; direction: ltr; line-height: 0.34cm; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Rassemblement festif et politique à l’appel du Collectif « On arrête toutes »</span></span></p>
+<p style="margin-bottom: 0.2cm; direction: ltr; line-height: 0.34cm; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial Black, serif;"><span style="font-size: 10pt;">Dimanche 7 mars 2021 Place de la République à Paris de 13h à 17h</span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Le 8 mars 2021, lundi « Grève féministe »</span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial Black, serif;"><span style="font-size: 10pt;">Manifestation départ de Port Royal Paris à 12h</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #cc9900; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#cc9900" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>SAINT-CLAUDE </b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Les membres du Comité ont souhaité affirmer leurs ambitions de lutter contre les inégalités qui touchent les femmes et ainsi s’associer à l’appel</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="http://coordination-defense-sante.org/2021/02/saint-claude-journee-internationale-des-droits-des-femmes/"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’affiche et l’appel du comité</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #ff3399; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#ff3399" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Vaccins contre le COVID </b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le Comité international de bioéthique de l’UNESCO (CIB) et la Commission mondiale d'éthique des connaissances scientifiques et des technologies de l’UNESCO (COMEST) lancent un appel en faveur de l’équité et de la solidarité mondiales en matière de vaccins. (Extrait)</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="font-family: Arial, serif;"><span style="font-size: 11pt;">3.Coût, production et distribution : les vaccins en tant que «bien commun mondial»</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 11pt;">La disponibilité des vaccins pour tous, dans tous les pays, est une question éthique essentielle. La nécessité de faire en sorte que tous les individus aient accès à des vaccins abordables revêt une importance primordiale sur le plan éthique. Il existe un risque que les pays les plus développés puissent acheter la production encore naissante de vaccins au détriment des pays à revenu intermédiaire de la tranche inférieure (PRITI). Le CIB et la COMEST soutiennent l’initiative COVAX (OMS, Gavi, CEPI) pour éviter ce risque. Un soutien financier accru est nécessaire pour permettre à l’initiative COVAX de répondre aux besoins des PRITI</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le texte complet de l’appel</b></span></span></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>OXAM France combat le nationalisme vaccinal </b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.youtube.com/watch?v=jw3VtRRwFuE&amp;feature=youtu.be"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>La vidéo</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #ff66ff; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#ff66ff" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;">Et encore le COVID</span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Parce que le nombre de lits de réanimation et les moyens humains des hôpitaux publics n’ont pas évolué positivement depuis le début de la pandémie la communication COVID reste anxiogène. Pourtant la progression régulière des nombres de personnes vaccinées et de personnes contaminées et guéries devrait logiquement « réduire le terrain de jeu du coronavirus » et inciter à l’optimisme</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Mise en place d’un confinement à DUNKERQUE</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.francetvinfo.fr/sante/maladie/coronavirus/confinement/dunkerque-les-habitants-s-appretent-a-passer-leur-premier-week-end-confine_4312099.html"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’article</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Situation préoccupante dans les Alpes Maritimes où le taux d’incidence atteint 600 pour 100 000 habitants et où les hôpitaux arrivent à saturation.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.francetvinfo.fr/sante/maladie/coronavirus/covid-19-pourquoi-la-situation-dans-les-alpes-maritimes-est-elle-preoccupante_4304373.html"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’article</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Même tension en région parisienne</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.francetvinfo.fr/sante/maladie/coronavirus/covid-19-l-hopital-de-longjumeau-est-sous-tension_4310651.html"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Larticle</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.youtube.com/watch?v=pLV61J_sM04"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>https://www.youtube.com/watch?v=pLV61J_sM04</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.35cm; direction: ltr; line-height: 0.49cm; orphans: 2; widows: 2; background-color: #ffff00; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #000000;"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></span></span></span></p>
+<p style="margin-bottom: 0.35cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.35cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><a style="color: #0563c1;" href="http://coordination-defense-sante.org/"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><u>http://coordination-defense-sante.org/</u></span></span></span></a></p>
+<p><span style="color: #0000ff; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"> </span></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleGoldIcon",
+          title: 'Manifestations du 15 octobre',
+        }, {
+          class: "marker-2",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

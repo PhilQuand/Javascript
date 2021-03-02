@@ -1324,9 +1324,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                        for (var idx = 0; idx < option["data"].length; idx++) {
                         if (typeof option["data"][idx]["département"] !== 'undefined') {
                           if (typeof areaNumItems[option["data"][idx]["département"]] === 'undefined') {
-                            areaNumItems[option["data"][idx]["département"]] = 0;
+                            areaNumItems[option["data"][idx]["département"]] = [];
                           }
-                          areaNumItems[option["data"][idx]["département"]] += 1;
+                          areaNumItems[option["data"][idx]["département"]].push(idx);
                         }
                       }
                       var areaType = "département"
@@ -1336,9 +1336,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                        for (var idx = 0; idx < option["data"].length; idx++) {
                         if (typeof option["data"][idx]["région"] !== 'undefined') {
                           if (typeof areaNumItems[option["data"][idx]["région"]] === 'undefined') {
-                            areaNumItems[option["data"][idx]["région"]] = 0;
+                            areaNumItems[option["data"][idx]["région"]] = [];
                           }
-                          areaNumItems[option["data"][idx]["région"]] += 1;
+                          areaNumItems[option["data"][idx]["région"]].push(idx);
                         }
                       }
                       var areaType = "région"
@@ -1518,12 +1518,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       function getNumItems() {
                         if (typeof areaNumItems !== 'undefined') {
                           if (typeof areaNumItems[areaName] !== 'undefined') {
-                            for (var idx = 0; idx < option["data"].length; idx++) {
-                              if (option["data"][idx][areaType] == areaName) {
-                                inMarkers.push(idx);
-                              }
+                            for (var idx = 0; idx < areaNumItems[areaName].length; idx++) {
+                                inMarkers.push(areaNumItems[areaName][idx]);
                             }
-                            return areaNumItems[areaName]
+                            return areaNumItems[areaName].length;
                           }
                           else return 0;
                         }

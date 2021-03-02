@@ -264,7 +264,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           loadFromJSON(storedData,
             (procData) => {
               var isGeoJSON = (file) => {
-                if (file.type == "FeatureCollection" && file.features[0].hasOwnProperty('geometry')) return true;
+                if (file.type == "FeatureCollection" && file.features[0].hasOwnProperty('geometry') && file.features[0]['geometry'] != null) return true;
                 else return false;
               }
               var data = getDataFromJSON(procData);
@@ -321,8 +321,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           var features = storedData.features;
           for (var i = 0; i < features.length; i++) {
             var newItem = {};
-            newItem["lng"] = features[i]["geometry"]["coordinates"][0];
-            newItem["lat"] = features[i]["geometry"]["coordinates"][1];
+            if (features[i]["geometry"] != null) {
+              newItem["lng"] = features[i]["geometry"]["coordinates"][0];
+              newItem["lat"] = features[i]["geometry"]["coordinates"][1];
+            };
             var properties = features[i]["properties"];
             for (var prop in properties) {
               newItem[prop] = properties[prop];
@@ -358,7 +360,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     };
 
     function geolocData(data) {
-      if (typeof options.data === 'object' && options.data.geolocDataWithINSEE == true) geolocDataWithINSEE(data);
+      if (typeof options.data === 'object' && typeof options.data.INSEE_KEY !== 'undefined') geolocDataWithINSEE(data);
       else geolocDataWithoutINSEE(data);
 
       function geolocDataWithoutINSEE(data) {
@@ -442,6 +444,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             var indexCal = 0;
             var indexRes = 0;
             var indexEnd = data.length;
+            var INSEE_key = options.data.INSEE_KEY;
             //var indexEnd = 10;
 
             if (indexEnd < data.length) {
@@ -501,7 +504,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   if (typeof lieux !== 'undefined') {
                     if (!lieux) return false
                     if (typeof allreadyGeoLoc[lieux] == 'undefined') {
-                      var coordLatLng = getGPSfromVillesINSEE(data[i]);
+                      var coordLatLng = getGPSfromVillesINSEE(data[i][INSEE_key]);
                       if (typeof coordLatLng !== 'undefined') {
                         allreadyGeoLoc[lieux] = {};
                         allreadyGeoLoc[lieux].lat = coordLatLng.lat;
@@ -522,18 +525,18 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   var zip = villesINSEE[i]["zip_code"];
                   var insee = villesINSEE[i]["insee_code"];
                   var name = villesINSEE[i]["name"].toUpperCase();
-                  /*if (locData.INSEE == 987 && (zip == null || insee == null)) {
-                    console.log(locData.INSEE)
+                  /*if (locData == 987 && (zip == null || insee == null)) {
+                    console.log(locData)
                   }*/
                   var isMatched = false;
                   var department = parseInt(villesINSEE[i]["department_code"]);
                   if (zip == null || insee == null) {
-                    if (department == locData.INSEE) isMatched = true;
+                    if (department == locData) isMatched = true;
                   }
                   else {
                     var zipInt = parseInt(zip);
                     var inseeInt = parseInt(insee);
-                    if (zipInt == locData.INSEE || inseeInt == locData.INSEE || insee == locData.INSEE) isMatched = true;
+                    if (zipInt == locData || inseeInt == locData || insee == locData) isMatched = true;
                   }
                   if (isMatched) {
                     //var nameLoc = locData.COMMUNE.toUpperCase();
@@ -629,13 +632,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             function dataGoOn(data) {
               if (typeof options.data.dataTransformer === 'function') {
                 var dataTransformer = options.data.dataTransformer(data);
-                if(dataTransformer) setDeptsAndRegs(data, "builDepts", saveData);
-              } else setDeptsAndRegs(data, "builDepts", saveData);
+                if(dataTransformer) setDeptsAndRegs(data, "builDepts");
+              } else setDeptsAndRegs(data, "builDepts");
 
-              setDeptsAndRegs(data, "builDepts", saveData);
-
-
-              function setDeptsAndRegs(data, option, setCallBack) {
+              function setDeptsAndRegs(data, option) {
                 // Usage:  Load different file types with one callback
                 // Copyright (c) 2013 Ryan Clark
                 // https://gist.github.com/rclark/5779673
@@ -762,8 +762,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
                     }
 
-                    if (option == "builDepts") setDeptsAndRegs(data, "builRegs", setCallBack);
-                    else setCallBack(data);
+                    if (option == "builDepts") setDeptsAndRegs(data, "builRegs");
+                    else runData(data, true);
 
                   }
                 )
@@ -772,51 +772,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                               });*/
               };
 
-              function saveData(indexEvent) {
-                if ($('#dataStore').length == 0) {
-                  var dataStore = $('<div id="dataStore" style="display:none"></div>')
-                  $('#infoMap-wrapper').prepend(dataStore)
-                }
-                else var dataStore = $('#dataStore');
-
-                var valGeoJSON = getGeoJSONFromData(indexEvent);
-                for (i = 0; i < valGeoJSON["features"].length; i++) {
-                  //delete valGeoJSON["features"][i]["properties"]["iconMarker"];
-                  delete valGeoJSON["features"][i]["properties"]["marker"];
-                  //delete valGeoJSON["features"][i]["properties"]["doc"];
-                };
-                dataStore.html(JSON.stringify(valGeoJSON));
-
-                if ($('#optStore').length == 0) {
-                  var optStore = $('<div id="optStore" style="display:none"></div>')
-                  $('#infoMap-wrapper').prepend(optStore)
-                }
-                else var optStore = $('#optStore');
-                var optStoreSTR = stringifyJSO2V(options, 'options');
-                optStore.html(optStoreSTR);
-
-                runData(indexEvent);
-
-                function getGeoJSONFromData(indexEvent) {
-                  var valGeoJSON = {};
-                  valGeoJSON["type"] = "FeatureCollection";
-                  valGeoJSON["features"] = [];
-                  for (var i = 0; i < indexEvent.length; i++) {
-                    var newItem = {
-                      "type": "Feature",
-                      "geometry": {
-                        "type": "Point"
-                      }
-                    };
-                    newItem["geometry"]["coordinates"] = [indexEvent[i]["lng"], indexEvent[i]["lat"]];
-                    newItem["properties"] = clone(indexEvent[i]);
-                    delete newItem["properties"].lng;
-                    delete newItem["properties"].lat;
-                    valGeoJSON["features"].push(newItem);
-                  }
-                  return valGeoJSON;
-                };
-              };
             };
 
           /*function dataPopUp(data) {
@@ -867,7 +822,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       };
     }
 
-    function runData(indexEvent) {
+    function runData(indexEvent, isToSaveData) {
       // À conserver pour exporter des données...
       /*exportData(indexEvent)
       return;
@@ -892,6 +847,49 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         console.log('achieved');
         loading.find('p').html('Les données de type COMMUNE et INSEE ont été exportées avec succés');
       }*/
+      if (isToSaveData) {
+        if ($('#dataStore').length == 0) {
+          var dataStore = $('<div id="dataStore" style="display:none"></div>')
+          $('#infoMap-wrapper').prepend(dataStore)
+        }
+        else var dataStore = $('#dataStore');
+
+        var valGeoJSON = getGeoJSONFromData(indexEvent);
+        for (i = 0; i < valGeoJSON["features"].length; i++) {
+          //delete valGeoJSON["features"][i]["properties"]["iconMarker"];
+          delete valGeoJSON["features"][i]["properties"]["marker"];
+          //delete valGeoJSON["features"][i]["properties"]["doc"];
+        };
+        dataStore.html(JSON.stringify(valGeoJSON));
+
+        if ($('#optStore').length == 0) {
+          var optStore = $('<div id="optStore" style="display:none"></div>')
+          $('#infoMap-wrapper').prepend(optStore)
+        }
+        else var optStore = $('#optStore');
+        var optStoreSTR = stringifyJSO2V(options, 'options');
+        optStore.html(optStoreSTR);
+
+        function getGeoJSONFromData(indexEvent) {
+          var valGeoJSON = {};
+          valGeoJSON["type"] = "FeatureCollection";
+          valGeoJSON["features"] = [];
+          for (var i = 0; i < indexEvent.length; i++) {
+            var newItem = {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point"
+              }
+            };
+            newItem["geometry"]["coordinates"] = [indexEvent[i]["lng"], indexEvent[i]["lat"]];
+            newItem["properties"] = clone(indexEvent[i]);
+            delete newItem["properties"].lng;
+            delete newItem["properties"].lat;
+            valGeoJSON["features"].push(newItem);
+          }
+          return valGeoJSON;
+        };
+      };
       console.log('achieved');
       
       loading.css('display', 'none');
@@ -2424,10 +2422,11 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   optionsTESTInnerFormedData = {
     data: {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
 
       geolocData: function geolocData(iData, iVar) {
-        if (typeof iData[iVar].LATITUDE !== 'undefined') {
+        /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
           if(iData[iVar].LATITUDE != '') iData[iVar].lat = iData[iVar].LATITUDE;
           delete iData[iVar].LATITUDE;
         }
@@ -2435,12 +2434,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           if(iData[iVar].LONGITUDE != '') iData[iVar].lng = iData[iVar].LONGITUDE;
           delete iData[iVar].LONGITUDE;
         }
-        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
-        var lieux = iData[iVar].COMMUNE + ',' + iData[iVar].INSEE;
+        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;*/
+        var lieux = iData[iVar].nom_commune + ',' + iData[iVar].INSEE_COM;
         if (!isNaN(iData[iVar])) lieux += ', France';
         return lieux;
       },
-      geolocDataWithINSEE: true,
+      INSEE_KEY: "INSEE_COM",
       /*dataTransformer: function(inputData) {
         //setCallBack(inputData);
         //return;       
@@ -2464,12 +2463,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     //fondCarte : 'IGN',
     popupData : {
-      title: 'COMMUNE',
-      properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "Pertes lits", "Pertes postes"]
+      title: 'nom_commune',
+      properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"]
     },
     tableData: {
       properties: [{
-        name: 'COMMUNE',
+        name: 'nom_commune',
         filter: 'selection'
       }, {
         name: 'LIEUX',
@@ -2480,13 +2479,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }, {
         name: 'MENACES',
         filter: 0
-      }, {
+      /*}, {
         name: 'Pertes lits',
         filter: 0
       }, {
         name: 'Pertes postes',
+        filter: 0*/
+       }, {
+        name: 'victoire',
         filter: 0
-      }],
+     }],
       filters: [{
         data: [{
           value: 'avec valeur',
@@ -2580,8 +2582,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
-  $('#Fermetures').mapAllBlogs(optionsEtabScore);
-  //$('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
+  //$('#Fermetures').mapAllBlogs(optionsEtabScore);
+  $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
 
 })(jQuery);
 </script>

@@ -2532,9 +2532,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
           },
           {
+            title: 'victoires',
+            isInGroup: function(data) {
+              return isOKString(data['victoire']);
+            }
+          },
+          {
             title: 'autres',
             isInGroup: data => {
-              if (!isOKString(data['SUPPRESSIONS']) && !isOKString(data['MENACES'])) {
+              if (!isOKString(data['SUPPRESSIONS']) && !isOKString(data['MENACES']) && !isOKString(data['victoire'])) {
                 return true;
               }
               else return false;

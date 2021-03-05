@@ -673,11 +673,21 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
             if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
           }
-          dataGoOn(data);
+        var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
+        loadFromJS(outputData,
+          (procData) => {
+            dataGoOn(procData);
+          },
+          (err) => {
+            console.log(err.message);
+            //loading.html(err.message);
+          }
+        );
+          ;
 
-            function dataGoOn(data) {
+            function dataGoOn(procData) {
               if (typeof options.data.dataTransformer === 'function') {
-                var dataTransformer = options.data.dataTransformer(data);
+                var dataTransformer = options.data.dataTransformer(data, procData);
                 if(typeof dataTransformer === 'undefined') setDeptsAndRegs(data, "builDepts");
               } else setDeptsAndRegs(data, "builDepts");
 
@@ -2480,27 +2490,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         if (!isNaN(iData[iVar])) lieux += ', France';
         return lieux;
       },
-      INSEE_KEY: "INSEE_COM",
-      /*dataTransformer: function(inputData) {
-        //setCallBack(inputData);
-        //return;       
-        var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
-        loadFromJS(outputData,
-          (procData) => {
-            //var data = this["data"];
-            if (typeof data !== 'undefined') {
-              for (var i = 0; i < inputData.length; i++) {
-                inputData[i].newproperty = "nouvelle propriété";
-              }
-              return true;
-            } else return false;
-          },
-          (err) => {
-            console.log(err.message);
-            //loading.html(err.message);
+      //INSEE_KEY: "INSEE_COM",
+      dataTransformer: function(data, inputData) {
+        if (typeof data !== 'undefined') {
+          for (var i = 0; i < inputData.length; i++) {
+            inputData[i].newproperty = "nouvelle propriété";
           }
-        );
-      }*/
+          return true;
+        }
+        else return false;
+      }
     },
     //fondCarte : 'IGN',
     popupData : {
@@ -2632,8 +2631,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
-  $('#Fermetures').mapAllBlogs(optionsEtabScore);
-  //$('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
+  //$('#Fermetures').mapAllBlogs(optionsEtabScore);
+  $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
 
 })(jQuery);
 </script>

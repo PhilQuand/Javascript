@@ -163,7 +163,7 @@ function loadFromJSON(storedData, setCallBack, setOntError) {
             //console.log('Everything has been loaded!');
             storedData = loadVal(values, storedData);
             storedData = getJSONFromFile(storedData);
-            //return setCallBack(storedData);
+            setCallBack(storedData);
           },
           reason => {
             //console.log(reason);

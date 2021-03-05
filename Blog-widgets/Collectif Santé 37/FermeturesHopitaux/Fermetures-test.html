@@ -2450,12 +2450,21 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         loadFromJSON(outputData,
           (procData) => {
             //var data = this["data"];
-            if (typeof data !== 'undefined') {
+            if (typeof procData !== 'undefined') {
               for (var i = 0; i < inputData.length; i++) {
-                inputData[i].newproperty = "nouvelle propriété";
+                const data = procData["features"];
+                for (var j = 0; j < data.length; j++) {
+                  if (inputData[i]["id"] == data[j]["properties"]["id"]) {
+                    inputData[i]["lng"] = data[j]["geometry"]["coordinates"][0];
+                    inputData[i]["lat"] = data[j]["geometry"]["coordinates"][1];
+                    break;
+                  }
+
+                }
               }
               return true;
-            } else return false;
+            }
+            else return false;
           },
           (err) => {
             console.log(err.message);

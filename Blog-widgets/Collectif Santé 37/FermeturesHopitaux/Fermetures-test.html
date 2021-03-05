@@ -678,7 +678,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             function dataGoOn(data) {
               if (typeof options.data.dataTransformer === 'function') {
                 var dataTransformer = options.data.dataTransformer(data);
-                if(dataTransformer) setDeptsAndRegs(data, "builDepts");
+                if(typeof dataTransformer === 'undefined') setDeptsAndRegs(data, "builDepts");
               } else setDeptsAndRegs(data, "builDepts");
 
               function setDeptsAndRegs(data, option) {

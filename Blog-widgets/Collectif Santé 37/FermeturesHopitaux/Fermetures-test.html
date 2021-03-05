@@ -2447,7 +2447,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         //setCallBack(inputData);
         //return;       
         var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.geojson';
-        loadFromJSON(outputData,
+        return loadFromJSON(outputData,
           (procData) => {
             //var data = this["data"];
             if (typeof procData !== 'undefined') {

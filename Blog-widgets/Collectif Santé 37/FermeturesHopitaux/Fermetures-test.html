@@ -360,8 +360,17 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     };
 
     function geolocData(data) {
-      if (typeof options.data === 'object' && typeof options.data.INSEE_KEY !== 'undefined') geolocDataWithINSEE(data);
-      else geolocDataWithoutINSEE(data);
+      if (typeof options.data.dataTransformer === 'function') {
+        var dataTransformer = options.data.dataTransformer(data);
+        if (dataTransformer) {
+          if (typeof options.data === 'object' && typeof options.data.INSEE_KEY !== 'undefined') geolocDataWithINSEE(data);
+          else geolocDataWithoutINSEE(data);
+        }
+      }
+      else {
+        if (typeof options.data === 'object' && typeof options.data.INSEE_KEY !== 'undefined') geolocDataWithINSEE(data);
+        else geolocDataWithoutINSEE(data);
+      }
 
       function geolocDataWithoutINSEE(data) {
         var indexCal = 0;
@@ -407,20 +416,22 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     console.log(lieux);
                   };
                   //return;
-                } else {
-                //if (!error && typeof results.results !== 'undefined') {
-                if (!error && results.results.length > 0) {
-                  indexRes++;
-                  data[indexLoc].lat = results.results[0].latlng.lat;
-                  data[indexLoc].lng = results.results[0].latlng.lng;
                 }
                 else {
-                  if (typeof options.geolocError === 'function') options.geolocError("Problème d'accés au résultat de géolocalisation :", data[indexLoc])
+                  //if (!error && typeof results.results !== 'undefined') {
+                  if (!error && results.results.length > 0) {
+                    indexRes++;
+                    data[indexLoc].lat = results.results[0].latlng.lat;
+                    data[indexLoc].lng = results.results[0].latlng.lng;
+                  }
                   else {
-                    console.log(error);
-                    console.log(lieux);
-                  };
-                }}
+                    if (typeof options.geolocError === 'function') options.geolocError("Problème d'accés au résultat de géolocalisation :", data[indexLoc])
+                    else {
+                      console.log(error);
+                      console.log(lieux);
+                    };
+                  }
+                }
                 checkIfEnd(indexCal, indexEnd, add2Layer);
               });
           }
@@ -615,7 +626,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }*/
         );
       }
-      
+
       function checkIfEnd(indexCal, indexEnd, add2Layer) {
         if (indexCal < indexEnd) {
           add2Layer(indexCal)
@@ -627,152 +638,144 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
             if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
           }
-          dataGoOn(data);
+          setDeptsAndRegs(data, "builDepts");
 
-            function dataGoOn(data) {
-              if (typeof options.data.dataTransformer === 'function') {
-                var dataTransformer = options.data.dataTransformer(data);
-                if(dataTransformer) setDeptsAndRegs(data, "builDepts");
-              } else setDeptsAndRegs(data, "builDepts");
-
-              function setDeptsAndRegs(data, option) {
-                // Usage:  Load different file types with one callback
-                // Copyright (c) 2013 Ryan Clark
-                // https://gist.github.com/rclark/5779673
-                L.TopoJSON = L.GeoJSON.extend({
-                  addData: function(jsonData) {
-                    if (jsonData.type === "Topology") {
-                      for (var key in jsonData.objects) {
-                        var geojson = topojson.feature(jsonData, jsonData.objects[key]);
-                        L.GeoJSON.prototype.addData.call(this, geojson);
-                      }
-                    }
-                    else {
-                      L.GeoJSON.prototype.addData.call(this, jsonData);
-                    }
+          function setDeptsAndRegs(data, option) {
+            // Usage:  Load different file types with one callback
+            // Copyright (c) 2013 Ryan Clark
+            // https://gist.github.com/rclark/5779673
+            L.TopoJSON = L.GeoJSON.extend({
+              addData: function(jsonData) {
+                if (jsonData.type === "Topology") {
+                  for (var key in jsonData.objects) {
+                    var geojson = topojson.feature(jsonData, jsonData.objects[key]);
+                    L.GeoJSON.prototype.addData.call(this, geojson);
                   }
-                });
-                if (option == "builDepts") {
-                  for (var i = 0; i < data.length; i++) data[i]["département"] = "non défini";
-                  var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json';
                 }
                 else {
-                  for (var i = 0; i < data.length; i++) data[i]["région"] = "non définie";
-                  var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json';
+                  L.GeoJSON.prototype.addData.call(this, jsonData);
                 }
-                Promise.all([
-                  // GeoJSON des départements et régions françaises
-                  // d'après https://france-geojson.gregoiredavid.fr
-                  load.json(topoFile),
-                ]).then(
-                  function(values) {
-                    console.log('Everything has been loaded!');
+              }
+            });
+            if (option == "builDepts") {
+              for (var i = 0; i < data.length; i++) data[i]["département"] = "non défini";
+              var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json';
+            }
+            else {
+              for (var i = 0; i < data.length; i++) data[i]["région"] = "non définie";
+              var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json';
+            }
+            Promise.all([
+              // GeoJSON des départements et régions françaises
+              // d'après https://france-geojson.gregoiredavid.fr
+              load.json(topoFile),
+            ]).then(
+              function(values) {
+                console.log('Everything has been loaded!');
 
-                    topoVal = loadVal(values, topoFile);
+                topoVal = loadVal(values, topoFile);
 
-                    var topoLayer = new L.TopoJSON();
+                var topoLayer = new L.TopoJSON();
 
-                    addTopoData(topoVal);
+                addTopoData(topoVal);
 
-                    function addTopoData(topoData) {
+                function addTopoData(topoData) {
 
-                      topoLayer.addData(topoData);
-                      //topoLayer.addTo(map);
-                      topoLayer.eachLayer(handleLayer);
+                  topoLayer.addData(topoData);
+                  //topoLayer.addTo(map);
+                  topoLayer.eachLayer(handleLayer);
+                }
+
+                function handleLayer(layer) {
+                  //var randomValue = Math.random(),
+
+                  var areaBounds = layer.getBounds();
+                  var areaCode = layer.feature.properties.code;
+                  var areaGeometry = layer.feature.geometry;
+                  var areaName = layer.feature.properties.nom;
+                  var areaNum = getNumItems();
+
+                  function getNumItems() {
+                    var d = 0;
+                    for (var idx = 0; idx < data.length; idx++) {
+                      if (inside([data[idx].lng, data[idx].lat], areaGeometry)) {
+                        if (option == "builDepts") data[idx].département = areaName;
+                        else data[idx].région = areaName;
+                        d += 1;
+                      }
                     }
+                    return d;
 
-                    function handleLayer(layer) {
-                      //var randomValue = Math.random(),
-
-                      var areaBounds = layer.getBounds();
-                      var areaCode = layer.feature.properties.code;
-                      var areaGeometry = layer.feature.geometry;
-                      var areaName = layer.feature.properties.nom;
-                      var areaNum = getNumItems();
-
-                      function getNumItems() {
-                        var d = 0;
-                        for (var idx = 0; idx < data.length; idx++) {
-                          if (inside([data[idx].lng, data[idx].lat], areaGeometry)) {
-                            if (option == "builDepts") data[idx].département = areaName;
-                            else data[idx].région = areaName;
-                            d += 1;
+                    function inside(point, TopoGeom) {
+                      var insideVal = false;
+                      if (TopoGeom["type"] == "MultiPolygon") {
+                        for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
+                          var polygon = TopoGeom["coordinates"][i][0];
+                          // Le point est-il dans le polygone
+                          if (isInsidePolygon(point, polygon)) {
+                            insideVal = true;
+                            for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
+                              var polygon = TopoGeom["coordinates"][i][j];
+                              // Le point est-il dans l'un des trous du polygone
+                              if (isInsidePolygon(point, polygon)) {
+                                insideVal = false;
+                              }
+                            }
                           }
                         }
-                        return d;
-
-                        function inside(point, TopoGeom) {
-                          var insideVal = false;
-                          if (TopoGeom["type"] == "MultiPolygon") {
-                            for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
-                              var polygon = TopoGeom["coordinates"][i][0];
-                              // Le point est-il dans le polygone
-                              if (isInsidePolygon(point, polygon)) {
-                                insideVal = true;
-                                for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
-                                  var polygon = TopoGeom["coordinates"][i][j];
-                                  // Le point est-il dans l'un des trous du polygone
-                                  if (isInsidePolygon(point, polygon)) {
-                                    insideVal = false;
-                                  }
-                                }
-                              }
-                            }
-                          }
-                          else {
-                            var polygon = TopoGeom["coordinates"][0];
-                            // Le point est-il dans le polygone
+                      }
+                      else {
+                        var polygon = TopoGeom["coordinates"][0];
+                        // Le point est-il dans le polygone
+                        if (isInsidePolygon(point, polygon)) {
+                          insideVal = true;
+                          for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
+                            var polygon = TopoGeom["coordinates"][j];
+                            // Le point est-il dans l'un des trous du polygone
                             if (isInsidePolygon(point, polygon)) {
-                              insideVal = true;
-                              for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
-                                var polygon = TopoGeom["coordinates"][j];
-                                // Le point est-il dans l'un des trous du polygone
-                                if (isInsidePolygon(point, polygon)) {
-                                  insideVal = false;
-                                }
-                              }
+                              insideVal = false;
                             }
-                          }
-
-                          return insideVal;
-                          // ray-casting algorithm based on
-                          // https://github.com/substack/point-in-polygon/blob/master/index.js
-
-                          function isInsidePolygon(point, vs) {
-                            var x = point[0],
-                              y = point[1];
-
-                            var inside = false;
-                            for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-                              var xi = vs[i][0],
-                                yi = vs[i][1];
-                              var xj = vs[j][0],
-                                yj = vs[j][1];
-
-                              var intersect = ((yi > y) != (yj > y)) &&
-                                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-                              if (intersect) inside = !inside;
-                            }
-
-                            return inside;
-
                           }
                         }
                       }
 
+                      return insideVal;
+                      // ray-casting algorithm based on
+                      // https://github.com/substack/point-in-polygon/blob/master/index.js
+
+                      function isInsidePolygon(point, vs) {
+                        var x = point[0],
+                          y = point[1];
+
+                        var inside = false;
+                        for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                          var xi = vs[i][0],
+                            yi = vs[i][1];
+                          var xj = vs[j][0],
+                            yj = vs[j][1];
+
+                          var intersect = ((yi > y) != (yj > y)) &&
+                            (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                          if (intersect) inside = !inside;
+                        }
+
+                        return inside;
+
+                      }
                     }
-
-                    if (option == "builDepts") setDeptsAndRegs(data, "builRegs");
-                    else runData(data, true);
-
                   }
-                )
-                /*.catch(function() {
-                                console.log('Oh no, epic failure!');
-                              });*/
-              };
 
-            };
+                }
+
+                if (option == "builDepts") setDeptsAndRegs(data, "builRegs");
+                else runData(data, true);
+
+              }
+            )
+            /*.catch(function() {
+                            console.log('Oh no, epic failure!');
+                          });*/
+          };
 
           /*function dataPopUp(data) {
             var iconMarkers = iconMarkersBuilder(data);
@@ -820,7 +823,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }*/
         }
       };
-    }
+    };
 
     function runData(indexEvent, isToSaveData) {
       // À conserver pour exporter des données...
@@ -2423,7 +2426,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     data: {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Services_publics.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
@@ -2439,12 +2442,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         if (!isNaN(iData[iVar])) lieux += ', France';
         return lieux;
       },
-      INSEE_KEY: "INSEE_COM",
-      /*dataTransformer: function(inputData) {
+      //INSEE_KEY: "INSEE_COM",
+      dataTransformer: function(inputData) {
         //setCallBack(inputData);
         //return;       
-        var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
-        loadFromJS(outputData,
+        var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.geojson';
+        loadFromJSON(outputData,
           (procData) => {
             //var data = this["data"];
             if (typeof data !== 'undefined') {
@@ -2459,7 +2462,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             //loading.html(err.message);
           }
         );
-      }*/
+      }
     },
     //fondCarte : 'IGN',
     popupData : {

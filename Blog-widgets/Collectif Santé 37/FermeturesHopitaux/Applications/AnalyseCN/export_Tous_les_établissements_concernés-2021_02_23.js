@@ -1,4 +1,4 @@
-var data =
+this["data"] =
 {"type": "FeatureCollection",
   "features": [
 {"type":"Feature",

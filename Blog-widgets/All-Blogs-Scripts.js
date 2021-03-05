@@ -166,7 +166,7 @@ function loadFromJSON(storedData, setCallBack, setOntError) {
             //if (typeof checkIfStoreNeedsUpdate !== 'undefined' && checkIfStoreNeedsUpdate) loadData();
             //else {
             //return setCallBack(storedData);
-            return setCallBack(storedData);
+            setCallBack(storedData);
             //}
           },
           reason => {
@@ -195,7 +195,8 @@ function loadFromJS(storedData, setCallBack, setOntError) {
           load.js(storedData),
         ]).then(
           values => {
-            return setCallBack();
+            //return setCallBack();
+            setCallBack();
           },
           reason => {
             //console.log(reason);

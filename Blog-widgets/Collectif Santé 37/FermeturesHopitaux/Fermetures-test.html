@@ -2267,7 +2267,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               for (var i = 0; i < inputData.length; i++) {
                 inputData[i].newproperty = "nouvelle propriété";
               }
-            }
+              return true;
+            } else return false;
           },
           (err) => {
             console.log(err.message);

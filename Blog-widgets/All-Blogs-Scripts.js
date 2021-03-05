@@ -191,7 +191,7 @@ function loadFromJS(storedData, setCallBack, setOntError) {
           load.js(storedData),
         ]).then(
           values => {
-            return setCallBack();
+            setCallBack();
           },
           reason => {
             //console.log(reason);

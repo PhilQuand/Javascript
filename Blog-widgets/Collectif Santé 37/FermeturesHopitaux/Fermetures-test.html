@@ -315,13 +315,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
               var data = getDataFromJSON(procData);
               if (typeof data !== 'undefined') {
-                if (isGeoJSON(procData) && typeof options.data.dataTransformer !== 'function') {
-                  runData(data);
+                if (typeof options.data.dataTransformer === 'function') {
+                  options.data.dataTransformer(data, geolocData)
                 }
-                else {
+                else if (!isGeoJSON(procData)) {
                   geolocData(data);
                 }
-              }
+                else {
+                  runData(data);
+                }
+              };
             },
             (err) => {
               loading.html(err.message);
@@ -406,32 +409,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     };
 
     function geolocData(data) {
-      var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.geojson';
-      loadFromJSON(outputData,
-        (procData) => {
-          dataGoOn(procData);
-        },
-        (err) => {
-          console.log(err.message);
-          //loading.html(err.message);
-        }
-      );
-
-      function dataGoOn(procData) {
-        if (typeof options.data.dataTransformer === 'function') {
-          var dataTransformer = options.data.dataTransformer(data, procData);
-          if (dataTransformer) {
-            if (typeof options.data === 'object' && typeof options.data.INSEE_KEY !== 'undefined') geolocDataWithINSEE(data);
-            else geolocDataWithoutINSEE(data);
-          }
-          else console.log('error dataTransformer has returned false')
-        }
-        else {
           if (typeof options.data === 'object' && typeof options.data.INSEE_KEY !== 'undefined') geolocDataWithINSEE(data);
           else geolocDataWithoutINSEE(data);
-        }
-      }
-
+ 
       function geolocDataWithoutINSEE(data) {
         var indexCal = 0;
         var indexRes = 0;
@@ -2499,14 +2479,35 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return lieux;
       },
       //INSEE_KEY: "INSEE_COM",
-      dataTransformer: function(data, inputData) {
-        if (typeof data !== 'undefined') {
-          for (var i = 0; i < inputData.length; i++) {
-            inputData[i].newproperty = "nouvelle propriété";
-          }
-          return true;
+      dataTransformer: function(inputData, setCallBack) {
+      var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.geojson';
+      loadFromJSON(outputData,
+        (procData) => {
+         if (typeof procData !== 'undefined') {
+           var outputData = []
+           for (var j = 0; j < procData["features"].length; j++) {
+             outputData.push(j);
+           }
+           for (var i = 0; i < inputData.length; i++) {
+             const inputDataId = inputData[i]["id"];
+             for (var j = 0; j < outputData.length; j++) {
+               if (inputDataId == procData["features"][outputData[j]]["properties"]["id"]) {
+                 inputData[i]["lng"] = procData["features"][outputData[j]]["geometry"]["coordinates"][0]
+                 inputData[i]["lat"] = procData["features"][outputData[j]]["geometry"]["coordinates"][1]
+                 outputData.splice(j, 1)
+                 break;
+               }
+             }
+           };
+           setCallBack(inputData);
+         }
+         else consol.log('error in dataTransformer...');
+        },
+        (err) => {
+          console.log(err.message);
+          //loading.html(err.message);
         }
-        else return false;
+      );
       }
     },
     //fondCarte : 'IGN',

@@ -315,13 +315,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
               var data = getDataFromJSON(procData);
               if (typeof data !== 'undefined') {
-                if (isGeoJSON(procData) && typeof options.data.dataTransformer !== 'function') {
-                  runData(data);
+                if (typeof options.data.dataTransformer === 'function') {
+                  options.data.dataTransformer(data, geolocData)
                 }
-                else {
+                else if (!isGeoJSON(procData)) {
                   geolocData(data);
                 }
-              }
+                else {
+                  runData(data);
+                }
+              };
             },
             (err) => {
               loading.html(err.message);
@@ -406,9 +409,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     };
 
     function geolocData(data) {
-      if (typeof options.data === 'object' && typeof options.data.INSEE_KEY !== 'undefined') geolocDataWithINSEE(data);
-      else geolocDataWithoutINSEE(data);
-
+          if (typeof options.data === 'object' && typeof options.data.INSEE_KEY !== 'undefined') geolocDataWithINSEE(data);
+          else geolocDataWithoutINSEE(data);
+ 
       function geolocDataWithoutINSEE(data) {
         var indexCal = 0;
         var indexRes = 0;
@@ -453,20 +456,22 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     console.log(lieux);
                   };
                   //return;
-                } else {
-                //if (!error && typeof results.results !== 'undefined') {
-                if (!error && results.results.length > 0) {
-                  indexRes++;
-                  data[indexLoc].lat = results.results[0].latlng.lat;
-                  data[indexLoc].lng = results.results[0].latlng.lng;
                 }
                 else {
-                  if (typeof options.geolocError === 'function') options.geolocError("Problème d'accés au résultat de géolocalisation :", data[indexLoc])
+                  //if (!error && typeof results.results !== 'undefined') {
+                  if (!error && results.results.length > 0) {
+                    indexRes++;
+                    data[indexLoc].lat = results.results[0].latlng.lat;
+                    data[indexLoc].lng = results.results[0].latlng.lng;
+                  }
                   else {
-                    console.log(error);
-                    console.log(lieux);
-                  };
-                }}
+                    if (typeof options.geolocError === 'function') options.geolocError("Problème d'accés au résultat de géolocalisation :", data[indexLoc])
+                    else {
+                      console.log(error);
+                      console.log(lieux);
+                    };
+                  }
+                }
                 checkIfEnd(indexCal, indexEnd, add2Layer);
               });
           }
@@ -661,7 +666,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }*/
         );
       }
-      
+
       function checkIfEnd(indexCal, indexEnd, add2Layer) {
         if (indexCal < indexEnd) {
           add2Layer(indexCal)
@@ -673,152 +678,145 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             if (typeof data[i].INSEEcode !== 'undefined') delete data[i].INSEEcode;
             if (typeof data[i].INSEEdept !== 'undefined') delete data[i].INSEEdept;
           }
-          dataGoOn(data);
+          setDeptsAndRegs(data, "builDepts")
 
-            function dataGoOn(data) {
-              if (typeof options.data.dataTransformer === 'function') {
-                var dataTransformer = options.data.dataTransformer(data);
-                if(dataTransformer) setDeptsAndRegs(data, "builDepts");
-              } else setDeptsAndRegs(data, "builDepts");
-
-              function setDeptsAndRegs(data, option) {
-                // Usage:  Load different file types with one callback
-                // Copyright (c) 2013 Ryan Clark
-                // https://gist.github.com/rclark/5779673
-                L.TopoJSON = L.GeoJSON.extend({
-                  addData: function(jsonData) {
-                    if (jsonData.type === "Topology") {
-                      for (var key in jsonData.objects) {
-                        var geojson = topojson.feature(jsonData, jsonData.objects[key]);
-                        L.GeoJSON.prototype.addData.call(this, geojson);
-                      }
-                    }
-                    else {
-                      L.GeoJSON.prototype.addData.call(this, jsonData);
-                    }
+          function setDeptsAndRegs(data, option) {
+            // Usage:  Load different file types with one callback
+            // Copyright (c) 2013 Ryan Clark
+            // https://gist.github.com/rclark/5779673
+            L.TopoJSON = L.GeoJSON.extend({
+              addData: function(jsonData) {
+                if (jsonData.type === "Topology") {
+                  for (var key in jsonData.objects) {
+                    var geojson = topojson.feature(jsonData, jsonData.objects[key]);
+                    L.GeoJSON.prototype.addData.call(this, geojson);
                   }
-                });
-                if (option == "builDepts") {
-                  for (var i = 0; i < data.length; i++) data[i]["département"] = "non défini";
-                  var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json';
                 }
                 else {
-                  for (var i = 0; i < data.length; i++) data[i]["région"] = "non définie";
-                  var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json';
+                  L.GeoJSON.prototype.addData.call(this, jsonData);
                 }
-                Promise.all([
-                  // GeoJSON des départements et régions françaises
-                  // d'après https://france-geojson.gregoiredavid.fr
-                  load.json(topoFile),
-                ]).then(
-                  function(values) {
-                    console.log('Everything has been loaded!');
+              }
+            });
+            if (option == "builDepts") {
+              for (var i = 0; i < data.length; i++) data[i]["département"] = "non défini";
+              var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/deptsFranceData.json';
+            }
+            else {
+              for (var i = 0; i < data.length; i++) data[i]["région"] = "non définie";
+              var topoFile = 'https://philquand.github.io/Javascript/LeafLet/json/regsFranceData.json';
+            }
+            Promise.all([
+              // GeoJSON des départements et régions françaises
+              // d'après https://france-geojson.gregoiredavid.fr
+              load.json(topoFile),
+            ]).then(
+              function(values) {
+                console.log('Everything has been loaded!');
 
-                    topoVal = loadVal(values, topoFile);
+                topoVal = loadVal(values, topoFile);
 
-                    var topoLayer = new L.TopoJSON();
+                var topoLayer = new L.TopoJSON();
 
-                    addTopoData(topoVal);
+                addTopoData(topoVal);
 
-                    function addTopoData(topoData) {
+                function addTopoData(topoData) {
 
-                      topoLayer.addData(topoData);
-                      //topoLayer.addTo(map);
-                      topoLayer.eachLayer(handleLayer);
+                  topoLayer.addData(topoData);
+                  //topoLayer.addTo(map);
+                  topoLayer.eachLayer(handleLayer);
+                }
+
+                function handleLayer(layer) {
+                  //var randomValue = Math.random(),
+
+                  var areaBounds = layer.getBounds();
+                  var areaCode = layer.feature.properties.code;
+                  var areaGeometry = layer.feature.geometry;
+                  var areaName = layer.feature.properties.nom;
+                  var areaNum = getNumItems();
+
+                  function getNumItems() {
+                    var d = 0;
+                    for (var idx = 0; idx < data.length; idx++) {
+                      if (inside([data[idx].lng, data[idx].lat], areaGeometry)) {
+                        if (option == "builDepts") data[idx].département = areaName;
+                        else data[idx].région = areaName;
+                        d += 1;
+                      }
                     }
+                    return d;
 
-                    function handleLayer(layer) {
-                      //var randomValue = Math.random(),
-
-                      var areaBounds = layer.getBounds();
-                      var areaCode = layer.feature.properties.code;
-                      var areaGeometry = layer.feature.geometry;
-                      var areaName = layer.feature.properties.nom;
-                      var areaNum = getNumItems();
-
-                      function getNumItems() {
-                        var d = 0;
-                        for (var idx = 0; idx < data.length; idx++) {
-                          if (inside([data[idx].lng, data[idx].lat], areaGeometry)) {
-                            if (option == "builDepts") data[idx].département = areaName;
-                            else data[idx].région = areaName;
-                            d += 1;
+                    function inside(point, TopoGeom) {
+                      var insideVal = false;
+                      if (TopoGeom["type"] == "MultiPolygon") {
+                        for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
+                          var polygon = TopoGeom["coordinates"][i][0];
+                          // Le point est-il dans le polygone
+                          if (isInsidePolygon(point, polygon)) {
+                            insideVal = true;
+                            for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
+                              var polygon = TopoGeom["coordinates"][i][j];
+                              // Le point est-il dans l'un des trous du polygone
+                              if (isInsidePolygon(point, polygon)) {
+                                insideVal = false;
+                              }
+                            }
                           }
                         }
-                        return d;
-
-                        function inside(point, TopoGeom) {
-                          var insideVal = false;
-                          if (TopoGeom["type"] == "MultiPolygon") {
-                            for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
-                              var polygon = TopoGeom["coordinates"][i][0];
-                              // Le point est-il dans le polygone
-                              if (isInsidePolygon(point, polygon)) {
-                                insideVal = true;
-                                for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
-                                  var polygon = TopoGeom["coordinates"][i][j];
-                                  // Le point est-il dans l'un des trous du polygone
-                                  if (isInsidePolygon(point, polygon)) {
-                                    insideVal = false;
-                                  }
-                                }
-                              }
-                            }
-                          }
-                          else {
-                            var polygon = TopoGeom["coordinates"][0];
-                            // Le point est-il dans le polygone
+                      }
+                      else {
+                        var polygon = TopoGeom["coordinates"][0];
+                        // Le point est-il dans le polygone
+                        if (isInsidePolygon(point, polygon)) {
+                          insideVal = true;
+                          for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
+                            var polygon = TopoGeom["coordinates"][j];
+                            // Le point est-il dans l'un des trous du polygone
                             if (isInsidePolygon(point, polygon)) {
-                              insideVal = true;
-                              for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
-                                var polygon = TopoGeom["coordinates"][j];
-                                // Le point est-il dans l'un des trous du polygone
-                                if (isInsidePolygon(point, polygon)) {
-                                  insideVal = false;
-                                }
-                              }
+                              insideVal = false;
                             }
-                          }
-
-                          return insideVal;
-                          // ray-casting algorithm based on
-                          // https://github.com/substack/point-in-polygon/blob/master/index.js
-
-                          function isInsidePolygon(point, vs) {
-                            var x = point[0],
-                              y = point[1];
-
-                            var inside = false;
-                            for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-                              var xi = vs[i][0],
-                                yi = vs[i][1];
-                              var xj = vs[j][0],
-                                yj = vs[j][1];
-
-                              var intersect = ((yi > y) != (yj > y)) &&
-                                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-                              if (intersect) inside = !inside;
-                            }
-
-                            return inside;
-
                           }
                         }
                       }
 
+                      return insideVal;
+                      // ray-casting algorithm based on
+                      // https://github.com/substack/point-in-polygon/blob/master/index.js
+
+                      function isInsidePolygon(point, vs) {
+                        var x = point[0],
+                          y = point[1];
+
+                        var inside = false;
+                        for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                          var xi = vs[i][0],
+                            yi = vs[i][1];
+                          var xj = vs[j][0],
+                            yj = vs[j][1];
+
+                          var intersect = ((yi > y) != (yj > y)) &&
+                            (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                          if (intersect) inside = !inside;
+                        }
+
+                        return inside;
+
+                      }
                     }
-
-                    if (option == "builDepts") setDeptsAndRegs(data, "builRegs");
-                    else runData(data, true);
-
                   }
-                )
-                /*.catch(function() {
-                                console.log('Oh no, epic failure!');
-                              });*/
-              };
 
-            };
+                }
+
+                if (option == "builDepts") setDeptsAndRegs(data, "builRegs");
+                else runData(data, true);
+
+              }
+            )
+            /*.catch(function() {
+                            console.log('Oh no, epic failure!');
+                          });*/
+          };
+
 
           /*function dataPopUp(data) {
             var iconMarkers = iconMarkersBuilder(data);
@@ -866,7 +864,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           }*/
         }
       };
-    }
+    };
 
     function runData(indexEvent, isToSaveData) {
       // À conserver pour exporter des données...
@@ -2231,30 +2229,34 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   // fin spécial pour le site de la CN
 
 
-  optionsTESTInnerFormedData = {
+  optionsEtabScore = {
     data: {
-      //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/Score/ScoreData.geojson',
 
       geolocData: function geolocData(iData, iVar) {
-        /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
-          if(iData[iVar].LATITUDE != '') iData[iVar].lat = iData[iVar].LATITUDE;
-          delete iData[iVar].LATITUDE;
-        }
-        if (typeof iData[iVar].LONGITUDE !== 'undefined') {
-          if(iData[iVar].LONGITUDE != '') iData[iVar].lng = iData[iVar].LONGITUDE;
-          delete iData[iVar].LONGITUDE;
-        }
-        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;*/
-        var lieux = iData[iVar].nom_commune + ',' + iData[iVar].INSEE_COM;
-        if (!isNaN(iData[iVar])) lieux += ', France';
+        var lieu = '';
+        if(iData[iVar].adresse1 != null) lieu += iData[iVar].adresse1 + '<br>';
+        if(iData[iVar].adresse2 != null) lieu += iData[iVar].adresse2 + '<br>';
+        if(lieu != '') lieu += iData[iVar].ville;
+        else lieu = iData[iVar].ville;
+        lieu += ', ' + iData[iVar].cp;
+        iData[iVar].lieu = lieu;
+        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;
+        var lieux = '';
+        //lieux += iData[iVar].nom;
+        if(iData[iVar].adresse1 != null) lieux += iData[iVar].adresse1 + ', ';
+        if(iData[iVar].adresse2 != null) lieux += iData[iVar].adresse2 + ', ';
+        if(lieux != '') lieux += iData[iVar].ville + ', ';
+        else lieux = iData[iVar].ville + ', ';
+        lieux += iData[iVar].cp + ', ';
+        lieux += 'France';
         return lieux;
       },
-      INSEE_KEY: "INSEE_COM",
-      /*dataTransformer: function(inputData) {
-        //setCallBack(inputData);
-        //return;       
+      geolocError: function geolocData(error, data) {
+        console.log(error);
+        console.log(data);
+      },
+      dataTransformer: function(inputData) {
         var outputData = 'file:///Users/Philippe/Documents/Blogs/CollectifSante%CC%8137/scopesante.js';
         loadFromJS(outputData,
           (procData) => {
@@ -2271,6 +2273,241 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             //loading.html(err.message);
           }
         );
+      }
+    },
+    //fondCarte : 'IGN',
+    popupData : {
+      title: 'nom',
+      properties: ["lieu", "statut", "type"]
+    },
+    tableData: {
+      properties: [{
+        name: 'nom',
+        //filter: 'selection'
+      }, {
+        name: 'lieu',
+        //filter: 0
+      }, {
+        /*name: 'newproperty',
+        //filter: 0
+      }, {*/
+        name: 'département',
+        filter: 'selection'
+      }, {
+        name: 'région',
+        filter: 'selection'
+      }, {
+        name: 'statut',
+        filter: 'selection'
+      }, {
+       name: 'type',
+        filter: 'selection'
+      }],
+      filters: [{
+        data: [{
+          value: 'avec valeur',
+          label: 'Avec valeur'
+        }, {
+          value: 'sans valeur',
+          label: 'Sans valeur'
+        }],
+        func: (filterVal, columnVal) => {
+          switch (filterVal) {
+            case 'sans valeur':
+              if (columnVal === '') {
+                return true;
+              }
+              else return false;
+              break;
+            default:
+              if (columnVal !== '') {
+                return true;
+              }
+              else return false;
+              break;
+          }
+        }
+      }],
+    },
+    controlLayers: {
+      controlMaps: {
+        on: true,
+        gradeDepts: [0, 5, 10, 15, 20, 30, 40, 100],
+        gradeRegs: [0, 100, 150, 200, 250, 300, 350]
+        },
+      controlOverlays: {
+        title: "Type d'établissements",
+        overlays: [{
+            title: 'publics',
+            isInGroup: data => {
+              if(data['statut'] == 'Public') return true;
+              else return false
+            }
+          },
+          {
+            title: 'privés lucratifs',
+            isInGroup: function(data) {
+              if(data['statut'] == 'Privé') return true;
+              else return false
+            }
+          },
+          {
+            title: 'privés non lucratifs',
+            isInGroup: function(data) {
+              if(data['statut'] == 'Privé à but non lucratif') return true;
+              else return false
+            }
+          },
+        ]
+      }
+    },
+    legend: {
+      title: 'Établissements',
+      test: function(){},
+      affect: function(data) {
+        if (data['statut'] == 'Public') {
+          return 0;
+        }
+        else if (data['statut'] == 'Privé') {
+          return 1;
+        }
+        else if (data['statut'] == 'Privé à but non lucratif') {
+          return 2;
+        }
+        else return 3;
+      },
+      icons: [
+        /*{
+          icon: {leaflet: new L.Icon({
+            iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-gold.png',
+            shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+            iconSize: [13, 20],
+            iconAnchor: [6, 20],
+            popupAnchor: [1, -17],
+            shadowSize: [20, 20]
+          })},
+          title: 'publics',
+          colorBG: '#FFD326',
+          colorFG: '#0E0E0E',
+        },*/
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'publics',
+          colorBG: '#2781CA',
+          colorFG: '#FFFFFF',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'privés',
+          colorBG: '#9C2BCB',
+          colorFG: '#F8F8F8',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'privés non lucratifs',
+          colorBG: '#29AD27',
+          colorFG: '#FFFFFF',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'autres',
+          colorBG: '#1E77C8',
+          colorFG: '#FFFFFF',
+        }
+      ]
+    },
+    banner: '<center style="padding: 1em; text-align: center; background-color: #F0EEE7; width: 100%; height: auto;"> \
+             Source: HAS / <a href="https://www.scopesante.fr/#/">www.scopesante.fr</a><br> \
+             mise à jour le 13/03/2020<br> \
+             et disponible sur <a href="https://www.data.gouv.fr/fr/datasets/extraction-des-donnees-du-site-scopesante-de-la-has/#_">data.gouv.fr</a> \
+             </center>',
+  };
+  optionsTESTInnerFormedData = {
+    data: {
+      //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Services_publics.geojson',
+
+      geolocData: function geolocData(iData, iVar) {
+        /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
+          if(iData[iVar].LATITUDE != '') iData[iVar].lat = iData[iVar].LATITUDE;
+          delete iData[iVar].LATITUDE;
+        }
+        if (typeof iData[iVar].LONGITUDE !== 'undefined') {
+          if(iData[iVar].LONGITUDE != '') iData[iVar].lng = iData[iVar].LONGITUDE;
+          delete iData[iVar].LONGITUDE;
+        }
+        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;*/
+        var lieux = iData[iVar].nom_commune + ',' + iData[iVar].INSEE_COM;
+        if (!isNaN(iData[iVar])) lieux += ', France';
+        return lieux;
+      },
+      //INSEE_KEY: "INSEE_COM",
+      /*dataTransformer: function(inputData, setCallBack) {
+      var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.geojson';
+      loadFromJSON(outputData,
+        (procData) => {
+         if (typeof procData !== 'undefined') {
+           var outputData = []
+           for (var j = 0; j < procData["features"].length; j++) {
+             outputData.push(j);
+           }
+           for (var i = 0; i < inputData.length; i++) {
+             const inputDataId = inputData[i]["id"];
+             for (var j = 0; j < outputData.length; j++) {
+               if (inputDataId == procData["features"][outputData[j]]["properties"]["id"]) {
+                 inputData[i]["lng"] = procData["features"][outputData[j]]["geometry"]["coordinates"][0]
+                 inputData[i]["lat"] = procData["features"][outputData[j]]["geometry"]["coordinates"][1]
+                 outputData.splice(j, 1)
+                 break;
+               }
+             }
+           };
+           setCallBack(inputData);
+         }
+         else console.log('error in dataTransformer...');
+        },
+        (err) => {
+          console.log(err.message);
+          //loading.html(err.message);
+        }
+      );
       }*/
     },
     //fondCarte : 'IGN',
@@ -2403,6 +2640,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
+  //$('#Fermetures').mapAllBlogs(optionsEtabScore);
   $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
 
 })(jQuery);

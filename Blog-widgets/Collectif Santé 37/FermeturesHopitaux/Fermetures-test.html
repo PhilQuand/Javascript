@@ -318,7 +318,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 if (typeof options.data.dataTransformer === 'function') {
                   options.data.dataTransformer(data, geolocData)
                 }
-                else if (!isGeoJSON(procData)) {
+                else if (typeof options.data.dataTransformer !== 'undefined' || !isGeoJSON(procData)) {
                   geolocData(data);
                 }
                 else {
@@ -941,6 +941,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         for (i = 0; i < valGeoJSON["features"].length; i++) {
           //delete valGeoJSON["features"][i]["properties"]["iconMarker"];
           delete valGeoJSON["features"][i]["properties"]["marker"];
+          for (var prop in valGeoJSON["features"][i]["properties"]) {
+            if (valGeoJSON["features"][i]["properties"][prop] == null) {
+              delete valGeoJSON["features"][i]["properties"][prop];
+            }
+
+          }
           //delete valGeoJSON["features"][i]["properties"]["doc"];
         };
         dataStore.html(JSON.stringify(valGeoJSON));
@@ -2196,6 +2202,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               columns.push({
                 data: properties[i]['name'],
                 title: properties[i]['name'],
+                defaultContent: '',
                 //selectable: false
               });
               if (jQuery.type(properties[i]['filter']) !== 'undefined') {
@@ -2213,7 +2220,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
                   }
                 }
-                if (jQuery.type(item) !== 'undefined') tableColums.push(item);
+                if (jQuery.type(item) !== 'undefined') {
+                item['defaultContent'] = '';
+                tableColums.push(item);
+                }
               };
             }
           };
@@ -2227,6 +2237,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             var columns = [{
               data: item,
               title: item,
+              defaultContent: '',
               //selectable: true
             }];
           }
@@ -2235,6 +2246,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             columns.push({
               data: item,
               title: item,
+              defaultContent: '',
               //selectable: false
             });
           }
@@ -2502,7 +2514,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     data: {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Services_publics.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes.gml3.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
@@ -2519,7 +2531,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return lieux;
       },
       //INSEE_KEY: "INSEE_COM",
-      dataTransformer: function(inputData, setCallBack) {
+      dataTransformer: true,
+      /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,
         (procData) => {
@@ -2549,7 +2562,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           //loading.html(err.message);
         }
       );
-      }
+      }*/
     },
     //fondCarte : 'IGN',
     popupData : {

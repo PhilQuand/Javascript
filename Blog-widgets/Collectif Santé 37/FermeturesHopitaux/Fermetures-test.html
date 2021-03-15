@@ -809,7 +809,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
                 if (option == "builDepts") setDeptsAndRegs(data, "builRegs");
                 else {
-            var iconMarkers = iconMarkersBuilder(data);
+            /*var iconMarkers = iconMarkersBuilder(data);
             for (var i = 0; i < data.length; i++) {
               var popupContent = $('<div></div>');
               var popupBody = $("<div class='popBody'></div>");
@@ -845,7 +845,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
               var content = JSON.stringify(popupContent.html());
               data[i].doc = content;
-              }
+              }*/
                 runData(data, true);
                 }
 
@@ -1055,8 +1055,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         });
         for (i = 0; i < indexEvent.length; i++) {
           indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
-          //indexEvent[i].doc = dataPopUp(indexEvent[i]);
-          indexEvent[i].doc = JSON.parse(indexEvent[i].doc);
+          indexEvent[i].doc = dataPopUp(indexEvent[i]);
+          //indexEvent[i].doc = JSON.parse(indexEvent[i].doc);
           indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
         }
 
@@ -2513,7 +2513,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   optionsTESTInnerFormedData = {
     data: {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
       base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2531,7 +2531,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return lieux;
       },
       //INSEE_KEY: "INSEE_COM",
-      dataTransformer: true,
+      //dataTransformer: true,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,

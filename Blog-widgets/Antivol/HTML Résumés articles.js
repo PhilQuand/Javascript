@@ -302,7 +302,7 @@ var printNavHash = function() {
     var idArtcle = $(this).attr('id');
     if (jQuery.type(idArtcle) == 'undefined') {
       $(this).attr('id', 'article-' + index);
-      navCorpsBR.append('<li><a href="#article-' + index + '"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');
+      navCorpsBR.append('<li><a href="#article-' + index + '"><byline-label viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');
     }
     else {
       navCorpsBR.append('<li><a href="#' + idArtcle + '"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="transparent" stroke="#4a00ff"></circle></svg></a></li>');

@@ -417,7 +417,7 @@ $.fn.myTimeLine = function(options) {
   }
 
   function readDate(date, format) {
-    var result = {
+     var result = {
       day: '',
       month: '',
       year: ''

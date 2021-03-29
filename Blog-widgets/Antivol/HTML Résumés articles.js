@@ -7,6 +7,7 @@
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
+<script src='https://philquand.github.io/Javascript/Blog-widgets/Antivol/BibliothequeRadicale.js'></script>
 <!-- End FancyBox -->
 
 <!-- Add myTimeLine -->
@@ -127,7 +128,7 @@ $('button.subscribe-button.pill-button').append('<span class="tooltiptext">Pour 
 <!--style>
 .bg-photo-overlay {
     background-image: url("https://1.bp.blogspot.com/-opaaRwNbCfA/XgNT-fyxG8I/AAAAAAAAkrk/TDWOtKZ4BoU__SfluVUzrYej6tKInUzoQCLcBGAsYHQ/s1600/Bord%2Bde%2BLoire%2B1200.png");
-//background-color: #FFFCE5;
+/*background-color: #FFFCE5;*/
 }
 </style-->
 <style>
@@ -258,12 +259,12 @@ $(document).ready(function() {
   font-size:18px;
   color: #666666;
   line-height: 1.4;
-  //font-style: italic;
-  //background-color: #FEFEE2;
-  //padding-top: 0.5em;
+  /*font-style: italic;
+  background-color: #FEFEE2;
+  padding-top: 0.5em;*/
   padding-bottom: 0.5em;
-  //padding-left: 1em;
-  //padding-right: 1em;
+  /*padding-left: 1em;
+  padding-right: 1em;*/
   margin-bottom: 0.5em;
 }
 .author {
@@ -271,8 +272,8 @@ $(document).ready(function() {
 }
 .corps {
   text-align: justify;
-  //padding: 1em;
-  //background-color: rgba(0, 0, 0, 0.04);
+  /*padding: 1em;
+  background-color: rgba(0, 0, 0, 0.04);*/
   background-color: #F4F4F4;
 }
 .incrustation {
@@ -368,8 +369,8 @@ var printNavHash = function() {
   visibility: hidden; 
 }
 .corpsBR #navCorpsBR {
-//position: -webkit-sticky;
-//height: 200px;
+/*position: -webkit-sticky;
+height: 200px;*/
 position: sticky !important;
 top: 150px;
 margin-top: 50px;

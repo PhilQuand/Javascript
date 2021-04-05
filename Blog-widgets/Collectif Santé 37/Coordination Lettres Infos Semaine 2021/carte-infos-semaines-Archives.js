@@ -1,19 +1,23 @@
     var archi = [
             {
-          svgInfos: ['Semaine 12', 'du 22 mars', 'au 28 mars', '2021'],
+          svgInfos: ['Semaine 13', 'du 29 mar.', 'au 04 apr.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 12.html',
         },
             {
-          svgInfos: ['Semaine 11', 'du 15 mars', 'au 21 mars', '2021'],
-          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 11.html',
+          svgInfos: ['Semaine 12', 'du 22 mar.', 'au 28 mar.', '2021'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 12.html',
           idGlinkID: 'PreviousLetters'
         },
             {
-          svgInfos: ['Semaine 10', 'du 09 mars', 'au 12 mars', '2021'],
+          svgInfos: ['Semaine 11', 'du 15 mar.', 'au 21 mar.', '2021'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 11.html',
+        },
+            {
+          svgInfos: ['Semaine 10', 'du 09 mar.', 'au 12 mar.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 10.html',
         },
             {
-          svgInfos: ['Semaine 09', 'du 1er mars', 'au 7 mars', '2021'],
+          svgInfos: ['Semaine 09', 'du 1er mar.', 'au 7 mar.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 09.html',
         },
             {

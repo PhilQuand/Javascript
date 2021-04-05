@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2021 semaines 10</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+Chacun d’entre nous est conscient qu’il est impératif de faire face à la saturation progressive des services de réanimation. Alors que les taux d’incidence révèlent des écarts importants entre régions ou entre départements, il est pourtant difficile d’adhérer à des mesures qui, tout territoire confondu, limitent nos libertés : Extension des mesures de surveillance renforcées à tout le territoire métropolitain, maintien du couvre-feu à 19 h, limitations des déplacements, généralisation du télétravail, fermetures des écoles.
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 250px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 13</li>
+<li><strong>Dates</strong>: du 29 mars au 04 avril 2021</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2021/04/Infos-semaine-13-du-29-mars-au-4-avril-2021.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<h3>cid:part11.8C3DFBA4.85B6AFB6@orange.fr</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/04/Image-4.png" />
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Édito (ou point fort de la semaine) :</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">L’évènement phare de la semaine a été l’adresse du Président de la République aux Français à propos du COVID 19. </span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Chacun d’entre nous est conscient qu’il est impératif de faire face à la saturation progressive des services de réanimation. Alors que les taux d’incidence révèlent des écarts importants entre régions ou entre départements, il est pourtant difficile d’adhérer à des mesures qui, tout territoire confondu, limitent nos libertés : Extension des mesures de surveillance renforcées à tout le territoire métropolitain, maintien du couvre-feu à 19 h, limitations des déplacements, généralisation du télétravail, fermetures des écoles.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">C’est d’autant plus difficile que ni les responsables sanitaires ni les médias ne fournissent au citoyen ordinaire, à l’opinion publique, les éclairages nécessaires à la compréhension de ces mesures. A titre d’exemple, la recrudescence du nombre de contaminations que les différentes chaines de télévision répètent en boucle à longueur de journées est-elle imputable au variant anglais ou au couvre-feu à 18 heures qui a concentré certaines activités humaines sur des créneaux horaires réduits donc augmenté la promiscuité et les risques de contagion dans les lieux où elles se sont exercées ? Est-elle justement localisée dans ces zones de surveillance renforcée, dans les zones où le variant anglais sévit ou est-elle généralisée ? L’absence d’informations précises et indéniables, y compris dans le message présidentiel, nourrit le doute.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Parallèlement, lorsque des précisions sont données, elles sont trop souvent démenties. S’agissant des élèves des maternelles et du primaire on nous a indiqué hier qu’ils n’étaient pas des vecteurs de transmission du virus mais aujourd’hui on décide de fermer les écoles parce qu’elles sont désormais considérées comme des foyers potentiels de contamination. Où est la vérité ? </span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">S’agissant des lits de réanimation, on nous a annoncé lors du premier confinement qu’on allait les porter de 5 000 à 12 000. Un an après le Président de la République indique qu’il y en a 7 000 et que l’objectif est d’atteindre 10 000. Qui croire et que croire ? Comme pour les masques ou les tests ou les vaccins, les annonces de lendemain qui chantent entretiennent le doute dès lors qu’elles sont aussitôt démenties par les faits.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Adhérer aux mesures définies au plus haut degré de l’Etat doit être aussi difficile pour les hospitaliers à qui l’on demande un effort supplémentaire alors qu’ils dénoncent sans succès depuis des années les postes non pourvus, les sous-effectifs et la dégradation de leurs conditions de travail, alors que les burn-out et les démissions se multiplient, alors qu’ils sont de moins en moins nombreux pour faire face à un surcroît de patients COVID et qu’ils sont dans l’obligation de laisser en attente une partie des patients non COVID.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 8pt;">R. VACHON</span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Sommaire :</b></span></span></p>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>L’écho des comités : Pages 3 et 4</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Autres infos locales : Page 4</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossiers : Pages 5 à 8</b></span></span></p>
+</li>
+</ul>
+<p style="margin-bottom: 0cm; direction: ltr; font-family: Helvetica; font-size: 12px; text-indent: 0.64cm;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>- Les soignants</b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; font-family: Helvetica; font-size: 12px; text-indent: 0.64cm;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>- La psychiatrie</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px; text-indent: 0.64cm;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>- Le COVID</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px; text-indent: 0.64cm;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>- Les vaccins et les brevets</b></span></span></p>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé : Page 9</b></span></span></p>
+</li>
+</ul>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>L’écho des comités :</b></span></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #ffff99; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#ffff99" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>CREIL – SENLIS 60</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.49cm; direction: ltr; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;" align="center"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>Les candidats de la Liste des élections Régionales</b></span></span><span style="font-family: Times New Roman,          serif;"><span style="font-size: 12pt;"><br /></span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>Ecologie-France-Insoumise-Parti Communiste-Parti Socialiste,</b></span></span></p>
+<p style="margin-bottom: 0.49cm; direction: ltr; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;" align="center"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>invitent les membres du Comité de Défense de l’Hôpital à débattre avec eux,</b></span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><br /></span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>le </b></span></span><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><u><b>Mercredi 7 Avril à 14h.</b></u></span></span><span style="font-family: Times          New Roman, serif;"><span style="font-size: 12pt;"><b> à l’entrée de l’Hôpital Laennec  sur le thème :</b></span></span></p>
+<p style="margin-bottom: 0.49cm; direction: ltr; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;" align="center"><span style="font-family: Times New Roman, serif;"><span style="font-size: 16pt;"><b>Quel avenir pour notre Hôpital ?</b></span></span></p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #99ccff; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#99ccff" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>DIGNE-LES-BAINS 04</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Depuis 12 mois de crise sanitaire, le personnel des hôpitaux et EHPAD est épuisé, en souffrance.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L'ARS PACA en profite pour élaborer un projet de fusion entre l'hôpital de Riez et les EHPAD de Puimoisson et Valensol</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="http://coordination-defense-sante.org/2021/04/digne-les-bains-non-a-la-fusion/"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le tract </b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #ffff99; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#ffff99" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>TOURS 37</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le Laboratoire SERVIER condamné dans le procès du Médiator</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://collectifsante37.blogspot.com/Le%20communiqu%C3%A9%20du%20comit%C3%A9"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le communiqué du comité</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Journée Nationale de mobilisation pour le social et le médico-social</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="http://coordination-defense-sante.org/2021/04/toursL%E2%80%99appel%20unitairee%20e-"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’appel unitaire</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>En visite au CHRU le premier ministre et le ministre de la Santé ont annoncé mettre 165 millions d'€ sur la table en validant le plan de restructuration mais celui-ci s'accompagne d’une fermeture de 38 lits et des postes correspondants, s'ajoutant aux 120 qui l'ont déjà été depuis 2018.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://collectifsante37.blogspot.com/2021/04/comite-d-pour-la-visite-des-ministres.html"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le communiqué du comitél</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #df9b41; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#df9b41" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>RUFFEC</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Journée-santé-du-7-avril-2021</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-size: 12pt;">A l’occasion de la Journée européenne contre la commercialisation du soin le comité réclame « </span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Des moyens pérennes pour l’hôpital, les ehpads, la psychiatrie ... pour la santé dans sa globalité.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="http://coordination-defense-sante.org/2021/03/Le%20communiqu%C3%A9%20du%20comit%C3%A9%20ruffec-journee-sante-du-7-avril-2021/"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le communiqué du comité</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Autres infos locales :</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;"> </p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #ffcccc; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#ffcccc" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>CLICHY 93</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Soignants, syndicalistes, représentants politiques, citoyens et salariés en lutte se sont rassemblés, jeudi, devant l’hôpital parisien pour exiger l’arrêt du projet de fusion. Un plan qui entraînerait la suppression de 400 lits par rapport à la capacité actuelle des deux structures et engendrerait 1 000 postes de soignants en moins.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.lefigaro.fr/flash-eco/hopitaux-manifestation-contre-le-projet-de-fusion-des-hopitaux-bichat-et-beaujon-20210211"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’article du Figaro</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.youtube.com/watch?v=9cuRCPapKKM"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’intervention de Christophe PRUDHOMME</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossiers :</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"> </p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #92d050; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#92d050" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>LES SOIGNANTS : Ni héros, ni salauds, ni perdreaux</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Il y a un an le gouvernement utilisait honteusement l’image des soignants (-es), glorifiant les héros pour nous transformer en guerriers (-ères) sans armure et galvaniser les foules derrière nous. <br />Aujourd’hui ils et elles sont traités (-es) d’irresponsables quasi criminels (-les) qui retarderaient un “retour à la normale” pour toute la population !</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><a style="color: #0563c1;" href="http://www.sudsantesociaux.org/cp-ni-heros-ni-salauds-ni-perdraux.html"><span style="color: #0563c1;"><u><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le communiqué de sudsantesociaux</b></span></span></u></span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<table style="font-family: Helvetica;" width="604" cellspacing="0" cellpadding="7"><colgroup><col width="588" /></colgroup>
+<tbody>
+<tr>
+<td style="background-color: #00ffcc; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#00ffcc" width="588">
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>PSYCHIATRIE</b></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le Président de la République visite un établissement public de santé mentale, le Centre Hospitalier Alpes-Isère, à l’occasion de la Journée internationale de sensibilisation à l’autisme.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.francebleu.fr/infos/societe/autisme-emmanuel-macron-visite-pole-prise-en-charge-saint-egreve-1617351404"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’article de Francebleu</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>La CGT invite les soignants à l’accueillir calmement et dignement. </b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><img id="&lt;part11.8C3DFBA4.85B6AFB6@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="cid:part11.8C3DFBA4.85B6AFB6@orange.fr" alt="Image 4" align="bottom" border="0" /></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #ff0000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><i><b>PRATIQUES SOIGNANTES<br />et <br />DIGNITE DES PERSONNES HOSPITALISEES SANS CONSENTEMENT</b></i></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;"><br /><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Les commissions départementales des soins psychiatriques (CDSP) scrutent chaque année à travers les dossiers des patients et leurs visites d’établissements psychiatriques, la façon dont les pratiques soignantes respectent la dignité et les droits de personnes hospitalisées sans leur consentement.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">L’UNAFAM (</span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Union nationale de familles et amis de personnes malades et/ou handicapées psychiques)</span></span> <span style="font-family: Arial, serif;"><span style="font-size: 12pt;">a collecté, fin 2020, auprès de ses délégations, les rapports annuels disponibles produits en 2017, 2018 et 2019 par ces commissions en vue de les étudier.</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.unafam.org/sites/default/files/fichiers-2021/Etude%20rapports%20CDSP%20par%20UNAFAM.pdf"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le rapport d’étude</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"> </p>
+<table style="font-family: Helvetica; break-before: page;" width="604" cellspacing="0" cellpadding="7">
+<tbody>
+<tr>
+<td style="background-color: #ffc000; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#ffc000" width="588">
+<p style="margin-bottom: 0.28cm; direction: ltr;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>COVID</b></span></span></p>
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"> </p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Après l’allocution du Président de la République Médiapart recueille des réactions de soignants.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.mediapart.fr/journal/france/010421/les-soignants-sont-epuises-et-macron-ose-nous-demander-encore-des-efforts?utm_source=article_offert&amp;utm_medium=email&amp;utm_campaign=TRANSAC&amp;utm_content=&amp;utm_term=&amp;xtor=EPR-1013-%5Barticle-offert%5D&amp;M_BT=1560867977034"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’interview de Sophie Crozier, membre du comité scientifique et du comité national d’éthique</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12px; font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Et sur leur blog les sages-femmes réagissent</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.onssf.org/non-classe/tribune-dune-sage-femme-meprisee/"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Tribune-dune-sage-femme-meprisee</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12px; font-family: Arial, serif;"><span style="font-size: 12pt;"><b>SANOFI face à la crise COVID. Que s’est-il passé ?</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.franceculture.fr/emissions/les-pieds-sur-terre/sanofi-face-a-la-crise-que-sest-il-passe"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’émission de France-Culture</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"><br style="font-family: Helvetica; font-size: 12px;" /><br style="font-family: Helvetica; font-size: 12px;" /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Après les masques, les tests, les vaccins : <br />Que sont devenus les 10 000 respirateurs commandés par le gouvernement ?</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.francetvinfo.fr/sante/maladie/coronavirus/covid-19-un-an-apres-que-sont-devenus-les-10-000-respirateurs-commandes-par-le-gouvernement_4346601.html"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>L’article de Francetvinfo</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Les directeurs médicaux de crise qui gèrent l'urgence dans les 39 hôpitaux de l'AP-HP expliquent avec transparence les choix qui s'imposent à eux.</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.lejdd.fr/Societe/Sante/exclusif-lalerte-de-41-medecins-face-a-la-crise-nous-serons-contraints-de-faire-un-tri-des-patients-4034448"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Article du Jdd du 27 mars</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"> </p>
+<table style="font-family: Helvetica; break-before: page;" width="604" cellspacing="0" cellpadding="7">
+<tbody>
+<tr>
+<td style="background-color: #99ff99; background-position: initial initial; background-repeat: initial initial;" valign="top" bgcolor="#99ff99" width="588"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>VACCINS ET BREVETS</b></span></span>
+<p style="margin-bottom: 0.25cm; direction: ltr;" align="center"> </p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Levée des brevets sur les vaccins COVID :<br />Question au gouvernement et réponse </b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #ff0000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>A l’Assemblée Nationale</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.facebook.com/Intervention%20de%20Pierre%20DHAREVILLE%20Gauche%20d%C3%A9mocratique%20et%20r%C3%A9publicaine"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Intervention de Pierre DHARREVILLE Gauche démocratique et républicaine</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-family: Helvetica; font-size: 12px; color: #ff0000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>A l’international</b></span></span></span></p>
+<p style="margin-bottom: 0.49cm; direction: ltr; font-family: Helvetica; font-size: 12px; margin-top: 0.49cm;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>78 organisations de la société civile dans toute l’Europe, appellent d’urgence nos gouvernements et les institutions de l’UE à mettre en œuvre une réponse basée sur une solidarité mondiale</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="http://coordination-defense-sante.org/2021/04/la-sante-nest-pas-une-marchandise/"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>La lettre ouverte</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>Covid – Vaccins – Propriété intellectuelle – Industrie pharmaceutique </b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Trois présentations pour introduire aux discussions :</span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Fabienne Orsi : Vaccins : des brevets aux patients <br />Nathalie Coutinet : L'industrie pharmaceutique dans la crise<br />Benjamin Coriat : Faire de la santé publique un bien commun : pourquoi comment</span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://www.youtube.com/watch?v=RbXfcMXUB0Y"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Visio-conférence des Economistes atterrés</b></span></span></a></u></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><br /><span style="color: #0563c1;"><u><a style="color: #0563c1;" href="https://youtu.be/goUwSzo_7cY"><span style="font-family: Arial, serif;"><span style="font-size: 16pt;"><b>Soigner encore – Clip CIH Rennes/CHU Nice</b></span></span></a></u></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin-bottom: 0.35cm; direction: ltr; background-color: #ffff00; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #000000;"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></span></span></span></p>
+<p style="margin-bottom: 0.35cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><br /><br /></p>
+<p style="margin-bottom: 0.35cm; direction: ltr; font-family: Helvetica; font-size: 12px;" align="center"><a style="color: #0563c1;" href="http://coordination-defense-sante.org/"><span style="color: #0000ff;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><u>http://coordination-defense-sante.org/</u></span></span></span></a></p>
+<p><span style="color: #0000ff; font-family: Helvetica; font-size: 12px;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"> </span></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2019/12/image010.png" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleGoldIcon",
+          title: 'Manifestations du 15 octobre',
+        }, {
+          class: "marker-2",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

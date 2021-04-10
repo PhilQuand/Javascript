@@ -65,6 +65,7 @@
 
   $.fn.imagesGrid.defaults = {
     images: [],
+    href: '',
     fancybox: true,
     cells: 5,
     align: true,
@@ -125,8 +126,8 @@
     this.modal = null;
     this.imageLoadCount = 0;
 
-    var cells = this.opts.cells;
-    this.opts.cells = (cells < 1) ? 1 : (cells > 6) ? 6 : cells;
+     var cells = this.opts.cells;
+    this.opts.cells = (cells < 0) ? 0 : (cells > 6) ? 6 : cells;
 
     this.onWindowResize = this.onWindowResize.bind(this);
     this.onImageClick = this.onImageClick.bind(this);
@@ -265,7 +266,7 @@
       title = '',
       opts = this.opts,
       _this = this;
-    item;
+    var item;
 
     if ($.isPlainObject(image)) {
       src = image.thumbnail || image.src;

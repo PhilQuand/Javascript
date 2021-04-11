@@ -337,17 +337,10 @@
       );
     }
     else {
-      lastPictureWrap.append(
-        $('<div>', {
-          class: 'view-all'
-        }).append(
-          $('<span>', {
-            class: 'view-all-cover',
-            style:'opacity: 0',
-            click: this.onImageClick
-          })
-        )
-      );
+      var loc = window.location.href;
+      loc = loc.split('#');
+      loc = loc[0];
+      lastPictureWrap.find('img').wrap('<a href="' + loc + '#fancy-box-' + opts.element.attr("id") + '-1"></a>');
     };
     if (jQuery.type(opts.GalleryLink) != 'undefined') {
       $('.' + opts.GalleryLink).attr("href", "javascript:;");

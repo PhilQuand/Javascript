@@ -126,8 +126,9 @@
     this.modal = null;
     this.imageLoadCount = 0;
 
-     var cells = this.opts.cells;
-    this.opts.cells = (cells < 0) ? 0 : (cells > 6) ? 6 : cells;
+    var href = this.opts.href;
+    var cells = this.opts.cells;
+    this.opts.cells = (href != '') ? 0 : (cells < 1) ? 1 : (cells > 6) ? 6 : cells;
 
     this.onWindowResize = this.onWindowResize.bind(this);
     this.onImageClick = this.onImageClick.bind(this);
@@ -171,6 +172,7 @@
   ImagesGrid.prototype.renderGridItems = function() {
 
     var opts = this.opts,
+      href = opts.href,
       imgs = opts.images,
       imgsLen = imgs.length;
 
@@ -180,6 +182,8 @@
 
     this.$element.empty();
     this.$gridItems = [];
+    
+    if(href != '') this.renderGridItem(href, -1);
 
     for (var i = 0; i < imgsLen; ++i) {
       if (i === opts.cells) {
@@ -254,7 +258,7 @@
     this.$gridItems.push(item);
     this.$element.append(item);
 
-    if (opts.fancybox) item.find("div img").wrap('<a  href="javascript:;" data-src="' + src + '" data-fancybox="fancy-box-' + opts.element.attr("id") + '" data-caption="' + title + '"></a>')
+    if (index > -1 && opts.fancybox) item.find("div img").wrap('<a  href="javascript:;" data-src="' + src + '" data-fancybox="fancy-box-' + opts.element.attr("id") + '" data-caption="' + title + '"></a>')
     //if(opts.fancybox) item.find("div img").wrap('<a href="' + src+ '"></a>') 
     opts.onGridItemRendered(item, image);
   }
@@ -309,24 +313,42 @@
     var opts = this.opts;
     _this = this;
 
-    var lastPicture = this.$element.find('.imgs-grid-image:last .image-wrap');
-    lastPicture.append(
-      $('<div>', {
-        class: 'view-all'
-      }).append(
-        $('<span>', {
-          class: 'view-all-cover',
-          click: this.onImageClick
-        }),
-        $('<span>', {
-          class: 'view-all-text',
-          click: function(event) {
-            $("[data-fancybox='fancy-box-" + opts.element.attr('id') + "']").eq(0).find("img").trigger("click");
-          },
-          text: opts.getViewAllText(opts.images.length)
-        })
-      )
-    );
+    var lastPicture = this.$element.find('.imgs-grid-image:last');
+    var lastPictureIndex = lastPicture.data('index');
+    var lastPictureWrap = lastPicture.find('.image-wrap');
+    if (lastPictureIndex > -1) {
+      lastPictureWrap.append(
+        $('<div>', {
+          class: 'view-all'
+        }).append(
+          $('<span>', {
+            class: 'view-all-cover',
+            click: this.onImageClick
+          })
+        ).append(
+          $('<span>', {
+            class: 'view-all-text',
+            click: function(event) {
+              $("[data-fancybox='fancy-box-" + opts.element.attr('id') + "']").eq(0).find("img").trigger("click");
+            },
+            text: opts.getViewAllText(opts.images.length)
+          })
+        )
+      );
+    }
+    else {
+      lastPictureWrap.append(
+        $('<div>', {
+          class: 'view-all'
+        }).append(
+          $('<span>', {
+            class: 'view-all-cover',
+            style:'opacity: 0',
+            click: this.onImageClick
+          })
+        )
+      );
+    };
     if (jQuery.type(opts.GalleryLink) != 'undefined') {
       $('.' + opts.GalleryLink).attr("href", "javascript:;");
       $('.' + opts.GalleryLink).wrap(
@@ -360,6 +382,8 @@
     else {
       imageIndex = img.data('index');
     }
+    
+    imageIndex = (imageIndex < 0) ? 0 : imageIndex;
 
     if (opts.fancybox) {
       //var fancybox1 = $("[data-fancybox='fancy-box-" + opts.element.attr('id') + "']");

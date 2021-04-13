@@ -4,18 +4,7 @@ max-width: 100%  !important
 section > p > img {
   display: none;
 }
-.titreSatirique { 
-  display: block;
-  color: #D52C1E;
-  //font-size: 2em;
-  font-size: 1.4em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-h1 { 
+/*h1 { 
   display: block;
   color: black;
   //font-size: 2em;
@@ -80,7 +69,7 @@ h6 {
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
-}
+}*/
 /* alignement vignette et texte */
 .VignetteBR.flex {
     display: flex; 
@@ -155,139 +144,38 @@ h6 {
         width: 80%; 
     }
 }
-.VignetteBR .relief img {
-    box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
+.VignetteBR.relief img {
+    box - shadow: rgba(0, 0, 0, 0.8) 10 px 5 px 25 px;
 }
-
-.flexSong {
-    display: flex; 
-    flex-wrap: wrap; 
-    align-items: flex-start; 
-    justify-content: center; 
-    width: 100%; "
+.myGrid3 {
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.flexSong div {
-    font-style: italic; 
-    width: 50%; 
-    //max-width: 800px;
-    margin-bottom: 1em;
+.myGrid3 > * {
+  border: 1px solid rgb(95, 97, 110);
+  border-radius: .5em;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-@media (max-width: 1024px) {
-    .flexSong {
-        display: block; 
-    }
-    .flexSong div,
-    .flexSong div.left,
-    .flexSong div.right {
-        clear: both;
-        display: block;
-        width: 100%; 
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 1em;
-    }
+.myGrid3 .title, .myGrid3 .title * {
+  background-color: #DDDDDD;
 }
-
-/* pour rendre les vidéo "responsive" (voir sbipsetlab...) */
-.video-wrapper {
-	width: 560px;
-	max-width: 100%;
-  margin: 2em auto 2em auto;
+.myGrid3 .subtitle, .myGrid3 .subtitle * {
+  font-style: italic;
+  background-color: #F3F3F4;
 }
-.video-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	//padding-top: 30px;
-	height: 0;
-	overflow: hidden;
+.myGrid3 .title, .myGrid3 .subtitle {
+  text-align: center;
+  font-weight: bold;
 }
-
-.video-container iframe,  
-.video-container object,  
-.video-container embed {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+.myGrid3 .full-width {
+  grid-column: 1 / -1;
 }
-/* CSS for responsive iframe */
-/* ========================= */
-
-/* outer container: set max-width & max-height; max-height greater than padding-bottom % will be ineffective and height will = padding-bottom % of max-width */
-.responsive-wrapper {
-  width: 100%;
-  max-width: 100%;
-  margin: 2em auto 2em auto;
+.myGrid3 .left-edge {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
 }
-
-/* inner container: make responsive */
-.responsive-container {
-  position: relative;
-  height: 0;    /* gets height from padding-bottom */
-  overflow: hidden;
-
-  /* put following styles (necessary for overflow and scrolling handling on mobile devices) inline in .responsive-container around iframe because not stable in CSS:
-    -webkit-overflow-scrolling: touch; overflow: auto; */
-  
-}
- 
-.responsive-container iframe,
-.responsive-container object,  
-.responsive-container embed {
- position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-/* padding-bottom = h/w as % -- sets aspect ratio */
-/* YouTube video aspect ratio */
-.responsive-wrapper-wxh-560x315 {
-  width: 560px;
-}
-.responsive-wrapper-wxh-560x315 .responsive-container {
-  padding-bottom: 56.25%;
-}
-.responsive-wrapper-wxh-572x612 {
-  width: 572px;
-}
-.responsive-wrapper-wxh-572x612 .responsive-container {
-  padding-bottom: 107%;
-}
-/* Antivol PDF A3 aspect ratio */
-.responsive-wrapper-2A3-wxh-297x420 {
-  width: 800px;
-}
-.responsive-wrapper-2A3-wxh-297x420 .responsive-container {
-  padding-bottom: 280%;
-}
-
-/* general styles */
-/* ============== */
-.set-border {
-  border: 5px inset #4f4f4f;
-}
-.set-box-shadow { 
-  -webkit-box-shadow: 4px 4px 14px #4f4f4f;
-  -moz-box-shadow: 4px 4px 14px #4f4f4f;
-  box-shadow: 4px 4px 14px #4f4f4f;
-}
-.set-padding {
-  padding: 40px;
-}
-.set-no-padding {
-  padding: 0px !important;
-}
-.set-margin {
-  margin: 30px;
-}
-.center-block-horiz {
-  margin-left: auto !important;
-  margin-right: auto !important;
+.myGrid3 .right-edge {
+  grid-column: 2 / -1;
 }

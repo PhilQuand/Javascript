@@ -164,6 +164,7 @@ h6 {
 .planete.title, .maison.title, .signe.title, .signe.subtitle {
   text-align: center;
   font-weight: bold;
+  padding: 5px;
 }
 .wrp-PM-Signe {
   display: grid;
@@ -198,4 +199,13 @@ h6 {
   grid-area: ombreCorps;
   border-right: 1px solid rgb(95, 97, 110);
   border-bottom: 1px solid rgb(95, 97, 110);
+}
+.signe.texTitle .char, .maison.texTitle .char, .planete.texTitle .char {
+  font-size: 36px;
+}
+.signe.texTitle, .maison.texTitle, .planete.texTitle {
+  flex: 1 100%; 
+ }
+.signe.texTitle .prop, .maison.texTitle .prop, .planete.texTitle .prop {
+ font-style: italic;
 }

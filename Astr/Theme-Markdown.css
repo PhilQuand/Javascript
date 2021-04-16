@@ -222,4 +222,28 @@ h6 {
 .styleMaisonChar span {
   font-size: 24px;
 }
+.AxeNoeudsLunaires th,.AxeNoeudsLunaires td {
+  width: 33%;
+ }
+ .AxeNoeudsLunaires thead th {
+  background-color: #DDDDDD;    
+  border: 1px solid rgb(95, 97, 110);
+  border-radius: .5em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.AxeNoeudsLunaires tbody td {
+  border-right: 1px solid rgb(95, 97, 110);
+  border-bottom: 1px solid rgb(95, 97, 110);
+}
+.AxeNoeudsLunaires tbody td.first {
+  border-left: 1px solid rgb(95, 97, 110);
+}
+.AxeNoeudsLunaires thead th .styleNodeChar {
+  font-size: 28px;
+}
+.AxeNoeudsLunaires thead th .styleSigneChar {
+  font-size: 24px;
+}
+
 

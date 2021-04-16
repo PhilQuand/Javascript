@@ -253,5 +253,22 @@ h6 {
 .gridSignes .wrp-PM-Signe {
   padding: 10px;
 }
-
+.tabMaisons th,.AxeNoeudsLunaires td {
+  width: 33%%;
+ }
+ .tabMaisons thead th {
+  background-color: #DDDDDD;    
+  border: 1px solid rgb(95, 97, 110);
+  border-radius: .5em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.tabMaisons tbody td {
+  border-right: 1px solid rgb(95, 97, 110);
+  border-bottom: 1px solid rgb(95, 97, 110);
+}
+.tabMaisons tbody td.first {
+  border-left: 1px solid rgb(95, 97, 110);
+  text-align: center;
+}
 

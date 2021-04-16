@@ -245,5 +245,13 @@ h6 {
 .AxeNoeudsLunaires thead th .styleSigneChar {
   font-size: 24px;
 }
+.gridSignes {
+  display: grid;
+  grid-template-columns:  repeat(3, auto);
+  grid-template-rows: repeat(4, auto);
+}
+.gridSignes .wrp-PM-Signe {
+  padding: 10px;
+}
 
 

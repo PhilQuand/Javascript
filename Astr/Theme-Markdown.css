@@ -272,8 +272,21 @@ h6 {
   width: 100px;  
   text-align: left;
 }
-.tabMaisons tbody td .styleMaisonChar {
+/*.tabMaisons tbody td .styleMaisonChar {
   padding: 10px;
+}*/
+.tabMaisons .styleMCChar {
+  font-size: 36px;
 }
+.tabMaisons .styleMCChar {
+  font-size: 24px;
+}
+.tabMaisons a:link, .tabMaisons a:visited {
+  text-decoration: none;
+}
+.tabMaisons tbody td {
+  padding: 15px;
+}
+
 
 

@@ -171,7 +171,8 @@ h6 {
 }
 .wrp-PM-Signe {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /*grid-template-columns: repeat(3, minmax(0, 1fr));*/
+   grid-template-columns:  repeat(3, auto);
   grid-template-rows: repeat(3, auto);
   grid-template-areas: "planeteTitle signeTitle signeTitle" "planeteTitle lumiereTitle ombreTitle" "planeteCorps lumiereCorps ombreCorps";
 }
@@ -212,6 +213,13 @@ h6 {
 .signe.texTitle .prop, .maison.texTitle .prop, .planete.texTitle .prop {
  font-style: italic;
 }
-.PMScharSize {
+.stylePMSChar {
   font-size: 36px;
 }
+.styleMaisonChar {
+  font-size: 36px;
+}
+.styleMaisonChar span {
+  font-size: 24px;
+}
+

@@ -214,7 +214,7 @@ h6 {
  font-style: italic;
 }
 .stylePMSImg {
-  font-size: 36px;
+  width: 36px;
 }
 .stylePMSChar {
   font-size: 36px;
@@ -256,21 +256,21 @@ h6 {
 .gridSignes .wrp-PM-Signe {
   padding: 10px;
 }
-.tabMaisons th,.AxeNoeudsLunaires td {
+.tabMaisons th, .tabPlanetes th, .AxeNoeudsLunaires td {
   width: 33%%;
  }
- .tabMaisons thead th {
+ .tabMaisons thead th, .tabPlanetes thead th {
   background-color: #DDDDDD;    
   border: 1px solid rgb(95, 97, 110);
   border-radius: .5em;
   padding-left: 10px;
   padding-right: 10px;
 }
-.tabMaisons tbody td {
+.tabMaisons tbody td, .tabPlanetes tbody td {
   border-right: 1px solid rgb(95, 97, 110);
   border-bottom: 1px solid rgb(95, 97, 110);
 }
-.tabMaisons tbody td.first {
+.tabMaisons tbody td.first, .tabPlanetes tbody td.first {
   border-left: 1px solid rgb(95, 97, 110);
   width: 100px;  
   text-align: left;
@@ -290,9 +290,13 @@ h6 {
 .tabMaisons a:link, .tabMaisons a:visited {
   text-decoration: none;
 }
-.tabMaisons tbody td {
+.tabMaisons tbody td, .tabPlanetes tbody td {
   padding: 15px;
 }
+.tabPlanetes .stylePMSImg {
+  width: 36px;
+}
+
 
 
 

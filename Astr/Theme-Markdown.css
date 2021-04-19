@@ -259,21 +259,30 @@ h6 {
 .tabMaisons th, .tabPlanetes th, .AxeNoeudsLunaires td {
   width: 33%%;
  }
- .tabMaisons thead th, .tabPlanetes thead th {
+ .tabMaisons thead th, 
+ .tabPlanetes thead th,
+ .tabProfil thead th {
   background-color: #DDDDDD;    
   border: 1px solid rgb(95, 97, 110);
   border-radius: .5em;
   padding-left: 10px;
   padding-right: 10px;
 }
-.tabMaisons tbody td, .tabPlanetes tbody td {
+.tabMaisons tbody td, 
+.tabPlanetes tbody td,
+.tabProfil tbody td {
   border-right: 1px solid rgb(95, 97, 110);
   border-bottom: 1px solid rgb(95, 97, 110);
 }
-.tabMaisons tbody td.first, .tabPlanetes tbody td.first {
+.tabMaisons tbody td.first, 
+.tabPlanetes tbody td.first,
+.tabProfil tbody td.first {
   border-left: 1px solid rgb(95, 97, 110);
-  width: 100px;  
   text-align: left;
+}
+.tabMaisons tbody td.first, 
+.tabPlanetes tbody td.first,
+  width: 100px;  
 }
 /*.tabMaisons tbody td .styleMaisonChar {
   padding: 10px;

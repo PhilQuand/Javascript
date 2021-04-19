@@ -172,7 +172,7 @@ h6 {
 .wrp-PM-Signe {
   display: grid;
   /*grid-template-columns: repeat(3, minmax(0, 1fr));*/
-   grid-template-columns:  repeat(3, auto);
+  grid-template-columns:  repeat(3, auto);
   grid-template-rows: repeat(3, auto);
   grid-template-areas: "planeteTitle signeTitle signeTitle" "planeteTitle lumiereTitle ombreTitle" "planeteCorps lumiereCorps ombreCorps";
 }
@@ -296,7 +296,28 @@ h6 {
 .tabPlanetes .stylePMSImg {
   width: 36px;
 }
-
+.gridPLClass .titre {
+    font-weight: bold;
+    font-size: 18px;
+}
+.gridPLClass .stylePMSChar {
+    font-size: 28px;
+}
+.gridPLClass * {
+    text-align: center;
+}
+.gridPLClass table {
+    margin-left:auto;
+    margin-right:auto;
+}
+.gridPLClass .groupe, .gridPLClass .nombre {
+    font-weight: bold;
+    font-size: 24px;
+}
+.gridPLClass .motsClefs {
+    font-style: italic;
+    padding: 10px
+}
 
 
 

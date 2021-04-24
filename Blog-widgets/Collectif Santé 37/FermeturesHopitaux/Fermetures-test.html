@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 
 <!-- multi selection sur les colonnes de la table d'après https://github.com/vedmack/yadcf -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" />
+  <!--link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" /-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script>
 
 <!-- ressources communes à tous les blogs... -->
@@ -61,7 +61,7 @@
 </span>
 <span class="divText">
 <p><strong>Suppressions - Destructions - Réductions d'hôpitaux et de services, surtout publics</strong></p>
-<p>Première publication juin 2009 - Mis à jour 02/02/2021</p>
+<p>Première publication juin 2009 - Mis à jour 23/03/2021</p>
 <p><strong>ATTENTION - Données fournies par nos comités et contacts. </strong></p>
 <p><strong>Nous attendons vos compléments ou modifications, des erreurs et oublis sont évidemment possibles, merci à toutes et tous</strong></p>
 <div style="display:none">
@@ -812,12 +812,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             /*var iconMarkers = iconMarkersBuilder(data);
             for (var i = 0; i < data.length; i++) {
               var popupContent = $('<div></div>');
-              var popupBody = $("<div class='popBody'></div>");
+              var popupBody = $('<div class="popBody"></div>');
               popupContent.append(popupBody);
               if (typeof options.popupData.title !== 'undefined') {
                 var title = options.popupData.title;
                 //if (typeof data !== 'undefined' && typeof data[title] !== 'undefined') {
-                popupBody.append("<div class='popLieux' style='color:" + data[i].iconMarker.colorFG + "; background-color:" + data[i].iconMarker.colorBG + ";'>" + data[i][title] + "</div>");
+                popupBody.append('<div class="popLieux" style="color:' + data[i].iconMarker.colorFG + '; background-color:' + data[i].iconMarker.colorBG + ';">' + data[i][title] + '</div>');
                 //}
               }
               if (typeof options.popupData.properties !== 'undefined') {
@@ -841,7 +841,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
               for (var j = 0; j < properties.length; j++) {
                 var item = properties[j];
-                if (data[i][item] != '') popupBody.append("<div class='popItem'><span class='popTitle'>" + item + "</span><br>" + data[i][item] + "</div>");
+                if (data[i][item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[i][item] + '</div>');
               }
               var content = JSON.stringify(popupContent.html());
               data[i].doc = content;
@@ -906,6 +906,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     };
 
     function runData(indexEvent, isToSaveData) {
+        var myTable;
       // À conserver pour exporter des données...
       /*exportData(indexEvent)
       return;
@@ -1056,7 +1057,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         for (i = 0; i < indexEvent.length; i++) {
           indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
           indexEvent[i].doc = dataPopUp(indexEvent[i]);
-          //indexEvent[i].doc = JSON.parse(indexEvent[i].doc);
+          //indexEvent[i].doc = '';
           indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
         }
 
@@ -2186,7 +2187,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             map_invalidateSize();
             $('#table_wrapper').css('display', 'none')
             //$('#table').css('display', 'none')
-          }
+         if (jQuery.type(myTable) !== 'undefined') {
+         var tableState = myTable.state();
+         }
+         }
           runTable(indexEvent);
         }
       };
@@ -2253,7 +2257,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         }
         var initComplete = function() {
           //New datatable API (capital "D")
-          var myTable = $(this).DataTable();
+          myTable = $(this).DataTable();
           yadcf.init(myTable, tableColums)
         }
         $('#table').DataTable({
@@ -2262,7 +2266,21 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
           },
           columns: columns,
-          initComplete: initComplete
+          initComplete: initComplete,
+          stateSave: true,
+"stateLoaded": function (settings, data) {
+  var i = 0;
+  $.each(data.columns, function(idx, obj) {
+       if ((obj.search.search !== "") && (obj.search.search !== "-yadcf_delim-")) {
+         ++i;
+       }
+   });
+   if (i > 0) {
+       // do something, e.g., append your notice that Filter is ON
+   } else if (i == 0) {
+        // do something, e.g., append your notice that Filter is OFF
+    }
+  },
         });
       };
     };
@@ -2510,11 +2528,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
              et disponible sur <a href="https://www.data.gouv.fr/fr/datasets/extraction-des-donnees-du-site-scopesante-de-la-has/#_">data.gouv.fr</a> \
              </center>',
   };
+
   optionsTESTInnerFormedData = {
     data: {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
@@ -2531,7 +2550,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return lieux;
       },
       //INSEE_KEY: "INSEE_COM",
-      dataTransformer: true,
+      //dataTransformer: true,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,
@@ -2694,7 +2713,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
-  //$('#Fermetures').mapAllBlogs(optionsEtabScore);
   $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);
 
 })(jQuery);

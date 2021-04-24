@@ -1,4 +1,4 @@
-<!-- jQuery for FancyBox 3-->
+hiddenPictures<!-- jQuery for FancyBox 3-->
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
 <!-- Add fancyBox 3 -->
@@ -790,7 +790,7 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
-  $('.page_body').append('<a href="https://drive.google.com/file/d/1zWXToqQibJojFHycbUSYTN_rzdangOHb/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-WVes9PzWoBQ/YGxQ52XRUjI/AAAAAAAAoXk/LpwXP7jqxJMfXZ66LmfOI70INo5pOmqlACLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-04-06%2Ba%25CC%2580%2B14.10.47.jpg" /></a>');
+  $('.page_body').append('<a href="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg"><img class="img-foreground" src="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg" /></a>');
 }
 </script>
 <script>

@@ -2268,7 +2268,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           columns: columns,
           initComplete: initComplete,
           stateSave: true,
-"stateLoaded": function (settings, data) {
+/*"stateLoaded": function (settings, data) {
   var i = 0;
   $.each(data.columns, function(idx, obj) {
        if ((obj.search.search !== "") && (obj.search.search !== "-yadcf_delim-")) {
@@ -2280,7 +2280,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
    } else if (i == 0) {
         // do something, e.g., append your notice that Filter is OFF
     }
-  },
+  },*/
+        });
+        $('#table').on('draw.dt', function() {
+          alert('Table redrawn');
         });
       };
     };

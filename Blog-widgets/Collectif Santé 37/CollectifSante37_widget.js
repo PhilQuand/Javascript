@@ -1,4 +1,4 @@
-hiddenPictures<!-- jQuery for FancyBox 3-->
+<!-- jQuery for FancyBox 3-->
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
 <!-- Add fancyBox 3 -->
@@ -790,7 +790,8 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
-  $('.page_body').append('<a href="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg"><img class="img-foreground" src="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg" /></a>');
+  //$('.page_body').append('<a href="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg"><img class="img-foreground" src="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg" /></a>');
+  $('.page_body').append('<a href="https://1.bp.blogspot.com/-sJLhV-8p1U4/YIgS8qPyLCI/AAAAAAAAoeM/g5FzS6bHCSkkpgPsPjRNu07WLHuhUhDRgCLcBGAsYHQ/s0/FB%2B1er%2Bmai%2BFestiluttes-V02.jpg"><img class="img-foreground" src="https://1.bp.blogspot.com/-sJLhV-8p1U4/YIgS8qPyLCI/AAAAAAAAoeM/g5FzS6bHCSkkpgPsPjRNu07WLHuhUhDRgCLcBGAsYHQ/s0/FB%2B1er%2Bmai%2BFestiluttes-V02.jpg" /></a>');
 }
 </script>
 <script>

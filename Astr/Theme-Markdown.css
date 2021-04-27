@@ -209,7 +209,7 @@ h6 {
 }
 .signe.texTitle, .maison.texTitle, .planete.texTitle {
   flex: 1 100%; 
- }
+}
 .signe.texTitle .prop, .maison.texTitle .prop, .planete.texTitle .prop {
  font-style: italic;
 }
@@ -328,6 +328,79 @@ h6 {
     font-style: italic;
     padding: 10px
 }
-
+.gridLemniscate {
+  display: grid;
+  /*grid-template-columns:  repeat(3, auto);*/
+  grid-template-columns:  auto auto auto;
+  grid-template-rows: repeat(6, auto);
+  grid-template-areas: "titre titre titre" "titreN2 . titreN4" "corpsN2 . corpsN4" "lemniscate lemniscate lemniscate" "titreN3 . titreN1" "corpsN3 . corpsN1";
+}
+.gridLemniscate .lemniscate {
+  grid-area: lemniscate;
+  width: 100%;
+}
+.gridLemniscate .lemniscate .dimLemniscate {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gridLemniscate .titre {
+  grid-area: titre;
+}
+.gridLemniscate .N1.titre {
+  grid-area: titreN1;
+}
+.gridLemniscate .N1.corps {
+  grid-area: corpsN1;
+}
+.gridLemniscate .N2.titre {
+  grid-area: titreN2;
+}
+.gridLemniscate .N2.corps {
+  grid-area: corpsN2;
+}
+.gridLemniscate .N3.titre {
+  grid-area: titreN3;
+}
+.gridLemniscate .N3.corps {
+  grid-area: corpsN3;
+}
+.gridLemniscate .N4.titre {
+  grid-area: titreN4;
+}
+.gridLemniscate .N4.corps {
+  grid-area: corpsN4;
+}
+.gridLemniscate .titre .ordre {
+  font-size: 42px;
+}
+.gridLemniscate .titre {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(95, 97, 110);
+  border-radius: .5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #DDDDDD;
+}
+.gridLemniscate .titre .ordre {
+  flex: 1 10%; 
+  text-align: center;
+}
+.gridLemniscate .titre .text {
+  flex: 1 90%; 
+  text-align: center;
+}
+.gridLemniscate .corps {
+  border-bottom: 1px solid rgb(95, 97, 110);
+  border-left: 1px solid rgb(95, 97, 110);
+  border-right: 1px solid rgb(95, 97, 110);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.gridLemniscate .principal {
+  display: block;
+  text-align: center;
+}
 
 

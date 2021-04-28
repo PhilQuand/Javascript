@@ -403,5 +403,49 @@ h6 {
   text-align: center;
   margin-bottom: 5px;
 }
-
+.intGorse {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "titre titre" "pla1 mais1" "mais2 sig2" "pla3 mais3";
+}
+.intGorse .titre {
+  grid-area: titre;
+}
+.intGorse .pla1 {
+  grid-area: pla1;
+}
+.intGorse .mais1 {
+  grid-area: mais1;
+}
+.intGorse .mais2 {
+  grid-area: mais2;
+}
+.intGorse .sig2 {
+  grid-area: sig2;
+}
+.intGorse .pla3 {
+  grid-area: pla3;
+}
+.intGorse .mais3 {
+  grid-area: mais3;
+}
+.intGorse .titre {
+  text-align: center;
+  border: 1px solid rgb(95, 97, 110);
+  border-radius: .5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #DDDDDD;
+}
+.intGorse .corps {
+  border-bottom: 1px solid rgb(95, 97, 110);
+  border-left: 1px solid rgb(95, 97, 110);
+  border-right: 1px solid rgb(95, 97, 110);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.intGorse .corps.mais1, .intGorse .corps.pla1 {
+  border-bottom: 5px double rgb(95, 97, 110);
+}
 

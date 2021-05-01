@@ -264,7 +264,8 @@ h6 {
  }
  .tabMaisons thead th, 
  .tabPlanetes thead th,
- .tabProfil thead th {
+ .tabProfil thead th,
+ .tabAspects thead th {
   background-color: #DDDDDD;    
   border: 1px solid rgb(95, 97, 110);
   border-radius: .5em;
@@ -273,13 +274,15 @@ h6 {
 }
 .tabMaisons tbody td, 
 .tabPlanetes tbody td,
-.tabProfil tbody td {
+.tabProfil tbody td
+.tabAspects tbody td {
   border-right: 1px solid rgb(95, 97, 110);
   border-bottom: 1px solid rgb(95, 97, 110);
 }
 .tabMaisons tbody td.first, 
 .tabPlanetes tbody td.first,
-.tabProfil tbody td.first {
+.tabProfil tbody td.first,
+.tabAspects tbody td.first {
   border-left: 1px solid rgb(95, 97, 110);
   text-align: center;
 }
@@ -287,11 +290,13 @@ h6 {
 .tabPlanetes tbody td.first {
   width: 100px;  
 }
-.tabProfil * {
+.tabProfil *,
+.tabAspects * {
     padding-left: 10px;
     padding-right: 10px;
 }
-.tabProfil .first.dominance {
+.tabProfil .first.dominance,
+.tabAspects .first {
   text-align: justify;
 }
 /*.tabMaisons tbody td .styleMaisonChar {

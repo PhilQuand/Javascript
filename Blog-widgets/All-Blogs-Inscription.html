@@ -5,10 +5,10 @@
 <div class="contact-form-widget" >
 <div class="form">
 <form class="contact-form" name="contact-form10">
-<span style="color: black">Votre nom et prénom</span><br />
+<span class="contact-form-data">Votre nom et prénom</span><br />
 <input class="contact-form-name" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm10_contact-form-name" name="name" placeholder="" size="25" type="text" value="" />
         <br />
-<span style="color: black">Votre e-mail *</span><br />
+<span class="contact-form-data">Votre e-mail *</span><br />
 <input class="contact-form-email" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm10_contact-form-email" name="email" placeholder="" size="25" type="text" value="" />
           <br />
 <textarea class="contact-form-email-message" cols="25" id="ContactForm10_contact-form-email-message" name="email-message" placeholder="" rows="5" style="display: none;">Demande d'inscription sur la liste de diffusion des Insoumis de Tours</textarea>
@@ -32,14 +32,43 @@ $(".subscribe-popup-container").remove();
 </script>
 <style>
 #inscription_tooltip {
-  max-width: 364px;
+  /*max-width: 364px;*/
+  padding: 1.5em;
+        margin:24px auto 0;
+        width:auto;
+        white-space:normal
 }
-
-#inscription_tooltip h3 {
-  color: $(posts.title.color);
-  margin-top: 0;
+#inscription_tooltip h1 {
+  color: #CD0002;
 }
+#inscription_tooltip .contact-form-data {
+  color: grey;
+  font-style: italic;
+}
+#inscription_tooltip .contact-form-button.contact-form-button-submit {
+    right: 0;
+    max-width: 100px !important;   /* Largeur du formulaire */
+    border: 0;
+    line-height: 1.5;
+    padding: 0 10px;
+    /*margin-bottom: 1em;*/
+    margin: 1em;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    /*background-color: rgba(208, 225, 226, 1);
+    background-color: rgba(162, 196, 201, 1);*/
+    background-color: rgba(220, 0, 0, 1);
 
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
 /*#inscription_tooltip .FollowByEmail h3 {
   display: none;
 }

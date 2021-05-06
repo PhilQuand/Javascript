@@ -1,0 +1,71 @@
+<div style='display: none'>
+<div id='inscription_tooltip'>
+<h1>S'inscrire à ce blog</h1>
+<div class="widget ContactForm" id="ContactForm10" style="background-color: white">
+<div class="contact-form-widget" >
+<div class="form">
+<form class="contact-form" name="contact-form10">
+<span style="color: black">Votre nom et prénom</span><br />
+<input class="contact-form-name" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm10_contact-form-name" name="name" placeholder="" size="25" type="text" value="" />
+        <br />
+<span style="color: black">Votre e-mail *</span><br />
+<input class="contact-form-email" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm10_contact-form-email" name="email" placeholder="" size="25" type="text" value="" />
+          <br />
+<textarea class="contact-form-email-message" cols="25" id="ContactForm10_contact-form-email-message" name="email-message" placeholder="" rows="5" style="display: none;">Demande d'inscription sur la liste de diffusion des Insoumis de Tours</textarea>
+
+<input class="contact-form-button contact-form-button-submit" id="ContactForm10_contact-form-submit" type="button" value="Envoyer" />
+        <br />
+<div class="contact-form-error-message" id="ContactForm10_contact-form-error-message" style="color: black">
+</div>
+<div class="contact-form-success-message" id="ContactForm10_contact-form-success-message" style="color: black">
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+$(".subscribe-button.pill-button").wrap('<a class="data-fancybox-inline" data-fancybox="inscriptionWidget" data-slide-class="customVid" data-type="inline" data-src="#inscription_tooltip" href="javascript:;"></a>');
+$(".subscribe-popup-container").remove();
+</script>
+<style>
+#inscription_tooltip {
+  max-width: 364px;
+}
+
+#inscription_tooltip h3 {
+  color: $(posts.title.color);
+  margin-top: 0;
+}
+
+/*#inscription_tooltip .FollowByEmail h3 {
+  display: none;
+}
+
+#inscription_tooltip .FollowByEmail .follow-by-email-submit {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: $(body.link.color);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: auto;
+  color: $(body.link.color);
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 24px;
+  width: auto;
+  white-space: normal;
+}
+
+#inscription_tooltip .FollowByEmail .follow-by-email-submit:disabled {
+  cursor: default;
+  opacity: .3;
+}*/
+</style>

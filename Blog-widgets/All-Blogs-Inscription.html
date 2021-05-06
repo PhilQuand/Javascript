@@ -13,13 +13,14 @@
           <br />
 <textarea class="contact-form-email-message" cols="25" id="ContactForm10_contact-form-email-message" name="email-message" placeholder="" rows="5" style="display: none;">Demande d'inscription sur la liste de diffusion des Insoumis de Tours</textarea>
 
+<div style="width: 100px; margin-left: auto; margin-right: 0px;">
 <input class="contact-form-button contact-form-button-submit" id="ContactForm10_contact-form-submit" type="button" value="Envoyer" />
-        <br />
+</div>
+</form>
 <div class="contact-form-error-message" id="ContactForm10_contact-form-error-message" style="color: black">
 </div>
 <div class="contact-form-success-message" id="ContactForm10_contact-form-success-message" style="color: black">
 </div>
-</form>
 </div>
 </div>
 </div>
@@ -29,24 +30,29 @@
 <script>
 $(".subscribe-button.pill-button").wrap('<a class="data-fancybox-inline" data-fancybox="inscriptionWidget" data-slide-class="customVid" data-type="inline" data-src="#inscription_tooltip" href="javascript:;"></a>');
 $(".subscribe-popup-container").remove();
+document.getElementById("ContactForm10_contact-form-success-message").addEventListener("DOMNodeInserted", function() {
+    $("#ContactForm10_contact-form-success-message").html('votre inscription a bien été enregistrée');
+}, false);
 </script>
 <style>
 #inscription_tooltip {
   /*max-width: 364px;*/
   padding: 1.5em;
-        margin:24px auto 0;
-        width:auto;
-        white-space:normal
+  margin:24px auto 0;
+  width:auto;
+  white-space:normal
 }
 #inscription_tooltip h1 {
   color: #CD0002;
+}
+#inscription_tooltip .contact-form {
+  max-width: 310px;
 }
 #inscription_tooltip .contact-form-data {
   color: grey;
   font-style: italic;
 }
 #inscription_tooltip .contact-form-button.contact-form-button-submit {
-    right: 0;
     max-width: 100px !important;   /* Largeur du formulaire */
     border: 0;
     line-height: 1.5;
@@ -69,32 +75,4 @@ $(".subscribe-popup-container").remove();
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
                 inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
-/*#inscription_tooltip .FollowByEmail h3 {
-  display: none;
-}
-
-#inscription_tooltip .FollowByEmail .follow-by-email-submit {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  color: $(body.link.color);
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  outline: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: auto;
-  color: $(body.link.color);
-  display: inline-block;
-  margin: 0 auto;
-  margin-top: 24px;
-  width: auto;
-  white-space: normal;
-}
-
-#inscription_tooltip .FollowByEmail .follow-by-email-submit:disabled {
-  cursor: default;
-  opacity: .3;
-}*/
 </style>

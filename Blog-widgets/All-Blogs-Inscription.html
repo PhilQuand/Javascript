@@ -31,7 +31,13 @@
 $(".subscribe-button.pill-button").wrap('<a class="data-fancybox-inline" data-fancybox="inscriptionWidget" data-slide-class="customVid" data-type="inline" data-src="#inscription_tooltip" href="javascript:;"></a>');
 $(".subscribe-popup-container").remove();
 document.getElementById("ContactForm10_contact-form-success-message").addEventListener("DOMNodeInserted", function() {
+  if ($("#inscription_tooltip form").css("display") == "none") {
+    $("#inscription_tooltip .fancybox-button.fancybox-close-small").click();
+  }
+  else {
     $("#ContactForm10_contact-form-success-message").html('votre inscription a bien été enregistrée');
+    $("#inscription_tooltip form").css("display", "none");
+  }
 }, false);
 </script>
 <style>

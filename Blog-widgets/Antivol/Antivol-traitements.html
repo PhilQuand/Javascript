@@ -22,7 +22,6 @@
 <style>
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {
     opacity: 0.1;
-    //transition-timing-function: cubic-bezier(.22, .61, .36, 1);
 }
 .customInlineBaseClass .button-close,
 .customInlineBaseClass .button-previous,
@@ -93,10 +92,9 @@ navigator.sayswho = (function() {
   return M;
 })();
 </script>
-<style>
-#inscription_tooltip, #inscription_tooltip * {
-    background-color: #F5F5F5;
-}
+
+<!-- DEBUT Formulaire inscription spécial pour Antivol -->
+<!--style>
 
 button.subscribe-button.pill-button .tooltiptext {
   //font-size; 12px;
@@ -118,11 +116,100 @@ button.subscribe-button.pill-button:hover .tooltiptext {
   visibility: visible;
 }
 </style>
-
 <script>
-// tooltip du bouton s'inscrire
 $('button.subscribe-button.pill-button').append('<span class="tooltiptext">Pour recevoir notre lettre d'+ "'" + 'information</span>')
 </script>
+
+<div id='inscription_tooltip' style='display: none'>
+<h1>S'inscrire à ce blog</h1>
+<div class="widget ContactForm" data-version="2" id="ContactForm10">
+<div class="contact-form-widget">
+<div class="form">
+<form name="contact-form">
+<p></p>
+Nom et prénom
+<br>
+<input class="contact-form-name" id="ContactForm10_contact-form-name" name="name" size="30" type="text" value="">
+<p></p>
+Adresse e-mail*
+<br>
+<input class="contact-form-email" id="ContactForm10_contact-form-email" name="email" size="30" type="text" value="">
+<br>
+<textarea class="contact-form-email-message" cols="25" id="ContactForm10_contact-form-email-message" name="email-message" rows="5" style="display:none">Inscription</textarea>
+<br>
+<input class="contact-form-button contact-form-button-submit" id="ContactForm10_contact-form-submit" type="button" value="Envoyer">
+<div class="contact-form-error-message" id="ContactForm10_contact-form-error-message"></div>
+<div class="contact-form-success-message" id="ContactForm10_contact-form-success-message"></div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+$("#page_list_top").before($("#inscription_tooltip"));
+$(".subscribe-button.pill-button").on( "click", function() {
+  $("#inscription_tooltip").css("display", "block");
+});
+$(".subscribe-popup-container").remove();
+document.getElementById("ContactForm10_contact-form-success-message").addEventListener("DOMNodeInserted", function() {
+  if ($("#inscription_tooltip form").css("display") == "none") {
+    $("#inscription_tooltip").css("display", "none");
+  }
+  else {
+    $("#ContactForm10_contact-form-success-message").html('votre inscription a bien été enregistrée');
+    $("#inscription_tooltip form").css("display", "none");
+  }
+}, false);
+</script>
+<style>
+#inscription_tooltip {
+  /*max-width: 364px;*/
+  padding: 1.5em;
+  margin:24px auto 0;
+  width:auto;
+  white-space:normal;
+  max-height: 325px;
+}
+#inscription_tooltip h1 {
+  color: #CD0002;
+}
+#inscription_tooltip .contact-form {
+  max-width: 310px;
+}
+#inscription_tooltip .contact-form-data {
+  color: grey;
+  font-style: italic;
+}
+#inscription_tooltip .contact-form-name, #inscription_tooltip .contact-form-email {
+  width: 310px;
+}
+#inscription_tooltip .contact-form-button.contact-form-button-submit {
+    max-width: 100px !important;   /* Largeur du formulaire */
+    border: 0;
+    line-height: 1.5;
+    padding: 0 10px;
+    /*margin-bottom: 1em;*/
+    margin: 1em;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    /*background-color: rgba(208, 225, 226, 1);
+    background-color: rgba(162, 196, 201, 1);*/
+    background-color: rgba(220, 0, 0, 1);
+
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+</style-->
+<!-- FIN Formulaire inscription spécial pour Antivol -->
+
 <!--style>
 .bg-photo-overlay {
     background-image: url("https://1.bp.blogspot.com/-opaaRwNbCfA/XgNT-fyxG8I/AAAAAAAAkrk/TDWOtKZ4BoU__SfluVUzrYej6tKInUzoQCLcBGAsYHQ/s1600/Bord%2Bde%2BLoire%2B1200.png");

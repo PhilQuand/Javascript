@@ -119,10 +119,10 @@ button.subscribe-button.pill-button:hover .tooltiptext {
 }
 </style>
 
-<script>
+<!--script>
 // tooltip du bouton s'inscrire
 $('button.subscribe-button.pill-button').append('<span class="tooltiptext">Pour recevoir notre lettre d'+ "'" + 'information</span>')
-</script>
+</script-->
 <!--style>
 .bg-photo-overlay {
     background-image: url("https://1.bp.blogspot.com/-opaaRwNbCfA/XgNT-fyxG8I/AAAAAAAAkrk/TDWOtKZ4BoU__SfluVUzrYej6tKInUzoQCLcBGAsYHQ/s1600/Bord%2Bde%2BLoire%2B1200.png");

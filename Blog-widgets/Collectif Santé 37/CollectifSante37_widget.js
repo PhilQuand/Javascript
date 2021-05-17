@@ -770,6 +770,8 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   }
 }
 </style>
+<script>
+</script>
 <!--link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" /-->
 <script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <style>
@@ -791,7 +793,7 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
   //$('.page_body').append('<a href="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg"><img class="img-foreground" src="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg" /></a>');
-  $('.page_body').append('<a href="https://1.bp.blogspot.com/-sJLhV-8p1U4/YIgS8qPyLCI/AAAAAAAAoeM/g5FzS6bHCSkkpgPsPjRNu07WLHuhUhDRgCLcBGAsYHQ/s0/FB%2B1er%2Bmai%2BFestiluttes-V02.jpg"><img class="img-foreground" src="https://1.bp.blogspot.com/-sJLhV-8p1U4/YIgS8qPyLCI/AAAAAAAAoeM/g5FzS6bHCSkkpgPsPjRNu07WLHuhUhDRgCLcBGAsYHQ/s0/FB%2B1er%2Bmai%2BFestiluttes-V02.jpg" /></a>');
+  $('.page_body').append('<a href="https://drive.google.com/file/d/1m_ViGuG6MaR6rj_MPvar9BxAlZ8mV9lq/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/--VguPyrPg14/YKJ8sombypI/AAAAAAAAojY/0MnnCj9uQAw5dqb3fpFkTColdjuqIDYjQCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-05-17%2Ba%25CC%2580%2B16.20.05.jpg" /></a>');
 }
 </script>
 <script>

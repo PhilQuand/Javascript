@@ -1,12 +1,16 @@
     var archi = [
             {
+          svgInfos: ['Semaine 21', 'du 24 may', 'au 30 may', '2021'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 21.html',
+        },
+            {
           svgInfos: ['Semaine 20', 'du 17 may', 'au 23 may', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 20.html',
+          idGlinkID: 'PreviousLetters'
         },
             {
           svgInfos: ['Semaine 19', 'du 10 may', 'au 16 may', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 19.html',
-          idGlinkID: 'PreviousLetters'
         },
             {
           svgInfos: ['Semaine 18', 'du 03 may', 'au 09 may', '2021'],

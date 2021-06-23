@@ -61,7 +61,7 @@
 </span>
 <span class="divText">
 <p><strong>Suppressions - Destructions - Réductions d'hôpitaux et de services, surtout publics</strong></p>
-<p>Première publication juin 2009 - Mis à jour 23/03/2021</p>
+<p>Première publication juin 2009 - Mis à jour 23/06/2021</p>
 <p><strong>ATTENTION - Données fournies par nos comités et contacts. </strong></p>
 <p><strong>Nous attendons vos compléments ou modifications, des erreurs et oublis sont évidemment possibles, merci à toutes et tous</strong></p>
 <div style="display:none">
@@ -2285,7 +2285,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     data: {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
@@ -2301,8 +2301,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         if (!isNaN(iData[iVar])) lieux += ', France';
         return lieux;
       },
-      //INSEE_KEY: "INSEE_COM",
       //dataTransformer: true,
+
+      //INSEE_KEY: "INSEE_COM",
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,

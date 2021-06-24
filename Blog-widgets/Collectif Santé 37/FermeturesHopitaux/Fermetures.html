@@ -1033,8 +1033,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             if (typeof options.popupData.hidden !== 'undefined') hidden = options.popupData.hidden;
             //hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
             hidden = hidden.concat(["lat", "lng", "iconMarker"]);
-            if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
-            var dataKeys = Object.getOwnPropertyNames(indexEvent)
+            //if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
+            var dataKeys = Object.getOwnPropertyNames(data)
             var properties = [];
             for (var i = 0; i < dataKeys.length; i++) {
               var keyStatus = true;
@@ -2568,7 +2568,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     fondCarte : 'IGN',
     popupData : {
       title: 'nom_commune',
-      properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"]
+      //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
+      hidden: ["INSEE_COM", 'nom_commune', 'gml_id', 'département', 'région'],
     },
     tableData: {
       properties: [{

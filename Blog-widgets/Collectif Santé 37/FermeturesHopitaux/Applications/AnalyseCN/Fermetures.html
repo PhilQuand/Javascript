@@ -61,7 +61,7 @@
 </span>
 <span class="divText">
 <p><strong>Suppressions - Destructions - Réductions d'hôpitaux et de services, surtout publics</strong></p>
-<p>Première publication juin 2009 - Mis à jour 23/06/2021</p>
+<p>Première publication juin 2009 - Mis à jour 02/02/2021</p>
 <p><strong>ATTENTION - Données fournies par nos comités et contacts. </strong></p>
 <p><strong>Nous attendons vos compléments ou modifications, des erreurs et oublis sont évidemment possibles, merci à toutes et tous</strong></p>
 <div style="display:none">
@@ -812,12 +812,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             /*var iconMarkers = iconMarkersBuilder(data);
             for (var i = 0; i < data.length; i++) {
               var popupContent = $('<div></div>');
-              var popupBody = $('<div class="popBody"></div>');
+              var popupBody = $("<div class='popBody'></div>");
               popupContent.append(popupBody);
               if (typeof options.popupData.title !== 'undefined') {
                 var title = options.popupData.title;
                 //if (typeof data !== 'undefined' && typeof data[title] !== 'undefined') {
-                popupBody.append('<div class="popLieux" style="color:' + data[i].iconMarker.colorFG + '; background-color:' + data[i].iconMarker.colorBG + ';">' + data[i][title] + '</div>');
+                popupBody.append("<div class='popLieux' style='color:" + data[i].iconMarker.colorFG + "; background-color:" + data[i].iconMarker.colorBG + ";'>" + data[i][title] + "</div>");
                 //}
               }
               if (typeof options.popupData.properties !== 'undefined') {
@@ -841,7 +841,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
               for (var j = 0; j < properties.length; j++) {
                 var item = properties[j];
-                if (data[i][item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[i][item] + '</div>');
+                if (data[i][item] != '') popupBody.append("<div class='popItem'><span class='popTitle'>" + item + "</span><br>" + data[i][item] + "</div>");
               }
               var content = JSON.stringify(popupContent.html());
               data[i].doc = content;
@@ -1033,8 +1033,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             if (typeof options.popupData.hidden !== 'undefined') hidden = options.popupData.hidden;
             //hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
             hidden = hidden.concat(["lat", "lng", "iconMarker"]);
-            if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
-            var dataKeys = Object.getOwnPropertyNames(indexEvent)
+            //if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
+            var dataKeys = Object.getOwnPropertyNames(data)
             var properties = [];
             for (var i = 0; i < dataKeys.length; i++) {
               var keyStatus = true;
@@ -1056,7 +1056,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         for (i = 0; i < indexEvent.length; i++) {
           indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
           indexEvent[i].doc = dataPopUp(indexEvent[i]);
-          //indexEvent[i].doc = '';
+          //indexEvent[i].doc = JSON.parse(indexEvent[i].doc);
           indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
         }
 
@@ -2262,7 +2262,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
           },
           columns: columns,
-          initComplete: initComplete
+          initComplete: initComplete,
         });
       };
     };
@@ -2284,7 +2284,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   optionsTESTInnerFormedData = {
     data: {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/testInnerFormedData.json',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
       base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2301,9 +2302,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         if (!isNaN(iData[iVar])) lieux += ', France';
         return lieux;
       },
-      //dataTransformer: true,
-
       //INSEE_KEY: "INSEE_COM",
+      //dataTransformer: true,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,
@@ -2339,7 +2339,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     //fondCarte : 'IGN',
     popupData : {
       title: 'nom_commune',
-      properties: ["LIEUX", "SUPPRESSIONS", "MENACES","victoire"]
+      //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
+      hidden: ["INSEE_COM", 'nom_commune', 'gml_id', 'département', 'région'],
     },
     tableData: {
       properties: [{
@@ -2358,7 +2359,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         name: 'MENACES',
         filter: 0
       }, {
-        name: 'Pertes_lit',
+        name: 'Pertes lit',
         filter: 0
       }, {
         name: 'Postes',

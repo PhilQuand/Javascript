@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2021 semaines 10</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2; background-color: #bdd6ee; font-family: Helvetica; font-size: 12px;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">C’est la période des congés annuels, le temps du repos pour les salarié-e-s, le temps des rencontres familiales, le temps d’essayer de vivre à nouveau normalement après des mois où nous avons connu confinements, couvre-feu, distanciation, arrêt de certaines activités, deuils, solitude, mais aussi grands moments de solidarité, d’implication.</span></span></p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 250px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaine</strong>: 27</li>
+<li><strong>Dates</strong>: du 05 juillet au 11 juillet 2021</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2021/07/Infos-semaine-27-du-5-au-11-Juillet-2021.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<!--h3>cid:image005.jpg@01D7514D.C7466510</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/05/image010.jpg" /-->
+</div>
+<div class="corpsLettre">
+<!--p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"><b><span style="font-size: 22pt; line-height: 31.093334197998047px; font-family: Arial, sans-serif;">Édito </span></b></p-->
+<p style="margin: 0cm 0cm 8pt; line-height: 1.2; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Édito :</b></span></span></p>
+<p class="western" style="margin-bottom: 0.2cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Tout est bon pour diviser les soignants, les opposer à la population, diviser la population aussi d’ailleurs ! Le gouvernement a trouvé un nouveau gadget : l’obligation vaccinale pour les soignants ! Après les applaudissements, leur mise en cause dans la poursuite de l’épidémie. Et un débat inutile permettant de masquer l’absence de réponse aux revendications des personnels, la poursuite de la destruction de l’hôpital public, le refus de la France de répondre à la demande de nombreux pays lors de la dernière réunion de l’OMC : la suppression des brevets, au moins temporairement, pour les vaccins antiCOVID.</span></span></p>
+<p class="western" style="margin-bottom: 0.2cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="justify"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">D</span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">ans le plaidoyer pour la vaccination, la voix d’Irène Frachon est plus intéressante : d</span></span><span style="font-family: Arial,
+          serif;"><span style="font-size: 12pt;">ans une tribune parue dans <a style="color: #0000ff;" href="https://www.leparisien.fr/societe/sante/les-etudes-sont-serieuses-faites-moi-confiance-allez-vous-faire-vacciner-lappel-direne-frachon-aux-antivax-05-07-2021-HDP47PCCENGNZF2SMTEE2NYAM4.php">Le Parisien du 6 juillet</a>, </span></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="fr-FR">ce médecin connu pour sa lutte sans merci contre le laboratoire Servier à propos du Médiator </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="fr-FR">défend vigoureusement la vaccination comme la seule manière d’éviter une quatrième vague avec son cortège de décès, de COVID longs, de nouveaux confinements …</span></span></span></span></p>
+<p class="western" style="margin-bottom: 0.2cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="fr-FR">Comme à l’accoutumé, le gouvernement communique, alors qu’on lui demande de l’efficacité : pas une loi à l’automne </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="fr-FR">puis l’attente de décrets d’application, mais des facilités pour que les soignants pas encore vaccinés puissent le faire facilement tout de suite, sur leur lieu de travail par exemple. Ah, c’est vrai, la médecine du travail est malade aussi !</span></span></span></span></p>
+<p class="western" style="margin-bottom: 0.2cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="right"><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="fr-FR">Michèle Leflon</span></span></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Sommaire :</b></span></span></p>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-family: Arial, serif;"><span style="font-size: 24pt;"><b>L’écho des comités : page 2 et 3</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-family: Arial, serif;"><span style="font-size: 24pt;"><b>Autres infos locales : page 4</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-size: 24pt;"><span style="font-family: Arial, serif;"><b>Dossiers : page </b></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span lang="fr-FR"><b>5</b></span></span></span></span></p>
+</li>
+</ul>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-family: Arial, serif;"><span style="font-size: 16pt;"><b>IVG</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-family: Arial, serif;"><span style="font-size: 16pt;"><b>Hôpital public</b></span></span></p>
+</li>
+<li>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-family: Arial, serif;"><span style="font-size: 16pt;"><b>EHPAD</b></span></span></p>
+</li>
+</ul>
+<ul style="font-family: Helvetica; font-size: 12px;">
+<li>
+<p style="margin-bottom: 0.28cm; direction: ltr; line-height: 12.960000038146973px; orphans: 2; widows: 2;"><span style="font-size: 24pt;"><span style="font-family: Arial, serif;"><b>Culture et santé : page </b></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span lang="fr-FR"><b>6</b></span></span></span></span></p>
+</li>
+</ul>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><br /><br /></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>L’écho des comités :</b></span></span></span></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; background-color: #bbe33d; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>MAYENNE - 53</b></span></span></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Le projet de fermeture de plusieurs services est gelé </b></span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">L<img id="&lt;part3.72C1D069.3F7375B7@orange.fr&gt;" class="Apple-web-attachment Apple-edge-to-edge-visual-media Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/07/Image3.jpeg" alt="Image3" align="left" /><br clear="left" />a </span></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="fr-FR">lutte</span></span></span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"> a payé ! </span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Mais bien sur la mobilisation continue !</span></span></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.francebleu.fr/infos/sante-sciences/fermetures-de-plusieurs-services-d-ici-fin-2022-inquietude-au-centre-hospitalier-du-nord-mayenne-1623861812">L’article de France bleu du 17 juin 21</a></b></span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.francebleu.fr/infos/sante-sciences/le-ministere-de-la-sante-gel-le-projet-de-cooperation-entre-l-hopital-de-laval-et-celui-de-mayenne-1625747644">L’article de France bleu du 8 juillet</a></b></span></span></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; background-color: #ff6d6d; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm; text-transform: uppercase;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>DOURDAN - 91</b></span></span></p>
+<p class="western" style="margin-bottom: 0.3cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.3cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Conseil de surveillance du 2 juillet</b></span></span></p>
+<p class="western" style="margin-bottom: 0.3cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.3cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Le comité a distribué un tract à tous les membres du conseil de surveillance lors de sa réunion du 2 juillet</span></span></p>
+<p class="western" style="margin-bottom: 0.3cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.3cm;" align="center"><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/07/Communiqu%C3%A9-CS-2-juillet.pdf"><span style="color: #0000ff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Le tract</b></span></span></span></a></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; background-color: #780373; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>SARLAT - 24</b></span></span></p>
+<p class="western" style="margin-bottom: 0.3cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.3cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Poussé par l'action continue du comité de défense, l'hôpital se démène !</b></span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Il vient de recevoir un prix de l'ANFH (Association Nationale pour la formation permanente du personnel hospitalier) pour l'amélioration de la qualité des soins et de la prise en charge des patients.</span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Face au faible nombre de candidats au poste d'infirmier de bloc opératoire diplômé d'État (Ibode), l'hôpital sarladais mise depuis longtemps sur le compagnonnage pour inciter des infirmiers diplômés d'État (IDE) à s'inscrire à l'école d'Ibode. Ce compagnonnage a été structuré et l'infirmier.e qui décide de poursuivre dans cette voie commence sa formation en s'engageant, en contrepartie, à intégrer l'école d'Ibode puis à revenir travailler à l'hôpital.<br />Devant la réussite, le centre hospitalier de Sarlat envisage de mettre en place ce compagnonnage pour d'autres postes de spécialités.</span></span></p>
+<p class="western" style="margin-bottom: 0.25cm; direction: ltr; line-height: 16.866666793823242px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><a style="color: #0000ff;" href="https://www.anfh.fr/actualites/aquitaine/actualites-et-agenda-regional/prix-anfh-2021-le-ch-de-sarlat-et-le-cdef-d-eysines-primes"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Sur le site de l'ANFH</b></span></span></a></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">La maternité de Sarlat vient aussi d'être labellisée le 2 juillet maternité saine. Il s'agit de bannir tout ce que l’on appelle les perturbateurs endocriniens : les bébés y sont particulièrement vulnérables…alors la maternité a tout changé ou presque en lien avec l'association Habitat Santé partenaire du Plan Régional Santé Environnement en Nouvelle Aquitaine : la peinture sur les murs, les petits autocollants de papillons sur les portes de chambre, les jouets, les couches...</span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Toutes les sages-femmes du service ont été sensibilisées pour sensibilise</span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><span lang="fr-FR">r</span></span></span></span><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"> à leur tour les parents.</span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><a style="color: #0000ff;" href="https://www.sudouest.fr/dordogne/sarlat-la-maternite-labellisee-maternite-saine-4026664.php"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>L'article de Sud Ouest</b></span></span></a></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; background-color: #dee7e5; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm; break-before: page;" align="center"><span style="font-size: 14pt;"><span style="font-family: Arial, serif;"><b>F</b></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span lang="fr-FR"><b>OREZ</b></span></span></span><span style="font-family: Arial, serif;"><b> – 42</b></span></span></p>
+<p class="western" style="margin-bottom: 0.3cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.3cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Le Comité de Défense et de Soutien du CHF et le Collectif des Usagers de Défense du Service Public Hospitalier du Forez continuent leur campagne d'information. Voici le CR d'une réunion avec Mr Moncelon, maire de Néronde, Vice-président CCFE, en charge: Santé, Sport, Social, Emploi -Insertion</span></span></p>
+<p class="western" style="margin-bottom: 0.3cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.3cm;" align="center"><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/07/forez2021-06-30-CR-rencontre-Mr-Moncelon-Panissi%C3%A8res.pdf"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Le compte-rendu</b></span></span></a></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; background-color: #ffc000; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>DOLE - 39</b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;"><img id="&lt;part10.CFDABC6F.BD4D905C@orange.fr&gt;" class="Apple-web-attachment Apple-edge-to-edge-visual-media Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/07/Image2.jpeg" alt="Image2" align="left" /><br clear="left" /><br /><br /></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/07/doleinfos-flash32.pdf">Le flash info n°32</a></b></span></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b> </b></span></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Autres infos locales :</b></span></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; background-color: #ff0000; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><span lang="fr-FR"><b>LE BLANC</b></span></span></span></span><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b> - </b></span></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><span lang="fr-FR"><b>36</b></span></span></span></span></p>
+<p class="western" style="margin-bottom: 0.49cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.49cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b><span style="color: #000000;">Tribunal administratif</span></b></span></span></p>
+<p class="western" style="margin-bottom: 0.49cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.49cm;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Le recours contre la fermeture de la maternité du Blanc a été étudié sur le fond le 24 juin par le tribunal administratif de Limoges</span></span></p>
+<p class="western" style="margin-bottom: 0.49cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.49cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><a style="color: #0000ff;" href="https://www.francebleu.fr/infos/sante-sciences/les-defenseurs-de-la-maternite-du-blanc-de-retour-devant-le-tribunal-administratif-1624548778?xtmc=maternit%C3%A9%20de%20Sarlat&amp;xtnp=1&amp;xtcr=8"><b>L’article de France Bleu du 24/06/2021</b></a></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><br /><br /></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossier :</b></span></span></span></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; background-color: #ffd7d7; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>IVG</b></span></span></p>
+<p class="western" style="margin-bottom: 0.3cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.3cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Appel à manifestation le 25 septembre</b></span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><strong><span style="font-family: Arial, sans-serif;"><span style="font-weight: normal;">L'accès à l'avortement est un droit fondamental, en France, en Europe et dans le monde</span></span></strong></span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><strong><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><span style="font-weight: normal;">Manifestons à l'occasion de la "journée mondiale pour la dépénalisation de l'avortement"</span></span></span></strong></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><strong><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/07/tract-25-septembre-21-2.pdf"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>L'appel</b></span></span></a></strong></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; background-color: #ea7500; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>HÔPITAL PUBLIC</b></span></span></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/07/CP-CIH-9-07-21.pdf">Le communiqué du CIH du 9 juillet</a></b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Dépôt de la demande de R</b></span></span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><span lang="fr-FR"><b>éférendum d’initiative partagée</b></span></span></span></span><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b> au Conseil constitutionnel </b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.notrehopital.org/">Le site de l’initiative</a></b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.msn.com/fr-fr/actualite/france/h%C3%B4pital-un-projet-de-r%C3%A9f%C3%A9rendum-d%C3%A9pos%C3%A9-mercredi-au-conseil-constitutionnel/ar-AALO4C6?ocid=sf">L’article de MSN</a></b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.francetvinfo.fr/sante/hopital/hopital-un-projet-de-referendum-depose-mercredi-au-conseil-constitutionnel_4691115.html">L’article de France Info</a></b></span></span></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>Répression</b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">Mécanique de la répression hospitalière (et autre) </span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://blogs.mediapart.fr/mathieu-bellahsen/blog/020721/mecanique-de-la-repression-hospitaliere-et-autres">sur le blog de Matthieu Bellahsen</a></b></span></span></p>
+<p class="western" style="margin-bottom: 0.5cm; direction: ltr; line-height: 14.666667938232422px; orphans: 2; widows: 2; background-color: #729fcf; font-family: Calibri, serif; font-size: 11pt; margin-top: 0.5cm;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>EHPAD</b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b>«Un lit en maison de retraite représente 40.000 à 50.000 euros de revenus par an pour Korian»</b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.boursorama.com/bourse/actualites/un-lit-en-maison-de-retraite-represente-40-000-a-50-000-euros-de-revenus-par-an-pour-korian-146ec4e02c6fd2dc8b1e91137860be5a?fbclid=IwAR1QNbTwfqvzhfLR3V7_dRVLz2CAKjb2HREbRKIFmBIVzGwqJ9tRJSyEX-g">L’article de Boursorama</a></b></span></span></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt;" align="center"><br /><br /></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; orphans: 2; widows: 2; font-family: Calibri, serif; font-size: 11pt; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"> </p>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;"><b><a style="color: #0000ff;" href="https://www.facebook.com/watch/?v=320124819608540">En Belgique aussi, les soignants sont en lutte !</a></b></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; line-height: 12px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 8pt; line-height: 15.399999618530273px; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p class="western" style="margin-bottom: 0.35cm; direction: ltr; line-height: 0.49cm; orphans: 2; widows: 2; background-color: #ffff00; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></span></span></p>
+<p style="margin-bottom: 0.35cm; direction: ltr; line-height: 13.800000190734863px; orphans: 2; widows: 2; font-family: Helvetica; font-size: 12px;" align="center"><span style="color: #0000ff;"><u><a style="color: #0000ff;" href="http://coordination-defense-sante.org/"><span style="font-family: Arial, serif;"><span style="font-size: 12pt;">http://coordination-defense-sante.org/</span></span></a></u></span></p
+<p class="MsoNormal" style="margin: 0cm 0cm 10pt; font-size: 12pt; font-family: 'Times New Roman', serif; line-height: 18.399999618530273px; text-align: center;" align="center"><a style="color: #954f72;" href="http://coordination-defense-sante.org/"><span class="ListLabel12" style="font-family: Arial, sans-serif; color: blue;">http://coordination-defense-sante.org/</span></a></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/04/Pavé-CN-mis-à-jour-le-13-03-21.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleGoldIcon",
+          title: 'Manifestations du 15 octobre',
+        }, {
+          class: "marker-2",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-3",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-4",
+          icon: "simpleVioletIcon",
+          title: 'Autres'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

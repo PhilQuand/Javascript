@@ -204,7 +204,11 @@ $(document).ready(function() {
       //$('#calendarFancy_content').remove();
       $('.sharing-providers .epingleFancy').css('display','none');
       //$('#epingleFancy_content').remove();
-}
+  }
+  if ((pathname.indexOf("/p/la-science-pour-le-plus-grand-nombre") != -1)) {
+      $('.centered-top .return_link').css('display','none');
+      $('.centered-top #header').css('display','none');
+ }
 });
 </script>
 <script>
@@ -968,19 +972,20 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
    var firstPostTittleLang = setPostTitleLang(msgPostTittle);
    setDataForSummary(Lang, msgPostTittle);
    setLangInscriptionTB(Lang, msgLangInscription, rootSite, firstPostTittleLang);
-   //setHomeCustom();
+   if( postTyp() == "home" ) {
+      setHomeCustom();
+   }    
    
   function setHomeCustom() {
-    if( postTyp() == "home" ) {
-      var elem = document.querySelector("#Blog1");
-      elem.style.display = 'none';
-      var elem = document.getElementsByClassName("blog-posts");
-      for( var i = 0; i < elem.length; i++ ) {
-        elem[i].style.display = 'none';
-      }
-    }    
+  return;
+    var elem = document.querySelector("#Blog1");
+    elem.style.display = 'none';
+    var elem = document.getElementsByClassName("blog-posts");
+    for (var i = 0; i < elem.length; i++) {
+      elem[i].style.display = 'none';
+    }
   }
-
+  
   function setRedirectOnLang(Lang, rootSite) {
     var myLinks = document.getElementsByTagName('a');
     for (var i = 0; i < myLinks.length; i++) {
@@ -1007,7 +1012,7 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
     var acc = document.getElementsByName('loc');
     var btInscrire = document.getElementsByClassName('subscribe-button');
     // On cache, pour l'instant, le bouton d'inscription à la lettre d'information 
-    btInscrire[0].style.display = 'none';
+    //btInscrire[0].style.display = 'none';
     var setInscription = document.getElementsByClassName('subscribe-title');
     //var setSharingText = document.getElementsByClassName('platform-sharing-text'); 
     //var setGetLinkText = document.getElementsByClassName('modal-dialog-content'); 
@@ -1029,13 +1034,13 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
     var myDates = document.getElementsByTagName('Time');
 
     document.getElementsByClassName('header-widget')[0].children[0].children[0].innerHTML = msg.header;
-    btInscrire[0].innerHTML = msg.btInscrire;
-    acc[0].value = msg.loc;
-    setInscription[0].innerHTML = msg.setInscription;
+    //btInscrire[0].innerHTML = msg.btInscrire;
+    //acc[0].value = msg.loc;
+    //setInscription[0].innerHTML = msg.setInscription;
     //setSharingText[0].innerHTML = msg.setSharingText;
     //setGetLinkText[0].innerHTML = msg.setGetLinkText;
-    setCallforEmail[0].placeholder = msg.setCallforEmail;
-    setRecMsg[0].value = msg.setRecMsg;
+    //setCallforEmail[0].placeholder = msg.setCallforEmail;
+    //setRecMsg[0].value = msg.setRecMsg;
     for (var i = 0; i < setJumpLink.length; i++) {
       if (setJumpLink[i].children.length > 0) {
         setJumpLink[i].children[0].innerHTML = msg.setJumpLink;
@@ -1192,7 +1197,8 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
   function postTyp() {
     //var pathname = window.location.origin + window.location.pathname;
     var pathname = window.location.pathname;
-    if ((pathname == "/") || (pathname == "/search")) {
+    //if ((pathname == "/") || (pathname == "/search")) {
+    if ((pathname == "/") || (pathname == "/search") || (pathname == "/p/la-science-pour-le-plus-grand-nombre")) {
       return 'home';
     }
     if (pathname.indexOf("/p/") > -1) {
@@ -1207,14 +1213,17 @@ function setLanguageTB(Lang, msgPostTittle, msgLangInscription, navID) {
     var contFlags = document.getElementById("Flags");
     var contNav = document.getElementById("navigationGB");
 
-    if (window.location.pathname != '/') {
+    var pathname = window.location.pathname;
+    if ((pathname != "/") && (pathname != "/search") && (pathname.indexOf("/p/la-science-pour-le-plus-grand-nombre") == -1)) {
+    //if (window.location.pathname != '/') {
       contNaveFlags.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = "block";
       contNaveFlags.parentNode.parentNode.parentNode.parentNode.parentNode.children[0].style.display = "inline-block";
       contNaveFlags.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].style.display = "inline-block";
     }
     /*contNaveFlags.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.width='98%';
     contNaveFlags.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.textAlign='left';*/
-    contNaveFlags.parentNode.parentNode.parentNode.parentNode.parentNode.style.width = '98%';
+    //contNaveFlags.parentNode.parentNode.parentNode.parentNode.parentNode.style.width = '98%';
+    contNaveFlags.parentNode.parentNode.parentNode.parentNode.style.width = '98%';
     contNaveFlags.parentNode.parentNode.parentNode.parentNode.parentNode.style.textAlign = 'left';
     /*contNaveFlags.parentNode.parentNode.parentNode.parentNode.style.width='98%';
     contNaveFlags.parentNode.parentNode.parentNode.parentNode.style.textAlign='left';
@@ -2781,28 +2790,36 @@ function loadDeptFranceJSONN(map, getColor, getFilter) {
 // Constructeur de la carte TopoJSON des signqatures de l'Internationale des Savoirs pour Tous pour LeafLet
 function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, divCountryName, tableSignatures, setCallBackLarge, setCallBackSmall) {
   var lang = divCountryName.getAttribute("data-lang");
-  var divFR = document.createElement("div"); divFR.lang = 'fr';
-  var divEN = document.createElement("div"); divEN.lang = 'en';
-  var divDE = document.createElement("div"); divDE.lang = 'de';
-  var divES = document.createElement("div"); divES.lang = 'es';
-  var divIT = document.createElement("div"); divIT.lang = 'it';
-  var divPT = document.createElement("div"); divPT.lang = 'pt';
+  var divFR = document.createElement("div");
+  divFR.lang = 'fr';
+  var divEN = document.createElement("div");
+  divEN.lang = 'en';
+  var divDE = document.createElement("div");
+  divDE.lang = 'de';
+  var divES = document.createElement("div");
+  divES.lang = 'es';
+  var divIT = document.createElement("div");
+  divIT.lang = 'it';
+  var divPT = document.createElement("div");
+  divPT.lang = 'pt';
   divCountryName.appendChild(divFR);
-  divCountryName.appendChild(divEN); 
-  divCountryName.appendChild(divDE); 
-  divCountryName.appendChild(divES); 
-  divCountryName.appendChild(divIT); 
-  divCountryName.appendChild(divPT); 
-  var allDiv = { divFR : divFR, divEN : divEN, divDE : divDE, divES : divES, divIT : divIT, divPT : divPT };
+  divCountryName.appendChild(divEN);
+  divCountryName.appendChild(divDE);
+  divCountryName.appendChild(divES);
+  divCountryName.appendChild(divIT);
+  divCountryName.appendChild(divPT);
+  var allDiv = {
+    divFR: divFR,
+    divEN: divEN,
+    divDE: divDE,
+    divES: divES,
+    divIT: divIT,
+    divPT: divPT
+  };
   // Usage:  Load different file types with one callback
   Promise.all([
-    // ressources TableTop pour lire les données Google Sheet utilisées pour construire la carte TopoJSON colorée
-    //load.js('https://drive.google.com/uc?export=download&id=1wYZfkDO3ecEYW3kCVWbWk6W1gWWg0HnZ'),
-    load.js('https://philquand.github.io/Javascript/tabletop.min.js'),
-    //load.js('https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'),
-    // Début ressources utilisées pour construire la carte mondiale colorée TopoJSON
-    // ressources chroma.js utilisées pour construire la carte TopoJSON colorée
-    //load.js('https://drive.google.com/uc?export=download&id=1vAhVcT9intE5QEkcuu3UQOBEutYjKtaO'),
+    load.js('https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'),
+    //load.js('https://philquand.github.io/Javascript/tabletop.min.js'),
     load.js('https://philquand.github.io/Javascript/LeafLet/chroma.min.js'),
     // ressources utilisées pour construire la carte TopoSJON
     load.js('https://d3js.org/topojson.v1.min.js'),
@@ -2811,16 +2828,158 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
     load.js('https://philquand.github.io/Javascript/LeafLet/countries.topo.json'),
     // Fint ressources utilisées pour construire la carte mondiale colorée TopoJSON
 
-  ]).then(function() {
-    console.log('Everything has loaded!');
+  ]).then(
+    function() {
+      console.log('Everything has loaded!');
 
-    var code = "1w6dczYR7VN2YBkx8t5AHdxRzoEv6eozL6qERuvnOwWM";
-    //var countries, map2dataCountries;
-    // loop through spreadsheet with Tabletop
-    Tabletop.init({
-      key: code,
-      callback: function(sheet, tabletop) {
+      var sheet = {};
+      var urls = [
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pub?gid=1148188777&single=true&output=csv',
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pub?gid=729508517&single=true&output=csv',
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pub?gid=1380254629&single=true&output=csv',
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pub?gid=1134220747&single=true&output=csv',
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pub?gid=12034407&single=true&output=csv',
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pub?gid=1708432101&single=true&output=csv',
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ3VB8naP5MJuOnlVV1K4WytDD5Gokxg6vTp37a-D_1xQO-IYbkMtCyxNLrHcAssHjC03D0sI-c50Lz/pub?gid=779095443&single=true&output=csv',
+      ]
 
+      Promise.all( //pass array of promises to Promise.all
+          urls //you have an array of urls
+          .map( //map urls to promises created with parse
+            url =>
+            new Promise( //create one promise
+              (resolve, reject) =>
+              Papa.parse(
+                url, {
+                  download: true,
+                  header: true,
+                  complete: resolve, //resolve the promise when complete
+                  error: reject //reject the promise if there is an error
+                }
+              )
+            )
+          )
+        )
+        .then(
+          function(results) {
+            /*console.log(results[0]) // log result from file 1
+            console.log(results[1]) // log result from file 2
+            console.log(results[2]) // log result from file 3
+            console.log(results[3]) // log result from file 4
+            console.log(results[4]) // log result from file 5
+            console.log(results[5]) // log result from file 6
+            console.log(results[6]) // log result from file 7*/
+
+            showInfo(results)
+            runSigTable()
+          }
+        )
+        .catch( //log the error
+          err => console.warn("Something went wrong:", err)
+        )
+
+      function showInfo(results) {
+        showInfoFR(results[0])
+        showInfoEN(results[1])
+        showInfoDE(results[2])
+        showInfoPT(results[3])
+        showInfoES(results[4])
+        showInfoIT(results[5])
+        showInfoBO(results[6])
+
+        function showInfoFR(results) {
+          sheet.français = {};
+          sheet.français.elements = [];
+          for (i = 0; i < results.data.length; i++) {
+            var rowTable = {
+              nomprénom: results.data[i]['Nom, prénom'],
+              activité: results.data[i]['Activité'],
+              pays: results.data[i]['Pays'],
+            };
+            sheet.français.elements.push(rowTable);
+          }
+        }
+
+        function showInfoEN(results) {
+          sheet.anglais = {};
+          sheet.anglais.elements = [];
+          for (i = 0; i < results.data.length; i++) {
+            var rowTable = {
+              lastnamefirstname: results.data[i]['Last name, first name'],
+              activity: results.data[i]['Activity'],
+              country: results.data[i]['Country'],
+            };
+            sheet.anglais.elements.push(rowTable);
+          }
+        }
+
+        function showInfoDE(results) {
+          sheet.allemand = {};
+          sheet.allemand.elements = [];
+          for (i = 0; i < results.data.length; i++) {
+            var rowTable = {
+              namevorname: results.data[i]['Name, vorname'],
+              beruf: results.data[i]['Beruf'],
+              land: results.data[i]['Land'],
+            };
+            sheet.allemand.elements.push(rowTable);
+          }
+        }
+
+        function showInfoPT(results) {
+          sheet.portugais = {};
+          sheet.portugais.elements = [];
+          for (i = 0; i < results.data.length; i++) {
+            var rowTable = {
+              sobrenomenome: results.data[i]['Sobrenome, nome'],
+              actividade: results.data[i]['Actividade'],
+              país: results.data[i]['País'],
+            };
+            sheet.portugais.elements.push(rowTable);
+          }
+        }
+
+        function showInfoES(results) {
+          sheet.espagnol = {};
+          sheet.espagnol.elements = [];
+          for (i = 0; i < results.data.length; i++) {
+            var rowTable = {
+              apellidonombre: results.data[i]['Apellido, nombre'],
+              actividad: results.data[i]['Actividad'],
+              país: results.data[i]['País'],
+            };
+            sheet.espagnol.elements.push(rowTable);
+          }
+        }
+
+        function showInfoIT(results) {
+          sheet.italien = {};
+          sheet.italien.elements = [];
+          for (i = 0; i < results.data.length; i++) {
+            var rowTable = {
+              cognomenome: results.data[i]['Cognome, nome'],
+              attività: results.data[i]['Attività'],
+              paese: results.data[i]['Paese'],
+            };
+            sheet.italien.elements.push(rowTable);
+          }
+        }
+
+        function showInfoBO(results) {
+          sheet.BackOffice = {};
+          sheet.BackOffice.elements = [];
+          for (i = 0; i < results.data.length; i++) {
+            var rowTable = {
+              datacountry: results.data[i]['dataCountry'],
+              topojsoncountry: results.data[i]['TopoJSONCountry'],
+            };
+            sheet.BackOffice.elements.push(rowTable);
+          }
+        }
+      }
+
+      function runSigTable() {
+        //var tableInfos = results.data;
         var tableInfos = tableSignatures;
         if (typeof tableInfos !== 'undefined') writeTables(sheet, tableInfos);
 
@@ -2915,7 +3074,8 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
             var tableID = document.getElementById(tableInfos.divIT);
             writeTable(tableID, table, 'tableSignatures');
           }
-        } 
+        }
+
         function writeTable(parent, data, classTable) {
           if (parent.children.length > 0) deleteChild(parent);
           var TBthead = document.createElement("table");
@@ -2925,7 +3085,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
           TBthead.appendChild(thead);
           drawRowth(thead, data[0]);
 
-          if(data.length > 1 ) {
+          if (data.length > 1) {
             var TBtbody = document.createElement("table");
             TBtbody.classList.add(classTable);
             parent.appendChild(TBtbody);
@@ -2971,9 +3131,10 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
               return th;
             }
           }
-        }                                       
+        }
+
         function deleteChild(parent) {
-          if(parent.children.length == 0) return;
+          if (parent.children.length == 0) return;
           var child = parent.lastElementChild;
           while (child) {
             parent.removeChild(child);
@@ -2983,20 +3144,20 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
         getSigCountFromSheet(sheet);
         var countries = getCountriesFromSheet(sheet);
         var map2dataCountries = getmap2dataCountriesFromSheet(sheet);
-        
+
         function thisColor(d) {
           var nbMax = grades.length;
-          for (var i = nbMax-1; i >= 0; i--) {
+          for (var i = nbMax - 1; i >= 0; i--) {
             if (d > grades[i]) return colorScale(i / nbMax).hex();
           }
           return 'white';
         }
-        
+
         function getSigCountFromSheet(sheet) {
           var sigCount = sheet.français.elements.length;
           var lang = divCountryName.getAttribute("data-lang");
           var btnSignatures = document.getElementsByClassName("butSignatures");
-          if( btnSignatures.length == 6) {
+          if (btnSignatures.length == 6) {
             btnSignatures[0].innerHTML = "Voir les " + sigCount + " signataires"
             btnSignatures[1].innerHTML = "See the " + sigCount + " signatories"
             btnSignatures[2].innerHTML = "Die " + sigCount + " Unterzeichner"
@@ -3005,7 +3166,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
             btnSignatures[5].innerHTML = "Ver a los " + sigCount + " signatarios"
           };
         }
-        
+
         function getCountriesFromSheet(sheet) {
           var countries = [];
           for (var i in sheet.français.elements) {
@@ -3112,7 +3273,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
           }
           return countries;
         }
-        
+
         function getmap2dataCountriesFromSheet(sheet) {
           var map2dataCountries = [];
           for (var i in sheet.BackOffice.elements) {
@@ -3141,8 +3302,8 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
 
         var tableID = document.getElementById(tableInfos.divFR);
         topoLayer = new L.TopoJSON();
-         //$("#" + idCountryName) = $("." + idCountryName),
-          colorScale = chroma
+        //$("#" + idCountryName) = $("." + idCountryName),
+        colorScale = chroma
           //.scale(['#D5E3FF', '#003171'])
           .scale([colorDeb, colorFin])
           .domain([0, 1]);
@@ -3153,8 +3314,8 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
           topoLayer.addData(topoData);
           topoLayer.addTo(map);
           topoLayer.eachLayer(handleLayer);
-       }
-                
+        }
+
         function addLegend() {
           var legend = L.control({
             position: 'bottomright'
@@ -3164,11 +3325,11 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
 
             var div = L.DomUtil.create('div', 'info legend'),
 
-             labels = [];
+              labels = [];
 
             // loop through our density intervals and generate a label with a colored square for each interval
             for (var i = grades.length - 1; i >= 0; i--) {
-            //for (var i = 0; i < grades.length; i++) {
+              //for (var i = 0; i < grades.length; i++) {
               div.innerHTML +=
                 '<i style="background:' + thisColor(grades[i] + 1) + '"></i><span>' +
                 grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
@@ -3193,20 +3354,21 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
             weight: 1,
             opacity: .5
           });
-                              
+
           if ("ontouchstart" in document.documentElement) {
             layer.on({
               //dblclick: clickLayer,
               click: touchLayer,
             });
-          } else {
+          }
+          else {
             layer.on({
               click: clickLayer,
               mouseover: enterLayer,
               mouseout: leaveLayer
             });
           }
-                      
+
           function getColor() {
             var countryName = layer.feature.properties.name;
             var d = 0;
@@ -3223,10 +3385,10 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
             }
             return thisColor(d);
           }
-          
+
           function getLang() {
             var mySignatures = document.getElementById("signatures-country-name");
-            if( typeof mySignatures !== 'undefined') return mySignatures.getAttribute("data-lang");
+            if (typeof mySignatures !== 'undefined') return mySignatures.getAttribute("data-lang");
             else return '';
           }
 
@@ -3367,7 +3529,7 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
               //divCountryName.parentNode.children[0].style.cursor='default';
             }
           }
-          
+
           function enterLayer() {
             if (divCountryName == null) return
             var countryName = this.feature.properties.name;
@@ -3556,14 +3718,11 @@ function loadMapTopoJSONSignatures(map, grades, colorDeb, colorFin, colorStyle, 
 
         }
         addLegend();
-      },
-      simpleSheet: false
-    })
-  }).catch(function() {
+      }
+    }).catch(function() {
     console.log('Oh no, epic failure!');
   });
-};
-$.fn.SummaryGallery = function(options) {
+};$.fn.SummaryGallery = function(options) {
 
   var myRoot = $(this);
   if (typeof options !== 'undefined' && typeof options.archi !== 'undefined' && options.archi.length > 0) {

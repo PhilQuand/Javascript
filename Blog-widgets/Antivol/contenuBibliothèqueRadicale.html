@@ -89,7 +89,44 @@ $(document).ready(function() {
     simpleSheet: true
   });*/
 
-      function init() {
+      var urls = [
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vR422_6UY9n89JQpyIRVg_oOJdFQL4_AllgQ2PqWggVCKHpWH4Gj6O0dikhsOmYVOutSzBo-JEXYEpd/pub?gid=0&single=true&output=csv',
+      ]
+
+      Promise.all( //pass array of promises to Promise.all
+          urls //you have an array of urls
+          .map( //map urls to promises created with parse
+            url =>
+            new Promise( //create one promise
+              (resolve, reject) =>
+              Papa.parse(
+                url, {
+                  download: true,
+                  header: true,
+                  complete: resolve, //resolve the promise when complete
+                  error: reject //reject the promise if there is an error
+                }
+              )
+            )
+          )
+        )
+        .then(
+          function(results) {
+            console.log(results[0]) // log result from file 1
+            /*console.log(results[1]) // log result from file 2
+            console.log(results[2]) // log result from file 3
+            console.log(results[3]) // log result from file 4
+            console.log(results[4]) // log result from file 5
+            console.log(results[5]) // log result from file 6
+            console.log(results[6]) // log result from file 7*/
+
+            buildTable(results[0])
+          }
+        )
+        .catch( //log the error
+          err => console.warn("Something went wrong:", err)
+        )
+      /*function init() {
         Papa.parse(SHEET_ID, {
           download: true,
           header: true,
@@ -97,7 +134,7 @@ $(document).ready(function() {
         })
       }
 
-      window.addEventListener('DOMContentLoaded', init)
+      window.addEventListener('DOMContentLoaded', init)*/
 
   //function buildTable(data, tabletop) {
   function buildTable(results) {

@@ -19,6 +19,14 @@
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
 <script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
 
+<!--p  style="font-size:18px; font-weight: bold; align-content: center;">Pour nous écrire ou nous contacter par téléphone, voici <a href="https://www.lantivol.com/p/contacts.html">nos coordonnées</a>.
+<br/>Pour recevoir notre lettre d'information, <a href="#" onclick="myFootInscription()">inscrivez-vous</a>.</p>
+<script>
+function myFootInscription() {
+  $('button.subscribe-button.pill-button').click();
+}
+</script-->
+
 <style>
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {
     opacity: 0.1;
@@ -217,6 +225,7 @@ if (window.location.pathname == '/') {
   $('.bg-photo').remove();
   $('.header-widget > div > h1').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/><center><p>« Être radical, c’est aller à la racine des problèmes et à la hauteur des solutions »</p></center>');
   //$('.header-widget > div').append('<center><img src="https://1.bp.blogspot.com/-ow5Anx1wNTk/X0qX0h2VojI/AAAAAAAAnE8/zdtTf1hbHyI6a8UHLeGoaUcmm_QLtwhNwCLcBGAsYHQ/s722/Logo%2BAzo%2Bv1%2Btransparent.png"/></center>');
+  $("section.subscribe-section-container").prependTo("div.widget.PageList");
   function banAnim() {
     //$('.page_body .centered-top').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="http://127.0.0.1:8887/LAntivol.html" frameborder="0" allowfullscreen></iframe></div></div>');
     if (document.referrer == null || document.referrer.indexOf(window.location.hostname) < 0) {

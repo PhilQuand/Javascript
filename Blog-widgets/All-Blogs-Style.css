@@ -141,6 +141,13 @@ h6 {
         max-width: 100% !important;
         margin-bottom: 1em;
     }
+    .VignetteBR.flex.left .divImg,
+    .VignetteBR.flex.right .divImg  {
+    .VignetteBR.float.left .divImg,
+    .VignetteBR.float.right .divImg  {
+        margin-left: auto;
+        margin-right: auto;
+    }
     .VignetteBR.flex .divImg img,
     .VignetteBR.float .divImg img {
         display: block;

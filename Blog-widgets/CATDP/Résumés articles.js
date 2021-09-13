@@ -15,6 +15,9 @@
 <script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
 
 <style>
+.container.post-body.entry-content {
+  margin: 0;
+}
 .incrustation {
   background-color: #e8f6f8;
   padding-top: 0.5em;

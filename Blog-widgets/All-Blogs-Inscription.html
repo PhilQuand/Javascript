@@ -6,10 +6,10 @@
 <div class="form">
 <form class="contact-form" name="contact-form10">
 <span class="contact-form-data">Votre nom et prénom</span><br />
-<input class="contact-form-name" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm10_contact-form-name" name="name" placeholder="" size="25" type="text" value="" />
+<input class="contact-form-name" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm10_contact-form-name" name="name" placeholder="" type="text" value="" />
         <br />
 <span class="contact-form-data">Votre e-mail *</span><br />
-<input class="contact-form-email" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm10_contact-form-email" name="email" placeholder="" size="25" type="text" value="" />
+<input class="contact-form-email" data-com.agilebits.onepassword.user-edited="yes" id="ContactForm10_contact-form-email" name="email" placeholder="" type="text" value="" />
           <br />
 <textarea class="contact-form-email-message" cols="25" id="ContactForm10_contact-form-email-message" name="email-message" placeholder="" rows="5" style="display: none;">Demande d'inscription sur la liste de diffusion des Insoumis de Tours</textarea>
 
@@ -28,11 +28,12 @@
 </div>
 
 <script>
-$(".subscribe-button.pill-button").wrap('<a class="data-fancybox-inline" data-fancybox="inscriptionWidget" data-slide-class="customVid" data-type="inline" data-src="#inscription_tooltip" href="javascript:;"></a>');
+$(".subscribe-button.pill-button").wrap('<a class="data-fancybox-inline" data-fancybox="inscriptionWidget" data-type="inline" data-src="#inscription_tooltip" href="javascript:;"></a>');
 $(".subscribe-popup-container").remove();
 document.getElementById("ContactForm10_contact-form-success-message").addEventListener("DOMNodeInserted", function() {
   if ($("#inscription_tooltip form").css("display") == "none") {
     $("#inscription_tooltip .fancybox-button.fancybox-close-small").click();
+    $(".subscribe-button.pill-button").css("display", "none");
   }
   else {
     $("#ContactForm10_contact-form-success-message").html('votre inscription a bien été enregistrée');
@@ -46,7 +47,8 @@ document.getElementById("ContactForm10_contact-form-success-message").addEventLi
   padding: 1.5em;
   margin:24px auto 0;
   width:auto;
-  white-space:normal
+  white-space:normal;
+  max-height: 325px;
 }
 #inscription_tooltip h1 {
   color: #CD0002;
@@ -57,6 +59,9 @@ document.getElementById("ContactForm10_contact-form-success-message").addEventLi
 #inscription_tooltip .contact-form-data {
   color: grey;
   font-style: italic;
+}
+#inscription_tooltip .contact-form-name, #inscription_tooltip .contact-form-email {
+  width: 310px;
 }
 #inscription_tooltip .contact-form-button.contact-form-button-submit {
     max-width: 100px !important;   /* Largeur du formulaire */

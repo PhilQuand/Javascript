@@ -770,6 +770,8 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   }
 }
 </style>
+<script>
+</script>
 <!--link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" /-->
 <script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <style>
@@ -790,8 +792,8 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
-  //$('.page_body').append('<a href="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg"><img class="img-foreground" src="https://1.bp.blogspot.com/-62_a_DqnuRY/YHB4XnIIfiI/AAAAAAAAoa4/AUbmW5VeiRwMJH_EONAn5v5I1qjYSZzBwCLcBGAsYHQ/s0/cadeau%2BJ%2BCastex%2BCHU%2BTours.jpg" /></a>');
-  $('.page_body').append('<a href="https://1.bp.blogspot.com/-sJLhV-8p1U4/YIgS8qPyLCI/AAAAAAAAoeM/g5FzS6bHCSkkpgPsPjRNu07WLHuhUhDRgCLcBGAsYHQ/s0/FB%2B1er%2Bmai%2BFestiluttes-V02.jpg"><img class="img-foreground" src="https://1.bp.blogspot.com/-sJLhV-8p1U4/YIgS8qPyLCI/AAAAAAAAoeM/g5FzS6bHCSkkpgPsPjRNu07WLHuhUhDRgCLcBGAsYHQ/s0/FB%2B1er%2Bmai%2BFestiluttes-V02.jpg" /></a>');
+  //$('.page_body').append('<a href="https://drive.google.com/file/d/15LHFa3lJ2IGri9emBgpGedcRCFhrmUfU/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-4IUWmwdOVjk/YPb3lT-OiSI/AAAAAAAAo2I/n1U4-Xdju_8VUPPg2AiGucgPCZuLkRrZQCLcBGAsYHQ/s0/tract%2Bunitaire%2B6%2Bjuillet.jpg"/></a>');
+  $('.page_body').append('<a href="https://drive.google.com/file/d/1JD_jdREoB6VbDEOB2mirPEk7875ABOw6/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-GTy3ZYQFJyo/YTjZ7gQf5dI/AAAAAAAAo84/OSzcsNvahhE3IfZd7ArNmMahgxWCUtkMQCLcBGAsYHQ/s0/tract%2B14%2Bseptembre%2Bunitaire%2Bvraiment%2Bde%25CC%2581finitif.jpg"/></a>');
 }
 </script>
 <script>
@@ -803,27 +805,36 @@ $(document).ready(function() {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
       href: [
-        /*{
+        {
           dataType: "inline",
-          dataSrc: '<div style="font-size:24px; text-align: center; line-height: 150%; margin-top: 2em">Après le succès de la mobilisation du 16 à Tours et nationalement, il faut enfoncer le clou pour obtenir satisfaction aux réelles revendications des personnels et usagers que le Ségur de la santé ne prend pas en compte: embauches supplémentaires, réouverture de services et ou d&#39;hôpitaux fermés, arrêt du « dézingage » des statuts des personnels hospitaliers... \
-                 <p style="color:red"><b>Mardi 30 juin 2020, <br/>Toutes et Tous en grève<br/>Rassemblement à Tours, à 15H devant l&#39;ARS<br/>et Manifestation</b>.</p></div>'
-        },*/
+          dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
+<ul> \
+<li>pour des moyens en effectifs et des financements à la hauteur des besoins de la population,</li> \
+<li>pour les 183€ pour toutes et tous et la revalorisation des grilles salariales pour toutes et tous sans barrage,</li> \
+<li>pour le maintien et l&#39;amélioration des conventions collectives,</li> \
+<li>non a la marchandisation de la santé, du social et du médicosocial</li> \
+</ul> \
+<p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>mardi 15 juin à 14h30<br />Devant l’ARS</b>.</p> \
+<p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
+<p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
+</div>'
+        },
         /*{
           dataType: "inline",
           dataSrc: '<p>Mardi <span style="color: blue;">5 janvier, à 11h place Jean Jaurès à Tours,</span> à l'+"'"+'occasion de la venue de Macron, un rassemblement aura lieu avec la venue d'+"'"+'une délégation de salariées de l'+"'"+'ADMR de Blois en grève depuis le 21 décembre. Elles défendent leurs conditions de travail et la revalorisation de de leur salaire. Nous les avions rencontrées sur <a href="https://collectifsante37.blogspot.com/2020/12/les-invisibles-se-rebiffent.html">leur piquet de grève, le 28 décembre dernier</a>.</p><p>En décembre c'+"'"+'était aussi la lutte des exclus du Ségur pour les 183 €, une occasion de remettre en lumière ces revendications.</p>'
-        },*/
-        /*{
+        },
+        {
           dataType: "iframe",
           dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Animations-Une/arbre-de-noel-tournant.html"
         },
         {
           dataType: "images",
           dataSrc: "https://1.bp.blogspot.com/-C9RHM2HvfIs/YDDJoUHIb1I/AAAAAAAAoJ4/JJyg1_WFrdk0eBvYYNfcoegjRTm3bj3CwCLcBGAsYHQ/s0/152387808_2938037336513085_3038734482534877138_o.jpg"
-        }*/       
+        },       
         {
           dataType: "video",
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
-        },
+        },*/
     ]
   });
 });

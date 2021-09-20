@@ -792,8 +792,7 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
-  //$('.page_body').append('<a href="https://drive.google.com/file/d/15LHFa3lJ2IGri9emBgpGedcRCFhrmUfU/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-4IUWmwdOVjk/YPb3lT-OiSI/AAAAAAAAo2I/n1U4-Xdju_8VUPPg2AiGucgPCZuLkRrZQCLcBGAsYHQ/s0/tract%2Bunitaire%2B6%2Bjuillet.jpg"/></a>');
-  $('.page_body').append('<a href="https://drive.google.com/file/d/1JD_jdREoB6VbDEOB2mirPEk7875ABOw6/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-GTy3ZYQFJyo/YTjZ7gQf5dI/AAAAAAAAo84/OSzcsNvahhE3IfZd7ArNmMahgxWCUtkMQCLcBGAsYHQ/s0/tract%2B14%2Bseptembre%2Bunitaire%2Bvraiment%2Bde%25CC%2581finitif.jpg"/></a>');
+  $('.page_body').append('<a href="https://drive.google.com/file/d/15LHFa3lJ2IGri9emBgpGedcRCFhrmUfU/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-4IUWmwdOVjk/YPb3lT-OiSI/AAAAAAAAo2I/n1U4-Xdju_8VUPPg2AiGucgPCZuLkRrZQCLcBGAsYHQ/s0/tract%2Bunitaire%2B6%2Bjuillet.jpg"/></a>');
 }
 </script>
 <script>

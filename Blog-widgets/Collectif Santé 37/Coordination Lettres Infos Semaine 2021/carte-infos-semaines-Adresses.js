@@ -393,6 +393,8 @@ var inpAddress = [
   lat: 14.7297, lng:  -60.9655},
 { inpText: "GUYANE",
   lat: 4.926, lng:  -52.313},
+{ inpText: "VARSOVIE",
+  lat: 52.2435, lng:  21.0163},
 { inpText: "SUD SANTÉ SOCIAUX",
   lat: 48.827737, lng: 2.379217 },
 { inpText: "COORDINATION NATIONALE",

@@ -792,8 +792,8 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
-  //$('.page_body').append('<a href="https://drive.google.com/file/d/15LHFa3lJ2IGri9emBgpGedcRCFhrmUfU/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-4IUWmwdOVjk/YPb3lT-OiSI/AAAAAAAAo2I/n1U4-Xdju_8VUPPg2AiGucgPCZuLkRrZQCLcBGAsYHQ/s0/tract%2Bunitaire%2B6%2Bjuillet.jpg"/></a>');
-  $('.page_body').append('<a href="https://drive.google.com/file/d/1ltzqfpxcBoEx_Q-zZTYLoGjQ7CQRVsLk/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-r8cekgoOeNE/YUjWpoto6NI/AAAAAAAAo_Y/hKNeCkvIgBcRaAqPfDzpsun1SP99JItYACLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-20%2Ba%25CC%2580%2B20.44.02.jpg"/></a>');
+  $('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-QU7L2HF_CsE/YVQ76wvhL1I/AAAAAAAAo_4/C9vEk7lVrccrk-ePk6dmnOjrt8ghTHOFgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-29%2Ba%25CC%2580%2B12.10.11.jpg"/></a>');
+  //$('.page_body').append('<a href="https://drive.google.com/file/d/1ltzqfpxcBoEx_Q-zZTYLoGjQ7CQRVsLk/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-r8cekgoOeNE/YUjWpoto6NI/AAAAAAAAo_Y/hKNeCkvIgBcRaAqPfDzpsun1SP99JItYACLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-20%2Ba%25CC%2580%2B20.44.02.jpg"/></a>');
 }
 </script>
 <script>

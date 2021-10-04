@@ -17,6 +17,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 36.html',
         },
              {
+        imgID: 'svgBlue',
+        svgInfos: ["août", '2021'],
           svgInfos: ['Semaines 35', 'du 30 août', 'au 05 sept.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 35.html',
         },
@@ -30,6 +32,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 32.html',
         },
            {
+        imgID: 'svgBlue',
+        svgInfos: ["juillet", '2021'],
           svgInfos: ['Semaines 30-31', 'du 26 juil.', 'au 08 août', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 31.html',
         },
@@ -47,6 +51,8 @@
           idGlinkID: 'PreviousLetters'
         },
             {
+        imgID: 'svgBlue',
+        svgInfos: ["juin", '2021'],
           svgInfos: ['Semaine 26', 'du 28 june', 'au 04 juil.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 26.html',
         },
@@ -63,6 +69,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 23.html',
         },
             {
+        imgID: 'svgBlue',
+        svgInfos: ["mai", '2021'],
           svgInfos: ['Semaine 22', 'du 30 may', 'au 06 june', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 22.html',
         },
@@ -83,6 +91,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 18.html',
         },
             {
+        imgID: 'svgBlue',
+        svgInfos: ["avril", '2021'],
           svgInfos: ['Semaine 17', 'du 26 apr.', 'au 02 may', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 17.html',
        },
@@ -99,6 +109,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 14.html',
         },
             {
+        imgID: 'svgBlue',
+        svgInfos: ["mars", '2021'],
           svgInfos: ['Semaine 13', 'du 29 mar.', 'au 04 apr.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 13.html',
         },
@@ -119,6 +131,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 09.html',
         },
             {
+        imgID: 'svgBlue',
+        svgInfos: ["février", '2021'],
           svgInfos: ['Semaine 08', 'du 22 fév.', 'au 27 fév.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 08.html',
         },
@@ -135,6 +149,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 05.html',
         },
              {
+        imgID: 'svgBlue',
+        svgInfos: ["janvier", '2021'],
           svgInfos: ['Semaine 04', 'du 25 jan.', 'au 29 jan.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 04.html',
         },
@@ -155,8 +171,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 01.html',
         },
            {
-          imgID: 'svgBlue',
-          svgInfos: ["décembre", '2020'],
+        imgID: 'svgBlue',
+        svgInfos: ["Année", '2020'],
           svgInfosCarte: ['Semaine 52', 'du 21 déc.', 'au 25 déc.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 52.html',
           idGlinkID: 'Letters2020'
@@ -174,11 +190,8 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 49.html',
         },
            {
-          imgID: 'svgBlue',
-          svgInfos: ["novembre", '2020'],
           svgInfosCarte: ['Semaine 48', 'du 23 nov.', 'au 27 nov.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 48.html',
-          idGlinkID: 'PreviousLetters'
         },
            {
           svgInfosCarte: ['Semaine 47', 'du 16 nov.', 'au 21 nov.', '2020'],

@@ -789,23 +789,22 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
   //$('.page_body').append('<a href="https://youtu.be/s45Lh2yf3Yg"><img class="img-foreground" src="https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg" /></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
-  //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-ZW2VPElOzNY/YCkrARYvo9I/AAAAAAAAoFs/hmW3pSa0ewY5pLbDDETod55W3t-Wv3tiACLcBGAsYHQ/s0/95a02bff.jpg" />');
-  $('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-QU7L2HF_CsE/YVQ76wvhL1I/AAAAAAAAo_4/C9vEk7lVrccrk-ePk6dmnOjrt8ghTHOFgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-29%2Ba%25CC%2580%2B12.10.11.jpg"/></a>');
+  //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-kRbg_kybYsw/YV78FwWYCsI/AAAAAAAApCE/WPHSV9MaWvgHFUbOw9VqZfOXqoe3YKDUwCLcBGAsYHQ/s0/aff%2BSANTE%2BON%2BNE%2BCHANGE%2BPAS%2BUNE%2BPOLITIQUE%2BQUI%2BTUE%25C2%25A02021.jpg" />');
+  //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1ltzqfpxcBoEx_Q-zZTYLoGjQ7CQRVsLk/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-r8cekgoOeNE/YUjWpoto6NI/AAAAAAAAo_Y/hKNeCkvIgBcRaAqPfDzpsun1SP99JItYACLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-20%2Ba%25CC%2580%2B20.44.02.jpg"/></a>');
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      //src: '<p style="padding:1em;" align=center>Mardi <span style="color: blue;">5 janvier, à 11h place Jean Jaurès à Tours,</span> <br/>à l'+"'"+'occasion de la venue de Macron, <br/>un rassemblement aura lieu avec la venue d'+"'"+'une délégation de salariées de l'+"'"+'ADMR de Blois en grève depuis le 21 décembre.</p>',
-      src: "https://1.bp.blogspot.com/-0kyKsadTTNU/YEeCxlQuKjI/AAAAAAAAoPQ/TI_Aw5GF6YEkaMVC9pPu2Hlme1Uwm7SGACLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-03-09%2Ba%25CC%2580%2B15.14.02.jpg",
+      src: "https://1.bp.blogspot.com/-kRbg_kybYsw/YV78FwWYCsI/AAAAAAAApCE/WPHSV9MaWvgHFUbOw9VqZfOXqoe3YKDUwCLcBGAsYHQ/s0/aff%2BSANTE%2BON%2BNE%2BCHANGE%2BPAS%2BUNE%2BPOLITIQUE%2BQUI%2BTUE%25C2%25A02021.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
       href: [
-        {
+        /*{
           dataType: "inline",
           dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
 <ul> \
@@ -819,19 +818,15 @@ $(document).ready(function() {
 <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
 </div>'
         },
-        /*{
-          dataType: "inline",
-          dataSrc: '<p>Mardi <span style="color: blue;">5 janvier, à 11h place Jean Jaurès à Tours,</span> à l'+"'"+'occasion de la venue de Macron, un rassemblement aura lieu avec la venue d'+"'"+'une délégation de salariées de l'+"'"+'ADMR de Blois en grève depuis le 21 décembre. Elles défendent leurs conditions de travail et la revalorisation de de leur salaire. Nous les avions rencontrées sur <a href="https://collectifsante37.blogspot.com/2020/12/les-invisibles-se-rebiffent.html">leur piquet de grève, le 28 décembre dernier</a>.</p><p>En décembre c'+"'"+'était aussi la lutte des exclus du Ségur pour les 183 €, une occasion de remettre en lumière ces revendications.</p>'
-        },
         {
           dataType: "iframe",
           dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Animations-Une/arbre-de-noel-tournant.html"
-        },
+        },*/
         {
           dataType: "images",
-          dataSrc: "https://1.bp.blogspot.com/-C9RHM2HvfIs/YDDJoUHIb1I/AAAAAAAAoJ4/JJyg1_WFrdk0eBvYYNfcoegjRTm3bj3CwCLcBGAsYHQ/s0/152387808_2938037336513085_3038734482534877138_o.jpg"
+          dataSrc: "https://1.bp.blogspot.com/-kRbg_kybYsw/YV78FwWYCsI/AAAAAAAApCE/WPHSV9MaWvgHFUbOw9VqZfOXqoe3YKDUwCLcBGAsYHQ/s0/aff%2BSANTE%2BON%2BNE%2BCHANGE%2BPAS%2BUNE%2BPOLITIQUE%2BQUI%2BTUE%25C2%25A02021.jpg"
         },       
-        {
+        /*{
           dataType: "video",
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },*/

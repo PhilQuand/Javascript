@@ -12,10 +12,15 @@ section > p > em {
  background-color: #EBEBEB;
  color: black;
 }
-.période, .reprise {
-  color: red; 
+.période, .reprise, .interp  {
   font-style: italic; 
   font-weight: bold;
+}
+.période, .reprise  {
+  color: red; 
+}
+.interp  {
+  color: blue; 
 }
 /*h1 { 
   display: block;

@@ -75,6 +75,32 @@ h6 {
   margin-right: 0;
   font-weight: bold;
 }
+/* alignement de deux images de même taille */
+.img2align {
+    display: flex; 
+    align-items: center;
+    width: 100%; 
+}
+.img2align .divImg {
+    max-width: 600px; 
+    width: 50%; 
+    margin-right: 0.5em;
+    margin-bottom: 1em;
+}
+.img2align  .divImg img {
+    width: 100%;
+}
+@media (max-width: 1100px) {
+    .img2align {
+        display: block; 
+    }
+    .img2align  .divImg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+    }
+}
 /* alignement vignette et texte */
 .VignetteBR.flex {
     display: flex; 

@@ -907,8 +907,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
     function runData(indexEvent, isToSaveData) {
       // À conserver pour exporter des données...
-      /*exportData(indexEvent)
-      return;
+      exportData(indexEvent)
+      //return;
       function exportData(indexEvent) {
         var expCOMMUNE = indexEvent[0].COMMUNE;
           if(indexEvent[0].INSEEcode == null) var expINSEE = indexEvent[0].INSEEdept;
@@ -929,7 +929,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         $('#dataStore').html(JSON.stringify(indexEvent));
         console.log('achieved');
         loading.find('p').html('Les données de type COMMUNE et INSEE ont été exportées avec succés');
-      }*/
+      }
       if (isToSaveData) {
         if ($('#dataStore').length == 0) {
           var dataStore = $('<div id="dataStore" style="display:none"></div>')
@@ -2287,6 +2287,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
       base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_ght_2021_12_03.geojson',
 
       geolocData: function geolocData(iData, iVar) {
@@ -2304,7 +2305,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return lieux;
       },
       //INSEE_KEY: "INSEE_COM",
-      //dataTransformer: true,
+      dataTransformer: true,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,
@@ -2345,28 +2346,28 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     tableData: {
       properties: [{
-        name: 'nom_commune',
+        name: 'NOM_COM',
         filter: 'selection'
       }, {
-        name: 'LIEUX',
+        name: 'STATUT',
         filter: 0
       }, {
         name: 'département',
         filter: 'selection'
       }, {
-        name: 'SUPPRESSIONS',
-        filter: 0
+        name: 'REGION',
+        filter: 'selection'
       }, {
-        name: 'MENACES',
-        filter: 0
-      }, {
-        name: 'Pertes lit',
-        filter: 0
-      }, {
-        name: 'Postes',
+        name: 'DENOMINATION ETABLISSEMENT',
         filter: 0
        }, {
-        name: 'victoire',
+        name: 'DENOMINATION GHT',
+        filter: 'selection'
+      }, {
+        name: 'CATEGORIE',
+        filter: 'selection'
+      }, {
+        name: 'CODE POSTAL',
         filter: 0
      }],
       filters: [{

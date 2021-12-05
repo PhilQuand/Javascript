@@ -61,7 +61,7 @@
 </span>
 <span class="divText">
 <p><strong>Suppressions - Destructions - Réductions d'hôpitaux et de services, surtout publics</strong></p>
-<p>Première publication juin 2009 - Mis à jour 23/06/2021</p>
+<p>Première publication juin 2009 - Mise à jour 02/12/2021</p>
 <p><strong>ATTENTION - Données fournies par nos comités et contacts. </strong></p>
 <p><strong>Nous attendons vos compléments ou modifications, des erreurs et oublis sont évidemment possibles, merci à toutes et tous</strong></p>
 <div style="display:none">
@@ -116,8 +116,8 @@
 <li><strong>Urgences </strong>: transformation accélérée des urgences en Centres d'Accueil de soins non programmés, moyen de les fermer la nuit et de les priver d'urgentistes<strong>.</strong></li>
 </ul>
 <p>Entre 1995 et 2016, 95 services d'urgences publics ou privés non lucratifs ont été fermés.</p>
-</div>
 <p><strong>Contact pour mises à jour et modifications : <a href="mailto:Michel.Antony@wanadoo.fr">Michel.Antony@wanadoo.fr</a></strong></p>
+</div>
 </span></div>
 <style>
 .SIURFFMR {
@@ -202,6 +202,12 @@
 #table_wrapper {
   display: none;
 }
+.styledGreen {
+  background-color: green;
+}
+.styledGreen:hover {
+  background-color: rgba(208, 225, 226, 1);
+}
 /*button#btData.styled {
   clear: both !important;
   display: block;
@@ -220,7 +226,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div></div>');
   $(this).append(infoMapWrapper);
 
-  var dataTable = $('<table id="table" class="table table-striped table-bordered" />');
+  //var dataTable = $('<span id="reset-all-table-filter"><input type="button" id="aaa" value="Reset all column filters" class="some_btn general_btn"></span><table id="table" class="table table-striped table-bordered" />');
+  var dataTable = $('<span id="reset-all-table-filter"><input type="button" id="aaa" value="Réinitialiser le filtrage" class="styled styledGreen"></span><table id="table" class="table table-striped table-bordered" />');
   $(this).append(dataTable);
 
   var iconMarkersBuilder, legendTitle, objectOverlays;
@@ -908,7 +915,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     function runData(indexEvent, isToSaveData) {
       // À conserver pour exporter des données...
       /*exportData(indexEvent)
-      return;
+      //return;
       function exportData(indexEvent) {
         var expCOMMUNE = indexEvent[0].COMMUNE;
           if(indexEvent[0].INSEEcode == null) var expINSEE = indexEvent[0].INSEEdept;
@@ -982,6 +989,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       console.log('achieved');
       
       loading.css('display', 'none');
+      for (var i = 0; i < indexEvent.length; i++) {
+        indexEvent[i]["selected"] = true;
+      }
       var map_invalidateSize = runMap(indexEvent);
 
       function runMap(indexEvent) {
@@ -1304,13 +1314,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               refreshIndexEvent = [];
               for (i = 0; i < indexEvent.length; i++) {
                 refreshIndexEvent.push(i)
+                /*if (indexEvent[i]["selected"]) {
+                  refreshIndexEvent.push(i)
+                }*/
               }
             }
             var iconNum = [];
             for (var i = 0; i < refreshIndexEvent.length; i++) {
               iconNum.push(false);
               for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
                   iconNum[i] = true;
                 }
               }
@@ -1569,12 +1582,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                           refreshIndexEvent = [];
                           for (i = 0; i < indexEvent.length; i++) {
                             refreshIndexEvent.push(i)
+                            /*if (indexEvent[i]["selected"]) {
+                              refreshIndexEvent.push(i)
+                            }*/
                           }
                         }
                         for (var i = 0; i < refreshIndexEvent.length; i++) {
                           var isInMarkers = false;
                           for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                            if (objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                            if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
                               isInMarkers = true;
                             }
                           }
@@ -2151,6 +2167,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
         var map_invalidateSize = function() {
           map.invalidateSize();
+          $('.leaflet-control-layers-overlays .leaflet-control-layers-selector').trigger('click')
+          $('.leaflet-control-layers-overlays .leaflet-control-layers-selector').trigger('click')
         }
         $('.leaflet-control-zoom').wrap('<div class="topLeftControls"></div>');
         $('.geocoder-control.leaflet-control').appendTo($('.topLeftControls'));
@@ -2196,6 +2214,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         var tableColums = [];
         if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') {
           var columns = [];
+          var Filters = [];
           var properties = options.tableData.properties;
           for (var i = 0; i < properties.length; i++) {
             if (jQuery.type(properties[i]['name']) === 'string') {
@@ -2211,18 +2230,51 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   item['column_number'] = i;
                   item['filter_default_label'] = "Sélectionnez";
                   item['filter_match_mode'] = "exact";
+                  item['filter_reset_button_text'] = false;
+                  item['filter_type'] = 'custom_func';
+                  item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                    if (columnVal === filterVal) {
+                      var myFilter = true;
+                    }
+                    else {
+                      var myFilter = false;
+                    };
+                    for (var i = 0; i < indexEvent.length; i++) {
+                      if (indexEvent[i]["id"] === stateVal["id"]) {
+                        indexEvent[i]["selected"] = myFilter;
+                      }
+                    }
+                    return myFilter;
+                  };
                 }
                 else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
                   if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
                     item['column_number'] = i;
+                    item['filter_reset_button_text'] = false;
                     item['filter_type'] = 'custom_func';
-                    item['custom_func'] = options.tableData['filters'][properties[i]['filter']]['func'];
+                    item['custom_filter'] = options.tableData['filters'][properties[i]['filter']]['func'];
+                    Filters.push(options.tableData['filters'][properties[i]['filter']]);
+                    item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                    //À voir comment trouver le bon index du filtre dans cette fonction, pour l'instant le premier 
+                    var myFilter = Filters[0]['func'];
+                    if(myFilter(filterVal, columnVal, rowValues, stateVal)) {
+                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    } else {
+                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    }
+                    for (var i = 0; i < indexEvent.length; i++) {
+                      if (indexEvent[i]["id"] === stateVal["id"]) {
+                        indexEvent[i]["selected"] = myFilterValue;
+                      }
+                    }
+                    return myFilterValue;
+                    };
                     item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
                   }
                 }
                 if (jQuery.type(item) !== 'undefined') {
-                item['defaultContent'] = '';
-                tableColums.push(item);
+                  item['defaultContent'] = '';
+                  tableColums.push(item);
                 }
               };
             }
@@ -2254,6 +2306,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         var initComplete = function() {
           //New datatable API (capital "D")
           var myTable = $(this).DataTable();
+          $("#aaa").click(function() {
+            for (var i = 0; i < indexEvent.length; i++) {
+              indexEvent[i]["selected"] = true;
+            }
+            yadcf.exResetAllFilters(myTable);
+          });
           yadcf.init(myTable, tableColums)
         }
         $('#table').DataTable({
@@ -2286,7 +2344,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
+      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
+      //base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_ght_2021_12_03.geojson',
+      base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_tous_etabl_2021_12_03_WDR.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
@@ -2303,7 +2364,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return lieux;
       },
       //INSEE_KEY: "INSEE_COM",
-      //dataTransformer: true,
+      dataTransformer: true,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,
@@ -2338,34 +2399,28 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     //fondCarte : 'IGN',
     popupData : {
-      title: 'nom_commune',
+      title: 'LIEUX',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
-      hidden: ["INSEE_COM", 'nom_commune', 'gml_id', 'département', 'région'],
+      hidden: ['id', 'LIEUX', 'INSEE_COM', 'département', 'région'],
     },
     tableData: {
       properties: [{
-        name: 'nom_commune',
+        name: 'LIEUX',
         filter: 'selection'
       }, {
-        name: 'LIEUX',
+        name: 'nom_commune',
         filter: 0
       }, {
         name: 'département',
         filter: 'selection'
       }, {
+        name: 'région',
+        filter: 'selection'
+      }, {
         name: 'SUPPRESSIONS',
         filter: 0
-      }, {
-        name: 'MENACES',
-        filter: 0
-      }, {
-        name: 'Pertes lit',
-        filter: 0
-      }, {
-        name: 'Postes',
-        filter: 0
        }, {
-        name: 'victoire',
+        name: 'MENACES',
         filter: 0
      }],
       filters: [{
@@ -2376,7 +2431,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           value: 'sans valeur',
           label: 'Sans valeur'
         }],
-        func: (filterVal, columnVal) => {
+        func: (filterVal, columnVal, rowValues, stateVal) => {
           switch (filterVal) {
             case 'sans valeur':
               if (columnVal === '') {
@@ -2396,7 +2451,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     },
     controlLayers: {
       controlMaps: {on: true},
-      controlOverlays: {
+      /*controlOverlays: {
         title: 'Établissements avec',
         overlays: [{
             title: 'suppressions',
@@ -2426,7 +2481,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
           },
         ]
-      }
+      }*/
     },
     legend: {
       title: 'Établissements avec',

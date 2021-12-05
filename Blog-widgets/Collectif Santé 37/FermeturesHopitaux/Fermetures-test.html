@@ -2252,11 +2252,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     item['column_number'] = i;
                     item['filter_reset_button_text'] = false;
                     item['filter_type'] = 'custom_func';
-                    item['custom_filter'] = options.tableData['filters'][properties[i]['filter']]['func'];
-                    Filters.push(options.tableData['filters'][properties[i]['filter']]);
+                    Filters[properties[i]['filter']] = options.tableData['filters'][properties[i]['filter']];
                     item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    //À voir comment trouver le bon index du filtre dans cette fonction, pour l'instant le premier 
-                    var myFilter = Filters[0]['func'];
+                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
                     if(myFilter(filterVal, columnVal, rowValues, stateVal)) {
                       var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                     } else {
@@ -2424,16 +2422,17 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         filter: 0
      }],
       filters: [{
+        //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
         data: [{
-          value: 'avec valeur',
+          value: '0: avec valeur',
           label: 'Avec valeur'
         }, {
-          value: 'sans valeur',
+          value: '0: sans valeur',
           label: 'Sans valeur'
         }],
         func: (filterVal, columnVal, rowValues, stateVal) => {
           switch (filterVal) {
-            case 'sans valeur':
+            case '0: sans valeur':
               if (columnVal === '') {
                 return true;
               }

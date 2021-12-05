@@ -982,6 +982,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       console.log('achieved');
       
       loading.css('display', 'none');
+      for (var i = 0; i < indexEvent.length; i++) {
+        indexEvent[i]["selected"] = true;
+      }
       var map_invalidateSize = runMap(indexEvent);
 
       function runMap(indexEvent) {
@@ -2211,6 +2214,14 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   item['column_number'] = i;
                   item['filter_default_label'] = "Sélectionnez";
                   item['filter_match_mode'] = "exact";
+                  item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                    if (columnVal === filterVal) {
+                      return true;
+                    }
+                    else {
+                      return false;
+                    }
+                  };
                 }
                 else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
                   if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
@@ -2221,8 +2232,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   }
                 }
                 if (jQuery.type(item) !== 'undefined') {
-                item['defaultContent'] = '';
-                tableColums.push(item);
+                  item['defaultContent'] = '';
+                  tableColums.push(item);
                 }
               };
             }
@@ -2515,7 +2526,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
-      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
+      base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
@@ -2605,7 +2616,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           value: 'sans valeur',
           label: 'Sans valeur'
         }],
-        func: (filterVal, columnVal) => {
+        func: (filterVal, columnVal, rowValues, stateVal) => {
           switch (filterVal) {
             case 'sans valeur':
               if (columnVal === '') {

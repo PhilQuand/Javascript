@@ -789,9 +789,9 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
   //$('.page_body').append('<a href="https://youtu.be/s45Lh2yf3Yg"><img class="img-foreground" src="https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg" /></a>');
 
-  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
+  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
-  //$('.page_body').append('<img class="img-foreground" src="https://1.bp.blogspot.com/-kRbg_kybYsw/YV78FwWYCsI/AAAAAAAApCE/WPHSV9MaWvgHFUbOw9VqZfOXqoe3YKDUwCLcBGAsYHQ/s0/aff%2BSANTE%2BON%2BNE%2BCHANGE%2BPAS%2BUNE%2BPOLITIQUE%2BQUI%2BTUE%25C2%25A02021.jpg" />');
+  //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1ltzqfpxcBoEx_Q-zZTYLoGjQ7CQRVsLk/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-r8cekgoOeNE/YUjWpoto6NI/AAAAAAAAo_Y/hKNeCkvIgBcRaAqPfDzpsun1SP99JItYACLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-20%2Ba%25CC%2580%2B20.44.02.jpg"/></a>');
 }

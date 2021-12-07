@@ -271,7 +271,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
     }
     else {
-      if (typeof options['legend'].title !== 'undefined') legendTitle = options['legend'].title;
+      if (typeof options['legend'].filter !== 'undefined' && typeof options['legend'].filter.title !== 'undefined') legendTitle = options['legend'].filter.title;
+      else if (typeof options['legend'].title !== 'undefined') legendTitle = options['legend'].title;
       else legendTitle = '';
       iconMarkersBuilder = data => {
         for (var i = 0; i < data.length; i++) {
@@ -285,7 +286,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
      if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlOverlays === 'undefined' ) {
       objectOverlays["overlayTitle"] = 'Autres';
       objectOverlays["controlOverlays"] = {"Autres" : new L.layerGroup()};
-      objectOverlays["overlays"] = [{isInGroup: data => {return true;}, title: 'Autres', isVisible: true }];
+      objectOverlays["affect"] = data => {return 0;};
+      objectOverlays["overlays"] = [{title: 'Autres', isVisible: true }];
     }
     else {
       if (typeof options.controlLayers.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlLayers.controlOverlays.title;
@@ -293,10 +295,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       objectOverlays["controlOverlays"] = {};
       objectOverlays["overlays"] = [];
       for (var i = 0; i < options.controlLayers.controlOverlays.overlays.length; i++) {
-        objectOverlays["controlOverlays"][options.controlLayers.controlOverlays.overlays[i].title] = new L.layerGroup();
+        objectOverlays["controlOverlays"][options.controlLayers.controlOverlays.overlays[i]] = new L.layerGroup();
+        objectOverlays["affect"] = options.controlLayers.controlOverlays.affect;
         objectOverlays["overlays"].push({
-          isInGroup: options.controlLayers.controlOverlays.overlays[i].isInGroup,
-          title: options.controlLayers.controlOverlays.overlays[i].title,
+          title: options.controlLayers.controlOverlays.overlays[i],
           isVisible: true,
         });
       }
@@ -990,8 +992,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       
       loading.css('display', 'none');
       for (var i = 0; i < indexEvent.length; i++) {
-        if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options.legend.filter) !== 'undefined') {
-          if (options.legend.filter(indexEvent[i])) {
+        if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options.legend.filter) !== 'undefined' && jQuery.type(options.legend.filter.func) !== 'undefined') {
+          if (options.legend.filter.func(indexEvent[i])) {
             indexEvent[i]["selected"] = true;
           }
           else {
@@ -1347,7 +1349,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             for (var i = 0; i < refreshIndexEvent.length; i++) {
               iconNum.push(false);
               for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["affect"](indexEvent[refreshIndexEvent[i]]) == k) {
                   iconNum[i] = true;
                 }
               }
@@ -1614,7 +1616,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                         for (var i = 0; i < refreshIndexEvent.length; i++) {
                           var isInMarkers = false;
                           for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                            if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                            if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["affect"](indexEvent[refreshIndexEvent[i]]) == k) {
                               isInMarkers = true;
                             }
                           }
@@ -2337,8 +2339,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           var myTable = $(this).DataTable();
           $("#aaa").click(function() {
             for (var i = 0; i < indexEvent.length; i++) {
-              if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options.legend.filter) !== 'undefined') {
-                if (options.legend.filter(indexEvent[i])) {
+              if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options.legend.filter) !== 'undefined' && jQuery.type(options.legend.filter.func) !== 'undefined') {
+                if (options.legend.filter.func(indexEvent[i])) {
                   indexEvent[i]["selected"] = true;
                 } else {
                   indexEvent[i]["selected"] = false;
@@ -2626,55 +2628,31 @@ var isOKNumber = data => {
     controlLayers: {
       controlMaps: {on: true},
       controlOverlays: {
-        title: 'Année de fermeture',
-        overlays: [{
-            title: 'tous',
-            isInGroup: function(data) {
-              return true;
-            }
-          },{
-            title: 'inconnue',
-            isInGroup: function(data) {
-              if(data["an_ferm_mater"] == 1111) return true;
-              else return false;
-            }
-          },
-          {
-            title: 'avant 1997',
-            isInGroup: function(data) {
-              if(data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] < 1997) return true;
-              else return false;
-            }
-          },
-          {
-            title: 'entre 1997 et 2009',
-            isInGroup: function(data) {
-              if(data["an_ferm_mater"] >= 1997  && data["an_ferm_mater"] <= 2009) return true;
-              else return false;
-            }
-          },
-          {
-            title: 'depuis 2010',
-            isInGroup: function(data) {
-              if(data["an_ferm_mater"] > 2009) return true;
-              else return false;
-            }
-          }]
+        title: 'Type de gestion',
+        overlays: ['non défini', 'public', 'privé'],
+        affect: function(data) {
+          if (data["publ_priv"] == 'privé') {
+            return 1;
+          } else if (data["publ_priv"] == 'public') {
+            return 2;
+          } else return 0;
+        },
       }
     },
     legend: {
       title: 'Établissements avec',
-      //title: 'Fermetures de maternités',
-      test: function(){},
-      /*filter: function(data) {
-        if (isOKString(data['SUPPRESSIONS']) && data['SUPPRESSIONS'].toUpperCase().indexOf('MATER') > -1) {
-        if( isOKNumber(data["an_ferm_mater"]) ) {
-          return 1;
-        }
-        else {
-          return 0;
-        }
-      },*/
+      //test: function(){},
+      filter: {
+        title: 'Ferm. de maternités',
+        func: function(data) {
+          if (isOKNumber(data["an_ferm_mater"])) {
+            return 1;
+          }
+          else {
+            return 0;
+          }
+        },
+      },
       affect: function(data) {
         /*if (isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES'])) {*/
         if (data["an_ferm_mater"] == 1111) {

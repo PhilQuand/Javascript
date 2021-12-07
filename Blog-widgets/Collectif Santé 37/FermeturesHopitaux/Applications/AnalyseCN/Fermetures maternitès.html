@@ -2438,7 +2438,7 @@ var isOKNumber = data => {
     popupData : {
       title: 'LIEUX',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
-      hidden: ['id', 'LIEUX', 'INSEE_COM', 'département', 'région','text_fusion_groupe', 'selected'],
+      hidden: ['id', 'LIEUX', 'INSEE_COM', 'département', 'région','text_fusion_groupe','indic_reduction', 'selected'],
       label: [{
           value: 'SUPPRESSIONS',
           label: 'suppressions'
@@ -2446,14 +2446,17 @@ var isOKNumber = data => {
           value: 'MENACES',
           label: 'menaces'
         }, {
+          value: 'Postes',
+          label: 'postes'
+        }, {
           value: 'nom_commune',
           label: 'commune'
         }, {
           value: 'ght_nom',
-          label: 'nom'
+          label: 'nom ght'
         }, {
           value: 'ghi_nom',
-          label: 'nom'
+          label: 'nom ghi'
         }, {
           value: 'publ_priv',
           label: 'type de gestion'

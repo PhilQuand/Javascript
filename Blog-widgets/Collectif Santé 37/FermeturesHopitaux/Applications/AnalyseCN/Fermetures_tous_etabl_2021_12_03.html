@@ -2639,7 +2639,8 @@ var isOKNumber = data => {
         },
       }
     },
-    legend: {
+    // Legend pour les suppressions de maternités
+    /*legend: {
       title: 'Établissements avec',
       //test: function(){},
       filter: {
@@ -2654,7 +2655,6 @@ var isOKNumber = data => {
         },
       },
       affect: function(data) {
-        /*if (isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES'])) {*/
         if (data["an_ferm_mater"] == 1111) {
           return 0;
         }
@@ -2732,7 +2732,7 @@ var isOKNumber = data => {
         colorBG: '#9A26CA',
         colorFG: '#F8F8F8',
       }]
-    },
+    },*/
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
   $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);

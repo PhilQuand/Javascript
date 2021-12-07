@@ -271,7 +271,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
     }
     else {
-      if (typeof options['legend'].title !== 'undefined') legendTitle = options['legend'].title;
+      if (typeof options['legend'].filter !== 'undefined' && typeof options['legend'].filter.title !== 'undefined') legendTitle = options['legend'].filter.title;
+      else if (typeof options['legend'].title !== 'undefined') legendTitle = options['legend'].title;
       else legendTitle = '';
       iconMarkersBuilder = data => {
         for (var i = 0; i < data.length; i++) {
@@ -285,7 +286,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
      if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlOverlays === 'undefined' ) {
       objectOverlays["overlayTitle"] = 'Autres';
       objectOverlays["controlOverlays"] = {"Autres" : new L.layerGroup()};
-      objectOverlays["overlays"] = [{isInGroup: data => {return true;}, title: 'Autres', isVisible: true }];
+      objectOverlays["affect"] = data => {return 0;};
+      objectOverlays["overlays"] = [{title: 'Autres', isVisible: true }];
     }
     else {
       if (typeof options.controlLayers.controlOverlays.title !== 'undefined') objectOverlays["overlayTitle"] = options.controlLayers.controlOverlays.title;
@@ -293,10 +295,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       objectOverlays["controlOverlays"] = {};
       objectOverlays["overlays"] = [];
       for (var i = 0; i < options.controlLayers.controlOverlays.overlays.length; i++) {
-        objectOverlays["controlOverlays"][options.controlLayers.controlOverlays.overlays[i].title] = new L.layerGroup();
+        objectOverlays["controlOverlays"][options.controlLayers.controlOverlays.overlays[i]] = new L.layerGroup();
+        objectOverlays["affect"] = options.controlLayers.controlOverlays.affect;
         objectOverlays["overlays"].push({
-          isInGroup: options.controlLayers.controlOverlays.overlays[i].isInGroup,
-          title: options.controlLayers.controlOverlays.overlays[i].title,
+          title: options.controlLayers.controlOverlays.overlays[i],
           isVisible: true,
         });
       }
@@ -990,7 +992,17 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       
       loading.css('display', 'none');
       for (var i = 0; i < indexEvent.length; i++) {
-        indexEvent[i]["selected"] = true;
+        if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options.legend.filter) !== 'undefined' && jQuery.type(options.legend.filter.func) !== 'undefined') {
+          if (options.legend.filter.func(indexEvent[i])) {
+            indexEvent[i]["selected"] = true;
+          }
+          else {
+            indexEvent[i]["selected"] = false;
+          }
+        }
+        else {
+          indexEvent[i]["selected"] = true;
+        }
       }
       var map_invalidateSize = runMap(indexEvent);
 
@@ -1054,9 +1066,19 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               if (keyStatus == true) properties.push(dataKeys[i]);
             }
           }
+          if (typeof options.popupData.label !== 'undefined') {
+            var label = [];
+            for (var i = 0; i < options.popupData.label.length; i++) {
+              label[options.popupData.label[i].value] = options.popupData.label[i].label
+            }
+          }
           for (var i = 0; i < properties.length; i++) {
               var item = properties[i];
-              if (typeof data[item] !== 'undefined' && data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + item + '</span><br>' + data[item] + '</div>');
+              var itemLabel = item;
+             if(jQuery.type(label[item]) === 'string') {
+                itemLabel = label[item];
+              }
+              if (typeof data[item] !== 'undefined' && data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><br>' + data[item] + '</div>');
             }
           return popupContent.html();
         }
@@ -1257,7 +1279,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             for (var i = 0; i < indexEvent.length; i++) {
               if (iconNum[i]) {
                 for (var k = 0; k < iconMarkersLength; k++) {
-                  if (indexEvent[i].iconMarker.title == iconMarkers[k].title) {
+                  if (indexEvent[i]["selected"] && indexEvent[i].iconMarker.title == iconMarkers[k].title) {
                     iconMarkers[k].nbMapEvents++;
                   }
                 }
@@ -1269,8 +1291,12 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
             legendAllMarkers.onAdd = function(map) {
               var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
+              var totalEvents = 0
+              for (var k = 0; k < iconMarkersLength; k++) {
+                totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
+              }
               divlegendAllMarkers.innerHTML = '';
-              if (legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + legendTitle + '</span>';
+              if (legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + totalEvents + ' ' + legendTitle + '</span>';
               for (var k = 0; k < iconMarkersLength; k++) {
                 if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
                   if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
@@ -1323,7 +1349,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             for (var i = 0; i < refreshIndexEvent.length; i++) {
               iconNum.push(false);
               for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["affect"](indexEvent[refreshIndexEvent[i]]) == k) {
                   iconNum[i] = true;
                 }
               }
@@ -1590,7 +1616,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                         for (var i = 0; i < refreshIndexEvent.length; i++) {
                           var isInMarkers = false;
                           for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                            if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["overlays"][k].isInGroup(indexEvent[refreshIndexEvent[i]])) {
+                            if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["affect"](indexEvent[refreshIndexEvent[i]]) == k) {
                               isInMarkers = true;
                             }
                           }
@@ -2194,6 +2220,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
             $('#infoMap-wrapper > #infoMap').css('display', 'none')
             $('#table_wrapper').css('display', 'block')
+            $('#aaa').css('display', 'block')
             //$('#table').css('display', 'block')
           }
 
@@ -2203,6 +2230,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             $('#infoMap-wrapper > #infoMap').css('display', 'block')
             map_invalidateSize();
             $('#table_wrapper').css('display', 'none')
+            $('#aaa').css('display', 'none')
             //$('#table').css('display', 'none')
           }
           runTable(indexEvent);
@@ -2218,9 +2246,14 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           var properties = options.tableData.properties;
           for (var i = 0; i < properties.length; i++) {
             if (jQuery.type(properties[i]['name']) === 'string') {
+              if (jQuery.type(properties[i]['title']) === 'string') {    
+                var title = properties[i]['title'];
+              } else {
+                var title = properties[i]['name'];
+              }
               columns.push({
                 data: properties[i]['name'],
-                title: properties[i]['name'],
+                title: title,
                 defaultContent: '',
                 //selectable: false
               });
@@ -2306,7 +2339,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           var myTable = $(this).DataTable();
           $("#aaa").click(function() {
             for (var i = 0; i < indexEvent.length; i++) {
-              indexEvent[i]["selected"] = true;
+              if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options.legend.filter) !== 'undefined' && jQuery.type(options.legend.filter.func) !== 'undefined') {
+                if (options.legend.filter.func(indexEvent[i])) {
+                  indexEvent[i]["selected"] = true;
+                } else {
+                  indexEvent[i]["selected"] = false;
+                }
+              } else {
+                indexEvent[i]["selected"] = true;
+              }
             }
             yadcf.exResetAllFilters(myTable);
           });
@@ -2335,6 +2376,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Images + infos semaine + pdf)').css('display', 'none');
   $('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources internes)').css('display', 'none');
   // fin spécial pour le site de la CN
+var isOKNumber = data => {
+  if (jQuery.type(data) === 'number' && data != '') return true;
+  else return false;
+}
 
 
   optionsTESTInnerFormedData = {
@@ -2399,14 +2444,56 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
     popupData : {
       title: 'LIEUX',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
-      hidden: ['id', 'LIEUX', 'INSEE_COM', 'département', 'région'],
+      hidden: ['id', 'LIEUX', 'INSEE_COM', 'département', 'région','text_fusion_groupe','indic_reduction', 'selected'],
+      label: [{
+          value: 'SUPPRESSIONS',
+          label: 'suppressions'
+        }, {
+          value: 'MENACES',
+          label: 'menaces'
+        }, {
+          value: 'Postes',
+          label: 'postes'
+        }, {
+          value: 'nom_commune',
+          label: 'commune'
+        }, {
+          value: 'ght_nom',
+          label: 'nom ght'
+        }, {
+          value: 'ghi_nom',
+          label: 'nom ghi'
+        }, {
+          value: 'publ_priv',
+          label: 'type de gestion'
+        }, {
+          value: 'nom_commune',
+          label: 'commune'
+        }, {
+          value: 'an_ferm_chirur',
+          label: 'année de fermeture chirur.'
+        }, {
+          value: 'an_ferm_mater',
+          label: 'année de fermeture mater.'
+        }, {
+          value: 'an_ferm_site',
+          label: 'année de fermeture du site'
+        }, {
+          value: 'an_ferm_urgences',
+          label: 'année de fermeture des urgences'
+        }, {
+          value: 'type_etablissement',
+          label: 'type'
+      }],
     },
     tableData: {
       properties: [{
         name: 'LIEUX',
+        title:'lieux',
         filter: 'selection'
       }, {
         name: 'nom_commune',
+        title:'commune',
         filter: 0
       }, {
         name: 'département',
@@ -2416,10 +2503,20 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         filter: 'selection'
       }, {
         name: 'SUPPRESSIONS',
-        filter: 0
-       }, {
+        title:'suppressions',
+        filter: 1
+      }, {
+        name: 'an_ferm_mater',
+        title:'fermeture mater.',
+        filter: 1
+      }, {
         name: 'MENACES',
+        title:'menaces',
         filter: 0
+      }, {
+        name: 'publ_priv',
+        title:'type de gestion',
+        filter: 2
      }],
       filters: [{
         //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
@@ -2446,54 +2543,159 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               break;
           }
         }
-      }]
-    },
-    controlLayers: {
-      controlMaps: {on: true},
-      /*controlOverlays: {
-        title: 'Établissements avec',
-        overlays: [{
-            title: 'suppressions',
-            isInGroup: data => {
-              return isOKString(data['SUPPRESSIONS']);
-            }
-          },
-          {
-            title: 'menaces',
-            isInGroup: function(data) {
-              return isOKString(data['MENACES']);
-            }
-          },
-          {
-            title: 'victoires',
-            isInGroup: function(data) {
-              return isOKString(data['victoire']);
-            }
-          },
-          {
-            title: 'autres',
-            isInGroup: data => {
-              if (!isOKString(data['SUPPRESSIONS']) && !isOKString(data['MENACES']) && !isOKString(data['victoire'])) {
+      },
+      {
+        //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
+        data: [{
+          value: '1: avec valeur',
+          label: 'Avec valeur'
+        }, {
+          value: '1: sans valeur',
+          label: 'Sans valeur'
+        }, {
+          value: '1: avec maternité',
+          label: 'Avec maternité'
+        }],
+        func: (filterVal, columnVal, rowValues, stateVal) => {
+          switch (filterVal) {
+            case '1: sans valeur':
+              if (columnVal === '') {
                 return true;
               }
               else return false;
-            }
-          },
-        ]
-      }*/
+              break;
+            case '1: avec maternité':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('MATERNIT') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            default:
+              if (columnVal !== '') {
+                return true;
+              }
+              else return false;
+              break;
+          }
+        }
+      },
+      {
+        //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
+        data: [{
+          value: '2: avec valeur',
+          label: 'Avec valeur'
+        }, {
+          value: '2: sans valeur',
+          label: 'Sans valeur'
+        }, {
+          value: '2: privé',
+          label: 'privé'
+        }, {
+          value: '2: public',
+          label: 'public'
+        }],
+        func: (filterVal, columnVal, rowValues, stateVal) => {
+          switch (filterVal) {
+            case '1: sans valeur':
+              if (columnVal === '') {
+                return true;
+              }
+              else return false;
+              break;
+            case '2: privé':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PRIV') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '2: public':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PUBLI') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            default:
+              if (columnVal !== '') {
+                return true;
+              }
+              else return false;
+              break;
+          }
+        }
+      }
+    ]
+    },
+    controlLayers: {
+      controlMaps: {on: true},
+      controlOverlays: {
+        title: 'Type de gestion',
+        overlays: ['non défini', 'public', 'privé'],
+        affect: function(data) {
+          if (data["publ_priv"] == 'privé') {
+            return 1;
+          } else if (data["publ_priv"] == 'public') {
+            return 2;
+          } else return 0;
+        },
+      }
     },
     legend: {
       title: 'Établissements avec',
-      test: function(){},
+      //test: function(){},
+      filter: {
+        title: 'Ferm. de maternités',
+        func: function(data) {
+          if (isOKNumber(data["an_ferm_mater"])) {
+            return 1;
+          }
+          else {
+            return 0;
+          }
+        },
+      },
       affect: function(data) {
-        if (isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES'])) {
+        /*if (isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES'])) {*/
+        if (data["an_ferm_mater"] == 1111) {
           return 0;
         }
-        else {
+        else if (data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] < 1997) {
           return 1;
+        }
+        else if (data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] <= 2009) {
+          return 2;
+        }
+        else if (data["an_ferm_mater"] > 2009) {
+          return 3;
+        }
+        else {
+          return 4;
         }
       },
       icons: [{
+        icon: {leaflet: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        })},
+        title: 'date inconnue',
+        colorBG: '#2781CA',
+        colorFG: '#FFFFFF',
+      }, {
+        icon: {leaflet: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        })},
+        title: 'avant 1997',
+        colorBG: '#9A26CA',
+        colorFG: '#F8F8F8',
+      }, {
         icon: {leaflet: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
@@ -2502,7 +2704,19 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         })},
-        title: 'suppressions ou menaces',
+        title: 'entre 1997 et 2009',
+        colorBG: '#9A26CA',
+        colorFG: '#F8F8F8',
+      }, {
+        icon: {leaflet: new L.Icon({
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-red.png',
+          shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+          iconSize: [13, 20],
+          iconAnchor: [6, 20],
+          popupAnchor: [1, -17],
+          shadowSize: [20, 20]
+        })},
+        title: 'depuis 2010',
         colorBG: '#9A26CA',
         colorFG: '#F8F8F8',
       }, {
@@ -2515,8 +2729,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           shadowSize: [20, 20]
         })},
         title: 'autres',
-        colorBG: '#2781CA',
-        colorFG: '#FFFFFF',
+        colorBG: '#9A26CA',
+        colorFG: '#F8F8F8',
       }]
     },
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',

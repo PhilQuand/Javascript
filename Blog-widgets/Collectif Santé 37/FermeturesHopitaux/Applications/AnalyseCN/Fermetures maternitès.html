@@ -2443,6 +2443,9 @@ var isOKNumber = data => {
           value: 'SUPPRESSIONS',
           label: 'suppressions'
         }, {
+          value: 'MENACES',
+          label: 'menaces'
+        }, {
           value: 'nom_commune',
           label: 'commune'
         }, {
@@ -2453,7 +2456,7 @@ var isOKNumber = data => {
           label: 'nom'
         }, {
           value: 'publ_priv',
-          label: 'gestion'
+          label: 'type de gestion'
         }, {
           value: 'nom_commune',
           label: 'commune'
@@ -2477,9 +2480,11 @@ var isOKNumber = data => {
     tableData: {
       properties: [{
         name: 'LIEUX',
+        title:'lieux',
         filter: 'selection'
       }, {
         name: 'nom_commune',
+        title:'commune',
         filter: 0
       }, {
         name: 'département',
@@ -2489,14 +2494,20 @@ var isOKNumber = data => {
         filter: 'selection'
       }, {
         name: 'SUPPRESSIONS',
+        title:'suppressions',
         filter: 1
       }, {
         name: 'an_ferm_mater',
         title:'fermeture mater.',
-        filter: 'selection'
+        filter: 1
       }, {
         name: 'MENACES',
+        title:'menaces',
         filter: 0
+      }, {
+        name: 'publ_priv',
+        title:'type de gestion',
+        filter: 2
      }],
       filters: [{
         //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
@@ -2558,6 +2569,50 @@ var isOKNumber = data => {
               break;
           }
         }
+      },
+      {
+        //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
+        data: [{
+          value: '2: avec valeur',
+          label: 'Avec valeur'
+        }, {
+          value: '2: sans valeur',
+          label: 'Sans valeur'
+        }, {
+          value: '2: privé',
+          label: 'privé'
+        }, {
+          value: '2: public',
+          label: 'public'
+        }],
+        func: (filterVal, columnVal, rowValues, stateVal) => {
+          switch (filterVal) {
+            case '1: sans valeur':
+              if (columnVal === '') {
+                return true;
+              }
+              else return false;
+              break;
+            case '2: privé':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PRIV') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '2: public':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PUBLI') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            default:
+              if (columnVal !== '') {
+                return true;
+              }
+              else return false;
+              break;
+          }
+        }
       }
     ]
     },
@@ -2568,25 +2623,25 @@ var isOKNumber = data => {
         overlays: [{
             title: 'inconnue',
             isInGroup: function(data) {
-              return isOKNumber(data["an_ferm_mater"]) && data["an_ferm_mater"] == 1111;
+              return data["an_ferm_mater"] == 1111;
             }
           },
           {
             title: 'avant 1997',
             isInGroup: function(data) {
-              return isOKNumber(data["an_ferm_mater"]) && data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] < 1997;
+              return data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] < 1997;
             }
           },
           {
             title: 'entre 1997 et 2009',
             isInGroup: function(data) {
-              return isOKNumber(data["an_ferm_mater"]) && data["an_ferm_mater"] >= 1997  && data["an_ferm_mater"] <= 2009;
+              return data["an_ferm_mater"] >= 1997  && data["an_ferm_mater"] <= 2009;
             }
           },
           {
             title: 'depuis 2010',
             isInGroup: function(data) {
-              return isOKNumber(data["an_ferm_mater"]) && data["an_ferm_mater"] > 2009;
+              return data["an_ferm_mater"] > 2009;
             }
           }]
       }
@@ -2606,16 +2661,16 @@ var isOKNumber = data => {
       },
       affect: function(data) {
         /*if (isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES'])) {*/
-        if (isOKNumber(data["an_ferm_mater"]) && data["an_ferm_mater"] == 1111) {
+        if (data["an_ferm_mater"] == 1111) {
           return 0;
         }
-        else if (isOKNumber(data["an_ferm_mater"]) && data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] < 1997) {
+        else if (data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] < 1997) {
           return 1;
         }
-        else if (isOKNumber(data["an_ferm_mater"]) && data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] <= 2009) {
+        else if (data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] <= 2009) {
           return 2;
         }
-        else if (isOKNumber(data["an_ferm_mater"]) && data["an_ferm_mater"] > 2009) {
+        else if (data["an_ferm_mater"] > 2009) {
           return 3;
         }
         else {

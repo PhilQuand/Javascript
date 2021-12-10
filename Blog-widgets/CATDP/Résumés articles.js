@@ -39,7 +39,7 @@
 }
 .corps {
   text-align: justify;
-  /*padding: 1em;
+  padding: 0.5em;
   background-color: rgba(0, 0, 0, 0.04);*/
   background-color: #F4F4F4;
 }

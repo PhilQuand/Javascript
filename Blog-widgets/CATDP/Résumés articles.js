@@ -18,6 +18,31 @@
 .container.post-body.entry-content {
   margin: 0;
 }
+.header {
+  text-align: justify;
+  font-family: "Arial Rounded MT Bold"; 
+  font-size:18px;
+  color: #666666;
+  line-height: 1.4;
+  /*font-style: italic;
+  background-color: #FEFEE2;
+  padding-top: 0.5em;*/
+  padding-bottom: 0.5em;
+  /*padding-left: 1em;
+  padding-right: 1em;*/
+  margin-bottom: 0.5em;
+}
+.author {
+  //font-weight: bold;
+  font-style: italic;
+ text-align: right;
+}
+.corps {
+  text-align: justify;
+  /*padding: 1em;
+  background-color: rgba(0, 0, 0, 0.04);*/
+  background-color: #F4F4F4;
+}
 .incrustation {
   background-color: #e8f6f8;
   padding-top: 0.5em;

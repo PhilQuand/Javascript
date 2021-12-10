@@ -20,16 +20,10 @@
 }
 .header {
   text-align: justify;
-  font-family: "Arial Rounded MT Bold"; 
-  font-size:18px;
+  font-weight: bold;
   color: #666666;
   line-height: 1.4;
-  /*font-style: italic;
-  background-color: #FEFEE2;
-  padding-top: 0.5em;*/
   padding-bottom: 0.5em;
-  /*padding-left: 1em;
-  padding-right: 1em;*/
   margin-bottom: 0.5em;
 }
 .author {

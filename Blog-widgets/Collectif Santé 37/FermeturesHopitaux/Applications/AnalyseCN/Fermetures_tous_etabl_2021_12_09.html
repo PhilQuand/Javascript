@@ -2384,66 +2384,19 @@ var isOKNumber = data => {
 
   optionsTESTInnerFormedData = {
     data: {
-      //base: 'https://docs.google.com/spreadsheets/d/1XBQe8JiZ5cepr-s_TBjBqQcaBx4Y83SQS4PaNoXnNjM/edit?usp=sharing',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/export_Services_publics.geojson',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
-      //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
-      //base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_ght_2021_12_03.geojson',
       base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_tous_etabl_2021_12_09_WDR.geojson',
 
       geolocData: function geolocData(iData, iVar) {
-        /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
-          if(iData[iVar].LATITUDE != '') iData[iVar].lat = iData[iVar].LATITUDE;
-          delete iData[iVar].LATITUDE;
-        }
-        if (typeof iData[iVar].LONGITUDE !== 'undefined') {
-          if(iData[iVar].LONGITUDE != '') iData[iVar].lng = iData[iVar].LONGITUDE;
-          delete iData[iVar].LONGITUDE;
-        }
-        if (isValidCoord(iData[iVar].lat, iData[iVar].lng)) return;*/
         var lieux = iData[iVar].nom_commune + ',' + iData[iVar].INSEE_COM;
         if (!isNaN(iData[iVar])) lieux += ', France';
         return lieux;
       },
       //INSEE_KEY: "INSEE_COM",
-      dataTransformer: true,
-      /*dataTransformer: function(inputData, setCallBack) {
-      var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
-      loadFromJS(outputData,
-        (procData) => {
-         procData = window["data"];
-         if (typeof procData !== 'undefined') {
-           var outputData = []
-           for (var j = 0; j < procData["features"].length; j++) {
-             outputData.push(j);
-           }
-           for (var i = 0; i < inputData.length; i++) {
-             const inputDataId = inputData[i]["id"];
-             for (var j = 0; j < outputData.length; j++) {
-               if (inputDataId == procData["features"][outputData[j]]["properties"]["id"]) {
-                 inputData[i]["lng"] = procData["features"][outputData[j]]["geometry"]["coordinates"][0]
-                 inputData[i]["lat"] = procData["features"][outputData[j]]["geometry"]["coordinates"][1]
-                 outputData.splice(j, 1)
-                 break;
-               }
-             }
-           };
-           setCallBack(inputData);
-         }
-         else console.log('error in dataTransformer...');
-        },
-        (err) => {
-          console.log(err.message);
-          //loading.html(err.message);
-        }
-      );
-      }*/
+      //dataTransformer: true,
     },
     //fondCarte : 'IGN',
     popupData : {
       title: 'LIEUX',
-      //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
       hidden: ['id', 'LIEUX', 'INSEE_COM', 'département', 'région','text_fusion_groupe','indic_reduction', 'selected'],
       label: [{
           value: 'SUPPRESSIONS',

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2021 semaines 33</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p style="font-size: x-large; font-weight: bold;">Qu’est ce qu’il leur en coûte ?</p>
+<p>La pandémie continue de circuler dans l’humanité, les virus de varier et les big-pharma de s’enrichir sous la protection des interdictions du marché. Les propagandistes des Droits de l’homme s’en font les fossoyeurs au nom de leurs règles de l’économie.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .western { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 50</li>
+<li><strong>Dates</strong>: du 13 au 19 décembre 2021</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/infosemaine-50-du-13-au-19-décembre-2021.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<!--h3>cid:image005.jpg@01D7514D.C7466510</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/05/image010.jpg" /-->
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; margin-bottom: 1em; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito : </b></p>
+<p style="font-size: x-large; font-weight: bold;">Qu’est ce qu’il leur en coûte ?</p>
+<p>La pandémie continue de circuler dans l’humanité, les virus de varier et les big-pharma de s’enrichir sous la protection des interdictions du marché. Les propagandistes des Droits de l’homme s’en font les fossoyeurs au nom de leurs règles de l’économie.</p>
+<p>Avec l’hiver et le variant la situation sanitaire se détériore, hôpitaux, EPHAD et médecins de ville plongent à nouveau dans la saturation, puisque les décisions de fermetures de lits et de services se poursuivent.</p>
+<p>Les habitant-e-s abreuvés d’informations contradictoires, mais toujours péremptoires ne savent plus, véritablement, où nous en sommes, ni que faire.</p>
+<p>Les médias tonitruants passent de la guerre, au terrorisme, aux catastrophes climatiques et aux 10 % non vaccinés qui vont être responsables des prochaines mesures liberticides, puisque « l’immunité collective » n’est plus à l’ordre du jour.</p>
+<p>A ce maelstrom de nos écrans du quotidien s’ajoutent la nove langue des décideurs qui proclament haut et fort qu’ils ont compris les leçons et affichent des orientations qui sont l’exact inverse de ce qu’ils font. Ainsi des hôpitaux et des soignants qui seraient devenus leurs principales préoccupations quand, dans les actes, ils ferment, suppriment, concentrent, désertifient, privatisent.</p>
+<p>Mais après tout, si dire le contraire de ce qu’ils font contribue à rendre incompréhensible la situation, qu’est ce qu’il leur en coûte ?</p>
+<p>Au contraire cette confusion fragilise les mobilisations sur les sujets de fond.</p>
+<p>Reste le spectacle ! Triste moment d’une campagne électorale où l’objet des choix devrait être éclairé par l’affichage des problèmes et les options proposées.</p>
+<p>Alors les mobilisations (parce qu’elles existent) se raccrochent au concret, local et directement perceptible, comme en attestent des fortes manifestations locales du 4 décembre pour sauver l’hôpital public.</p>
+<p>S’appuyer sur cette réalité pour créer le déclic plus large d’une bataille pour le Droit à la santé comme marqueur d’une autre société à construire, c’est sans doute une des raisons d’être de la coordination voulue par nos comités.</p>
+<p align="right"><i>Henri Célié</i></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><u><strong>Avertissement :</strong></u></span></span><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><strong> pour des causes techniques qui affectent temporairement notre site en ligne, nous n'avons pas pu, comme à l'accoutumée, joindre photos et textes en PDF. Nous vous prions de nous en excuser.</strong></span></span></p>
+</div>
+
+<div>
+<p>Sommaire :</p>
+<p> </p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 300%;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>DOLE - 39 </b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Un sondage (Odoxa) paru ce jour indique que la santé et l'hôpital seront l'un des enjeux majeurs de 2022 pour 9 français sur 10. Et 68 % des électeurs en feront un enjeu clé de leur vote. C'est en Bourgogne-Franche Comté que cette question est perçue comme particulièrement importante. C'est aussi là qu'existent de nombreux déserts médicaux.</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Avec ce flash 45, nous continuons à nous mobiliser pour défendre notre hôpital à Dole et vous appelons à témoigner. Merci à celles et ceux qui rejoignent notre comité et nous donnent ainsi plus de force.</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Site : <a style="color: #000080; text-decoration: underline;" href="http://www.defense-hopitaux-dole.fr/">www.defense-hopitaux-dole.fr</a></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>RAMBOUILLET - 78 </b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Conscients des difficultés rencontrées par la population pour avoir un rdv médical, le comité propose un questionnaire aux habitants, questionnaire qui sera remis aux élus.</b></span></span></span></p>
+<p style="background-color: transparent;" align="center"> </p>
+<p style="background-color: transparent;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/Flash-Infos-7-1.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Flash Infos 7-1</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/Questionnaire-centre-de-sante%CC%81.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Questionnaire centre de santé</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent;" align="center"> </p>
+<p style="background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>AUBENAS - 07</b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>URGENCE POUR L’HÔPITAL D'AUBENAS DÉSASTRE SANITAIRE EN COURS</b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Samedi 4 Décembre dernier, l'Association des Usagers de l'Hôpital d'Aubenas était présente devant l'Hôpital d'Aubenas pour dénoncer le désastre sanitaire en cours et protester contre les fermetures delits et de services qui ont lieu dans toute la France depuis le début de la pandemie.5200 lits ont été fermés en 2020.</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Nous invitions la population à nous rejoindre pour protester contre cette situation.Une centaine de personnes étaient présentes.Nous ignorions la situation de l'hôpital mais des échos nous parvenaient des difficultés pour la population à se soigner et à avoir des rendez vous de consultation.</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Nous apprenons aujourd'hui que 29 lits d'hospitalisation ont été fermés par manque de médecins et que l'hôpital est dans l'incapacité d'ouvrir une unité dédiée aux patients atteints de la COVID 19; ceci alors que la deuxième vague est particulièrement présente dans la population ardéchoise.12 lits du service de gastro-entérologie sont fermés car le médecin responsable a été recruté par la Clinique du Vivarais; il n'est plus possible de faire un examen de coloscopie à l'hôpital d'Aubenas.5 lits d'UHCD, 6 lits de cardiologie ont été fermé par manque de médecin.</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/communiqu%C3%A9-de-presse-dec2021.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;">C</span></span></a></u></span></span><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/communiqu%C3%A9-de-presse-dec2021.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;">ommuniqué de presse dec2021</span></span></a></u></span></span></span></span></span></p>
+<p style="background-color: transparent;" align="center"> </p>
+<p style="background-color: #729fcf;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>OISE – 60</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Au lendemain de la fermeture des urgences de Senlis, le directeur part pour «une mission» au CHU d’Amiens</b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">L’Agence régionale de santé a annoncé ce mardi soir le départ de Didier Saada, en poste depuis 5 ans à la tête du Groupe hospitalier public sud Oise (GHPSO). Une mutation prévue dans quelques jours et qui intervient alors que l’établissement se trouve en pleine crise avec la fermeture des urgences du site de Senlis</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.leparisien.fr/oise-60/au-lendemain-de-la-fermeture-des-urgences-de-senlis-le-directeur-part-pour-une-mission-au-chu-damiens-14-12-2021-OILBZMZBANBKHMRYUXEX5NT2Y4.php"><b>L’article du Parisien</b></a></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="center"> </p>
+<p style="background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>CRETEIL - 94 </b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Nouveau scandale à l’hôpital Chenevier de Créteil</b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Après avoir vécu en 2019, la fermeture des vingt lits de l’unité de psychiatrie « Les cèdres ». Unité offerte depuis à la clinique privée « Château du Bel Air » à Crosne (91). </span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">C’est aujourd’hui, mercredi 15 décembre, une nouvelle unité de psychiatrie, « Les Magnolias » qui ferme, sur notre secteur, faute d’internes et de professionnels paramédicaux en nombre suffisant pour prendre en charge correctement les patients hospitalisés.</span></span></span></p>
+<p style="background-color: transparent;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/le-communiqu%C3%A9.pdf"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">le communiqué</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent;" align="center"> </p>
+<p style="background-color: #729fcf;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>MONTCEAU LES MINES - 71 </b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Tout bouge pour que rien ne bouge  ou le réveil d’un comité : le Comité Territorial des Elus Locaux (CTEL). Le CODEF analyse la situation</b></span></span></span></p>
+<p style="background-color: transparent;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/Le-Codef-miroir-aux-alouettes_CTEL.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">La lettre</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent;" align="center"> </p>
+<p style="background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>BRIOUDE - 63 </b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Compte rendu de l’Assemblée Générale du 10 décembre</b></span></span></span></p>
+<p style="background-color: transparent;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/?p=30326&amp;preview=true"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Le compte rendu</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="center"> </p>
+<p style="background-color: #729fcf;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b><span style="text-transform: uppercase;">LUÇON</span> - 85</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le 32ème rassemblement !</b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Le 32 ème rassemblement hebdomadaire devant l'hôpital de Luçon a rassemblé 57 personnes à l'appel de l'Association de défense des Services publics du Pays de Luçon en présence du maire et de la première adjointe de Luçon et d'autres élus de la communauté de communes. Depuis le début de la bataille pour le maintien des Urgences et du SMUR de cet établissement ce sont plus de 3200 personnes qui se sont mobilisées avec ténacité prouvant leur attachement à la possibilité de soins hospitaliers de qualité et de proximité.</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Cette ténacité a permis d'éviter des fermetures estivales. </span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">La pénurie organisée de personnel médical a conduit la direction à proposer des solutions dégradées : un seul médecin de 8h00 à 18h30 au lieu de 2. </span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">La bataille a permis une nouvelle avancée : deux médecins seront maintenant présents de 8h00 à 23h30. </span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Les prochains vendredi étant jours de réveillon, les <a style="color: #000080; text-decoration: underline;" href="http://manifestant.es/">manifestant.es</a> refusant toute trêve ont proposé de tenir les rassemblements les jeudis 23 et 30 décembre ! </span></span></span></p>
+<p style="background-color: transparent;" align="center"> </p>
+<p style="background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>APT - 84 </b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Soutien à la journée du 4 décembre </b></span></span></span></p>
+<p style="background-color: transparent; font-style: normal; font-weight: normal;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">"Dans le cadre de cette journée d'action pour l'hôpital public le 4 décembre 2021, le Comité de Soutien et de Défense du Centre Hospitalier du pays d'Apt, soutient cet appel. Il est pleinement solidaire de ces revendications sur le plan national.</span></span></p>
+<p style="background-color: transparent; font-style: normal; font-weight: normal;" align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Il demande avec détermination le maintien de tous les services hospitaliers actuels d'APT, ville appartenant à la 3° région en France la plus touchée par la pauvreté et souffrant du désert médical.<br />D'autre part, il sera très attentif au classement donc à la labellisation imminente de l'hôpital d'Apt en hôpital de proximité. Ceci  au fait que déjà, les services de maternité ont été supprimés en 2016 : les femmes enceintes doivent accomplir dorénavant entre 30 km -hôpital et clinique à Cavaillon- et 60 km -hôpital et cliniques à Avignon- pour mettre leur enfant au monde, la ville d'Apt étant située en zone rurale éloignée. Avec des risques pour la santé de la mère et du bébé ».</span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent; font-weight: normal;"> </p>
+<p style="background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>OLORON STE MARIE - 64 </b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm; font-style: normal;" align="center"><span style="color: #454545;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Population et élus manifestent pour défendre l’hôpital qui ne cesse de perdre des lits, des services et des professionnels </b></span></span></span></p>
+<div class="VignetteBR center" >
+<div class="divImg" style="text-align: center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2021/12/Image1.jpeg"/>
+<center style="color: blue; font-style: italic">Journée du 14 décembre à Oloron Ste Marie à l'appel de la CGT, SOS Proximité et la coordination nationale en soutien.</center></div>
+</div>
+<p style="background-color: transparent; font-style: normal; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Le bloc opératoire et  USC  seront fermés du 24 au 27  décembre prochain, fermeture due à une pénurie d'anesthésistes.</span></span></span></p>
+<p style="background-color: transparent; font-style: normal;" align="center"><span style="color: #454545;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://youtu.be/57hbgCZg6ps"><span style="font-weight: normal;">Le </span></a><a style="color: #000080; text-decoration: underline;" href="https://youtu.be/57hbgCZg6ps"><span style="font-weight: normal;">reportage de France 3</span></a></span></span></span></p>
+<p style="background-color: transparent; font-style: normal; font-weight: normal;" align="center"> </p>
+<p style="background-color: #e37b22;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>MARMANDE – 47</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Encore un rassemblement le 17 décembre pour les urgences</b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Ce soir devant l’hôpital la désormais association qui a pris comme nom « Urgences: accès aux soins pour tous » avec l’objectif d’action de mobiliser pour l’hôpital les urgences et l’ensemble du territoire qui souffre d’un manque de médecins </span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">L’action se poursuit avec la pétition et les délibérations de conseils municipaux. Près de 16000 pétitions papiers et 30 délibérations de conseils municipaux. </span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Le prochain rassemblement aura lieu devant l’hôpital le vendredi 7 janvier </span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Une réunion publique aura également lieu le mardi 25 janvier à Marmande Beyssac initié et animé par l’association sur le thème quelles réponses sur l’enjeu de santé sur le territoire à court moyen et long termes ou l’ensemble des forces vives sont invitées avec la participation de la présidente de la coordination nationale de défense des hôpitaux et maternités de proximité </span></span></span></p>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>Autres infos locales :</b></span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="center"> </p>
+<p style="background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>VICHY – 03 </b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le service d’hôpital de jour de la pedopsychiatrie fermé jusqu’au 3 janvier  : une mesure qui met en danger des enfants et adolescents</b></span></span></span></p>
+<p style="background-color: transparent;" align="center"> </p>
+<p style="background-color: transparent;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://france3-regions.francetvinfo.fr/auvergne-rhone-alpes/allier/vichy/fermeture-d-un-service-de-pedopsychiatrie-a-vichy-ca-a-declenche-une-grande-colere-"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><b>https://france3-regions.francetvinfo.fr/auvergne-rhone-alpes/allier/vichy/fermeture-d-un-service-de-pedopsychiatrie-a-vichy-ca-a-declenche-une-grande-colere-</b></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent;" align="center"> </p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"> </p>
+<p style="background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>BOULOGNE SUR MER - 62</b></span></span></span></p>
+<p style="background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Rassemblement mardi 21 décembre </b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">de 9h30 à 11h30 devant le centre hospitalier</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Après l’addicto, la direction s’attaque à la néonatalogie/pédiatrie. Un enfant en situation d'urgence médicale la nuit devrait aller à l'hôpital de Calais.</span></span></span></p>
+<p style="background-color: transparent; font-weight: normal;" align="center"> </p>
+<p style="background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>DRAGUIGNAN</b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b> - </b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>83</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>8 ème semaine de fermeture de nuit des urgences</b></span></span></span></p>
+<div class="VignetteBR center" >
+<div class="divImg" style="text-align: center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2021/12/draguignan.jpg"/>
+</div></div>
+<p style="margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Quelques 150 personnes un 17 décembre pour la réouverture des urgences de nuit à Draguignan. </span></span></span></p>
+<p style="background-color: #e37b22; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>REIMS - 51</b></span></span></span></p>
+<p style="margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Des mouvements de grève dans le privé </b></span></span></span></p>
+<p style="margin-top: 0.3cm;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Les salariés de la polyclinique Reims-Bezannes du groupe Courlancy poursuivent leur grève et appellent à une mobilisation nationale des autres établissements du groupe, ce lundi 13 décembre. L'ARS devrait entamer une médiation.</span></span></span></p>
+<p style="margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://france3-regions.francetvinfo.fr/grand-est/marne/reims/polyclinique-reims-bezannes-sixieme-jour-de-greve-interprofessionnelle-et-appel-a-un-mouvement-national-l-ars-devrait-entamer-une-mediation-2376562.html">Le reportage de France 3</a></span></span></span></p>
+<p style="margin-bottom: 0.28cm; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossiers :</b></span></span></span></p>
+<p align="justify"> </p>
+<p align="center"><span style="color: #007826;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>ASSISES DES SOINS PSYCHIQUES </b></span></span></span></p>
+<p align="center"><span style="color: #007826;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>Mars 2022 PARIS</b></span></span></span></p>
+<p align="left"> </p>
+<p align="justify"><span style="font-family: Arial,
+              sans-serif;"><span style="font-size: 12pt;">Les Assises citoyennes du soin psychique proposent, en écho à un mouvement de mobilisation plus large face à la déshumanisation générale du soin, un espace de réflexion, création et formation dans l’échangelibre surles expériences et les savoirs. Elles invitent le citoyen –soignant, patient, parent, enseignant, éducateur,magistrat, chercheur, administratif,...:à transmettre et relancer des pratiques de soins psychiques;à aider à la transformation des approches réductrices qui appauvrissent nos champs d’action;voire à accueillir l’émergence de nouvelles conceptions du soin.Ainsi le but est de contribuer à l'élan de refondation du soin psychique en psychiatrie et pédopsychiatrie, dans le médico-social,social, en pratique libérale,et dans la société en général à travers le dialogue citoyen et pluridisciplinaire. Les débats se tiendront en assemblée plénière et essentiellement en ateliers pour favoriser les échanges.</span></span></p>
+<p align="left"> </p>
+<p align="left"><span style="color: #990000;"><span style="font-family: sans-serif;"><span style="font-size: 12pt;"><span style="font-family: Arial,
+                  sans-serif;">Portail d'inscription aux ASSISES <a class="moz-txt-link-freetext" style="color: #000080;" href="https://framaforms.org/les-assises-citoyennes-du-soin-psychique-11-et-12-mars-2022-1639059851">https://framaforms.org/les-assises-citoyennes-du-soin-psychique-11-et-12-mars-2022-1639059851</a></span></span></span></span></p>
+<p align="left"> </p>
+<p align="left"> </p>
+<p align="left"> </p>
+<h1 class="western" style="margin-bottom: 0cm; break-after: avoid; font-family: 'Liberation Serif', serif; font-size: 24pt; margin-top: 0cm; align="center"><span style="color: #007826;"><span style="font-family: sans-serif;"><span style="font-size: 14pt;">Droit des jeunes aux soins psychiques, urgence absolue : de vrais moyens et une vraie loi !</span></span></span></h1>
+<p align="center"> </p>
+<p align="left"><span style="font-family: sans-serif;"><span style="font-size: 11pt;">Une pétition lancée par l’API (Association des Psychiatres des secteurs Infanto-juvéniles)</span></span></p>
+<p align="left"> </p>
+<p align="left"><a style="color: #000080;" href="https://www.mesopinions.com/petition/sante/droit-jeunes-aux-soins-psychiques-urgence/164843" target="_blank" rel="noopener"><span style="font-family: sans-serif;"><span style="font-size: 11pt;">https://www.mesopinions.com/petition/sante/droit-jeunes-aux-soins-psychiques-urgence/164843</span></span></a></p>
+<p align="left"> </p>
+<p align="left"> </p>
+<p style="margin-bottom: 0.3cm; margin-top: 0.3cm;" align="center"><span style="color: #007826;"><span style="font-family: sans-serif;"><span style="font-size: 14pt;"><b>VACCINS COVID / STOP BREVETS</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Ci-dessous  un compte-rendu de Frank Prouhet sur le 30 novembre à Genève </b></span></span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Rapide Compte rendu 30 novembre Genève.</span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Alors que la 12ème conférence ministérielle de l'OMC était annulée, pour cause de variant Omicron, notre mouvement pour la levée des brevets, des droits de propriété intellectuelle sur les vaccins, tests et traitements anti-covid a lui maintenu sa mobilisation prévue depuis plus d'un mois le 30 novembre, à Genève et dans le monde. L'urgence, face à Omicron, ce n'est pas de fermer les frontières, cela n'a pas marché face au delta, pourtant moins contagieux, mais de lever les brevets! L'apartheid vaccinal tue, les brevets pillent les systèmes de santé. Honte à Macron, à l'UE, à la Suisse... </span></span></p>
+<p> </p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">A Genève, la journée du 30 novembre a connu trois temps forts :</span></span></p>
+<p> </p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><i><b>Une conférence de presse internationale</b></i>, en présentiel et par zoom. Le nombre, plus de 20 intervenants, la qualité des intervenants démontrent que nous avons réussi à fédérer de nombreux réseaux, ce que laissait prévoir la signature très large de l'Appel de Genève. </span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">En Suisse, toute la gauche sociale, syndicale ( Pierre Yves Maillard, député et président de la confédération syndicale Suisse) et politique (avec Cédric Wermuth, président du Parti socialiste, Nicolas Walder, vice président du parti Vert, Ensemble à Gauche et notamment Stéphanie Prezioso, député fédérale suisse, cheville ouvrière de l'Appel de Genève, avec laquelle nous nous sommes coordonné dès le 13 octobre à Genève, Résistons...). </span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Des organisations syndicales internationales ( avec Baba Aye, de PSI, Public Services International, la fédération syndicale mondiale des Services publics, Rob Johnston, responsable de l'International Transport Workers' Federation, Rudi Berli de Uniterre, syndicat paysan lié à Via Campesina, Julie Ferrua de Solidaires France). </span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Des élus européens, avec la prise de parole notamment de Marc Botenga, du Parti du Travail Belge, très actif sur le sujet, en vidéo et au Parlement européen, où il a contribué à faire voter par trois fois l'exigence de la levée des brevets ou Helmut Scholz, député européen allemand. </span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Julie Stenndham, coordinatrice de l'initiative citoyenne européenne. Franco Cavali, Medicuba, oncologue et ancien président de l'Union internationale contre le cancer. Fatima Hasan infatigable avocate du droit à la santé, membre de Peoples' Health Movement, et responsable de Health Justice Initiative, qui est intervenue d'Afrique du Sud, privée de voyage pour cause de "travel ban", de fermeture des frontières, avec le variant omicron. Peoples' Health Movement était représenté aussi par Vladimir Nieddu de PHM France mais aussi par son nouveau président monde, le colombien Roman Vega, Richard Hill, de l'Association for Proper Internet Governance, Constance Theisen de Médecin du Monde Suisse, Nadia Mangin de Attac Suisse, Sangeeta Shashikant et Gopa du réseau Third World Network, et bien sur Deborah James, animatrice du réseau international Our World is not for sale ( on pouvait se retrouver parfois à plus de 37 organisations de toutes les parties du monde pour préparer en zoom la réunion de l'OMC avec ce réseau), elle aussi privée de voyage, qui devait présider avec Stephanie Prezioso et moi la conférence de presse internationale. Amnesty International, fidèle a son choix de ne jamais participer à un événement avec des politiques, a tout le temps soutenu l'initiative, envoyé un mail à plus de 100000 personnes en Suisse, animé la manif. Que de chemin parcouru depuis que notre collectif Brevets sur les vaccins anti covid stop réquisition, décidait le 13 octobre d'aller à Genève... </span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Tout un travail de coordination de réseaux, qui tisse de la confiance, des habitudes de travail au nom d'un même objectif de solidarité internationale autour de l'exigence de la levée des droits de propriété intellectuelle contre la pandémie. Une volonté de continuer au-delà du 30 novembre. </span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Très belle couverture de presse. </span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">On m'a signalé de Singapour qu'on avait vu notre manif, on m'a envoyé des journaux en... hindi qui parlent de notre mobilisation, la presse québécoise. </span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Libé et C politique nous ont contacté après, et finalement ont interviewé la président de MDM, et pour C politique pas invité du tout, alors que je leur avait filé tous les liens!!!! Pas content. </span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Très bonne couverture de presse locale française avant le 30, Interview sur France Bleu Haute Normandie en direct de Genève, qui a déclenché la colère des anti-vax et une contre manif à Rouen, très violente dans ses propos : collabos, assassins, vous voulez qu'on nous injecte des cellules carrées !!!?? Notre suivi a bondi. </span></span></p>
+<p align="left"> </p>
+<p align="left"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><i><b>Manifestation le soir aux bougies à Genève.</b></i></span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Genève ne compte que 200.000 habitants, donc avec l'annulation de la réunion de l'OMC et le froid, cette mobilisation dynamique de plus de 200 personnes, animée par la sono d'Amnesty International, et clôturée par de nombreuses interventions,  dont celle du fondateur de Médecins du Monde Suisse est un bon résultat. "Nos vies valent plus que leurs profits, levez les brevets!" et "On est là, même si Parmelin ne le veut pas, nous est là, pour la levée des brevets et contre les big Pharma, même si Parmelin ne veut pas, nous on est là » ont rythmé les cortèges, colorés par les bougies, les pancartes, les masques noirs frappés du Trips Waiver Now ( Suspendez les droits de propriété intellectuelles, maintenant) de Médecins du monde, les tee shirt noirs de Public Service International, ornés de la même exigence.  Si vous vous interrogez, Parmelin, c'est le président de la confédération suisse. </span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Vous pouvez découvrir les photos plus bas...</span></span></p>
+<p> </p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Un seul site où tous les éléments sont rassemblés, en français, anglais italien, allemand, espagnol, sous l'onglet 30 novembre, tous les éléments de la journée de mobilisation !</span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Vous pouvez voir le Communiqué de presse qui rend compte de la conférence de presse internationale, la vidéo de la conférence de presse, les vidéos de drone sur les 10000 morts par jour...</span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">A utiliser sans modération</span></span></p>
+<p><a style="color: #000080;" href="https://nov30noprofitoncovid.com/photos/" target="_blank" rel="noopener"><span style="color: #ff2600;"><span style="font-family: Arial,
+                sans-serif;"><span style="font-size: 12pt;">https://nov30noprofitoncovid.com/photos/</span></span></span></a></p>
+<p> </p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Si vous voulez voir les ( très belles) photos de la mobilisation de Genève, faites par notre photographe Robin Letellier, cliquez sur le lien :</span></span></p>
+<p align="justify"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">A noter que ces photos sont libres de droit pour les organisations du collectif Brevets sur les vaccins anti-covid, stop. Réquisition. Noter seulement crédit photo : Robin Letelleir. </span></span></p>
+<p><a style="color: #000080;" href="http://robinletellier.free.fr/geneve/" target="_blank" rel="noopener"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">http://robinletellier.free.fr/geneve/</span></span></a></p>
+<p> </p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>Revue de presse sur le 30 novembre en France et à Genève</b></span></span></p>
+<p><a style="color: #000080;" href="https://www.humanite.fr/covid-19-lurgence-de-liberer-les-vaccins-du-carcan-des-brevets-729701?fbclid=IwAR0NToHXQDuE0xX6CdG3kYFUnSIW3ZjDqF_y6y_-qe330i2Q8Jx1-wJezlU" target="_blank" rel="noopener"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Covid-19. L'urgence de libérer les vaccins du carcan des brevets | L'Humanité (humanite.fr)</span></span></a></p>
+<p> </p>
+<h1 class="western" style="margin-bottom: 0.21cm; break-after: avoid; font-family: 'Liberation Serif', serif; font-size: 24pt;" align="center"><span style="color: #007826;"><span style="font-size: 14pt;"><span style="font-family: Arial,
+                sans-serif;">Violences médicales : des étudiants en santé dénoncent l'impunité des médecins </span><span style="font-family: Arial, sans-serif;">(France info)</span></span></span></h1>
+<p align="justify"><span style="font-family: Arial, sans-serif;">À la suite de diverses affaires de violences médicales, impliquant des soignants ou des médecins, des étudiantes et étudiants en santé regroupés au sein d'associations et de collectifs publient sur franceinfo une tribune pour apporter leur soutien aux victimes et demander une meilleure formation contre ces abus et dérives.</span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><a class="moz-txt-link-freetext" style="color: #000080;" href="https://www.francetvinfo.fr/sante/politique-de-sante/tribune-violences-medicales-des-etudiants-en-sante-denoncent-l-impunite-des-medecins_4884511.html#xtor=EPR-2-[newsletterquotidienne]-20211218-[lespluspartages/titre2">https://www.francetvinfo.fr/sante/politique-de-sante/tribune-violences-medicales-des-etudiants-en-sante-denoncent-l-impunite-des-medecins_4884511.html#xtor=EPR-2-[newsletterquotidienne]-20211218-[lespluspartages/titre2</a>]</span></span></p>
+<p> </p>
+<p style="break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p align="justify"> </p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Bechet...pour le plaisir</span></span></span></p>
+<p align="justify"> </p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 10pt;"><a class="moz-txt-link-freetext" style="color: #000080;" href="https://www.youtube.com/watch?v=REYLNs0rh-g">https://www.youtube.com/watch?v=REYLNs0rh-g</a></span></span></span></p>
+<p align="justify"> </p>
+<p style="margin-bottom: 0.35cm; background-color: #ffff00;" align="center"><span style="color: #000000;"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></span></span></span></p>
+<p style="margin-bottom: 0.35cm; align="center"><br /><br /></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; color: #000000; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"> </p>
+<p style="margin-bottom: 0.35cm; background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial,
+              sans-serif;"><span style="font-size: medium;"><b><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/"><span style="color: #0070c0;">http://coordination-defense-sante.org/</span></a></b></span></span></span></p>
+
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p class="western" style="margin-bottom: 0.35cm; direction: ltr; " align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

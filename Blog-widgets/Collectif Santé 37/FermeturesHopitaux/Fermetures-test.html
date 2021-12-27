@@ -271,14 +271,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
     }
     else {
-      if (typeof options['legend'].filter !== 'undefined' && typeof options['legend'].filter.title !== 'undefined') legendTitle = options['legend'].filter.title;
-      else if (typeof options['legend'].title !== 'undefined') legendTitle = options['legend'].title;
+      /*if (typeof options['legend'].filter !== 'undefined' && typeof options['legend'].filter.title !== 'undefined') legendTitle = options['legend'].filter.title;
+      else*/ 
+      if (typeof options['legend'][0].title !== 'undefined') legendTitle = options['legend'][0].title;
       else legendTitle = '';
       iconMarkersBuilder = data => {
         for (var i = 0; i < data.length; i++) {
-          data[i].iconMarker = options['legend']['affect'](data[i]);
+          data[i].iconMarker = options['legend'][0]['affect'](data[i]);
         }
-        return options.legend.icons;
+        return options['legend'][0].icons;
       }
     }
     
@@ -992,8 +993,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       
       loading.css('display', 'none');
       for (var i = 0; i < indexEvent.length; i++) {
-        if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options.legend.filter) !== 'undefined' && jQuery.type(options.legend.filter.func) !== 'undefined') {
-          if (options.legend.filter.func(indexEvent[i])) {
+        if (jQuery.type(options['legend']) !== 'undefined' && jQuery.type(options['legend'][0].filter) !== 'undefined' && jQuery.type(options['legend'][0].filter.func) !== 'undefined') {
+          if (options['legend'][0].filter.func(indexEvent[i])) {
             indexEvent[i]["selected"] = true;
           }
           else {
@@ -1006,6 +1007,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
       }
       var map_invalidateSize = runMap(indexEvent);
 
+      var menuLegend = -1;
       function runMap(indexEvent) {
 
         var stateChangingButton ;
@@ -1209,15 +1211,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 map.removeControl(option["legend"]["régions"]);
                 setDefaultMapView();
                 if (baselayerName == 'par défaut') {
-                  //map.addControl(legendAllMarkers);
-                  refreshIndexEvent = [];
-                  for (i = 0; i < indexEvent.length; i++) {
-                    refreshIndexEvent.push(i)
-                  }
-                  var iconNum = refreshMarkers(refreshIndexEvent);
-                  //map.removeControl(legendAllMarkers);
-                  legendAllMarkers = addLegend(iconNum)
-                  map.addControl(legendAllMarkers);
+                  legendAllMarkers = addLegend()
                   stateChangingButton.enable();
                 }
                 else {
@@ -1235,10 +1229,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       objectOverlays["overlays"][k].isVisible = true;
                     };
                   };
-                  var iconNum = refreshMarkers(refreshIndexEvent);
-                  map.removeControl(legendAllMarkers);
-                  legendAllMarkers = addLegend(iconNum)
-                  map.addControl(legendAllMarkers);
+                  /*var iconNum = refreshMarkers(refreshIndexEvent);
+                  $('#contentLegend').html(contentLegend(iconNum));*/
+                  $('#contentLegend').html(contentLegend());
                 };
               });
               map.on('overlayremove', function(eventLayer) {
@@ -1249,10 +1242,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       objectOverlays["overlays"][k].isVisible = false;
                     };
                   };
-                  var iconNum = refreshMarkers(refreshIndexEvent);
-                  map.removeControl(legendAllMarkers);
-                  legendAllMarkers = addLegend(iconNum)
-                  map.addControl(legendAllMarkers);
+                  /*var iconNum = refreshMarkers(refreshIndexEvent);
+                  $('#contentLegend').html(contentLegend(iconNum));*/
+                  $('#contentLegend').html(contentLegend());
                 };
               });
 
@@ -1266,54 +1258,124 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             
           };
 
-          function addLegend(iconNum) {
-            if (typeof iconNum === 'undefined') {
-              iconNum = [];
-              for (i = 0; i < indexEvent.length; i++) {
-                iconNum.push(true)
-              }
-            }
-            for (var k = 0; k < iconMarkersLength; k++) {
-              iconMarkers[k].nbMapEvents = 0;
-            }
-            for (var i = 0; i < indexEvent.length; i++) {
-              if (iconNum[i]) {
-                for (var k = 0; k < iconMarkersLength; k++) {
-                  if (indexEvent[i]["selected"] && indexEvent[i].iconMarker.title == iconMarkers[k].title) {
-                    iconMarkers[k].nbMapEvents++;
-                  }
-                }
-              }
-            }
+          function addLegend() {
             var legendAllMarkers = L.control({
               position: 'topright'
             });
 
             legendAllMarkers.onAdd = function(map) {
+
               var divlegendAllMarkers = L.DomUtil.create('div', 'info legend');
-              var totalEvents = 0
-              for (var k = 0; k < iconMarkersLength; k++) {
-                totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
-              }
               divlegendAllMarkers.innerHTML = '';
-              if (legendTitle != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + totalEvents + ' ' + legendTitle + '</span>';
-              for (var k = 0; k < iconMarkersLength; k++) {
-                if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-                  if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
-                    divlegendAllMarkers.innerHTML += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-                  }
-                  else {
-                    var iconVal = iconMarkers[k].icon.leaflet;
-                    divlegendAllMarkers.innerHTML += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
-                  }
-                }
+
+              var menuLegendOptions = ''
+              for (var i = 0; i < options['legend'].length; i++) {
+                if(i== menuLegend) menuLegendOptions += '<option selected="selected" data-path=' + i + '>' + options['legend'][i].title + '</option>'
+                else menuLegendOptions += '<option data-path=' + i + '>' + options['legend'][i].title + '</option>'
               }
+              divlegendAllMarkers.innerHTML += '<select id="menuLegend" style="margin-bottom: 1em">' + menuLegendOptions + '</select>';
+              if( menuLegend == -1) {
+                menuLegend = 0;
+                divlegendAllMarkers.innerHTML += '<div id="contentLegend" >' + contentLegend(true) + '</div>';
+              }
+              else divlegendAllMarkers.innerHTML += '<div id="contentLegend" >' + contentLegend() + '</div>';
+
+
               return divlegendAllMarkers;
             };
 
             legendAllMarkers.addTo(map);
+            L.DomEvent.on(
+              document.getElementById('menuLegend'), // HTMLElement
+              'change', // String with event names
+              function(e) {
+                L.DomEvent.stop(e);
+                menuLegend = $('#menuLegend option:selected').data("path");
+                $('#contentLegend').html(contentLegend(true));
+                $( "#aaa" ).trigger( "click" );
+              } // Handler function
+            );
             return legendAllMarkers;
           }
+
+            function contentLegend(needsRefresh) {
+                if (typeof options['legend'][0].title !== 'undefined') legendTitle = options['legend'][menuLegend].title;
+                else legendTitle = '';
+                iconMarkersBuilder = data => {
+                  for (var i = 0; i < data.length; i++) {
+                    data[i].iconMarker = options['legend'][menuLegend]['affect'](data[i]);
+                  }
+                  return options['legend'][menuLegend].icons;
+                }
+                iconMarkers = iconMarkersBuilder(indexEvent);
+                iconMarkersLength = iconMarkers.length;
+                for (var i = 0; i < indexEvent.length; i++) {
+                  markers.removeLayer(indexEvent[i].marker);
+                }
+                refreshIndexEvent = [];
+                for (i = 0; i < indexEvent.length; i++) {
+                  refreshIndexEvent.push(i)
+                }
+                if (jQuery.type(needsRefresh) !== 'undefined' && needsRefresh) {
+                  for (i = 0; i < indexEvent.length; i++) {
+                    if (jQuery.type(options['legend']) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
+                      if (options['legend'][menuLegend].filter.func(indexEvent[i])) {
+                        indexEvent[i]["selected"] = true;
+                      }
+                      else {
+                        indexEvent[i]["selected"] = false;
+                      }
+                    }
+                    else {
+                      indexEvent[i]["selected"] = true;
+                    }
+                  }
+                }
+                for (i = 0; i < indexEvent.length; i++) {
+                  indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
+                  indexEvent[i].doc = dataPopUp(indexEvent[i]);
+                  //indexEvent[i].doc = JSON.parse(indexEvent[i].doc);
+                  indexEvent[i].marker = makePopUp(indexEvent[i], setMapView);
+                }
+                var iconNum = refreshMarkers(refreshIndexEvent);
+
+              if (typeof iconNum === 'undefined') {
+                iconNum = [];
+                for (i = 0; i < indexEvent.length; i++) {
+                  iconNum.push(true)
+                }
+              }
+              for (var k = 0; k < iconMarkersLength; k++) {
+                iconMarkers[k].nbMapEvents = 0;
+              }
+              for (var i = 0; i < indexEvent.length; i++) {
+                if (iconNum[i]) {
+                  for (var k = 0; k < iconMarkersLength; k++) {
+                    if (indexEvent[i]["selected"] && indexEvent[i].iconMarker.title == iconMarkers[k].title) {
+                      iconMarkers[k].nbMapEvents++;
+                    }
+                  }
+                }
+              }
+              var totalEvents = 0
+              for (var k = 0; k < iconMarkersLength; k++) {
+                totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
+              }
+              var contentLegendHtml = ''
+              if (legendTitle != '') contentLegendHtml += '<span class="legendTitle" style="display:block; text-align:center;">' + totalEvents + ' ' + legendTitle + '</span>';
+              for (var k = 0; k < iconMarkersLength; k++) {
+                if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
+                  if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
+                    contentLegendHtml += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                  }
+                  else {
+                    var iconVal = iconMarkers[k].icon.leaflet;
+                    contentLegendHtml += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                  }
+                }
+              }
+              return contentLegendHtml;
+            }
 
           if(typeof options.banner !== 'undefined') bannerCoord();
           function bannerCoord() {
@@ -2201,6 +2263,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         return map_invalidateSize
       }
 
+      var tableFilterOn = false;
       var runTableAndButton = function() {
         if (typeof options.popupData.properties !== 'undefined' || typeof options.tableData !== 'undefined') {
           var btData = $('<button type="button" class="styled" id="btData"></button>')
@@ -2220,7 +2283,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
             $('#infoMap-wrapper > #infoMap').css('display', 'none')
             $('#table_wrapper').css('display', 'block')
-            $('#aaa').css('display', 'block')
+            if(tableFilterOn) $('#aaa').css('display', 'block');
             //$('#table').css('display', 'block')
           }
 
@@ -2296,6 +2359,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     for (var i = 0; i < indexEvent.length; i++) {
                       if (indexEvent[i]["id"] === stateVal["id"]) {
                         indexEvent[i]["selected"] = myFilterValue;
+                        tableFilterOn = true;
+                        $('#aaa').css('display', 'block')
                       }
                     }
                     return myFilterValue;
@@ -2339,8 +2404,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           var myTable = $(this).DataTable();
           $("#aaa").click(function() {
             for (var i = 0; i < indexEvent.length; i++) {
-              if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options.legend.filter) !== 'undefined' && jQuery.type(options.legend.filter.func) !== 'undefined') {
-                if (options.legend.filter.func(indexEvent[i])) {
+              if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
+                if (options['legend'][menuLegend].filter.func(indexEvent[i])) {
                   indexEvent[i]["selected"] = true;
                 } else {
                   indexEvent[i]["selected"] = false;
@@ -2350,6 +2415,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
             }
             yadcf.exResetAllFilters(myTable);
+            tableFilterOn = false;
+            $('#aaa').css('display', 'none')
           });
           yadcf.init(myTable, tableColums)
         }
@@ -2390,7 +2457,7 @@ var isOKNumber = data => {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
       //base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_ght_2021_12_03.geojson',
-      base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_tous_etabl_2021_12_03_WDR.geojson',
+      base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_tous_etabl_2021_12_09_WDR.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         /*if (typeof iData[iVar].LATITUDE !== 'undefined') {
@@ -2501,6 +2568,14 @@ var isOKNumber = data => {
       }, {
         name: 'région',
         filter: 'selection'
+      }, {
+        name: 'victoire',
+        title:'victoire',
+        filter: 0
+      }, {
+        name: 'an_ferm_mater',
+        title:'an_ferm_mater',
+        filter: 0
       }, {
         name: 'SUPPRESSIONS',
         title:'suppressions',
@@ -2639,11 +2714,11 @@ var isOKNumber = data => {
         },
       }
     },
-    legend: {
-      title: 'Établissements avec',
+    legend: [
+    {
+      title: 'Ferm. de maternités',
       //test: function(){},
       filter: {
-        title: 'Ferm. de maternités',
         func: function(data) {
           if (isOKNumber(data["an_ferm_mater"])) {
             return 1;
@@ -2733,6 +2808,95 @@ var isOKNumber = data => {
         colorFG: '#F8F8F8',
       }]
     },
+    {
+      title: 'Établissements',
+      test: function(){},
+      affect: function(data) {
+        if (data['publ_priv'] == 'public') {
+          return 0;
+        }
+        else if (data['publ_priv'] == 'privé') {
+          return 1;
+        }
+        else return 2;
+      },
+      icons: [
+        /*{
+          icon: {leaflet: new L.Icon({
+            iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-gold.png',
+            shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+            iconSize: [13, 20],
+            iconAnchor: [6, 20],
+            popupAnchor: [1, -17],
+            shadowSize: [20, 20]
+          })},
+          title: 'publics',
+          colorBG: '#FFD326',
+          colorFG: '#0E0E0E',
+        },*/
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'publics',
+          colorBG: '#2781CA',
+          colorFG: '#FFFFFF',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'privés',
+          colorBG: '#9C2BCB',
+          colorFG: '#F8F8F8',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'privés non lucratifs',
+          colorBG: '#29AD27',
+          colorFG: '#FFFFFF',
+        },
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'autres',
+          colorBG: '#1E77C8',
+          colorFG: '#FFFFFF',
+        }
+      ]
+    }
+    ],
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
   $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2021 semaines 33</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p style="font-size: x-large; font-weight: bold;">Qu’est ce qu’il leur en coûte ?</p>
+<p>La pandémie continue de circuler dans l’humanité, les virus de varier et les big-pharma de s’enrichir sous la protection des interdictions du marché. Les propagandistes des Droits de l’homme s’en font les fossoyeurs au nom de leurs règles de l’économie.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 51</li>
+<li><strong>Dates</strong>: du 20 au 26 décembre 2021</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/Infos-semaine-51-du-20-au-26-décembre-2021.pdf">Pdf correspondant</a></div>
+<div class="corpsLettrePictures">
+<!--h3>cid:image005.jpg@01D7514D.C7466510</h3>
+<img border="0" src="http://coordination-defense-sante.org/wp-content/uploads/2021/05/image010.jpg" /-->
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; margin-bottom: 1em; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito : </b></p>
+<p style="font-size: x-large; font-weight: bold;">Qu’est ce qu’il leur en coûte ?</p>
+<p>Quand ils ont fermé la maternité je n’étais pas enceinte,</p>
+<p>Quand ils ont fermé la pédiatrie je n’avais pas d’enfant,</p>
+<p>Quand ils ont fermé la chirurgie je pouvais me déplacer,</p>
+<p>Quand ils ont supprimé les lits de psychiatrie je pensais qu’il y avait des situations plus graves,</p>
+<p>Quand ils ont instauré les franchises j’étais en bonne santé,</p>
+<p>Quand ils ont instauré la T2A je ne savais pas ce que cela voulait dire,</p>
+<p>Et puis...il ne reste rien !</p>
+<p align="right"><i>Comité Virois 2009</i></p>
+</div>
+
+<div>
+<p>Sommaire :</p>
+<p> </p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p class="titre" style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>DOLE - 39 -</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Une nécessité : continuer à défendre l’hôpital public :</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Appel à témoignages sur les prises en charge en santé </b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/2021/12/dole-une-exigence-une-necessite-continuer-a-defendre-lhopital-public-pour-lacces-aux-soins-le-comite-appelle-la-population-a-temoigner-des-difficultes-rencontrees/"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">La lettre</span></span></span></span></a></u></span></span></p>
+<p class="titre" style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>CV 70</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Pour le report du départ en retraite du neurologue de l’hôpital de Lure, le comité écrit aux élus</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/La-lettre.doc"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">La lettre</span></span></span></span></a></u></span></span></p>
+<p class="titre" style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>CONCARNEAU - 29 -</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>lettre du comité au directeur de l'hôpital de Quimper avant un recours juridique pour le non respect de l'égalité territoriale en matière de santé</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/Cour-Directeur.docx"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Cour Directeur</span></span></span></span></a></u></span></span></p>
+<p class="titre" style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>BORDEAUX - 33 -</b></span></span></span></p>
+<div style="max-width: 500px; margin: 0 auto 0 auto;">
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"><span style="color: #ff0000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">Cadeau de Noël 2021-2022 : Le PaSS</span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">Le </span></span></span><span style="color: #ff0000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">Pa</span></span></span><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">sse </span></span></span><span style="color: #ff0000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">S</span></span></span><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">anitaire </span></span></span><span style="color: #ff0000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">S</span></span></span><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">olidaire</span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;"><i>permet aux usager-e-s et impose aux praticien-ne-s</i></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;"><i>des soins sans dépassements d’honoraires !</i></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">Au moment où :</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">- le droit à la santé est inscrit dans tous nos grands textes</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">référentiels mais reste trop théorique et hypothétique,</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">- le renoncement aux soins pour raison financière, aggravé</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">par la COVID 19, atteint en France plus de 30 % de nos</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">concitoyen-ne-s,</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">il apparaît indispensable de mettre fin au « temps des devis »</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">et de réaliser pleinement l’accès à la prévention et aux</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">soins pour tou-te-s sur l’ensemble du territoire national.</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">Toute personne détenant ce présent </span></span></span><span style="color: #ff0000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">PaSS</span></span></span><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">, qui va être diffusé</span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">en Gironde lors du </span></span></span><span style="color: #ff0000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">DÉCEMBRE ROUGE </span></span></span><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">par la </span></span></span><span style="color: #ff0000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">Brigade</span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="color: #ff0000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">des Mères et Pères Noël Solidaires</span></span></span><span style="color: #000000;"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">, doit pouvoir l’utiliser</span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">en 2021 et 2022 lors de toute rencontre soignante avec tout-e</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;">professionnel-le de santé.</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;">La SANTE un DROIT pour TOUS</span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: BookAntiqua, serif;"><span style="font-size: small;"><i>6 Rue de Balaclava 33800 Bordeaux 0614555478</i></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: BookAntiqua, serif;"><span style="font-size: small;"><i><a class="moz-txt-link-abbreviated" style="color: #000080; text-decoration: underline;" href="mailto:santedroitpourtous33@gmail.com">santedroitpourtous33@gmail.com</a> <a style="color: #000080; text-decoration: underline;" href="http://sante33.fr/">sante33.fr</a></i></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="left"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;"><i>Membre de la COORDINATION NATIONALE</i></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"><span style="font-family: TimesNewRoman, serif;"><span style="font-size: small;"><i>des Comités de Défense des Hôpitaux et Maternités de Proximité</i></span></span></p>
+</div>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p class="titre" style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>FEURS - 42 -</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>18 décembre : la population signe des cartes-pétition à l’ARS</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><br /><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b><b><img id="&lt;part2.3L8luCB2.8jvAcfi1@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/12/Image2.jpeg" alt="" align="top" border="0" /></b></b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://www.francebleu.fr/infos/sante-sciences/pour-defendre-le-centre-hospitalier-du-forez-un-collectif-envoie-730-cartes-postales-a-l-ars-1639849362" target="_blank" rel="noopener"><span style="color: #0b5394;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">https://www.francebleu.fr/infos/sante-sciences/pour-defendre-le-centre-hospitalier-du-forez-un-collectif-envoie-730-cartes-postales-a-l-ars-1639849362</span></span></span></span></a></u></span></span></p>
+<p class="titre" style="margin-bottom: 0.28cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"> </p>
+<p class="titre" style="margin-bottom: 0.28cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Autres infos locales :</b></span></span></span></p>
+<p style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>CARHAIX 29 -</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Les hôpitaux locaux trop dépendants des pôles de GHT. La CGT de l’établissement de Carhaix alerte la population sur cette situation par rapport au CHU de Brest.</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/communiqu%C3%A9-de-presse-1.pdf"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">communiqué de presse</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p class="titre" style="margin-bottom: 0.28cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Dossiers :</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Comment les laboratoires s’approprient les savoirs dans leurs intérêts : une analyse de Eric Toussaint du CADTM</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><a href="https://www.contretemps.eu/appropriation-connaissances-capital-big-pharma-coronavirus/"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>à voir sur le site de Contretemps</b></span></span></a></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Communiqué du SMG : nous devons continuer à accueillir et soigner les non-vacciné-e-s</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2021/12/Communiqu%C3%A9-du-SMG_continuer-de-soigner-les-non-vaccin%C3%A9.e.s.docx.pdf"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Communiqué du SMG</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>ONSSF</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>sage-femme : une profession médicale pour la santé des femmes !</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>SEMAINE NOIRE DU 24 AU 31 DÉCEMBRE </b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><a href="https://34st1.r.ag.d.sendibm3.com/mk/mr/HpGG9bh7Qpt1wD-PZz_fanpeMf2G1bat_QZLFQiPUdXIXi-C46iEeM8ejmi5B4ppjHF0sCNnKJlCJL2sRLkjio2TOuwKPuUo8SZ18JE6IK_V4COt9rwnxtVFlSSKP_7QHTMCwPfgMaWlWw"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>à voir sur le site d'ONSSF</b></span></span></a></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Culture et santé :</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Histoire d’un combat au Blanc </b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><a href="https://organisez-vous.org/les-coulisses-de-la-lutte-episode-4/?fbclid=IwAR3by0QIUU57s8eSN7OmdC1fdBIYnqI_Ika87yiTpzx34QMJ7LS7CryzdQo#.Yb6dPOLJvVg.facebook"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>à voir sur le site organisez-vous.org</b></span></span></a><u></u></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p class="titre" style="margin-bottom: 0.35cm; direction: ltr; color: #000000; line-height: 0.49cm; orphans: 2; widows: 2; background-color: #ffff00; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="font-family: Times New Roman, serif;"><span style="font-size: medium;"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></span></span></p>
+<p class="titre" style="margin-bottom: 0.28cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"> </p>
+<p class="titre" style="margin-bottom: 0.35cm; direction: ltr; color: #000000; line-height: 18.399999618530273px; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>http://coordination-defense-sante.org/</b></span></span></span></a></u></span></span></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p style="margin-bottom: 0.35cm; direction: ltr; " align="center"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

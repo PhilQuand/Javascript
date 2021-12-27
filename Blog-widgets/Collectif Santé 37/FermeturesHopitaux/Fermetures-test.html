@@ -2731,35 +2731,38 @@ var isOKNumber = data => {
       title: 'Établissements',
       test: function(){},
       affect: function(data) {
-        if ( jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('uppression') >= 0  ) {
+        if ( isOKString(data["victoire"])  ) {
           return 0;
         }
-        else if ( (jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('Fermeture') >= 0) || (jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('fermeture') >= 0) || isOKString(data["an_ferm_mater"]) || isOKString(data["an_ferm_urgences"]) || isOKString(data["an_ferm_chirur"]) || isOKString(data["an_ferm_cardio"]) || isOKString(data["an_ferm_ivg"]) ) {
+        else if ( jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('uppression') >= 0  ) {
           return 1;
         }
-        else if ( isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES']) ) {
+        else if ( (jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('Fermeture') >= 0) || (jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('fermeture') >= 0) || isOKString(data["an_ferm_mater"]) || isOKString(data["an_ferm_urgences"]) || isOKString(data["an_ferm_chirur"]) || isOKString(data["an_ferm_cardio"]) || isOKString(data["an_ferm_ivg"]) ) {
           return 2;
         }
-        else return 3;
+        else if ( isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES']) ) {
+          return 3;
+        }
+        else return 4;
       },
       icons: [
-        /*{
+        {
           icon: {leaflet: new L.Icon({
-            iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-gold.png',
+            iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
             shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
             iconSize: [13, 20],
             iconAnchor: [6, 20],
             popupAnchor: [1, -17],
             shadowSize: [20, 20]
           })},
-          title: 'publics',
+          title: 'une victoire',
           colorBG: '#FFD326',
           colorFG: '#0E0E0E',
-        },*/
+        },
         {
           icon: {
             leaflet: new L.Icon({
-              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-red.png',
               shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
               iconSize: [13, 20],
               iconAnchor: [6, 20],
@@ -2767,7 +2770,7 @@ var isOKNumber = data => {
               shadowSize: [20, 20]
             })
           },
-          title: 'établissements fermés',
+          title: 'étab. fermés',
           colorBG: '#2781CA',
           colorFG: '#FFFFFF',
         },
@@ -2782,7 +2785,7 @@ var isOKNumber = data => {
               shadowSize: [20, 20]
             })
           },
-          title: 'établissements avec fermetures',
+          title: 'étab. avec fermetures',
           colorBG: '#9C2BCB',
           colorFG: '#F8F8F8',
         },
@@ -2797,14 +2800,14 @@ var isOKNumber = data => {
               shadowSize: [20, 20]
             })
           },
-          title: 'établissements avec menaces',
+          title: 'étab. avec menaces',
           colorBG: '#29AD27',
           colorFG: '#FFFFFF',
         },
         {
           icon: {
             leaflet: new L.Icon({
-              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-orange.png',
               shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
               iconSize: [13, 20],
               iconAnchor: [6, 20],

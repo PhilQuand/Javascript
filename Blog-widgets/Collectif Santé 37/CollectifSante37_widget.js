@@ -793,13 +793,13 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
-  //$('.page_body').append('<a href="https://drive.google.com/file/d/1ltzqfpxcBoEx_Q-zZTYLoGjQ7CQRVsLk/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-r8cekgoOeNE/YUjWpoto6NI/AAAAAAAAo_Y/hKNeCkvIgBcRaAqPfDzpsun1SP99JItYACLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-20%2Ba%25CC%2580%2B20.44.02.jpg"/></a>');
+  $('.page_body').append('<a href="https://collectifsante37.blogspot.com/2021/12/plan-blanc-colere-noire.html"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg7VRWfwNuO-ZYc_gbjQNhedWMRLsa7HjZfh2JvLuOugIe-FVrdI9QY0kdKsgAHPZdSa_HX5RqdqBEUxnDSqfc52w1Eu6lYdh6pEZzeGkU4V311awsUtbuzjv88zW6GwjDBbzmfWDj88FTh9XkKyf2DV47uv4YXEUcwfPZTpubeUbZ85WQo8El6WOKF"/></a>');
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://1.bp.blogspot.com/-kRbg_kybYsw/YV78FwWYCsI/AAAAAAAApCE/WPHSV9MaWvgHFUbOw9VqZfOXqoe3YKDUwCLcBGAsYHQ/s0/aff%2BSANTE%2BON%2BNE%2BCHANGE%2BPAS%2BUNE%2BPOLITIQUE%2BQUI%2BTUE%25C2%25A02021.jpg",
+      src: "https://blogger.googleusercontent.com/img/a/AVvXsEg7VRWfwNuO-ZYc_gbjQNhedWMRLsa7HjZfh2JvLuOugIe-FVrdI9QY0kdKsgAHPZdSa_HX5RqdqBEUxnDSqfc52w1Eu6lYdh6pEZzeGkU4V311awsUtbuzjv88zW6GwjDBbzmfWDj88FTh9XkKyf2DV47uv4YXEUcwfPZTpubeUbZ85WQo8El6WOKF",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -824,9 +824,13 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://1.bp.blogspot.com/-kRbg_kybYsw/YV78FwWYCsI/AAAAAAAApCE/WPHSV9MaWvgHFUbOw9VqZfOXqoe3YKDUwCLcBGAsYHQ/s0/aff%2BSANTE%2BON%2BNE%2BCHANGE%2BPAS%2BUNE%2BPOLITIQUE%2BQUI%2BTUE%25C2%25A02021.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEhgsSMsZO2hmXC2BIMEhzx_6IJfQH3CBJ3qK7c_uP5gexdQr3qxHR6_yXkPx7i3vRQmsPm44mr3Hqqfs9ETo9EFq7Q6IQ2iRpHuvSS79a9HiE-pNel6hucuC3-L1u4DLAlGIsGJPcztR2b6n3cMzX7ApbU4liio21z1jHTxunP-yDURd-NMPWW3Y-1T"
         },       
         /*{
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEh9iws-jO4nQqGMu0r5syI4Il_z2XktsdYcaiamnBdI9jJwlq4S19qrRRPF6NV0CjESdYLYaX1-6wxrXtdrLmGkhbJTtMa2_r_SPSoDjFt7UQDCVBKThfnNvfc8J0DKVeMhr3wIKOAf6C_01x4xrvB1r2LbFL0HvNBf2ebf-scpM3dp_icdBTiklGTl"
+        },       
+        {
           dataType: "video",
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },*/

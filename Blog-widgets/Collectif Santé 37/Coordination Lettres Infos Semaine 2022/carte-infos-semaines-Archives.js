@@ -1,5 +1,5 @@
     var archi = [
-             {
+              {
           svgInfos: ['Semaine 01', 'du 03 jan.', 'au 09 jan.', '2022'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 01.html',
         },

@@ -792,16 +792,16 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
-  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/2021/12/plan-blanc-colere-noire.html"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg7VRWfwNuO-ZYc_gbjQNhedWMRLsa7HjZfh2JvLuOugIe-FVrdI9QY0kdKsgAHPZdSa_HX5RqdqBEUxnDSqfc52w1Eu6lYdh6pEZzeGkU4V311awsUtbuzjv88zW6GwjDBbzmfWDj88FTh9XkKyf2DV47uv4YXEUcwfPZTpubeUbZ85WQo8El6WOKF"/></a>');
+  //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
 
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/a/AVvXsEga6cDxLiJv98fa_D58QFcA6IcWRj4IQ62TKZEiL4S_cqZTIKj9NdTdrsKzhF0ChS0hPrVE32_FPD2WUNOigyTEnOJz1Z0ssgZS048lhh7jmhPtXAYx-d1lmzHmhnQnzPPxs1IeZCuTuWFr_BskrgPUWdOievYE0F_Mnm9yIO4RXbZtfkaPutZ1fW0Z",
+      src: "https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -826,13 +826,13 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEga6cDxLiJv98fa_D58QFcA6IcWRj4IQ62TKZEiL4S_cqZTIKj9NdTdrsKzhF0ChS0hPrVE32_FPD2WUNOigyTEnOJz1Z0ssgZS048lhh7jmhPtXAYx-d1lmzHmhnQnzPPxs1IeZCuTuWFr_BskrgPUWdOievYE0F_Mnm9yIO4RXbZtfkaPutZ1fW0Z"
+          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"
         },       
-        {
+        /*{
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEgwJe3hWfjPRvDhVgJoi42H8dZvU8SVfuKYlD2UJxTBhPzp_yRuoSRrPcs53q_lbVqIDPiDiqWjZPFjTqu9oiJYepThpEf21Hw8vTpWGlpZZWuI8acFq7TzVyMMmqcjFI6ES0tOrKd-nubNG5JooTCbYLswMKZ2vKF7h6MDYXRoBVQSvCmUJfpvbd3C"
         },       
-        /*{
+        {
           dataType: "video",
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },*/

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Le scandale des maisons de retraites des grands groupes privés qui rebondit grace à la publication d'une enquête journalistique. C'est tout de même l'évidence que les alertes du personnel n'ont pas été écoutées, que les contrôles sont absents ou sans conséquences. Et pourtant les départements sont impliqués dans la prise en charge de la vieillesse. Comme quoi la décentralisation n'est pas forcément la démocratie sanitaire.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 05</li>
+<li><strong>Dates</strong>: du 31 janvier au 6 février 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/info-semaine-5-du31-janvier-au-6-février-22.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito (ou point fort de la semaine) : </b></p>
+<p>Le scandale des maisons de retraites des grands groupes privés qui rebondit grace à la publication d'une enquête journalistique. C'est tout de même l'évidence que les alertes du personnel n'ont pas été écoutées, que les contrôles sont absents ou sans conséquences. Et pourtant les départements sont impliqués dans la prise en charge de la vieillesse. Comme quoi la décentralisation n'est pas forcément la démocratie sanitaire.</p>
+<p>Les fermetures de services hospitaliers se poursuivent malgrè l'évidence de la rupture de notre outil public. Personne ne peut croire que les gouvernants ne voient pas ce qui est devenu flagrant. Alors quoi, une stratégie pour contraindre à la privatisatio</p>
+<p align="right"><i>Henri CELIE</i></p>
+</div>
+<div>
+<p>Sommaire :</p>
+<p> </p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="background-color: #00dcff;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>VALOGNES-CHERBOURG - 50 -</b></span></span></span></p>
+<p align="justify"> </p>
+<p align="justify"><b>Chers amis, voici le courrier adressé au Président du conseil de surveillance du Centre hospitalier public du Cotentin et le courrier que j'adresse au Directeur du centre européen d'études "Droit et Santé". Sur le fond le grave problème réside dans le tri des patients aux urgences. Pas de médecin libéral disponible, pas de médecin traitant , le refus des urgences… retards de prise en charge, renoncement aux soins, perte de chance. Il y a là la question du droit à la santé.</b></p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/courrier-Fran%C3%A7ois-Vialla.odt" target="_blank" rel="noopener">courrier François Vialla</a><br /><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Courrier-du-20.01.2022.pdf" target="_blank" rel="noopener">Courrier du 20.01.2022</a></p>
+<p style="background-color: #ff950e;" align="center"><span style="color: #000000;"><span style="font-family: Arial,
+          sans-serif;"><span style="font-size: 14pt;"><b>FOREZ – 42 -</b></span></span></span></p>
+<p><span style="font-size: 12pt;"><b>Suite à notre opération cartes postales, "L'ARS Auvergne Rhône - Alpes confirme la place de l'Hôpital sur le territoire et complète son soutien financier". </b></span></p>
+<p><span style="font-size: 12pt;"><b>Le CP se termine par les activités autorisées par l'ARS pour le CH du Forez sur chacun des deux sites. Le CHF doit définir un Projet Médical.</b></span></p>
+<p style="background-color: #00dcff;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>ST CLAUDE - 39</b></span></span></span></p>
+<p align="justify"><b>Dans leur bulletin, un mot du Président : Comment ne pas évoquer ces rencontres avec les dirigeants de l’ARS, où nous sommes soumis à des attitudes trop souvent méprisantes envers notre combat? Comment ne pas s’interroger sur l’intégrité de professionnels à hautes responsabilités à qui l’on confie le pouvoir de décider de l’avenir de nos hôpitaux publics? Comment peut-on avoir nommé en 2018 au poste de Directeur Départemental de l’ARS du Jura (jusqu’à Août 2021), alors que déjà jugé et condamné en 2010, cet individu qui vient d’être condamné pour faux et usage de faux en écriture ? Comment ne pas être circonspects alors que cette même personne se posait en donneur de leçons lors de nos rencontres? Comment ? Peut-être tout simplement en affichant notre probité et notre détermination !</b></p>
+<p align="justify"> </p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/CODESOHO-FLASH-INFO-N%C2%B0-2-2022.pdf" target="_blank" rel="noopener"><span style="color: #000099;"><span style="font-family: Liberation
+            Serif, serif;"><span style="font-size: 12pt;">CODESOHO – FLASH INFO N° 2 – 2022</span></span></span></a></p>
+<p style="background-color: #ff950e;" align="center"><span style="color: #000000;"><span style="font-family: Arial,
+          sans-serif;"><span style="font-size: 14pt;"><b>LUCON - 85</b></span></span></span></p>
+<p align="left"> </p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>MOBILISATION a eu lieu le 4 février pour exiger :</b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>- Le maintien des services des Urgences et du SMUR 24h/24 et 7j/7 sur le site de Luçon dans des conditions optimum et de façon pérenne.</b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>- La poursuite et le développement des services existants.</b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>- La mise en place de nouveaux services. </b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Et continuent à récupérer les cartes de vœux à l'adresse du Président de la République.</b></span></span></span></p>
+<p align="justify"> </p>
+<p style="background-color: #00dcff;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>DOLE - 39</b></span></span></span></p>
+<p align="justify"> </p>
+<p align="justify"><b>Assemblée générale, vendredi 11 février. Nous y préparerons nos futures actions pour continuer à  défendre la chirurgie conventionnelle à l'hôpital Pasteur de Dole et poursuivrons nos réflexions pour l'accès de toutes et toutes aux soins, avec nos Etats généraux de la santé, en mars.</b></p>
+<p style="background-color: #ff950e;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>AUBENAS - 07</b></span></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Assemblée Générale du comité le mercredi 16 Février 2022.</b></span></span></span></p>
+<p style="background-color: #00dcff;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>SUD AVEYRON</b></span></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Communiqué du MANIFESTE le 2 février</b></span></span></span></p>
+<p align="center"> </p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>La décision de localisation de l’hôpital qui pourrait voir le jour d’ici la fin de la décennie vient de nous être annoncée par la presse. Le lieu serait situé dans la proximité de Millau sur le site de Vergonhac. </b></span></span></span><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Il faut, maintenant, clarifier les temps d’accès</b></span></span></span></strong></p>
+<p align="left"><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><u><b>- Quels moyens sont pris pour rendre le temps d’accès à cette nouvelle structure compatible ave c les règles de sécurité </b></u></span></span></span></strong><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>(30 mn)</b></span></span></span></strong></p>
+<p align="left"><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Le choix de cette localisation nécessite de s’interroger sur les accès. (…)</b></span></span></span></strong></p>
+<p align="left"><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>- Combien d’habitant-e-s seront situé-e-s à un temps d’accès supérieur et entraînant une perte de chance ?</b></span></span></span></strong></p>
+<p align="left"> </p>
+<p align="left"><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Restent posés le maintien et la mise au niveau des services existants dans les deux hôpitaux actuels pour tenir jusqu’à cette date. </b></span></span></span></strong><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Comment les élu-e-s envisagent ils-elles la mobilisation pour obtenir </b></span></span></span></strong><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><u><b>les installations de médecins et personnels dans les services où des départs sont prévus d’ici quelques mois ? ( </b></u></span></span></span></strong><strong><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Maternités, chirurgie, psychiatrie, ...)</b></span></span></span></strong></p>
+<p align="center"><br /><br /></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b><span style="font-size: 11pt;"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/le-communiqu%C3%A9.pdf" target="_blank" rel="noopener">le communiqué</a></span></b></span></span></span></p>
+<p align="center"> </p>
+<p style="background-color: #ff950e;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>LURE et ailleurs</b></span></span></span></p>
+<p align="left"> </p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Un article de Michel Antony ,sur les Mobilisations dans la santé- même s'il est souvent centré sur la Haute Saône, il évoque très largement les Comités de la Coordination nationale, la construction de celle-ci et les multiples actions qu'elle effectue. Il peut être utile également pour expliquer pourquoi le choix de Lure 2023 pour la Convergence</b></span></span></span></p>
+<p style="font-family: Helvetica; font-size: 12px;" align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif,
+          serif;"><span style="font-size: 12pt;"><b>Attention Usage libre jusqu'au 01/03/2022</b></span></span></span></p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b><a href="https://www.cairn.info/tap-68kwmryq05zc9" target="_blank" rel="noopener"><span style="color: #000099;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">https://www.cairn.info/tap-68kwmryq05zc9</span></span></span></a></b></span></span></span></p>
+<p align="center"><br /><br /></p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Autres infos locales :</b></span></span></span></p>
+<p align="center"> </p>
+<p style="background-color: #00dcff;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>MANOSQUE – 04 -</b></span></span></span></p>
+<style>
+.manosque {
+text-align: center; 
+background-color: #729fcf;
+max-width: 600px;
+margin-left: auto;
+margin-right: auto;
+}
+</style>
+<p class="manosque" align="center"><span style="text-align: start;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Quelques infos suite à la mobilisation du 28 janvier aux Urgences de Manosque.</b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">&gt;&gt; Pour voir la vidéo - "Alpes-de-Haute-Provence : la fermeture des urgences la nuit à Manosque suscite l'incompréhension" (RT France), cliquer sur ce lien :</span></span></span></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=NCkE6LDGvsA" target="_blank" rel="noopener"><span style="color: #3333ff;"><span style="font-family: Liberation
+            Serif, serif;"><span style="font-size: 12pt;">https://www.youtube.com/watch?v=NCkE6LDGvsA</span></span></span></a></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">Pour voir la vidéo - "Manosque : les urgences vont fermer trois nuits en raison d'un manque de personnel" (BFM DICI). cliquer sur ce lien :</span></span></span></p>
+<p align="left"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><a href="https://www.bfmtv.com/bfm-dici/replay-emissions/bonsoir-dici-haute-provence/manosque-les-urgences-vont-fermer-trois-nuits-en-raison-d-un-manque-de-personnel_VN-202201260353.html" target="_blank" rel="noopener"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">https://www.bfmtv.com/bfm-dici/replay-emissions/bonsoir-dici-haute-provence/manosque-les-urgences-vont-fermer-trois-nuits-en-raison-d-un-manque-de-personnel_VN-202201260353.html</span></span></span></a></span></span></span></p>
+<p align="center"><br /><br /></p>
+<p style="background-color: #ff950e;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>EPERNAY - 51</b></span></span></span></p>
+<p align="left"> </p>
+<p align="left"> </p>
+<p align="center"><span style="color: #000000;"><b>Pétition : Soutien au CAMSP d'Epernay en danger : pour le maintien de notre pédiatre actuelle<br />Il me paraît essentiel de soutenir cette pétition et ces collègues en lutte pour maintenir la qualité des soins prodigués aux enfants dans une orientation ouverte et humaine. De refuser le licenciement de la collègue pédiatre.</b></span><span style="color: #000000;"><br /></span><a class="moz-txt-link-freetext" href="https://www.mesopinions.com/petition/sante/soutien-camsp-epernay-danger-maintien-pediatre/169549" target="_blank" rel="noopener">https://www.mesopinions.com/petition/sante/soutien-camsp-epernay-danger-maintien-pediatre/169549</a></p>
+<p align="center"> </p>
+<p align="center"><br /><br /></p>
+<p style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.28cm; line-height: 12px; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Dossiers :</b></span></span></span></p>
+<p align="left"><br /><br /></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>La minute de silence dans les hôpitaux</b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>l’hôpital de Colmar</b></span></span></span></p>
+<p align="left"> </p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b><a href="https://youtube.com/watch?v=bEKNsZLkUO0&amp;feature=share" target="_blank" rel="noopener"><span style="font-size: 11pt;">https://youtube.com/watch?v=bEKNsZLkUO0&amp;feature=share</span></a><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 11pt;"> </span></span></span></b></span></span></span></p>
+<p align="center"><br /><br /></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>L’appel des organisations professionnelles pour cette forme d’action</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/24-01-2022-APH-minute-de-silence.pdf" target="_blank" rel="noopener">24 01 2022 APH minute de silence</a></span></span></span></p>
+<p align="left"> </p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Un article du Figaro sur les minutes de silence organisées dans 80 hôpitaux.</b></span></span></span></p>
+<p align="left"> </p>
+<p align="center"><a href="https://www.lefigaro.fr/flash-eco/nouvelle-minute-de-silence-de-soignants-face-a-la-mort-annoncee-de-l-hopital-public-20220107" target="_blank" rel="noopener"><span style="color: #0070c0;"><span style="font-family: Liberation
+            Serif, serif;"><span style="font-size: 12pt;">https://www.lefigaro.fr/flash-eco/nouvelle-minute-de-silence-de-soignants-face-a-la-mort-annoncee-de-l-hopital-public-20220107</span></span></span></a></p>
+<p align="center"><br /><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><b>Manifestation des médicaux sociaux le 1</b><sup><b>er</b></sup><b> Fév. Une réussite </b></span></span></span></p>
+<p align="left"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">Environ 5000 professionnel-les, beaucoup de jeunes, d'étudiant-es, ont défilé de la Direction Générale de la Cohésion Sociale jusqu'à la Place Vauban (près de Matignon). La voiture de SUD devant, avec "le travail social en lutte" à l'animation, celle de la CGT au milieu , celle de la FSU en fin de cortège. Les drapeaux SUD et CGT étaient les plus nombreux. Les "robocop" étaient massivement présents cette fois pour encadrer la progression de la manif unitaire (la préfecture de Police avait totalement sous estimé la participation attendue le 7 décembre. Cette fois le secteur social et médico-social était enfin pris au sérieux, c'est beau).</span></span></p>
+<p align="left"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">Avant le départ, sont intervenu-es, pour rappeler les enjeux de la mobilisation en cours, les animatrices de la commission de mobilisation du travail social d'Île de France, puis les fédérations appelant : SUD Santé-Sociaux (Ramon), FO, la FSU, la CGC, la CGT.</span></span></p>
+<p align="left"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">A l'arrivée, de nombreuses prises de parole de professionnel-les. Je suis intervenu pour le "Printemps de la Psychiatrie" (voir ci-dessous). </span></span></p>
+<p align="left"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">Il y a eu aussi le matin, des initiatives dans les départements (Yvelines, Essonne. En Seine-St-Denis, les collègues des différentes boîtes de la prévention spécialisée se sont retrouvé-es devant la Préfecture de Bobigny avant de rejoindre l'initiative parisienne). Et nombre des salarié-es ont débrayé sans aller manifester.</span></span></p>
+<p align="left"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">Pascal Dias (SUD Santé)</span></span></p>
+<p align="left"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>MINUTES DE SILENCE</b></span></span></span></p>
+<p align="justify"> </p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 14pt;"><b>COMMERCIALISATION DE LA SANTE, L’AUTRE PANDEMIE !</b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">Le réseau européen contre la commercialisation et la privatisation de la santé et de la protection sociale organise deux webinaires les 3 février et 3 mars.<br />Ci-dessous le lien pour se connecter.</span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;">Pour suivre le Webinaire :</span></span></span><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"> </span></span><a href="https://us06web.zoom.us/j/89678195490?pwd=blpaaGl4ZkZldjBjVk5BaUxqT2JsUT09&amp;fbclid=IwAR3DjkkvGNDNjbeq3Na-SedBhvlRraWvhIn6t3mN3y1tvzF3HnK3IGcuKZc#success" target="_blank" rel="noopener"><span style="color: #007dbc;"><span style="font-family: Liberation
+            Serif, serif;"><span style="font-size: 12pt;">https://us06web.zoom.us/j/89678195490?pwd=blpaaGl4ZkZldjBjVk5BaUxqT2JsUT09&amp;fbclid=IwAR3DjkkvGNDNjbeq3Na-SedBhvlRraWvhIn6t3mN3y1tvzF3HnK3IGcuKZc#success</span></span></span></a></p>
+<p align="justify"> </p>
+<p><span style="font-size: 14pt;"><b>REFONDER L’HOPITAL PUBLIC</b></span></p>
+<p><b>pourquoi pas le modèle du secteur psychiatrique</b></p>
+<p><i>Ateliers refondation hôpital public</i></p>
+<p>Les témoignages de citoyens, d’élus, de professionnels et de personnes directement concernées par la déconstruction rapide de notre système de santé se font chaque jour plus nombreux.(…) Le système de santé français, qui était une des réussites de la politique en faveur des citoyens de la deuxième moitié du vingtième siècle, est devenu en quelques dizaines d’années, la honte de notre dispositif de solidarité. Si vous êtes riche, habitant d’une grande ville, et prêt à passer devant les autres, alors vous avez une bonne chance de pouvoir vous soigner de façon relativement correcte. Il vous en coûtera cher, puisque vous serez probablement obligés de recourir à des soins proposés par les établissements privés à but lucratif (…) Pourtant, nous avons un modèle, celui de la psychiatrie de secteur, qui a fonctionné de façon satisfaisante pendant une petite vingtaine d’années, dans les endroits où il a été mis en place conformément aux idées de ses fondateurs (…)</p>
+<p>Le texte :</p>
+<p><a class="moz-txt-link-freetext" href="https://ateliersrefondationhopitalpublic.org/2022/01/16/pierre-delion-nous-offre-un-texte-refonder-le-service-public-de-sante-pourquoi-pas-le-modele-du-secteur-psychiatrique/">https://ateliersrefondationhopitalpublic.org/2022/01/16/pierre-delion-nous-offre-un-texte-refonder-le-service-public-de-sante-pourquoi-pas-le-modele-du-secteur-psychiatrique/</a></p>
+<p> </p>
+<p> </p>
+<h1 class="western" style="font-family: Helvetica; margin-top: 0cm; margin-bottom: 0cm; line-height: 24px;"><span style="font-size: 14pt;">Covid-19 : « Pourquoi ne pas avoir donné les moyens aux soignants d’éviter que se répètent les situations de tri tragique ? » </span><span style="font-size: 12pt;"><span style="font-weight: normal;">Philippe Bizouarn Médecin anesthésiste-réanimateur</span></span></h1>
+<p><span style="font-size: 12pt;"><i>Le Monde</i></span></p>
+<p><span style="font-size: 12pt;">« Aucune réflexion éthique n’ait encore été menée ouvertement sur le tri des patients face à l’engorgement des services de réanimation pendant la pandémie.</span></p>
+<p><span style="font-size: 12pt;">D’après un <a href="https://www.mediapart.fr/journal/france/241221/marseille-se-prepare-au-tri-des-patients-faute-de-place-en-reanimation" target="_blank" rel="noopener">document de travail élaboré par des réanimateurs marseillais </a><em>[révélé par le média en ligne </em>Mediapart<em> le 24 décembre 2021],</em> un tri pourrait se faire parmi les patients atteints du Covid-19, du fait du manque de places disponibles en réanimation. Dans le scénario catastrophe envisagé par les réanimateurs, les patients de plus de 65 ans jugés fragiles pourraient ne pas être admis. <a href="https://www.lemonde.fr/idees/article/2020/03/20/coronavirus-dans-un-contexte-de-ressources-rares-et-face-a-l-arrivee-massive-de-patients-un-tri-pourrait-se-faire_6033829_3232.html" target="_blank" rel="noopener">Le débat sur la priorisation des patients atteints du Covid-19</a> n’est hélas pas nouveau. La situation en fin d’été aux Antilles (…)</span></p>
+<p><span style="font-size: 12pt;">La Tribune :</span></p>
+<p><span style="font-size: 12pt;"><a class="moz-txt-link-freetext" href="https://ateliersrefondationhopitalpublic.org/2022/01/16/1842/" target="_blank" rel="noopener">https://ateliersrefondationhopitalpublic.org/2022/01/16/1842/</a></span></p>
+<p> </p>
+<p> </p>
+<p lang="zxx" align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 14pt;"><b>COMMENT BIEN SE SOIGNER (ENQUETE EN CONSTRUCTION)</b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><span lang="zxx">Université Paris Nord<br />Extraits du texte de présentation :<br />Poursuivant notre travail entrepris en ateliers à Montreuil et à Marseille et dans le droit-fil de notre « Manifeste pour une reconquête de l'hôpital public et du soin », les Ateliers pour la refondation du service public hospitalier lancent un processus d'élaboration collective d'une enquête sociale sur le sujet : « Qu'est-ce que bien soigner ? » . En élaborant ce processus l'enjeu est d'apprendre à voir ensemble, à accueillir le regard de l'autre, à fabriquer du commun. (...)<br /><br />Il s'agira dans un premier temps de créer ensemble – professionnels du soin et chercheurs, habitants, usagers, aidants, patients, le ou les questionnaires qui seront ensuite utilisés pour mener l'enquête sur le terrain. Cette enquête sur le terrain, -c'est à dire en France, partout où cela sera possible-, sera organisée et menée par les acteurs eux-mêmes, selon une méthodologie que nous aurons élaborée en commun. <br /><br />La première étape consistera donc à construire collectivement le ou les questionnaires, cela à partir de regards hétérogènes (...)<br />D'ici là il nous allons composer le groupe de personnes invitées à participer le 12 février en ayant en tête d'avoir un "panel" pluriel (...)</span></span></span></span></p>
+<p lang="zxx" align="left"> </p>
+<p lang="zxx" align="left"> </p>
+<p><span style="font-size: 14pt;"><b>LA BUREAUCRATIE DANS L’HOPITAL</b></span></p>
+<p>le psychiatre Bernard Granger, stratégies de survie dans un milieu plombé par les normes.</p>
+<p><i>l’Obs</i></p>
+<p>Extraits :</p>
+<p>L’hôpital public est un terrain d’observation privilégié du phénomène bureaucratique. L’opium des directions hospitalières actuelles est « le projet ». Quand un directeur ne sait plus quoi vous répondre et cherche à se débarrasser de vous, il ordonne :<em> « Écrivez-moi un projet ! »</em></p>
+<p>Fait assez curieux, la bureaucratie assure sa domination non pas en exigeant des données fiables ou contrôlées, mais se satisfait de ce que chaque case soit remplie. L’expérience a montré que répondre n’importe quoi à ces inquisitions n’a aucune conséquence. C’est une découverte étonnante qui peut vous simplifier la vie.</p>
+<p>L’article :</p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><a href="https://www.nouvelobs.com/sante/20220129.OBS53836/excel-m-a-tue-comment-la-bureaucratie-a-asphyxie-notre-systeme-hospitalier.html"><span style="font-size: 12pt;"><span lang="zxx">https://www.nouvelobs.com/sante/20220129.OBS53836/excel-m-a-tue-comment-la-bureaucratie-a-asphyxie-notre-systeme-hospitalier.html</span></span></a></span></span></p>
+<p lang="zxx" align="left"> </p>
+<p lang="zxx" align="left"> </p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 14pt;"><span lang="zxx"><b>FINANCIARISATION DE LA VIEILLESSE</b></span></span><span style="font-size: 12pt;"><span lang="zxx"><b> </b></span></span><span style="font-size: 12pt;"><span lang="zxx">(Podcast envoyé Printemps Psychiatrie)</span></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><a href="https://youtu.be/LAUb1R8Y-kA"><span style="font-size: 12pt;"><span lang="zxx">https://youtu.be/LAUb1R8Y-kA</span></span></a></span></span></p>
+<p lang="zxx" align="left"> </p>
+<p lang="zxx" align="left"> </p>
+<h1 class="western" lang="zxx" style="font-family: Helvetica; margin-top: 0cm; margin-bottom: 0cm; line-height: 24px;" align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 14pt;"><b>ENFANCE ET JEUNESSE, les âges oubliés des politiques ?</b></span></span></span></h1>
+<p style="font-family: Helvetica; font-size: 12px; margin-bottom: 0cm;"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;">À retrouver dans l'émission </span></span><a href="https://www.franceculture.fr/emissions/la-grande-table-2eme-partie" target="_blank" rel="noopener">La Grande Table idées</a><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"> par </span></span><a href="https://www.franceculture.fr/personne-olivia-gesbert" target="_blank" rel="noopener">Olivia Gesbert</a></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><a href="https://www.franceculture.fr/emissions/la-grande-table-idees/la-campagne-des-idees-2-6-enfance-et-jeunesse-les-ages-oublies-des-politiques"><span style="color: #0061ff;"><span style="font-size: 12pt;"><span lang="zxx"><u>https://www.franceculture.fr/emissions/la-grande-table-idees/la-campagne-des-idees-2-6-enfance-et-jeunesse-les-ages-oublies-des-politiques</u></span></span></span></a></span></span></p>
+<p lang="zxx" align="left"> </p>
+<p lang="zxx" align="left"> </p>
+<p lang="zxx" align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 14pt;"><b>VACCINATION: LES RESISTANCES A</b></span></span></span></p>
+<p align="left"><span style="color: #000000;"><span style="font-family: Liberation Serif, serif;"><span style="font-size: 12pt;"><span lang="zxx">Travail des documentalistes de la BNF sur la résistance à la vaccination</span></span><span style="color: #0061ff;"><span style="font-size: 12pt;"><span lang="zxx"><u><br /></u></span></span></span><a href="https://histoirebnf.hypotheses.org/11052"><span style="text-decoration: none;">https://histoirebnf.hypotheses.org/11052</span></a></span></span></p>
+<p align="left"> </p>
+<p align="center"><span style="color: #729fcf;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">Quand Zorba était Grec</span></span></p>
+<p align="center"> </p>
+<p align="center"><a class="moz-txt-link-freetext" href="https://www.youtube.com/watch?v=QskFT7AaKH0">https://www.youtube.com/watch?v=QskFT7AaKH0</a></p>
+<p align="justify"> </p>
+<p style="font-family: Helvetica; font-size: 12px; margin-bottom: 0.35cm; line-height: 0.49cm;" align="center"><span style="font-family: Times New Roman, serif;"><span style="font-size: 12pt;"><b>« Toutes les infos sur le site de la Coordination Nationale »</b></span></span></p>
+<hr>
+<p style="font-family: Helvetica; font-size: 12px;" align="center"><b>Ce message n'est pas un spam, mais une information militante<br />Pour vous désabonner, envoyer un mail à </b><a href="mailto:cda12550@coordination-defense-sante.org"><b><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></b></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

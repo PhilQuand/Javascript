@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Encore un nouveau service d’urgence menacé faute de professionnels à Montluçon. La population se mobilise, comme à Luçon, Marmande, Draguignan ... La pénurie de médecins a été construite depuis des décennies par les gouvernements successifs pour faire des économies et satisfaire les syndicats médicaux les plus corporatistes. Il faudra des années pour la corriger, encore faut il en prendre tout de suite la décision en en donnant les moyens aux facultés de médecine.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 07</li>
+<li><strong>Dates</strong>: du 14 au 20 février 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/info-semaine-7-du-14-au-20-février-22.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito (ou point fort de la semaine) : </b></p>
+<p>Encore un nouveau service d’urgence menacé faute de professionnels à Montluçon. La population se mobilise, comme à Luçon, Marmande, Draguignan ... La pénurie de médecins a été construite depuis des décennies par les gouvernements successifs pour faire des économies et satisfaire les syndicats médicaux les plus corporatistes. Il faudra des années pour la corriger, encore faut il en prendre tout de suite la décision en en donnant les moyens aux facultés de médecine.</p>
+<p>Mais d’autres mesures urgentes sont nécessaires : la dégradation s’emballe car les médecins, comme les infirmières et les autres personnels quittent l’hôpital public. Il faut les écouter. Ils ne veulent pas de la qualité de papier, celle avec laquelle Orpéa se justifie malgré les charges accablantes. Ils veulent une vraie qualité, celle d’un hôpital tourné vers les besoins des malades, plutôt qu’avec l’œil rivé sur les chiffres de rentabilité, celle d’un hôpital qui respecte leur éthique : il faut leur en donner les moyens. Leur éthique, c’est cela le sens d’un vrai service public, à développer aussi pour les personnes âgées. C’est de cela dont la population, les usagers ont besoin !</p>
+<p>Les personnels hospitaliers seront mobilisés le 8 mars, journée internationale de lutte des femmes. Ce n’est pas sans raison ! A niveau d’études équivalent, les métiers du soin et du social sont souvent moins payés, car majoritairement ceux de femmes. Mais ce sont aussi souvent les femmes qui sont les principales aidantes, par la force des choses, comme lorsque l’hôpital renvoie à domicile le grand-père ou la grand-mère malgré des soins encore lourds. C’est pareil pour les enfants malades : encore trop fréquemment c’est la femme qui doit prendre des jours de congés car pour un homme « ça ne se fait pas » ! Et on s’étonne de déroulement de carrières différents.</p>
+<p>Avec toutes les organisations féministes, avec les organisations de soignants, la Coordination appelle à participer aux actions du 8 mars.</p>
+<p align="right"><i>Michèle LEFLON</i></p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Appel-unitaire-8-mars-Sant%C3%A9Action-Sociale-V2.pdf">L’appel commun</a></p>
+</div>
+<div>
+<p>Sommaire :</p>
+<p> </p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>SUD-YVELINES - 78</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le collectif réclame un centre de santé</b></span></span></span></p>
+<div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 450px;">
+<img style="max-width: 450px;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Image3.jpeg" />
+<!--center style="color: blue; font-style: italic">Pau se dote de trambus à Hydrogène</center-->
+</div></div>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>DOUARNENEZ - 29</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Communiqué : des moyens humains et matériels pour les EHPAD</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Le Comité des Usagers de l’Hôpital de Douarnenez estime que le scandale des mauvais traitements survenus dans un EHPAD de la société ORPEA ne doit pas faire oublier la situation désastreuse et dramatique dans un très grand nombre d’EHPAD. Certes la situation est particulièrement scandaleuse dans le cas des établissements d’ORPEA, de KORIAN et d’autres sociétés privées, guidées par la recherche de profits et co-financés par l’argent public, en faisant payer très cher l’hébergement qui est à la charge des résidents. Mais la situation n’est pas meilleure dans les EHPAD publics ou associatifs. Les personnels n’y font pas ce qu’ils devraient faire, parce qu’ils ne sont pas assez nombreux. et ce ne sont pas les salaires qui leur sont versés qui vont inciter à venir y travailler dans des conditions difficiles (avec un taux d’accidents du travail et de maladies professionnelles plus élevé que dans le Bâtiment et les Travaux Publics). Cela est la conséquence, comme l’a déclaré le président de l’Association des directeurs au service des personnes âgées (AD-PA), du sous-financement du secteur, organisé depuis 20 ans par l’Etat et les départements.</span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/2022/02/douarnenez-communique-du-comite-sur-les-ehpad/">La suite du communiqué</a></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>MARMANDE - 47</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>L’association s’adresse au directeur de L’ARS à propos de l’installation de la maison médicale de garde à l’hôpital pour renforcer les urgences et assurer un meilleur accès aux soins pour tous </b></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/2022/02/marmande-lassociation-sadresse-au-directeur-de-lars/">Le courrier</a></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>ARDENNES</b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b> - </b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>08</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Menaces sur l’hôpital de Sedan, en particulier sur la maternité</b></span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Le comité a demandé un RV avec l'ARS et la direction de l'hôpital sans réponse à ce jour. Une rencontre est prévue le 16 avec le maire de Sedan.</span></span></span></span> </p>
+<p style="margin-bottom: 0cm; background-color: transparent;"><span style="font-family: Arial, sans-serif;">Une pétition est en cours de signature qui vient d'être mise sur internet : <a class="moz-txt-link-freetext" style="color: #000080; text-decoration: underline;" href="https://chng.it/KYRkQ7G7LK" target="_blank" rel="noopener">https://chng.it/KYRkQ7G7LK</a></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"> <span style="font-family: Arial, sans-serif;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/20220215communiqu%C3%A9-du-comit%C3%A9-de-d%C3%A9fense-des-hopitaux-de-proximit%C3%A9-des-Ardennes.pdf">Le communiqué</a> </span><span style="font-family: Arial, sans-serif;">de presse</span></p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>GUINGAMP -22</b></span></span></span></p>
+<!--p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>R<img id="&lt;part2.5wS1B9ss.4xAWQC9I@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/02/guingampAffiche-05-03-2022.jpg" alt="Image4" align="left" border="0" /> assemblement le 5 mars pour l’hôpital</b></span></span></span></p-->
+<div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 450px;">
+<img style="max-width: 450px;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/02/guingampAffiche-05-03-2022.jpg" />
+<center style="color: blue; font-style: italic">Rassemblement le 5 mars pour l'hôpital</center>
+</div></div>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>LURE - 70</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le CV70 se bat toujours pour son hôpital de jour de neurologie</b></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/2022/02/lure-se-bat-pour-son-hopital-de-jour-de-neurologie/">Le communiqué du 17/02/22</a></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/communiqu%C3%A9-de-la-Coordination-Nationale-18-02-22.pdf">Le communiqué de soutien de la Coordination du 18/02/22</a></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/2022/02/lure-ag-du-cv-70-le-9-mars/">AG du CV 70 le 9 mars</a></span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>REMIREMONT - 88</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Quand la libéralisation du marché des appareils de radiologie est en cause </b></span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/alerte-liberalisation-march%C3%A9-de-la-rdiologie.pdf"><span style="font-weight: normal;">Le courrier du comité aux parlementaires</span></a></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/2022/02/remiremont-alerte-sur-la-liberalisation-des-appareils-de-radiologie/">La question écrite du sénateur Rietmann</a></span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>DOLE</b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b> - </b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>39</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le comité toujours mobilisé</b></span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Après </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">son</span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"> Assemblée générale et la rencontre avec les élus du territoire, </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">le comité reste</span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"> à l'offensive pour défendre la chirurgie à l'hôpital Pasteur, l'accès aux soins pour toutes et tous et une protection sociale de haut niveau (sécu). </span></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/doleinfos-flash53.pdf">Le flash info 53</a></span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: #729fcf; break-before: page;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>MONTLUÇON - 03</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Les urgences en danger</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Depuis plusieurs années le comité de défense de l'hôpital public de Montluçon dénonce les attaques répétées contre le système de santé et hospitalier, mais le gouvernement reste sourd et continu dans sa démarche destructive !</span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">L’hôpital de Montluçon voit son service d’urgences en grande difficulté, il manque une quinzaine de médecins urgentistes pour pouvoir assurer les soins !!</span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Les personnels appellent à la grève, et dès vendredi 18 une manifestation devant les urgences est organisée à laquelle le comité a invité adhérents et sympathisants à venir nombreux soutenir les agents. Trois cent personnes ont répondu à l’appel.</span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.lamontagne.fr/montlucon-03100/actualites/le-manque-de-medecins-fait-craindre-la-fermeture-du-service-des-urgences-de-l-hopital-de-montlucon-allier_14083375/">L’article de la Montagne</a> du 8/02/22</span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.lamontagne.fr/montlucon-03100/actualites/trois-cents-personnes-a-montlucon-allier-contre-la-menace-imminente-de-la-fermeture-des-urgences_14087962/">L’article de la Montagne</a> du 12/02/22</span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>TOUL - 54</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le point sur la situation</b></span></span></span></p>
+<div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 450px;">
+<img style="max-width: 450px;"src="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Image5.jpeg" />
+<!--center style="color: blue; font-style: italic">Rassemblement le 5 mars pour l'hôpital</center-->
+</div></div>
+<!--p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><img id="&lt;part3.kh9umx6G.s3U05YtW@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="!--" alt="Image5" align="left" /><br clear="left" /><br /><br /></p-->
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">La situation est critique à l’hôpital de Toul. Il manque notamment d’anesthésistes, ce qui touche principalement le bloc opératoire et la maternité, obligeant certains patients à aller jusqu’au CHU de Nancy. Un rassemblement était organisé le samedi 12 janvier.</span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><a style="color: #000080; text-decoration: underline;" href="https://radiodeclic.fr/2022/02/14/le-comite-de-defense-de-lhopital-saint-charles-de-toul-fait-le-point-sur-la-situation/?fbclid=IwAR2Kcn1gfaP-FQvRV7_ew_4oJmneDLiur6FVIl0DV1pARbq7jic5VKSDgIo">L</a><a style="color: #000080; text-decoration: underline;" href="https://radiodeclic.fr/2022/02/14/le-comite-de-defense-de-lhopital-saint-charles-de-toul-fait-le-point-sur-la-situation/?fbclid=IwAR2Kcn1gfaP-FQvRV7_ew_4oJmneDLiur6FVIl0DV1pARbq7jic5VKSDgIo">e point sur Radiodéclic</a></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>CHÂTEAUDUN - 28</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Châteaudun : le comité rencontre la vice-présidente du conseil départemental en charge de la solidarité, l'autonomie et la santé</b></span></span></span></p>
+<div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 450px;">
+<img style="max-width: 450px;"src="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Chateaudun.jpg" />
+<!--center style="color: blue; font-style: italic">Rassemblement le 5 mars pour l'hôpital</center-->
+</div></div>
+<!--p style="margin-top: 0.3cm; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><img id="&lt;part4.nB89tQbg.GFzs0vyD@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Chateaudun.jpg" alt="Image6" align="left" /></span></span></span><br clear="left" /></p-->
+<p><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/ChateaudunEchange-avec-Mme-LEFEBVRE-vice-pr%C3%A9sidente-au-Conseil-D%C3%A9partemental.pdf">Le compte-rendu de la rencontre</a></span></span></span></p-->
+<p style="margin-bottom: 0cm; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>MONTARGIS - 45</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>3000 signatures contre le forfait patient urgence</b></span></span></span></p>
+<div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 450px;">
+<img style="max-width: 450px;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/02/20220211montargis.jpg" />
+<!--center style="color: blue; font-style: italic">Rassemblement le 5 mars pour l'hôpital</center-->
+</div></div>
+<!--p style="margin-top: 0.3cm; font-weight: normal;" align="center"><img id="&lt;part5.eQIjbou5.tqDyhgNQ@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/02/20220211montargis.jpg" alt="Image7" align="left" /><br clear="left" /><br /></p-->
+<p style="margin-top: 0.3cm; font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Le Collectif du Centre hospitalier d'Amilly s'est rendu en délégation le 11 février dernier à l'Agence Régionale de Santé Centre-Val de Loire pour rencontrer le directeur et lui remettre les 3 000 signatures recueillies dans une quinzaine de communes du Montargois pour s'opposer au forfait patient urgence qui pénalise les plus précaires et les familles aux revenus modestes. Derrière une volonté de "simplification" affichée par le gouvernement, il s'agit en réalité pour lui de limiter le flux des consultations dans les services d'Urgences, en situation d'extrême tension, de faire des économies sur le dos des patients et usagers et de transférer les restes à charge sur les mutuelles privées avec pour conséquence, une hausse continue des cotisations (entre 4% et 12% en moyenne cette année).</span></span></span></p>
+<p style="margin-top: 0.3cm; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/2022/02/montargeois-3000-signatures-contre-le-forfait-patient-urgence/">Les explications et la lettre à la préfète</a></span></span></span></p>
+<p style="margin-top: 0.3cm; font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>Autres infos locales :</b></span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>NIORT - 79</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Des lits toujours fermés en psychiatrie</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.03cm; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.lanouvellerepublique.fr/deux-sevres/niort-a-l-hopital-force-ouvriere-ne-baisse-pas-la-garde?queryId%5Bquery1%5D=57cd2206459a452f008b4594&amp;queryId%5Bquery2%5D=57c95b34479a452f008b459d&amp;page=3&amp;pageId=57da5ce0459a4552008b456f">L’article de la Nouvelle République du 5 février</a></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>AUBERVILLIERS - 93</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le préfet casse la grève des salariés de l’hôpital européen</b></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Communiqu%C3%A9-La-Roseraie-Aubervilliers-16-f%C3%A9vrier_.pdf">Le tract</a></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>DRAGUIGNAN - 83</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>La mobilisation pour la réouverture des urgences de nuit se poursuit chaque vendredi</b></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">200 manifestants le vendredi 18 février</span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.varmatin.com/sante/a-draguignan-la-mobilisation-pour-la-reouverture-des-urgences-reprend-vie-747468?fbclid=IwAR0IUcspnZYNYJ7SHTUxxWBMDEUVGdYNbQkCVK9mOsbs1ZJul61pfxcZcgE">L’article de Var Matin</a></span></span></span></p>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b> </b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>Dossiers :</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="color: #400040; font-family: Arial, sans-serif;"><span style="font-size: large;"><b>TRANSFORMER LE SYSTÈME DE SANTÉ</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">A l’approche des élections présidentielles, les propositions se multiplient. </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">On peut être d’accord, pas d’accord … mais elles sont à connaître ! </span></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.conseil-national.medecin.fr/sites/default/files/external-package/edition/1te54ad/cnom_soigner_demain.pdf">Les propositions de l’Ordre des médecins</a></span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><a style="color: #000080; text-decoration: underline;" href="https://www.huffingtonpost.fr/entry/lhopital-public-en-crise-peut-il-renaitre-blog_fr_620a1edde4b0ccfb3e57ee5e"><span style="font-family: Arial, sans-serif;">L’hôpital public en crise peut-il renaître?</span></a></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">par Philippe Bizouarn, membre du collectif interhôpitaux </span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Propositions du SMG (Syndicat de la Médecine Générale) sur l’organisation territoriale de la santé</b></span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Ce texte, qui peut sembler utopique, sert à nourrir la discussion </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">et le SMG aimerait donc des réactions.</span></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/SMG_Organisation-territoriale-de-Sant%C3%A9_mai-2021.pdf">Le texte</a></span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>J</b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>ournées d'études « La santé pour toutes et tous, la santé partout », </b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>organisées en commun par </b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Médecins du Monde et les Mutuelles de France</b></span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="justify"><a style="color: #000080; text-decoration: underline;" href="https://www.youtube.com/watch?v=IiatvIWb8uw"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">L</span></span></span></span></a><a style="color: #000080; text-decoration: underline;" href="https://www.youtube.com/watch?v=IiatvIWb8uw"><span style="font-family: Arial, sans-serif;">a première demi-journée du 3 février</span></a><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"> </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">comportait deux tables rondes : </span></span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">- Table ronde 1 : « Quelles régulations possibles pour permettre un égal accès aux soins pour toutes et tous ? », avec le Collectif interhospitalier, le Syndicat de la médecine générale, des centres de santé communautaires et mutualistes...</span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">-Table ronde 2 : «L'accès pour tous.tes aux médicaments et produits de santé des systèmes de santé soutenables et universels », avec Gaëlle Krikorian, AIDES, MDM et l'OMS.</span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="justify"><a style="color: #000080; text-decoration: underline;" href="https://www.youtube.com/watch?v=W-f03mP96qE"><span style="font-family: Arial, sans-serif;">La seconde demi-journée du 9 février</span></a><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"> </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">avait comme thème </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">« Quelle Sécurité sociale vraiment universelle ? », avec Colette Bec, auteure de « La Sécurité sociale, une ins</span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">t</span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">itution de la démocratie », Caroline Izambert, thèse sur l'histoire de la couverture maladie des pauvres et des étrangers, Pascale Vatel de la FMF. </span></span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>EHPAD</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Ehpad privés : "Le système est en train de s'écrouler", estime un ex-délégué syndical CGT chez Orpea</span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.francetvinfo.fr/societe/prise-en-charge-des-personnes-agees/video-ehpad-prives-le-systeme-est-en-train-de-s-ecrouler-estime-un-ex-delegue-syndical-cgt-chez-orpea_4949328.html#xtor=EPR-502-[newslettervideo]-20220208-[video4]">Le reportage de Franceinfo du 8 février 2022</a></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: #729fcf;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>DÉSERTS MÉDICAUX </b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.ouest-france.fr/sante/cartes-deserts-medicaux-quelles-sont-les-zones-les-plus-defavorisees-795b9d62-8b07-11ec-88ed-2ead809b0816?utm_source=sendinblue_of_newsletter-matinale-perso&amp;mgo_eu=4305761&amp;mgo_l=oEIlVwj3RZ2h0wxoZSkGWg.33.5&amp;utm_content=20220214&amp;utm_campaign=neolane_of_newsletter-matinale-perso&amp;utm_medium=email&amp;utm_term=844000&amp;vid=4305761&amp;mediego_euid=4305761">Le point dans Ouest France du 13 février</a></span></span></span></p>
+<p style="margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Formation des jeunes médecins : </b></span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>coup de frein à la reconnaissance de maîtres de stage</b></span></span></span></p>
+<p style="font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Communiqu%C3%A9.pdf">Le communiqué</a></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; margin-top: 0.3cm;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Et remise en cause du statut des praticiens hospitaliers</b></span></span></span></p>
+<p style="margin-bottom: 0.3cm; background-color: transparent; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://mailchi.mp/snphar/quand-le-ministre-parpille-les-quipes-mdicales-faon-puzzle?e=3edc0c86ea">Le communiqué du SNPHARE</a></span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: #e37b22; break-before: page;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>DE NOS PARTENAIRES</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le printemps des services publics</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Alors que nos services publics sont aujourd'hui au bord de la rupture, la campagne du Printemps des services publics vise à mettre ce sujet au cœur des échéances électorales de 2022. </span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Initiée par les collectifs Nos services publics, Convergences services publics et Vive les services publics, cette campagne rassemble aujourd'hui un arc large et inédit sur ce sujet : citoyen·ne·s, agent·e·s et fonctionnaires de tous les secteurs, militant·e·s des droits de l'homme, écologistes, féministes, intellectuels, syndicalistes, artistes, etc.</span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Le Printemps des services publics culminera le 19 mars, </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">avec</span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"> le Jour du printemps : débats, échanges et interpellation partout en France. </span></span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><a style="color: #000080; text-decoration: underline;" href="https://printempsdesservicespublics.fr/"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">L’</span></span></span></span></a><a style="color: #000080; text-decoration: underline;" href="https://printempsdesservicespublics.fr/"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">appel ouvert à la signature de toutes et tous</span></span></span></span></a></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Appel au président de la République pour la levée des brevets sur les vaccins</b></span></span></span></p>
+<p style="font-weight: normal;" align="center"> </p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Une adresse au Président de la République a été signée par de multiples partenaires (et évidemment par la Coordination)</span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Monsieur le Président,</span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Vous avez inauguré votre présidence de l'Union européenne par un refus opposé à la demande légitime de lever les brevets, portée par l'Inde et l'Afrique du Sud, qui seule permettrait enfin que toute la population mondiale ait accès aux vaccins, tests et traitements anti-covid.</span></span></span></p>
+<p style="font-weight: normal;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Cette disposition est pourtant prévue par les accords de l'OMC. Elle est soutenue par une majorité des États, de très nombreuses ONG, des scientifiques ou professionnels de santé.</span></span></span></p>
+<p style="margin-bottom: 0cm; background-color: transparent;" align="center"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/02/Adresse-au-Pr%C3%A9sident-f%C3%A9v-22-1.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">La suite de la lettre et les signataires</span></span></span></span></a></p>
+<p style="break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b> </b></span></span></span></p>
+<p style="break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>Culture et santé :</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<h1 class="western" style="margin-bottom: 0.21cm; background-color: transparent; break-after: avoid; font-family: 'Liberation Serif', serif; font-size: 24pt; font-weight: normal;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><a style="color: #000080; text-decoration: underline;" href="https://www.libreavous.org/76-sante-et-logiciel-libre-maitre-et-serviteur-digital-rime-avec-medieval">Santé et logiciel libre - « Maître et serviteur » - Digital rime avec médiéval</a></span></span></span></h1>
+<hr>
+<p style="font-family: Helvetica; font-size: 12px;" align="center"><b>Ce message n'est pas un spam, mais une information militante<br />Pour vous désabonner, envoyer un mail à </b><a href="mailto:cda12550@coordination-defense-sante.org"><b><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></b></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

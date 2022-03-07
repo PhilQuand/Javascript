@@ -283,6 +283,8 @@ var inpAddress = [
   lat: 45.4756, lng: 0.0621},
 { inpText: "LURE",
   lat: 47.687, lng: 6.495},
+{ inpText: "CV 70",
+  lat: 47.687, lng: 6.495},
 { inpText: "DIEPPE",
   lat: 49.919, lng: 1.0780},
 { inpText: "HÔPITAL ÉMILE ROUX",

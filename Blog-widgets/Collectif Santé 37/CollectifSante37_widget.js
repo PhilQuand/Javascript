@@ -794,14 +794,14 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
 
-  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
+  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
 
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6",
+      src: "https://blogger.googleusercontent.com/img/a/AVvXsEjLaHWwmRTTofGGYnvpYQwa_nZ7kn0c7ZCBQgDTqEAzxUpQofIOKkGsH4_YVrtlzce1iqp4i7KqMQZatC-17fvneC8jg-i3sMWow--9LrwLIWChXF6YvCxVwL13s34_FFH4MqWxnLBOFokk8fXwXBnmnH1ukuIp5gbEK8TQut3YNe27EZOXM0Nn645g",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -826,7 +826,7 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"
+          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEjLaHWwmRTTofGGYnvpYQwa_nZ7kn0c7ZCBQgDTqEAzxUpQofIOKkGsH4_YVrtlzce1iqp4i7KqMQZatC-17fvneC8jg-i3sMWow--9LrwLIWChXF6YvCxVwL13s34_FFH4MqWxnLBOFokk8fXwXBnmnH1ukuIp5gbEK8TQut3YNe27EZOXM0Nn645g"
         },       
         /*{
           dataType: "images",

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Comme les marchands ont récupéré puis découpé en gestes automatiques les savoirs faire des artisans-paysans au XVIIIème siècle, les marchands d’aujourd’hui récupèrent et découpent les savoir faire des professions du « relationnel ». La santé est une de ces professions là : protocoles, tarification à l’activité sont les moyens d’y parvenir. Voulons-nous vraiment cette « industrialisation » de la Santé ?</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 11</li>
+<li><strong>Dates</strong>: du 14 mars au 19 mars 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/03/info-semaine-11-du-14-au-20-mars-22.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito (ou point fort de la semaine) : </b></p>
+<p>Comme les marchands ont récupéré puis découpé en gestes automatiques les savoirs faire des artisans-paysans au XVIIIème siècle, les marchands d’aujourd’hui récupèrent et découpent les savoir faire des professions du « relationnel ». La santé est une de ces professions là : protocoles, tarification à l’activité sont les moyens d’y parvenir. Voulons-nous vraiment cette « industrialisation » de la Santé ?</p>
+<p align="right"><i>Rosine Leverrier.</i></p>
+</div>
+<div>
+<p>Sommaire :</p>
+<p> </p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+
+<p style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>REMIREMONT</b></span></span></span></p>
+<p align="center"> </p>
+<p align="center"><b><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span lang="fr-FR">L</span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">ettre au Président de la CPTS après le départ du dernier médecin du cabinet médical de St Maurice sur Moselle </span></span></span></b></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/03/La-lettre.pdf"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">La lettre</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>SAINT AFFRIQUE</b></span></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span lang="fr-FR"><b>L</b></span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>e comité défende la proximité qui garantit le droit à la santé</b></span></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/03/Communiqu%C3%A9-14-03-2022.pdf"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Communiqué 14 03 2022</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>MONTCEAU LES MINES</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Contre la fermeture de la cardiologie, la mobilisation est nécessaire !</b></span></span></p>
+<p align="center"> </p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/03/Courrier-_-directeur-_-GHT.pdf"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Courrier _ directeur _ GHT</span></span></span></span></a></u></span></span><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"><br /></span></span></span></span><span style="color: #000080;"><span lang="zxx"><u><a><span style="color: #0066b3;"><span style="font-family: Arial,
+                      sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">MISE À MORT DE NOTRE HÔPITAL </span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>CV70</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Manifestation à Dijon pour soutenir le docteur Ziegler et le service de neurologie de l’hôpital de Lure</b></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://www.youtube.com/watch?v=ajB_tUGfwzM" target="_blank" rel="noopener"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">https://www.youtube.com/watch?v=ajB_tUGfwzM</span></span></span></span></a></u></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Rassemblement le 22 mars devant l’hôpital de Lure à 17h à l’appel :</b></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>du Collectif de patients, des représentants des personnels (CGT), de l’Association Clifransep, du Comité de Vigilance 70 et des élus locaux</b></span></span></p>
+<p align="center"> </p>
+<p align="center"><strong style="font-weight: bold;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/03/Le-communiqu%C3%A9.odt"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Le communiqué</span></span></span></a></strong></p>
+<p align="center"><img id="&lt;part1.KCZJrSAG.LyUBh0Pr@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/03/Image2.png" alt="" align="middle" border="0" /> </p>
+<p align="center"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; break-before: page;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>COLLECTIF SANTE 37</b></span></span></span></p>
+<p align="justify"><br /><br /></p>
+<p align="center"><br /><br /></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Environ 150 <a style="color: #000080; text-decoration: underline;" href="http://xn--salari-gva.es/">salarié.es</a> du secteur médicosocial présents ce 15 mars, jour anniversaire de la convention collective du 15 mars 1966, et journée internationale du travail social. </b></span></span></p>
+<p align="center"><br /><br /></p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b><br /></b></span></span></span><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://collectifsante37.blogspot.com/2022/03/journee-internationale-du-travail-social.html" target="_blank" rel="noopener"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">https://collectifsante37.blogspot.com/2022/03/journee-internationale-du-travail-social.html</span></span></span></span></a></u></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; color: #000000; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"><br /><br /><br /></p>
+<p style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>OLORON STE MARIE</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; color: #000000; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"><br /><br /></p>
+<p align="center"><strong style="font-weight: bold;"><span style="color: #000000;"><span style="font-family: Verdana, sans-serif;"><span style="font-size: small;">24 mars, à l'auditorium de la villa Bedat à 18h00 à Oloron pour faire le point sur la situation de l’hôpital avec la déléguée syndicale</span></span></span></strong></p>
+<p align="center"><br /><br /></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Autres infos locales :</b></span></span></span></p>
+<p align="center"><br /><br /></p>
+<p style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>TONNEINS</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>20 lits fermés à l’hôpital</b></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://actu.fr/nouvelle-aquitaine/tonneins_47310/lot-et-garonne-20-lits-fermes-a-l-hopital-de-tonneins_49312198.html?fbclid=IwAR2YD3ARtGJ3boFLaaS2iGf6Mcz6zcqWn0iBd3_b5RXqxHvqk6m8jfTTrHk" target="_blank" rel="noopener"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">https://actu.fr/nouvelle-aquitaine/tonneins_</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p align="center"> </p>
+<p style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>CERGY PONTOISE</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Pour un centre public de santé </b></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/03/Le-Tract.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">Le Tract</span></span></span></span></a></u></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"> </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b><br /></b></span></span></span></p>
+<p align="justify"> </p>
+<p style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>BAZAS</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; color: #000000; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"><br /><br /></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Contre la fermeture d’une unité, le personnel se mobilise</b></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; color: #000000; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"><br /><br /></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://actu.fr/nouvelle-aquitaine/bazas_33036/a-l-hopital-de-bazas-le-cri-du-coeur-des-soignants-on-veut-garder-des-lits-de-soin-en-ruralite_47844511.html" target="_blank" rel="noopener"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"><span style="background-color: #ffffff;">https://actu.fr/nouvelle-aquitaine/bazas_33036/a-l-hopital-de-bazas-le-cri-du-coeur-des-soignants-on-veut-garder-des-lits-de-soin-en-ruralite_47844511.html</span></span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p align="center"> </p>
+<p style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; break-before: page;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>VOIRON</b></span></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; color: #000000; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"><br /><br /></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Création d’un collectif pour la défense des Urgences, fermées régulièrement depuis le mois de novembre</b></span></span></p>
+<p align="center"><br /><br /></p>
+<p align="center"><a name="sample-permalink"></a><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/tract-collectif-sante/"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">http://coordination-defense-sante.org/tract-collectif-sante/</span></span></span></span></a></u></span></span></p>
+<p style="margin-bottom: 0.28cm; direction: ltr; color: #000000; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"><br /><br /></p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Dossiers :</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>E.médecine : un projet de Gilles Ballebastre</b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://ceuxquitiennentlalaisse.info/%C2%A0%C2%A0%C2%A0" target="_blank" rel="noopener"><span style="color: #0066b3;"><span style="font-weight: normal;">https://ceuxquitiennentlalaisse.info/</span></span></a></u></span></span></p>
+<p align="justify"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>Psychiatrie</b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-style: normal;" align="center"><b>Vers la fin des lits en pedopsychiatrie dans les Vosges ? La réaction du secrétaire départemental santé CGT</b></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://www.vosgesmatin.fr/sante/2022/03/12/denis-gillet-secretaire-departemental-cgt-sante-s-insurge-contre-la-suppression-de-la-pedopsychiatrie" target="_blank" rel="noopener"><span style="font-style: normal;"><span style="font-weight: normal;">http://www.vosgesmatin.fr/sante/2022/03/12/denis-gillet-secretaire-departemental-cgt-sante-s-insurge-contre-la-suppression-de-la-pedopsychiatrie</span></span></a></u></span></span></p>
+<p align="center"><b>Après les Assises de la psychiatrie</b></p>
+<p align="center"><strong style="font-weight: bold;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-admin/post.php?post=31189&amp;action=edit"><span style="font-weight: normal;">CP Printemps de la Psychiatrie 15.03.2022 _ Urgence de repenser l’enfance en souffrance </span></a></strong></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="justify"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>Le point de vue de Jean Claude Chaille</b></span><span style="color: #000000;"><span style="font-size: large;"><span lang="fr-FR"><b>y</b></span></span></span></span></p>
+<p align="center"><br /><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/03/22-03-11-R%C3%A9So-POUR-UN-GRAND-SERVICE-PUBLIC-PERTE-AUTONOM-IE.doc">22 03 11 RéSo POUR UN GRAND SERVICE PUBLIC PERTE AUTONOMIE </a></u></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><span style="text-decoration: none;"><b>Orpea, les liens avec des ARS</b></span></span></span></span></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://www.publicsenat.fr/article/parlementaire/controle-des-ehpad-l-inspection-n-est-pas-une-mission-prioritaire-dans-les-ars" target="_blank" rel="noopener"><span style="color: #0066b3;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: small;"><b>http://www.publicsenat.fr/article/parlementaire/</b></span></span></span></a></u></span></span></p>
+<p> </p>
+<p align="center"><span style="font-size: large;"><b>Normandie, une bonne nouvelle  : la création de formation de dentistes à Caen et Rouen</b></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://france3-regions.francetvinfo.fr/normandie/penurie-de-dentistes-une-formation-voit-le-jour-en-normandie-2497919.html"><span style="font-weight: normal;">https://france3-regions.francetvinfo.fr/normandie/penurie-de-dentistes-une-formation-voit-le-jour-en-normandie-</span></a></u></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><span style="text-decoration: none;"><b>Enquête sur les hôpitaux</b></span></span></span></span></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a class="moz-txt-link-freetext" style="color: #000080; text-decoration: underline;" href="https://www.france.tv/france-3/reseau-d-enquetes/3134011-la-lente-agonie-de-l-hopital-public.html" target="_blank" rel="noopener">https://www.france.tv/france-3/reseau-d-enquetes/3134011-la-lente-agonie-de-l-hopital-public.html</a></u></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a class="moz-txt-link-freetext" style="color: #000080; text-decoration: underline;" href="https://www.francetvinfo.fr/elections/presidentielle/les-focus-franceinfo.html" target="_blank" rel="noopener">https://www.francetvinfo.fr/elections/presidentielle/les-focus-franceinfo.html</a></u></span></span><span style="color: #000080;"><span lang="zxx"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="text-decoration: none;"><span style="font-weight: normal;"><br /></span></span></span></span></span></span></span></p>
+<p align="center"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; break-before: page;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>Pour une journée Mondiale Citoyenne de la Santé </b></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 350px;">
+<img style="max-width: 450px;"src="http://coordination-defense-sante.org/wp-content/uploads/2022/03/Image3.jpeg" />
+<!--center style="color: blue; font-style: italic">Rassemblement le 5 mars pour l'hôpital</center-->
+</div></div>
+<!--p align="center"><span style="color: #000000;"><img id="&lt;part2.PVXlma80.V8uP6XQ1@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/03/Image3.jpeg" alt="Image3" align="bottom" border="0" /></span></p-->
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/03/7-Avril-2022-appel.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">7 Avril 2022 appel</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p align="center" style="font-family: Arial, sans-serif; font-size: large;"><b>Vers une levée des brevets  ?</b></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://reporterre.net/Covid-19-vers-une-levee-des-brevets-sur-les-vaccins?"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>http://reporterre.net/Covid-19-vers-une-levee-des-brevets-sur-les-vaccins?</b></span></span></span></a></u></span></span></p>
+<p align="center"> </p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+<p align="center"><span style="color: #729fcf;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Culture et santé :</b></span></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Jeanne Chéral et Bernard Lavilliers</span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://www.youtube.com/watch?v=joCO3v60TdI"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;">https://www.youtube.com/watch?v=joCO3v60TdI</span></span></span></span></a></u></span></span></p>
+<p style="background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"> </p>
+
+<hr>
+<p  align="center"><b>Ce message n'est pas un spam, mais une information militante<br />Pour vous désabonner, envoyer un mail à </b></p>
+<p  align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><b><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></b></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

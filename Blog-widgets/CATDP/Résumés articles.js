@@ -174,7 +174,7 @@ blockquote {
   margin-top: 10px;
 }
 </style>
-<script type='text/javascript'>
+<!--script type='text/javascript'>
 //$(document).ready(function() {
   breakCode: {
     var href = "https://catdp37.blogspot.com/";
@@ -200,7 +200,7 @@ blockquote {
     };
   }
 //});
-</script>
+</script-->
 
 <script type='text/javascript'>
 $(document).ready(function() {
@@ -684,7 +684,7 @@ $(document).ready(function() {
 <a class="fancybox fancybox.iframe" data-fancybox="videos" href="https://1.bp.blogspot.com/-N9IXDRQEJbU/Xl_5O67lFHI/AAAAAAAAlJ4/Q1ExMMsgCigMr1UhnDzvqRj98GBvjtRdwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.13.19.jpg">Video #2</a>
 </div>
 </div-->
-<div class="articleFancy" id="hidden-content-1">
+<!--div class="articleFancy" id="hidden-content-1">
 <div class="corpsFancy">
 <a href="https://drive.google.com/open?id=1EFLyVsvQuawzRxT6WNVTC0BWYhI1KdWa"><img src="https://1.bp.blogspot.com/-duAUPmBAR7I/Xl_5Os2_gmI/AAAAAAAAlJw/A8Zn7egll_YoWd8J0pApmEJxo47ZVC0WQCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.12.26.jpg" /></a>
 </div>
@@ -701,8 +701,7 @@ $(document).ready(function() {
 <a href="https://drive.google.com/open?id=1EFLyVsvQuawzRxT6WNVTC0BWYhI1KdWa"><img src="https://1.bp.blogspot.com/-N9IXDRQEJbU/Xl_5O67lFHI/AAAAAAAAlJ4/Q1ExMMsgCigMr1UhnDzvqRj98GBvjtRdwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-03-04%2Ba%25CC%2580%2B19.13.19.jpg" /></a>
 </div>
 </div>
-<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a>
-<!--a style="display:none" class="trgImgUL" href="https://1.bp.blogspot.com/-m66JTk-a1oY/Xd9_VShqHFI/AAAAAAAAki8/YgooSCCzwAEPv236ldJ8Qj-4ES3HezXBwCK4BGAYYCw/s1600/Appel-5-Dec.jpeg" data-fancybox="images" data-width="679" data-height="960">TEST Fancy</a-->
+<a style="display:none" class="trgImgUL" data-src="#hidden-content-3" data-fancybox="images" data-width="1132" data-height="1600">TEST Fancy</a-->
 <style>
 .articleFancy {
     padding: 0 0 0 0;
@@ -814,7 +813,7 @@ $('.fancybox')
 <style>
 .img-foreground {
   position: absolute;
-  top: 10px;
+  top: 100px;
   //left: 10%;
   left: 0;
   width: 20%;
@@ -824,10 +823,10 @@ $('.fancybox')
   cursor:pointer;
 }
 .img-foreground {
-  //background-color: red;
+  background-color: white;
   animation-name: stretch;
   animation-duration: 2.5s; 
-  animation-timing-function: ease-out; 
+  //animation-timing-function: ease-out; 
   animation-delay: 0;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -837,28 +836,18 @@ $('.fancybox')
 
 @keyframes stretch {
   0% {
-    transform: scale(0.001);
+    transform: scale(.0);
     //background-color: red;
     border-radius: 100%;
   }
-  30% {
-    transform: scale(0.001);
-    //background-color: red;
-    border-radius: 100%;
-  }
-  40% {
-    transform: scale(.1);
-    //background-color: red;
-    border-radius: 100%;
-  }
-  50% {
-    transform: scale(1.);
+  10% {
+    transform: scale(.2);
     border-radius: 0%;
     //background-color: orange;
   }
   100% {
-    transform: scale(1.8);
-    //transform: scale(0.4);
+    transform: scale(1.);
+    //transform: scale(0.8);
     //background-color: yellow;
   }
 }
@@ -873,13 +862,60 @@ $('.fancybox')
 </style>
 <script>
 if ( window.location.pathname == '/' ){
-  //$('.page_body').append('<a href="https://www.catdp.org/#images"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-jnlDxVAOwXo/Xk12fLXywfI/AAAAAAAAlCU/Choyu5i3ClQd2uWOKapU5l6fl_eFQHiFACLcBGAsYHQ/s1600/Poster%2Bmontage%2Bphoto%2Bet%2Bdesign%2Bgraphique%2Bbleu.jpg" /></a>');
-  //$('.page_body').append('<a href="https://www.catdp.org/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Ru3APT121xw/XlPcPftIJaI/AAAAAAAAlFA/hOSll_WRZ2IvUyUr01YmBJY4asA3nHjVACLcBGAsYHQ/s1600/86831332_858753717897452_6176428490821206016_o.jpg" /></a>');
-  //$('.page_body').append('<a href="https://www.catdp.org/#videos-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
-  //$('.page_body').append('<a href="https://drive.google.com/file/d/1T-GQdnkDMyR8TP_tlcVMXIXMyPhdfaJ2/view?usp=sharing"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-9pS5hl9D1ZA/XkW6Bq58M-I/AAAAAAAAk90/_aNKxSxRmS0qovhlRKrK2_XPFIVHzg_xQCLcBGAsYHQ/s1600/86185907_852785498494274_5150774147164405760_o.png" /></a>');
-  //$('.page_body').append('<a href="https://www.catdp.org/#images-1"><img class="img-foreground" border="0" data-original-height="1600" data-original-width="982" src="https://1.bp.blogspot.com/-Q_tTp_aWd_U/Xh9WRNE9R8I/AAAAAAAAk2M/AXsk07zTCzQzxfq4Z-3p06D4zvTm4fKuwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-01-15%2Ba%25CC%2580%2B19.12.51.png" /></a>');
-  //$('<a href="https://www.catdp.org/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-Rc36Qzwv2uE/XgXUU0NYSDI/AAAAAAAAks4/JTCVmV2D6b4DOA1Ywy2iQJjMC7YqHNMUwCPcBGAYYCw/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-12-25%2Ba%25CC%2580%2B18.18.48.png" /></a>').insertAfter('.bg-photo-container');
-  $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>")
-  //$('.page_body').append('<a href="https://www.catdp.org/#images-1"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://1.bp.blogspot.com/-ybm84zYJTtU/Xl_6XmUMyLI/AAAAAAAAlKI/Vf-1WkcOsIQqgjYNggFvl9c5mLp0dJ3-QCLcBGAsYHQ/s1600/Flash%2Bpremier%2Btour%2Bmunicipales.png" /></a>');
+  $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");
+  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
 }
 </script>
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<script>
+$(document).ready(function() {
+  $('#ACCEUIL-AlaUne').AlaUne({
+      src: "https://blogger.googleusercontent.com/img/a/AVvXsEjdktRYT45D-6D5AuzBXX_o7zvXOB5XYUrU9uJSXPkdhCBjZ6Iowg5wVs41Tuc9KfGdoq9vqjgBlup2pLUgSU7mts-i8CTxDz3A9FuRim-rutg4KaWrW8fe5vdamX6KgFcB9a4u4zkn0BN-0NwfZCQE_4lKPf9qetiUK7B5pTTw_qVBreVInoSwuDpLbQ",
+      fancyClass: {
+        baseClass: 'demain20200923AlaUneBaseClass',
+      },
+      href: [
+        /*{
+          dataType: "inline",
+          dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
+<ul> \
+<li>pour des moyens en effectifs et des financements à la hauteur des besoins de la population,</li> \
+<li>pour les 183€ pour toutes et tous et la revalorisation des grilles salariales pour toutes et tous sans barrage,</li> \
+<li>pour le maintien et l&#39;amélioration des conventions collectives,</li> \
+<li>non a la marchandisation de la santé, du social et du médicosocial</li> \
+</ul> \
+<p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>mardi 15 juin à 14h30<br />Devant l’ARS</b>.</p> \
+<p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
+<p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
+</div>'
+        },
+        {
+          dataType: "iframe",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Animations-Une/arbre-de-noel-tournant.html"
+        },*/
+        {
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEjdktRYT45D-6D5AuzBXX_o7zvXOB5XYUrU9uJSXPkdhCBjZ6Iowg5wVs41Tuc9KfGdoq9vqjgBlup2pLUgSU7mts-i8CTxDz3A9FuRim-rutg4KaWrW8fe5vdamX6KgFcB9a4u4zkn0BN-0NwfZCQE_4lKPf9qetiUK7B5pTTw_qVBreVInoSwuDpLbQ"
+        },       
+        /*{
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEgwJe3hWfjPRvDhVgJoi42H8dZvU8SVfuKYlD2UJxTBhPzp_yRuoSRrPcs53q_lbVqIDPiDiqWjZPFjTqu9oiJYepThpEf21Hw8vTpWGlpZZWuI8acFq7TzVyMMmqcjFI6ES0tOrKd-nubNG5JooTCbYLswMKZ2vKF7h6MDYXRoBVQSvCmUJfpvbd3C"
+        },       
+        {
+          dataType: "video",
+          dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+        },*/
+    ]
+  });
+});
+</script>
+<style>
+.demain20200923AlaUneBaseClass  .fancybox-slide.fancybox-slide--iframe .fancybox-content {
+    max-width: calc(100% - 80px);
+    max-height: 180px;
+    overflow: visible;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+</style>

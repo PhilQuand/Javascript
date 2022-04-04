@@ -756,11 +756,11 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   0% {
     transform: scale(.0);
     //background-color: red;
-    border-radius: 100%;
+    border-radius: 0%;
   }
   10% {
     transform: scale(.2);
-    border-radius: 0%;
+    border-radius: 100%;
     //background-color: orange;
   }
   100% {
@@ -794,14 +794,14 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
 
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/a/AVvXsEjLaHWwmRTTofGGYnvpYQwa_nZ7kn0c7ZCBQgDTqEAzxUpQofIOKkGsH4_YVrtlzce1iqp4i7KqMQZatC-17fvneC8jg-i3sMWow--9LrwLIWChXF6YvCxVwL13s34_FFH4MqWxnLBOFokk8fXwXBnmnH1ukuIp5gbEK8TQut3YNe27EZOXM0Nn645g",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2K_R3ssL9f4cURNUVv89_5gO6iTZC6Xr-emYovY7zRSh269BrKD7hd6MvvxGmYbiOU5GR8XD_uziOmGxcPFitNVx_KpUZpegx3bb8Kob1_h89k0G8bLUTRd9a9ilcX3SWfy5-KURJPRl-EwCG-GqaCD2ct2TCSGS-1i4mVJl0z_xUoekyxL_tyQF/s1600/tract%20unitaire%20sant%3F%207%20avril%202022%20%283%29.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -826,13 +826,13 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEjLaHWwmRTTofGGYnvpYQwa_nZ7kn0c7ZCBQgDTqEAzxUpQofIOKkGsH4_YVrtlzce1iqp4i7KqMQZatC-17fvneC8jg-i3sMWow--9LrwLIWChXF6YvCxVwL13s34_FFH4MqWxnLBOFokk8fXwXBnmnH1ukuIp5gbEK8TQut3YNe27EZOXM0Nn645g"
-        },       
-        /*{
-          dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEgwJe3hWfjPRvDhVgJoi42H8dZvU8SVfuKYlD2UJxTBhPzp_yRuoSRrPcs53q_lbVqIDPiDiqWjZPFjTqu9oiJYepThpEf21Hw8vTpWGlpZZWuI8acFq7TzVyMMmqcjFI6ES0tOrKd-nubNG5JooTCbYLswMKZ2vKF7h6MDYXRoBVQSvCmUJfpvbd3C"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2K_R3ssL9f4cURNUVv89_5gO6iTZC6Xr-emYovY7zRSh269BrKD7hd6MvvxGmYbiOU5GR8XD_uziOmGxcPFitNVx_KpUZpegx3bb8Kob1_h89k0G8bLUTRd9a9ilcX3SWfy5-KURJPRl-EwCG-GqaCD2ct2TCSGS-1i4mVJl0z_xUoekyxL_tyQF/s1600/tract%20unitaire%20sant%3F%207%20avril%202022%20%283%29.jpg"
         },       
         {
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihcTqI0c8IAWwvQ5VsMkq63VuBR3z95tnzz6D5xPThBrSCN_3BOcIs4q7ceWG8v1g_fbB722iQNOzJ6pBfAWV4S2p2zVeLyvIrWnRyo5jqFqFXJAJXUz6bES08xImTta1_p7dmnseziCVnlSjkupSpnhmcwoOamvUpl4r8CFPlW8nbx74FDR50Js23/s1600/tract%20unitaire%208%20avril%202021%20Version%20finale.jpg"
+        },       
+        /*{
           dataType: "video",
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },*/

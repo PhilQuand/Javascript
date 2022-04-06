@@ -575,7 +575,9 @@ h1 {
   margin-bottom: 0.5em;
 }
 .author {
-  font-weight: bold;
+  //font-weight: bold;
+  font-style: italic;
+ text-align: right;
 }
 .corps {
   text-align: justify;

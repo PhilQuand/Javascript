@@ -803,7 +803,7 @@ if ( window.location.pathname == '/' ){
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2K_R3ssL9f4cURNUVv89_5gO6iTZC6Xr-emYovY7zRSh269BrKD7hd6MvvxGmYbiOU5GR8XD_uziOmGxcPFitNVx_KpUZpegx3bb8Kob1_h89k0G8bLUTRd9a9ilcX3SWfy5-KURJPRl-EwCG-GqaCD2ct2TCSGS-1i4mVJl0z_xUoekyxL_tyQF/s1600/tract%20unitaire%20sant%3F%207%20avril%202022%20%283%29.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfIjyBfEylojbhlS8QnKDEWKC5e9FwUCgWFjZR-Vii_YKog2wRXT6MZAIP0BcF9hAcvZiKDDYY1GZirK3iON2G-N-I4MuScoTs4Mbg-bx4YWUbfYybyOZA_6uaBo2tggB_xCoJPBIe8FMOoAfWrSvl4_ZDajuZNb-w5IWtbupGlGMFqPop9q5XJVNS/s1600/2022.03.23%20%20tract%20gre%CC%80ve%208%20avril.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -828,13 +828,13 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2K_R3ssL9f4cURNUVv89_5gO6iTZC6Xr-emYovY7zRSh269BrKD7hd6MvvxGmYbiOU5GR8XD_uziOmGxcPFitNVx_KpUZpegx3bb8Kob1_h89k0G8bLUTRd9a9ilcX3SWfy5-KURJPRl-EwCG-GqaCD2ct2TCSGS-1i4mVJl0z_xUoekyxL_tyQF/s1600/tract%20unitaire%20sant%3F%207%20avril%202022%20%283%29.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAEJbNd-btFI5xAcYkZRnweM5GogJF7Pz8ovD-BSRb4QLCC2b_Cc-WIYx4lHyWedNPZxYdltF30gMh-CSmhouZ0_b8743dOZ83F4W9GwJ1QYfaBw17lwDS23XXh9WakGx3rKtwb6QfuaJWO-yApLe2fa5qGTCvNX01EHm_9tmAWBWUbJVtPTuaJrfS/s1600/affiche%20festiluttes.jpg"
         },       
-        {
+        /*{
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihcTqI0c8IAWwvQ5VsMkq63VuBR3z95tnzz6D5xPThBrSCN_3BOcIs4q7ceWG8v1g_fbB722iQNOzJ6pBfAWV4S2p2zVeLyvIrWnRyo5jqFqFXJAJXUz6bES08xImTta1_p7dmnseziCVnlSjkupSpnhmcwoOamvUpl4r8CFPlW8nbx74FDR50Js23/s1600/tract%20unitaire%208%20avril%202021%20Version%20finale.jpg"
         },       
-        /*{
+        {
           dataType: "video",
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },*/

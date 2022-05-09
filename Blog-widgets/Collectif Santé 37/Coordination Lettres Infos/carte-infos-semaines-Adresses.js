@@ -69,6 +69,8 @@ var inpAddress = [
   lat: 47.38846, lng:  0.68957},
 { inpText: "COLLECTIF 37",
   lat: 47.38846, lng:  0.68957},
+{ inpText: "COLLECTIF SANTE 37",
+  lat: 47.38846, lng:  0.68957},
 { inpText: "COLLECTIF NOTRE SANTÉ EN DANGER",
   lat: 47.38846, lng:  0.68957},
 { inpText: "TOULOUSE",

@@ -80,7 +80,7 @@
           svgInfos: ['Semaines 52', 'du 27 dec.', 'au 02 jan.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 52.html',
         },
-            {
+            /*{
         imgID: 'svgBlue',
         svgInfos: ["4e trimestre", '2021'],
           svgInfosCarte: ['Semaines 51', 'du 20 dec.', 'au 26 dec.', '2021'],
@@ -632,7 +632,7 @@
        {
         svgInfosCarte: ['Semaine 23', 'du 03 juin', 'au 07 juin', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 23 bis.html'
-      },
+      },*/
       {
         imgID: 'svgGreen',
         svgInfos: ['Autres'],

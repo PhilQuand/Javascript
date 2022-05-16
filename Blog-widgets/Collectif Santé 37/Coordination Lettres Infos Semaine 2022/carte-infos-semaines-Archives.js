@@ -306,7 +306,7 @@
           {
           svgInfosCarte: ['Semaine 01', 'du 28 déc.', 'au 01 jan.', '2021'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2021/Semaine 01.html',
-        },
+        },*/
            {
         imgID: 'svgBlue',
         svgInfos: ["Année", '2020'],
@@ -509,7 +509,7 @@
          {
           svgInfosCarte: ['Semaine 01', 'du 30 dec.', 'au 03 jan.', '2020'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2020/Semaine 01.html',
-        },*/
+        },
          {
         imgID: 'svgBlue',
         svgInfos: ["Année", '2019'],

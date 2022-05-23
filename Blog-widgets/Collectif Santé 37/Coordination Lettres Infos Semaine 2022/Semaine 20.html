@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Un nouveau gouvernement et une nouvelle Ministre de la Santé alors que la situation dans les hôpitaux flambent !</p>
+<p>Trois ans que la Coordination se mobilise avec des organisations syndicales de personnels hospitaliers et des collectifs, que tous ensemble, nous alertons sur la situation de l’hôpital public, en particulier lors de la manifestation du 14 novembre 2019. La Covid est passée par là ! Les promesses aussi ! Et l’horizon apparaît plus sombre que jamais.</p>
+<p>Trois ans (au moins !) de retard pour former des personnels et donner envie de travailler dans le soin ou le social !</p>
+<p>Une nouvelle journée de mobilisation collective se prépare pour le 7 juin tandis que les initiatives locales se multiplient contre la remise en cause de la nécessaire proximité et même pendant le week-end de la Pentecôte s’annonce une mobilisation à Lodève le samedi, à Marmande le lundi !</p>
+<p>Une nouvelle Ministre de la Santé et de la prévention, mais notons la scission avec la solidarité et l’autonomie qui dénote une conception de la santé bien loin de celle de l’OMS qui la définit comme un état de complet bien-être physique, mental et social. C’est la rupture consommée entre l’assurance maladie et la nouvelle cinquième branche. Mais au fait, qui va s’occuper de la Sécurité Sociale ? Sans moyens financiers nouveaux pour redonner espoir, l’agonie de l’hôpital public va continuer.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 20</li>
+<li><strong>Dates</strong>: du 17 mai au 23 mai 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://drive.google.com/file/d/1bwAivfDi8AaJf0kTFQSRP45YAjydsFyD/view?usp=sharing">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito (ou point fort de la semaine) : </b></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<p>Un nouveau gouvernement et une nouvelle Ministre de la Santé alors que la situation dans les hôpitaux flambent !</p>
+<p>Trois ans que la Coordination se mobilise avec des organisations syndicales de personnels hospitaliers et des collectifs, que tous ensemble, nous alertons sur la situation de l’hôpital public, en particulier lors de la manifestation du 14 novembre 2019. La Covid est passée par là ! Les promesses aussi ! Et l’horizon apparaît plus sombre que jamais.</p>
+<p>Trois ans (au moins !) de retard pour former des personnels et donner envie de travailler dans le soin ou le social !</p>
+<p>Une nouvelle journée de mobilisation collective se prépare pour le 7 juin tandis que les initiatives locales se multiplient contre la remise en cause de la nécessaire proximité et même pendant le week-end de la Pentecôte s’annonce une mobilisation à Lodève le samedi, à Marmande le lundi !</p>
+<p>Une nouvelle Ministre de la Santé et de la prévention, mais notons la scission avec la solidarité et l’autonomie qui dénote une conception de la santé bien loin de celle de l’OMS qui la définit comme un état de complet bien-être physique, mental et social. C’est la rupture consommée entre l’assurance maladie et la nouvelle cinquième branche. Mais au fait, qui va s’occuper de la Sécurité Sociale ? Sans moyens financiers nouveaux pour redonner espoir, l’agonie de l’hôpital public va continuer.</p>
+
+<p align="right"><i>Michèle Leflon.</i></p>
+</div>
+<div>
+<p>Sommaire :</p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>CASTELSARRAZIN/MOISSAC - 82</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: medium;"><b>Réunion publique avec les candidats à l’élection législative</b></span></span></span></p>
+<p align="justify"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: medium;">Le comité invite les candidats aux législatives de la circonscription à l'espace Descazeaux de Castelsarrasin le 28/05/2022 à 18H00 pour que la population puisse leur demander quelles orientations en matière de santé publique ceux ci sont prêt à défendre.</span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #e37b22;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>MARMANDE - 47</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: medium;"><b>Le Comité organise une initiative de rassemblement convivial le 6 juin</b></span></span></span></p>
+<p align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Elle aura lieu</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"> à partir de 11 h parc la Filhole côté Garonne sous forme d’auberge espagnole </span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">p</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">our marquer </span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">l</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">es avancées et mettre en avant tous les besoins humains et financiers du territoire sur l’aire du grand </span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">M</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">armandais jusqu’à la R</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">é</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">ole en matière de santé et un véritable changement pour retrouver dans les conditions un système de santé de soins parmi les plus efficace du monde</span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>OLORON SAINTE-MARIE - 64</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: medium;"><b>Rassemblement le 20 mai</b></span></span></span></p>
+<p align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Après le temps fort du 10 mai, </span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">le semi-marathon du 15 mai a été l’occasion de manifest</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">er</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"> pour l’hôpital avec des participants en blanc. </span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">L</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">a mobilisation continue tous les vendredis à midi : une bonne vingtaine de personnes présentes en soutien aux personnels ce vendredi 20 mai.</span></span></span></p>
+<p align="center"><img id="&lt;part1.I9NoLQSO.W80ifs3o@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhErf7iFYIyzhQ4tq-aKDAyzm7jAL0sqJ_EuIsXkwTXpI1F1qaCKMTbtVbZz7QHVNWh31rapy2Mf31LnhEFZJ-hxvQ_RxdX8gQhjQD9jImUArxNoB_y-8eC1JvpGb3yb-aSITf1A_Qf3-ZqFcAdisq3gB51beKXjQqRU4qtdYn95UJhSPqz4IUpr_6O/s1600/Image3.jpeg" alt="" /></p>
+<p align="center"> </p>
+<p align="center"><img id="&lt;part2.ui9AfIXL.UktSlnI4@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMej0yXPldQ13j4oNseKhqxG0YunvwsRIdVfUJkNsoyf-zr-9XQ6k0e6OAgASSqXxCcDOU5GPd5vKyeCYgVjA7e14ypBMx3wdD2fHp-IUcC0-aIGYVl0jiY6VWrRhPcJvzF5jinGQFqqxxvUOjSDRGvrdoMsZ5BaEw-JAuSowa5WbegNJHytJci7Om/s1600/Image4.jpeg" alt="" /></p>
+<p align="center">  </p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #e37b22; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>CHATELLERAULT - 86</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Pique nique revendicatif le14 juin</b></span></span></span></p>
+<p style="font-weight: bold;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">La cardiologie de Châtellerault n'est toujours pas réouverte...et la situation sur l'ensemble de l'hôpital n'est guère mieux, de Loudun à Montmorillon, les lits ne cessent de fermer, les personnels médicaux et paramédicaux fuient… </span></span></span><span style="font-family: Arial, sans-serif;">L'inquiétude est grande pour l'ensemble de la population. Quelle offre de soins pour demain ? quelles répercussions économiques ?</span></p>
+<p style="font-weight: bold;" align="justify"><span style="font-family: Arial, sans-serif;">A l'initiative de la CGT, appel à un rassemblement sur l'hôpital de Châtellerault le 14 juin entre 11h30 et 14h30.</span></p>
+<p style="font-weight: bold;" align="center"><a style="color: #000080;" href="https://drive.google.com/file/d/14RhvQiUFi7JyxjXboDXE3uPuFfFkwcu4/view?usp=sharing"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">L</span></span></span></a><a style="color: #000080;" href="https://drive.google.com/file/d/14RhvQiUFi7JyxjXboDXE3uPuFfFkwcu4/view?usp=sharing"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">e tract</span></span></span></a></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>LANNION/TRESTEL - 22</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Le comité interroge les candidats à l’élection législative</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://drive.google.com/file/d/141preqAIgCw1cL8AnPLSTRF9MYe-1cOr/view?usp=sharing">Le courrier aux candidats</a></span></span></span></p>
+<p style="font-weight: bold;" align="center"><a style="color: #000080;" href="https://drive.google.com/file/d/1JHVJ4-0ct05QUOD3qpCvycor4tHbWjXN/view?usp=sharing"><span style="font-family: Arial, sans-serif;">Le questionnaire</span></a></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #e37b22; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>REMIREMONT - 88</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Q</b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>uelle politique de santé ?</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">ADEMAT H invite les candidats aux élections législatives à un débat public </span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">le vendredi 27 mai</span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://drive.google.com/file/d/14df6yHViTa_pvbsOrSsIAKJGEDD0A5zS/view?usp=sharing">L’</a><a style="color: #000080;" href="https://drive.google.com/file/d/14df6yHViTa_pvbsOrSsIAKJGEDD0A5zS/view?usp=sharing">invitation</a></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Dysfonctionnement des u</b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>rgences </b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">Fermeture des urgences du 17 au18 mai</span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.vosgesmatin.fr/culture-loisirs/2022/05/17/les-urgences-de-l-hopital-de-remiremont-fermees-en-raison-de-problemes-d-effectif">L’article de Vosges matin du 17 mai</a></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">Fermeture des urgences pédiatriques le week end</span></span></span></p>
+<p style="font-weight: bold;" align="center"><a style="color: #000080;" href="https://www.vosgesfm.fr/news/remiremont-les-urgences-changent-leur-organisation-541"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">L’article de Vosges FM du 19 mai</span></span></span></a></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Autres infos locales :</b></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>MANOSQUE - 04</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Les urgences fermées cinq nuits supplémentaires d’ici mai</b></span></span></span></p>
+<p style="font-weight: bold;" align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.bfmtv.com/bfm-dici/manosque-les-urgences-de-l-hopital-fermees-cinq-nuits-supplementaires-d-ici-la-fin-mai_AN-202205170391.html?fbclid=IwAR1LNbjTvLOBVSUuplD6ZdQ1M_MYKMHgMe7q6OdkOxxbrGsKA49vrGWczAc">L’</a><a style="color: #000080;" href="https://www.bfmtv.com/bfm-dici/manosque-les-urgences-de-l-hopital-fermees-cinq-nuits-supplementaires-d-ici-la-fin-mai_AN-202205170391.html?fbclid=IwAR1LNbjTvLOBVSUuplD6ZdQ1M_MYKMHgMe7q6OdkOxxbrGsKA49vrGWczAc">article de BFM du 17/05</a></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #e37b22; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>BORDEAUX - 33</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Les urgences du CHU de Bordeaux accessibles uniquement via le SAMU</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.francebleu.fr/infos/sante-sciences/crise-de-l-hopital-les-urgences-du-chu-de-bordeaux-accessibles-uniquement-le-samu-1652724688?xtmc=CHU%20Pellegrin&amp;xtnp=1&amp;xtcr=2">L’article de France bleu du 16 mai</a></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>ORTHEZ - 64</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>300 personnes dans la rue pour défendre les urgences et l’hôpital le 21 mai</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.francebleu.fr/infos/sante-sciences/un-rassemblement-de-xxxx-personnes-a-orthez-pour-soutenir-l-hopital-1653119123">L’article de France bleu</a></span></span></span></p>
+<p align="justify"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">Le comité d’Oloron Sainte-Marie était venu les soutenir et des manifestants se sont ensuite organisés en "convoi citoyen" pour poursuivre la mobilisation à travers le Béarn.</span></span></span></p>
+<p align="center"><img id="&lt;part3.UgoetW0C.tPamBHro@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt0remgTgeIvyzDa-OQVlPuwAIL3DfXnMzcQ9UyMa-KrRM00KsCEISr-FVUrCrIfSsKYpwxe0h3B6CBO34mOihrGIFyDnueB_pZ1Op2Zz-CFEizX0E9FwHbLx6v-8Zu2Btssn6wZ0dowf32A4RZB-0Ja8cwgnZIXqVMmJoseh3ET0z33GFxDSaFzQb/s1600/oloron%252020220520.jpg" alt="" align="middle" /> <br clear="left" /><br /></p>
+<p align="center"><img id="&lt;part4.y2wKRPdN.QioIxgqu@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihKlfGGQq4K7XZEXJbqK7jQc1hH2hUJiweYkCC7vGk0nCFLYLt1D9X0UKAqD3JuwhanLa2PrHUdBwm3fyDqmB4WHqT3ADzOqFTyXgiq6jJLgYLdjxQkpyaYDbkCKUoYBJ9uZ2QzONL2aToswaWs1qrEaMr4TyC-6ZePt_XIbRg66O2OeSrkWsbDSp_/s1600/oloronmarcheblanche.jpg" alt="" align="middle" /> </p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #e37b22; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>PARIS - 75</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Rassemblement devant l’hôpital Tenon le 25 mai</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://drive.google.com/file/d/1vZLF--iWGqb7w1fsqwzmBtTq3lePUmON/view?usp=sharing">Le tract</a></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://docs.google.com/document/d/14VqMQUdwig4p18DyB52qzrCIcHlVnjVZ/edit?usp=sharing&amp;ouid=100459433315906420110&amp;rtpof=true&amp;sd=true">Le communiqué de presse</a></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>M</b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>ONTMORILLON - 86</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>500 personnes ont manifesté le jeudi 12 mai contre la fermeture périodique des urgences</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.lanouvellerepublique.fr/montmorillon/urgences-fermees-500-soignants-et-habitants-unis-pour-l-hopital-de-montmorillon">L’article de la Nouvelle République du 12/05</a></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #e37b22; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>CHINON - 37</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Le SMUR de l’hôpital fermé jusqu’à la fin du mois</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.lanouvellerepublique.fr/chinon/chinon-en-manque-de-personnel-le-smur-de-l-hopital-ferme-jusqu-a-la-fin-du-mois?utm_medium=Social&amp;utm_source=Facebook&amp;Echobox=1652727131&amp;fbclid=IwAR3-mgzZbQ46fvFEGD9j5JquYQMA2NsgAZyPiflLU7KZUpjiSBugVOA05rU">L’article de la Nouvelle République du 16/05</a></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>LES LILAS</b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b> - </b></span></span></span><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>93</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Tous ensemble pour la maternité des Lilas</b></span></span></span></p>
+<p align="justify"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">Deux rendez-vous : </span></span></span></p>
+<p align="justify"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">- le samedi 28 mai après-midi, moment convivial et festif aux Lilas (parc Lucie Aubrac, à partir de 15 h),</span></span></span></p>
+<p align="justify"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">- nouveau rassemblement au Ministère de la santé, le 2 juin à 17 h.</span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://drive.google.com/file/d/1kNAa5voV6dzJ9fX6K6zCGGGxUBtt5vUi/view?usp=sharing">Le flyer</a></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #e37b22; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>LODEVE - 34</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Pour la </b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>reconnaissance du service des urgences </b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b>une initiative le 4 juin</b></span></span></span></p>
+<p align="justify"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">L'association "Pour de véritables urgences au CH de Lodève", après une première action qui a rassemblé plus de 350 personnes le 19 février 2022, organise un temps fort de mobilisation le samedi 4 juin avec à 14h00, deux tables rondes devant la Sous-Préfecture de Lodève, la première sur le système national de santé et son financement et la seconde sur le dossier local du Centre d'accueil et de permanences des soins de Lodève.</span></span></span></p>
+<p style="font-weight: bold;" align="justify"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">L</span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;">a journée se clôturera par une manifestation qui se terminera symboliquement devant le CH de Lodève. </span></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Dossiers :</b></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>HÔPITAUX</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Il va y avoir des morts cet été </b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.franceinter.fr/societe/il-va-y-avoir-des-morts-alerte-dans-les-hopitaux-publics-pour-cet-ete?fbclid=IwAR06Ahj_o3kPOtHWgVguP_qOW3miHvrAyBG6gQF_PBTnfXdHH4CjZ6KP4GA">France Inter le16 mai</a></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">Fermeture des services d’urgences : interview de François Braun, président de SAMU urgences de France</span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://france3-regions.francetvinfo.fr/grand-est/vosges/hopital-multiplication-des-fermetures-ponctuelles-des-services-d-urgence-en-france-on-parle-de-112-services-concernes-2544952.html">Sur France 3</a> le 18/05/22</span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://mailchi.mp/a7aa52c95b8b/silence-on-ferme-lhpital-public?e=3edc0c86ea">Le communiqué du SNPHARE du 18 mai</a></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;">Entretien avec Patrick Pelloux</span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.ouest-france.fr/sante/hopital/entretien-fermetures-de-services-d-urgences-a-l-hopital-le-cri-d-alarme-de-patrick-pelloux-46920464-d69f-11ec-9b2d-786031940fdf?fbclid=IwAR2AFIlLTjILGmg1T-ENWRkPlFYlCz_epx6YsiBzlNy7a8jpWZ1uA7LaVrg">L’article d’Ouest-France du 18/05</a></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #e37b22; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>MÉDECINE DU TRAVAIL </b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Confusion des rôles</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://drive.google.com/drive/folders/1-bKK29trzKYGUb-BGkriiX-V6sByKPot?usp=sharing">Communiqué commun SMG/Solidaires</a></span></span></span></p>
+<p style="margin-bottom: 0cm; line-height: 12px; background-color: #729fcf; font-family: Helvetica; font-size: 12px; font-weight: bold;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 14pt;"><b>TÉLÉMÉDECINE</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><b>Les cabines de téléconsultation frustrent patients et médecins</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            sans-serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://www.marianne.net/societe/sante/faux-remede-aux-deserts-medicaux-les-cabines-de-teleconsultation-frustrent-patients-et-medecins?fbclid=IwAR1a5xrL4KepzHJCBF7125ROon5NZsN3tgZn_ckdTaKbgpS3PTviIh0JwgM">L’article de Marianne du 1</a><a style="color: #000080;" href="https://www.marianne.net/societe/sante/faux-remede-aux-deserts-medicaux-les-cabines-de-teleconsultation-frustrent-patients-et-medecins?fbclid=IwAR1a5xrL4KepzHJCBF7125ROon5NZsN3tgZn_ckdTaKbgpS3PTviIh0JwgM"><sup>er</sup></a><a style="color: #000080;" href="https://www.marianne.net/societe/sante/faux-remede-aux-deserts-medicaux-les-cabines-de-teleconsultation-frustrent-patients-et-medecins?fbclid=IwAR1a5xrL4KepzHJCBF7125ROon5NZsN3tgZn_ckdTaKbgpS3PTviIh0JwgM"> mai</a></span></span></span></p>
+<p style="font-weight: bold;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,            serif;"><span style="font-size: 12pt;"><a style="color: #000080;" href="https://youtu.be/pfTyVVE9oFA">Saint-Alban et la naissance de la psychothérapie institutionnelle</a></span></span></span></p>
+
+<hr>
+<p  align="center"><b>Ce message n'est pas un spam, mais une information militante<br />Pour vous désabonner, envoyer un mail à </b></p>
+<p  align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><b><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></b></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p style="text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

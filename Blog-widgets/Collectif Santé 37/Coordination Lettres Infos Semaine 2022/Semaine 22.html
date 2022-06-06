@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 21</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p><strong>Candidats aux législatives, politiques, vous ne pouvez pas dire que vous ne savez pas ! L’hôpital public, notre droit à la santé, sont remis en cause. Partout professionnels et population se mobilisent !</strong></p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 22</li>
+<li><strong>Dates</strong>: du 30 mai au 05 juin 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/info-semaine-22-du-30-mai-au-5-juin-22.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito (ou point fort de la semaine) : </b></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+
+<p><strong>Édito : 7 juin : candidats aux législatives, politiques, vous ne pouvez pas dire que vous ne savez pas ! L’hôpital public, notre droit à la santé, sont remis en cause. Partout professionnels et population se mobilisent !</strong></p>
+<ul>
+<li><strong>Angers : </strong>14h30 devant l'entrée du CHU<strong><br/>
+Aubenas :</strong> distribution de nos propositions</li>
+<li><strong>Concarneau : </strong>14h15 devant l'hôpital de Quimper <u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/communiqu%C3%A9.pdf">communiqué</a></u></li>
+<li><strong>Créteil :</strong> 13h30 devant l'hôpital<strong><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/D%C3%A9claration-Hopitaux-du-93.pdf">Déclaration Hopitaux du 93</a></strong></li>
+<li><strong>Manosque</strong> : 10 h devant l'hôpital<br /><strong>Millau</strong> : 13 h devant l'hôpital <u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/communiqu%C3%A9-1.pdf">communiqué</a></u></li>
+<li><strong>Montceau les Mines</strong><span lang="zxx"><u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Le-communiqu%C3%A9.pdf">Le communiqué</a></u></span></li>
+<li><strong>Paris</strong> : rassemblement de 13 h à 16 h devant le ministère de la santé<br/>
+<strong>Nice</strong> : 14 h place Masséna<br /><strong>Oloron Ste Marie</strong> : 18 h devant l'hôpital</li>
+<li><strong>Ruffec : </strong>de 16 à 19h devant l'hôpital <u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Action-7-Juin.pdf">Action 7 Juin</a></u></li>
+<li><strong>Sarlat</strong> : 14 h devant l'hôpital<br /><strong>Toul</strong> : 18 h devant l'hôpital</li>
+<li><strong>Tours : </strong>15h devant la direction du CHU</p>
+<p><strong>Valognes : </strong>17h30 à l’hôpital</p>
+<p><strong>Les professionnels</strong></li>
+</ul>
+<p><u><a href="https://twitter.com/hashtag/ActionSante7juin?src=hashtag_click" target="_blank" rel="noopener">(16) #ActionSante7juin – Recherche Twitter / Twitter</a></u></p><!--p align="right"><i>Jean-Luc Landas.</i></p-->
+</div>
+<div>
+<p>Sommaire :</p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+
+<p class="western" style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>REMIREMONT</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>lettre au directeur de la CPAM 88 et sa réponse à propos des aides à l'installation de médecins libéraux : </b></span></span></p>
+<p align="center"><a href="http://coordination-defense-sante.org/2022/06/remiremont-lettre-au-directeur-de-la-cpam-88-et-sa-reponse-a-propos-des-aides-a-linstallation-de-medecins-liberaux/">la lettre sur notre site</a></p>
+<p align="justify"> </p>
+<p class="western" style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>SUD - YVELINE</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>le centre de santé, une idée qui avance</b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Flash-Infos-12.pdf"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">Flash Infos 12</span></span></span></span></a></u></span></span></p>
+<p align="justify"> </p>
+<p class="western" style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>AUBENAS</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>contre les déserts médicaux des solutions existent</b></span></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/journal-avril-2022.pdf"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">journal avril 2022</span></span></span></span></a></u></span></span></p>
+<p align="justify"> </p>
+<p class="western" style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>FEURS</b></span></span></span></p>
+<p align="center"><strong style="font-weight: bold;"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">le Comité de Défense et de Soutien du Centre Hospitalier du Forez organise une réunion publique exceptionnelle : </span></span></span></strong></p>
+<p align="center"><strong style="font-weight: bold;"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Lundi 6 juin 2022 à 19h30, au Théâtre du Forum, 24 rue Camille Pariat, à Feurs, en présence de candidats de différents partis.</span></span></span></strong></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Les candidats de tous les partis ont été invités.</span></span></p>
+<p> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Des questions sur le thème de la santé, l'organisation des soins Ville-Höpital, le Centre Hospitalier du Forez seront posées aux candidats afin de connaître les mesures qu'ils souhaitent mettre en place s'ils sont élus pour répondre aux besoins de la population de notre territoire, là où l'Etat s'est désengagé depuis plusieurs années et a conduit à une situation qui devient très grave pour l'Hôpital Public et de grosses difficultés pour la Médecine de ville.</span></span></p>
+<p><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">La planète Santé est en dérive : quelles réponses les responsables sanitaires et politiques pourront apporter?</span></span></p>
+<p align="justify"> </p>
+<p class="western" style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal; break-before: page;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">SARLAT</span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>La population réanime l’hôpital public</b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/tract-du-31-05-2022.pdf"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">tract du 31 05 2022</span></span></span></span></a></u></span></span></p>
+<p align="justify"> </p>
+<p class="western" style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>DOLE</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Des permanences à l'hôpital pour témoigner</b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/infos-flash61.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">infos flash61</span></span></span></span></a></u></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;"><br /></span></span></span></span><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Appel-%C3%A0-t%C3%A9moignages.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">Appel à témoignages</span></span></span></span></a></u></span></span></p>
+<p align="justify"> </p>
+<p class="western" style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: normal;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>RUFFEC</b></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Une rencontre avec la direction qui montre des annonces sans moyens</b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/CR-R%C3%A9union-Direction-Assos-4-Mai-2022.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">CR Réunion Direction - Assos 4 Mai 2022</span></span></span></span></a></u></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;"><br /></span></span></span></span><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Courrier-candidats.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">Courrier candidats</span></span></span></span></a></u></span></span></p>
+<p align="justify"> </p>
+<p class="western" style="background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>BORDEAUX</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>quand les dépassements d'honoraires sont un obstacle aux soin</b></span></span></p>
+<p align="center"><br /><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Les-d%C3%A9passements-dhonoraires.pdf"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">Les dépassements d'honoraires</span></span></span></span></a></u></span></span><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;"><br /></span></span></span></span><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/DUBOISjacqueline-D%C3%A9put%C3%A9e-QuestionSansR%C3%A9ponse%C3%A0OlivierVERAN1.pdf"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">DUBOISjacqueline-Députée-QuestionSansRéponseàOlivierVERAN(1)</span></span></span></span></a></u></span></span></p>
+<p align="center"><br /><br /></p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Autres infos locales :</b></span></span></span></p>
+<p class="western" style="background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>CHINON</b></span></span></span></p>
+<p align="center"><b>Ni urgences ni maternité, une population et des professionnels désemparés</b></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Chinon.odt"><span style="font-size: small;">Chinon</span></a></u></span></span></p>
+<p align="center"><a style="color: #000080; text-decoration: underline;" href="https://www.lanouvellerepublique.fr/chinon/chinon-manifestation-d-ampleur-pour-defendre-l-hopital-public"><span style="font-size: small;">L’article de la Nouvelle République</span></a></p>
+<p align="justify"> </p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Dossiers :</b></span></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b><span style="background-color: #ffff00;">HOPITAL  : </span></b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b><span style="background-color: #ffff00;">une situation dramatique</span></b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Depuis des années des professionnels, la population alertent sur l’état de l’hôpital public et le Président met sur pied une mission « Flash »  ! Théodule  ! Le retour  !</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le SNPHARE propose des solutions.</b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://mailchi.mp/snphar/mission-flash-pour-les-urgences-un-nouveau-comit-thodule?e=3edc0c86ea" target="_blank" rel="noopener"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">https://mailchi.mp/snphar/mission-flash-pour-les-urgences-un-nouveau-comit-thodule?e=3edc0c86ea</span></span></span></span></a></u></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Cherbourg, quand les médecins n’en peuvent plus  !</b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://france3-regions.francetvinfo.fr/normandie/manche/cherbourg-cotentin/temoignage-medecin-urgentiste-charles-jeleff-a-decide-de-quitter-l-hopital-de-cherbourg-voici-pourquoi-2552688.html"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">https://france3-regions.francetvinfo.fr/normandie/manche/cherbourg-cotentin/temoignage-medecin-urgentiste-charles-jeleff-a-decide-de-quitter-l-hopital-de-cherbourg-voici-pourquoi-2552688.html</span></span></span></span></a></u></span></span></p>
+<p align="center"><b>France Info  : quel avenir pour l’hôpital avec Jluc Landas  ?</b></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://www.francetvinfo.fr/replay-jt/franceinfo/18h-20h/le-18h-20h/jt-le-18h-20h-de-franceinfo-mardi-31-mai-2022_5171266.html" target="_blank" rel="noopener"><b>https://www.francetvinfo.fr/replay-jt/franceinfo/18h-20h/le-18h-20h/jt-le-18h-20h-de-franceinfo-mardi-31-mai-2022_5171266.html</b></a></u></span></span><b><br /></b><br /><br /></p>
+<p align="center"><span style="font-size: large;"><b><span style="background-color: #ffff00;">PSYCHIATRIE</span></b></span></p>
+<h1 class="western" style="margin-bottom: 0.28cm; direction: ltr; color: #000000; orphans: 2; widows: 2; background-color: transparent; break-after: avoid; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 24pt; font-weight: bold; margin-top: 0cm;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>.La Défenseure des droits appelle la Première ministre à mettre en place un plan d’urgence pour la santé mentale des jeunes</b></span></span></h1>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://www.defenseurdesdroits.fr/fr/communique-de-presse/2022/06/la-defenseure-des-droits-appelle-la-premiere-ministre-a-mettre-en-place" target="_blank" rel="noopener"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">https://www.defenseurdesdroits.fr/fr/communique-de-presse/2022/06/la-defenseure-des-droits-appelle-la-premiere-ministre-a-mettre-en-place</span></span></span></span></a></u></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b><span style="background-color: #ffff00;">PSYCOLOGUES</span></b></span></span></p>
+<p align="center"><img id="&lt;part1.VL6OxA7e.bBRzdi0P@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Image2.jpeg" alt="" align="middle" border="0" /> </p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://appeldu10juin2022.blogspot.com/2022/05/les-lieux-de-manif-paris-et-regions.html" target="_blank" rel="noopener"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">https://</span></span></span></span></a></u></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="https://appeldu10juin2022.blogspot.com/2022/05/les-lieux-de-manif-paris-et-regions.html" target="_blank" rel="noopener"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">appeldu10juin2022.blogspot.com/2022/05/les-lieux-de-manif-paris-et-regions.html</span></span></span></span></a></u></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b><span style="background-color: #ffff00;">Grève des professionnels chez ORPEA</span></b></span></span></p>
+<p align="center"><img id="&lt;part2.P8lB04Z5.5W2tNWsd@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Image3.jpeg" alt="" align="middle" border="0" /> </p>
+<p align="center"> </p>
+<p align="center"><img id="&lt;part3.YWzkEz4U.VJIdIdZY@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Image4.jpeg" alt="" align="middle" border="0" /> </p>
+<p align="center"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>Culture et santé :</b></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>El pueblo unido...</b></span></span></p>
+<p align="center"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><a class="moz-txt-link-freetext" style="color: #000080; text-decoration: underline;" href="https://www.dailymotion.com/video/x589lv">https://www.dailymotion.com/video/x589lv</a></span></span></span></p>
+
+<hr>
+<p  align="center"><b>Ce message n'est pas un spam, mais une information militante<br />Pour vous désabonner, envoyer un mail à </b></p>
+<p  align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><b><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></b></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p style="text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

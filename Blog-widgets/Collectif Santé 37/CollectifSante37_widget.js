@@ -796,14 +796,14 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
 
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGUflT1ISzieoQVH9OgL6bh0YyudrX7GMfqKMgBoggEtwflg_IxTnlklz9WXF7xxgwhW4GZcaot6_Lb9Nm4vH0Un3cilF5lbzhl7KLCATWZpoml5LWE0YAz1CDfq2hCsPGkDtyFEotWwHZ6LXWY6131hQataF__TBO_IQpMF_XBfTMPT2d5HwS3cA5/s1600/2022.05.06%20Affiche%20meeting%20psychiatrie%20Tours%2020%20mai.jpeg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKTZ_m0TZv0J-j4zZo3MThJnMOaSE0G7H88GwR_1DI27ZzjOSp73bLseYQDaqbLRWTHVeDPGMrdlZbrrfQKNRtzQammcXlFyABiV6RkxBiOl_H1ARUxi78KFtyCjd3coqIPY35Q0rU_MqltKaLYIEPKzVnbRQkf-IXErO6fqcEF6A__iQxdfYrrc9q/s1600/tract%20local%20unitaire%204%20et%207%20juin%20image.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -828,7 +828,7 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGUflT1ISzieoQVH9OgL6bh0YyudrX7GMfqKMgBoggEtwflg_IxTnlklz9WXF7xxgwhW4GZcaot6_Lb9Nm4vH0Un3cilF5lbzhl7KLCATWZpoml5LWE0YAz1CDfq2hCsPGkDtyFEotWwHZ6LXWY6131hQataF__TBO_IQpMF_XBfTMPT2d5HwS3cA5/s1600/2022.05.06%20Affiche%20meeting%20psychiatrie%20Tours%2020%20mai.jpeg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKTZ_m0TZv0J-j4zZo3MThJnMOaSE0G7H88GwR_1DI27ZzjOSp73bLseYQDaqbLRWTHVeDPGMrdlZbrrfQKNRtzQammcXlFyABiV6RkxBiOl_H1ARUxi78KFtyCjd3coqIPY35Q0rU_MqltKaLYIEPKzVnbRQkf-IXErO6fqcEF6A__iQxdfYrrc9q/s1600/tract%20local%20unitaire%204%20et%207%20juin%20image.jpg"
         },       
         /*{
           dataType: "images",

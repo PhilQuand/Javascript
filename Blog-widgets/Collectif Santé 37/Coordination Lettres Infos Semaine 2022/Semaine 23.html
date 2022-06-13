@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 21</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<h2>Mobilisation à Ruffec, Sarlat, Orléans, Toul, Tours, Oloron, Pars, Lannion, Nantes et Thouars...</h2>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li><strong>Semaines</strong>: 23</li>
+<li><strong>Dates</strong>: du 6 au 12 juin 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/info-semaine-23-du-6i-au-12-juin-22.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito (ou point fort de la semaine) : </b></p>
+
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<h2>Mobilisation à Ruffec, Sarlat, Orléans, Toul, Tours, Oloron, Pars, Lannion, Nantes et Thouars...</h2>
+
+<h2 align="center">Ruffec </h2>
+<div class="VignetteBR center">
+<div class="divImg" style="cursor: grab; max-width: 450px;"><a style="cursor: grab;" data-fancybox="CN7Juin2022" data-src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Ruffec.jpg">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Ruffec.jpg" /></a></div>
+</div>
+<h2 align="center"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Sarlat-en-25-images.pdf">Sarlat en 25 images</a></h2>
+<h1 class="western" style="margin-bottom: 0.21cm; direction: ltr; color: #000000; orphans: 2; widows: 2; background-color: transparent; break-after: avoid; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 24pt; font-weight: bold;" align="left"><span style="color: #000080;"><span lang="zxx"><a style="color: #000080; text-decoration: underline;" href="https://www.francebleu.fr/infos/sante-sciences/crise-de-l-hopital-environ-200-soignants-reclament-plus-de-moyens-devant-l-hopital-de-sarlat-en-1654610510" target="_blank" rel="noopener"><span style="color: #003c6c;"><span style="font-family: Bree                  Serif, serif;"><span style="font-size: small;"><span style="text-decoration: none;"><span style="font-weight: normal;">https://www.francebleu.fr/infos/sante-sciences/crise-de-l-hopital-environ-200-soignants-reclament-plus-de-moyens-devant-l-hopital-de-sarlat-en-1654610510</span></span></span></span></span></a></span></span><span style="color: #003c6c;"> </span></h1>
+<div class="VignetteBR center">
+<div class="divImg" style="cursor: grab; max-width: 450px;"><a style="cursor: grab;" data-fancybox="CN7Juin2022" data-src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Orléans.jpg">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Orléans.jpg" /></a></div></div>
+<h2 align="center">Orléans</h2>
+<p align="center"><strong style="font-weight: bold;"><span style="color: #000000;">Le communiqué du comité de soutien à l'hôpital d'Amilly<br /></span></strong><strong style="font-weight: bold;"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Le-communiqu%C3%A9.odt"><span style="color: #21409a;"><span style="font-size: small;"><span style="font-weight: normal;">Le communiqué</span></span></span></a></strong></p>
+<p align="center"> </p>
+<h2 align="center">Toul</h2>
+<p align="center"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/PRISE-DE-PAROLE-7-JUIN.odt"><span style="font-size: small;">PRISE DE PAROLE 7 JUIN</span></a></u></p>
+<p align="center"> </p>
+<h2 align="center">Tours</h2>
+<p align="center"><strong style="font-weight: bold;"><a style="color: #000080; text-decoration: underline;" href="https://collectifsante37.blogspot.com/2022/06/rassemblement-le-7-juin-devant-le-chu.html"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">https://collectifsante37.blogspot.com/2022/06/rassemblement-le-7-juin-devant-le-chu.html</span></span></span></a></strong></p>
+<p align="left"> </p>
+<h2 align="center">Oloron</h2>
+<p align="center"><b>Plus de 500 personnes devant l'hôpital</b></p>
+<div class="VignetteBR center">
+<div class="divImg" style="cursor: grab; max-width: 450px;"><a style="cursor: grab;" data-fancybox="CN7Juin2022" data-src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Oloron.jpg">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Oloron.jpg" /></a></div>
+</div>
+<h2 align="center">Paris</h2>
+<p align="center"> </p>
+<div class="VignetteBR center">
+<div class="divImg" style="cursor: grab; max-width: 450px;"><a style="cursor: grab;" data-fancybox="CN7Juin2022" data-src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/7-juin.jpeg">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/7-juin.jpeg" /></a></div>
+</div>
+<h2 align="center">Lannion</h2>
+<p align="center"> </p>
+<div class="VignetteBR center">
+<div class="divImg" style="cursor: grab; max-width: 450px;"><a style="cursor: grab;" data-fancybox="CN7Juin2022" data-src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Lannion.jpg">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Lannion.jpg" /></a></div>
+</div>
+<p align="left"> </p>
+<p align="center"><u><a href="https://www.ouest-france.fr/bretagne/lannion-22300/a-lannion-ils-se-mobilisent-pour-l-hopital-a-quelques-jours-des-elections-e5dd390e-e65c-11ec-a123-03657fcca7a8">https://www.ouest-france.fr/bretagne/lannion-22300/a-lannion-ils-se-mobilisent-pour-l-hopital-a-quelques-jours-des-elections-e5dd390e-e65c-11ec-a123-03657fcca7a8</a></u></p>
+<p align="center"><u><a href="https://www.letelegramme.fr/dossiers/comment-vont-les-hopitaux-du-tregor/a-l-hopital-de-lannion-l-absenteisme-explose-150-agents-sont-absents-quotidiennement-07-06-2022-13059437.php">https://www.letelegramme.fr/dossiers/comment-vont-les-hopitaux-du-tregor/a-l-hopital-de-lannion-l-absenteisme-explose-150-agents-sont-absents-quotidiennement-07-06-2022-13059437.php</a></u></p>
+<p align="center"><u><a href="https://www.youtube.com/watch?v=8x-iVDd3Jpc">https://www.youtube.com/watch?v=8x-iVDd3Jpc</a></u></p>
+<p align="left"> </p>
+<p align="center"> </p>
+<h2 align="center">Nantes</h2>
+<p align="center"><u><a href="http://france3-regions.francetvinfo.fr/pays-de-la-loire/loire-atlantique/nantes/greve-a-l-hopital-ils-comptent-le-fric-on-compte-les-morts-plus-de-300-soignants-manifestent-a-nantes-2556452.html?fbclid=IwAR32Xe8w-bn108DbpGJYlsKujAWZjIjt0VN8BITSBKVd_JACnU1NlegbtBQ" target="_blank" rel="noopener">http://france3-regions.francetvinfo.fr/pays-de-la-loire/loire-atlantique/nantes/greve-a-l-hopital-ils-comptent-le-fric-on-compte-les-morts-plus-de-300-soignants-manifestent-a-nantes-2556452.html?fbclid=IwAR32Xe8w-bn108DbpGJYlsKujAWZjIjt0VN8BITSBKVd_JACnU1NlegbtBQ</a></u></p>
+<p align="left"> </p>
+<h2 align="center">Thouars</h2>
+<p align="center"><u><a href="https://www.lanouvellerepublique.fr/deux-sevres/urgences-cet-ete-au-centre-hospitalier-de-niort-on-espere-y-arriver" target="_blank" rel="noopener">https://www.lanouvellerepublique.fr/deux-sevres/urgences-cet-ete-au-centre-hospitalier-de-niort-on-espere-y-arriver</a></u></p>
+<p align="center"><u><a href="https://youtu.be/8x-iVDd3Jpc" target="_blank" rel="noopener">https://youtu.be/8x-iVDd3Jpc</a></u></p>
+<!--p align="right"><i>Les professionnels.</i></p-->
+
+</div>
+<div>
+<p>Sommaire :</p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+
+<p class="western" style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>RUFFEC</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Le comité appelle la population, les professionnels et les élus à témoigner des difficultés de la prise en charge en matière de santé</b></span></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/T%C3%A9moignage.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">Témoignage</span></span></span></span></a></u></span></span></p>
+<p align="justify"> </p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>DOLE</b></span></span></span></p>
+<p align="center"> </p>
+<p align="center"><strong style="font-weight: bold;"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;">Permanence de 14 à 16h à l'hôpital le jeudi 16 juin</span></span></span></strong><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><span style="font-weight: normal;"> </span></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>pour recueillir des témoignages</b></span></span></span></p>
+<p align="center"><span style="color: #000000;"><img id="&lt;part6.Gj6cjhVf.p0UCQFcu@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Flash-62.jpg" alt="Image7" align="bottom" border="0" /></span></p>
+<p align="justify"> </p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: large;"><b>CRETEIL</b></span></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 12px; orphans: 2; widows: 2; background-color: transparent;" align="center"><span style="font-family: Cambria, serif;"><span style="color: #000000;"><span style="font-family: Arial,
+              sans-serif;"><span style="font-size: medium;"><b>DE NOUVELLES MENACES DE FERMETURE DU </b></span></span></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 12px; orphans: 2; widows: 2; background-color: transparent; text-decoration: none;" align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>SERVICE DE CHIRURGIE CARDIAQUE </b></span></span></p>
+<p align="center"><span style="font-family: Arial,
+          sans-serif;"><span style="font-size: medium;"><b>DE L’HÔPITAL HENRI MONDOR </b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Communique.pdf"><span style="color: #21409a;"><span style="text-decoration: none;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><span style="font-weight: normal;">Communique</span></span></span></span></span></a></span></span></p>
+<p align="justify"> </p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>BERNAY</b></span></span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 12px; orphans: 2; widows: 2; background-color: transparent;" align="left"><span style="font-family: Cambria, serif;"><span style="color: #000000;"><span style="font-family: Arial,
+              sans-serif;"><span style="font-size: small;"><b>Le personnel du centre hospitalier de Bernay s’est massivement mobilisé ce 9 juin… mobilisation historique</b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"> … </span></span></span></span></p>
+<p align="center"><span style="font-family: Arial,
+          sans-serif;"><span style="font-size: small;"><b>100% de grévistes dans une majorité des services du centre hospitalier ayant obligé l’administration à assigner le personnel </b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Le-communiqu%C3%A9-du-comit%C3%A9.pdf"><span style="color: #000000;"><span style="text-decoration: none;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><b>Le communiqué du comité</b></span></span></span></span></a></span></span></p>
+<p align="center"> </p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>LANNION</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Une réelle inquiétude sur l’avenir de l’hôpital</b></span></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/mail-%C3%A9lus.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><b>mail élus</b></span></span></span></a></u></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><b><br /></b></span></span></span><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080; text-decoration: underline;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/texte-g%C3%A9n%C3%A9ral.pdf"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><b>texte général</b></span></span></span></a></u></span></span></p>
+<p align="justify"> </p>
+<p align="justify"> </p>
+<p align="center"> </p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Autres infos locales :</b></span></span></span></p>
+<p align="center"><br /><br /></p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: #e37b22; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>LODEVE</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>Une réunion pour aller la population des menaces sur les urgences.</b></span></span></p>
+<p align="center"> </p>
+<p align="center"><img id="&lt;part7.mZEJaCYd.XfkI2i4U@orange.fr&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Image8.jpeg" alt="" align="middle" border="0" /> <br /><br /></p>
+<p style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 12px; orphans: 2; widows: 2; background-color: transparent;" align="justify"> </p>
+<p align="justify"> </p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: #729fcf; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt;" align="center"><span style="color: #ffffff;"><span style="font-family: Arial, sans-serif;"><span style="font-size: medium;"><b>CHINON</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;">400 personnes venues défendre l’hôpital le 4 juin.<br />Si les urgences ont réouverts le 8 juin, ce n’est pas sans risque et la Maternité reste fermée.</span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080;" href="https://www.lanouvellerepublique.fr/chinon/chinon-manifestation-d-ampleur-pour-defendre-l-hopital-public" target="_blank" rel="noopener"><span style="color: #21409a;"><span style="font-family: Arial,
+                    sans-serif;"><span style="font-size: 10pt;"><b>https://www.lanouvellerepublique.fr/chinon/chinon-manifestation-d-ampleur-pour-defendre-l-hopital</b></span></span></span></a></u></span></span><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080;" href="https://www.lanouvellerepublique.fr/chinon/chinon-manifestation-d-ampleur-pour-defendre-l-hopital-public" target="_blank" rel="noopener"><span style="color: #0070c0;"><span style="font-family: Arial,
+                    sans-serif;"><span style="font-size: 10pt;"><b>-</b></span></span></span></a></u></span></span><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080;" href="https://www.lanouvellerepublique.fr/chinon/chinon-manifestation-d-ampleur-pour-defendre-l-hopital-public" target="_blank" rel="noopener"><span style="color: #21409a;"><span style="font-family: Arial,
+                    sans-serif;"><span style="font-size: 10pt;"><b>public</b></span></span></span></a></u></span></span></p>
+<p> </p>
+<p align="center"> </p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: xx-large;"><b>Dossiers:</b></span></span></span></p>
+<p align="center"></p>
+<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 18.399999618530273px; orphans: 2; widows: 2; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; font-weight: bold;" align="center"><strong><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><span style="background-color: #ffff00;">LURE LES 12, 13 ET 14 MAI 2023</span></span></span></span></strong></p>
+<p align="center"><b>Rassemblement pour la défense des services publics</b></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/Message-unitaire.doc">Message unitaire</a></u></span></span></p>
+<p align="center"> </p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b><span style="background-color: #ffff00;">Psychiatrie</span></b></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;">Journée d’action le 28 juin</span></p>
+<p align="center"><a name="sample-permalink"></a><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080;" href="http://coordination-defense-sante.org/communique-commun/"><span style="color: #21409a;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 10pt;"><span style="font-weight: normal;">http://coordination-defense-sante.org/communique-commun/</span></span></span></span></a></u></span></span></p>
+<p align="center"><span style="font-family: Arial, sans-serif;">Intervention aux Glières</span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080;" href="https://blogs.mediapart.fr/mathieu-bellahsen/blog/290522/paroles-de-resistances-aux-glieres-pour-la-psychiatrie-publique" target="_blank" rel="noopener"><span style="color: #21409a;"><span style="font-family: Arial,
+                    sans-serif;"><span style="font-size: 10pt;"><span style="font-weight: normal;">https://blogs.mediapart.fr/mathieu-bellahsen/blog/290522/paroles-de-resistances-aux-glieres-pour-la-psychiatrie-publique</span></span></span></span></a></u></span></span></p>
+<p align="center"><br /><br /></p>
+<p align="center"><span style="font-family: Arial, sans-serif;"><span style="font-size: 12pt;"><b><span style="background-color: #ffff00;">Frédéric PIERRU répond aux questions en direct sur le site du Monde</span></b></span></span></p>
+<p align="center"><strong><a style="color: #000080;" href="http://coordination-defense-sante.org/wp-admin/post.php?post=31892&amp;action=edit"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 10pt;"><span style="font-weight: normal;">Mobilisation dans les hôpitaux, en direct _ « Le marasme hospitalier est le résultat de la myopie budgétaire qui sévit depuis 2010 »</span></span></span></span></a></strong></p>
+<p align="center"> </p>
+<p align="center"><span style="color: #000000;"><span style="font-family: Arial,
+            sans-serif;"><span style="font-size: 12pt;"><b><span style="background-color: #ffff00;">LDH, l’inquiétude pour la santé des Français</span></b></span></span></span><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><br /><br /></span></span><strong><a style="color: #000080;" href="http://coordination-defense-sante.org/wp-admin/post.php?post=31893&amp;action=edit"><span style="font-size: 10pt;">LDH Lettre GT santé-bioéthique</span></a></strong></p>
+<p align="center"> </p>
+<p align="center"><span style="font-size: 12pt;"><b><span style="background-color: #ffff00;">Hôpital Public : une analyse de J.Michel Toulouse</span></b></span></p>
+<p align="center"><span style="color: #000080;"><span lang="zxx"><u><a style="color: #000080;" href="http://coordination-defense-sante.org/wp-content/uploads/2022/06/H%C3%94PITAL-PUBLIC-mobilisation-g%C3%A9n%C3%A9rale-.htm"><span style="color: #000000;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 10pt;"><span style="font-weight: normal;">HÔPITAL PUBLIC mobilisation générale !</span></span></span></span></a></u></span></span></p>
+<p align="center"> </p>
+<p align="center"> </p>
+<p align="center"> </p>
+<p align="center"><span style="color: #0070c0;"><span style="font-family: Arial, sans-serif;"><span style="font-size: 22pt;"><b>Culture et santé :</b></span></span></span></p>
+<p align="center"><span style="font-family: Arial,
+          sans-serif;"><span style="font-size: 10pt;">Chimène Badi chante la Liberté</span></span></p>
+<p style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 12px; orphans: 2; widows: 2; background-color: transparent;" align="justify"> </p>
+<p> </p>
+<p> </p>
+<p class="western" style="margin-bottom: 0cm; direction: ltr; color: #000000; line-height: 16px; orphans: 2; widows: 2; background-color: transparent; font-family: 'Liberation Serif', 'Times New Roman', serif; font-size: 12pt; caret-color: #000000; font-style: normal; font-variant-caps: normal; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none; font-weight: normal;" align="center"><span style="color: #0066b3;"><span style="font-family: Arial, sans-serif;"><span style="font-size: small;"><a class="moz-txt-link-freetext" style="color: #000080; text-decoration: underline;" href="https://www.youtube.com/watch?v=oJfquHbUVx0">https://www.youtube.com/watch?v=oJfquHbUVx0</a></span></span></span></p>
+<hr>
+<p  align="center"><b>Ce message n'est pas un spam, mais une information militante<br />Pour vous désabonner, envoyer un mail à </b></p>
+<p  align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><b><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></b></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p style="text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

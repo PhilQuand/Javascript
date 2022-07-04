@@ -387,6 +387,8 @@ var inpAddress = [
   lat: 45.26654, lng:  4.57645	},
 { inpText: "SEINE-SAINT-DENIS",
   lat: 48.91761912, lng:  2.4784	},
+{ inpText: "MEULAN",
+  lat: 49.003278, lng:  1.91144	},
 { inpText: "CHATEAU DU LOIR",
   lat: 47.69581, lng:  0.41752	},
 { inpText: "HAUTE CORSE",

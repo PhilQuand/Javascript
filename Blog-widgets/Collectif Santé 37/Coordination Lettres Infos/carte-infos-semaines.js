@@ -1259,9 +1259,10 @@
         if (curTest.find('.isCity').length > 0) return true;
         var htmlTest = curTest.html();
         var attrTest = curTest.attr("style");
+        var attrTestBg = curTest.attr("bgcolor");
         var htmlTestIs = (htmlTest.search('background:') > -1 && htmlTest.search('background: transparent') == -1 && htmlTest.search('background:  transparent') == -1) || (htmlTest.search('background-color:') > -1 && htmlTest.search('background-color: transparent') == -1 && htmlTest.search('background-color:  transparent') == -1)
         var attrTestIs = typeof attrTest !== 'undefined' && (((attrTest.indexOf("background:") > -1 && attrTest.indexOf("background: transparent") == -1 && attrTest.indexOf("background:  transparent") == -1) || (attrTest.indexOf("background-color:") > -1 && attrTest.indexOf("background-color: transparent") == -1 && attrTest.indexOf("background-color:  transparent") == -1)))
-        var isCity = (htmlTestIs || attrTestIs) && curTest.find('b').length > 0 && !$(this).is("div");
+        var isCity = (htmlTestIs || attrTestIs || (typeof attrTestBg !== 'undefined')) && ((curTest.find('b').length > 0) || (curTest.find('strong').length > 0)) && !$(this).is("div");
         return isCity;
       }
 

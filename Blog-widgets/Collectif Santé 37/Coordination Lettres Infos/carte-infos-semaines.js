@@ -1270,6 +1270,7 @@
         //var cityName = curCity.find('b').html();
         var cityColor = curCity.html().split('background:');
         if (cityColor.length == 1) cityColor = curCity.html().split('background-color:');
+        if (cityColor.length == 1) cityColor = curCity.html().split('bgcolor="');
         //cityColor= cityColor[cityColor.length-1].split(';')[0];
         if (cityColor.length == 1) curCity.html('<p class="western" style="paddin: 5px;" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
         else {

@@ -391,6 +391,8 @@ var inpAddress = [
   lat: 49.003278, lng:  1.91144	},
 { inpText: "CHATEAU DU LOIR",
   lat: 47.69581, lng:  0.41752	},
+{ inpText: "IVRY",
+  lat: 48.81312, lng:  2.38955	},
 { inpText: "HAUTE CORSE",
   lat: 42.4691, lng:  9.2094},
 { inpText: "DEUX-SEVRE",

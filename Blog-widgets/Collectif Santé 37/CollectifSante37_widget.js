@@ -738,12 +738,8 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   //pointer-events: none;
   cursor:pointer;
 }
-/*.img-foreground img {
-    object-fit: cover;
-    object-fit: fill;
-}*/
 .img-foreground {
-  background-color: white;
+  //background-color: white;
   animation-name: stretch;
   animation-duration: 2.5s; 
   //animation-timing-function: ease-out; 
@@ -796,14 +792,14 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
 
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKTZ_m0TZv0J-j4zZo3MThJnMOaSE0G7H88GwR_1DI27ZzjOSp73bLseYQDaqbLRWTHVeDPGMrdlZbrrfQKNRtzQammcXlFyABiV6RkxBiOl_H1ARUxi78KFtyCjd3coqIPY35Q0rU_MqltKaLYIEPKzVnbRQkf-IXErO6fqcEF6A__iQxdfYrrc9q/s1600/tract%20local%20unitaire%204%20et%207%20juin%20image.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfFPwEtIQvHQpPMEiJ1fK9Z7o5ED_QK0B5TWqdutSktLsZoGtsaittNEiq6IQGwDD5yRkjt0zF0klz5wYfpNSqaGXSJZCbrST85BF4mzxe1Yt1fR2Vk-T81jfqKpOuXfkac0DD2BjOUx-5eSpZXPeo-CfhtJneqsRMoFVUNOyVvG53cd4N3sy0CnZZ/s1600/Tract%20pour%20le%2022%20septembre.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -828,7 +824,7 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKTZ_m0TZv0J-j4zZo3MThJnMOaSE0G7H88GwR_1DI27ZzjOSp73bLseYQDaqbLRWTHVeDPGMrdlZbrrfQKNRtzQammcXlFyABiV6RkxBiOl_H1ARUxi78KFtyCjd3coqIPY35Q0rU_MqltKaLYIEPKzVnbRQkf-IXErO6fqcEF6A__iQxdfYrrc9q/s1600/tract%20local%20unitaire%204%20et%207%20juin%20image.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfFPwEtIQvHQpPMEiJ1fK9Z7o5ED_QK0B5TWqdutSktLsZoGtsaittNEiq6IQGwDD5yRkjt0zF0klz5wYfpNSqaGXSJZCbrST85BF4mzxe1Yt1fR2Vk-T81jfqKpOuXfkac0DD2BjOUx-5eSpZXPeo-CfhtJneqsRMoFVUNOyVvG53cd4N3sy0CnZZ/s1600/Tract%20pour%20le%2022%20septembre.jpg"
         },       
         /*{
           dataType: "images",

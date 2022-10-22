@@ -1019,6 +1019,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         var iconMarkers = iconMarkersBuilder(indexEvent);
         var iconMarkersLength = iconMarkers.length;
         var map, onSetDefaultMapView, refreshIndexEvent;
+        var legendAllMarkers, controlBasemapsAndOverlays;
 
         /*function removeAreaMarkers() {
           for (var i = 0; i < indexEvent.length; i++) {
@@ -1156,7 +1157,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           function addControlLayer() {
             // Constructeur du contrôle de carte LeafLet
             if (typeof options.controlLayers === 'undefined' ){
-              var legendAllMarkers = addLegend()
+              //var legendAllMarkers = addLegend()
             } else if (typeof options.controlLayers.controlMaps === 'undefined' || options.controlLayers.controlMaps.on != true) {
               // Ajout de la seule carte de fond
               var option = {
@@ -1191,7 +1192,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
 
             function buildBaseMaps(option) {
-              var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
+              if(typeof controlBasemapsAndOverlays == 'undefined') {
+                controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
+              }
+              //var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
               for (var i = 0; i < objectOverlays["overlays"].length; i++) {
                 objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
               }
@@ -1208,7 +1212,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display", "none");
               };
               var baselayerName = 'par défaut';
-              var legendAllMarkers = addLegend()
+              if(typeof legendAllMarkers === 'undefined') legendAllMarkers = addLegend()
+              //var legendAllMarkers = addLegend()
               map.on('baselayerchange', function(eventLayer) {
                 baselayerName = eventLayer.name;
                 map.removeControl(legendAllMarkers);
@@ -1303,95 +1308,95 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 menuLegend = $('#menuLegend option:selected').data("path");
                 //$( "#aaa" ).trigger( "click" );
                 $('#contentLegend').html(contentLegend(true));
-                runTable();
               } // Handler function
             );
             return legendAllMarkers;
           }
 
-            function contentLegend(needsRefresh) {
-                if (typeof options['legend'][menuLegend].title !== 'undefined') legendTitle = options['legend'][menuLegend].title;
-                else legendTitle = '';
-                iconMarkersBuilder = data => {
-                  for (var i = 0; i < data.length; i++) {
-                    data[i].iconMarker = options['legend'][menuLegend]['affect'](data[i]);
-                  }
-                  return options['legend'][menuLegend].icons;
-                }
-                iconMarkers = iconMarkersBuilder(indexEvent);
-                iconMarkersLength = iconMarkers.length;
-                for (var i = 0; i < indexEvent.length; i++) {
-                  markers.removeLayer(indexEvent[i].marker);
-                }
-                refreshIndexEvent = [];
-                for (i = 0; i < indexEvent.length; i++) {
-                  refreshIndexEvent.push(i)
-                }
-                if (jQuery.type(needsRefresh) !== 'undefined' && needsRefresh) {
-                  indexEventTable = [];
-                  var j = 0;
-                  for (i = 0; i < indexEvent.length; i++) {
-                    if (jQuery.type(options['legend']) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
-                      if (options['legend'][menuLegend].filter.func(indexEvent[i])) {
-                        indexEvent[i]["selected"] = true;
-                        indexEventTable.push(indexEvent[i]);
-                        //indexEventTable[j++]['indirect'] = i;
-                        
-                      }
-                      else {
-                        indexEvent[i]["selected"] = false;
-                      }
-                    }
-                    else {
-                      indexEvent[i]["selected"] = true;
-                      indexEventTable.push(indexEvent[i]);
-                      //indexEventTable[j++]['indirect'] = i;
-                   }
-                  }
-                  runTable();
-               }
-              var iconNum = refreshMarkers(refreshIndexEvent);
+          function contentLegend(needsRefresh) {
+            if (typeof options['legend'][menuLegend].title !== 'undefined') legendTitle = options['legend'][menuLegend].title;
+            else legendTitle = '';
+            iconMarkersBuilder = data => {
+              for (var i = 0; i < data.length; i++) {
+                data[i].iconMarker = options['legend'][menuLegend]['affect'](data[i]);
+              }
+              return options['legend'][menuLegend].icons;
+            }
+            iconMarkers = iconMarkersBuilder(indexEvent);
+            iconMarkersLength = iconMarkers.length;
+            for (var i = 0; i < indexEvent.length; i++) {
+              markers.removeLayer(indexEvent[i].marker);
+            }
+            refreshIndexEvent = [];
+            for (i = 0; i < indexEvent.length; i++) {
+              refreshIndexEvent.push(i)
+            }
+            if (jQuery.type(needsRefresh) !== 'undefined' && needsRefresh) {
+              indexEventTable = [];
+              var j = 0;
+              for (i = 0; i < indexEvent.length; i++) {
+                if (jQuery.type(options['legend']) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
+                  if (options['legend'][menuLegend].filter.func(indexEvent[i])) {
+                    indexEvent[i]["selected"] = true;
+                    indexEventTable.push(indexEvent[i]);
+                    //indexEventTable[j++]['indirect'] = i;
 
-              if (typeof iconNum === 'undefined') {
-                iconNum = [];
-                for (i = 0; i < indexEvent.length; i++) {
-                  iconNum.push(true)
-                }
-              }
-              for (var k = 0; k < iconMarkersLength; k++) {
-                iconMarkers[k].nbMapEvents = 0;
-              }
-              for (var i = 0; i < indexEvent.length; i++) {
-                if (iconNum[i]) {
-                  for (var k = 0; k < iconMarkersLength; k++) {
-                   //if (indexEvent[i]["selected"] && indexEvent[i].iconMarker.title == iconMarkers[k].title) {
-                    if (indexEvent[i]["selected"] && ( indexEvent[i].iconMarker == k || indexEvent[i].iconMarker.title == iconMarkers[k].title) ) {
-                     indexEvent[i].iconMarker = iconMarkers[k];
-                     iconMarkers[k].nbMapEvents++;
-                    }
-                  }
-                }
-              }
-              var totalEvents = 0
-              for (var k = 0; k < iconMarkersLength; k++) {
-                totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
-              }
-              var contentLegendHtml = ''
-              if (legendTitle != '') contentLegendHtml += '<span class="legendTitle" style="display:block; text-align:center;">' + totalEvents + ' ' + legendTitle + '</span>';
-              for (var k = 0; k < iconMarkersLength; k++) {
-                if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-                  if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
-                    contentLegendHtml += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
                   }
                   else {
-                    var iconVal = iconMarkers[k].icon.leaflet;
-                    contentLegendHtml += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                    indexEvent[i]["selected"] = false;
+                  }
+                }
+                else {
+                  indexEvent[i]["selected"] = true;
+                  indexEventTable.push(indexEvent[i]);
+                  //indexEventTable[j++]['indirect'] = i;
+                }
+              }
+              runTable();
+              //addControlLayer(); 
+             
+            }
+            var iconNum = refreshMarkers(refreshIndexEvent);
+
+            if (typeof iconNum === 'undefined') {
+              iconNum = [];
+              for (i = 0; i < indexEvent.length; i++) {
+                iconNum.push(true)
+              }
+            }
+            for (var k = 0; k < iconMarkersLength; k++) {
+              iconMarkers[k].nbMapEvents = 0;
+            }
+            for (var i = 0; i < indexEvent.length; i++) {
+              if (iconNum[i]) {
+                for (var k = 0; k < iconMarkersLength; k++) {
+                  //if (indexEvent[i]["selected"] && indexEvent[i].iconMarker.title == iconMarkers[k].title) {
+                  if (indexEvent[i]["selected"] && (indexEvent[i].iconMarker == k || indexEvent[i].iconMarker.title == iconMarkers[k].title)) {
+                    indexEvent[i].iconMarker = iconMarkers[k];
+                    iconMarkers[k].nbMapEvents++;
                   }
                 }
               }
-              return contentLegendHtml;
             }
-
+            var totalEvents = 0
+            for (var k = 0; k < iconMarkersLength; k++) {
+              totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
+            }
+            var contentLegendHtml = ''
+            if (legendTitle != '') contentLegendHtml += '<span class="legendTitle" style="display:block; text-align:center;">' + totalEvents + ' ' + legendTitle + '</span>';
+            for (var k = 0; k < iconMarkersLength; k++) {
+              if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
+                if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
+                  contentLegendHtml += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                }
+                else {
+                  var iconVal = iconMarkers[k].icon.leaflet;
+                  contentLegendHtml += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                }
+              }
+            }
+            return contentLegendHtml;
+          }
           if(typeof options.banner !== 'undefined') bannerCoord();
           function bannerCoord() {
             bannerCoord = L.control({
@@ -1592,152 +1597,78 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
                     function handleLayer(layer) {
                       //var randomValue = Math.random(),
-
-                      var areaBounds = layer.getBounds();
-                      var areaCode = layer.feature.properties.code;
-                      var areaGeometry = layer.feature.geometry;
                       var areaName = layer.feature.properties.nom;
-                      var inMarkers = [];
-                      var areaNum = getNumItems();
-                      var areaEnterCode, areaBindPopup;
-
+                      var areaBounds = layer.getBounds();
                       // Create an element to hold all your text and markup
                       var container = $('<div />');
+                      var areaEnterCode, areaBindPopup, inMarkers;
 
-                      // Delegate all event handling for the container itself and its contents to the container
-                      container.on('click', '.smallPolygonLink', function() {
-                        enterPopup = areaName;
-                        var myevent = layer["_events"];
-                        var myclick = layer["_events"]["click"][0];
-                        myclick["fn"]();
+                      function handleLayer_maj(layer) {
+                        var areaCode = layer.feature.properties.code;
+                        var areaGeometry = layer.feature.geometry;
+                        var areaNum = getNumItems();
+
+
+                        // Delegate all event handling for the container itself and its contents to the container
+                        container.on('click', '.smallPolygonLink', function() {
+                          enterPopup = areaName;
+                          var myevent = layer["_events"];
+                          var myclick = layer["_events"]["click"][0];
+                          myclick["fn"]();
                         //layer.unbindPopup();
-                      });
-
-                      // Insert whatever you want into the container, using whichever approach you prefer
-                      //container.html(dataPopUp);
-                      var areaDataPopUp = container[0];
-
-                      var fillColor = thisColor(areaNum);
-                      layer.setStyle({
-                        fillColor: fillColor,
-                        //fillColor: getColor,
-                        fillOpacity: 1,
-                        color: colorStyle,
-                        weight: 1,
-                        opacity: .5
-                      });
-
-                      if ("ontouchstart" in document.documentElement) {
-                        layer.on({
-                          click: touchLayer,
                         });
-                      }
-                      else {
-                        layer.on({
-                          click: clickLayer,
-                          //mouseover: enterLayer,
-                          //mouseout: leaveLayer,
-                        });
-                      }
 
-                      map.on('overlayadd', function(eventLayer) {
-                        addingOverlay(eventLayer);
-                      });
-                      map.on('overlayremove', function(eventLayer) {
-                        removingOverlay(eventLayer);
-                      });
-
-                      function addingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
-                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                            objectOverlays["overlays"][k].isVisible = true;
+                        container.html(dataPopUp);
+                        function dataPopUp() {
+                          var popupContent = $("<div></div>");
+                          var popupBody = $("<div class='popBody'></div>");
+                          popupContent.append(popupBody);
+                          popupBody.append("<div class='popLieux' style='background-color:" + thisColor(areaNum) + "'>" + areaName + "</div>");
+                          switch (areaNum) {
+                            case 0:
+                              popupBody.append("<div class='popItem'><span class='popTitle'>Aucun &#232;tablissement concern&#232;</span><br></div>");
+                              break;
+                            case 1:
+                              popupBody.append("<div class='popItem'><span class='popTitle'>Un &#232;tablissement concern&#232;</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
+                              break;
+                            default:
+                              popupBody.append("<div class='popItem'><span class='popTitle'>Nombre d&#39;&#232;tablissements concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
                           };
-                        };
-                        areaNum = getAreaNum(inMarkers);
-                        fillColor = thisColor(areaNum);
+                          return popupContent.html();
+                        } 
+                                               
+                        // Insert whatever you want into the container, using whichever approach you prefer
+                        //container.html(dataPopUp);
+                        //var areaDataPopUp = container[0];
+
+                        var fillColor = thisColor(areaNum);
                         layer.setStyle({
                           fillColor: fillColor,
+                          //fillColor: getColor,
+                          fillOpacity: 1,
+                          color: colorStyle,
+                          weight: 1,
+                          opacity: .5
                         });
-                        container.html(dataPopUp);
-                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
-                      }
-
-                      function removingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
-                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
-                            objectOverlays["overlays"][k].isVisible = false;
-                          };
-                        };
-                        areaNum = getAreaNum(inMarkers);
-                        fillColor = thisColor(areaNum);
-                        layer.setStyle({
-                          fillColor: fillColor,
-                        });
-                        container.html(dataPopUp);
-                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
-                      }
-
-                      function getAreaNum(refreshIndexEvent) {
-                        var getAreaNumReturn = 0;
-                        if (typeof refreshIndexEvent === 'undefined') {
-                          refreshIndexEvent = [];
-                          for (i = 0; i < indexEvent.length; i++) {
-                            refreshIndexEvent.push(i)
-                            /*if (indexEvent[i]["selected"]) {
-                              refreshIndexEvent.push(i)
-                            }*/
-                          }
-                        }
-                        for (var i = 0; i < refreshIndexEvent.length; i++) {
-                          var isInMarkers = false;
-                          for (var k = 0; k < objectOverlays["overlays"].length; k++) {
-                            if (indexEvent[refreshIndexEvent[i]]["selected"] && objectOverlays["overlays"][k].isVisible && objectOverlays["affect"](indexEvent[refreshIndexEvent[i]]) == k) {
-                              isInMarkers = true;
-                            }
-                          }
-                          if (isInMarkers) {
-                            getAreaNumReturn++;
-                          }
-                        }
-                        return getAreaNumReturn;
-                      }
-
-                      function dataPopUp() {
-                        var popupContent = $("<div></div>");
-                        var popupBody = $("<div class='popBody'></div>");
-                        popupContent.append(popupBody);
-                        popupBody.append("<div class='popLieux' style='background-color:" + thisColor(areaNum) + "'>" + areaName + "</div>");
-                        switch (areaNum) {
-                          case 0:
-                            popupBody.append("<div class='popItem'><span class='popTitle'>Aucun &#232;tablissement concern&#232;</span><br></div>");
-                            break;
-                          case 1:
-                            popupBody.append("<div class='popItem'><span class='popTitle'>Un &#232;tablissement concern&#232;</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
-                            break;
-                          default:
-                            popupBody.append("<div class='popItem'><span class='popTitle'>Nombre d&#39;&#232;tablissements concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>");
-                        };
-                        return popupContent.html();
-                      }
 
                       function getNumItems() {
+                        inMarkers = [];
                         if (typeof areaNumItems !== 'undefined') {
                           if (typeof areaNumItems[areaName] !== 'undefined') {
                             for (var idx = 0; idx < areaNumItems[areaName].length; idx++) {
-                                inMarkers.push(areaNumItems[areaName][idx]);
+                                if (indexEvent[areaNumItems[areaName][idx]]["selected"]) inMarkers.push(areaNumItems[areaName][idx]);
                             }
-                            return areaNumItems[areaName].length;
+                            return inMarkers.length;
                           }
                           else return 0;
                         }
-                        else {
+                        else
+                         {
                           var d = 0;
                           for (var idx = 0; idx < option["data"].length; idx++) {
-                            if (inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                              inMarkers.push(idx);
-                              d += 1;
+                            if (indexEvent[idx]["selected"] && inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
+                                inMarkers.push(idx);
+                                d += 1;
                             }
                           }
                           return d;
@@ -1802,6 +1733,59 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                         }
                       }
 
+                      }
+
+                      if ("ontouchstart" in document.documentElement) {
+                        layer.on({
+                          click: touchLayer,
+                        });
+                      }
+                      else {
+                        layer.on({
+                          click: clickLayer,
+                          //mouseover: enterLayer,
+                          //mouseout: leaveLayer,
+                        });
+                      }
+
+                      map.on('overlayadd', function(eventLayer) {
+                        addingOverlay(eventLayer);
+                      });
+                      map.on('overlayremove', function(eventLayer) {
+                        removingOverlay(eventLayer);
+                      });
+                      map.on('baselayerchange', function(eventLayer) {
+                        changingOverlay(eventLayer);
+                      });
+
+                      function addingOverlay(eventLayer) {
+                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                            objectOverlays["overlays"][k].isVisible = true;
+                          };
+                        };
+                        handleLayer_maj(layer);
+                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                      }
+
+                      function removingOverlay(eventLayer) {
+                        console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
+                        for (var k = 0; k < objectOverlays["overlays"].length; k++) {
+                          if (objectOverlays["overlays"][k].title == eventLayer.name) {
+                            objectOverlays["overlays"][k].isVisible = false;
+                          };
+                        };
+                        handleLayer_maj(layer);
+                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                      }
+
+                      function changingOverlay(eventLayer) {
+                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                         handleLayer_maj(layer);
+                        if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
+                      }
+                      
                       function touchLayer() {
 
                         //clickLayer()
@@ -1820,8 +1804,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       function clickLayer() {
                         if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
                         if (enterPopup != areaName) {
+                          //areaNum = getNumItems();
                           // Insert whatever you want into the container, using whichever approach you prefer
-                          this.bindPopup(areaDataPopUp).openPopup();
+                          this.bindPopup(container[0]).openPopup();
                           var areaPopup = this.getPopup();
                           areaPopup.setLatLng(areaBounds.getCenter());
                           return;

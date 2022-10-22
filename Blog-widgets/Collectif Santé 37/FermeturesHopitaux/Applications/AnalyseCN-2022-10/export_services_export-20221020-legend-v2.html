@@ -1308,6 +1308,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 menuLegend = $('#menuLegend option:selected').data("path");
                 //$( "#aaa" ).trigger( "click" );
                 $('#contentLegend').html(contentLegend(true));
+                //runTable();
               } // Handler function
             );
             return legendAllMarkers;
@@ -1353,7 +1354,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 }
               }
               runTable();
-              //addControlLayer(); 
              
             }
             var iconNum = refreshMarkers(refreshIndexEvent);
@@ -2322,12 +2322,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 var item = {};
                 if (properties[i]['filter'] == 'selection') {
                   item['column_number'] = i;
-                  item['filter_default_label'] = "Sélectionnez";
+                  item['omit_default_label'] = true;
+                  item['data'] = ["Sélectionnez"];
+                  item['append_data_to_table_data'] = "before";
+                  //item['filter_default_label'] = "Sélectionnez";
                   item['filter_match_mode'] = "exact";
                   item['filter_reset_button_text'] = false;
                   item['filter_type'] = 'custom_func';
                   item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    if (columnVal === filterVal) {
+                    if (columnVal === filterVal || "Sélectionnez" === filterVal) {
                       var myFilter = true;
                     }
                     else {

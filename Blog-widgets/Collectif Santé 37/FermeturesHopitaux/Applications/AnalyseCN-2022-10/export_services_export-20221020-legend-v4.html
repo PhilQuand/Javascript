@@ -1211,6 +1211,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 baselayerName = eventLayer.name;
                 //map.removeControl(legendAllMarkers);
                 $('#menuLegend').prop('disabled',true)
+                $('#btData').css('display','none')
                 map.removeControl(option["legend"]["départements"]);
                 map.removeControl(option["legend"]["régions"]);
                 setDefaultMapView();
@@ -1218,6 +1219,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   //legendAllMarkers = addLegend();
                   $('#menuLegend').prop('disabled',false)
                   contentLegend();
+                  $('#btData').css('display','block')
                   stateChangingButton.enable();
                 }
                 else {
@@ -1399,8 +1401,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
             if( contentLegendHtml == '' ) contentLegendHtml = "aucun établissement"
             if (legendTitle == '' && tableFilterOn)  contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
-            if (tableFilterOn) $('#star_filter').css('display', 'block')
-            else $('#star_filter').css('display', 'none')
+            if (tableFilterOn) $('#star_filter').css('display', 'block');
+            else $('#star_filter').css('display', 'none');
             return contentLegendHtml;
           }
           if(typeof options.banner !== 'undefined') bannerCoord();
@@ -2289,6 +2291,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             $('#infoMap-wrapper > #infoMap').css('display', 'none')
             $('#table_wrapper').css('display', 'block')
             if(tableFilterOn) $('#aaa').css('display', 'block');
+            $('#star_filter').css('display', 'none');
             //$('#table').css('display', 'block')
           }
 

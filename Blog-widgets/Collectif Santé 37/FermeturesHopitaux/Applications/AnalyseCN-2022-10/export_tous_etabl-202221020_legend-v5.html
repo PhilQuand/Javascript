@@ -1469,7 +1469,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               // ajout de l'échelle des couleurs pour les cartes TopoJSON
               if (option["typMap"] == "builDepts") {
                 if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlMaps === 'undefined' || typeof options.controlLayers.controlMaps.gradeDepts === 'undefined')
-                  var grades = [0, 1, 3, 5, 7, 10, 15, 20];
+                  //var grades = [0, 1, 3, 5, 7, 10, 15, 20];
+                  var grades = [0, 20, 30, 40, 55, 60, 80, 90];
                 else
                   var grades = options.controlLayers.controlMaps.gradeDepts;
                 //var colorDeb = '#D5E3FF';
@@ -1480,7 +1481,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
               else {
                 if (typeof options.controlLayers === 'undefined' || typeof options.controlLayers.controlMaps === 'undefined' || typeof options.controlLayers.controlMaps.gradeRegs === 'undefined')
-                  var grades = [0, 20, 30, 40, 55, 60, 80, 100];
+                  var grades = [0, 20, 30, 40, 55, 60, 80, 90];
                 else
                   var grades = options.controlLayers.controlMaps.gradeRegs;
                 //var colorDeb = '#D5E3FF';
@@ -1527,13 +1528,19 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     console.log('Everything has been loaded!');
 
                     var topoVal = loadVal(values, topoFile);
+                    var min_areaNum = 10000000000, max_areaNum = 0, min_areaName, max_areaName;
 
                     var topoLayer = new L.TopoJSON();
                     var colorScale = chroma
                       //.scale(['#D5E3FF', '#003171'])
                       .scale([colorDeb, colorFin])
                       .domain([0, 1]);
-
+                    
+                    var color_grades = []
+                    for (var i = 0; i < grades.length; i++) {
+                      color_grades.push(colorScale(i / grades.length).hex());
+                      console.log(color_grades[i]);
+                    }
                     var enterPopup = 0;
 
                     var areaNumItems = {};
@@ -1566,6 +1573,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
 
                     function addTopoData(topoData) {
 
+                       
                       topoLayer.addData(topoData);
                       //topoLayer.addTo(map);
                       topoLayer.eachLayer(handleLayer);
@@ -1575,17 +1583,41 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       });
                       option["legend"][baseMapsName].onAdd = function(map) {
 
+                        var grades_loc = []
+                        for (var i = 0; i < grades.length; i++) {
+                          grades_loc.push(Math.floor(min_areaNum + grades[i]*(max_areaNum/100)));
+                        }
+                        topoLayer.eachLayer(colorleLayer);
+                        var colorleLayer_index = 0; 
+                        function colorleLayer(layer) {
+                          var areaName = layer.feature.properties.nom;
+                          var inMarkers = getNumItems(areaName);
+                          var areaNum = inMarkers.length;
+                          var areaNum_loc = (areaNum - min_areaNum) * (100 / max_areaNum)
+                          var fillColor = thisColor(areaNum_loc);
+                          layer.setStyle({
+                            fillColor: fillColor,
+                            //fillColor: getColor,
+                            fillOpacity: 1,
+                            color: colorStyle,
+                            weight: 1,
+                            opacity: .5
+                          });
+                        } 
+                                               
                         var div = L.DomUtil.create('div', 'info legend'), labels = [];
 
                         // loop through our density intervals and generate a label with a colored square for each interval
                         for (var i = grades.length - 1; i >= 0; i--) {
                           //for (var i = 0; i < grades.length; i++) {
-                          var legColor = thisColor(grades[i] + 1)
+                          //var legColor = thisColor(grades[i] + 1)
+                          var legColor = thisColor(grades[i]);
                           div.innerHTML +=
-                            '<i style="background:' + legColor + '"></i><span>' +
-                            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</span><br>' : '+</span><br>');
+                            '<i style="background-color:' + legColor + '"></i><span>' +
+                            grades_loc[i] + (grades_loc[i + 1] ? '&ndash;' + grades_loc[i + 1] + '</span><br>' : '+</span><br>');
                         }
-
+                        min_areaNum = 10000000000;
+                        max_areaNum = 0;
                         return div;
                       };
 
@@ -1594,14 +1626,30 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     function thisColor(d) {
                       var nbMax = grades.length;
                       for (var i = nbMax - 1; i >= 0; i--) {
-                        if (d > grades[i]) {
-                          var retColor = colorScale(i / nbMax).hex();
-                          return retColor;
+                        if (d >= grades[i]) {
+                          /*var retColor = colorScale(i / nbMax).hex();
+                          return retColor;*/
+                          return color_grades[i]
                         }
                       }
                       return 'white';
                     }
 
+                    map.on('overlayadd', function(eventLayer) {
+                      if(eventLayer.name == 'départements' || eventLayer.name == 'régions') {
+                        console.log('TEST : overlayadd');
+                      }
+                     });
+                    map.on('overlayremove', function(eventLayer) {
+                      if(eventLayer.name == 'départements' || eventLayer.name == 'régions') {
+                        console.log('TEST : overlayremove');
+                      }
+                    });
+                    map.on('baselayerchange', function(eventLayer) {
+                      if(eventLayer.name == 'départements' || eventLayer.name == 'régions') {
+                        console.log('TEST : baselayerchange');
+                      }
+                    });
 
                     function handleLayer(layer) {
                       //var randomValue = Math.random(),
@@ -1614,7 +1662,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       function handleLayer_maj(layer) {
                         var areaCode = layer.feature.properties.code;
                         var areaGeometry = layer.feature.geometry;
-                        var areaNum = getNumItems();
+                        inMarkers = getNumItems(areaName);
+                        var areaNum = inMarkers.length;
+                        if(areaNum > max_areaNum) {
+                          max_areaNum = areaNum;
+                          max_areaName = areaName;
+                        } 
+                        if(areaNum < min_areaNum) {
+                          min_areaNum = areaNum;
+                          min_areaName = areaName;
+                        }
 
 
                         // Delegate all event handling for the container itself and its contents to the container
@@ -1659,90 +1716,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                           opacity: .5
                         });
 
-                      function getNumItems() {
-                        inMarkers = [];
-                        if (typeof areaNumItems !== 'undefined') {
-                          if (typeof areaNumItems[areaName] !== 'undefined') {
-                            for (var idx = 0; idx < areaNumItems[areaName].length; idx++) {
-                                if (indexEvent[areaNumItems[areaName][idx]]["selected"]) inMarkers.push(areaNumItems[areaName][idx]);
-                            }
-                            return inMarkers.length;
-                          }
-                          else return 0;
-                        }
-                        else
-                         {
-                          var d = 0;
-                          for (var idx = 0; idx < option["data"].length; idx++) {
-                            if (indexEvent[idx]["selected"] && inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
-                                inMarkers.push(idx);
-                                d += 1;
-                            }
-                          }
-                          return d;
-                        }
-
-                        function inside(point, TopoGeom) {
-                          var insideVal = false;
-                          if (TopoGeom["type"] == "MultiPolygon") {
-                            for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
-                              var polygon = TopoGeom["coordinates"][i][0];
-                              // Le point est-il dans le polygone
-                              if (isInsidePolygon(point, polygon)) {
-                                insideVal = true;
-                                for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
-                                  var polygon = TopoGeom["coordinates"][i][j];
-                                  // Le point est-il dans l'un des trous du polygone
-                                  if (isInsidePolygon(point, polygon)) {
-                                    insideVal = false;
-                                  }
-                                }
-                              }
-                            }
-                          }
-                          else {
-                            var polygon = TopoGeom["coordinates"][0];
-                            // Le point est-il dans le polygone
-                            if (isInsidePolygon(point, polygon)) {
-                              insideVal = true;
-                              for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
-                                var polygon = TopoGeom["coordinates"][j];
-                                // Le point est-il dans l'un des trous du polygone
-                                if (isInsidePolygon(point, polygon)) {
-                                  insideVal = false;
-                                }
-                              }
-                            }
-                          }
-
-                          return insideVal;
-                          // ray-casting algorithm based on
-                          // https://github.com/substack/point-in-polygon/blob/master/index.js
-
-                          function isInsidePolygon(point, vs) {
-                            var x = point[0],
-                              y = point[1];
-
-                            var inside = false;
-                            for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-                              var xi = vs[i][0],
-                                yi = vs[i][1];
-                              var xj = vs[j][0],
-                                yj = vs[j][1];
-
-                              var intersect = ((yi > y) != (yj > y)) &&
-                                (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-                              if (intersect) inside = !inside;
-                            }
-
-                            return inside;
-
-                          }
-                        }
                       }
-
-                      }
-
+    
                       if ("ontouchstart" in document.documentElement) {
                         layer.on({
                           click: touchLayer,
@@ -1845,6 +1820,84 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       }
 
                       //function leaveLayer() {);
+                    }
+
+                    function getNumItems(areaName) {
+                      var inMarkers = [];
+                      if (typeof areaNumItems !== 'undefined') {
+                        if (typeof areaNumItems[areaName] !== 'undefined') {
+                          for (var idx = 0; idx < areaNumItems[areaName].length; idx++) {
+                            if (indexEvent[areaNumItems[areaName][idx]]["selected"]) inMarkers.push(areaNumItems[areaName][idx]);
+                          }
+                        }
+                      }
+                      else {
+                        for (var idx = 0; idx < option["data"].length; idx++) {
+                          if (indexEvent[idx]["selected"] && inside([option["data"][idx].lng, option["data"][idx].lat], areaGeometry)) {
+                            inMarkers.push(idx);
+                            d += 1;
+                          }
+                        }
+                      }
+                      return inMarkers;
+
+                      function inside(point, TopoGeom) {
+                        var insideVal = false;
+                        if (TopoGeom["type"] == "MultiPolygon") {
+                          for (var i = 0; i < TopoGeom["coordinates"].length; i++) {
+                            var polygon = TopoGeom["coordinates"][i][0];
+                            // Le point est-il dans le polygone
+                            if (isInsidePolygon(point, polygon)) {
+                              insideVal = true;
+                              for (var j = 1; j < TopoGeom["coordinates"][i].length; j++) {
+                                var polygon = TopoGeom["coordinates"][i][j];
+                                // Le point est-il dans l'un des trous du polygone
+                                if (isInsidePolygon(point, polygon)) {
+                                  insideVal = false;
+                                }
+                              }
+                            }
+                          }
+                        }
+                        else {
+                          var polygon = TopoGeom["coordinates"][0];
+                          // Le point est-il dans le polygone
+                          if (isInsidePolygon(point, polygon)) {
+                            insideVal = true;
+                            for (var j = 1; j < TopoGeom["coordinates"].length; j++) {
+                              var polygon = TopoGeom["coordinates"][j];
+                              // Le point est-il dans l'un des trous du polygone
+                              if (isInsidePolygon(point, polygon)) {
+                                insideVal = false;
+                              }
+                            }
+                          }
+                        }
+
+                        return insideVal;
+                        // ray-casting algorithm based on
+                        // https://github.com/substack/point-in-polygon/blob/master/index.js
+
+                        function isInsidePolygon(point, vs) {
+                          var x = point[0],
+                            y = point[1];
+
+                          var inside = false;
+                          for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+                            var xi = vs[i][0],
+                              yi = vs[i][1];
+                            var xj = vs[j][0],
+                              yj = vs[j][1];
+
+                            var intersect = ((yi > y) != (yj > y)) &&
+                              (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                            if (intersect) inside = !inside;
+                          }
+
+                          return inside;
+
+                        }
+                      }
                     }
 
                     option["baseMaps"][baseMapsName] = topoLayer;
@@ -3043,7 +3096,7 @@ div.dataTables_wrapper .table-striped select {
     float: left;
     margin-right: 8px;
     /*margin-right: 1em;*/
-    opacity: 0.7;
+    opacity: 1.;
 }
 .legendTitle {
   font-style: italic;

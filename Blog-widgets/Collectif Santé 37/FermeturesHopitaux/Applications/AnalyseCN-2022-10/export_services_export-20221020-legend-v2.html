@@ -226,7 +226,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   $(this).append(loading);
 
 
-  var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div></div>');
+  var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div><div id="star_filter"><span style="font-size: x-large; font-weight: bold; color: red; ">* <i></span>les données ont été  filtrées dans l' + "'" + 'onglet Données</div></div>');
   $(this).append(infoMapWrapper);
 
   //var dataTable = $('<span id="reset-all-table-filter"><input type="button" id="aaa" value="Reset all column filters" class="some_btn general_btn"></span><table id="table" class="table table-striped table-bordered" />');
@@ -1017,7 +1017,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
         var iconMarkers = iconMarkersBuilder(indexEvent);
         var iconMarkersLength = iconMarkers.length;
         var map, onSetDefaultMapView, refreshIndexEvent;
-        var legendAllMarkers, controlBasemapsAndOverlays;
 
         /*function removeAreaMarkers() {
           for (var i = 0; i < indexEvent.length; i++) {
@@ -1190,10 +1189,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             }
 
             function buildBaseMaps(option) {
-              if(typeof controlBasemapsAndOverlays == 'undefined') {
-                controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
-              }
-              //var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
+              var controlBasemapsAndOverlays = new L.control.layers(option["baseMaps"], objectOverlays["controlOverlays"]).addTo(option["map"]);
               for (var i = 0; i < objectOverlays["overlays"].length; i++) {
                 objectOverlays["controlOverlays"][objectOverlays["overlays"][i].title].addTo(map);
               }
@@ -1210,8 +1206,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                 controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display", "none");
               };
               var baselayerName = 'par défaut';
-              if(typeof legendAllMarkers === 'undefined') legendAllMarkers = addLegend()
-              //var legendAllMarkers = addLegend()
+              var legendAllMarkers = addLegend()
               map.on('baselayerchange', function(eventLayer) {
                 baselayerName = eventLayer.name;
                 map.removeControl(legendAllMarkers);
@@ -1382,18 +1377,27 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
             }
             var contentLegendHtml = ''
-            if (legendTitle != '') contentLegendHtml += '<span class="legendTitle" style="display:block; text-align:center;">' + totalEvents + ' ' + legendTitle + '</span>';
+            if (legendTitle != '') {
+              contentLegendHtml += totalEvents + ' ' + legendTitle;
+              if (tableFilterOn)  contentLegendHtml += '<span id="star_filter" style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
+              contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
+            }
             for (var k = 0; k < iconMarkersLength; k++) {
               if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
                 if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
-                  contentLegendHtml += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                  contentLegendHtml += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title;
                 }
                 else {
                   var iconVal = iconMarkers[k].icon.leaflet;
-                  contentLegendHtml += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title + '<br>'
+                  contentLegendHtml += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title
                 }
+                if (legendTitle !== '') contentLegendHtml += '<br>'
               }
             }
+            if( contentLegendHtml == '' ) contentLegendHtml = "aucun établissement"
+            if (legendTitle == '' && tableFilterOn)  contentLegendHtml += '<span id="star_filter" style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
+            if (tableFilterOn) $('#star_filter').css('display', 'block')
+            else $('#star_filter').css('display', 'none')
             return contentLegendHtml;
           }
           if(typeof options.banner !== 'undefined') bannerCoord();
@@ -2324,11 +2328,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   item['omit_default_label'] = true;
                   item['data'] = ["Sélectionnez"];
                   item['append_data_to_table_data'] = "before";
-                  //item['filter_default_label'] = "Sélectionnez";
                   item['filter_match_mode'] = "exact";
                   item['filter_reset_button_text'] = false;
                   item['filter_type'] = 'custom_func';
                   item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                    /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
+                      console.log('test...');
+                    }*/
                     if (columnVal === filterVal || "Sélectionnez" === filterVal) {
                       var myFilter = true;
                     }
@@ -2338,6 +2344,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     for (var i = 0; i < indexEventTable.length; i++) {
                       if (indexEventTable[i]["id"] === stateVal["id"]) {
                         indexEventTable[i]["selected"] = myFilter;
+                        consol = true;
+                        $('#aaa').css('display', 'block');
+                        tableFilterOn = true;
                       }
                     }
                     return myFilter;
@@ -2361,12 +2370,16 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                         indexEventTable[i]["selected"] = myFilterValue;
                         tableFilterOn = true;
                         $('#aaa').css('display', 'block')
+                        tableFilterOn = true;
                       }
                     }
                     return myFilterValue;
                     };
                     item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
                   }
+                } else {
+                    item['column_number'] = i;
+                    item['select_type'] = "chosen";
                 }
                 if (jQuery.type(item) !== 'undefined') {
                   item['defaultContent'] = '';
@@ -2415,6 +2428,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
               }
             }
             yadcf.exResetAllFilters(myTable);
+            for (var i = 0; i < properties.length; i++) {
+              if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+                if (properties[i]['filter'] == 'selection') {
+                  yadcf.exFilterColumn(myTable, [ [i, "Sélectionnez" ]]);
+                }
+              }
+            }
             tableFilterOn = false;
             $('#aaa').css('display', 'none')
           });
@@ -2459,7 +2479,7 @@ var isOKNumber = data => {
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes_Fromgml3.geojson',
       //base: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_etablissements_concernes-2021-06-23-depts.geojson',
       //base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_ght_2021_12_03.geojson',
-      base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_tous_etabl_2021_12_09_WDR.geojson',
+      //base:'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Applications/AnalyseCN/export_tous_etabl_2021_12_09_WDR.geojson',
 
       geolocData: function geolocData(iData, iVar) {
         if (typeof iData[iVar].LATITUDE !== 'undefined') {
@@ -2512,53 +2532,24 @@ var isOKNumber = data => {
     },
     //fondCarte : 'IGN',
     popupData : {
-      title: 'LIEUX',
+      title: 'hopital',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
-      hidden: ['id','LIEUX','text_fusion_groupe','indic_reduction', 'selected'],
+      hidden: ['id','hopital','text_fusion_groupe','indic_reduction', 'selected', 'departement', 'region', 'code_region'],
       label: [{
-          value: 'departement',
-          label: 'département'
+          value: 'etat',
+          label: 'état'
         }, {
-          value: 'region',
-          label: 'région'
+          value: 'annee_etat',
+          label: 'année état'
         }, {
-          value: 'ght_nom',
-          label: 'nom ght'
-        }, {
-          value: 'ghi_nom',
-          label: 'nom ghi'
-        }, {
-          value: 'publ_priv',
-          label: 'type de gestion'
-        }, {
-          value: 'nom_commune',
-          label: 'commune'
-        }, {
-          value: 'an_ferm_chirur',
-          label: 'année de fermeture chirur.'
-        }, {
-          value: 'an_ferm_mater',
-          label: 'année de fermeture mater.'
-        }, {
-          value: 'an_ferm_site',
-          label: 'année de fermeture du site'
-        }, {
-          value: 'an_ferm_urgences',
-          label: 'année de fermeture des urgences'
-        }, {
-          value: 'type_etablissement',
-          label: 'type'
-      }],
+          value: 'nature_destination',
+          label: 'nature destination'
+        }],
     },
     tableData: {
       properties: [{
-        name: 'LIEUX',
-        title:'lieux',
-        filter: 'selection'
-      }, {
-        name: 'nom_commune',
-        title:'commune',
-        filter: 0
+        name: 'hopital',
+        title:'hôpital',
       }, {
         name: 'département',
         filter: 'selection'
@@ -2566,28 +2557,28 @@ var isOKNumber = data => {
         name: 'région',
         filter: 'selection'
       }, {
+        name: 'service',
+        filter: 'selection'
+      }, {
+        name: 'etat',
+        title:'état',
+        filter: 'selection'
+      }, {
+        name: 'commentaire',
+      }, /*{
         name: 'victoire',
         title:'victoire',
         filter: 0
       }, {
-        name: 'an_ferm_mater',
-        title:'an_ferm_mater',
-        filter: 0
-      }, {
-        name: 'SUPPRESSIONS',
-        title:'suppressions',
-        filter: 1
-      }, {
-        name: 'an_ferm_mater',
-        title:'fermeture mater.',
-        filter: 1
-      }, {
-        name: 'MENACES',
-        title:'menaces',
-        filter: 0
-      }, {
-        name: 'publ_priv',
-        title:'type de gestion',
+        name: 'annee_etat',
+        title:'année état',
+        filter: 'selection'
+      },*/ {
+        name: 'nature',
+        filter: 2
+     }, {
+        name: 'nature_destination',
+        title:'nature destination',
         filter: 2
      }],
       filters: [{
@@ -2668,7 +2659,7 @@ var isOKNumber = data => {
         }],
         func: (filterVal, columnVal, rowValues, stateVal) => {
           switch (filterVal) {
-            case '1: sans valeur':
+            case '2: sans valeur':
               if (columnVal === '') {
                 return true;
               }
@@ -2711,7 +2702,7 @@ var isOKNumber = data => {
         },
       }
     },
-    /*legend: [
+    legend: [
     {
       title: 'Établissements',
       test: function(){},
@@ -2898,7 +2889,7 @@ var isOKNumber = data => {
         colorFG: '#F8F8F8',
       }]
     },
-    ],*/
+    ],
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
   $('#Fermetures').mapAllBlogs(optionsTESTInnerFormedData);

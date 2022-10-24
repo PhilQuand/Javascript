@@ -16,6 +16,7 @@
 <!-- multi selection sur les colonnes de la table d'après https://github.com/vedmack/yadcf -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 
 <!-- ressources communes à tous les blogs... -->
   <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
@@ -1408,8 +1409,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           if(typeof options.banner !== 'undefined') bannerCoord();
           function bannerCoord() {
             bannerCoord = L.control({
-              //position: 'topright'
-              position: 'bottomleft'
+              position: 'topright'
+              //position: 'bottomleft'
             });
 
             bannerCoord.onAdd = function(map) {
@@ -2650,7 +2651,7 @@ var isOKNumber = data => {
         name: 'LIEUX',
         title:'lieux',
         filter: 'selection'
-      }, {
+        }, {
         name: 'nom_commune',
         title:'commune',
         filter: 0
@@ -3085,7 +3086,7 @@ div.dataTables_wrapper .table-striped select {
     max-width: 150px;
 }
 .bannerCoord  {
-    display: none;
+    /*display: none;*/
 }
 .info.legend {
     margin-bottom: 25px;

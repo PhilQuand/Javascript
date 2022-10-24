@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Beaucoup de mouvements se développent, notamment contre la vie chère.</p>
+<p>Mais les préoccupations de santé ne sont pas absentes de ces mouvements.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<!--style>
+.rubrique {
+text-align: center; 
+color: #0070c0; 
+font-size: xx-large; 
+font-weight: bold; 
+font-family: Arial, serif;
+}
+.titre-rubrique {
+text-align: center; 
+font-size: large; 
+font-weight: bold; 
+}
+</style-->
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 42</li>
+<li>Dates: du 17 au 23 octobre 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/10/Infos-semaine-42-du-17-au-23-octobre-2022.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong> Édito (ou point fort de la semaine) : </strong></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<div style="font-family: Arial, serif;">
+<p>Beaucoup de mouvements se développent, notamment contre la vie chère.</p>
+<p>Mais les préoccupations de santé ne sont pas absentes de ces mouvements.</p>
+<p>Le Ministre, à travers le « CNR Santé », tente d'occuper le terrain mais les professionnels et les usagers ne sont pas dupes et interpellent à un haut niveau les responsables politiques et attendent des réponses concrètes qui n'arrivent pas.</p>
+<p>Le Projet de loi de Financement de la Sécurité Sociale 2023 (PLFSS 2023) ne sera pas voté par les député(e)s ; le gouvernement a décidé de sortir le 49-3 pour faire passer le projet.</p>
+<p>Belle illustration de démocratie, ou plutôt de manque de démocratie.</p>
+<p>Ce n'est pas une preuve de force pour ce gouvernement ; nous devons hausser les luttes pour faire céder ce pouvoir.</p></div>
+<p align="right"><em>Joseph Maatouk.</em></p>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+
+<p style="background-color: #729FD0; color:#F7F7F7;" align="center"><strong>DOLE</strong></p>
+<p align="center"><strong>Le comité s’invite à la pose de la première pierre … tombale de la chirurgie</strong></p>
+<p align="center"><u><a href="http://coordination-defense-sante.org/2022/10/dole-le-comite-sinvite-a-la-pose-de-la-premiere-pierre-tombale-de-la-chirurgie-publique/">Journal de l'association</a></u></p>
+<p align="center"><img src="http://coordination-defense-sante.org/wp-content/uploads/2022/10/dole20221017.jpg" alt="" /></p>
+<p style="background-color: #E37B23; color:#F7F7F7;" align="center"><strong>CREIL</strong></p>
+<p align="center"><u><a href="http://coordination-defense-sante.org/2022/10/creil-action-annoncee-le-3-novembre-pour-la-reouverture-de-la-maternite/">action pour la maternité</a></u></p>
+<p align="center"><img src="http://coordination-defense-sante.org/wp-content/uploads/2022/10/creil3.jpg" alt="" /><br clear="left" /><br /></p>
+<p style="background-color: #44FD66; color:#F7F7F7;" align="center"><strong>MAYENNE</strong></p>
+<p align="center">Audace 53 était présent à Craon</p>
+<p align="center"><u><a href="http://coordination-defense-sante.org/2022/10/craon-audace-53-etait-present/">http://coordination-defense-sante.org/2022/10/craon-audace-53-etait-present/</a></u></p>
+<p style="background-color: #729FD0; color:#FC3335;" align="center"><strong>LUÇON</strong></p>
+<p align="center"><strong>Rendez-vous le vendredi 21 octobre</strong></p>
+<p align="center">Hôpital public en danger ! La santé n’est pas une marchandise !</p>
+<p align="center">Des moyens humains et financiers pour répondre aux besoins de la population !</p>
+<p align="center">Comme chaque vendredi, l’ADSP appelait à un RV devant l’hôpital de Luçon le vendredi 21 octobre à 18 h</p>
+<p style="background-color: #729FD0; color:#FC3335;" align="center"><strong>LURE</strong></p>
+<p align="center"><u><a href="http://coordination-defense-sante.org/2022/10/lure-communique-du-cv70-2/">communiqué</a><br /></u></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #29FCFE; color:#2AFFFF;" align="center"><strong>MANOSQUE</strong></p>
+<p align="center"><u><a href="http://coordination-defense-sante.org/2022/10/manosque-le-collectif-toujours-mobilise/">Collectif toujours mobilisé</a></u></p>
+<p align="center"><a href="https://www.bfmtv.com/bfm-dici/replay-emissions/bonsoir-dici-alpes-du-sud/manosque-la-clinique-toutes-aures-en-greve-pour-le-3e-jour_VN-202210200597.html">Grève à la clinique Toutes Aures de Manosque</a></p>
+<p style="background-color: #9898FF; color:#9999FF;" align="center"><strong>URGENCES DE NANTES</strong></p>
+<p align="center"><u><a href="https://france3-regions.francetvinfo.fr/pays-de-la-loire/loire-atlantique/nantes/la-greve-illimitee-a-ete-votee-aux-urgences-du-chu-de-nantes-2640944.html?s=09">Grève illimitée</a></u></p>
+<p style="background-color: #FED8D8; color:#9999FF;" align="center"><strong>GANGES</strong></p>
+<p style="margin-bottom: 3px; " align="center">Le groupe Cap Santé veut fermer la maternité de Ganges, seule maternité de ce territoire.</p>
+<p style="margin-top: 3px;" align="center">Le service public doit être assuré ! Un collectif mobilise</p>
+<p align="center"><a href="https://www.change.org/p/non-%C3%A0-la-fermeture-de-la-maternit%C3%A9-de-ganges">La pétition</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<center>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic;" align="center">MOUVEMENT CONTRE LES ORDRES PROFESSIONNELS</p>
+<p><u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/10/CPduMIOP-17oct22-TJP-LeScouarnec.pdf">Audience tribunal</a></u></p>
+<p>Position du SMG</p>
+<p style="margin-bottom: 3px">Le SMG appelle à signer la pétition du collectif de Médecins STOP VIOLENCES ></p>
+<p style="margin-top: 3px"><u><a href="https://www.stopviolencesmedecins.com/" target="_blank">https://www.stopviolencesmedecins.com/</a></u></p>
+<p><u><a href="https://syndicat-smg.fr/appel-a-soutien-aux-medecins-en-proces-pour-refus-de-paiement-de-cotisation-a-l#543130">position</a></u></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic;" align="center">SAGES FEMMES</p>
+<p><u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/10/20221018_CDPINPHONSSF.pdf">Communiqué de INPH ONSSF</a></u></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic;" align="center">FNCS</p>
+<p><u><a href="https://lescentresdesante.com/centres-de-sante-les-valeurs-ne-sachetent-pas/">https://lescentresdesante.com/centres-de-sante-les-valeurs-ne-sachetent-pas/</a></u></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic;" align="center">URGENCES PEDIATRIQUES</p>
+<p><u><a href="https://www.lavoixdunord.fr/1244525/article/2022-10-22/urgences-pediatriques-plus-de-4-000-soignants-ecrivent-une-lettre-inquietante-au?utm_source=push-web&amp;utm_medium=redaction&amp;utm_campaign=push-web-une">Un appel de soignants à Macron</a></u></p>
+<p><a href="https://france3-regions.francetvinfo.fr/normandie/seine-maritime/rouen/les-urgences-pediatriques-satures-la-colere-d-un-medecin-rouennais-2641012.html#xtor=EPR-521-[france3regions]-20221023-[info-bouton1]&amp;pid=726375-1437732574-2a072072">Un article sur France3 Normandie</a></p>
+<p><u><a href="https://www.leparisien.fr/societe/sante/des-enfants-quotidiennement-en-danger-la-lettre-choc-a-emmanuel-macron-de-4000-soignants-en-pediatrie-21-10-2022-4FPRV44PCBDUNNNN623VYYFDCU.php?utm_campaign=facebook_partage&amp;amp;utm_medium=social&amp;amp;fbclid=IwAR2Po5oDxIp1sDVIUuCKwsGWbRSd5KVRK_QnIue_mVr6aBQE684KRHkPps0">La tribune des 4000 pédiatres dans Le Parisien</a></u></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic;" align="center">PSYCHIATRIE</p>
+<p>Une rencontre avec Roland Gori à propos de son nouveau livre à Reims</p>
+<p><u><a href="https://www.infoculture-reims.fr/details.php?s_ev_id=27679&amp;s_lieu=Divers+Lieux&amp;s_from=0&amp;s_period=all&amp;s_date_debut=2022-10-17&amp;s_date_fin=2026-01-01&amp;s_nb_results=500">La Fabrique de nos servitudes</a></u></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic;" align="center">SUD SANTÉ SOCIAUX</p>
+<p><u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/10/La-psychiatrie-grande-absente-des-Semaines-dInformation-sur-la-Sante-Mentale.pdf">Communiqué sur la semaine de la santé mentale</a></u></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic;" align="center">GERIATRIE</span></p>
+<p><u><a href="https://www.whatsupdoc-lemag.fr/article/regarde-la-geriatrie-tomber">réflexion sur la gériatrie</a></u></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic;" align="center">PLFSS</p>
+<p><u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/10/Gr-9-CP-PLFSS-2023-2022-10-18.pdf">Communiqué commun du "groupe des 9</a>"</u></p>
+</center>
+<!--p class="rubrique">Culture et santé :</p>
+
+<p align="center">Parlons services publics !</p>
+<p align="center"><a href="https://peertube.stream/w/ro6isoGJFYe1ALGKdjQwbo" target="_blank">https://peertube.stream/w/ro6isoGJFYe1ALGKdjQwbo</a></p>
+<p align="center"><a href="https://peertube.stream/w/uqRCZwGb6ZxttrXhA1P2Jb" target="_blank">https://peertube.stream/w/uqRCZwGb6ZxttrXhA1P2Jb</a>
+</p-->
+
+<hr />
+
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

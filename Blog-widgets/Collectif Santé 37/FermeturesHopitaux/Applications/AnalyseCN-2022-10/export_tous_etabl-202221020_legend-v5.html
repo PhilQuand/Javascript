@@ -1588,7 +1588,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                         for (var i = 0; i < grades.length; i++) {
                           grades_loc.push(Math.floor(min_areaNum + grades[i]*(max_areaNum/100)));
                         }
-                        topoLayer.eachLayer(colorleLayer);
+                        /*topoLayer.eachLayer(colorleLayer);
                         var colorleLayer_index = 0; 
                         function colorleLayer(layer) {
                           var areaName = layer.feature.properties.nom;
@@ -1603,7 +1603,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                             weight: 1,
                             opacity: .5
                           });
-                        } 
+                        }*/ 
                                                
                         var div = L.DomUtil.create('div', 'info legend'), labels = [];
 
@@ -1649,9 +1649,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       if (eventLayer.name !== 'départements' && eventLayer.name !== 'régions') {
                         min_areaNum = 10000000000;
                         max_areaNum = 0;
-                        console.log('TEST : baselayerchange changing min_max : ' + eventLayer.name);
+                        //console.log('TEST : baselayerchange changing min_max : ' + eventLayer.name);
                       } else {
-                        console.log('TEST : baselayerchange : ' + eventLayer.name);
+                        //console.log('TEST : baselayerchange : ' + eventLayer.name);
                       }
                     });
                     
@@ -1746,7 +1746,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       });
 
                       function addingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                        //console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
                         for (var k = 0; k < objectOverlays["overlays"].length; k++) {
                           if (objectOverlays["overlays"][k].title == eventLayer.name) {
                             objectOverlays["overlays"][k].isVisible = true;
@@ -1757,7 +1757,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       }
 
                       function removingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
+                        //console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
                         for (var k = 0; k < objectOverlays["overlays"].length; k++) {
                           if (objectOverlays["overlays"][k].title == eventLayer.name) {
                             objectOverlays["overlays"][k].isVisible = false;
@@ -1768,8 +1768,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       }
 
                       function changingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
-                         handleLayer_maj(layer);
+                        //console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                        handleLayer_maj(layer);
                         if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
                       }
                       

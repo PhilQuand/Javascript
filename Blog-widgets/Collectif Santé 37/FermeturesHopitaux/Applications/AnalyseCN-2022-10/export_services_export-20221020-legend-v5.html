@@ -1318,7 +1318,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             else legendTitle = '';
             iconMarkersBuilder = data => {
               for (var i = 0; i < data.length; i++) {
-                data[i].iconMarker = options['legend'][menuLegend]['affect'](data[i]);
+                data[i].iconMarker = options['legend'][menuLegend].icons[options['legend'][menuLegend]['affect'](data[i])];
               }
               return options['legend'][menuLegend].icons;
             }
@@ -1443,11 +1443,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   iconNum[i] = true;
                 }
               }
+              var marker = indexEvent[refreshIndexEvent[i]].marker
+              //var icon = new L.Icon(indexEvent[refreshIndexEvent[i]].iconMarker)
+              var icon = indexEvent[refreshIndexEvent[i]].iconMarker.icon.leaflet;
+              marker.setIcon(icon);
               if (iconNum[i]) {
-                markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
+                markers.addLayer(marker);
               }
               else {
-                markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
+                markers.removeLayer(marker);
               }
             }
             return iconNum;
@@ -1528,7 +1532,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     console.log('Everything has been loaded!');
 
                     var topoVal = loadVal(values, topoFile);
-                    var min_areaNum = 10000000000, max_areaNum = 0, min_areaName, max_areaName;
 
                     var topoLayer = new L.TopoJSON();
                     var colorScale = chroma
@@ -1584,12 +1587,23 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       });
                       option["legend"][baseMapsName].onAdd = function(map) {
 
-                        var grades_loc = []
-                        for (var i = 0; i < grades.length; i++) {
-                          grades_loc.push(Math.floor(min_areaNum + grades[i]*(max_areaNum/100)));
-                        }
+                        var min_areaNum = 10000000000, max_areaNum = 0, min_areaName, max_areaName;
+                        topoLayer.eachLayer(MinMaxleLayer);
+                        function MinMaxleLayer(layer) {
+                          var areaName = layer.feature.properties.nom;
+                          var inMarkers = getNumItems(areaName);
+                          var areaNum = inMarkers.length;
+                          if(areaNum > max_areaNum) {
+                            max_areaNum = areaNum;
+                            max_areaName = areaName;
+                          } 
+                          if(areaNum < min_areaNum) {
+                            min_areaNum = areaNum;
+                            min_areaName = areaName;
+                          }
+                        }  
+                                              
                         topoLayer.eachLayer(colorleLayer);
-                        var colorleLayer_index = 0; 
                         function colorleLayer(layer) {
                           var areaName = layer.feature.properties.nom;
                           var inMarkers = getNumItems(areaName);
@@ -1605,6 +1619,11 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                           });
                         } 
                                                
+                        var grades_loc = []
+                        for (var i = 0; i < grades.length; i++) {
+                          grades_loc.push(Math.floor(min_areaNum + grades[i]*(max_areaNum/100)));
+                        }
+                        
                         var div = L.DomUtil.create('div', 'info legend'), labels = [];
 
                         // loop through our density intervals and generate a label with a colored square for each interval
@@ -1616,8 +1635,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                             '<i style="background-color:' + legColor + '"></i><span>' +
                             grades_loc[i] + (grades_loc[i + 1] ? '&ndash;' + grades_loc[i + 1] + '</span><br>' : '+</span><br>');
                         }
-                        min_areaNum = 10000000000;
-                        max_areaNum = 0;
                         return div;
                       };
 
@@ -1647,11 +1664,9 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     });*/
                     map.on('baselayerchange', function(eventLayer) {
                       if (eventLayer.name !== 'départements' && eventLayer.name !== 'régions') {
-                        min_areaNum = 10000000000;
-                        max_areaNum = 0;
-                        console.log('TEST : baselayerchange changing min_max : ' + eventLayer.name);
+                        //console.log('TEST : baselayerchange changing min_max : ' + eventLayer.name);
                       } else {
-                        console.log('TEST : baselayerchange : ' + eventLayer.name);
+                        //console.log('TEST : baselayerchange : ' + eventLayer.name);
                       }
                     });
                     
@@ -1668,15 +1683,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                         var areaGeometry = layer.feature.geometry;
                         inMarkers = getNumItems(areaName);
                         var areaNum = inMarkers.length;
-                        if(areaNum > max_areaNum) {
-                          max_areaNum = areaNum;
-                          max_areaName = areaName;
-                        } 
-                        if(areaNum < min_areaNum) {
-                          min_areaNum = areaNum;
-                          min_areaName = areaName;
-                        }
-
+ 
 
                         // Delegate all event handling for the container itself and its contents to the container
                         container.on('click', '.smallPolygonLink', function() {
@@ -1746,7 +1753,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       });
 
                       function addingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                        //console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
                         for (var k = 0; k < objectOverlays["overlays"].length; k++) {
                           if (objectOverlays["overlays"][k].title == eventLayer.name) {
                             objectOverlays["overlays"][k].isVisible = true;
@@ -1757,7 +1764,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       }
 
                       function removingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
+                        //console.log('in loadMapTopoJSON removing : ' + eventLayer.name);
                         for (var k = 0; k < objectOverlays["overlays"].length; k++) {
                           if (objectOverlays["overlays"][k].title == eventLayer.name) {
                             objectOverlays["overlays"][k].isVisible = false;
@@ -1768,8 +1775,8 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       }
 
                       function changingOverlay(eventLayer) {
-                        console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
-                         handleLayer_maj(layer);
+                        //console.log('in loadMapTopoJSON adding : ' + eventLayer.name);
+                        handleLayer_maj(layer);
                         if (layer.options.fillOpacity == 0) refreshMarkers(refreshIndexEvent);
                       }
                       
@@ -2560,7 +2567,7 @@ var isOKNumber = data => {
       },
       //INSEE_KEY: "INSEE_COM",
       checkIfStoreNeedsUpdate: false,
-      dataTransformer: true,
+      dataTransformer: false,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,
@@ -2627,6 +2634,12 @@ var isOKNumber = data => {
         name: 'etat',
         title:'état',
         filter: 'selection'
+      }, {
+        name: 'ght',
+        filter: 0
+      }, {
+        name: 'ghi',
+        filter: 0
       }, {
         name: 'commentaire',
       }, /*{
@@ -2753,7 +2766,7 @@ var isOKNumber = data => {
     },
     controlLayers: {
       controlMaps: {on: true},
-      controlOverlays: {
+      /*controlOverlays: {
         title: 'Type de gestion',
         overlays: ['non défini', 'public', 'privé'],
         affect: function(data) {
@@ -2763,25 +2776,25 @@ var isOKNumber = data => {
             return 2;
           } else return 0;
         },
-      }
+      }*/
     },
     legend: [
     {
       title: 'Établissements',
       test: function(){},
       affect: function(data) {
-        if ( isOKString(data["victoire"])  ) {
+        if ( isOKString(data["ght"]) ) {
           return 0;
         }
-        else if ( jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('uppression') >= 0  ) {
+        else if ( isOKString(data["ghi"]) ) {
           return 1;
         }
-        else if ( (jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('Fermeture') >= 0) || (jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('fermeture') >= 0) || isOKString(data["an_ferm_mater"]) || isOKString(data["an_ferm_urgences"]) || isOKString(data["an_ferm_chirur"]) || isOKString(data["an_ferm_cardio"]) || isOKString(data["an_ferm_ivg"]) ) {
+        /*else if ( (jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('Fermeture') >= 0) || (jQuery.type(data['SUPPRESSIONS']) === 'string' && data['SUPPRESSIONS'].indexOf('fermeture') >= 0) || isOKString(data["an_ferm_mater"]) || isOKString(data["an_ferm_urgences"]) || isOKString(data["an_ferm_chirur"]) || isOKString(data["an_ferm_cardio"]) || isOKString(data["an_ferm_ivg"]) ) {
           return 2;
         }
         else if ( isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES']) ) {
           return 3;
-        }
+        }*/
         else return 4;
       },
       icons: [
@@ -2794,7 +2807,7 @@ var isOKNumber = data => {
             popupAnchor: [1, -17],
             shadowSize: [20, 20]
           })},
-          title: 'une victoire',
+          title: 'ght',
           colorBG: '#FFD326',
           colorFG: '#0E0E0E',
         },
@@ -2809,7 +2822,7 @@ var isOKNumber = data => {
               shadowSize: [20, 20]
             })
           },
-          title: 'étab. fermés',
+          title: 'ghi',
           colorBG: '#2781CA',
           colorFG: '#FFFFFF',
         },
@@ -2861,11 +2874,11 @@ var isOKNumber = data => {
       ]
     },
     {
-      title: 'Ferm. de maternités',
+      title: 'ght ou ghi',
       //test: function(){},
       filter: {
         func: function(data) {
-          if (isOKNumber(data["an_ferm_mater"])) {
+          if (isOKString(data["ght"])  || isOKString(data["ghi"])) {
             return 1;
           }
           else {
@@ -2874,18 +2887,18 @@ var isOKNumber = data => {
         },
       },
       affect: function(data) {
-        if (data["an_ferm_mater"] == 1111) {
+        if (data["nature"] == "public") {
           return 0;
         }
-        else if (data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] < 1997) {
+        else if (data["nature"] == "privé") {
           return 1;
         }
-        else if (data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] <= 2009) {
+        /*else if (data["an_ferm_mater"] > 1111 && data["an_ferm_mater"] <= 2009) {
           return 2;
         }
         else if (data["an_ferm_mater"] > 2009) {
           return 3;
-        }
+        }*/
         else {
           return 4;
         }
@@ -2899,7 +2912,7 @@ var isOKNumber = data => {
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         })},
-        title: 'date inconnue',
+        title: 'public',
         colorBG: '#2781CA',
         colorFG: '#FFFFFF',
       }, {
@@ -2911,7 +2924,7 @@ var isOKNumber = data => {
           popupAnchor: [1, -17],
           shadowSize: [20, 20]
         })},
-        title: 'avant 1997',
+        title: 'privé',
         colorBG: '#9A26CA',
         colorFG: '#F8F8F8',
       }, {
@@ -2940,7 +2953,7 @@ var isOKNumber = data => {
         colorFG: '#F8F8F8',
       }, {
         icon: {leaflet: new L.Icon({
-          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+          iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-orange.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
           iconSize: [13, 20],
           iconAnchor: [6, 20],
@@ -2948,8 +2961,8 @@ var isOKNumber = data => {
           shadowSize: [20, 20]
         })},
         title: 'autres',
-        colorBG: '#9A26CA',
-        colorFG: '#F8F8F8',
+        colorBG: '#FFD326',
+        colorFG: '#0E0E0E',
       }]
     },
     ],

@@ -1318,7 +1318,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
             else legendTitle = '';
             iconMarkersBuilder = data => {
               for (var i = 0; i < data.length; i++) {
-                data[i].iconMarker = options['legend'][menuLegend]['affect'](data[i]);
+                data[i].iconMarker = options['legend'][menuLegend].icons[options['legend'][menuLegend]['affect'](data[i])];
               }
               return options['legend'][menuLegend].icons;
             }
@@ -1443,11 +1443,15 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                   iconNum[i] = true;
                 }
               }
+              var marker = indexEvent[refreshIndexEvent[i]].marker
+              //var icon = new L.Icon(indexEvent[refreshIndexEvent[i]].iconMarker)
+              var icon = indexEvent[refreshIndexEvent[i]].iconMarker.icon.leaflet;
+              marker.setIcon(icon);
               if (iconNum[i]) {
-                markers.addLayer(indexEvent[refreshIndexEvent[i]].marker);
+                markers.addLayer(marker);
               }
               else {
-                markers.removeLayer(indexEvent[refreshIndexEvent[i]].marker);
+                markers.removeLayer(marker);
               }
             }
             return iconNum;
@@ -1528,7 +1532,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     console.log('Everything has been loaded!');
 
                     var topoVal = loadVal(values, topoFile);
-                    var min_areaNum = 10000000000, max_areaNum = 0, min_areaName, max_areaName;
 
                     var topoLayer = new L.TopoJSON();
                     var colorScale = chroma
@@ -1584,12 +1587,23 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                       });
                       option["legend"][baseMapsName].onAdd = function(map) {
 
-                        var grades_loc = []
-                        for (var i = 0; i < grades.length; i++) {
-                          grades_loc.push(Math.floor(min_areaNum + grades[i]*(max_areaNum/100)));
-                        }
-                        /*topoLayer.eachLayer(colorleLayer);
-                        var colorleLayer_index = 0; 
+                        var min_areaNum = 10000000000, max_areaNum = 0, min_areaName, max_areaName;
+                        topoLayer.eachLayer(MinMaxleLayer);
+                        function MinMaxleLayer(layer) {
+                          var areaName = layer.feature.properties.nom;
+                          var inMarkers = getNumItems(areaName);
+                          var areaNum = inMarkers.length;
+                          if(areaNum > max_areaNum) {
+                            max_areaNum = areaNum;
+                            max_areaName = areaName;
+                          } 
+                          if(areaNum < min_areaNum) {
+                            min_areaNum = areaNum;
+                            min_areaName = areaName;
+                          }
+                        }  
+                                              
+                        topoLayer.eachLayer(colorleLayer);
                         function colorleLayer(layer) {
                           var areaName = layer.feature.properties.nom;
                           var inMarkers = getNumItems(areaName);
@@ -1603,8 +1617,13 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                             weight: 1,
                             opacity: .5
                           });
-                        }*/ 
+                        } 
                                                
+                        var grades_loc = []
+                        for (var i = 0; i < grades.length; i++) {
+                          grades_loc.push(Math.floor(min_areaNum + grades[i]*(max_areaNum/100)));
+                        }
+                        
                         var div = L.DomUtil.create('div', 'info legend'), labels = [];
 
                         // loop through our density intervals and generate a label with a colored square for each interval
@@ -1616,8 +1635,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                             '<i style="background-color:' + legColor + '"></i><span>' +
                             grades_loc[i] + (grades_loc[i + 1] ? '&ndash;' + grades_loc[i + 1] + '</span><br>' : '+</span><br>');
                         }
-                        min_areaNum = 10000000000;
-                        max_areaNum = 0;
                         return div;
                       };
 
@@ -1647,8 +1664,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     });*/
                     map.on('baselayerchange', function(eventLayer) {
                       if (eventLayer.name !== 'départements' && eventLayer.name !== 'régions') {
-                        min_areaNum = 10000000000;
-                        max_areaNum = 0;
                         //console.log('TEST : baselayerchange changing min_max : ' + eventLayer.name);
                       } else {
                         //console.log('TEST : baselayerchange : ' + eventLayer.name);
@@ -1668,15 +1683,6 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                         var areaGeometry = layer.feature.geometry;
                         inMarkers = getNumItems(areaName);
                         var areaNum = inMarkers.length;
-                        if(areaNum > max_areaNum) {
-                          max_areaNum = areaNum;
-                          max_areaName = areaName;
-                        } 
-                        if(areaNum < min_areaNum) {
-                          min_areaNum = areaNum;
-                          min_areaName = areaName;
-                        }
-
 
                         // Delegate all event handling for the container itself and its contents to the container
                         container.on('click', '.smallPolygonLink', function() {
@@ -2560,7 +2566,7 @@ var isOKNumber = data => {
       },
       //INSEE_KEY: "INSEE_COM",
       checkIfStoreNeedsUpdate: false,
-      dataTransformer: true,
+      dataTransformer: false,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
       loadFromJS(outputData,

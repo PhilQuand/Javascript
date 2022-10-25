@@ -48,10 +48,10 @@
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
 <!-- accés au Geoportail -->
   <!--script data-key="f5cse26aiqvu6j4xqtngh5zh" src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'></script-->
-  <script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'></script>
+  <!--script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'></script>
   <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.css' rel='stylesheet' />
   <script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.js'></script>
-  <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css' rel='stylesheet' />
+  <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css' rel='stylesheet' /-->
 </head>
 <body>
 <div class="SIURFFMR right" >
@@ -1088,7 +1088,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           return popupContent.html();
         }
         var markers = L.markerClusterGroup({
-          maxClusterRadius: 5
+          //maxClusterRadius: 5
+          removeOutsideVisibleBounds: true,
+          spiderfyDistanceMultiplier: 2,
+          maxClusterRadius: 20
         });
         for (i = 0; i < indexEvent.length; i++) {
           indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
@@ -1538,7 +1541,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     var color_grades = []
                     for (var i = 0; i < grades.length; i++) {
                       color_grades.push(colorScale(i / grades.length).hex());
-                      console.log(color_grades[i]);
+                      //console.log(color_grades[i]);
                     }
                     var enterPopup = 0;
 

@@ -1089,7 +1089,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           return popupContent.html();
         }
         var markers = L.markerClusterGroup({
-          maxClusterRadius: 5
+          //maxClusterRadius: 5
+          removeOutsideVisibleBounds: true,
+          spiderfyDistanceMultiplier: 2,
+          maxClusterRadius: 20
         });
         for (i = 0; i < indexEvent.length; i++) {
           indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];
@@ -1539,7 +1542,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
                     var color_grades = []
                     for (var i = 0; i < grades.length; i++) {
                       color_grades.push(colorScale(i / grades.length).hex());
-                      console.log(color_grades[i]);
+                      //console.log(color_grades[i]);
                     }
                     var enterPopup = 0;
 

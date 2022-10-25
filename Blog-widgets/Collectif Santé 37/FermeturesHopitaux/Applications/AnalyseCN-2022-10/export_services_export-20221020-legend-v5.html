@@ -1088,7 +1088,10 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
           return popupContent.html();
         }
         var markers = L.markerClusterGroup({
-          maxClusterRadius: 5
+          //maxClusterRadius: 5
+          removeOutsideVisibleBounds: true,
+          spiderfyDistanceMultiplier: 2,
+          maxClusterRadius: 20
         });
         for (i = 0; i < indexEvent.length; i++) {
           indexEvent[i].iconMarker = iconMarkers[indexEvent[i].iconMarker];

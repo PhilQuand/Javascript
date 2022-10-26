@@ -1082,7 +1082,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
              if(jQuery.type(label[item]) === 'string') {
                 itemLabel = label[item];
               }
-              if (typeof data[item] !== 'undefined' && data[item] != '') popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><br>' + data[item] + '</div>');
+              if (typeof data[item] !== 'undefined' && data[item] != '' && data[item] != null && data[item] != 'NULL') popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><br>' + data[item] + '</div>');
             }
           return popupContent.html();
         }

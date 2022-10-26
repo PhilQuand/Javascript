@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>l'&Eacute;cho des Comit&eacute;s</title>
+<!-- jQuery for FancyBox 3-->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<!-- Add fancyBox 3 -->
+<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+<script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
+<!-- End FancyBox -->
+<!-- Load Leaflet -->
+<link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+<script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- For google calendar integration -->
+<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+    <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+    <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+    <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load iFrameGallery -->
+ <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.css" rel="stylesheet" type="text/css" />
+ <script src="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/iFrameGallery-Plugin.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s1600/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<p>Voici une carte interactive de « l'écho des comités » issu de la « lettre d'information » de la <a href="http://coordination-defense-sante.org">Coordination Nationale des Hôpitaux et Maternités de Proximité</a>.</p>
+<p>Les « échos » des quatre dernières lettres sont reportés par défaut mais il est possible d'en afficher plus en modifiant l'intervalle de temps affiché en tête de carte.</p>
+<p>Les échos des comités sont représentés par une « goutte » sur laquelle il suffit de cliquer pour en voir le détail. Lorsque, au cours de la période affichée, plusieurs échos existent pour un même comité, ceux-ci sont rassemblés dans une bulle verte qu'il suffit de cliquer pour les faire apparaître individuellement.</p>
+<!--more-->
+<!-- Load Leaflet -->
+<div id="idInfosComités"></div>
+<script>
+$(document).ready(function() {
+  $('#idInfosComités').InfosComités({
+    href: archi,
+    iFrameGallery: false,
+    mapTitle: 'Infos des comités locaux&#160;',
+    iconMarkers: [{
+      class: "marker-1",
+      title: 'Échos'
+    }, {
+      class: "marker-2",
+      icon: simpleGreenIcon,
+      title: 'Autres Infos'
+    }, {
+      class: "marker-3",
+      icon: simpleRedIcon,
+      title: 'Coordination'
+    }],
+  });
+});
+</script>
+</body>
+</html>

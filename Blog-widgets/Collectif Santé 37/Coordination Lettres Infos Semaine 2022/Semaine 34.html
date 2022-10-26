@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Mon frère me rapportait ce qui venait d’arriver à sa belle sœur. Elle même, ingénieure trouvait qu’elle avait en cet été des trous de mémoire et des absences...</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<!--style>
+.rubrique {
+text-align: center; 
+color: #0070c0; 
+font-size: xx-large; 
+font-weight: bold; 
+font-family: Arial, serif;
+}
+.titre-rubrique {
+text-align: center; 
+font-size: large; 
+font-weight: bold; 
+}
+</style-->
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 34</li>
+<li>Dates: du 22 au 29 août 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/08/Infos-semaine-34-du-22-au-28-aout-2022.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong> Édito (ou point fort de la semaine) : </strong></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<div style="font-family: Arial, serif;">
+<p>Mon frère me rapportait ce qui venait d’arriver à sa belle sœur. Elle mème, ingénieure trouvait qu’elle avait en cet été des trous de mémoire et des absences.</p>
+<p>Elle en discute avec un ami médecin. Celui-ci, à l’écoute de ses difficultés lui conseille de voir un ami à lui, neurochirurgien. Rendez vous pris dès le lendemain, les inquiétudes se précises et le chirurgien l’adresse à un confrère pour un examen rapide. Deux jours après l’examen confirme un AVC et une intervention est programmée. Ouf ! Soulagement, après huit jours d’inquiétude notre belle-sœur est ressortie de l’intervention sans séquelles détectables aujourd’hui et va pouvoir reprendre son cours de vie familiale et professionnel.</p>
+<p>Je ne peux m’empêcher de comparer avec cette famille qui vient d’interpeller notre commission des usagers. Le père de famille avait des absences, puis des maux de tête. Comme il avait Parkinson, ses chutes ont été mises au compte de cette maladie. Pourtant elle était stabilisée avec le traitement. Dans le doute, lors d’une hospitalisation, le médecin fait une radio pulmonaire et découvre une tache noire. Inquiétude, et si un cancer avait métastasé au cerveau ? Il recommande un examen. Un mois après cet examen est ...programmé pour après les congés. Les services sont surchargés à l’hôpital cet été.</p>
+<p>Si comme c’est à craindre, une métastase cancéreuse est découverte, elle sera prise en charge plusieurs mois après sa manifestation.</p>
+<p>Les progrès en connaissance, compétences médicales et techniques ne sont réellement mis en œuvre que pour une partie de la population qui a un bagage culturel, des réseaux et les moyens financiers, si nécessaire.</p>
+<p>Pour les autres, c’est une santé mystérieuse et lointaine, sans moyens où la réussite du soin est largement entravée par les conditions concrètes de mise en œuvre. Et encore cette famille n’avait pas <span lang="fr-FR">à</span> franchir l’attente d’une réponse du 15 pour pouvoir rencontrer un médecin, devenue obligatoire depuis !</p>
+</div>
+<p align="right"><em>Henri Célié (sud Aveyron).</em></p>
+<!--div style="text-align: center; font-size: larger;">
+La Coordination Nationale répond au docteur Braun
+<p><b>M. Braun ne triez pas les malades !</b></p>
+<p>Le <a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/Le-communiqu%C3%A9.pdf">communiqué</a></p>
+</div--></div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+<p class="titre-rubrique" style="background-color: #ffff00;" align="center">Pendant l' été, ils restent actifs pour la défense de l'hôpital public</p>
+<p></p>
+<p style="background-color: #1C87D2;" align="center"><strong>GUINGAMP - 22</strong></p>
+<p style="text-align: justify;">Le 10 août 2022, l’ARS avait indiqué, concernant l’hôpital de Guingamp, la nécessité d’approfondir les travaux […] qui seront menés en pleine concertation avec les acteurs locaux. Le tout dans un calendrier cohérent avec l’adoption du projet médico-soignant partagé du territoire et du projet régional de santé et devront aboutir à l’été 2023.</p>
+<p style="text-align: justify;">Pour l’hôpital de Guingamp, l’ARS se garde de mentionner le devenir du service de chirurgie et encore moins celui du service de maternité, mentionnant simplement la filière périnatalité.</p>
+<div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/08/Image1.jpeg" />
+</div></div>
+<p style="background-color: #E37B24;" align="center"><strong>DOURDAN - 91</strong></p>
+<p style="text-align: justify;">Le maire LREM avec la complicité de l'ARS veut faire installer en centre-ville une IRM privée par le groupe Ramsay santé au détriment du projet médical de l'hôpital de Dourdan.</p>
+<p style="text-align: justify;">Le Centre Hospitalier Sud-Essonne, conformément au projet médical voté lors du conseil de surveillance en septembre 2021, a déposé une demande d'IRM sur le site de Dourdan auprès de l'ARS en décembre 2021.</p>
+<p style="text-align: justify;">Cette demande d'autorisation a le soutien de tout le CHSE, réaffirmé de façon unanime par sa nouvelle Commission Médicale d’Établissement en janvier 2022.</p>
+<p style="text-align: justify;">Or, un grand groupe privé, RAMSAY SANTE, a lui aussi déposé un projet d'IRM situé dans un futur centre de radiologie en face de la maison de santé de Dourdan dans des locaux appartenant au département de l’Essonne. Cette demande d’installation dans la ville est cautionnée par la mairie de Dourdan.</p>
+<p align="center">Plus d’infos sur <a href="http://coordination-defense-sante.org/2022/08/dourdan-lirm-accordee-au-prive/">notre site</a></p>
+<p align="center"><a href="https://www.change.org/p/agence-régionale-de-santé-pour-une-irm-a-l-hopital-de-dourdan?fbclid=IwAR2LQOSLslImEg7r7Zd5sPST7RAT6yUj5z8IGj2-lI1qftOufH6Mpnx6_HQ">La pétition à signer</a></p>
+<p style="background-color: #1C87D2;" align="center"><strong>COUSERANS - 09</strong></p>
+<p style="text-align: justify;">Le comité de défense du Centre Hospitalier Ariège Couserans se joint à l’action entreprise par la Coordination avec d’autres organisations contre l’État pour carence fautive dans l’offre de soins</p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/08/IMG_20220823_0001.pdf">Le courrier</a></p>
+<p class="rubrique">Autres infos locales :</p>
+<p style="background-color: #1C87D2;" align="center"><strong>MANTES LA JOLIE - 78</strong></p>
+<p align="center"><strong>Un été tendu aux urgences</strong></p>
+<p align="center"><a href="https://actu.fr/ile-de-france/mantes-la-jolie_78361/urgences-fermees-samu-a-la-peine-penurie-de-personnel-un-ete-tendu-a-l-hopital-de-mantes-la-jolie_53397399.html">L’article de Actu 78</a></p>
+<p style="background-color: #E37B24;" align="center"><strong>CHATEAU DU LOIR - 7</strong><strong>2</strong></p>
+<p align="center"><strong>Fermeture des urgences du dimanche 28 août au mardi 30 août</strong></p>
+<p align="center"><a href="https://actu.fr/pays-de-la-loire/montval-sur-loir_72071/chateau-du-loir-le-centre-hospitalier-ferme-a-nouveau-ses-urgences_53379167.html">L’article sur Actu.fr</a></p>
+<p class="rubrique">Dossiers :</p>
+<p style="background-color: #FEFB3B;" align="center"><strong>PSYCHIATRIE</strong></p>
+<p style="text-align: justify;">Commentaires éclairants sur les projets de remplacement des examens cliniques par un robot à « intelligence artificielle »</p>
+<p align="center"><a href="https://www.latribune.fr/opinions/tribunes/une-ia-remplacera-t-elle-bientot-votre-psychiatre-928486.html">https://www.latribune.fr/opinions/tribunes/une-ia-remplacera-t-elle-bientot-votre-psychiatre-928486.html</a></p>
+<p style="background-color: #1C87D2;" align="center"><strong>DE NOS PARTENAIRES</strong></p>
+<p style="text-align: justify;">17 organisations dont la Convergence des services publics viennent d’adopter un communiqué : Face à l’urgence sociale et écologique, construire une large convergence</p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/08/Construire-Convergence-CP-2022-08-27.pdf">Le communiqué</a></p>
+<p class="rubrique">Culture et santé :</p>
+<p align="center"><u><strong>La nouvelle objectivité est de retour ! </strong></u></p>
+<p style="text-align: justify;">À voir l'exposition au Centre Pompidou: Allemagne, année 1920, la nouvelle objectivité/ August Sanders.</p>
+<p align="center">(L'exposition se termine bientôt début septembre) </p>
+<p align="center"><a href="https://www.centrepompidou.fr/fr/programme/expositions-musee">https://www.centrepompidou.fr/fr/programme/expositions-musee</a></p>
+<p align="center"><u><strong>Exposition Félix Guattari St Alban</strong></u></p>
+<p align="center"><span lang="zxx"><u><a href="https://video.ploud.fr/videos/watch/56deb612-4c1b-4447-ad72-cd69cc101494" target="_blank">https://video.ploud.fr/videos/watch/56deb612-4c1b-4447-ad72-cd69cc101494</a></u></span></p>
+<hr />
+
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</p>
+<p style="margin-top: 0;" align="center">Pour vous désabonner, envoyer un mail à </strong></p>
+<p align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

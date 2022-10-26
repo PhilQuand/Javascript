@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Luçon, 20h00, vendredi 22 juillet, la marche pour l'hôpital public se termine ( voir plus bas ), le rassemblement se disloque , un homme s'approche un téléphone à la main.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<!--style>
+.rubrique {
+text-align: center; 
+color: #0070c0; 
+font-size: xx-large; 
+font-weight: bold; 
+font-family: Arial, serif;
+}
+.titre-rubrique {
+text-align: center; 
+font-size: large; 
+font-weight: bold; 
+}
+</style-->
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 29</li>
+<li>Dates: du 18 juillet au 24 juillet 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/info-semaine-29-du-18-au-24-juillet-2022.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><b>Édito (ou point fort de la semaine) : </b></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<p>Luçon, 20h00, vendredi 22 juillet, la marche pour l'hôpital public se termine ( voir plus bas ), le rassemblement se disloque , un homme s'approche un téléphone à la main. </p>
+<p>S'il vous plaît, pouvez-vous m'aider ? Mon cousin est malade, diarrhéique, depuis quelques jours, son médecin lui a prescrit un traitement, mais ça s'aggrave. Il ne peut plus se lever, a très mal au ventre, il vomit , la diarrhée est toujours présente. Pas moyen d'avoir le 15, ça sonne dans le vide depuis au moins un quart d'heure. Je prends le téléphone:quel âge a votre cousin ? 73 ans, nous ne savons plus quoi faire. Nous ne pouvons même pas l'amener aux urgences , ils ne le prendront pas, il faut passer par le 15 ! </p>
+<p>Surtout ne raccrochez pas , c'est tout ce que je peux conseiller . À l'heure où j'écris ces lignes, je ne connais pas la suite. Mais je connais ma colère et ma honte !</p>
+<p>Quelle honte que ces hommes politiques qui n'ont de cesse que de mettre des barrières et des péages à l'entrée de l'hôpital public pour satisfaire leur credo et leur objectif de diminuer les dépenses publiques. Ils adaptent le flux des patient.e.s aux capacités de l'hôpital au lieu d 'adapter l'hôpital pour répondre aux besoins de soins et de santé de la population : ce qu'ils veulent c'est réduire l'hôpital public à la portion congrue. </p>
+<p>Quelle colère de constater la détresse des patient.e.s et de leur famille laissées à l'abandon ! </p>
+<p>Et que d'espoir porté par ces citoyennes et citoyens, ces élu.e.s qui à Luçon et ailleurs se dressent et se battent pour une autre politique pour l'hôpital public .</p>
+<p align="right"><i>jean-luc landas.</i></p>
+
+<!--div style="text-align: center; font-size: larger;">
+La Coordination Nationale répond au docteur Braun
+<p><b>M. Braun ne triez pas les malades !</b></p>
+<p>Le <a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/Le-communiqu%C3%A9.pdf">communiqué</a></p>
+</div-->
+
+</div>
+<div>
+<p>Sommaire :</p>
+</div>
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><b>L’écho des comités :</b></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+
+<p bgcolor="#729FD0" align="center"><b>LUÇON</b></p>
+<p>À l'appel de l' Association de Défense des Services Publics du pays de Luçon ( ADSP ) 75 personnes accompagnées par des élu.e.s ( maires, adjoint;e.s et conseiller.e.s, conseiller départemental ) ont participé ce vendredi 22 juillet de 18 à 20heures à une marche pour l'hôpital public, dynamique et ponctuée d'interventions d' Évelyne Deluze, Présidente de l' ADSP. Les revendications et leurs justifications de l' association tant sur les Urgences , le SMUR, l' imagerie ( IRM ), le bloc opératoire, le SSR et les EHPAD ont été rappelées et approuvées par les applaudissements nourris des citoyen.ne.s et des élu.e.s, des soignant.e.s aux fen^tres de l' hôpital.<br />À l'issue de cette marche, le directeur de l'établissement a rejoint les manifestant.e.s et a engagé le dialogue. Selon les services 45 à 50 % des postes ne sont pas pourvus cet été : aux postes non pourvus s'ajoutent les congés annuels bien mérités du personnel. Des fermetures de lits sont donc obligatoires et réduisent les possibilités d'accueil des patient.e.s comme a pu en témoigner une des participantes. Évelyne Deluze, M. le Maire de Luçon et Jean-luc Landas, représentant le Conseil d' administration de la Coordination Nantionale ont affirmé avec force qu'il est inadmissible et dangereux de vouloir adapter le flux des pateint.e.s aux capacités de l'hôpital et non de répondre aux besoins de soins et de santé de la population du territoire. <br /><br />Comme la bataille pour l'hôpital public n'exclut pas l'humour l’Assemblée des personnes présentes le vendredi soir devant l’Hôpital de Luçon a adressé le courrier ci-dessous au nouveau ministre de la santé et de la prévention .</p>
+<p style="text-align: right;"><em>Luçon, juillet 2022 </em></p>
+<p><em>Monsieur le Ministre</em></p>
+<p><em>Le manque de médecins urgentistes et de personnels est invoqué pour fermer les services d'urgences et de SMUR et les faire passer en mode dégradé.</em></p>
+<p><em>C'est pourquoi pour palier à ce manque sur notre hôpital nous vous proposons de postuler pour une mutation sur le site de Luçon.</em></p>
+<p><em>Urgentiste un jour, Urgentiste toujours !</em></p>
+<p><em>Nous pouvons vous assurer que vous y serez bien reçu, et tous les vendredis, Elu(e)s, usagers et personnels seront présents pour vous soutenir et vous applaudir.</em></p>
+<p><em>Un étage étant disponible, vous n'aurez pas non plus de souci pour pouvoir vous loger.</em></p>
+<p><em>Nous espérons que vous donnerez suite à notre proposition.</em></p>
+<p><em>Recevez, Monsieur le Ministre nos respectueuses salutations.</em></p>
+<p> </p>
+<p><em>L’assemblée des personnes présentes le vendredi soir devant l’Hôpital de Luçon a mandaté l’ADSP pour recevoir votre réponse :</em></p>
+<p><em>Forum des Associations</em></p>
+<p><em>14, Place Leclerc</em></p>
+<p><em>85400 Luçon</em></p>
+<p bgcolor="#729FD0" align="center"><b>DOLE </b></p>
+<p style="text-align: center;">les urgences ne ferment pas cet été, mais il faut trouver des solutions pérennes</p>
+<p style="text-align: center;"><span lang="zxx"><u><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/infos-flash64.pdf">infos flash</a></u></span></p>
+<p bgcolor="#729FD0" align="center"><b>CHERBOURG VALOGNES</b></p>
+<p style="text-align: center;"><em><strong>la situation dans le Cotentin : </strong></em></p>
+<p style="text-align: center;"><em><strong>le point de vue de l' association </strong></em></p>
+<p style="text-align: center;"><em><strong>« défense du CHPC et promotion de la santé »</strong></em></p>
+<p>Le Dr Braun est le rapporteur de la mission flash demandée par Macron au moment de sa visite à l’hôpital Pasteur.</p>
+<p>Depuis il est devenu ministre de la santé après avoir été le conseiller santé de Macron pendant la campagne présidentielle.</p>
+<p>Les 41 mesures présentées par la mission flash, mission flash-ball devrait-on dire, constituent une liste de mesures, un catalogue de propositions affligeantes qui ne font qu’officialiser les fonctionnements en mode dégradé qui se sont multipliés ces derniers mois : fermetures totales ou partielles de services d’accueil des urgences, filtrage des patients par le centre 15 déjà débordé d’appels, consignes aux patients pour ne pas se rendre à l’hôpital.</p>
+<p>Elisabeth Borne a validé et retenu ces 41 mesures.</p>
+<p>La généralisation du fonctionnement dégradé est officialisée :</p>
+<ul>
+<li>le tri des patients est préconisé (mesure 23) il s’agit d’un triage paramédical alors que les urgentistes insistent sur le fait que l’orientation du patient est une mission médicale exclusive</li>
+<li>la fermeture des services d’accueil des urgences est présentée comme un nouveau mode de fonctionnement « dans une logique territoriale » (mesure 24)</li>
+<li>le remplacement du médecin urgentiste par un binôme infirmier-ambulancier appelé équipe paramédicale d’urgence est préconisé</li>
+<li>il est prévu la création de gestionnaires de lits. Il serait préférable de créer des lits d’aval des urgences pour éviter l’encombrement des urgences et permettre aux patients de trouver des places en service approprié. On n’a pas besoin de gestionnaires mais on a besoin de lits.</li>
+<li>il est demandé à tous les médecins de participer à la permanence des soins :</li>
+</ul>
+<p>Il y a de moins en moins de médecins en ville et à la campagne. Alors la mission compte sur les médecins retraités. Quelle belle perspective d’avenir !</p>
+<p>La mission semble considérer que la difficulté d’accès aux soins primaires n’est qu’un problème de service d’accueil des urgences quand il faut refonder tout notre système de santé en définissant les besoins dans les territoires avec les personnels et les élus.</p>
+<p>Le gouvernement connaît les revendications des personnels exprimées depuis longtemps en termes de formation, d’embauches, de rémunérations pour éviter la fuite des professionnels. En termes de création de lits, de démocratie dans la gestion des objectifs et des moyens, il n’est visiblement pas prêt à prendre en compte ces demandes de moyens et de méthode.</p>
+<p>Rencontre avec Benoit Arrivé, Président du conseil de surveillance et Madame Karrer directrice générale du CHPC le 1 juillet.</p>
+<p>Comme toujours nos interlocuteurs ont monopolisé la parole pendant la durée de l’échange et il nous a fallu insister pour exprimer le point de vue des usagers que nous représentons.</p>
+<p>Cependant nous avons remercié le Maire de Cherbourg de permettre cette rencontre entre usagers, élu et direction.</p>
+<p>Les conclusions de l’entretien :</p>
+<ul>
+<li>les urgences vont rester ouvertes cet été avec un tri des patients par une régulation et appel au centre 15 après 15h00</li>
+<li>les projets d’internats à Valognes et Cherbourg pour accueillir comme il se doit les internes sont évoqués et retenus.</li>
+<li>Le projet de création d’un nouvel institut de formation en soins infirmiers est en cours : la contribution financière de la ville est importante.</li>
+<li>Séverine Karrer a évoqué l’étude de la réouverture du centre de soins non programmés de Valognes avec des généralistes : elle pense faire le point après les vacances.</li>
+<li>un nombre de lits réduit par rapport aux autres années seront fermés cet été.</li>
+</ul>
+<p>L’accent a été mis sur l’apport de la coronarographie et de la radiothérapie qui rendent d’éminents services aux patients en permettant des prises en charge plus rapides et sans transport jusqu’à Caen.</p>
+<p>La présence d’un nombre important d’internes et de médecins juniors est présentée comme porteuse de perspective d’avenir pour les recrutements médicaux. Un effort d’embauches en cdi de personnels paramédicaux a été mis en avant.</p>
+<p class="disregard">Sur la question de création d’une antenne du centre de santé Brès Croizat à Valognes nous avons été renvoyés vers le Maire de Valognes en charge du dossier à la CAC.</p>
+<!--p>Sur la question de création d’une antenne du centre de santé Brès Croizat à Valognes nous avons été renvoyés vers le Maire de Valognes en charge du <span>dos</span><pan>sier</span> à la CAC.</p-->
+<p>Pour notre part nous avons rappelé les difficultés d’accès aux soins de premier recours pour un nombre important de patients sans médecin traitant y compris sur Cherbourg avec des situations aggravées dans le Valognais, le val de Saire et la côte des iles</p>
+<p>Nous avons exprimé notre inquiétude sur la régulation qui risque de priver certains patients d’un accueil avec le retard de prise en charge ou le renoncement aux soins, la saturation du centre 15 et la difficulté de patients à exprimer par téléphone leurs difficultés.</p>
+<p>Nous avons indiqué que la bonne façon de fidéliser les personnels ça n’est pas le CDI mais la mise en stage suivie d’une titularisation pour améliorer l’intégration des nouveaux embauchés et les fidéliser pour éviter la fuite des personnels. Cela améliore la rémunération et la perspective d’un développement de carrière.</p>
+<p>Nous sommes opposés à toute fermeture de lits l’été car cela concourt à l’engorgement des urgences par manque de lits d’aval pour l’hospitalisation des patients examinés aux urgences et qui doivent avoir un lit dans un service dédié.</p>
+<p>Par ailleurs Rémi Besselièvre , Président a participé à l’assemblée générale de la maison des usagers du CHPC pour échanger sur les difficultés rencontrées par les adhérents des associations de malades ou de personnes en situation de handicap.</p>
+<p bgcolor="#729FD0" align="center"><b>CHATEAUDUN</b></p>
+<p style="text-align: center;"><u><strong>Compte rendu sur le parcours moto pour les EHPAD</strong></u></p>
+<p>Le comité pour l’amélioration du service public de santé du grand Châteaudun a organisé un parcours moto pour les EHPAD (établissement d’hébergement pour personnes âgées dépendantes) le Dimanche 3 juillet 2022.</p>
+<p>Si l’animation n’a pas été un grand rassemblement de motards mais plutôt une promenade entre amis, les visites des établissements ont été riches d’enseignement.</p>
+<p>La pandémie a profondément affecté les résidents et les professionnels des établissements. Nous avons essayé de les distraire mais les sourires étaient attristés. Tous les décès ne sont pas liés au COVID 19, en 2020 l’isolement dans les chambres sans visite sont aussi une cause de l’augmentation de la mortalité.</p>
+<p>Après la restriction de personnel dans les EHPAD et dans les services hospitaliers, aujourd’hui les ouvertures de postes ne trouvent pas de postulant. Les vocations se font rares, la difficulté du métier et les rémunérations trop faibles sont entre autre les causes de cette désaffection du métier. Cette situation engendre des conditions de travail dégradées pour les professionnels et également moins de temps pour les résidents.</p>
+<p>Nous avons aussi échangé avec les familles, certains EHPAD n’ont pas de kinésithérapeute qui assure un suivi médical des pensionnaires ou le déplacement représente un prix trop élevé pour les familles ; ne pas oublier que les frais d’hébergement s’élèvent déjà à 2000 euros. Donc, celles-ci font le choix de transporter leurs parents eux-mêmes chez les praticiens avec toutes les difficultés que cela engendre.</p>
+<p><u><strong>Notre constat</strong></u> : les EHPAD sont en périphérie des villes, il manque du personnel et des jardins fleuris.</p>
+<p>Pour Châteaudun, le terrain a été acheté et il se trouve au cœur de la ville. Nous sommes dans l’attente de la présentation du projet de construction de l’établissement.</p>
+<p>Notre courrier adressé au Ministre de la Santé Olivier VERAN le 20 octobre 2020 sur l’état dégradé de notre Centre Hospitalier a enfin été reconnu, les travaux de mise en étanchéité du toit sont en cours de réalisation, mais il reste beaucoup à faire notamment l’accès aux personnes à mobilité réduite.</p>
+<p style="text-align: right;">Pascal DELORME</p>
+<p style="text-align: right;">Président du Comité</p>
+<p bgcolor="#729FD0" align="center"><b>RAMBOUILLET</b></p>
+<p style="text-align: center;"><strong>le Flash Info juillet août</strong></p>
+<p style="text-align: center;"><strong>les nouvelles du comité </strong></p>
+<p style="text-align: center;"><span lang="zxx"><u><a href="http://coordination-defense-sante.org/le">le</a><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/rambouilletflash-infos-13.pdf" target="_blank" rel="noopener"> numéro</a></u></span></p>
+<p bgcolor="#729FD0" align="center"><b>SARLAT</b></p>
+<p style="text-align: center;"><strong>LE COMITE DE DEFENSE DE L’HÔPITAL PUBLIC ET DE LA MATERNITE DE SARLAT</strong></p>
+<p style="text-align: center;"><strong>a tenu son Assemblée Générale le 5 juillet dernier. </strong></p>
+<p style="text-align: center;"><strong>Les rapport d’activités et financier ont été adoptés à l’unanimité des présents.</strong></p>
+<p><em><strong>Election des membres du bureau </strong></em></p>
+<p>sont élus</p>
+<ul>
+<li>Messieurs : Lauvie Michel, Hélion Claude, Lestrade Joël, Seve Jean, Boulet Pierre, Kureeman Issop, Lacrampette Marcel</li>
+<li>Mesdames : Bencheikh Bernadette, Krinke Charlotte, Cormier Brigitte, Marty Nicole, Dufreche Danièle, Spagagna Danièle, Desmartin Maryline</li>
+</ul>
+<ul>
+<li>Présidente : Marty Nicole</li>
+<li>Vice-président Seve Jean, Vice-présidente Krinke Charlotte</li>
+<li>Secrétaire Seve Jean, Secrétaire adjointe Krinke Charlotte</li>
+<li>Trésorière Bencheikh Bernadette, Trésorier adjoint Lacrampette Marcel</li>
+</ul>
+<p>Le Bureau du Comité travaillera et prendra les décisions collectivement.</p>
+<p style="text-align: center;"><strong>Nouvelle dégradation de l'accès aux urgences </strong></p>
+<p>Les perturbations ont lieu du 18 juillet à 20 h 30 jusqu’au 20 juillet à 8 h 30, puis du 22 juillet à 20 h 30 au 23 juillet à 8 h 30. © Crédit photo : Archives Franck Delage</p>
+<ul>
+<li>
+<p><strong>Pour la troisième fois en moins d’un mois, il est demandé au public de ne pas se présenter spontanément aux urgences et d’appeler le 15</strong></p>
+</li>
+<li>
+<p>Pour la troisième fois en moins d’un mois, les modalités d’accueil du public au service des urgences du centre hospitalier de Sarlat (Dordogne) vont être perturbées du lundi 18 juillet à 20 h 30 jusqu’au mercredi 20 juillet à 8 h 30, puis du vendredi 22 juillet à 20 h 30 jusqu’au samedi 23 juillet à 8 h 30.</p>
+</li>
+<li>
+<p>La directrice de la communication des centres hospitaliers de Périgueux, Lanmary (à Antonne-et-Trigonant), Sarlat et Domme parle de « réorganiser » le service.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Il s’agira pour le public de ne pas se présenter spontanément aux urgences et d’appeler le 15. Pour la première période, le Smur du centre hospitalier de Sarlat restera opérationnel pour prendre en charge les urgences vitales sur le périmètre du Périgord noir. Les 22 et 23 juillet, le centre 15 (Samu 24) prendra en charge les appels et orientera les patients vers une prise en soin adaptée et/ou déclenchera les moyens adaptés au niveau d’urgence médicale requis.</p>
+</li>
+</ul>
+<p style="text-align: center;"><span lang="zxx"><u><a href="https://www.sudouest.fr/dordogne/sarlat-la-caneda/dordogne-a-sarlat-l-accueil-aux-urgences-de-nouveau-regule-11740500.php">https://www.sudouest.fr/dordogne/sarlat-la-caneda/dordogne-a-sarlat-l-accueil-aux-urgences-de-nouveau-regule-11740500.php</a></u></span></p>
+<p style="text-align: center;"><em><strong>le comité agit : il fait signer une pétition exigeant le maintien d'un service d'urgence et d'un SMUR opérationnel </strong></em></p>
+<p style="text-align: center;"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/p%C3%A9tition-pour-les-urgences-et-le-SMUR-de-Sarlat.pdf">la pétition</a></p>
+<p><br /><br /></p>
+<p class="rubrique">Autres infos locales :</p>
+<p bgcolor="#729FD0" align="center"><b>TOURS </b></p>
+<p style="text-align: center;"><strong>la réduction de la réponse de l'hôpital public aux besoins de soins et de santé </strong></p>
+<p style="text-align: center;"><span lang="zxx"><u><a href="https://www.lanouvellerepublique.fr/tours/indre-et-loire-psychiatrie-et-anesthesie-deux-secteurs-en-difficulte-a-l-hopital" target="_blank" rel="noopener">https://www.lanouvellerepublique.fr/tours/indre-et-loire-psychiatrie-et-anesthesie-deux-secteurs-en-difficulte-a-l-hopital</a></u></span></p>
+<p style="text-align: center;"><span lang="zxx"><u><a href="https://www.lanouvellerepublique.fr/tours/au-chru-de-tours-on-ne-fait-pas-l-aumone-on-veut-des-postes-et-des-lits">https://www.lanouvellerepublique.fr/tours/au-chru-de-tours-on-ne-fait-pas-l-aumone-on-veut-des-postes-et-des-lits</a></u></span></p>
+<p style="text-align: center;"><br /><br /></p>
+<p bgcolor="#729FD0" align="center"><b>NIORT</b></p>
+<p style="text-align: center;"><strong>et ce n'est pas mieux dans les Deux Sèvres </strong></p>
+<p style="text-align: center;"><span lang="zxx"><u><a href="https://www.lanouvellerepublique.fr/niort/lits-fermes-l-ete-a-l-hopital-de-niort-l-alerte-des-syndicats-et-la-reponse-du-directeur" target="_blank" rel="noopener">https://www.lanouvellerepublique.fr/niort/lits-fermes-l-ete-a-l-hopital-de-niort-l-alerte-des-syndicats-et-la-reponse-du-directeur</a></u></span></p>
+<p style="text-align: center;" align="center"><b>BAGNÈRES DE BIGORRE</b></p>
+<p><em>Bonjour</em></p>
+<p><em>Responsable de l'association de défense de l'hôpital de Bagnères de Bigorre intitulée « Sauvons l'hôpital B2B », je me permets de vous communiquer notre dernière initiative. Notre hôpital a le service des urgences fermé la nuit depuis un an comme beaucoup d'autres dans le pays.</em></p>
+<p><em>Au delà de toutes nos actions, ( pétition, tracts sur le marché, manif sur la ville, rencontres avec le directeur de l'hôpital, le préfet, l'ARS ) qui n'aboutissent pas en raison d'une politique de santé non anticipée et d'une situation générale catastrophique dans tout le pays sur la santé publique, nous avons décidé de passer à une stratégie différente.</em></p>
+<p><em>Nous sommes dans un secteur très touristique lié à la montagne générant plus de 20 000 personnes l'été dans notre vallée qui en comporte moins de 10 000 en période creuse.</em></p>
+<p><em>Nous avons donc décidé d'alerter le procureur de la République que nous ne nous tromperons pas de responsables si un ou plusieurs drames se produisaient par manque de prise en charge ou de prise en charge tardive liée à la distance.</em></p>
+<p>ORTIZ Aitor</p>
+<p><em>À Mme Renard Muriel Presidente du TGI de Tarbes</em></p>
+<p><em>À Mr Pierre Aurignac, Pocureur de la Rébublique</em></p>
+<p><em>Madame, Monsieur,</em></p>
+<p><em>Depuis la fermeture du service des urgences la nuit et la succession de fermetures de lits dans tous les services de l'hôpital de Bagnères de Bigorre, la population de la vallée de haute Bigorre se sent en danger par les difficultés de prise en charge sur un territoire difficile d'accès dans certaines zones.</em></p>
+<p><em>C'est pourquoi, une association de défense de l'hôpital de Bagnères de Bigorre vient d'être créée.</em></p>
+<p><em>Cette association intitulée « SAUVONS L'HÔPITAL B2B » a organisé plusieurs initiatives de sensibilisation sur la nécessité de maintenir et développer l'hospitalisation de proximité en direction de la population, des élus locaux, de la direction de l'hôpital de Bagnères de Bigorre.</em></p>
+<p><em>Rien ne justifie la fermeture des Urgences la nuit hormis des raisons économiques. </em></p>
+<p><em>L'argument du manque de médecins est irrecevable face à la dangerosité de la situation compte tenu que cette situation est connue depuis de nombreuses années sans que des mesures concrètes n'aient pu voir le jour.</em></p>
+<p><em>Cette fermeture crée une inégalité supplémentaire concernant la prise en charge des victimes sur notre territoire. L'égalité d'accès aux soins prévue par la loi n'est pas respectée. </em></p>
+<p><em>Cette décision arbitraire met gravement en danger la population du Haut Adour la nuit, et fait peser des inquiétudes sur ce service y compris le jour. </em></p>
+<p><em>Face à des difficultés exceptionnelles, des solutions exceptionnelles peuvent être envisagées comme par exemple les réquisitions de médecins qui par ailleurs sont utilisées régulièrement pour le personnel soignant ( infirmières, aides soignantes)</em></p>
+<p><em>En conséquence, Le Conseil d'administration de l'association réuni le 09 juin 2022 a adopté la délibération suivante adressée ce jour à la Présidente du TGI de Tarbes et à Monsieur le Procureur de la République :</em></p>
+<p><em><strong>Délibération :</strong></em></p>
+<p><em>Faisant suite à la fermeture du service des Urgences la nuit voulue par le Directeur de l'hôpital, la Directrice départementale de l'ARS, le Préfet des Hautes Pyrénées, le député de la circonscription, l'association « SAUVONS L'HÔPITAL B2B » décide de dégager de toute responsabilité les personnels des services de secours ( pompiers et ambulances ) ainsi que les personnels soignants des hôpitaux de Bagnères de Bigorre et Tarbes dès lors qu'un doute réel et sérieux sur l'aggravation manifeste de l'état de santé d'une victime, lié à l'allongement des temps de trajets mais aussi du délai de prise en charge à son arrivée aux urgences de Tarbes du fait de l'engorgement est avéré.</em></p>
+<p><em>D'autre part, l'association « SAUVONS L'HÔPITAL B2B » désigne nominativement, comme seuls responsables, civilement, juridiquement et pénalement pour mise en danger de la vie d'autrui et pour non assistance à personnes en danger, dès lors qu'un doute réel et sérieux sur l'aggravation manifeste de l'état de santé d'une victime peut être lié à l'allongement du temps de trajet et de prise en charge à leur arrivée à Tarbes :</em></p>
+<p><em>Mr Christophe Bouriat Directeur multi site des Hôpitaux de Bagnères de Bigorre et Tarbes</em></p>
+<p><em>Mme Manon Mordelet, Directrice Départementale Hautes Pyrénées de l'ARS</em></p>
+<p><em>Mr Rodrigue Furcy, Préfet des Hautes Pyrénées</em></p>
+<p><em>Mr Jean Bernard Sempastous, député de la circonscription</em></p>
+<p><em>qui tous ont contribué à cette fermeture.</em></p>
+<p><em>Recevez Madame, Monsieur l'expression de nos sentiments dévoués.</em></p>
+<p><em>Pour Le Conseil d'administration de l'Association « SAUVONS L'HÔPITAL B2B »</em></p>
+<p><em>Le Président </em><em><strong>, </strong></em><em><strong>ORTIZ Aitor</strong></em></p>
+<p bgcolor="#729FD0" align="center"><b>LE BAILLEUL </b></p>
+<p style="text-align: center;"><strong>Comment fermer la maternité du Bailleul sans le dire !</strong><strong><br />et</strong><strong> l'on sera étonné si ces sage femmes quittent le service public dans les mois à venir !</strong></p>
+<p style="text-align: center;"><span lang="zxx"><u><a href="https://actu.fr/pays-de-la-loire/le-bailleul_72022/sante-dix-sages-femmes-de-lhopital-du-bailleul-en-renfort-a-la-maternite-du-mans_52529441.html" target="_blank" rel="noopener">https://actu.fr/pays-de-la-loire/le-bailleul_72022/sante-dix-sages-femmes-de-lhopital-du-bailleul-en-renfort-a-la-maternite-du-mans_52529441.html</a></u></span></p>
+<p bgcolor="#729FD0" align="center"><b>ALENÇON</b></p>
+<p style="text-align: center;"><strong>les soignant.e.s alertent ! </strong></p>
+<p style="text-align: center;"><span lang="zxx"><u><a href="https://france3-regions.francetvinfo.fr/normandie/orne/alencon/saturation-des-urgences-de-l-hopital-d-alencon-un-syndicat-tire-la-sonnette-d-alarme-2585928.html#xtor=EPR-521-[france3regions]-20220723-[info-bouton5]&amp;pid=726375-1437732574-2a072072" target="_blank" rel="noopener">https://france3-regions.francetvinfo.fr/normandie/orne/alencon/saturation-des-urgences-de-l-hopital-d-alencon-un-syndicat-tire-la-sonnette-d-alarme-2585928.html#xtor=EPR-521-[france3regions]-20220723-[info-bouton5]&amp;pid=726375-1437732574-2a072072</a></u></span></p>
+<p class="rubrique">Dossiers :</p>
+<p style="text-align: center;"><em><strong>l'appel de 88 organisations </strong></em></p>
+<p style="text-align: center;"><em><strong>donner un nouvel élan aux services publics !</strong></em></p>
+<p style="text-align: center;"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/2022-07-15-Communiqu%C3%A9-Faudra-t-il-%C3%AAtre-riche-%C3%A0-l%E2%80%99avenir-pour-se-faire-soigner-%C3%A9duquer-ses-enfants.pdf"><span lang="zxx">Communiqué Faudra-t-il être riche à l’avenir pour se faire soigner, éduquer ses enfants</span></a>?</p>
+<p> </p>
+<p class="titre-rubrique">HÔPITAUX PUBLICS</p>
+<p style="text-align: center;"><strong>Le point de vue du SNPHAR-E </strong></p>
+<p>Les arrêtés d’augmentation des indemnités de sujétion pour la permanence des soins ont été publiés au journal officiel ces 08 <span lang="zxx"><u><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046029623" target="_blank" rel="noopener">ici</a></u></span> et 12 juillet <span lang="zxx"><u><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046045425" target="_blank" rel="noopener">ici</a></u></span>.</p>
+<p>Le SNPHARE constate que le doublement des indemnités de sujétion annoncé par la mission flash pour les urgences n’a pas été entériné.<br />S‘il est évident que les urgences attirent l’attention particulière du Ministre de la Santé, Le SNPHARE rappelle que la permanence des soins concerne toutes les spécialités de l’hôpital et tous les jours de l’année <strong>sans lesquelles les urgences sont pieds et poings liés.</strong></p>
+<p>Le SNPHARE tient à rappeler que la revalorisation de la permanence des soins (gardes et astreintes) ne doit pas s’arrêter au dégel du point d’indice (ce qui représente, pour les gardes (14h de travail dont 12 de nuit) une revalorisation de 71 centimes de l’heure).<br />Le service public hospitalier a besoin de cette reconnaissance afin d’augmenter son attractivité et, de fait, <strong>améliorer les conditions de travail en étoffant les équipes médicales.</strong></p>
+<p>Le SNPHARE défend sans relâche depuis toujours l’importance de reconnaître la permanence des soins à sa juste valeur et de façon pérenne.<strong> Il a obtenu l’intégration des heures travaillées dans le temps de travail et le repos de sécurité.</strong><br />Aujourd’hui le SNPHARE réitère sa demande de rendez-vous pour accompagner le Ministre de la Santé dans ce grand chantier qui aurait dû être débuté au cours du Ségur.</p>
+<p> </p>
+<p class="titre-rubrique" style="color:red">DÉSERTS SANITAIRES</p>
+<p style="text-align: center;"><em><strong>le plan d'urgence de la Coordination Nationale </strong></em></p>
+<p style="text-align: center;"><strong>il faut de nombreux personnels de santé </strong></p>
+<p style="text-align: center;"><strong>pour répondre aux besoins de la population</strong></p>
+<p style="text-align: center;"><a href="http://coordination-defense-sante.org/wp-content/uploads/2017/02/plan-durgence-mise-en-forme_DEF.pdf"> le plan</a></p>
+<p></p>
+<p class="titre-rubrique" style="color:red">PSYCHIATRIE</p>
+<p style="text-align: center;"><em><strong>Les USIP : les symptômes de la dérive d’une psychiatrie sans boussole</strong></em></p>
+<p><strong>Au moment où la place des unités de soins qualifiées d’Unités de Soins Intensifs en Psychiatrie (USIP) est à nouveau évoquée dans l’offre de soin hospitalière, les signataires tiennent à exprimer leur ferme opposition à la mise en place de toute structure de soins de ce type n’ayant pas de statut validé nationalement.</strong>Dans le contexte de crise majeure que connaît la psychiatrie publique, ils y voient les symptômes de la déliquescence annoncée pour laquelle ils avaient alerté les pouvoirs publics dès septembre 2018.</p>
+<p><br />Ils rappellent que les travaux sur le régime des autorisations n’ont prévu aucun cadre légal pour des dispositifs qui ne font pas consensus dans la profession et dont l’installation a fait fi de l’opposition à leur création maintes fois exprimée par les représentants nationaux des patients et des familles. Ces dispositifs s’autoprévalant de soins intensifs n’ont aucun équivalent à l’étranger.</p>
+<p><br />La généralisation de ces unités va à l’encontre des principes de la psychiatrie publique : atteinte à la proximité et à la continuité des soins, stigmatisation du patient réduit à un symptôme, éloignement de ses proches et de leur soutien, risque d’atteinte à la dignité et à aux droits par l’instauration de protocoles locaux, recours privilégié à l’enfermement, à la contention et à l’isolement comme principes thérapeutiques …<br />Ce registre d’indications de soins intensifs ne peut se concevoir qu’adossé aux UMD qui disposent des conditions techniques et légales de fonctionnement qui leur sont propres et de professionnels formés ce qui garantit des soins de qualité.</p>
+<p><br />Le développement des USIP dont les indications principales affichées sont les décompensations des pathologies prises en charge par le secteur : schizophrénies et troubles bipolaires, amplifiera la perte de compétence et d’investissement des équipes de psychiatrie de secteur dans la gestion des situations de crise. Cela ne pourra qu’aggraver la dégradation de la qualité et de la sécurité des soins que nous observons aujourd’hui.</p>
+<p><br />Tout se passe comme si n’était tenu aucun compte de la recommandation de bonnes pratiques de la HAS sur « Mieux prévenir et prendre en charge les moments de violence dans l’évolution clinique des patients adultes lors des hospitalisations en services de psychiatrie ».</p>
+<p><br />Partir du constat que de nombreuses équipes n’ont plus un personnel formé et compétent en nombre suffisant pour conclure à la nécessité d’ouverture de nouvelles USIP ne résout en aucune façon le problème posé par ce déficit quantitatif et qualitatif. Il est d’ailleurs à souligner que de nombreuses USIP sont en difficulté de recrutement de personnel tant médical que soignant. Les difficultés actuelles ne sauraient excuser la réinvention des maisons de force des asiles d’aliénés dont patients, familles et professionnels ont abattu les murs au siècle dernier.</p>
+<p><br />C’est pourquoi nous demandons un moratoire sur tout nouveau projet d’USIP et qu’une mission associant notamment les représentants des patients et des familles soit rapidement mise en place.</p>
+<p><br />Marie-José CORTES, Présidente du Syndicat des Psychiatres des Hôpitaux (SPH)<br />Claude FINKELSTEIN, Présidente de la Fédération Nationale des Associations d’usagers en Psychiatrie (FNAPSY)<br />Claude GERNEZ, Président de la Fédération Française de la Psychiatrie (Fédépsychiatrie)<br />Delphine GLACHANT, Présidente de l’Union Syndicale de la Psychiatrie (USP)<br />Pascal MARIOTTI, Président de l’Association des Etablissements du service public de Santé Mentale (AdESM)<br />Gladys MONDIERE, Présidente de la Fédération Française des Psychologues et de Psychologie (FFPP)<br />Annick PERRIN-NIQUET, Présidente du Comité d’Etudes des Formations Infirmières et des Pratiques en Psychiatrie<br />(CEFI-Psy)<br />Marie-Noëlle PETIT, Présidente de l’Association Nationale des Psychiatres Présidents et Vice-Présidents de<br />Commissions Médicales d'Etablissements des Centres Hospitaliers (ANPCME)<br />Marie-Jeanne RICHARD, Présidente de l’Union Nationale de Familles et Amis de personnes malades et/ou handicapés psychiques (UNAFAM)<br />Christophe SCHMITT, Président de la Conférence nationale des Présidents de Commissions Médicales<br />d’Etablissement de Centres Hospitaliers Spécialisés<br />Norbert SKURNIK, Président de l’Intersyndicale de la Défense de la Psychiatrie Publique (IDEPP)<br />Olivier TELLIER, Président de l’Association française des Unités pour Malades Difficiles (UMD)<br />Michel TRIANTAFYLLOU, Président du Syndicat des Psychiatres d’Exercice Public (SPEP)</p>
+<p></p>
+<p class="titre-rubrique">LE RAS LE BOL DES PSYCHIATRES DU CENTRE HOSPITALIERS DE BLAIN ( 44 )</p>
+<p style="text-align: center;"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/communiqué-PH-CH-Epsylan.pdf">la lettre </a></p>
+<p></p>
+<p class="rubrique">Culture et santé :</p>
+<p style="text-align: center;">une prescription pour l'été :</p>
+<p style="text-align: center;"><a href="https://www.youtube.com/watch?v=7KY-RpwTAa8">le tango corse</a></p>
+
+<hr>
+<p  align="center"><b>Ce message n'est pas un spam, mais une information militante<br />Pour vous désabonner, envoyer un mail à </b></p>
+<p  align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><b><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></b></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

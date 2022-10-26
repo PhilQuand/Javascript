@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Géoservices - Carte simple</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+</head>
+<body>
+<div id="map" style="width: 100%; height: 400px;"></div>
+    <!-- Leaflet map JavaScript -->
+    <script>
+        // L'id du container, par exemple <div id="map"></div>
+        var mapID = 'map';
+		
+        // Plan IGN avec une transparence de 50%
+        var PlanIGN = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+            '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+            '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+            '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+            {
+	            ignApiKey: 'decouverte',
+	            ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+	            style: 'normal',
+	            format: 'image/png',
+	            service: 'WMTS',
+				opacity: 1.
+        });
+		
+		// Photographies aériennes en-dessous de Plan IGN
+		var OrthoIGN = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+            '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+            '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+            '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+            {
+	            ignApiKey: 'decouverte',
+	            ignLayer: 'ORTHOIMAGERY.ORTHOPHOTOS',
+	            style: 'normal',
+	            format: 'image/jpeg',
+	            service: 'WMTS'
+        });
+        // Ma carte
+        var myMap = L.map(mapID, {
+	        center: [48.8456,2.4245],
+	        zoom: 16,
+	        layers: [OrthoIGN,PlanIGN]
+        })
+    </script>
+</body>
+</html>
+
+
+

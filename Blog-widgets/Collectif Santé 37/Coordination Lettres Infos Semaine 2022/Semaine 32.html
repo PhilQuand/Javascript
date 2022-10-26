@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Dans un article du Monde paru cette semaine on peut lire : <span style="color: blue">La responsabilité du numerus clausus dans la pénurie actuelle de médecins fait aujourd’hui consensus. <em>« C’était insensé, totalement absurde,</em> lâche Jean-François Mattei, qui est arrivé au ministère de la santé en 2002. <em>C’est moi qui ai amorcé sa remontée. »« Je suis celui qui a certainement le plus augmenté le numerus clausus »</em>, renchérit Xavier Bertrand, en dénonçant <em><strong>« un raisonnement complètement technocratique, guidé par une logique imposée notamment par les comptables de Bercy »</strong></em></span>.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<!--style>
+.rubrique {
+text-align: center; 
+color: #0070c0; 
+font-size: xx-large; 
+font-weight: bold; 
+font-family: Arial, serif;
+}
+.titre-rubrique {
+text-align: center; 
+font-size: large; 
+font-weight: bold; 
+}
+</style-->
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 32</li>
+<li>Dates: du 8 au 14 août 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/08/Infos-semaine-32-du-08-au-14-aout-2022-1.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong> Édito (ou point fort de la semaine) : </strong></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<div style="font-family: Arial, serif;">
+<p>Dans un article du Monde paru cette semaine on peut lire : <span style="color: blue;">La responsabilité du numerus clausus dans la pénurie actuelle de médecins fait aujourd’hui consensus. <em>« C’était insensé, totalement absurde,</em> lâche Jean-François Mattei, qui est arrivé au ministère de la santé en 2002. <em>C’est moi qui ai amorcé sa remontée. »« Je suis celui qui a certainement le plus augmenté le numerus clausus »</em>, renchérit Xavier Bertrand, en dénonçant <em><strong>« un raisonnement complètement technocratique, guidé par une logique imposée notamment par les comptables de Bercy »</strong></em></span>.</p>
+<p>Tout est dit. En ce qui concerne la santé et l’hôpital, les décisions de nos gouvernants ces 20 dernières années, des ministres successifs aux présidents de la République en passant par les premiers Ministres, ont manifestement été dictées par des considérations d’ordre économique et financier bien plus que par des objectifs sanitaires.</p>
+<p>Les gestionnaires et les idéologues ont été entendus alors que les soignants et les associations de patients n’ont même pas été écoutés. Le drame c’est que cette situation perdure, la dernière illustration étant le rapport Braun sur les urgences.</p>
+</div>
+<p align="right"><em>Roland Vachon.</em></p>
+<!--div style="text-align: center; font-size: larger;">
+La Coordination Nationale répond au docteur Braun
+<p><b>M. Braun ne triez pas les malades !</b></p>
+<p>Le <a href="http://coordination-defense-sante.org/wp-content/uploads/2022/07/Le-communiqu%C3%A9.pdf">communiqué</a></p>
+</div--></div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p style="margin-bottom: 0.28cm; background-color: transparent; break-before: page;" align="center"><span style="color: #0070c0;"><span style="font-family: Arial, serif;"><span style="font-size: xx-large;"><strong>L’écho des comités :</strong></span></span></span></p>
+<p style="font-weight: normal;" align="justify"> </p>
+<p style="background-color: #ffff66;" align="center"><strong>CHERBOURG-VALOGNES</strong></p>
+<p>Après la sélection des patients aux urgences voilà la sélection des femmes en gynécologie.</p>
+<p><u><a href="http://coordination-defense-sante.org/2022/08/cherbourg-vallognes-soutien-du-comite-aux-sages-femmes/"><strong>Le message de soutien-du-comite-aux-sages-femmes/</strong></a></u></p>
+<p style="background-color: #99ff66;" align="center"><strong>FEURS-MONTBRISON</strong></p>
+<p>La situation est toujours critique aux urgences du Centre Hospitalier du Forez avec des fermetures partielles des services d'urgences.</p>
+<p>Le Comité reste vigilant et envisage d'intensifier ses actions si les engagements de l'ARS, des politiques, particulièrement récemment, ceux tenus publiquement à la veille des élections législatives, ne sont pas tenus.</p>
+<p style="background-color: #ff99ff;" align="center"><strong>LONGWY</strong></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 450px;"><a style="cursor: grab;" data-fancybox="CN11Juillet2022" data-src="http://coordination-defense-sante.org/wp-content/uploads/2022/07/Image3.jpeg"> <img src="http://coordination-defense-sante.org/wp-content/uploads/2022/08/facebook_1660154865960_6963194194917963784.jpg" alt="" /></a></div>
+</div>
+<p style="background-color: #99ccff;" align="center"><strong>Luçon</strong></p>
+<p><strong>Le comité demande DES MOYENS HUMAINS ET FINANCIERS<br />POUR REPONDRE AUX BESOINS DE LA POPULATION !</strong></p>
+<p><strong>Nouvelle mobilisation </strong><strong>VENDREDI 12 AOÛT 2022 18H <br /></strong><strong>devant l’hôpital </strong>de Luçon</p>
+<p style="background-color: #b7f0fb;" align="center"><strong>Montluçon</strong></p>
+<p><strong>Sous-effectif et conditions de travail difficiles : La cheffe du service de pédiatrie jette l’éponge. Le service est menacé de fermeture. </strong></p>
+<p style="background-color: #ffe599;" align="center"><strong>OLORON SAINTE-MARIE</strong></p>
+<p><strong>Le service de Urgences aux prises avec des fermetures à répétition en août et probablement jusqu’à la fin de l’année.</strong></p>
+<p style="background-color: #d9d9d9;" align="center"><strong>MANOSQUE</strong></p>
+<p><strong>Le comité dénonce les fermetures totales ou partielles de services d’urgence et le tri des patients en amont de ces services</strong></p>
+<p><u><a href="http://coordination-defense-sante.org/2022/08/manosque-communique-du-4-aout-2022/"><strong>Le communiqué</strong></a></u></p>
+<p class="rubrique" style="display: none;">Autres infos locales :</p>
+<p class="rubrique">Dossiers :</p>
+<p class="titre-rubrique" style="background-color: #f7caac;" align="center">URGENCES</p>
+<p><strong>Le mois de juillet a été compliqué : services fermés ou saturés, allongement des délais, pertes de chance – Analyses et explications </strong></p>
+<p><u><a href="https://www.radiofrance.fr/franceinter/podcasts/l-invite-de-8h20-le-grand-entretien/l-invite-de-8h20-le-grand-entretien-du-lundi-08-aout-2022-8742500"><strong>radiofranc-le-grand-entretien-du-lundi-08-aout-2022</strong></a></u></p>
+<p class="titre-rubrique" style="background-color: #c5e0b3;" align="center">PSYCHIATRIE</p>
+<p><strong>Une forêt de 55 hectares, un château, 101 lits d’hospitalisation, pas de blouses pour les soignants, pas d’enfermement pour les patients : la clinique de la Chesnaie près de BLOIS est à vendre. Soucieux de préserver la philosophie du dispositif de soin en vigueur dans l’établissement le personnel propose une reprise sous forme de société coopérative d’intérêt collectif.</strong></p>
+<p><strong>Au-delà de cette démarche c’est la position de l’ARS du Centre – Val de Loire qui est posée.</strong></p>
+<p><strong>Vers quel projet de reprise penchera-t-elle : à but lucratif et centré sur le médicament ou à but non lucratif et centré sur la psychiatrie institutionnelle</strong> ?</p>
+<p><u><a href="https://www.change.org/p/tribune-pour-la-clinique-de-la-chesnaie-vers-une-soci%C3%A9t%C3%A9-coop%C3%A9rative-en-psychiatrie-scic?recruiter=34204042&amp;utm_source=share_petition&amp;utm_medium=facebook&amp;utm_campaign=psf_combo_share_initial&amp;utm_term=psf_combo_share_initial&amp;recruited_by_id=202645c0-e585-012f-cc62-404060e72abb&amp;utm_content=fht-34156508-fr-fr%3A3"><strong>tribune-pour-la-clinique-de-la-chesnaie</strong></a></u></p>
+<p class="titre-rubrique" style="background-color: #ffd966;" align="center">Une étude fait voler en éclat les explications sur les causes de la dépression.</p>
+<p><u><a href="https://atlantico.fr/article/decryptage/l-etude-qui-fait-voler-en-eclat-les-explications-sur-les-causes-de-la-depression-et-trembler-l-industrie-pharmaceutique-antidepresseurs-cerveau-serotonine-pression-desinformation-medicaments-joanna-moncrieff"><strong>L’article</strong></a></u></p>
+<p class="titre-rubrique" style="background-color: #ffff00;" align="center">L’hôpital en perdition</p>
+<p><strong>Une vidéo de Jacques COTTA retraçant les difficultés rencontrées par une patiente</strong></p>
+<p><u><a href="https://www.youtube.com/watch?v=Rtm_1I-Ph4g"><strong>La vidéo</strong></a></u><br /><br /></p>
+<p><strong>Culture et santé :</strong></p>
+<p><u><a href="https://www.youtube.com/watch?v=OKnzci1etLI"><strong>https://www.youtube.com/watch?v=OKnzci1etLI</strong></a></u></p>
+<hr />
+
+<p align="center"><strong>Ce message n'est pas un spam, mais une information militante<br />Pour vous désabonner, envoyer un mail à </strong></p>
+<p align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+<p style="margin-bottom: 0.25cm; background-color: #ffffff; caret-color: #000000; color: #000000; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;" align="right"> </p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;" align="center"><img id="&lt;image011.png@01D5BF02.175FECE0&gt;" class="Apple-web-attachment Singleton" style="opacity: 1;" src="http://coordination-defense-sante.org/wp-content/uploads/2021/09/Image2.jpg" alt="Pavé mis à jour le 2 Mai 2019" border="0" /></p>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

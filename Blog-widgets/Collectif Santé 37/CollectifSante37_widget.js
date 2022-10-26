@@ -738,12 +738,8 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   //pointer-events: none;
   cursor:pointer;
 }
-/*.img-foreground img {
-    object-fit: cover;
-    object-fit: fill;
-}*/
 .img-foreground {
-  background-color: white;
+  //background-color: white;
   animation-name: stretch;
   animation-duration: 2.5s; 
   //animation-timing-function: ease-out; 
@@ -803,7 +799,7 @@ if ( window.location.pathname == '/' ){
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKTZ_m0TZv0J-j4zZo3MThJnMOaSE0G7H88GwR_1DI27ZzjOSp73bLseYQDaqbLRWTHVeDPGMrdlZbrrfQKNRtzQammcXlFyABiV6RkxBiOl_H1ARUxi78KFtyCjd3coqIPY35Q0rU_MqltKaLYIEPKzVnbRQkf-IXErO6fqcEF6A__iQxdfYrrc9q/s1600/tract%20local%20unitaire%204%20et%207%20juin%20image.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfFPwEtIQvHQpPMEiJ1fK9Z7o5ED_QK0B5TWqdutSktLsZoGtsaittNEiq6IQGwDD5yRkjt0zF0klz5wYfpNSqaGXSJZCbrST85BF4mzxe1Yt1fR2Vk-T81jfqKpOuXfkac0DD2BjOUx-5eSpZXPeo-CfhtJneqsRMoFVUNOyVvG53cd4N3sy0CnZZ/s1600/Tract%20pour%20le%2022%20septembre.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -828,7 +824,7 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKTZ_m0TZv0J-j4zZo3MThJnMOaSE0G7H88GwR_1DI27ZzjOSp73bLseYQDaqbLRWTHVeDPGMrdlZbrrfQKNRtzQammcXlFyABiV6RkxBiOl_H1ARUxi78KFtyCjd3coqIPY35Q0rU_MqltKaLYIEPKzVnbRQkf-IXErO6fqcEF6A__iQxdfYrrc9q/s1600/tract%20local%20unitaire%204%20et%207%20juin%20image.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfFPwEtIQvHQpPMEiJ1fK9Z7o5ED_QK0B5TWqdutSktLsZoGtsaittNEiq6IQGwDD5yRkjt0zF0klz5wYfpNSqaGXSJZCbrST85BF4mzxe1Yt1fR2Vk-T81jfqKpOuXfkac0DD2BjOUx-5eSpZXPeo-CfhtJneqsRMoFVUNOyVvG53cd4N3sy0CnZZ/s1600/Tract%20pour%20le%2022%20septembre.jpg"
         },       
         /*{
           dataType: "images",

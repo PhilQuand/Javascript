@@ -1,12 +1,68 @@
     var archi = [
               {
+          svgInfos: ['Semaine 42', 'du 17 oct.', 'au 23 oct.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 42.html',
+        },
+              {
+          svgInfos: ['Semaine 41', 'du 3 oct.', 'au 16 oct.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 41.html',
+          idGlinkID: 'PreviousLetters'
+        },
+              {
+          svgInfos: ['Semaine 40', 'du 3 oct.', 'au 9 oct.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 40.html',
+        },
+              {
+          svgInfos: ['Semaine 39', 'du 27 sept.', 'au 2 oct.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 39.html',
+        },
+              {
+          svgInfos: ['Semaine 38', 'du 19 sept.', 'au 26 sept.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 38.html',
+        },
+              {
+          svgInfos: ['Semaine 37', 'du 12 sept.', 'au 18 sept.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 37.html',
+        },
+              {
+          svgInfos: ['Semaine 36', 'du 5 sept.', 'au 11 sept.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 36.html',
+        },
+              {
+          svgInfos: ['Semaine 35', 'du 29 août', 'au 4 sept.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 35.html',
+        },
+              {
+          svgInfos: ['Semaine 34', 'du 22 août', 'au 29 août', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 34.html',
+        },
+              {
+          svgInfos: ['Semaine 33', 'du 15 août', 'au 21 août', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 33.html',
+        },
+              {
+          svgInfos: ['Semaine 32', 'du 08 août', 'au 14 août', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 32.html',
+        },
+              {
+          svgInfos: ['Semaine 31', 'du 01 août', 'au 07 août', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 31.html',
+        },
+              {
+          svgInfos: ['Semaine 30', 'du 25 juil.', 'au 31 juil.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 30.html',
+        },
+              {
+          svgInfos: ['Semaine 29', 'du 18 juil.', 'au 24 juil.', '2022'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 29.html',
+        },
+              {
           svgInfos: ['Semaine 28', 'du 11 juil.', 'au 17 juil.', '2022'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 28.html',
         },
               {
           svgInfos: ['Semaine 27', 'du 3 juil.', 'au 10 juil.', '2022'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 27.html',
-          idGlinkID: 'PreviousLetters'
         },
               {
           svgInfos: ['Semaine 26', 'du 27 june', 'au 2 juil.', '2022'],

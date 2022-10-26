@@ -42,8 +42,8 @@
 <!-- accés au Geoportail -->
   <script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'></script>
   <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.css' rel='stylesheet' />
-  <script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.js'></script>
-  <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css' rel='stylesheet' />
+  <!--script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.js'></script>
+  <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css' rel='stylesheet' /-->
 </head>
 <body>
 <div id="map"></div>
@@ -54,6 +54,7 @@
     }
 </style>
 <script>
+go()
 function go() {
 
 
@@ -61,7 +62,7 @@ var svgicon = '<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns:
 var iconurl = 'data:image/svg+xml;base64,' + btoa(svgicon);
 var icondata = L.icon({iconUrl: iconurl,iconSize:[34, 44],iconAnchor:   [17, 44],});
 
-  var layer = L.geoportalLayer.WMTS({
+  /*var layer = L.geoportalLayer.WMTS({
     layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
   });
 
@@ -70,7 +71,39 @@ var icondata = L.icon({iconUrl: iconurl,iconSize:[34, 44],iconAnchor:   [17, 44]
     center: L.latLng(48, 2)
   });
 
-  layer.addTo(map);
+  layer.addTo(map);*/
+        // Plan IGN avec une transparence de 50%
+        var PlanIGN = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+            '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+            '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+            '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+            {
+	            ignApiKey: 'decouverte',
+	            ignLayer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+	            style: 'normal',
+	            format: 'image/png',
+	            service: 'WMTS',
+				opacity: 1.
+        });
+		
+		// Photographies aériennes en-dessous de Plan IGN
+		var OrthoIGN = L.tileLayer('https://wxs.ign.fr/{ignApiKey}/geoportail/wmts?'+
+            '&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&TILEMATRIXSET=PM'+
+            '&LAYER={ignLayer}&STYLE={style}&FORMAT={format}'+
+            '&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}',
+            {
+	            ignApiKey: 'decouverte',
+	            ignLayer: 'ORTHOIMAGERY.ORTHOPHOTOS',
+	            style: 'normal',
+	            format: 'image/jpeg',
+	            service: 'WMTS'
+        });
+        // Ma carte
+        var map = L.map('map', {
+	        center: [48.8456,2.4245],
+	        zoom: 16,
+	        layers: [OrthoIGN,PlanIGN]
+        })
 
   // localisation HTML5 au chargement
 
@@ -198,10 +231,10 @@ function removeit(map, showCircles, layer) {
 }
 
 
-Gp.Services.getConfig({
+/*Gp.Services.getConfig({
   apiKey: "f5cse26aiqvu6j4xqtngh5zh",
   onSuccess: go
-});
+});*/
 </script>
 </body>
 </html>

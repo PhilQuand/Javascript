@@ -237,8 +237,7 @@ $.fn.mapAllBlogs = function(optionsPlugIn) {
   var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div><div id="star_filter"><span style="font-size: x-large; font-weight: bold; color: red; ">* <i></span>les données ont été  filtrées dans l' + "'" + 'onglet Données</div></div>');
   $(this).append(infoMapWrapper);
 
-  //var dataTable = $('<span id="reset-all-table-filter"><input type="button" id="aaa" value="Reset all column filters" class="some_btn general_btn"></span><table id="table" class="table table-striped table-bordered" />');
-  var dataTable = $('<span id="reset-all-table-filter"><input type="button" id="aaa" value="Réinitialiser le filtrage" class="styled styledGreen"></span><table id="table" class="table table-striped table-bordered" />');
+  var dataTable = $('<table id="table" class="table table-striped table-bordered" />');
   $(this).append(dataTable);
 
   var iconMarkersBuilder, legendTitle, objectOverlays;
@@ -1324,7 +1323,6 @@ markers.on('clusterclick', function(a){
               function(e) {
                 L.DomEvent.stop(e);
                 menuLegend = $('#menuLegend option:selected').data("path");
-                //$( "#aaa" ).trigger( "click" );
                 $('#contentLegend').html(contentLegend(true));
                 //runTable();
               } // Handler function
@@ -2385,7 +2383,7 @@ markers.on('clusterclick', function(a){
             //$('#infoMap-wrapper > :not(#btData)').css('display', 'none')
             $('#infoMap-wrapper > #infoMap').css('display', 'none')
             $('#table_wrapper').css('display', 'block')
-            if(tableFilterOn) $('#aaa').css('display', 'block');
+            //if(tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
             $('#star_filter').css('display', 'none');
             //$('#table').css('display', 'block')
           }
@@ -2396,8 +2394,7 @@ markers.on('clusterclick', function(a){
             $('#infoMap-wrapper > #infoMap').css('display', 'block')
             map_invalidateSize();
             $('#table_wrapper').css('display', 'none')
-            $('#aaa').css('display', 'none')
-            //$('#table').css('display', 'none')
+            //$('.dt-button.reinitBT').css('visibility', 'hidden')
           }
           //runTable();
         }
@@ -2446,7 +2443,7 @@ markers.on('clusterclick', function(a){
                       if (indexEventTable[i]["id"] === stateVal["id"]) {
                         indexEventTable[i]["selected"] = myFilter;
                         consol = true;
-                        $('#aaa').css('display', 'block');
+                        $('.dt-button.reinitBT').css('visibility', 'visible');
                         tableFilterOn = true;
                       }
                     }
@@ -2470,7 +2467,7 @@ markers.on('clusterclick', function(a){
                       if (indexEventTable[i]["id"] === stateVal["id"]) {
                         indexEventTable[i]["selected"] = myFilterValue;
                         tableFilterOn = true;
-                        $('#aaa').css('display', 'block')
+                        $('.dt-button.reinitBT').css('display', 'block')
                         tableFilterOn = true;
                       }
                     }
@@ -2516,85 +2513,102 @@ markers.on('clusterclick', function(a){
         var initComplete = function() {
           //New datatable API (capital "D")
           var myTable = $(this).DataTable();
-          $("#aaa").click(function() {
-            for (var i = 0; i < indexEventTable.length; i++) {
-              if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
-                if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
-                  indexEventTable[i]["selected"] = true;
-                } else {
-                  indexEventTable[i]["selected"] = false;
-                }
-              } else {
-                indexEventTable[i]["selected"] = true;
-              }
-            }
-            yadcf.exResetAllFilters(myTable);
-            for (var i = 0; i < properties.length; i++) {
-              if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-                if (properties[i]['filter'] == 'selection') {
-                  yadcf.exFilterColumn(myTable, [ [i, "Sélectionnez" ]]);
-                }
-              }
-            }
-            tableFilterOn = false;
-            $('#aaa').css('display', 'none')
-          });
-          yadcf.init(myTable, tableColums)
+          yadcf.init(myTable, tableColums);
+          $("#table_length label select").appendTo("#table_length label");
+          if(tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
+          else $('.dt-button.reinitBT').css('visibility', 'hidden');
         }
         tableFilterOn = false;
         $('#table').DataTable({
           destroy: true,
           data: indexEventTable,
-          /*"language": {
+          "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
-          },*/
+          },
           columns: columns,
           initComplete: initComplete,
-          dom: 'Bfrtip',
+          dom: 'Blfrtip',
           buttons: [{
-            extend: 'csv',
-            //Name the CSV
-            filename: 'file_name',
-            //text: 'Export CSV',
-            className: 'styled exportCSV',
-            //Function which customize the CSV (input : csv is the object that you can preprocesss)
-            customize: function(csv) {
-              //Split the csv to get the rows
-              var split_csv = csv.split("\n");
+              text: 'aide',
+              className: 'helpBT',
+            },
+            {
+              extend: 'csv',
+              //Name the CSV
+              filename: 'file_name',
+              //text: 'Export CSV',
+              className: 'csvBT',
+              //Function which customize the CSV (input : csv is the object that you can preprocesss)
+              customize: function(csv) {
+                //Split the csv to get the rows
+                var split_csv = csv.split("\n");
 
-              //Remove the row one to personnalize the headers
-              //split_csv[0] = '"Latitude","Longitude","Site Name","Description","Antenna Height","Antenna gain","Env loss","Candidate"';
-              split_csv[0] = ''
-              for (var i = 0; i < properties.length; i++) {
-                if (jQuery.type(properties[i]['name']) === 'string') {
-                  if (jQuery.type(properties[i]['title']) === 'string') {
-                    var title = properties[i]['title'];
+                //Remove the row one to personnalize the headers
+                //split_csv[0] = '"Latitude","Longitude","Site Name","Description","Antenna Height","Antenna gain","Env loss","Candidate"';
+                split_csv[0] = ''
+                for (var i = 0; i < properties.length; i++) {
+                  if (jQuery.type(properties[i]['name']) === 'string') {
+                    if (jQuery.type(properties[i]['title']) === 'string') {
+                      var title = properties[i]['title'];
+                    }
+                    else {
+                      var title = properties[i]['name'];
+                    }
+                  }
+                  if (i == 0) split_csv[0] += '"' + title + '"'
+                  else split_csv[0] += ',"' + title + '"'
+                }
+
+                //For each row except the first one (header)
+                $.each(split_csv.slice(1), function(index, csv_row) {
+                  //Split on quotes and comma to get each cell
+                  var csv_cell_array = csv_row.split('","');
+
+                  //Join the table on the quotes and comma; add back the quotes at the beginning and end
+                  csv_cell_array_quotes = csv_cell_array.join('","');
+
+                  //Insert the new row into the rows array at the previous index (index +1 because the header was sliced)
+                  split_csv[index + 1] = csv_cell_array_quotes;
+                });
+
+                //Join the rows with line breck and return the final csv (datatables will take the returned csv and process it)
+                csv = split_csv.join("\n");
+                return csv;
+              }
+            },
+            {
+              text: 'réinit.',
+              className: 'reinitBT',
+              action: function(e, dt, node, config) {
+
+                for (var i = 0; i < indexEventTable.length; i++) {
+                  if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
+                    if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
+                      indexEventTable[i]["selected"] = true;
+                    }
+                    else {
+                      indexEventTable[i]["selected"] = false;
+                    }
                   }
                   else {
-                    var title = properties[i]['name'];
+                    indexEventTable[i]["selected"] = true;
                   }
                 }
-                if (i == 0) split_csv[0] += '"' + title + '"'
-                else split_csv[0] += ',"' + title + '"'
+                yadcf.exResetAllFilters(dt);
+                for (var i = 0; i < properties.length; i++) {
+                  if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+                    if (properties[i]['filter'] == 'selection') {
+                      yadcf.exFilterColumn(dt, [
+                        [i, "Sélectionnez"]
+                      ]);
+                    }
+                  }
+                }
+                tableFilterOn = false;
+                $('.dt-button.reinitBT').css('visibility', 'hidden');
               }
-
-              //For each row except the first one (header)
-              $.each(split_csv.slice(1), function(index, csv_row) {
-                //Split on quotes and comma to get each cell
-                var csv_cell_array = csv_row.split('","');
-
-                //Join the table on the quotes and comma; add back the quotes at the beginning and end
-                csv_cell_array_quotes = csv_cell_array.join('","');
-
-                //Insert the new row into the rows array at the previous index (index +1 because the header was sliced)
-                split_csv[index + 1] = csv_cell_array_quotes;
-              });
-
-              //Join the rows with line breck and return the final csv (datatables will take the returned csv and process it)
-              csv = split_csv.join("\n");
-              return csv;
-            }
-          }],
+            },
+          ],
         });
       };
     };
@@ -3049,11 +3063,12 @@ var isOKNumber = data => {
 })(jQuery);
 </script>
 <style>
-div.dataTables_wrapper div.dataTables_length {
-   margin-left: 1em;
+#table_wrapper {
+   margin-right: 0.5em;
+   margin-left: 0.5em;
 }
-div.dataTables_wrapper div.dataTables_length select {
-    width: 100%;
+.dataTables_wrapper .dataTables_length select {
+    margin-left: 0.5em;
 }
 *, *:after, *:before {
   box-sizing: border-box;
@@ -3087,10 +3102,10 @@ tfoot {
   display: table-header-group;
 }
 
-input {
+/*input {
   font-size: 16px;
   margin-right: 1.5em;
-}
+}*/
 
 input, td, th {
   padding: 10px;
@@ -3182,14 +3197,48 @@ div.dataTables_wrapper .table-striped select {
     margin-left: auto; 
     margin-right: auto;
 }*/
-.dt-button.styled.exportCSV {
-  margin-left: 2em;
-  background-color: white;
+div.dt-buttons {
+  margin-right: 2em;
+}
+.dt-button.reinitBT, .dt-button.csvBT, .dt-button.helpBT {
+    //float: right;
+    max-width: 100px !important;   /* Largeur du formulaire */
+    border: 0;
+    line-height: 1.5;
+    padding: 0 10px !important;
+    margin-bottom: 1em;
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    //text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    //background-color: rgba(208, 225, 226, 1);
+    //background-color: rgba(162, 196, 201, 1);
+    background-color: rgba(220, 0, 0, 1);
+
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+.dt-button.reinitBT {
+    background-color: green;
+}
+.dt-button.csvBT {
+    background-color: blue;
+}
+.dt-button.helpBT {
+    background-color: yellow;
+    color: black;
+}
+/*.dt-button.styledBT {
   color: red;
   border-radius: 10px;
   padding: 0 10	 !important;
   border: 0;
-}
+}*/
 #infoMap-wrapper {
     padding: 0 0 0 0;
     margin: 0 auto;

@@ -2545,12 +2545,12 @@ markers.on('clusterclick', function(a){
         $('#table').DataTable({
           destroy: true,
           data: indexEventTable,
-          /*"language": {
+          "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/French.json"
-          },*/
+          },
           columns: columns,
           initComplete: initComplete,
-          dom: 'Bfrtip',
+          dom: 'Blfrtip',
           buttons: [{
             extend: 'csv',
             //Name the CSV

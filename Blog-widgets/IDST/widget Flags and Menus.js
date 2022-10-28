@@ -29,7 +29,7 @@
 <!--div id='calendarFancy_content' style='margin-left: auto; margin-right: 0;'-->
 <div id='epingleFancy_content' style='margin-left: auto; margin-right: 0;'>
 <div style="width: 100%; margin: 0;">
-<!-- article récupéré dela page luttes, alternatives ou critique puis :
+<!-- article récupéré de la page luttes, alternatives ou critique puis :
 1) mis en forme sur https://unminify.com 
 2) remettre sur une même ligne la première balise <a avec son href 
 3) cache des drapeaux ("display: none" à la place de "float: right" des img correspondants)-->

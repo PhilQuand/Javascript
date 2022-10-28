@@ -2459,9 +2459,9 @@ markers.on('clusterclick', function (a) {
           $('#infoMap-wrapper').prepend('<button type="button" class="styled helpBT" id="btAide">Aide</button>');
           $('#btAide').click(function(e) {
             $.fancybox.open({
-              src: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Distributions%20v5/Doc%20version%205.html',
+              src: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Distributions%20v5/Doc%20version%205.06.html',
               type: 'iframe',
-              modal: true
+              //modal: true
             });
           });          
           //runTable();
@@ -2601,7 +2601,6 @@ markers.on('clusterclick', function (a) {
               text: 'aide',
               className: 'helpBT',
               action: function(e, dt, node, config) {
-                // voir https://obu.edu/_resources/ldp/galleries/fancybox/#usage                   
                 // voir https://obu.edu/_resources/ldp/galleries/fancybox/#usage                   
                 //$.fancybox.open('<div class="message"><h2>Hello!</h2><p>You are awesome!</p></div>');
                 /*$.fancybox.open({

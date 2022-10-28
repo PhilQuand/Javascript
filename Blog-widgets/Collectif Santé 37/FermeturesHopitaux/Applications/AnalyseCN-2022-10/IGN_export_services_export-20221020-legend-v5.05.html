@@ -2456,6 +2456,14 @@ markers.on('clusterclick', function (a) {
             $('#table_wrapper').css('display', 'none')
             //$('.dt-button.reinitBT').css('visibility', 'hidden')
           }
+          $('#infoMap-wrapper').prepend('<button type="button" class="styled helpBT" id="btAide">Aide</button>');
+          $('#btAide').click(function(e) {
+            $.fancybox.open({
+              src: 'https://obu.edu/_resources/ldp/galleries/fancybox/#usage',
+              type: 'iframe',
+              //modal: true
+            });
+          });          
           //runTable();
         }
       };
@@ -2600,6 +2608,11 @@ markers.on('clusterclick', function (a) {
                   src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p></div>',
                   type: 'html',
                   smallBtn: false
+                });*/              
+                /*$.fancybox.open({
+                  src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p><p><button data-fancybox-close class="btn">Close me</button></p></div>',
+                  type: 'html',
+                  modal: true
                 });*/              
                 $.fancybox.open({
                   src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p><p><button data-fancybox-close class="btn">Close me</button></p></div>',
@@ -3306,7 +3319,7 @@ div.dt-buttons {
 .dt-button.csvBT {
     background-color: blue;
 }
-.dt-button.helpBT {
+.dt-button.helpBT, .helpBT {
     background-color: yellow;
     color: black;
 }

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://philquand.github.io/Javascript/Astr/Theme-Markdown.css" />
 <center><span style="font-size: 24px; font-weight: bold">CartePhil version 5.06</span></center>
 
-Voici quelques détails de la nouvelle version de cette « carte de mise en valeur des données ».
+Voici quelques détails concernant la nouvelle version de cette « carte de mise en valeur des données ».
 Dans la suite j'appelle enregistrement une ligne géolocalisée de la base de données et propriétés de l'enregistrement, les champs de cette ligne. 
 
 1. les *icônes* de la carte

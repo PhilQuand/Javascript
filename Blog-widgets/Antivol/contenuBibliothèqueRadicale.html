@@ -226,7 +226,9 @@ $(document).ready(function() {
           }
           return true;
         }
-        $("#table_length label select").appendTo("#table_length label");
+        //$("#table_length label select").appendTo("#table_length label");
+        $("#table_length label select").appendTo("#table_length");
+        $("#table_length label").text("Nb. d'éléments affichés");
       }
     });
     loading.style.display = 'none';

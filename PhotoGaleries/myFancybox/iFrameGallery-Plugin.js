@@ -89,12 +89,12 @@
             hrefInit = idG.split("#")[0];
             if (archiLength > 1) {
               var inlineProgramNum = divArchi.prevAll().length + 1;
-              //IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');
-              IDlink.wrapInner('<a href="' + hrefInit + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');
+              IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');
+              //IDlink.wrapInner('<a href="' + hrefInit + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');
             }
             else {
-              //IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram"></a>');
-              IDlink.wrapInner('<a href="' + hrefInit + '#inlineProgram"></a>');
+              IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram"></a>');
+              //IDlink.wrapInner('<a href="' + hrefInit + '#inlineProgram"></a>');
             }
           }
           inputLink.insertBefore(divArchi);

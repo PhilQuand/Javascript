@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Depuis la loi Bachelot toutes les instances dans lesquelles siègent des représentants de soignants, de patients et d’élus sont exclusivement consultatives. Les avis qui ne vont pas dans le sens souhaité par les autorités sanitaires qui les conduisent restent lettre morte. Compte tenu de l’étendue des pouvoirs des ARS, COPERMO et autre HAS et de l’absence de contre-pouvoir le fonctionnement des instances sanitaires est devenu autocratique. Les lois TOURAINE et « Ma santé 2022 » n’ont rien changé à cet état de fait.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<!--style>
+.rubrique {
+text-align: center; 
+color: #0070c0; 
+font-size: xx-large; 
+font-weight: bold; 
+font-family: Arial, serif;
+}
+.titre-rubrique {
+text-align: center; 
+font-size: large; 
+font-weight: bold; 
+}
+</style-->
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 44</li>
+<li>Dates: du 31 octobre au 6 novembre 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/11/Infos-semaine-44-du-31-octobre-au-6-novembre-2022.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong> Édito (ou point fort de la semaine) : </strong></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<div style="font-family: Arial, serif;">
+<p>Depuis la loi Bachelot toutes les instances dans lesquelles siègent des représentants de soignants, de patients et d’élus sont exclusivement consultatives. Les avis qui ne vont pas dans le sens souhaité par les autorités sanitaires qui les conduisent restent lettre morte. Compte tenu de l’étendue des pouvoirs des ARS, COPERMO et autre HAS et de l’absence de contre-pouvoir le fonctionnement des instances sanitaires est devenu autocratique. Les lois TOURAINE et « Ma santé 2022 » n’ont rien changé à cet état de fait.</p>
+<p>Les attentes légitimes des patients et des soignants, exprimées à maintes reprises et dans maintes instances ne sont jamais entendues. Le droit à la protection de la santé est pourtant inscrit dans notre constitution. Dans ces conditions, il ne reste plus que le recours à la Justice pour tenter de faire respecter ce droit à l’égalité et à la continuité de l’accès aux soins.</p>
+<p>C’est le but poursuivi par les quatre associations de malades ou d’usagers du service public de santé et les deux collectifs de soignants qui viennent de déposer le 3 novembre un recours contre le Premier Ministre et le Ministre de la Santé devant le tribunal Administratif de PARIS. Par ce recours, ils dénoncent les carences que chacun peut, malgré le dévouement des personnels, constater dans le fonctionnement des hôpitaux publics et les préjudices qui en résultent pour l’Hôpital, pour les soignants, pour les patients et leurs familles.</p>
+<p>L’objectif est d’obtenir que l’État soit astreint à porter remède à ces carences dans les meilleurs délais, que l’offre de soins dans les territoires soit élargie et pérenne, que les conditions de travail des soignants et de prise en charge des patients soient notablement améliorées.</p>
+<p align="right"><em>Roland Vachon.</em></p>
+
+<p align="center"><a href="http://coordination-defense-sante.org/2022/11/action-pour-carence-fautive-communique-de-presse-du-3-novembre-2022/">Le communiqué</a></p>
+<p align="center"><a href="https://www.liberation.fr/idees-et-debats/tribunes/le-droit-fondamental-a-la-protection-de-la-sante-nest-plus-garanti-en-france-20220712_IALYQSL3EJGHNJ4V6EUSTBEVYM/?redirected=1M/">L’article de Libération</a></p>
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+
+<p style="background-color: #729FD0;" align="center"><strong>MAULEON</strong></p>
+<p align="justify">Réactions des personnels de l’hôpital de MAULEON, confrontés à une nouvelle dégradation de leurs conditions de travail du fait de l’insuffisance des effectifs.</p>
+<p align="center"><a href="http://coordination-defense-sante.org/%20Le%20communiqu%C3%A9%202022/11/ch-de-mauleon-action-du-3-novembre-2022/">Le communiqué</a></p>
+<p style="background-color: #E37B24;" align="center"><strong>TOUL</strong></p>
+<p align="justify">Le Comité de Défense de l'Hôpital Public de Toul tiendra son assemblée générale le 18 novembre 2022</p>
+<p align="center"><a href="http://coordination-defense-sante.org/2022/11/toul-invitation-ag-du-18-novembre-2022/">L’invitation</a></p>
+<p style="background-color: #FFFB6F;" align="center"><strong>MILLAU – SAINT-AFFRIQUE</strong></p>
+<p align="justify">Le comité et la CGT réagissent au rapport de la chambre régionale des comptes d’Occitanie</p>
+<p align="center"><a href="https://www.millavois.com/2022/10/31/la-chambre-regionale-des-comptes-enfonce-le-clou-sur-le-sujet-de-lhopital/">L’article</a></p>
+<p style="background-color: #D4EA6C;" align="center"><strong>CONCARNEAU</strong></p>
+<p align="justify">Échange de courriers entre le comité de Concarneau et le député de la circonscription à propos du PLFSS 2023</p>
+<p align="center"><a href="http://coordination-defense-sante.org/2022/11/concarneau-plfss-2023/">Les documents</a></p>
+<p style="background-color: #FFFC9A;" align="center"><strong>SARLAT</strong></p>
+<p style="margin-bottom: 3px" align="center"><strong>« On fait comme on peut »</strong>.</p>
+<p style="margin-bottom: 3px; margin-top: 3px" align="center">Le 15 est submergé par les appels en Dordogne.</p>
+<p style="margin-top: 3px" align="center">Le métier premier de ces soignants, c'est pourtant l'urgence vitale.</p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/c-est-de-pire-en-pire-le-15-submerge-d-appels-en-dordogne-avec-les-fermetures-d-accueil-des-urgences-1667438087">L’article</a></p>
+<p style="background-color: #99FC66;" align="center"><strong>SAINT-MALO - DINAN</strong></p>
+<p align="justify">Pendant près de deux ans que les membres de la <strong>coordination Le Monde d'Après du Pays de Saint-Malo,</strong> associés à ceux du <strong>collectif Dinan Diver'Cité ont </strong>enquêté auprès de la population, consulté des experts reconnus pour comprendre les enjeux de santé dans le contexte de leur territoire et analyser les projets des autorités sanitaires.</p>
+<p class="disregard" align="justify">Ils ont rédigé un dossier d’information accessible directement à partir du lien ci-dessous :</p>
+<p class="disregard" align="center"><a href="http://www.lemondedapres-saintmalo.fr/medias/files/dossier-sante-du-futur-v-30-aou-t-le-ger.pdf">Le dossier</a></p>
+<p align="center">ou en consultant leur blog</p>
+<p align="center"><a href="http://www.lemondedapres-saintmalo.fr/blog/articles/la-sante-du-futur-se-decide-maintenant.html">Le blog</a></p>
+<p style="background-color: #D6D6D6;" align="center"><strong>CREIL</strong></p>
+<p class="disregard" align="justify">À l’issue d’un rassemblement pour le retour d'une maternité à Creil, une délégation a été reçue le 4 novembre par le directeur de l'ARS. L’entrevue n’a pas fait apparaître d'évolution sur ce dossier pour l'instant.</p>
+<p style="margin-bottom: 3px" align="justify">Le comité de défense tiendra une <strong>assemblée générale le 18 novembre à 18h30</strong>,</p>
+<p style="margin-top: 3px" align="justify">centre des cadres sportifs à Creil, pour décider des suites à donner</p>
+<p style="background-color: #F4B085;" align="center"><strong>LUÇON</strong></p>
+<p align="justify">Le comité exige :</p>
+<p align="justify">le maintien des urgences et du SMUR 24h/24 et 7j/7,</p>
+<p align="justify">Un service de radiologie, scanner, IRM,</p>
+<p align="justify">Un bloc opératoire … et poursuit son action.</p>
+<p style="margin-bottom: 3px; font-size: larger" align="center"><strong>Prochain rendez-vous : VENDREDI 4 NOVEMBRE 2022 18H</strong></p>
+<p style="margin-top: 3px; font-size: larger;" align="center"><strong>Devant l’hôpital</strong></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF;" align="center"><strong>CHATEAU-DU-LOIR</strong></p>
+<p align="justify">Nouvelle fermeture des Urgences du 2 au 4 novembre.</p>
+<p align="center"><a href="https://actu.fr/pays-de-la-loire/montval-sur-loir_72071/chateau-du-loir-les-urgences-de-lhopital-fermees-deux-jours-de-suite_54887481.html">L’article</a></p>
+<p style="background-color: #E37B24;" align="center"><strong>ALLONNES</strong></p>
+<p align="justify">Du fait d’un sous-effectif chez les aides-soignants l’EHPAD d’Allonnes, dans la Sarthe, annonce la fermeture d’une unité de 30 lits.</p>
+<p align="center"><a href="https://www.ouest-france.fr/pays-de-la-loire/allonnes-72700/sarthe-l-ehpad-charles-drouet-a-allonnes-ferme-temporairement-une-unite-de-30-lits-f3e83fcc-5a9b-11ed-8bfd-8dba71fb0669">L’article</a></p>
+<p align="justify">Outre les difficultés d’accès à une prise en charge qui en résultent pour les personnes âgées et leurs aidants ces situations, à terme, mettent en péril une partie des recettes d’activité des établissements qui sont contraints de procéder à ces fermetures et pèseront sur leur équilibre financier.</p>
+<p style="background-color: #EBEB30;" align="center"><strong>NICE</strong></p>
+<p align="justify">Le téléphone d’Urgences (le 15) a été injoignable durant la nuit du 3 au 4 novembre au CHU de NICE.</p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/l-accueil-des-patients-et-des-appels-desorganise-cette-nuit-au-chu-de-nice-1667548039">L’article</a></p>
+<p style="background-color: #92D051;" align="center"><strong>MANOSQUE</strong></p>
+<p align="justify">Le personnel de la clinique Toutes Aures est en grève depuis 18 jours pour obtenir une augmentation des rémunérations et une amélioration des conditions de travail. La situation reste bloquée malgré le soutien des élus locaux, maire, député, sénateur, président d'agglomération...</p>
+<p align="center"><a href="https://www.hauteprovenceinfo.com/article-39069-manosque-manifestation-du-personnel-greviste-de-la-clinique-toutes-aures.html">L’article</a></p>
+<p style="background-color: #F4B085;" align="center"><strong>VERGT</strong></p>
+<p align="justify">Grosse mobilisation des personnels, des familles et de la population face à la menace de fermeture de l’EHPAD du groupe Korian.</p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/nouvelle-aquitaine/dordogne/dordogne-le-groupe-korian-veut-fermer-l-ehpad-rural-de-vergt-grosse-mobilisation-du-personnel-des-familles-et-des-habitants-2647576.html">L’article</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-rubrique" style="font-size: larger; font-style: italic; text-transform: uppercase;" align="center">Opposition au Conseil de l’Ordre des Médecins</p>
+<p align="justify">4 médecins membres du Syndicat de la Médecine Générale (SMG), expliquent leur refus de cotiser au conseil de l’ordre.</p>
+<p align="center"><a href="https://blogs.mediapart.fr/collectif-smg44-pour-la-dissolution-de-l-ordre-des-medecins/blog/311022/ordre-des-medecins-une-vision-paternaliste-de-la-me?utm_source=20221031&amp;utm_medium=email&amp;utm_campaign=QUOTIDIENNE&amp;utm_content=&amp;utm_term=&amp;xtor=EREC-83-[QUOTIDIENNE]-20221031&amp;M_BT=8631337866">L’article</a></p>
+<p align="justify">Le SMG, le SNJMG et le MIOP partagent les motivations de ces médecins et appellent à les soutenir.</p>
+<p align="center"><a href="http://coordination-defense-sante.org/2022/11/miop-proces-nantes-novembre-2023/">Le communiqué</a></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic; text-transform: uppercase;" align="center">PÉDIATRIE</p>
+<p align="justify">Après l’alerte adressée au Président de la République par 400 soignants de pédiatrie le ministre de la Santé avait annoncé une aide de 150 millions d’euros. Unanimement jugée insuffisante et inadaptée à la gravité des risques encourus par les enfants cette aide vient d’être portée à 400 millions d’euros.</p>
+<p align="center"><a href="https://www.lemonde.fr/societe/article/2022/11/03/crise-des-services-de-pediatrie-le-gouvernement-annonce-des-mesures-jugees-insuffisantes_6148275_3224.html">L’article</a></p>
+<p align="justify">La FHF souhaite que ces annonces "<em>s'intègrent dans une stratégie plus systémique et pérenne en matière de permanence des soins. « Il faut que nous puissions procéder à un choc d'attractivité plus pérenne et que nous sortions de la politique de la rallonge permanente. On ne soignera pas l'hôpital avec une addition infinie de mesures de sauvetage</em>".</p>
+<p align="justify">De son côté le collectif pédiatrie juge l'enveloppe annoncée "<em>totalement insuffisante pour mettre en place des ratios soignants-patients, la seule solution pour arrêter la fuite du personnel soignant</em>".</p>
+<p align="center"><a href="https://www.sfmu.org/fr/actualites/actualites-de-l-urgences/mesures-en-faveur-de-l-hopital-pour-la-fhf-et-le-collectif-de-pediatrie-l-inquietude-reste-de-mise/new_id/68681">L’article</a></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic; text-transform: uppercase;" align="center">PROGRAMME RÉGIONAL DE SANTE BOURGOGNE – FRANCHE-COMTE</p>
+<p align="justify">Le rapport d'évaluation du schéma régional de santé (SRS) et du projet régional d'accès aux soins des personnes les plus démunies (Praps) 2018-2023 de Bourgogne-Franche-Comté devrait être rendu en décembre.</p>
+<p align="center"><a href="https://www.sfmu.org/fr/actualites/actualites-de-l-urgences/bourgogne-franche-comte-l-evaluation-du-schema-regional-de-sante-2018-2021-doit-s-achever-en-decembre/new_id/68676">L’article</a></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic; text-transform: uppercase;" align="center">ANNONCE MINISTÉRIELLE</p>
+<p align="justify">En déplacement à l'hôpital Henri Duffaut d'Avignon, <a href="https://www.laprovence.com/article/politique/6954594/la-grande-interview-francois-braun-ministre-de-la-sante-je-ne-guerirai-pas-lhopital-en-un-mois.html" target="_blank">François Braun, Ministre de la Santé</a> a annoncé que les 6 millions de Français sans médecins traitants allaient pouvoir se soigner correctement d'ici la fin du quinquennat.</p>
+<p align="center"><a href="https://www.laprovence.com/actu/en-direct/6954952/video-plus-de-400-millions-deuros-daide-pour-la-sante-francois-braun-est-a-avignon.html">L’article</a></p>
+<p class="titre-rubrique" style="font-size: larger; font-style: italic; text-transform: uppercase;" align="center">Et IMMOBILISME PARADOXAL</p>
+<p align="justify">Question d’actualité au gouvernement – JO du SENAT du 13 octobre 2022 et réponse ministérielle.</p>
+<p align="center"><a href="https://www.senat.fr/basile/visio.do?id=qSEQ22100028G&amp;idtable=q424145%7Cq424146%7Cq424147%7Cq424148%7Cq424149%7Cq424150%7Cq424152%7Cq424153%7Cq424154%7Cq424155&amp;&amp;rch=qs&amp;de=20220926&amp;au=20221031&amp;dp=3+ans&amp;radio=deau&amp;aff=ar&amp;tri=dd&amp;off=40&amp;afd=ppr&amp;afd=ppl&amp;afd=pjl&amp;afd=cvn">La question</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><strong>Un petit retour en arrière particulièrement instructif.</strong></p>
+<p align="center"><a href="https://www.liberation.fr/france/2018/10/08/des-centaines-de-praticiens-hospitaliers-s-alarment-du-plan-sante_1683808/">Le rappel</a></p>
+
+<hr />
+
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

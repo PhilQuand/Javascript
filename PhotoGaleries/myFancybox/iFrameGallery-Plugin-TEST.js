@@ -86,7 +86,7 @@
           var IDlink = divLinkID.find('#' + idGlinkID);
           if (IDlink.length > 0) {
             var hrefInit = window.location.href;
-            hrefInit = idG.split("#")[0];
+            hrefInit = hrefInit.split("#")[0];
             if (archiLength > 1) {
               var inlineProgramNum = divArchi.prevAll().length + 1;
               //IDlink.wrapInner('<a href="' + window.location.href + '#inlineProgram-' + inlineProgramNum.toString() + '"></a>');

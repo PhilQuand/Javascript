@@ -1665,8 +1665,8 @@ markers.on('clusterclick', function (a) {
           if(typeof options.banner !== 'undefined') bannerCoord();
           function bannerCoord() {
             bannerCoord = L.control({
-              position: 'topright'
-              //position: 'bottomleft'
+              //position: 'topright'
+              position: 'bottomleft'
             });
 
             bannerCoord.onAdd = function(map) {

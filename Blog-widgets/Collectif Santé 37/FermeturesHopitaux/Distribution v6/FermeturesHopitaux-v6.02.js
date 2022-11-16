@@ -61,59 +61,29 @@ $.fn.mapAllBlogs = function() {
     fondCarte : 'IGN',
     maxClusterRadius : 5,
     popupData : {
-      title: 'LIEUX',
+      title: 'nom_hopital',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
-      hidden: ['id', 'LIEUX', 'INSEE_COM', 'département', 'région', 'departement', 'code_region','text_fusion_groupe','indic_reduction', 'selected'],
+      hidden: ['id', 'nom_hopital', 'INSEE_COM', 'département', 'région', 'departement', 'code_region','selected'],
       label: [{
-          value: 'SUPPRESSIONS',
-          label: 'suppressions'
+          value: 'suppressions'
         }, {
-          value: 'MENACES',
-          label: 'menaces'
+          value: 'menaces'
         }, {
-          value: 'Postes',
-          label: 'postes'
-        }, {
-          value: 'nom_commune',
-          label: 'commune'
+          value: 'victoires'
         }, {
           value: 'ght_nom',
-          label: 'nom ght'
+          label: 'nom du ght'
         }, {
           value: 'ghi_nom',
           label: 'nom ghi'
-        }, {
-          value: 'publ_priv',
-          label: 'type de gestion'
-        }, {
-          value: 'nom_commune',
-          label: 'commune'
-        }, {
-          value: 'an_ferm_chirur',
-          label: 'année de fermeture chirur.'
-        }, {
-          value: 'an_ferm_mater',
-          label: 'année de fermeture mater.'
-        }, {
-          value: 'an_ferm_site',
-          label: 'année de fermeture du site'
-        }, {
-          value: 'an_ferm_urgences',
-          label: 'année de fermeture des urgences'
-        }, {
-          value: 'type_etablissement',
-          label: 'type'
-      }],
+        }
+      ],
     },
     tableData: {
       properties: [{
-        name: 'LIEUX',
-        title:'lieux',
+        name: 'nom_hopital',
+        title:'hôpital',
         filter: 'selection'
-        }, {
-        name: 'nom_commune',
-        title:'commune',
-        filter: 0
       }, {
         name: 'département',
         filter: 'selection'
@@ -121,22 +91,23 @@ $.fn.mapAllBlogs = function() {
         name: 'région',
         filter: 'selection'
       }, {
-        name: 'SUPPRESSIONS',
-        title:'suppressions',
-        filter: 1
-      }, {
-        name: 'an_ferm_mater',
-        title:'fermeture mater.',
-        filter: 1
-      }, {
-        name: 'MENACES',
-        title:'menaces',
+        name: 'suppressions',
         filter: 0
       }, {
-        name: 'publ_priv',
-        title:'type de gestion',
-        filter: 2
-     }],
+        name: 'menaces',
+        filter: 0
+      }, {
+        name: 'victoires',
+        filter: 0
+      }, {
+        name: 'ght_nom',
+        title:'nom du ght',
+        filter: 'selection'
+      }, {
+        name: 'ghi_nom',
+        title:'nom du ghi',
+        filter: 'selection'
+      }],
       filters: [{
         //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
         data: [{

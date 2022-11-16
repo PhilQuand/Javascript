@@ -168,7 +168,8 @@
 	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Code Carte)').css('display', 'none');
 	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Données Carte)').css('display', 'none');
   // fin spécial pour le site de la CN
-  $('#Fermetures').mapAllBlogs();
-
+  $(document).ready(function() {
+    $('#Fermetures').mapAllBlogs();
+  });
 })(jQuery);
 </script>

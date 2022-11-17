@@ -200,116 +200,22 @@ $.fn.mapAllBlogs = function() {
         }],
         func: (filterVal, columnVal, rowValues, stateVal) => {
           switch (filterVal) {
+            case '1: avec valeur':
+              if (columnVal !== '') {
+                return true;
+              }
+              else return false;
+              break;
             case '1: sans valeur':
               if (columnVal === '') {
                 return true;
               }
               else return false;
               break;
-            case '1: avec maternité':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('MATERNIT') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec chirurgie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('CHIRURGIE') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec psychiatrie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PSYCHIATRIE') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec pédiatrie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PÉDIATRIE') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec réanimation':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('RÉANIMATION') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec cardiologie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('CARDIO') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec radiothérapie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('RADIOTH') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec pneumologie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PNEUMO') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec ophtalmologie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('OPHTALMO') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec otorhinolaryngologie':
-              if (isOKString(columnVal) && (columnVal.toUpperCase().indexOf('OTORHINOLARYN') > -1 || columnVal.toUpperCase().indexOf('ORL') > -1)) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec stomatologie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('STOMATO') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec urologie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('UROLOGIE	') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec endocrinologie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('ENDOCRINO	') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-             case '1: avec nettoyage':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('NETTOYAGE') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-             case '1: avec addictologie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('ADDICTO') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-             case '1: avec gérontologie':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('GÉRONTO') > -1) {
-                return true;
-              }
-              else return false;
-              break;
-            case '1: avec entretien':
-              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('ENTRETIEN') > -1) {
-                return true;
-              }
-              else return false;
-              break;
             default:
-              if (columnVal !== '') {
+              var filterLastVal = filterVal.split(' ');
+              filterLastVal = filterLastVal[filterLastVal.length - 1];
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf(filterLastVal.toUpperCase()) > -1) {
                 return true;
               }
               else return false;

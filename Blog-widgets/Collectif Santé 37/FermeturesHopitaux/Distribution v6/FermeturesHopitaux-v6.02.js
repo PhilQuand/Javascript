@@ -60,6 +60,7 @@ $.fn.mapAllBlogs = function() {
     },
     fondCarte : 'IGN',
     maxClusterRadius : 5,
+    brChar: ";",
     popupData : {
       title: 'nom_hopital',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
@@ -1200,11 +1201,14 @@ $.fn.mapAllBlogs = function() {
       console.log('achieved');
       
       loading.css('display', 'none');
+      if (jQuery.type(options['brChar']) !== 'undefined') var regForBR = new RegExp(options['brChar'], 'g')
       for (var i = 0; i < indexEvent.length; i++) {
-        for (var prop in indexEvent[i]) {
-          var propVal = indexEvent[i][prop];
-          if( typeof propVal === 'string' ) propVal = propVal.replace(/;/g, "<br>");
-          indexEvent[i][prop] = propVal;
+        if (jQuery.type(options['brChar']) !== 'undefined') {
+          for (var prop in indexEvent[i]) {
+            var propVal = indexEvent[i][prop];
+            if (typeof propVal === 'string') propVal = propVal.replace(regForBR, "<br>");
+            indexEvent[i][prop] = propVal;
+          }
         }
         if (jQuery.type(options['legend']) !== 'undefined' && jQuery.type(options['legend'][0].filter) !== 'undefined' && jQuery.type(options['legend'][0].filter.func) !== 'undefined') {
           if (options['legend'][0].filter.func(indexEvent[i])) {

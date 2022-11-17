@@ -92,13 +92,16 @@ $.fn.mapAllBlogs = function() {
         filter: 'selection'
       }, {
         name: 'suppressions',
-        filter: 0
+        filter: 0,
+        min_width: '250px'
       }, {
         name: 'menaces',
-        filter: 0
+        filter: 0,
+        min_width: '250px'
       }, {
         name: 'victoires',
-        filter: 0
+        filter: 0,
+        min_width: '250px'
       }, {
         name: 'ght_nom',
         title:'nom du ght',
@@ -2770,15 +2773,25 @@ markers.on('clusterclick', function (a) {
           //$("#table_length label select").appendTo("#table_length label");
           $("#table_length label select").appendTo("#table_length");
           $("#table_length label").text("Nb. d'éléments affichés");
-          if(tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
+          if (tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
           else $('.dt-button.reinitBT').css('visibility', 'hidden');
           $('.dt-button.helpBT').css('display', 'none');
 
-          $('#table th:contains(victoires)').css('min-width', '250px');
-          $('#table th:contains(menaces)').css('min-width', '250px');
-          $('#table th:contains(suppressions)').css('min-width', '250px');
+          var properties = options.tableData.properties;
+          for (var i = 0; i < properties.length; i++) {
+            var min_width = properties[i]['min_width']
+            if (jQuery.type(min_width) !== 'undefined' && jQuery.type(properties[i]['name']) === 'string') {
+              if (jQuery.type(properties[i]['title']) === 'string') {
+                var title = properties[i]['title'];
+              }
+              else {
+                var title = properties[i]['name'];
+              }
+             $('#table th:contains('+ title + ')').css('min-width', min_width);
+            }
+          }
+        }       
 
-        }
         tableFilterOn = false;
         $('#table').DataTable({
           destroy: true,
@@ -2894,4 +2907,4 @@ markers.on('clusterclick', function (a) {
     };
   }
 };
-})(jQuery);
+})(jQuery)

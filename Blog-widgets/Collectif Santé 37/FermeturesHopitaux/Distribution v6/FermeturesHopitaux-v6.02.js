@@ -93,7 +93,7 @@ $.fn.mapAllBlogs = function() {
         filter: 'selection'
       }, {
         name: 'suppressions',
-        filter: 0,
+        filter: 1,
         min_width: '250px'
       }, {
         name: 'menaces',
@@ -149,6 +149,54 @@ $.fn.mapAllBlogs = function() {
         }, {
           value: '1: avec maternité',
           label: 'Avec maternité'
+        }, {
+          value: '1: avec chirurgie',
+          label: 'Avec chirurgie'
+        }, {
+          value: '1: avec psychiatrie',
+          label: 'Avec psychiatrie'
+        }, {
+          value: '1: avec pédiatrie',
+          label: 'Avec pédiatrie'
+        }, {
+          value: '1: avec réanimation',
+          label: 'Avec réanimation'
+        }, {
+          value: '1: avec cardiologie',
+          label: 'Avec cardiologie'
+        }, {
+          value: '1: avec radiothérapie',
+          label: 'Avec radiothérapie'
+        }, {
+          value: '1: avec pneumologie',
+          label: 'Avec pneumologie'
+        }, {
+          value: '1: avec ophtalmologie',
+          label: 'Avec ophtalmologie'
+        }, {
+          value: '1: avec otorhinolaryngologie',
+          label: 'Avec otorhinolaryngologie'
+        }, {
+          value: '1: avec stomatologie',
+          label: 'Avec stomatologie'
+        }, {
+          value: '1: avec urologie',
+          label: 'Avec urologie'
+        }, {
+          value: '1: avec endocrinologie',
+          label: 'Avec endocrinologie'
+        }, {
+          value: '1: avec addictologie',
+          label: 'Avec addictologie'
+        }, {
+          value: '1: avec gérontologie',
+          label: 'Avec gérontologie'
+        }, {
+          value: '1: avec nettoyage',
+          label: 'Avec nettoyage'
+        }, {
+          value: '1: avec entretien',
+          label: 'Avec entretien'
         }],
         func: (filterVal, columnVal, rowValues, stateVal) => {
           switch (filterVal) {
@@ -160,6 +208,102 @@ $.fn.mapAllBlogs = function() {
               break;
             case '1: avec maternité':
               if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('MATERNIT') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec chirurgie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('CHIRURGIE') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec psychiatrie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PSYCHIATRIE') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec pédiatrie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PÉDIATRIE') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec réanimation':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('RÉANIMATION') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec cardiologie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('CARDIO') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec radiothérapie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('RADIOTH') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec pneumologie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('PNEUMO') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec ophtalmologie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('OPHTALMO') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec otorhinolaryngologie':
+              if (isOKString(columnVal) && (columnVal.toUpperCase().indexOf('OTORHINOLARYN') > -1 || columnVal.toUpperCase().indexOf('ORL') > -1)) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec stomatologie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('STOMATO') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec urologie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('UROLOGIE	') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec endocrinologie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('ENDOCRINO	') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+             case '1: avec nettoyage':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('NETTOYAGE') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+             case '1: avec addictologie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('ADDICTO') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+             case '1: avec gérontologie':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('GÉRONTO') > -1) {
+                return true;
+              }
+              else return false;
+              break;
+            case '1: avec entretien':
+              if (isOKString(columnVal) && columnVal.toUpperCase().indexOf('ENTRETIEN') > -1) {
                 return true;
               }
               else return false;

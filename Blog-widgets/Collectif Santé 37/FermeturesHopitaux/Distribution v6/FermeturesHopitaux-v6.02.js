@@ -97,11 +97,11 @@ $.fn.mapAllBlogs = function() {
         min_width: '250px'
       }, {
         name: 'menaces',
-        filter: 0,
+        filter: 1,
         min_width: '250px'
       }, {
         name: 'victoires',
-        filter: 0,
+        filter: 1,
         min_width: '250px'
       }, {
         name: 'ght_nom',
@@ -2829,7 +2829,7 @@ markers.on('clusterclick', function (a) {
           $("#table_length label").text("Nb. d'éléments affichés");
           if (tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
           else $('.dt-button.reinitBT').css('visibility', 'hidden');
-          $('.dt-button.helpBT').css('display', 'none');
+          //$('.dt-button.helpBT').css('display', 'none');
 
           var properties = options.tableData.properties;
           for (var i = 0; i < properties.length; i++) {

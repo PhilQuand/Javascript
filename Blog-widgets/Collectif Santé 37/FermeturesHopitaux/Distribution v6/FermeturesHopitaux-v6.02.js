@@ -476,6 +476,7 @@ $.fn.mapAllBlogs = function() {
 
   var loading = $('<div id="loading"/>');
   loading.append('<p>Chargement ...</p>');
+  
   $(this).append(loading);
 
   var infoMapWrapper = $('<div id="infoMap-wrapper"><div id="infoMap" class="dispInfoMap"></div><div id="star_filter"><span style="font-size: x-large; font-weight: bold; color: red; ">* <i></span>les données ont été  filtrées dans l' + "'" + 'onglet Données</div></div>');
@@ -484,6 +485,28 @@ $.fn.mapAllBlogs = function() {
   var dataTable = $('<table id="table" class="table table-striped table-bordered" />');
   $(this).append(dataTable);
 
+  var dataAide = $('<div id="dataAide" style="display:none"></div>');
+  $(this).append(dataAide);
+  $(function() {
+    dataAide.imagesGrid({
+      images: [
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_1.jpg",
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_2.jpg",
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_3.jpg",
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_4.jpg",
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_5.jpg",
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_6.jpg",
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_7.jpg",
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_8.jpg",
+        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Doc_gen.png",
+      ],
+      fancybox: true,
+      align: true,
+      //href: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivAyL4RSZUBgdSbXd-AQ2UXVn5_3Z6z5Qi-YOIgbmI4sl07n1BfqjQ_sIVq1jfZD7WkDbhXVFX3CdUPOCxOctPXo_hIvtxNb7uYXDeJSh-NNUSfR97uy8CYwx8nYxfF8JSDTZR48TU6_o6NoNB3N8ils4OnmNiwIYXdu_xHTVVWtvICYSMMs6QR7Dm/s1600/Acces.jpg",
+      //getViewAllText: function(imgsCount) { return 'View all' }
+    });
+  });
+  
   var iconMarkersBuilder, legendTitle, objectOverlays;
 
   var optionsData = readUrlParam('options');
@@ -2698,14 +2721,14 @@ markers.on('clusterclick', function (a) {
             $('#table_wrapper').css('display', 'none')
             //$('.dt-button.reinitBT').css('visibility', 'hidden')
           }
-          $('#infoMap-wrapper').prepend('<button type="button" class="styled helpBT" id="btAide">Aide</button>');
-          $('#btAide').click(function(e) {
+          $('#infoMap-wrapper').prepend('<a href="#fancy-box-dataAide-1"><button type="button" class="styled helpBT" id="btAide">Aide</button></a>');
+          /*$('#btAide').click(function(e) {
             $.fancybox.open({
               src: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Distributions%20v5/Doc%20version%205.06.html',
               type: 'iframe',
               //modal: true
             });
-          });          
+          });*/          
           //runTable();
         }
       };
@@ -2961,4 +2984,4 @@ markers.on('clusterclick', function (a) {
     };
   }
 };
-})(jQuery)
+})(jQuery);

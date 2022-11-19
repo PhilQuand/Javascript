@@ -498,7 +498,6 @@ $.fn.mapAllBlogs = function() {
         "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_6.jpg",
         "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_7.jpg",
         "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Diapo_8.jpg",
-        "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/fichiersAide/Doc_gen.png",
       ],
       fancybox: true,
       align: true,

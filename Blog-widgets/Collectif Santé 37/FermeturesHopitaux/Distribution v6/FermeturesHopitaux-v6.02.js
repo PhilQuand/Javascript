@@ -1280,7 +1280,12 @@ $.fn.mapAllBlogs = function() {
         if (jQuery.type(options['brChar']) !== 'undefined') {
           for (var prop in indexEvent[i]) {
             var propVal = indexEvent[i][prop];
-            if (typeof propVal === 'string') propVal = propVal.replace(regForBR, "<br>");
+            if (typeof propVal === 'string') {
+              propVal = propVal.replace(regForBR, "</li><li>");
+              if (propVal.indexOf('</li><li>') > -1) {
+                propVal = '<ul class="popListe"><li>' + propVal + '</li></ul>'
+              }
+            }
             indexEvent[i][prop] = propVal;
           }
         }
@@ -1374,7 +1379,7 @@ $.fn.mapAllBlogs = function() {
              if(jQuery.type(label[item]) === 'string') {
                 itemLabel = label[item];
               }
-              if (typeof data[item] !== 'undefined' && data[item] != '' && data[item] != null && data[item] != 'NULL') popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><br>' + data[item] + '</div>');
+              if (typeof data[item] !== 'undefined' && data[item] != '' && data[item] != null && data[item] != 'NULL') popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><div>' + data[item] + '</div></div>');
             }
           return popupContent.html();
         }

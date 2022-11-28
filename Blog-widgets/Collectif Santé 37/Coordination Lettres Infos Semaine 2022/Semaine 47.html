@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p style="margin-bottom: 0;">La Coordination Nationale des Comités de défense des hôpitaux et maternités de proximité<p>
+<p style="margin-bottom: 0; margin-top: 0;">a tenu ses 34èmes Rencontres Nationales à Mayenne les 18, 19 et 20 novembre avec la</p>
+<p style="margin-top: 0;">participation de <strong>33 comités issus de 29 départements </strong>et de nouveaux en cours de constitution.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 47</li>
+<li>Dates: du 21 au 27 novembre 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2022/11/Infos-semaine-47-du-21-au-27-novembre-2022.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong> Édito (ou point fort de la semaine) : </strong></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<div style="font-family: Arial, serif;">
+
+<p style="margin-bottom: 0;">La Coordination Nationale des Comités de défense des hôpitaux et maternités de proximité<p>
+<p style="margin-bottom: 0; margin-top: 0;">a tenu ses 34èmes Rencontres Nationales à Mayenne les 18, 19 et 20 novembre avec la</p>
+<p style="margin-top: 0;">participation de <strong>33 comités issus de 29 départements </strong>et de nouveaux en cours de constitution.</p>
+<p style="margin-bottom: 0;">Face à la désintégration de l’hôpital public, aux difficultés grandissantes d’accès aux soins par</p>
+<p style="margin-bottom: 0; margin-top: 0;">manque de professionnel.le.s de santé et suite aux politiques menées depuis plus de 30 ans,</p>
+<p style="margin-bottom: 0; margin-top: 0;">les participant.e.s ont travaillé aux conditions d’une meilleure appropriation par les citoyen.ne.s du</p>
+<p style="margin-bottom: 0; margin-top: 0;">système de santé et de la Sécurité Sociale.</p>
+<p><strong>La santé a besoin de financements supplémentaires, au lieu de la réduction des moyens due à l’inflation et programmée dans la loi de financement de la Sécurité Sociale 2023.</strong></p>
+<p>Des décisions nationales sont également nécessaires pour assurer l’égalité des citoyen.ne.s dans tous les territoires de la République, en particulier avec la création d’un service public de soins de premier recours.</p>
+<p><Les comités ont travaillé les mobilisations à venir sur:</p>
+<p>la place place grandissante du secteur privé lié aux marchés financiers dans le système de soins, comme par exemple en radiologie ou avec Happytal pseudo conciergerie des hôpitaux publics.</p>
+<ul>
+<li>l’utilisation de la numérisation pour livrer à des intérêts privés nos informations personnelles, masquer les enjeux sociaux derrière une individualisation.</li>
+<li>En cette période de renégociation de la convention entre médecins libéraux et CNAM, les comités demandent que les intérêts de la population soient prioritaires : un accès aux soins et à la prévention partout, sans dépassement d’honoraires, dans l’intérêt de la population, à l’obligation de participation à la permanence des soins pour tous et redonner une vraie place à la médecine préventive dans notre pays en intégrant les professionnels salariés.</li>
+</ul>
+<p style="margin-bottom: 0;">Les comités de la Coordination apportent tout leur soutien à la population cévenole qui, devant</p>
+<p style="margin-bottom: 0; margin-top: 0;">la démission du secteur privé, revendique que le service public hospitalier reprenne la maternitéde Ganges.</p>
+<p style="margin-bottom: 0; margin-top: 0;">Ils apportent leur soutien à toutes les mobilisations locales pour la défense du service public hospitalier, comme à Champagnole.</p>
+<p style="margin-top: 0;">Elle appelle à l’<strong>action le 29 novembre avec les différentes organisations syndicales et collectifs pour la défense d’une psychiatrie humaine.</strong></p>
+<p>La Coordination sort plus mobilisée que jamais de ses rencontres.</p>
+<p>La coordination invite tous ses comités à contribuer au succès des initiatives autour de l’appel « Un <strong>nouvel élan pour nos services publics » dont un temps majeur aura lieu les 12, 13 et 14 mai 2023 à Lure en Haute Saône</strong></p>
+<p><a href="http://coordination-defense-sante.org/2022/11/album-photo-des-rencontres-de-mayenne/" target="_blank">http://coordination-defense-sante.org/2022/11/album-photo-des-rencontres-de-mayenne/</a></p>
+
+<!--p align="right"><em>Roland Vachon.</em></p-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+
+<p style="background-color: #E37B24;" align="center"><strong>Dôle</strong></p>
+<p>Le lien pour le bulletin du comité : <a href="http://coordination-defense-sante.org/wp-content/uploads/2022/11/infos-flash70.pdf" target="_blank">infos flash70</a></p>
+<p><em><strong>Les consultations non programmées et la ligne de Smur sont fermées à l'hôpital de Champagnole dans le Jura depuis le 1er novembre et jusqu'à fin décembre. Pour la seconde fois, personnel de l'hôpital, habitants et élus se mobilisent dans la rue pour la réouverture de ses services.</strong></em></p>
+<p>Plus d'un millier de personnes se sont rassemblées ce samedi 26 novembre à Champagnole pour défendre les services des consultations non programmées et la ligne de SMUR (Structure mobile d’urgence et de réanimation) de l'hôpital de la ville. Ces deux services sont fermés depuis le 1er novembre jusqu'au 31 décembre 2022 en raison de l'impossibilité d'organiser les plannings "faute de médecins" selon la direction. </p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/bourgogne-franche-comte/jura/haut-jura/champagnole-jura-forte-mobilisation-contre-la-suspension-des-services-des-urgences-de-l-hopital-2663332.html?fbclid=IwAR2NB_PMZvkD44tP2ZHpMgsa7t04hYRk4Nv2n4D8zitcgVXxX2j_dTxM_Vc" target="_blank">https://france3-regions.francetvinfo.fr/bourgogne-franche-comte/jura/haut-jura/champagnole-jura-forte-mobilisation-contre-la-suspension-des-services-des-urgences-de-l-hopital-2663332.html?fbclid=IwAR2NB_PMZvkD44tP2ZHpMgsa7t04hYRk4Nv2n4D8zitcgVXxX2j_dTxM_Vc</a></p>
+<p style="background-color: #729FD0;" align="center"><strong>Loire Forez</strong></p>
+<p><u>Nous avons rencontré le directeur du CHF le 21 octobre 2022</u>.</p>
+<p>Cette rencontre avait pour objectif de faire le point sur le Projet médical qui devrait se finaliser en 2023, il était attendu pour la fin de 2021.</p>
+<p>Nous redisons l'importance de la reconnaissance du territoire Loire-Forez et le CHF, Hôpital de Territoire, par l'ARS et le GHT (Groupement Hospitalier de Territoire) : regroupant les établissements du département, étendu à l'Hôpital d'Annonay, représenté par le CHU de St Etienne, établissement support du GHT.</p>
+<p>Cette reconnaissance permettra d'allouer les moyens au CHF, pour exercer ses activités complémentaires sur les deux sites : nous pensons indispensable le maintien des urgences 24h/24, 7js/7, l'activité de Médecine sur Feurs qui doit être maintenue et développée.</p>
+<p><u>Nous avons rencontré Mr J.Pierre Taite, Député, le 14 novembre 2022</u>.</p>
+<p>Mr Mondésert le remplace au Conseil de Surveillance du CHF. Celui-ci est impliqué avec Mr Bazile, coprésident du CS (conseil de Surveillance) sur la reconnaissance du territoire et des rapports avec le GHT.</p>
+<p>Mr Taite est ouvert à d'autres rencontres et à avancer sur les propositions du Comité.</p>
+<p><u>Depuis septembre 2022, le Comité a intégré le CTS : Conseil Territorial de santé,</u> suite aux élections et à la relance de cette instance,restée en berne pendant et après la crise Covid.</p>
+<p>Le Dr Nicolas a été élu Vice-président du bureau du CTS, Georges Riolo, François Mollon, A.Marie Pommier-Brunon (suppléante) font partie de la Commission FSOEU Formation Spécifique Oeuvrant pour l'Expression des Usagers.</p>
+<p>Le CTS se décline au plan régional en Conférence Régionale de la Santé et de l'Autonomie, à laquelle il participe.</p>
+<p>Cette dernière contribue à la définition et à la mise en œuvre des politiques de Santé régionales.</p>
+<p>Nous sommes très satisfaits de rejoindre ces instances, ce qui va permettre au Comité de porter sa voix, respectant la démocratie Sanitaire.</p>
+<p><u>Nous avons participé à plusieurs réunions ayant pour objectif de construire un Collectif</u> constitué d'associations, de collectifs, de citoyens, portés par la conviction de défendre un système de Santé respectueux des besoins en Santé des usagers. De défendre l'Hôpital Public sur notre territoire, face au constat des difficultés d'accès aux soins, de la perte de la qualité des soins, voire la perte de chances face aux difficultés de prise en charge des, face au constat de renoncement aux soins, face au manque de médecins...</p>
+<p><strong>Nous continuons à nous mobiliser pour le développement d'une offre de soins hospitalière et de ville sur notre territoire en complémentarité pour répondre aux besoins des usagers à chaque étape de leur parcours de soins. </strong></p>
+<p style="background-color: #E37B24;" align="center"><strong>Luçon</strong></p>
+<p><strong>A Luçon, nous sommes mobilisés p</strong>our l’hôpital public depuis mai 2021, nous voulons :</p>
+<p>Le maintien des urgences et du SMUR 24h/24 et 7j/7,</p>
+<p>Un service de radiologie, scanner, IRM,</p>
+<p>Un bloc opératoire …</p>
+<p><strong>Tout n’est pas gagné</strong></p>
+<p><strong>Exigeons :</strong></p>
+<p>Des moyens humains</p>
+<p>Des moyens financiers</p>
+<p>Pour la pérennité des services.</p>
+<p><strong>Retrouvons-nous tous</strong></p>
+<p><strong>Chaque Vendredi devant les Urgences de l’Hôpital de Luçon</strong></p>
+<p>L’ accès aux soins pour tous et partout est un droit fondamental !</p>
+<p style="background-color: #729FD0;" align="center"><strong>Nancy</strong></p>
+<p>Maintenant qu on a tout cassé l accompagnement médico social, psy et en addictologie , on crée un groupe de travail avec plein de commissions pompeuses , pour fliquer les gens ..., " les qui grattent à la porte des urgences , les pas encombrants ... " </p>
+<p>Mais quelle honte ! </p>
+<p><em>« En partenariat avec l’Agence régionale de santé (ARS), le CHRU de Nancy va tester un nouveau dispositif visant à identifier les gros consommateurs des urgences médicales afin de leur proposer une prise en charge mieux adaptée à leurs pathologies et à la leur situation sociale. Depuis le 7 novembre, trente-deux patients ont déjà été détectés. » L’Est Républicain</em></p>
+<p align="center"><a href="https://www.estrepublicain.fr/magazine-sante/2022/11/23/chru-de-nancy-les-gros-consommateurs-des-urgences-reperes-et-encadres" target="_blank">https://www.estrepublicain.fr/magazine-sante/2022/11/23/chru-de-nancy-les-gros-consommateurs-des-urgences-reperes-et-encadres</a></p>
+<p style="background-color: #E37B24;" align="center"><strong>Nantes</strong></p>
+<p> Au CHU de Nantes, nous n'avons pas cessé d'alerter sur les conditions de travail indignes des professionnels et les conséquences sur les prises en charge des patients. Un CHSCT extraordinaire a eu lieu le 18 novembre, plus d'une trentaine de professionnels étaient présents. Leurs témoignages ont permis de faire un état des lieux de la situation actuelle dans les différents services. Les problèmes d’effectifs concernent tous les services de psychiatrie. Et pourtant, la direction n’a fait aucune proposition…</p>
+<p>Il est urgent de s’unir pour exiger des moyens humains supplémentaires !!!<br /><strong>RASSEMBLEMENT / ASSEMBLEE GENERALE LE 29 NOVEMBRE à 14h30<br />Devant les admissions de l’hôpital Saint-Jacques</strong><br />Soyons nombreuses et nombreux !!!</p>
+<p style="background-color: #729FD0;" align="center"><strong>Bourgogne- Franche Comté</strong></p>
+<p> <strong>Mêlons-nous de ce qui nous regarde... Non à la labellisation !</strong><br />On va se le dire tranquillement, le meilleur relai de l’ARS Bourgogne Franche Comté c’est Madame le Maire de Montceau les Mines. Madame le Maire, sans que personne ne le lui demande, a pris les devants en répandant une information à la cote mal taillée mais qui a un impact délétère sur la réalité sanitaire à venir.</p>
+<p>En gros, l’incrédulité s’installe : « notre hôpital va mal ? » « Mais je ne comprends pas, il va y avoir un hôpital neuf ! ». Ce discours existe, de nombreux adhérents du Codef l’ont fait remonter. A partir de là, l’imaginaire fait le reste, il étouffe toute analyse... et il ouvre en grand la porte de l’hôpital de proximité qui est tout sauf un hôpital.</p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/11/melons-nous-de-ce-qui-nous-regarde.pdf" target="_blank">mêlons nous de ce qui nous regarde</a></p>
+<p style="background-color: #E37B24;" align="center"><strong>BERNAY</strong></p>
+<p>Lettre ouverte à Mr le Préfet de l’EURE, Mr le Directeur de l’ARS Normandie, Mme le Maire de Bernay,<br /><br />Vous organisez dans le cadre du conseil national de la refondation Santé des échanges sur des<br />thèmes ressassés depuis de nombreuses années et pour lesquels les solutions proposées par les<br />professionnels concernés, les syndicats , les associations ne sont pas entendues.<br />On nous parle de 4 grands défis à développer alors que la politique gouvernementale s’évertue<br />depuis de nombreuses années à détruire un service public qui a vocation à répondre à ces défis.<br />Comment osez-vous à Bernay parler de « réponse d’urgence partout, accessible et de qualité » alors que des services essentiels à la qualité de prise en charge, à la sécurité, à l’accès aux soins ont été fermés sans état d’âme par les dirigeants dont vous êtes les représentants ? …</p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/11/la-lettre.pdf" target="_blank">la lettre</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FD0;" align="center"><strong>Ganges</strong></p>
+<p>Fermeture de la maternité privée (Groupe CAP Santé) après celle de la clinique.<br />Le comité local demande aux pouvoirs publics l’ouverture d’une maternité publique.</p>
+<p>L’ARS répond par des promesses d’aide à l’embauche et la modernisation pour Cap Santé.</p>
+<p>Un Centre périnatal de proximité doit être mis en place pour permettre aux mamans de bénéficier d'un suivi sur place, pendant et après la grossesse. Mais en attendant que le recrutement permette une réouverture, elles devront accoucher à Nîmes ou Montpellier.</p>
+<p>Faute de médecins spécialisés, la maternité de Ganges ne pourra plus assurer les accouchements à partir du 20 décembre.</p>
+<p align="center"><a href="https://www.midilibre.fr/2022/11/25/maternite-de-ganges-on-ne-pourra-plus-accoucher-a-partir-du-20-decembre-2022-10826954.php">https://www.midilibre.fr/2022/11/25/maternite-de-ganges-on-ne-pourra-plus-accoucher-a-partir-du-20-decembre-2022-10826954.php</a></p>
+<p style="background-color: #E37B24;" align="center"><strong>St Malo - Dinan</strong></p>
+<p> Depuis 18 mois les syndicats hospitaliers CGT et SUD santé de Dinan et de Saint-Malo, de nombreux élu.ES locaux des communes fortement pénalisées par les options actuelles portées par le projet, la coordination malouine "Le Monde d'Après", le collectif « Dinan diver'Cité » se sont emparés de la problématique de restructuration des hôpitaux publics de Dinan – Saint-Malo – Cancale.<br />Depuis février 2021, les porteurs de ce projet (ARS de Bretagne, direction du Groupement Hospitalier de Territoire, présidents des Conseils de Surveillance et de Commission médicale des trois établissements) ont oscillé entre déclarations triomphalistes et rétention d’information, stérilisant la possibilité d’un débat ouvert et documenté sur l’organisation future du système de santé et l’accès aux soins pour les 270.000 <a href="http://habitant.es/">habitant.es</a> permanents de ce territoire.</p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/11/2022-11-14-Appel-28-novembre.pdf" target="_blank">2022 11 14 Appel 28 novembre</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-rubrique" align="center">Le 29 Novembre 2022 ensemble soignons la psychiatrie <strong></p>
+<p style="margin-bottom: 0;" align="center">Appel de la Coordination nationale des comités de défense des hopitaux et maternités de proximité, du printemps de la psychiatrie, de l’USP, la CGT et SUD Santé, à la population et aux professionnels</p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"></strong>Ensemble soignons la psychiatrie Pour renouer avec des soins respectueux de l'humain!</p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center">Depuis des décennies l’appauvrissement de la psychiatrie l'a amenée à trier les patients et à ne soigner que les plus malades. Aujourd'hui même ceux-là seront exclus du soin à peine stabilisés.</p>
+<p style="margin-top: 0;" align="center">C’est l’ensemble du système de soins psychiques qui est malade, mais ça se soigne !</p>
+<p><em>- </em><strong>le tract de la commission psychiatrie de la Fédé SUD Santé-Sociaux</strong>: "Psychiatrie, déliquescence en cours - les pouvoirs publics entérinent". <a href="http://coordination-defense-sante.org/wp-content/uploads/2022/11/Tract-SUD.pdf" target="_blank"><em>Tract SUD</em></a></p>
+<p>- <strong>News Letter CGT Psychiatrie </strong>: Qu’est ce que la CNP-CGT, mobilisation du 29 novembre, … <a href="http://coordination-defense-sante.org/wp-content/uploads/2022/11/appel-au-mouvement-du-29-novembre.pdf" target="_blank"><em>appel au mouvement du 29 novembre</em></a></p>
+<p class="titre-rubrique" align="center">Collectif ‘’ Notre Santé en Danger’’</p>
+<p><strong>Défendre le droit à la santé et l’accès aux soins : une urgence vitale ! Santé, médico-social et social, un investissement social et démocratique pour l’avenir !</strong></p>
+<p><strong>Santé, médico-social et social attaqués de toute part !</strong></p>
+<p>La dégradation majeure du système de soins se poursuit : les déserts médicaux progressent inexorablement : désormais plus de 15 millions personnes ont des difficultés d’accès à un médecin généraliste. Pour certaines consultations de spécialistes, cela peut prendre des mois, sans parler du système de prise de rendez-vous par internet, privé, qui est un véritable casse-tête pour les personnes les plus précaires.</p>
+<p>A l’hôpital public, on continue de fermer des lits, 4100 en 2021 et de regrouper des activités, des services d’urgences fonctionnent de façon ‘’intermittente’’ et les professionnel-le-s de la pédiatrie ont de nouveau alerté sur la gravité de la crise de leur spécialité. La gestion financière de l’hôpital public a repris le dessus. Les ‘’belles paroles’’ du quoi qu’il en coûte sont loin derrière nous.</p>
+<p>La commercialisation des soins gériatriques se développe avec des groupes financiers tels Orpea, Korian, qui se comportent comme des vautours de la Sécu, des familles et des personnes âgées elles-mêmes.</p>
+<p>On a des services de psychiatrie en détresse faisant réapparaitre des méthodes de prise en charges d’un autre âge et la destruction d'un réel service de soin public sur les territoires citoyens, réduit à un service d'orientation et de tri.</p>
+<p>L’accès à l’interruption volontaire de grossesse pour les femmes est dans les faits remis en cause avec les difficultés de fonctionnement ou les fermetures de services.</p>
+<p>Le social connaît une dégradation de même ampleur.</p>
+<p>Il y a un manque chronique de personnels, des conditions de travail dégradées entrainant des démissions. Les perspectives de formation et de recrutement sont dramatiquement insuffisantes.</p>
+<p>Des réformes hospitalières depuis 30 ans qui préparent la privatisation de nombreuses activités et qui ont déjà donné à des entreprises privées de nombreuses fonctions support (cuisine blanchisserie bionettoyage, activités de stérilisation et de préparations hospitalières, etc...)</p>
+<p>Une activité privée de consultation et de soins qui continue de pénétrer l’hôpital public avec son lot de dépassements d’honoraires et qui investit ce que l’on appelle la e-santé.</p>
+<p>Le système de soins et d’accompagnement social qui devrait être organisé par la puissance publique, conçu comme un bien commun pour tous et toutes, est de plus en plus laissé aux mains du marché, de la finance.</p>
+<p><strong>La Sécurité Sociale, pilier du financement des soins et des retraites est menacée</strong></p>
+<p>Avec la loi de financement de la Sécurité Sociale, instituée en 1996 par Juppé, le parlement vote tous les ans non pas le niveau des besoins de santé et de retraite, mais celui des dépenses avec l’objectif de les contenir. Avec ce système les exonérations de cotisations sociales pour les entreprises se sont multipliées. C’est une véritable asphyxie de la Sécurité Sociale. Cette année 2022, cerise sur le gâteau, le projet de loi de financement de la Sécu a été voté sans débat avec l’utilisation du 49-3, et nous allons avoir un OMDAM hospitalier de 3,7% largement inférieur à l’inflation.</p>
+<p><strong><br />Ces politiques mettent en danger la population et les personnel-l-es</strong>.</p>
+<p><strong>Il est temps de réagir et d’agir</strong></p>
+<p>La souffrance des personnels de santé et du médico-social est telle qu’ils et elles refusent de plus en plus de travailler dans ces conditions. Nous partageons leurs plateformes revendicatives et unitaires.</p>
+<p>La revalorisation de ces professions est indispensable. Elle passe par l’augmentation des salaires qui apporterait par ailleurs des recettes supplémentaires à la Sécurité sociale. Sachant le degré de féminisation de ces professions, rappelons que la mise en place effective de l’égalité salariale homme/femme pourrait apporter 52 milliards d’euros.</p>
+<p>Former plus de soignantes et soignants, reconnaître la valeur fondamentale de leur travail, sortir de la logique marchande de la gestion des hôpitaux et de la tarification à l’activité qui déshumanisent les soins : il en va de notre démocratie. Il faut revoir la place de la santé, du médico-social et du social dans notre société : comme pour l’Education nationale, il ne s’agit pas de coût mais d’investissement pour l’avenir.</p>
+<p>Pour le collectif Notre Santé en Danger qui n’a eu de cesse d’informer, de sensibiliser et de mobiliser sur toutes ces questions, nous pensons qu’il est urgent de préparer le passage à l’action. Nous devons renforcer les mobilisations sociales les mettant régulièrement en avant.</p>
+<p>Plus que jamais, l’hôpital public, la santé, le médico-social et le social, les retraites, la Sécu, ont besoin d’une large mobilisation citoyenne.</p>
+<p><strong>Nous lançons donc un appel à partir de ce texte à débats et rencontres afin de préparer de futures échéances comme le 8 mars 2023 journée des droits des femmes, le 7 avril 2023 journée mondiale de la santé et le 13 mai 2023 manifestation pour les services publics.</strong></p>
+
+<p class="rubrique">Reçu à la coordination</p>
+
+<p><strong>- Grève des 1er et 2 décembre : le SMG n'appelle pas à la grève.</strong></p>
+<p><a href="http://syndicat-smg.fr/greve-des-1er-et-2-decembre-le-smg-n-appelle-pas-a-la-greve">http://syndicat-smg.fr/greve-des-1er-et-2-decembre-le-smg-n-appelle-pas-a-la-greve</a><em>‌</em></p>
+<p><strong>- La sentinelle de la santé |N°11 - 22 novembre 2022 . </strong><em><a href="http://indecosa.fr/">indecosa.fr</a></em><a href="mailto:indecosa@cgt.fr">indecosa@cgt.fr</a></p>
+<p>- <strong>STOPPONS la maltraitance de l'Ordre des médecins envers les professionnel·les et les enfants en danger ! SOUTENONS les Drs Eugénie IZARD et Françoise FERICELLI !</strong></p>
+<p><strong>- </strong>face aux enfants en recherche active d'établissement spécialisé, les institutions et les tutelles se renvoient la balle, nous appelons à une <strong>"marche pour les enfants" mercredi</strong><strong>14 décembre 2022, de 10h00 à 12h00,</strong> de la MDPH à la préfecture de Bobigny, où nous allons demander à être reçus par la Préfète à l'égalité des chances. <em>Collectif pédopsy93</em></p>
+<p><strong>- Dossier des MUTUELLES DE FRANCE à trouver sur le site</strong></p>
+<p><a href="http://coordination-defense-sante.org/2022/11/mutuelles-de-france-les-propositions/" target="_blank"><em>http://coordination-defense-sante.org/2022/11/mutuelles-de-france-les-propositions/</em></a></p>
+<p><strong>- </strong><strong>France Assos Santé, accuse ouvertement les syndicats de médecins libéraux de pratiquer une </strong><em><strong>« obstruction corporatiste » </strong></em><strong>à l’accès aux soins en s’opposant aux différentes mesures en discussion au Parlement ou à l’Assurance-maladie, dans le cadre des négociations conventionnelles. </strong><em><a href="https://www.lequotidiendumedecin.fr/liberal/assurance-maladie/acces-aux-soins-france-assos-sante-torpille-lobstruction-corporatiste-des-syndicats-de-medecins"><strong>https://www.lequotidiendumedecin.fr/liberal/assurance-maladie/acces-aux-soins-france-assos-sante-torpille-lobstruction-corporatiste-des-syndicats-de-medecins</strong></a></em></p>
+<p>- <strong>Et pourquoi pas ?</strong></p>
+<p><strong>témoignage pour faire percevoir comment la Psychothérapie Institutionnelle rend le soin vivant</strong></p>
+<p>Et oui et pourquoi pas ? Ca part d'une idée lancée par une collègue "qui ferait bien une soirée tacos pour les patients ?" Ça part d'une énergie collective de monter un nouveau projet. Ça part d'un rebond de soignants motivés par cette idée. Et puis ça s'organise. Le projet est présenté au cadre, aux médecins, médusés par cette nouvelle proposition, mais qui nous laisse le champ libre pour le mettre en place. Des soignants, qui vont faire des heures supplémentaires, mais qui, engagés dans leur travail, vont construire avec les patients cette belle soirée.</p>
+<p>Et nous voilà lendemain d'une soirée qui était formidable. D'un plaisir partagé soignant/soigné à faire d'une soirée un évènement qui sort de l'ordinaire. Une semaine à préparer cette soirée avec les patients de l'unité. On confectionne autour de plusieurs ateliers les décorations de la soirée. On réfléchit ensemble autour de l'ambiance mexicaine pinata, sombrero, masque et on se met au travail. A travers cette idée, on a soigné. On a mis en action les patients autour de la décoration, on a regardé ensemble et fait des recherches sur ce qui "fait" mexicain. On a créé, on a fabriqué, on a peint, on a construit, on est sorti faire les courses, on a fait des choix ensemble. Cette soirée comme un fil rouge, a tissé des liens entre patients, a permis de nouvelles interactions, a engagé certains patients dans les activités, a renforcé le lien soignant/soigné. Ce fil rouge qui permet aussi d'ancrer dans le temps, parfois si distendu de l'hospitalisation, les patients pour qui la temporalité est parfois si difficile à acter. </p>
+<p>Manger hors du réfectoire dans le patio, plus tard, prendre les médicaments en décalé, partager un virgin mojito présenté comme un vrai cocktail, danser sur des airs latins ensemble. Tous cela, dans un décor fait d'éventails placés sur les table qui sont recouvertes de nappes installées par les patients, de masque, de lampions accrochés ensemble. </p>
+<p>Ce repas collectif dehors, comme un ailleurs possible à l'intérieur des murs de l'hôpital. Un ailleurs qui permet aussi de mettre de côté pour quelques heures le vécu difficile de l'hospitalisation sous contrainte, la maladie, les symptômes. Cet ailleurs, aussi, qui permet de travailler autre chose, l'angoisse du changement, les rituels du soir bousculés, un voisin de table que l'on ne croise que dans l'errance du quotidien et qui hier soir devient une personne à part entière, un patient comme figé dans le pavillon qui ose danser et sourire un petit peu. Et puis avant le dessert, on casse les pinatas, moments de rigolade partagés, où plusieurs s'essayent les yeux bandés armés d'un bâton et guidés par les autres à découvrir ce qui se cachent dans nos pinatas en papiers machées.</p>
+<p>Et puis on range collectivement les tables, les chaises, on remet le patio en ordre en laissant, comme une trace joyeuse, les masques coloriés accrochés aux poteaux. Les collègues de nuit accompagnent les patients au coucher, les remerciements des patients qui, pour l'un deux, sourire aux lèvres explique qu "en 10ans de passage ponctuel au pavillon n'a jamais vu ça", une dernière cigarette dans le patio, un debrief entre collègues, fatigués mais aussi heureux que les patients de cette belle soirée.</p>
+<p>Ce partage, comme un témoignage, de l'engagement des soignants au quotidien, auprès des personnes hospitalisées. Ce partage car tout est encore possible. Ce partage car, malgré les difficultés à faire du bon travail dans un contexte institutionnel et politique souvent en désaccord avec nos visions du soin humaniste, on y arrive encore.</p>
+<p>Caroline, ergothérapeute en unité fermée (dans Printemps de la psychiatrie)</p>
+<p><strong>L’encastrement du privé dans l’hôpital public</strong></p>
+<p><a href="https://www.cairn.info/publications-de-Maud-Gelly--110332.htm">Maud Gelly</a>, <a href="https://www.cairn.info/publications-de-Alexis-Spire--1175.htm">Alexis Spire</a></p>
+<p>Dans <a href="https://www.cairn.info/revue-societes-contemporaines.htm">Sociétés contemporaines</a><a href="https://www.cairn.info/revue-societes-contemporaines-2022-2.htm"><strong>2022/2 (N° 126)</strong></a></p>
+<p>La progression des activités privées dans le secteur public est ancienne et touche tous les domaines de l'intervention de l'État. À partir des années 1980, le « mimétisme marchand de l'État » (Ansaloni et Smith, 2017) a pris la forme de privatisations ou d'externalisations, aboutissant logiquement à l'importation de logiques managériales au sein des institutions publiques. Comme d'autres services publics, les hôpitaux ont été touchés de plein fouet par les réformes inspirées du <em>New Public Management</em> (Pierru, 2007 ; Belorgey, 2010), transformant les patient·es en client·es et les besoins de soins en demandes de biens soumises à des stratégies individuelles d'acquisition (Batifoulier, 2014). Cette marchandisation a renforcé la polarisation des activités au sein de l'hôpital public ….</p>
+<p><a href="https://www.cairn.info/tap-r5s9wjjxdnvv3" target="_blank">https://www.cairn.info/tap-r5s9wjjxdnvv3</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p>La 1ère rencontre du groupe "<strong>Théâtre</strong>" du Comité de Défense des Hôpitaux Publics de Dole aura lieu le <strong>Mardi 29 Novembre à 20 h </strong></p>
+
+<hr />
+
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

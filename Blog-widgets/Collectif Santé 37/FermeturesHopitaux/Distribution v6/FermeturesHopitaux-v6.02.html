@@ -1825,7 +1825,38 @@ markers.on('clusterclick', function (a) {
               if(totalEvents == 0) contentLegendHtml += 'aucun élément';
               else if(totalEvents == 1) contentLegendHtml += totalEvents + ' élément';
               else if(totalEvents > 1) contentLegendHtml += totalEvents + ' éléments';
-              if (tableFilterOn)  contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
+              if (tableFilterOn) {
+                var selectNW = {lat: -1000000, lng: 1000000};
+                var selectNE = {lat: -1000000, lng: -1000000};
+                var selectSW = {lat: 1000000, lng: 1000000};
+                var selectSE = {lat: 1000000, lng: -1000000};
+                for (var i = 0; i < indexEvent.length; i++) {
+                  if (indexEvent[i]["selected"]) {
+                    if (selectNW.lat < indexEventTable[i]["lat"]) selectNW.lat = indexEventTable[i]["lat"];
+                    if (selectNW.lng > indexEventTable[i]["lng"]) selectNW.lng = indexEventTable[i]["lng"];
+                    if (selectNE.lat < indexEventTable[i]["lat"]) selectNE.lat = indexEventTable[i]["lat"];
+                    if (selectNE.lng < indexEventTable[i]["lng"]) selectNE.lng = indexEventTable[i]["lng"];
+                    if (selectSW.lat > indexEventTable[i]["lat"]) selectSW.lat = indexEventTable[i]["lat"];
+                    if (selectSW.lng > indexEventTable[i]["lng"]) selectSW.lng = indexEventTable[i]["lng"];
+                    if (selectSE.lat > indexEventTable[i]["lat"]) selectSE.lat = indexEventTable[i]["lat"];
+                    if (selectSE.lng < indexEventTable[i]["lng"]) selectSE.lng = indexEventTable[i]["lng"];
+                    if (selectSW.lat < 0) {
+                      console.log('négative lat...')
+                    }
+                  }
+                }
+               if (selectNW.lat !== selectSW.lat && selectNW.lng !== selectNE.lng && selectNW.lat !== -1000000 && isInMet(selectNW) && isInMet(selectNE) && isInMet(selectSW) && isInMet(selectSE)) {
+                  map.fitBounds([
+                    [selectNW.lat, selectNW.lng],
+                    [selectNE.lat, selectNE.lng],
+                    [selectSE.lat, selectSE.lng],
+                    [selectSW.lat, selectSW.lng],
+                  ]);
+                }
+                else setDefaultMapView();
+                contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
+              }
+              else setDefaultMapView();
               contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
             }
             for (var k = 0; k < iconMarkersLength; k++) {
@@ -1841,7 +1872,42 @@ markers.on('clusterclick', function (a) {
               }
             }
             if( contentLegendHtml == '' ) contentLegendHtml = "aucun élément"
-            if (legendTitle == '' && tableFilterOn)  contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
+            if (legendTitle == '' && tableFilterOn) {
+              contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
+              var selectNW = {lat: -1000000, lng: 1000000};
+              var selectNE = {lat: -1000000, lng: -1000000};
+              var selectSW = {lat: 1000000, lng: 1000000};
+              var selectSE = {lat: 1000000, lng: -1000000};
+              for (var i = 0; i < indexEvent.length; i++) {
+                if (indexEvent[i]["selected"]) {
+                  if (selectNW.lat < indexEventTable[i]["lat"]) selectNW.lat = indexEventTable[i]["lat"];
+                  if (selectNW.lng > indexEventTable[i]["lng"]) selectNW.lng = indexEventTable[i]["lng"];
+                  if (selectNE.lat < indexEventTable[i]["lat"]) selectNE.lat = indexEventTable[i]["lat"];
+                  if (selectNE.lng < indexEventTable[i]["lng"]) selectNE.lng = indexEventTable[i]["lng"];
+                  if (selectSW.lat > indexEventTable[i]["lat"]) selectSW.lat = indexEventTable[i]["lat"];
+                  if (selectSW.lng > indexEventTable[i]["lng"]) selectSW.lng = indexEventTable[i]["lng"];
+                  if (selectSE.lat > indexEventTable[i]["lat"]) selectSE.lat = indexEventTable[i]["lat"];
+                  if (selectSE.lng < indexEventTable[i]["lng"]) selectSE.lng = indexEventTable[i]["lng"];
+                  if (selectSW.lat < 0) {
+                    console.log('négative lat...')
+                  }
+                }
+              }
+              if (selectNW.lat !== selectSW.lat && selectNW.lng !== selectNE.lng && selectNW.lat !== -1000000 && isInMet(selectNW) && isInMet(selectNE) && isInMet(selectSW) && isInMet(selectSE)) {
+                map.fitBounds([
+                  [selectNW.lat, selectNW.lng],
+                  [selectNE.lat, selectNE.lng],
+                  [selectSE.lat, selectSE.lng],
+                  [selectSW.lat, selectSW.lng],
+                ]);
+              }
+              else setDefaultMapView();
+            }
+            else setDefaultMapView();
+            function isInMet(selectPoint) {
+              if(selectPoint.lat > 40 && selectPoint.lat < 50 && selectPoint.lng > -10 && selectPoint.lng < 10) return true;
+              else return false;
+            }
             if (tableFilterOn) $('#star_filter').css('display', 'block');
             else $('#star_filter').css('display', 'none');
             return contentLegendHtml;
@@ -2874,7 +2940,6 @@ markers.on('clusterclick', function (a) {
                     for (var i = 0; i < indexEventTable.length; i++) {
                       if (indexEventTable[i]["id"] === stateVal["id"]) {
                         indexEventTable[i]["selected"] = myFilter;
-                        consol = true;
                         $('.dt-button.reinitBT').css('visibility', 'visible');
                         tableFilterOn = true;
                       }
@@ -2898,7 +2963,6 @@ markers.on('clusterclick', function (a) {
                     for (var i = 0; i < indexEventTable.length; i++) {
                       if (indexEventTable[i]["id"] === stateVal["id"]) {
                         indexEventTable[i]["selected"] = myFilterValue;
-                        tableFilterOn = true;
                         $('.dt-button.reinitBT').css('visibility', 'visible');
                         tableFilterOn = true;
                       }

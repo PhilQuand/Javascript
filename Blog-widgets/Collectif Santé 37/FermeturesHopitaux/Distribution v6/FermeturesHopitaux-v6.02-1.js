@@ -1311,7 +1311,7 @@ $.fn.mapAllBlogs = function() {
         var stateChangingButton ;
         var iconMarkers = iconMarkersBuilder(indexEvent);
         var iconMarkersLength = iconMarkers.length;
-        var map, onSetDefaultMapView, refreshIndexEvent, boundsSetDefaultMapView;
+        var map, onSetDefaultMapView, refreshIndexEvent;
         var clickedMarker;
 
         /*function removeAreaMarkers() {
@@ -1323,36 +1323,18 @@ $.fn.mapAllBlogs = function() {
 
           //map.setView(new L.LatLng(47, 2), 6);
           
-          if (typeof boundsSetDefaultMapView === 'undefined') {
-            /*map.fitBounds([
-              [51.10, 2.47],
-              [48.37, -5.16],
-              [42.38, -1.85],
-              [42.47, 3.16],
-              [43.80, 7.96],
-              [49.03, 8.08],
-            ]);*/
-            map.fitBounds([
-              [50.10, 2.47],
-              [48.37, -4.16],
-              [43.38, -1.85],
-              [42.47, 3.16],
-              [43.80, 7.96],
-              [47.03, 8.08]
-            ]);
-          } else if (boundsSetDefaultMapView.length == 1) {
-            map.flyTo({
-              lat: boundsSetDefaultMapView[0][1],
-              lng: boundsSetDefaultMapView[0][2]
-            }, 6);
-          } else {
-            map.fitBounds(boundsSetDefaultMapView)
-          };
+          map.fitBounds([
+            [51.10, 2.47],
+            [48.37, -5.16],
+            [42.38, -1.85],
+            [42.47, 3.16],
+            [43.80, 7.96],
+            [49.03, 8.08],
+          ]);
           if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
         }
 
         function setMapView() {
-          setDefaultMapView()
           return;
         }
 
@@ -1561,7 +1543,7 @@ markers.on('clusterclick', function (a) {
 
               var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
               var controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();
-              if (option["baseMaps"] !== null) controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">Métropole</div>')
+              if (option["baseMaps"] !== null) controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">carte</div>')
               var controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
               if (objectOverlays["overlayTitle"] != '') {
                 controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + objectOverlays["overlayTitle"] + '</div>')
@@ -1745,7 +1727,6 @@ markers.on('clusterclick', function (a) {
             for (var k = 0; k < iconMarkersLength; k++) {
               totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
             }
-            checkautresDepts(map, indexEvent)
             var contentLegendHtml = ''
             if (legendTitle != '') {
               if(totalEvents == 0) contentLegendHtml += 'aucun élément';
@@ -1772,13 +1753,12 @@ markers.on('clusterclick', function (a) {
                   }
                 }
                if (selectNW.lat !== selectSW.lat && selectNW.lng !== selectNE.lng && selectNW.lat !== -1000000 && isInMet(selectNW) && isInMet(selectNE) && isInMet(selectSW) && isInMet(selectSE)) {
-                boundsSetDefaultMapView = [
-                  [selectNW.lat, selectNW.lng],
-                  [selectNE.lat, selectNE.lng],
-                  [selectSE.lat, selectSE.lng],
-                  [selectSW.lat, selectSW.lng],
-                ]
-                map.fitBounds(boundsSetDefaultMapView);
+                  map.fitBounds([
+                    [selectNW.lat, selectNW.lng],
+                    [selectNE.lat, selectNE.lng],
+                    [selectSE.lat, selectSE.lng],
+                    [selectSW.lat, selectSW.lng],
+                  ]);
                 }
                 else setDefaultMapView();
                 contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
@@ -1821,13 +1801,12 @@ markers.on('clusterclick', function (a) {
                 }
               }
               if (selectNW.lat !== selectSW.lat && selectNW.lng !== selectNE.lng && selectNW.lat !== -1000000 && isInMet(selectNW) && isInMet(selectNE) && isInMet(selectSW) && isInMet(selectSE)) {
-                boundsSetDefaultMapView = [
+                map.fitBounds([
                   [selectNW.lat, selectNW.lng],
                   [selectNE.lat, selectNE.lng],
                   [selectSE.lat, selectSE.lng],
                   [selectSW.lat, selectSW.lng],
-                ]
-                map.fitBounds(boundsSetDefaultMapView);
+                ]);
               }
               else setDefaultMapView();
             }
@@ -2567,12 +2546,6 @@ markers.on('clusterclick', function (a) {
 
               checkautresDepts(map, indexEvent);
 
-            }
-          ).catch(function() {
-            console.log('Oh no, epic failure!');
-          });
-        };
-
               function checkautresDepts(map, indexEvent) {
                 var autresDepts = [{
                     name: 'Corse',
@@ -2617,29 +2590,21 @@ markers.on('clusterclick', function (a) {
                   {
                     name: 'Hexagone',
                     bounds: L.latLngBounds([
-                      [50.10, 2.47],
-                      [48.37, -4.16],
+                      [51.10, 2.47],
+                      [48.37, -5.16],
                       [43.38, -1.85],
                       [42.47, 3.16],
                       [43.80, 7.96],
-                      [47.03, 8.08]
+                      [49.03, 8.08],
+                      [49.03, 8.08]
                     ]),
                     hasevents: false
                   }
                 ];
                 autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
                 var states = [];
-                boundsSetDefaultMapView = [];
-                $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
                 for (var i = 0; i < autresDepts.length; i++) {
                   if (!autresDepts[i].hasevents) continue
-
-                  if( autresDepts[i].name =='Hexagone') $('.leaflet-control-layers.leaflet-control').css('visibility', 'visible');
-
-                  var northEast = autresDepts[i].bounds.getNorthEast();
-                  var southWest = autresDepts[i].bounds.getSouthWest();
-                  boundsSetDefaultMapView = [[northEast.lat, northEast.lng],[southWest.lat, southWest.lng]];
-
                   var localState = {};
                   localState.stateName = autresDepts[i].name; // name the state
                   j = i;
@@ -2654,16 +2619,10 @@ markers.on('clusterclick', function (a) {
                     case 'Corse':
                       localState.title = 'vol vers la Corse'; // like its title
                       localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
+                        map.flyTo({
                           lat: 42.19,
                           lng: 9.08
                         }, 6);
-                        boundsSetDefaultMapView = [[42.19, 9.08]];*/
-                        boundsSetDefaultMapView = [
-                          [43.07, 9.74],
-                          [41.29, 8.39]
-                        ];
-                        setMapView();
                         for (var j = 0; j < btn.options.states.length; j++) {
                           if (btn._currentState.stateName == btn.options.states[j].stateName) {
                             btn.state(btn.options.states[j].nextStateName); // change state on click!
@@ -2675,16 +2634,10 @@ markers.on('clusterclick', function (a) {
                     case 'Martinique':
                       localState.title = 'vol vers la Martinique'; // like its title
                       localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
+                        map.flyTo({
                           lat: 14.7297,
                           lng: -60.9655
                         }, 6);
-                        boundsSetDefaultMapView = [[14.7297, -60.9655]];*/
-                        boundsSetDefaultMapView = [
-                          [14.90, -60.76],
-                          [14.38, -61.50]
-                        ];
-                        setMapView();
                         for (var j = 0; j < btn.options.states.length; j++) {
                           if (btn._currentState.stateName == btn.options.states[j].stateName) {
                             btn.state(btn.options.states[j].nextStateName); // change state on click!
@@ -2696,16 +2649,10 @@ markers.on('clusterclick', function (a) {
                     case 'Guadeloupe':
                       localState.title = 'vol vers la Guadeloupe'; // like its title
                       localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
+                        map.flyTo({
                           lat: 16.228,
                           lng: -61.526
                         }, 6);
-                        boundsSetDefaultMapView = [[16.228, -61.526]];*/
-                        boundsSetDefaultMapView = [
-                          [16.56, -60.95],
-                          [15.79, -61.97]
-                        ];
-                        setMapView();
                         for (var j = 0; j < btn.options.states.length; j++) {
                           if (btn._currentState.stateName == btn.options.states[j].stateName) {
                             btn.state(btn.options.states[j].nextStateName); // change state on click!
@@ -2717,16 +2664,10 @@ markers.on('clusterclick', function (a) {
                     case 'Guyane':
                       localState.title = 'vol vers la Guyane'; // like its title
                       localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
+                        map.flyTo({
                           lat: 3.945,
                           lng: -53.13
                         }, 6);
-                        boundsSetDefaultMapView = [[3.945, -53.13]];*/
-                        boundsSetDefaultMapView = [
-                          [6.16, -51.16],
-                          [1.88, -55.03]
-                        ];
-                        setMapView();
                         for (var j = 0; j < btn.options.states.length; j++) {
                           if (btn._currentState.stateName == btn.options.states[j].stateName) {
                             btn.state(btn.options.states[j].nextStateName); // change state on click!
@@ -2738,16 +2679,10 @@ markers.on('clusterclick', function (a) {
                     case 'LaRéunion':
                       localState.title = 'vol vers la Réunion'; // like its title
                       localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
+                        map.flyTo({
                           lat: -20.887,
                           lng: 55.455
                         }, 6);
-                        boundsSetDefaultMapView = [[-20.887, 55.455]];*/
-                        boundsSetDefaultMapView = [
-                          [-19.65, 58.10],
-                          [-21.61, 54.58]
-                        ];
-                        setMapView();
                         for (var j = 0; j < btn.options.states.length; j++) {
                           if (btn._currentState.stateName == btn.options.states[j].stateName) {
                             btn.state(btn.options.states[j].nextStateName); // change state on click!
@@ -2760,11 +2695,6 @@ markers.on('clusterclick', function (a) {
                       localState.title = "retour vers l'Hexagone"; // like its title
                       localState.bounds = autresDepts[i].bounds;
                       localState.onClick = function(btn, map) { // and its callback
-                        boundsSetDefaultMapView = [
-                          [50.10, 8.08],
-                          [42.47, -4.16]
-                        ];
-                        setMapView();
                         for (var j = 0; j < btn.options.states.length; j++) {
                           if (btn._currentState.stateName == btn.options.states[j].stateName) {
                             btn.state(btn.options.states[j].nextStateName); // change state on click!
@@ -2776,7 +2706,6 @@ markers.on('clusterclick', function (a) {
                   }
                   states.push(localState);
                 }
-                if(typeof stateChangingButton !== 'undefined') stateChangingButton.remove()
                 if (states.length > 1) {
                   stateChangingButton = L.easyButton({
                     states: states
@@ -2805,7 +2734,7 @@ markers.on('clusterclick', function (a) {
                 function checkautresDeptsBounds(autresDepts, indexEvent) {
                   for (i = 0; i < indexEvent.length; i++) {
                     for (k = 0; k < autresDepts.length; k++) {
-                      if (indexEvent[i]["selected"] && autresDepts[k].bounds.contains(indexEvent[i])) {
+                      if (autresDepts[k].bounds.contains(indexEvent[i])) {
                         autresDepts[k].hasevents = true;
                       }
                     }
@@ -2814,6 +2743,14 @@ markers.on('clusterclick', function (a) {
                 };
 
               };
+
+
+            }
+          ).catch(function() {
+            console.log('Oh no, epic failure!');
+          });
+        };
+
         var map_invalidateSize = function() {
           map.invalidateSize();
           $('.leaflet-control-layers-overlays .leaflet-control-layers-selector').trigger('click')

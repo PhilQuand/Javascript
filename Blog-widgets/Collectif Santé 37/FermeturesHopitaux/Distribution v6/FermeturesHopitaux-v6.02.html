@@ -1434,14 +1434,14 @@ $.fn.mapAllBlogs = function() {
               [47.03, 8.08]
             ]);
           } else if (boundsSetDefaultMapView.length == 1) {
-            map.flyTo({
-              lat: boundsSetDefaultMapView[0][1],
-              lng: boundsSetDefaultMapView[0][2]
-            }, 6);
+            map.flyTo(new L.LatLng(
+              boundsSetDefaultMapView[0][0],
+              boundsSetDefaultMapView[0][1]
+            ), 6);
           } else {
             map.fitBounds(boundsSetDefaultMapView)
           };
-          if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
+          //if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
         }
 
         function setMapView() {
@@ -1594,9 +1594,10 @@ markers.on('clusterclick', function (a) {
           map = loadMap(idMap);
 
           //zoomRemove(map);
-          map.options.minZoom = 5;
-          //map.options.maxZoom = 8;
-          map.options.maxZoom = 12;
+          map.options.minZoom = 6;
+          map.options.maxZoom = 8;
+          //map.options.minZoom = 5;
+          //map.options.maxZoom = 12;
           map.scrollWheelZoom.disable();
 
           setDefaultMapView();
@@ -2666,247 +2667,267 @@ markers.on('clusterclick', function (a) {
           });
         };
 
-              function checkautresDepts(map, indexEvent) {
-                var autresDepts = [{
-                    name: 'Corse',
-                    bounds: L.latLngBounds([
-                      [43.07, 8.39],
-                      [41.29, 9.74]
-                    ]),
-                    hasevents: false
-                  },
-                  {
-                    name: 'Martinique',
-                    bounds: L.latLngBounds([
-                      [14.905, -61.500],
-                      [14.377, -60.762]
-                    ]),
-                    hasevents: false
-                  },
-                  {
-                    name: 'Guadeloupe',
-                    bounds: L.latLngBounds([
-                      [16.5572, -61.971],
-                      [15.7881, -60.946]
-                    ]),
-                    hasevents: false
-                  },
-                  {
-                    name: 'Guyane',
-                    bounds: L.latLngBounds([
-                      [6.16, -55.08],
-                      [1.88, -51.16]
-                    ]),
-                    hasevents: false
-                  },
-                  {
-                    name: 'LaRéunion',
-                    bounds: L.latLngBounds([
-                      [-19.6496, 54.5825],
-                      [-21.6107, 58.1036]
-                    ]),
-                    hasevents: false
-                  },
-                  {
-                    name: 'Hexagone',
-                    bounds: L.latLngBounds([
-                      [50.10, 2.47],
-                      [48.37, -4.16],
-                      [43.38, -1.85],
-                      [42.47, 3.16],
-                      [43.80, 7.96],
-                      [47.03, 8.08]
-                    ]),
-                    hasevents: false
-                  }
+        function checkautresDepts(map, indexEvent) {
+          var autresDepts = [{
+              name: 'Corse',
+              bounds: L.latLngBounds([
+                [43.07, 8.39],
+                [41.29, 9.74]
+              ]),
+              hasevents: false
+            },
+            {
+              name: 'Martinique',
+              bounds: L.latLngBounds([
+                [14.905, -61.500],
+                [14.377, -60.762]
+              ]),
+              hasevents: false
+            },
+            {
+              name: 'Guadeloupe',
+              bounds: L.latLngBounds([
+                [16.5572, -61.971],
+                [15.7881, -60.946]
+              ]),
+              hasevents: false
+            },
+            {
+              name: 'Guyane',
+              bounds: L.latLngBounds([
+                [6.16, -55.08],
+                [1.88, -51.16]
+              ]),
+              hasevents: false
+            },
+            {
+              name: 'LaRéunion',
+              bounds: L.latLngBounds([
+                [-19.6496, 54.5825],
+                [-21.6107, 58.1036]
+              ]),
+              hasevents: false
+            },
+            {
+              name: 'Hexagone',
+              bounds: L.latLngBounds([
+                [50.10, 2.47],
+                [48.37, -4.16],
+                [43.38, -1.85],
+                [42.47, 3.16],
+                [43.80, 7.96],
+                [47.03, 8.08]
+              ]),
+              hasevents: false
+            }
+          ];
+          autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
+          var states = [];
+          boundsSetDefaultMapView = [];
+          //$('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
+          for (var i = 0; i < autresDepts.length; i++) {
+            if (!autresDepts[i].hasevents) continue
+
+            if (autresDepts[i].name == 'Hexagone') $('.leaflet-control-layers.leaflet-control').css('visibility', 'visible');
+
+            /*var northEast = autresDepts[i].bounds.getNorthEast();
+            var southWest = autresDepts[i].bounds.getSouthWest();
+            boundsSetDefaultMapView = [
+              [northEast.lat, northEast.lng],
+              [southWest.lat, southWest.lng]
+            ];*/
+
+            var localState = {};
+            localState.stateName = autresDepts[i].name; // name the state
+            j = i;
+            do {
+              j = j + 1;
+              if (j == autresDepts.length) j = 0;
+            }
+            while (!autresDepts[j].hasevents);
+            localState.nextStateName = autresDepts[j].name; // name of the next state
+            localState.icon = 'fa-plane'; // and define its properties
+            switch (autresDepts[i].name) {
+              case 'Corse':
+                boundsSetDefaultMapView = [
+                  [42.19, 9.08]
                 ];
-                autresDepts = checkautresDeptsBounds(autresDepts, indexEvent);
-                var states = [];
-                boundsSetDefaultMapView = [];
-                $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
-                for (var i = 0; i < autresDepts.length; i++) {
-                  if (!autresDepts[i].hasevents) continue
-
-                  if( autresDepts[i].name =='Hexagone') $('.leaflet-control-layers.leaflet-control').css('visibility', 'visible');
-
-                  var northEast = autresDepts[i].bounds.getNorthEast();
-                  var southWest = autresDepts[i].bounds.getSouthWest();
-                  boundsSetDefaultMapView = [[northEast.lat, northEast.lng],[southWest.lat, southWest.lng]];
-
-                  var localState = {};
-                  localState.stateName = autresDepts[i].name; // name the state
-                  j = i;
-                  do {
-                    j = j + 1;
-                    if (j == autresDepts.length) j = 0;
-                  }
-                  while (!autresDepts[j].hasevents);
-                  localState.nextStateName = autresDepts[j].name; // name of the next state
-                  localState.icon = 'fa-plane'; // and define its properties
-                  switch (autresDepts[i].name) {
-                    case 'Corse':
-                      localState.title = 'vol vers la Corse'; // like its title
-                      localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
-                          lat: 42.19,
-                          lng: 9.08
-                        }, 6);
-                        boundsSetDefaultMapView = [[42.19, 9.08]];*/
-                        boundsSetDefaultMapView = [
-                          [43.07, 9.74],
-                          [41.29, 8.39]
-                        ];
-                        setMapView();
-                        for (var j = 0; j < btn.options.states.length; j++) {
-                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                            btn.state(btn.options.states[j].nextStateName); // change state on click!
-                            break;
-                          }
-                        }
-                      };
+                localState.title = 'vol vers la Corse'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  /*boundsSetDefaultMapView = [
+                    [43.07, 9.74],
+                    [41.29, 8.39]
+                  ];*/
+                  $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
+                  boundsSetDefaultMapView = [
+                    [42.19, 9.08]
+                  ];
+                  setMapView();
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
                       break;
-                    case 'Martinique':
-                      localState.title = 'vol vers la Martinique'; // like its title
-                      localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
-                          lat: 14.7297,
-                          lng: -60.9655
-                        }, 6);
-                        boundsSetDefaultMapView = [[14.7297, -60.9655]];*/
-                        boundsSetDefaultMapView = [
-                          [14.90, -60.76],
-                          [14.38, -61.50]
-                        ];
-                        setMapView();
-                        for (var j = 0; j < btn.options.states.length; j++) {
-                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                            btn.state(btn.options.states[j].nextStateName); // change state on click!
-                            break;
-                          }
-                        }
-                      };
-                      break;
-                    case 'Guadeloupe':
-                      localState.title = 'vol vers la Guadeloupe'; // like its title
-                      localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
-                          lat: 16.228,
-                          lng: -61.526
-                        }, 6);
-                        boundsSetDefaultMapView = [[16.228, -61.526]];*/
-                        boundsSetDefaultMapView = [
-                          [16.56, -60.95],
-                          [15.79, -61.97]
-                        ];
-                        setMapView();
-                        for (var j = 0; j < btn.options.states.length; j++) {
-                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                            btn.state(btn.options.states[j].nextStateName); // change state on click!
-                            break;
-                          }
-                        }
-                      };
-                      break;
-                    case 'Guyane':
-                      localState.title = 'vol vers la Guyane'; // like its title
-                      localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
-                          lat: 3.945,
-                          lng: -53.13
-                        }, 6);
-                        boundsSetDefaultMapView = [[3.945, -53.13]];*/
-                        boundsSetDefaultMapView = [
-                          [6.16, -51.16],
-                          [1.88, -55.03]
-                        ];
-                        setMapView();
-                        for (var j = 0; j < btn.options.states.length; j++) {
-                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                            btn.state(btn.options.states[j].nextStateName); // change state on click!
-                            break;
-                          }
-                        }
-                      };
-                      break;
-                    case 'LaRéunion':
-                      localState.title = 'vol vers la Réunion'; // like its title
-                      localState.onClick = function(btn, map) { // and its callback
-                        /*map.flyTo({
-                          lat: -20.887,
-                          lng: 55.455
-                        }, 6);
-                        boundsSetDefaultMapView = [[-20.887, 55.455]];*/
-                        boundsSetDefaultMapView = [
-                          [-19.65, 58.10],
-                          [-21.61, 54.58]
-                        ];
-                        setMapView();
-                        for (var j = 0; j < btn.options.states.length; j++) {
-                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                            btn.state(btn.options.states[j].nextStateName); // change state on click!
-                            break;
-                          }
-                        }
-                      };
-                      break;
-                    default:
-                      localState.title = "retour vers l'Hexagone"; // like its title
-                      localState.bounds = autresDepts[i].bounds;
-                      localState.onClick = function(btn, map) { // and its callback
-                        boundsSetDefaultMapView = [
-                          [50.10, 8.08],
-                          [42.47, -4.16]
-                        ];
-                        setMapView();
-                        for (var j = 0; j < btn.options.states.length; j++) {
-                          if (btn._currentState.stateName == btn.options.states[j].stateName) {
-                            btn.state(btn.options.states[j].nextStateName); // change state on click!
-                            map.flyToBounds(btn.options.states[j].bounds);
-                            break;
-                          }
-                        }
-                      };
-                  }
-                  states.push(localState);
-                }
-                if(typeof stateChangingButton !== 'undefined') stateChangingButton.remove()
-                if (states.length > 1) {
-                  stateChangingButton = L.easyButton({
-                    states: states
-                    /*[{
-                            stateName: 'zoom-to-forest',        // name the state
-                            icon:      'fa-plane',               // and define its properties
-                            title:     'zoom to a forest',      // like its title
-                            onClick: function(btn, map) {       // and its callback
-                                map.setView([46.25,-121.8],10);
-                                btn.state('zoom-to-school');    // change state on click!
-                            }
-                        }, {
-                            stateName: 'zoom-to-school',
-                            icon:      'fa-paper-plane',
-                            title:     'zoom to a school',
-                            onClick: function(btn, map) {
-                                map.setView([42.3748204,-71.1161913],16);
-                                btn.state('zoom-to-forest');
-                            }
-                    }]*/
-                  });
-
-                  stateChangingButton.addTo(map);
-                }
-
-                function checkautresDeptsBounds(autresDepts, indexEvent) {
-                  for (i = 0; i < indexEvent.length; i++) {
-                    for (k = 0; k < autresDepts.length; k++) {
-                      if (indexEvent[i]["selected"] && autresDepts[k].bounds.contains(indexEvent[i])) {
-                        autresDepts[k].hasevents = true;
-                      }
                     }
                   }
-                  return autresDepts;
                 };
+                break;
+              case 'Martinique':
+                boundsSetDefaultMapView = [
+                  [14.7297, -60.9655]
+                ];
+                localState.title = 'vol vers la Martinique'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  /*boundsSetDefaultMapView = [
+                    [14.90, -60.76],
+                    [14.38, -61.50]
+                  ];*/
+                  $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
+                  boundsSetDefaultMapView = [
+                    [14.7297, -60.9655]
+                  ];
+                  setMapView();
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              case 'Guadeloupe':
+                boundsSetDefaultMapView = [
+                  [16.228, -61.526]
+                ];
+                localState.title = 'vol vers la Guadeloupe'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  /*boundsSetDefaultMapView = [
+                    [16.56, -60.95],
+                    [15.79, -61.97]
+                  ];*/
+                  $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
+                  boundsSetDefaultMapView = [
+                    [16.228, -61.526]
+                  ];
+                  setMapView();
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              case 'Guyane':
+                boundsSetDefaultMapView = [
+                  [3.945, -53.13]
+                ];
+                localState.title = 'vol vers la Guyane'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  /*boundsSetDefaultMapView = [
+                    [6.16, -51.16],
+                    [1.88, -55.03]
+                  ];*/
+                  $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
+                  boundsSetDefaultMapView = [
+                    [3.945, -53.13]
+                  ];
+                  setMapView();
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              case 'LaRéunion':
+                boundsSetDefaultMapView = [
+                  [-20.887, 55.455]
+                ];
+                localState.title = 'vol vers la Réunion'; // like its title
+                localState.onClick = function(btn, map) { // and its callback
+                  /*boundsSetDefaultMapView = [
+                    [-19.65, 58.10],
+                    [-21.61, 54.58]
+                  ];*/
+                  $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
+                  boundsSetDefaultMapView = [
+                    [-20.887, 55.455]
+                  ];
+                  setMapView();
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      break;
+                    }
+                  }
+                };
+                break;
+              default:
+                boundsSetDefaultMapView = [
+                  [50.10, 8.08],
+                  [42.47, -4.16]
+                ];
+                localState.title = "retour vers l'Hexagone"; // like its title
+                localState.bounds = autresDepts[i].bounds;
+                localState.onClick = function(btn, map) { // and its callback
+                  $('.leaflet-control-layers.leaflet-control').css('visibility', 'visible');
+                  boundsSetDefaultMapView = [
+                    [50.10, 8.08],
+                    [42.47, -4.16]
+                  ];
+                  setMapView();
+                  for (var j = 0; j < btn.options.states.length; j++) {
+                    if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                      btn.state(btn.options.states[j].nextStateName); // change state on click!
+                      map.flyToBounds(btn.options.states[j].bounds);
+                      break;
+                    }
+                  }
+                };
+            }
+            states.push(localState);
+          }
+          if (typeof stateChangingButton !== 'undefined') stateChangingButton.remove()
+          if (states.length > 1) {
+            stateChangingButton = L.easyButton({
+              states: states
+              /*[{
+                      stateName: 'zoom-to-forest',        // name the state
+                      icon:      'fa-plane',               // and define its properties
+                      title:     'zoom to a forest',      // like its title
+                      onClick: function(btn, map) {       // and its callback
+                          map.setView([46.25,-121.8],10);
+                          btn.state('zoom-to-school');    // change state on click!
+                      }
+                  }, {
+                      stateName: 'zoom-to-school',
+                      icon:      'fa-paper-plane',
+                      title:     'zoom to a school',
+                      onClick: function(btn, map) {
+                          map.setView([42.3748204,-71.1161913],16);
+                          btn.state('zoom-to-forest');
+                      }
+              }]*/
+            });
 
-              };
+            stateChangingButton.addTo(map);
+          }
+          else if (states[0].stateName !== 'Hexagone') $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
+
+
+          function checkautresDeptsBounds(autresDepts, indexEvent) {
+            for (i = 0; i < indexEvent.length; i++) {
+              for (k = 0; k < autresDepts.length; k++) {
+                if (indexEvent[i]["selected"] && autresDepts[k].bounds.contains(indexEvent[i])) {
+                  autresDepts[k].hasevents = true;
+                }
+              }
+            }
+            return autresDepts;
+          };
+
+        };
         var map_invalidateSize = function() {
           map.invalidateSize();
           $('.leaflet-control-layers-overlays .leaflet-control-layers-selector').trigger('click')

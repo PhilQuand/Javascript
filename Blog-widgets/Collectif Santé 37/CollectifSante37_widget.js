@@ -789,7 +789,7 @@ if ( window.location.pathname == '/' ){
 
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
-  //$('.page_body').append('<a href="https://drive.google.com/file/d/1wSp0Io-lkCJnMjyNGR3K85g5ZHIt9_we/view?usp=sharing"><img class="img-foreground" src="https://1.bp.blogspot.com/-Trp59NVWRDk/YVVvA2VBdzI/AAAAAAAApAo/1-1-6XE6YCocvvkOiMH5FAV8LHyK69npgCLcBGAsYHQ/s0/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2021-09-30%2Ba%25CC%2580%2B10.00.43.jpg"/></a>');
+  $('.page_body').append('<a href="https://drive.google.com/file/d/1pKMxxFJYk3nTK8ykKRLpyPDniMm8Jxu5/view?usp=share_link"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
 
   //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
@@ -799,7 +799,7 @@ if ( window.location.pathname == '/' ){
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfFPwEtIQvHQpPMEiJ1fK9Z7o5ED_QK0B5TWqdutSktLsZoGtsaittNEiq6IQGwDD5yRkjt0zF0klz5wYfpNSqaGXSJZCbrST85BF4mzxe1Yt1fR2Vk-T81jfqKpOuXfkac0DD2BjOUx-5eSpZXPeo-CfhtJneqsRMoFVUNOyVvG53cd4N3sy0CnZZ/s1600/Tract%20pour%20le%2022%20septembre.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMRO633avkwAtqhIPxx12RS20DAbfRF8lRT3Wyf2Xn7E4lwu-s6mxnx4TBGReOwOseOIis2EybJCVwMShoymN9_ZlvjgGeuAtCGqg1io6nu17MqSIOGVjjbwfoGOI4aKu-k_ZRtF-Ezrt5UsGazNt5rk4s3kExp9i4BMaBg-nzhtMLXJZ0JmD_J2Vb/s1600/Communique%CC%81%20de%20presse%2029%20novembre%202022%20social%20medico%20social.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -824,7 +824,7 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfFPwEtIQvHQpPMEiJ1fK9Z7o5ED_QK0B5TWqdutSktLsZoGtsaittNEiq6IQGwDD5yRkjt0zF0klz5wYfpNSqaGXSJZCbrST85BF4mzxe1Yt1fR2Vk-T81jfqKpOuXfkac0DD2BjOUx-5eSpZXPeo-CfhtJneqsRMoFVUNOyVvG53cd4N3sy0CnZZ/s1600/Tract%20pour%20le%2022%20septembre.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMRO633avkwAtqhIPxx12RS20DAbfRF8lRT3Wyf2Xn7E4lwu-s6mxnx4TBGReOwOseOIis2EybJCVwMShoymN9_ZlvjgGeuAtCGqg1io6nu17MqSIOGVjjbwfoGOI4aKu-k_ZRtF-Ezrt5UsGazNt5rk4s3kExp9i4BMaBg-nzhtMLXJZ0JmD_J2Vb/s1600/Communique%CC%81%20de%20presse%2029%20novembre%202022%20social%20medico%20social.jpg"
         },       
         /*{
           dataType: "images",

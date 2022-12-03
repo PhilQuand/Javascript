@@ -284,11 +284,11 @@ $.fn.mapAllBlogs = function() {
         },
       }*/
     },
-    legend: [
+    /*legend: [
     {
       title: 'Établissements',
-      //test: function(){},
-      /*affect: function(data) {
+      test: function(){},
+      affect: function(data) {
         if ( isOKString(data["victoire"])  ) {
           return 0;
         }
@@ -302,8 +302,8 @@ $.fn.mapAllBlogs = function() {
           return 3;
         }
         else return 4;
-      },*/
-      /*icons: [
+      },
+      icons: [
         {
           icon: {leaflet: new L.Icon({
             iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
@@ -313,8 +313,7 @@ $.fn.mapAllBlogs = function() {
             popupAnchor: [1, -17],
             shadowSize: [20, 20]
           })},
-          title: 'établissements',
-          //title: 'une victoire',
+          title: 'une victoire',
           colorBG: '#FFD326',
           colorFG: '#0E0E0E',
         },
@@ -363,14 +362,29 @@ $.fn.mapAllBlogs = function() {
           colorBG: '#29AD27',
           colorFG: '#FFFFFF',
         },
-      ]*/
+        {
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-orange.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'autres',
+          colorBG: '#1E77C8',
+          colorFG: '#FFFFFF',
+        },
+      ]
     },
     {
-      title: 'Étab. renseignés',
+      title: 'Ferm. de maternités',
       //test: function(){},
       filter: {
         func: function(data) {
-          if ( isOKString(data['suppressions']) || isOKString(data['menaces']) || isOKString(data['victoires']) ) {
+          if (isOKNumber(data["an_ferm_mater"])) {
             return 1;
           }
           else {
@@ -378,7 +392,7 @@ $.fn.mapAllBlogs = function() {
           }
         },
       },
-      /*affect: function(data) {
+      affect: function(data) {
         if (data["an_ferm_mater"] == 1111) {
           return 0;
         }
@@ -394,8 +408,8 @@ $.fn.mapAllBlogs = function() {
         else {
           return 4;
         }
-      },*/
-      /*icons: [{
+      },
+      icons: [{
         icon: {leaflet: new L.Icon({
           iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
           shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
@@ -455,9 +469,9 @@ $.fn.mapAllBlogs = function() {
         title: 'autres',
         colorBG: '#9A26CA',
         colorFG: '#F8F8F8',
-      }]*/
+      }]
     },
-    ],
+    ],*/
     banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
   };  
 
@@ -537,32 +551,8 @@ $.fn.mapAllBlogs = function() {
         }
       }];
     }
-    for (var i = 0; i < options['legend'].length; i++) {
-      if (typeof options['legend'][i].title === 'undefined') legendTitle = '';
-      if (typeof options['legend'][i]['affect'] === 'undefined') {
-        options['legend'][i]['affect'] = function(data) {
-          return 0;
-        }
-      }
-      if (typeof options['legend'][i]['icons'] === 'undefined') {
-        options['legend'][i]['icons'] = [{
-          icon: {
-            leaflet: new L.Icon({
-              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
-              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-              iconSize: [13, 20],
-              iconAnchor: [6, 20],
-              popupAnchor: [1, -17],
-              shadowSize: [20, 20]
-            })
-          },
-          title: 'établissements',
-          colorBG: '#FFD326',
-          colorFG: '#0E0E0E',
-        }]
-      }
-    }
-    legendTitle = options['legend'][0].title;
+    if (typeof options['legend'][0].title !== 'undefined') legendTitle = options['legend'][0].title;
+    else legendTitle = '';
     iconMarkersBuilder = data => {
       for (var i = 0; i < data.length; i++) {
         data[i].iconMarker = options['legend'][0]['affect'](data[i]);
@@ -1324,8 +1314,6 @@ $.fn.mapAllBlogs = function() {
         var iconMarkersLength = iconMarkers.length;
         var map, onSetDefaultMapView, refreshIndexEvent, boundsSetDefaultMapView;
         var clickedMarker;
-        var enterPopup = 0;
-
 
         /*function removeAreaMarkers() {
           for (var i = 0; i < indexEvent.length; i++) {
@@ -1457,28 +1445,25 @@ markers.on('clusterclick', function(a){
 
         map = initMap('infoMap', indexEvent);
         markers.addTo(map);
-        clickedMarker = "";
-        map.on('zoomend', function() {
-          if (clickedMarker !== "" && map.getZoom() >= map.options.maxZoom) {
-            if (typeof clickedMarker.__parent !== 'undefined') clickedMarker.__parent.spiderfy();
-            clickedMarker = "";
-          }
-        });
+clickedMarker="";
+map.on('zoomend', function() {
+    if (clickedMarker!=="" && map.getZoom()>=map.options.maxZoom) {
+        clickedMarker.__parent.spiderfy();
+        clickedMarker="";
+    }
+});
 
-        markers.on('clusterclick', function(a) {
-          if (a.layer._childCount > 0) {
-            clusterMarkers = a.layer.getAllChildMarkers();
-            clickedMarker = clusterMarkers[0];
-          }
-          if (map.getZoom() >= map.options.maxZoom) {
-            a.layer.spiderfy();
-          }
-          else {
-            a.layer.zoomToBounds({
-              padding: [20, 20]
-            });
-          }
-        });
+markers.on('clusterclick', function (a) {
+    if (a.layer._childCount>0) {
+        clusterMarkers = a.layer.getAllChildMarkers();
+        clickedMarker=clusterMarkers[0];
+    }
+    if (map.getZoom()>=map.options.maxZoom) {
+        a.layer.spiderfy();
+    } else {
+        a.layer.zoomToBounds({padding: [20, 20]});
+    }
+});        
 
         endMarkerBuild(indexEvent);
 
@@ -1598,8 +1583,6 @@ markers.on('clusterclick', function(a){
                 map.removeControl(option["legend"]["régions"]);
                 setDefaultMapView();
                 if (baselayerName == 'par défaut') {
-                  onSetDefaultMapView = function() {};
-                  enterPopup = 0;
                   //legendAllMarkers = addLegend();
                   $('#menuLegend').prop('disabled',false)
                   contentLegend();
@@ -1760,16 +1743,13 @@ markers.on('clusterclick', function(a){
                 }
               }
             }
-            var totalEvents = 0;
-            var totalMarkers = 0;
+            var totalEvents = 0
             for (var k = 0; k < iconMarkersLength; k++) {
               totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
-              if( iconMarkers[k].nbMapEvents != 0 ) totalMarkers++
             }
             checkautresDepts(map, indexEvent)
             var contentLegendHtml = ''
             if (legendTitle != '') {
-              if(totalMarkers > 1)
               if(totalEvents == 0) contentLegendHtml += 'aucun élément';
               else if(totalEvents == 1) contentLegendHtml += totalEvents + ' élément';
               else if(totalEvents > 1) contentLegendHtml += totalEvents + ' éléments';
@@ -1997,6 +1977,7 @@ markers.on('clusterclick', function(a){
                       color_grades.push(colorScale(i / grades.length).hex());
                       //console.log(color_grades[i]);
                     }
+                    var enterPopup = 0;
 
                     var areaNumItems = {};
                     if (option["typMap"] == "builDepts") {
@@ -2281,20 +2262,8 @@ markers.on('clusterclick', function(a){
                       //function enterLayer() {}
 
                       function clickLayer() {
+                        if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
                         if (enterPopup != areaName) {
-                          if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
-                          enterPopup = 0;
-                          /*option["map"].fitBounds(areaBounds, {
-                            padding: [100, 100]
-                          });*/
-                          var northEast = areaBounds.getNorthEast();
-                          var southWest = areaBounds.getSouthWest();
-                          var center = areaBounds.getCenter();
-                          map.flyTo(new L.LatLng(center.lat, center.lng), 8);
-                          boundsSetDefaultMapView = [
-                            [northEast.lat, northEast.lng],
-                            [southWest.lat, southWest.lng]
-                          ];
                           //areaNum = getNumItems();
                           // Insert whatever you want into the container, using whichever approach you prefer
                           this.bindPopup(container[0]).openPopup();
@@ -2312,12 +2281,17 @@ markers.on('clusterclick', function(a){
                         if (typeof areaBindPopup !== 'undefined') {
                           this.unbindPopup();
                         }
+                        enterPopup = 0;
+                        option["map"].fitBounds(areaBounds, {
+                          padding: [100, 100]
+                        });
                         var _this = layer;
                         onSetDefaultMapView = function() {
                           //_this.getPopup().remove();
                           _this.setStyle({
                             fillOpacity: 1
                           });
+                          //removeAreaMarkers();
                           refreshMarkers([]);
                         }
                       }
@@ -2587,13 +2561,6 @@ markers.on('clusterclick', function(a){
                   icon: 'fa-home', // and define its properties
                   title: 'vue par défaut', // like its title
                   onClick: function(btn, map) { // and its callback
-                    boundsSetDefaultMapView = [
-                      [50.10, 8.08],
-                      [42.47, -4.16]
-                    ];
-                    if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
-                    enterPopup = 0;
-                    map.closePopup();
                     setDefaultMapView();
                   }
                 }]

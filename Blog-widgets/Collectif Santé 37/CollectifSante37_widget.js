@@ -789,17 +789,17 @@ if ( window.location.pathname == '/' ){
 
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
-  $('.page_body').append('<a href="https://drive.google.com/file/d/1pKMxxFJYk3nTK8ykKRLpyPDniMm8Jxu5/view?usp=share_link"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"/></a>');
+  //$('.page_body').append('<a href="https://drive.google.com/file/d/1pKMxxFJYk3nTK8ykKRLpyPDniMm8Jxu5/view?usp=share_link"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
 
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMRO633avkwAtqhIPxx12RS20DAbfRF8lRT3Wyf2Xn7E4lwu-s6mxnx4TBGReOwOseOIis2EybJCVwMShoymN9_ZlvjgGeuAtCGqg1io6nu17MqSIOGVjjbwfoGOI4aKu-k_ZRtF-Ezrt5UsGazNt5rk4s3kExp9i4BMaBg-nzhtMLXJZ0JmD_J2Vb/s1600/Communique%CC%81%20de%20presse%2029%20novembre%202022%20social%20medico%20social.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -817,14 +817,14 @@ $(document).ready(function() {
 <p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
 <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
 </div>'
-        },
-        {
-          dataType: "iframe",
-          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Animations-Une/arbre-de-noel-tournant.html"
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMRO633avkwAtqhIPxx12RS20DAbfRF8lRT3Wyf2Xn7E4lwu-s6mxnx4TBGReOwOseOIis2EybJCVwMShoymN9_ZlvjgGeuAtCGqg1io6nu17MqSIOGVjjbwfoGOI4aKu-k_ZRtF-Ezrt5UsGazNt5rk4s3kExp9i4BMaBg-nzhtMLXJZ0JmD_J2Vb/s1600/Communique%CC%81%20de%20presse%2029%20novembre%202022%20social%20medico%20social.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"
+        },
+        {
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIYv1S7Pz8tYBl2TuzL4v7Tdwlf9wN4KGJe8HpLYhDxARlODNM9pvidIVI9PWyOSWcvxqh_POhiW7MzRJW42WsVl1nq2_dtpOHrvRHBh9sFWZSk6H4Y3ZATPLmhCPt66HcMC58yl2qSgk1laLzV1Jajh4y67n4NiF2UL3AbxSfmeZdDHVQMIPT32bI/s1600/image.png"
         },       
         /*{
           dataType: "images",

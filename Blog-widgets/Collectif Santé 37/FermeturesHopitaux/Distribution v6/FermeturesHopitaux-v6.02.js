@@ -3022,10 +3022,9 @@ markers.on('clusterclick', function(a){
           }
         }
         var initComplete = function() {
-          //New datatable API (capital "D")
           var myTable = $(this).DataTable();
+          $('#table_filter').css('visibility', 'hidden');
           yadcf.init(myTable, tableColums);
-          //$("#table_length label select").appendTo("#table_length label");
           $("#table_length label select").appendTo("#table_length");
           $("#table_length label").text("Nb. d'éléments affichés");
           if (tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');

@@ -13,19 +13,21 @@
 <!-- export table jquery -->
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.3/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.4.0/css/searchBuilder.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.2.0/css/dataTables.dateTime.min.css" />
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/searchbuilder/1.4.0/css/searchBuilder.dataTables.min.css"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/searchbuilder/1.4.0/js/dataTables.searchBuilder.min.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.2.0/js/dataTables.dateTime.min.js"></script>
 
 <!-- Chargement des données venant d'une Google Sheet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 
 <!-- multi selection sur les colonnes de la table d'après https://github.com/vedmack/yadcf -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script>
+  <!--link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" /-->
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script-->
 
 <!-- ressources communes à tous les blogs... -->
   <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
@@ -1400,7 +1402,7 @@ $.fn.mapAllBlogs = function() {
       var map_invalidateSize = runMap(indexEvent);
 
       var menuLegend = -1;
-      var indexEventTable;
+      var indexEventTable, myTable, initSearchTable;
       var tableFilterOn = false;
       function runMap(indexEvent) {
 
@@ -1820,7 +1822,7 @@ markers.on('clusterclick', function(a){
                   //indexEventTable[j++]['indirect'] = i;
                 }
               }
-              runTable();
+              runTable(true);
              
             }
             var iconNum = refreshMarkers(refreshIndexEvent);
@@ -1887,8 +1889,8 @@ markers.on('clusterclick', function(a){
                 ]
                 map.fitBounds(boundsSetDefaultMapView);
                 }
-                else setDefaultMapView();
-                contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
+               else setDefaultMapView();
+               //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
               }
               else setDefaultMapView();
               contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
@@ -1907,7 +1909,7 @@ markers.on('clusterclick', function(a){
             }
             if( contentLegendHtml == '' ) contentLegendHtml = "aucun élément"
             if (legendTitle == '' && tableFilterOn) {
-              contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
+              //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
               var selectNW = {lat: -1000000, lng: 1000000};
               var selectNE = {lat: -1000000, lng: -1000000};
               var selectSW = {lat: 1000000, lng: 1000000};
@@ -2986,6 +2988,9 @@ markers.on('clusterclick', function(a){
             //if(tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
             $('#star_filter').css('display', 'none');
             //$('#table').css('display', 'block')
+$('.dt-button.searchBT').on('click', function() {
+    if (typeof initSearchTable == 'undefined') initSearchTable = myTable.searchBuilder.getDetails();
+})
           }
 
           function btDataCarte(map_invalidateSize) {
@@ -3007,7 +3012,7 @@ markers.on('clusterclick', function(a){
           //runTable();
         }
       };
-      function runTable() {
+      function runTable(initSearch) {
 
         var tableColums = [];
         if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') {
@@ -3027,7 +3032,7 @@ markers.on('clusterclick', function(a){
                 defaultContent: '',
                 //selectable: false
               });
-              if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+              /*if (jQuery.type(properties[i]['filter']) !== 'undefined') {
                 var item = {};
                 if (properties[i]['filter'] == 'selection') {
                   item['column_number'] = i;
@@ -3038,9 +3043,6 @@ markers.on('clusterclick', function(a){
                   item['filter_reset_button_text'] = false;
                   item['filter_type'] = 'custom_func';
                   item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
-                      console.log('test...');
-                    }*/
                     if (columnVal === filterVal || "Sélectionnez" === filterVal) {
                       var myFilter = true;
                     }
@@ -3089,7 +3091,7 @@ markers.on('clusterclick', function(a){
                   item['defaultContent'] = '';
                   tableColums.push(item);
                 }
-              };
+              };*/
             }
           };
         }
@@ -3119,13 +3121,34 @@ markers.on('clusterclick', function(a){
         var initComplete = function() {
           //New datatable API (capital "D")
           var myTable = $(this).DataTable();
-          yadcf.init(myTable, tableColums);
+          //yadcf.init(myTable, tableColums);
           //$("#table_length label select").appendTo("#table_length label");
           $("#table_length label select").appendTo("#table_length");
           $("#table_length label").text("Nb. d'éléments affichés");
-          if (tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
-          else $('.dt-button.reinitBT').css('visibility', 'hidden');
+          if ( tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
+          else {
+            //myTable.searchBuilder.rebuild(initSearchTable);
+            $('.dt-button.reinitBT').css('visibility', 'hidden');
+          }
           $('.dt-button.helpBT').css('display', 'none');
+          myTable.on('draw', function() {
+            var filerRows = myTable.rows({
+              search: 'applied'
+            }).data();
+            if (indexEventTable.length !== filerRows.length) {
+              for (var i = 0; i < indexEventTable.length; i++) indexEventTable[i]["selected"] = false;
+              filerRows.each(function(value, index) {
+                //console.log(value, index);
+                for (var i = 0; i < indexEventTable.length; i++) {
+                  if (indexEventTable[i]["id"] === value["id"]) {
+                    indexEventTable[i]["selected"] = true;
+                    $('.dt-button.reinitBT').css('visibility', 'visible');
+                    tableFilterOn = true;
+                  }
+                }
+              });
+            };
+          });
 
           var properties = options.tableData.properties;
           for (var i = 0; i < properties.length; i++) {
@@ -3137,13 +3160,29 @@ markers.on('clusterclick', function(a){
               else {
                 var title = properties[i]['name'];
               }
-             $('#table th:contains('+ title + ')').css('min-width', min_width);
+              $('#table th:contains(' + title + ')').css('min-width', min_width);
             }
           }
         }       
 
         tableFilterOn = false;
-        $('#table').DataTable({
+        if (initSearch && jQuery.type(myTable) !== 'undefined') {
+          tableFilterOn = false;
+                myTable.searchBuilder.rebuild(initSearchTable);
+                for (var i = 0; i < indexEventTable.length; i++) {
+                  if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
+                    if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
+                      indexEventTable[i]["selected"] = true;
+                    }
+                    else {
+                      indexEventTable[i]["selected"] = false;
+                    }
+                  }
+                  else {
+                    indexEventTable[i]["selected"] = true;
+                  }
+                }
+        }        myTable = $('#table').DataTable({
           destroy: true,
           data: indexEventTable,
           "language": {
@@ -3152,7 +3191,8 @@ markers.on('clusterclick', function(a){
           columns: columns,
           initComplete: initComplete,
           dom: 'Blfrtip',
-          buttons: [{
+          buttons: [
+            {
               text: 'aide',
               className: 'helpBT',
               action: function(e, dt, node, config) {
@@ -3162,20 +3202,28 @@ markers.on('clusterclick', function(a){
                   src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p></div>',
                   type: 'html',
                   smallBtn: false
-                });*/              
+                });*/
                 /*$.fancybox.open({
                   src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p><p><button data-fancybox-close class="btn">Close me</button></p></div>',
                   type: 'html',
                   modal: true
-                });*/              
+                });*/
                 $.fancybox.open({
                   src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p><p><button data-fancybox-close class="btn">Close me</button></p></div>',
                   type: 'html',
                   modal: true
-                });              
+                });
               }
-            },
-            {
+            }, {
+              extend: 'searchBuilder',
+              className: 'searchBT',
+              config: {
+                depthLimit: 2
+              },
+              /*action: function(e, dt, node, config) {
+                initSearchTable = myTable.searchBuilder.getDetails();
+              },*/
+            }, {
               extend: 'csv',
               //Name the CSV
               filename: 'file_name',
@@ -3218,12 +3266,12 @@ markers.on('clusterclick', function(a){
                 csv = split_csv.join("\n");
                 return csv;
               }
-            },
-            {
+            }, {
               text: 'réinit.',
               className: 'reinitBT',
               action: function(e, dt, node, config) {
 
+                myTable.searchBuilder.rebuild(initSearchTable);
                 for (var i = 0; i < indexEventTable.length; i++) {
                   if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
                     if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
@@ -3237,7 +3285,7 @@ markers.on('clusterclick', function(a){
                     indexEventTable[i]["selected"] = true;
                   }
                 }
-                yadcf.exResetAllFilters(dt);
+                /*yadcf.exResetAllFilters(dt);
                 for (var i = 0; i < properties.length; i++) {
                   if (jQuery.type(properties[i]['filter']) !== 'undefined') {
                     if (properties[i]['filter'] == 'selection') {
@@ -3246,11 +3294,11 @@ markers.on('clusterclick', function(a){
                       ]);
                     }
                   }
-                }
+                }*/
                 tableFilterOn = false;
                 $('.dt-button.reinitBT').css('visibility', 'hidden');
               }
-            },
+            },          
           ],
         });
       };

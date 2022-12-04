@@ -1793,7 +1793,7 @@ markers.on('clusterclick', function(a){
                 map.fitBounds(boundsSetDefaultMapView);
                 }
                 else setDefaultMapView();
-                contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
+                //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
               }
               else setDefaultMapView();
               contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
@@ -1812,7 +1812,7 @@ markers.on('clusterclick', function(a){
             }
             if( contentLegendHtml == '' ) contentLegendHtml = "aucun élément"
             if (legendTitle == '' && tableFilterOn) {
-              contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
+              //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
               var selectNW = {lat: -1000000, lng: 1000000};
               var selectNE = {lat: -1000000, lng: -1000000};
               var selectSW = {lat: 1000000, lng: 1000000};

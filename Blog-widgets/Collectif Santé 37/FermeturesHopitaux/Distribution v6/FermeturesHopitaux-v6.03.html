@@ -26,8 +26,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 
 <!-- multi selection sur les colonnes de la table d'après https://github.com/vedmack/yadcf -->
-  <!--link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" /-->
-  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script>
 
 <!-- ressources communes à tous les blogs... -->
   <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
@@ -1402,7 +1402,7 @@ $.fn.mapAllBlogs = function() {
       var map_invalidateSize = runMap(indexEvent);
 
       var menuLegend = -1;
-      var indexEventTable, myTable, initSearchTable;
+      var indexEventTable, myTable, initSearchTable, isSearchBuilder = false;
       var tableFilterOn = false;
       function runMap(indexEvent) {
 
@@ -2990,6 +2990,7 @@ markers.on('clusterclick', function(a){
             //$('#table').css('display', 'block')
 $('.dt-button.searchBT').on('click', function() {
     if (typeof initSearchTable == 'undefined') initSearchTable = myTable.searchBuilder.getDetails();
+    isSearchBuilder = true;
 })
           }
 
@@ -3021,9 +3022,10 @@ $('.dt-button.searchBT').on('click', function() {
           var properties = options.tableData.properties;
           for (var i = 0; i < properties.length; i++) {
             if (jQuery.type(properties[i]['name']) === 'string') {
-              if (jQuery.type(properties[i]['title']) === 'string') {    
+              if (jQuery.type(properties[i]['title']) === 'string') {
                 var title = properties[i]['title'];
-              } else {
+              }
+              else {
                 var title = properties[i]['name'];
               }
               columns.push({
@@ -3032,7 +3034,7 @@ $('.dt-button.searchBT').on('click', function() {
                 defaultContent: '',
                 //selectable: false
               });
-              /*if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+              if (jQuery.type(properties[i]['filter']) !== 'undefined') {
                 var item = {};
                 if (properties[i]['filter'] == 'selection') {
                   item['column_number'] = i;
@@ -3066,32 +3068,34 @@ $('.dt-button.searchBT').on('click', function() {
                     item['filter_type'] = 'custom_func';
                     Filters[properties[i]['filter']] = options.tableData['filters'][properties[i]['filter']];
                     item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
-                    if(myFilter(filterVal, columnVal, rowValues, stateVal)) {
-                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
-                    } else {
-                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
-                    }
-                    for (var i = 0; i < indexEventTable.length; i++) {
-                      if (indexEventTable[i]["id"] === stateVal["id"]) {
-                        indexEventTable[i]["selected"] = myFilterValue;
-                        $('.dt-button.reinitBT').css('visibility', 'visible');
-                        tableFilterOn = true;
+                      var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
+                      if (myFilter(filterVal, columnVal, rowValues, stateVal)) {
+                        var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                       }
-                    }
-                    return myFilterValue;
+                      else {
+                        var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                      }
+                      for (var i = 0; i < indexEventTable.length; i++) {
+                        if (indexEventTable[i]["id"] === stateVal["id"]) {
+                          indexEventTable[i]["selected"] = myFilterValue;
+                          $('.dt-button.reinitBT').css('visibility', 'visible');
+                          tableFilterOn = true;
+                        }
+                      }
+                      return myFilterValue;
                     };
                     item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
                   }
-                } else {
-                    item['column_number'] = i;
-                    item['select_type'] = "chosen";
+                }
+                else {
+                  item['column_number'] = i;
+                  item['select_type'] = "chosen";
                 }
                 if (jQuery.type(item) !== 'undefined') {
                   item['defaultContent'] = '';
                   tableColums.push(item);
                 }
-              };*/
+              };
             }
           };
         }
@@ -3121,34 +3125,33 @@ $('.dt-button.searchBT').on('click', function() {
         var initComplete = function() {
           //New datatable API (capital "D")
           var myTable = $(this).DataTable();
-          //yadcf.init(myTable, tableColums);
+          yadcf.init(myTable, tableColums);
           //$("#table_length label select").appendTo("#table_length label");
           $("#table_length label select").appendTo("#table_length");
           $("#table_length label").text("Nb. d'éléments affichés");
-          if ( tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
-          else {
-            //myTable.searchBuilder.rebuild(initSearchTable);
-            $('.dt-button.reinitBT').css('visibility', 'hidden');
-          }
           $('.dt-button.helpBT').css('display', 'none');
           myTable.on('draw', function() {
-            var filerRows = myTable.rows({
-              search: 'applied'
-            }).data();
-            if (indexEventTable.length !== filerRows.length) {
-              for (var i = 0; i < indexEventTable.length; i++) indexEventTable[i]["selected"] = false;
-              filerRows.each(function(value, index) {
-                //console.log(value, index);
-                for (var i = 0; i < indexEventTable.length; i++) {
-                  if (indexEventTable[i]["id"] === value["id"]) {
-                    indexEventTable[i]["selected"] = true;
-                    $('.dt-button.reinitBT').css('visibility', 'visible');
-                    tableFilterOn = true;
+            if (isSearchBuilder) {
+              var filerRows = myTable.rows({
+                search: 'applied'
+              }).data();
+              tableFilterOn = false;
+              if (indexEventTable.length !== filerRows.length) {
+                for (var i = 0; i < indexEventTable.length; i++) indexEventTable[i]["selected"] = false;
+                filerRows.each(function(value, index) {
+                  for (var i = 0; i < indexEventTable.length; i++) {
+                    if (indexEventTable[i]["id"] === value["id"]) {
+                      indexEventTable[i]["selected"] = true;
+                      $('.dt-button.reinitBT').css('visibility', 'visible');
+                      tableFilterOn = true;
+                    }
                   }
-                }
-              });
-            };
+                });
+              };
+            }
           });
+          if ( tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
+          else $('.dt-button.reinitBT').css('visibility', 'hidden');
 
           var properties = options.tableData.properties;
           for (var i = 0; i < properties.length; i++) {
@@ -3167,22 +3170,22 @@ $('.dt-button.searchBT').on('click', function() {
 
         tableFilterOn = false;
         if (initSearch && jQuery.type(myTable) !== 'undefined') {
-          tableFilterOn = false;
-                myTable.searchBuilder.rebuild(initSearchTable);
-                for (var i = 0; i < indexEventTable.length; i++) {
-                  if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
-                    if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
-                      indexEventTable[i]["selected"] = true;
-                    }
-                    else {
-                      indexEventTable[i]["selected"] = false;
-                    }
-                  }
-                  else {
-                    indexEventTable[i]["selected"] = true;
-                  }
-                }
-        }        myTable = $('#table').DataTable({
+          myTable.searchBuilder.rebuild(initSearchTable);
+          for (var i = 0; i < indexEventTable.length; i++) {
+            if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
+              if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
+                indexEventTable[i]["selected"] = true;
+              }
+              else {
+                indexEventTable[i]["selected"] = false;
+              }
+            }
+            else {
+              indexEventTable[i]["selected"] = true;
+            }
+          }
+        }        
+        myTable = $('#table').DataTable({
           destroy: true,
           data: indexEventTable,
           "language": {
@@ -3285,16 +3288,18 @@ $('.dt-button.searchBT').on('click', function() {
                     indexEventTable[i]["selected"] = true;
                   }
                 }
-                /*yadcf.exResetAllFilters(dt);
-                for (var i = 0; i < properties.length; i++) {
-                  if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-                    if (properties[i]['filter'] == 'selection') {
-                      yadcf.exFilterColumn(dt, [
-                        [i, "Sélectionnez"]
-                      ]);
+                if (isSearchBuilder == false) {
+                  yadcf.exResetAllFilters(dt);
+                  for (var i = 0; i < properties.length; i++) {
+                    if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+                      if (properties[i]['filter'] == 'selection') {
+                        yadcf.exFilterColumn(dt, [
+                          [i, "Sélectionnez"]
+                        ]);
+                      }
                     }
                   }
-                }*/
+                }
                 tableFilterOn = false;
                 $('.dt-button.reinitBT').css('visibility', 'hidden');
               }

@@ -3123,10 +3123,9 @@ $('.dt-button.searchBT').on('click', function() {
           }
         }
         var initComplete = function() {
-          //New datatable API (capital "D")
           var myTable = $(this).DataTable();
-          yadcf.init(myTable, tableColums);
-          //$("#table_length label select").appendTo("#table_length label");
+          $('#table_filter').css('visibility', 'hidden');
+          //yadcf.init(myTable, tableColums);
           $("#table_length label select").appendTo("#table_length");
           $("#table_length label").text("Nb. d'éléments affichés");
           $('.dt-button.helpBT').css('display', 'none');

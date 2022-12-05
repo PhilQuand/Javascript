@@ -1861,10 +1861,22 @@ markers.on('clusterclick', function(a){
               else if(totalEvents == 1) contentLegendHtml += totalEvents + ' élément';
               else if(totalEvents > 1) contentLegendHtml += totalEvents + ' éléments';
               if (tableFilterOn) {
-                var selectNW = {lat: -1000000, lng: 1000000};
-                var selectNE = {lat: -1000000, lng: -1000000};
-                var selectSW = {lat: 1000000, lng: 1000000};
-                var selectSE = {lat: 1000000, lng: -1000000};
+                var selectNW = {
+                  lat: -1000000,
+                  lng: 1000000
+                };
+                var selectNE = {
+                  lat: -1000000,
+                  lng: -1000000
+                };
+                var selectSW = {
+                  lat: 1000000,
+                  lng: 1000000
+                };
+                var selectSE = {
+                  lat: 1000000,
+                  lng: -1000000
+                };
                 for (var i = 0; i < indexEvent.length; i++) {
                   if (indexEvent[i]["selected"]) {
                     if (selectNW.lat < indexEventTable[i]["lat"]) selectNW.lat = indexEventTable[i]["lat"];
@@ -1880,19 +1892,18 @@ markers.on('clusterclick', function(a){
                     }
                   }
                 }
-               if (selectNW.lat !== selectSW.lat && selectNW.lng !== selectNE.lng && selectNW.lat !== -1000000 && isInMet(selectNW) && isInMet(selectNE) && isInMet(selectSW) && isInMet(selectSE)) {
-                boundsSetDefaultMapView = [
-                  [selectNW.lat, selectNW.lng],
-                  [selectNE.lat, selectNE.lng],
-                  [selectSE.lat, selectSE.lng],
-                  [selectSW.lat, selectSW.lng],
-                ]
-                map.fitBounds(boundsSetDefaultMapView);
+                if (selectNW.lat !== selectSW.lat && selectNW.lng !== selectNE.lng && selectNW.lat !== -1000000 && isInMet(selectNW) && isInMet(selectNE) && isInMet(selectSW) && isInMet(selectSE)) {
+                  boundsSetDefaultMapView = [
+                    [selectNW.lat, selectNW.lng],
+                    [selectNE.lat, selectNE.lng],
+                    [selectSE.lat, selectSE.lng],
+                    [selectSW.lat, selectSW.lng],
+                  ]
+                  //map.fitBounds(boundsSetDefaultMapView);
                 }
-               else setDefaultMapView();
-               //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
+                //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
               }
-              else setDefaultMapView();
+              setDefaultMapView();
               contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
             }
             for (var k = 0; k < iconMarkersLength; k++) {
@@ -1910,10 +1921,22 @@ markers.on('clusterclick', function(a){
             if( contentLegendHtml == '' ) contentLegendHtml = "aucun élément"
             if (legendTitle == '' && tableFilterOn) {
               //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
-              var selectNW = {lat: -1000000, lng: 1000000};
-              var selectNE = {lat: -1000000, lng: -1000000};
-              var selectSW = {lat: 1000000, lng: 1000000};
-              var selectSE = {lat: 1000000, lng: -1000000};
+              var selectNW = {
+                lat: -1000000,
+                lng: 1000000
+              };
+              var selectNE = {
+                lat: -1000000,
+                lng: -1000000
+              };
+              var selectSW = {
+                lat: 1000000,
+                lng: 1000000
+              };
+              var selectSE = {
+                lat: 1000000,
+                lng: -1000000
+              };
               for (var i = 0; i < indexEvent.length; i++) {
                 if (indexEvent[i]["selected"]) {
                   if (selectNW.lat < indexEventTable[i]["lat"]) selectNW.lat = indexEventTable[i]["lat"];
@@ -1936,11 +1959,10 @@ markers.on('clusterclick', function(a){
                   [selectSE.lat, selectSE.lng],
                   [selectSW.lat, selectSW.lng],
                 ]
-                map.fitBounds(boundsSetDefaultMapView);
+                //map.fitBounds(boundsSetDefaultMapView);
               }
-              else setDefaultMapView();
             }
-            else setDefaultMapView();
+            setDefaultMapView();
             function isInMet(selectPoint) {
               if(selectPoint.lat > 40 && selectPoint.lat < 50 && selectPoint.lng > -10 && selectPoint.lng < 10) return true;
               else return false;
@@ -2957,6 +2979,7 @@ markers.on('clusterclick', function(a){
 
         };
         var map_invalidateSize = function() {
+          updateTableFilterOn();
           map.invalidateSize();
           $('.leaflet-control-layers-overlays .leaflet-control-layers-selector').trigger('click')
           $('.leaflet-control-layers-overlays .leaflet-control-layers-selector').trigger('click')
@@ -3003,16 +3026,33 @@ $('.dt-button.searchBT').on('click', function() {
             //$('.dt-button.reinitBT').css('visibility', 'hidden')
           }
           $('#infoMap-wrapper').prepend('<a href="#fancy-box-dataAide-1"><button type="button" class="styled helpBT" id="btAide">Aide</button></a>');
-          /*$('#btAide').click(function(e) {
-            $.fancybox.open({
-              src: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/FermeturesHopitaux/Distributions%20v5/Doc%20version%205.06.html',
-              type: 'iframe',
-              //modal: true
-            });
-          });*/          
-          //runTable();
         }
       };
+      
+      function updateTableFilterOn() {
+        var filerRows = myTable.rows({
+          search: 'applied'
+        }).data();
+        if (indexEventTable.length !== filerRows.length) {
+          tableFilterOn = true;
+          for (var i = 0; i < indexEventTable.length; i++) indexEventTable[i]["selected"] = false;
+          filerRows.each(function(value, index) {
+            for (var i = 0; i < indexEventTable.length; i++) {
+              if (indexEventTable[i]["id"] === value["id"]) {
+                indexEventTable[i]["selected"] = true;
+                $('.dt-button.reinitBT').css('visibility', 'visible');
+                tableFilterOn = true;
+              }
+            }
+          });
+
+        }
+        else {
+          tableFilterOn = false;
+          for (var i = 0; i < indexEventTable.length; i++) indexEventTable[i]["selected"] = true;
+          $('.dt-button.reinitBT').css('visibility', 'hidden');
+        }
+      }
       function runTable(initSearch) {
 
         var tableColums = [];
@@ -3051,13 +3091,13 @@ $('.dt-button.searchBT').on('click', function() {
                     else {
                       var myFilter = false;
                     };
-                    for (var i = 0; i < indexEventTable.length; i++) {
+                    /*for (var i = 0; i < indexEventTable.length; i++) {
                       if (indexEventTable[i]["id"] === stateVal["id"]) {
                         indexEventTable[i]["selected"] = myFilter;
                         $('.dt-button.reinitBT').css('visibility', 'visible');
                         tableFilterOn = true;
                       }
-                    }
+                    }*/
                     return myFilter;
                   };
                 }
@@ -3075,13 +3115,13 @@ $('.dt-button.searchBT').on('click', function() {
                       else {
                         var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                       }
-                      for (var i = 0; i < indexEventTable.length; i++) {
+                      /*for (var i = 0; i < indexEventTable.length; i++) {
                         if (indexEventTable[i]["id"] === stateVal["id"]) {
                           indexEventTable[i]["selected"] = myFilterValue;
                           $('.dt-button.reinitBT').css('visibility', 'visible');
                           tableFilterOn = true;
                         }
-                      }
+                      }*/
                       return myFilterValue;
                     };
                     item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
@@ -3129,22 +3169,20 @@ $('.dt-button.searchBT').on('click', function() {
           $("#table_length label select").appendTo("#table_length");
           $("#table_length label").text("Nb. d'éléments affichés");
           $('.dt-button.helpBT').css('display', 'none');
-          myTable.search('').draw()
-          //myTable.search('');
-          //myTable.searchBuilder.rebuild(initSearchTable);
+          //myTable.search('').draw()
+          myTable.search('');
           myTable.on('draw', function() {
             var filerRows = myTable.rows({
               search: 'applied'
             }).data();
             if (indexEventTable.length !== filerRows.length) {
               tableFilterOn = true;
+              $('.dt-button.reinitBT').css('visibility', 'visible');
               for (var i = 0; i < indexEventTable.length; i++) indexEventTable[i]["selected"] = false;
               filerRows.each(function(value, index) {
                 for (var i = 0; i < indexEventTable.length; i++) {
                   if (indexEventTable[i]["id"] === value["id"]) {
                     indexEventTable[i]["selected"] = true;
-                    $('.dt-button.reinitBT').css('visibility', 'visible');
-                    tableFilterOn = true;
                   }
                 }
               });
@@ -3152,6 +3190,7 @@ $('.dt-button.searchBT').on('click', function() {
             }
             else {
               tableFilterOn = false;
+              $('.dt-button.reinitBT').css('visibility', 'hidden');
               for (var i = 0; i < indexEventTable.length; i++) indexEventTable[i]["selected"] = true;
             }
           });
@@ -3181,6 +3220,7 @@ $('.dt-button.searchBT').on('click', function() {
           myTable.search('');
           myTable.searchBuilder.rebuild(initSearchTable);
         }*/        
+        if (jQuery.type(myTable) !== 'undefined') myTable.searchBuilder.rebuild(initSearchTable);
         myTable = $('#table').DataTable({
           destroy: true,
           data: indexEventTable,
@@ -3284,24 +3324,24 @@ $('.dt-button.searchBT').on('click', function() {
                     indexEventTable[i]["selected"] = true;
                   }
                 }
-                //if (isSearchBuilder == false) {
-                  yadcf.exResetAllFilters(dt);
-                  for (var i = 0; i < properties.length; i++) {
-                    if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-                      if (properties[i]['filter'] == 'selection') {
-                        yadcf.exFilterColumn(dt, [
-                          [i, "Sélectionnez"]
-                        ]);
-                      }
+                if (jQuery.type(myTable) !== 'undefined') myTable.searchBuilder.rebuild(initSearchTable);
+                yadcf.exResetAllFilters(dt);
+                for (var i = 0; i < properties.length; i++) {
+                  if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+                    if (properties[i]['filter'] == 'selection') {
+                      yadcf.exFilterColumn(dt, [
+                        [i, "Sélectionnez"]
+                      ]);
                     }
                   }
-                //}
+                }
                 tableFilterOn = false;
                 $('.dt-button.reinitBT').css('visibility', 'hidden');
               }
             },          
           ],
         });
+        myTable.searchBuilder.getDetails();
       };
     };
   }
@@ -3312,11 +3352,11 @@ $('.dt-button.searchBT').on('click', function() {
 <div class="divImg" style="max-width: 250px;"><!--a style="cursor: grab; " data-fancybox="" data-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgr9grwU7XPYFq9QKFR5wm1TV_ILJdIA46qY8UVi9b2Bj3pnbmVRailRazSKVXvbgscZGRCdp7UFjXBl5xDNpbfCZgEPfR3UH2paHLvrKMsDF9BHxyhK-J5CfaGxTgzVRGy4j7XEgXqqB5maguzgUupl0d4FjqtE_A5_QOQJQ3lwLA-uYcp59ZPSGoDFg/s1600/France%203%20Capture%20d%27e%3Fcran.png" /-->
 <img src="https://1.bp.blogspot.com/-5one8y9NJ90/YBXHCXEmcoI/AAAAAAAAoDI/3MZAUOI27Rc93YhvkIFa1vImvOBcP4DTACLcBGAsYHQ/s0/reforme-hopital-public.jpg" /><!--/a--> <!--center style="color: blue; font-style: italic">Pau se dote de trambus à Hydrogène</center-->
 </div></div>
+<div style="display:none">
 <p><strong>Suppressions - Destructions - Réductions d'hôpitaux et de services, surtout publics</strong></p>
 <p>Première publication juin 2009 - Mise à jour 02/12/2021</p>
 <p><strong>ATTENTION - Données fournies par nos comités et contacts. </strong></p>
 <p><strong>Nous attendons vos compléments ou modifications, des erreurs et oublis sont évidemment possibles, merci à toutes et tous</strong></p>
-<div style="display:none">
 <ul>
 <li><strong>Établissements de santé</strong> entre 2007 et 2008 (DGOS) : <br />- public : perte de 8 Centres hospitaliers (519 à 511) et 9 hôpitaux locaux (343 à 334)<br />- privé lucratif : perte de 8 établissements (1055 à 1047)<br />- privé non lucratif : perte de 38 établissements (792 à 754)</li>
 </ul>

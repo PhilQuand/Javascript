@@ -294,7 +294,7 @@ $.fn.mapAllBlogs = function() {
       title: 'Étab. renseignés',
       test: function(){},
       affect: function(data) {
-          if ( isOKString(data['suppressions']) || isOKString(data['menaces']) || isOKString(data['victoires']) ) {
+          if ( isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES']) || isOKString(data['victoire']) ) {
             return 0;
           }
           return 1;

@@ -292,13 +292,15 @@ $.fn.mapAllBlogs = function() {
     },
     {
       title: 'Étab. renseignés',
-      test: function(){},
-      affect: function(data) {
-          if ( isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES']) || isOKString(data['victoire']) ) {
-            return 0;
-          }
-          return 1;
-          },
+      //test: function(){},
+      filter: {
+        func: function(data) {
+        if ( isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES']) || isOKString(data['victoire']) ) {
+          return 0;
+        }
+        return 1;
+        }
+      },
       icons: [
         {
           icon: {leaflet: new L.Icon({
@@ -1644,7 +1646,6 @@ $.fn.mapAllBlogs = function() {
                 }
               }
               runTable(true);
-             
             }
             var iconNum = refreshMarkers(refreshIndexEvent);
 
@@ -2832,10 +2833,6 @@ $.fn.mapAllBlogs = function() {
             //if(tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
             $('#star_filter').css('display', 'none');
             //$('#table').css('display', 'block')
-$('.dt-button.searchBT').on('click', function() {
-    if (typeof initSearchTable == 'undefined') initSearchTable = myTable.searchBuilder.getDetails();
-    isSearchBuilder = true;
-})
           }
 
           function btDataCarte(map_invalidateSize) {
@@ -2912,13 +2909,13 @@ $('.dt-button.searchBT').on('click', function() {
                     else {
                       var myFilter = false;
                     };
-                    /*for (var i = 0; i < indexEventTable.length; i++) {
+                    for (var i = 0; i < indexEventTable.length; i++) {
                       if (indexEventTable[i]["id"] === stateVal["id"]) {
                         indexEventTable[i]["selected"] = myFilter;
-                        $('.dt-button.reinitBT').css('visibility', 'visible');
-                        tableFilterOn = true;
+                        //$('.dt-button.reinitBT').css('visibility', 'visible');
+                        //tableFilterOn = true;
                       }
-                    }*/
+                    }
                     return myFilter;
                   };
                 }
@@ -2936,13 +2933,13 @@ $('.dt-button.searchBT').on('click', function() {
                       else {
                         var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                       }
-                      /*for (var i = 0; i < indexEventTable.length; i++) {
+                      for (var i = 0; i < indexEventTable.length; i++) {
                         if (indexEventTable[i]["id"] === stateVal["id"]) {
                           indexEventTable[i]["selected"] = myFilterValue;
-                          $('.dt-button.reinitBT').css('visibility', 'visible');
-                          tableFilterOn = true;
+                          //$('.dt-button.reinitBT').css('visibility', 'visible');
+                          //tableFilterOn = true;
                         }
-                      }*/
+                      }
                       return myFilterValue;
                     };
                     item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
@@ -3164,6 +3161,7 @@ $('.dt-button.searchBT').on('click', function() {
           ],
         });
         myTable.searchBuilder.getDetails();
+
       };
     };
   }

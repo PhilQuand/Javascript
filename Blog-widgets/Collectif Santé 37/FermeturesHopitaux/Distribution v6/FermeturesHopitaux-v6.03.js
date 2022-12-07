@@ -64,7 +64,7 @@ $.fn.mapAllBlogs = function() {
     popupData : {
       title: 'nom_hopital',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
-      hidden: ['id', 'nom_hopital', 'insee_com', 'département', 'région', 'departement', 'code_region','selected'],
+      hidden: ['id', 'nom_hopital', 'insee_com', 'département', 'région', 'departement', 'suppressions', 'menaces', 'victoires', 'code_region','selected'],
       label: [{
           value: 'nom_commune',
           label: 'commune'

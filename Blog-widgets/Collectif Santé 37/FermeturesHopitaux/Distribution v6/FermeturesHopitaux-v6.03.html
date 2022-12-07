@@ -488,7 +488,7 @@ $.fn.mapAllBlogs = function() {
       //test: function(){},
       filter: {
         func: function(data) {
-        if ( isOKString(data['SUPPRESSIONS']) || isOKString(data['MENACES']) || isOKString(data['victoire']) ) {
+        if ( isOKString(data['suppressions_mef']) || isOKString(data['menaces_mef']) || isOKString(data['victoires_mef']) ) {
           return 0;
         }
         return 1;
@@ -3096,6 +3096,9 @@ $.fn.mapAllBlogs = function() {
                   item['filter_reset_button_text'] = false;
                   item['filter_type'] = 'custom_func';
                   item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                    /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
+                      console.log('test...');
+                    }*/
                     if (columnVal === filterVal || "Sélectionnez" === filterVal) {
                       var myFilter = true;
                     }
@@ -3105,8 +3108,6 @@ $.fn.mapAllBlogs = function() {
                     for (var i = 0; i < indexEventTable.length; i++) {
                       if (indexEventTable[i]["id"] === stateVal["id"]) {
                         indexEventTable[i]["selected"] = myFilter;
-                        //$('.dt-button.reinitBT').css('visibility', 'visible');
-                        //tableFilterOn = true;
                       }
                     }
                     return myFilter;
@@ -3119,21 +3120,18 @@ $.fn.mapAllBlogs = function() {
                     item['filter_type'] = 'custom_func';
                     Filters[properties[i]['filter']] = options.tableData['filters'][properties[i]['filter']];
                     item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                      var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
-                      if (myFilter(filterVal, columnVal, rowValues, stateVal)) {
-                        var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
+                    if(myFilter(filterVal, columnVal, rowValues, stateVal)) {
+                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    } else {
+                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    }
+                    for (var i = 0; i < indexEventTable.length; i++) {
+                      if (indexEventTable[i]["id"] === stateVal["id"]) {
+                        indexEventTable[i]["selected"] = myFilterValue;
                       }
-                      else {
-                        var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
-                      }
-                      for (var i = 0; i < indexEventTable.length; i++) {
-                        if (indexEventTable[i]["id"] === stateVal["id"]) {
-                          indexEventTable[i]["selected"] = myFilterValue;
-                          //$('.dt-button.reinitBT').css('visibility', 'visible');
-                          //tableFilterOn = true;
-                        }
-                      }
-                      return myFilterValue;
+                    }
+                    return myFilterValue;
                     };
                     item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
                   }

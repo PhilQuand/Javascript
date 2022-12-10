@@ -5,8 +5,10 @@
 <link href='https://philquand.github.io/Javascript/FloatingShareBar/css/jquery-social-share-bar.css' rel='stylesheet' type='text/css'/>
 <script src='https://philquand.github.io/Javascript/FloatingShareBar/js/jquery-social-share-bar.js' type='text/javascript'></script>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+<!--link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script-->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" rel="stylesheet" type="text/css" />
 
 <link rel="stylesheet" type="text/css" href="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/css/tooltipster.bundle.min.css" />
 <script type="text/javascript" src="https://philquand.github.io/Javascript/PopUps/tooltipster-master/dist/js/tooltipster.bundle.min.js"></script>

@@ -344,13 +344,13 @@ $.fn.mapAllBlogs = function() {
         func: (filterVal, columnVal, rowValues, stateVal) => {
           switch (filterVal) {
             case '0: sans valeur':
-              if (columnVal === '') {
+              if (columnVal === '' && columnVal !== ' ') {
                 return true;
               }
               else return false;
               break;
             default:
-              if (columnVal !== '') {
+              if (columnVal !== '' && columnVal !== ' ') {
                 return true;
               }
               else return false;

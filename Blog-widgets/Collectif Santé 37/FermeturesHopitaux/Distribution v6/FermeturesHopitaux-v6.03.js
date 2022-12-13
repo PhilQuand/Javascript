@@ -1312,6 +1312,9 @@ $.fn.mapAllBlogs = function() {
       console.log('achieved');
       
       loading.css('display', 'none');
+      var regLiLi = new RegExp('<li></li>', 'g')
+      var regLiST = new RegExp('<li> * ', 'g')
+      var regTiMi = new RegExp(' - <i>', 'g')
       for (var i = 0; i < indexEvent.length; i++) {
         if (jQuery.type(options['brChar']) !== 'undefined') {
           for (var prop in indexEvent[i]) {
@@ -1324,11 +1327,11 @@ $.fn.mapAllBlogs = function() {
                   propVal = propVal.replace(regForBR, "</li><li>");
                   if (propVal.indexOf('</li><li>') > -1) {
                     propVal = '<ul class="popListe"><li>' + propVal + '</li></ul>'
-                    propVal = propVal.replace("<li></li>", "");
+                    propVal = propVal.replace(regLiLi, '');
                   }
                 }
               }
-              propVal = propVal.replace('<li> * ', '<li>* ');
+              propVal = propVal.replace(regLiST, '<li>* ');
               if (propVal.indexOf('<li>* ') > -1) {
                 var propValn1 = propVal.split('<li>* ')
                 if (propValn1.length > 1) {
@@ -1339,7 +1342,7 @@ $.fn.mapAllBlogs = function() {
                   }
                 }
               }
-              propVal = propVal.replace(' - <i>', '<br><i>');
+              propVal = propVal.replace(regTiMi, '<br><i>');
               indexEvent[i][prop] = propVal;
             }
           }

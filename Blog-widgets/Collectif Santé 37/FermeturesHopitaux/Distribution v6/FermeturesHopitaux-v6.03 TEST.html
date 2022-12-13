@@ -149,7 +149,7 @@ $.fn.mapAllBlogs = function() {
     },
     fondCarte : 'IGN',
     maxClusterRadius : 5,
-    brChar: ["\r\n","<br>"],
+    brChar: "\r\n",
     popupData : {
       title: 'nom_hopital',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
@@ -1401,36 +1401,34 @@ $.fn.mapAllBlogs = function() {
       console.log('achieved');
       
       loading.css('display', 'none');
+      if (jQuery.type(options['brChar']) !== 'undefined') var regForBR = new RegExp(options['brChar'], 'g')
       for (var i = 0; i < indexEvent.length; i++) {
         if (jQuery.type(options['brChar']) !== 'undefined') {
           for (var prop in indexEvent[i]) {
             var propVal = indexEvent[i][prop];
-            if (typeof propVal === 'string' && propVal !== '' && propVal !== ' ') {
-              for (var j = 0; j < options['brChar'].length; j++) {
-                var brChar = options['brChar'][j];
-                if (propVal.indexOf(brChar) > -1) {
-                  var regForBR = new RegExp(brChar, 'g')
-                  propVal = propVal.replace(regForBR, "</li><li>");
-                  if (propVal.indexOf('</li><li>') > -1) {
-                    propVal = '<ul class="popListe"><li>' + propVal + '</li></ul>'
-                    propVal = propVal.replace("<li></li>", "");
-                  }
+            if (typeof propVal === 'string') {
+              var propValn1 = propVal.split(regForBR);
+              if(propValn1.length > 0 ) {
+                propVal = ''
+                for (var i = 0; i < propValn1.length; i++) {
+                  /*var myList = false;
+                  if(indexOf(propVal[i],"* ") == 0) {
+                    if(!myList) propVal[i] = '<ol class="popListeNum">' + propVal[i];
+                    propVal[i] = "<li>" + propVal[i] + "</li>";
+                    myList = true;
+                  } else if(myList) {
+                    propVal[i] =  propVal[i] + "</ol>";
+                    myList = false;
+                  }*/
+                  if(propValn1[i] !== '' & propValn1[i] !== ' ') propVal += "<li>" + propValn1[i] + "</li>"
                 }
               }
-              propVal = propVal.replace('<li> * ', '<li>* ');
-              if (propVal.indexOf('<li>* ') > -1) {
-                var propValn1 = propVal.split('<li>* ')
-                if (propValn1.length > 1) {
-                  propVal = propValn1[0] + '<ol class="popListeNum">'
-                  propValn1[propValn1.length - 1] = propValn1[propValn1.length - 1].replace('</li>', '</li></ol>')
-                  for (var j = 1; j < propValn1.length; j++) {
-                    propVal = propVal + '<li>' + propValn1[j]
-                  }
-                }
+              if (propVal.indexOf('</li><li>') > -1) {
+                propVal = '<ul class="popListe"><li>' + propVal + '</li></ul>'
+                propVal = propVal.replace("<li></li>", "");
               }
-              propVal = propVal.replace(' - <i>', '<br><i>');
-              indexEvent[i][prop] = propVal;
             }
+            indexEvent[i][prop] = propVal;
           }
         }
         if (jQuery.type(options['legend']) !== 'undefined' && jQuery.type(options['legend'][0].filter) !== 'undefined' && jQuery.type(options['legend'][0].filter.func) !== 'undefined') {

@@ -1436,7 +1436,7 @@ $.fn.mapAllBlogs = function() {
              if(jQuery.type(label[item]) === 'string') {
                 itemLabel = label[item];
               }
-              if (typeof data[item] !== 'undefined' && data[item] != '' && data[item] != null && data[item] != 'NULL') popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><div>' + data[item] + '</div></div>');
+              if (typeof data[item] !== 'undefined' && data[item] != '' && data[item] != ' ' && data[item] != null && data[item] != 'NULL') popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><div>' + data[item] + '</div></div>');
             }
           return popupContent.html();
         }

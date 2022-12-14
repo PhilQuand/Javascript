@@ -1562,8 +1562,8 @@ $.fn.mapAllBlogs = function() {
             this.unbindTooltip();
             var myPopup = this.getPopup();
             var myPopupContent = myPopup.getContent();
-            var myPopupShortContent = $(myPopupContent).find('.popLieux').text();            
-            if(!this.isPopupOpen()) this.bindTooltip(myPopupShortContent).openTooltip();
+            var myPopupShortContent = $(myPopupContent).find('.popLieux');            
+            if(!this.isPopupOpen()) this.bindTooltip('<div class="popLieux" style="background-color: ' + myPopupShortContent.css('background-color') + '; color: ' + myPopupShortContent.css('color') + ';">' + myPopupShortContent.text() + '</div>').openTooltip();
           });
           marker.on('click', function (e) {
             this.unbindTooltip();

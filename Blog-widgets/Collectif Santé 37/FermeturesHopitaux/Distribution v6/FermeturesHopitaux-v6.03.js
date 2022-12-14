@@ -1558,6 +1558,16 @@ $.fn.mapAllBlogs = function() {
           marker.getPopup().on('remove', function() {
             setCallBack();
           });
+          marker.on('mouseover', function (e) {
+            this.unbindTooltip();
+            var myPopup = this.getPopup();
+            var myPopupContent = myPopup.getContent();
+            var myPopupShortContent = $(myPopupContent).find('.popLieux').text();            
+            if(!this.isPopupOpen()) this.bindTooltip(myPopupShortContent).openTooltip();
+          });
+          marker.on('click', function (e) {
+            this.unbindTooltip();
+          });
           return marker;
         }
 

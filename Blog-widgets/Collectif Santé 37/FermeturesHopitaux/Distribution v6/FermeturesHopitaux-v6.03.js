@@ -1569,9 +1569,9 @@ $.fn.mapAllBlogs = function() {
 
           //zoomRemove(map);
           map.options.minZoom = 6;
-          map.options.maxZoom = 8;
+          //map.options.maxZoom = 8;
           //map.options.minZoom = 5;
-          //map.options.maxZoom = 12;
+          map.options.maxZoom = 11;
           map.scrollWheelZoom.disable();
 
           setDefaultMapView();

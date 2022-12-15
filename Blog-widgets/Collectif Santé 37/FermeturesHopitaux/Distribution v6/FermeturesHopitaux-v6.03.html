@@ -154,7 +154,7 @@ $.fn.mapAllBlogs = function() {
       title: 'nom_hopital',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
       hidden: ['id', 'nom_hopital', 'insee_com', 'département', 'région', 'departement', 'code_region','selected'],
-      label: [{
+      label: [/*{
           value: 'nom_hopital',
           label: 'établissement',
           filter: 'selection'
@@ -220,7 +220,7 @@ $.fn.mapAllBlogs = function() {
           value: 'menaces_mef',
           label: 'services menacés',
           filter: 1,
-          min_width: '250px'
+          min_width: '350px'
         }, {
           value: 'victoires_mef',
           label: 'victoires de services',
@@ -261,7 +261,7 @@ $.fn.mapAllBlogs = function() {
           label: 'information',
           filter: 0,
           min_width: '250px'
-        }
+        }*/
       ],
     },
     tableData: {
@@ -1449,19 +1449,25 @@ $.fn.mapAllBlogs = function() {
       console.log('achieved');
       
       loading.css('display', 'none');
+      options['popupData']['hidden'] = options['popupData']['hidden'].concat(["lat", "lng", "iconMarker"]);
       var regLiLi = new RegExp('<li></li>', 'g');
       var regLiST = new RegExp('<li> * ', 'g');
       var regTiMi = new RegExp(' - <i>', 'g');
-      var regForBRListe = {}, isEmptyProp = {};
+      var regForBRListe = {}, isAllProp = {};
       for (var i = 0; i < options['popupData']['label'].length; i++) {
         if(jQuery.type(options['popupData']['label'][i]['brCharListe']) !== 'undefined') regForBRListe[options['popupData']['label'][i]['value']] = options['popupData']['label'][i]['brCharListe'];
         else regForBRListe[options['popupData']['label'][i]['value']] = true;
-        isEmptyProp[options['popupData']['label'][i]['value']] = true;
+        isAllProp[options['popupData']['label'][i]['value']] = [];
+        for (var prop in options['popupData']['label'][i]) if(prop != 'value') isAllProp[options['popupData']['label'][i]['value']][prop] = options['popupData']['label'][i][prop]
+        isAllProp[options['popupData']['label'][i]['value']]['isEmpty'] = true;
       }
       for (var i = 0; i < indexEvent.length; i++) {     
         for (var prop in indexEvent[i]) {
           var propVal = indexEvent[i][prop];
-          if (typeof propVal !== 'undefined' && propVal !== '' && propVal !== ' ') isEmptyProp[prop] = false;
+          if (typeof propVal !== 'undefined' && propVal !== '' && propVal !== ' ') {
+            if(typeof isAllProp[prop] !== 'undefined') isAllProp[prop]['isEmpty'] = false;
+            else isAllProp[prop] = {isEmpty: false}
+          }
         }
         if (jQuery.type(options['brChar']) !== 'undefined') {
           for (var prop in indexEvent[i]) {
@@ -1506,6 +1512,15 @@ $.fn.mapAllBlogs = function() {
         else {
           indexEvent[i]["selected"] = true;
         }
+      }
+      for (var prop in isAllProp) {
+        //if(jQuery.type(isAllProp[prop]['value']) === 'undefined') isAllProp[prop]['value'] = prop;
+        if (options['popupData']['title'] !== prop) {
+               for (var i = 0; i < options['popupData']['hidden'].length; i++) {
+            if (options['popupData']['hidden'][i] === prop) isAllProp[prop]['isEmpty'] = true;
+          }
+        }
+        if (jQuery.type(isAllProp[prop]['filter']) === 'undefined') isAllProp[prop]['filter'] = 0;
       }
       var map_invalidateSize = runMap(indexEvent);
 
@@ -1580,9 +1595,6 @@ $.fn.mapAllBlogs = function() {
           else {
             var hidden = [];
             if (typeof options.popupData.hidden !== 'undefined') hidden = options.popupData.hidden;
-            //hidden = hidden.concat(["lat", "lng", "iconMarker", "LATITUDE", "LONGITUDE"]);
-            hidden = hidden.concat(["lat", "lng", "iconMarker"]);
-            //if (typeof options.popupData.title !== 'undefined' && typeof data[popupStruc.title] !== 'undefined') hidden.push([opupStrucData.title])
             var dataKeys = Object.getOwnPropertyNames(data)
             var properties = [];
             for (var i = 0; i < dataKeys.length; i++) {
@@ -3177,83 +3189,82 @@ $.fn.mapAllBlogs = function() {
         else var properties = options.popupData.label;
 
         var colNumber = 0;
-        for (var i = 0; i < properties.length; i++) {
-          if(isEmptyProp[properties[i]['value']]) continue;
-          if (jQuery.type(properties[i]['value']) === 'string') {
-            if (jQuery.type(properties[i]['label']) === 'string') {
-              var title = properties[i]['label'];
+        for (var prop in isAllProp) {
+          var myProperty = isAllProp[prop];
+          if (myProperty["isEmpty"]) continue;
+          if (jQuery.type(myProperty['label']) === 'string') {
+            var title = myProperty['label'];
+          }
+          else {
+            var title = prop;
+          }
+          columns.push({
+            data: prop,
+            title: title,
+            defaultContent: '',
+            //selectable: false
+          });
+          if (jQuery.type(myProperty['filter']) !== 'undefined') {
+            var item = {};
+            if (myProperty['filter'] == 'selection') {
+              item['column_number'] = colNumber;
+              item['omit_default_label'] = true;
+              item['data'] = ["Sélectionnez"];
+              item['append_data_to_table_data'] = "before";
+              item['filter_match_mode'] = "exact";
+              item['filter_reset_button_text'] = false;
+              item['filter_type'] = 'custom_func';
+              item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
+                  console.log('test...');
+                }*/
+                if (columnVal === filterVal || "Sélectionnez" === filterVal) {
+                  var myFilter = true;
+                }
+                else {
+                  var myFilter = false;
+                };
+                for (var i = 0; i < indexEventTable.length; i++) {
+                  if (indexEventTable[i]["id"] === stateVal["id"]) {
+                    indexEventTable[i]["selected"] = myFilter;
+                  }
+                }
+                return myFilter;
+              };
             }
-            else {
-              var title = properties[i]['value'];
-            }
-            columns.push({
-              data: properties[i]['value'],
-              title: title,
-              defaultContent: '',
-              //selectable: false
-            });
-            if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-              var item = {};
-              if (properties[i]['filter'] == 'selection') {
+            else if (jQuery.isNumeric(myProperty['filter']) && jQuery.isArray(options.tableData['filters']) && (myProperty['filter'] < options.tableData['filters'].length)) {
+              if (jQuery.isFunction(options.tableData['filters'][myProperty['filter']]['func']) && jQuery.isArray(options.tableData['filters'][myProperty['filter']]['data'])) {
                 item['column_number'] = colNumber;
-                item['omit_default_label'] = true;
-                item['data'] = ["Sélectionnez"];
-                item['append_data_to_table_data'] = "before";
-                item['filter_match_mode'] = "exact";
                 item['filter_reset_button_text'] = false;
                 item['filter_type'] = 'custom_func';
+                Filters[myProperty['filter']] = options.tableData['filters'][myProperty['filter']];
                 item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                  /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
-                    console.log('test...');
-                  }*/
-                  if (columnVal === filterVal || "Sélectionnez" === filterVal) {
-                    var myFilter = true;
+                  var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
+                  if (myFilter(filterVal, columnVal, rowValues, stateVal)) {
+                    var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                   }
                   else {
-                    var myFilter = false;
-                  };
+                    var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                  }
                   for (var i = 0; i < indexEventTable.length; i++) {
                     if (indexEventTable[i]["id"] === stateVal["id"]) {
-                      indexEventTable[i]["selected"] = myFilter;
+                      indexEventTable[i]["selected"] = myFilterValue;
                     }
                   }
-                  return myFilter;
+                  return myFilterValue;
                 };
+                item['data'] = options.tableData['filters'][myProperty['filter']]['data'];
               }
-              else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
-                if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
-                  item['column_number'] = colNumber;
-                  item['filter_reset_button_text'] = false;
-                  item['filter_type'] = 'custom_func';
-                  Filters[properties[i]['filter']] = options.tableData['filters'][properties[i]['filter']];
-                  item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
-                    if (myFilter(filterVal, columnVal, rowValues, stateVal)) {
-                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
-                    }
-                    else {
-                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
-                    }
-                    for (var i = 0; i < indexEventTable.length; i++) {
-                      if (indexEventTable[i]["id"] === stateVal["id"]) {
-                        indexEventTable[i]["selected"] = myFilterValue;
-                      }
-                    }
-                    return myFilterValue;
-                  };
-                  item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
-                }
-              }
-              else {
-                item['column_number'] = colNumber;
-                item['select_type'] = "chosen";
-              }
-              if (jQuery.type(item) !== 'undefined') {
-                item['defaultContent'] = '';
-                tableColums.push(item);
-              }
-            };
-          }
+            }
+            else {
+              item['column_number'] = colNumber;
+              item['select_type'] = "chosen";
+            }
+            if (jQuery.type(item) !== 'undefined') {
+              item['defaultContent'] = '';
+              tableColums.push(item);
+            }
+          };
           colNumber++
         };
         var initComplete = function() {
@@ -3293,17 +3304,17 @@ $.fn.mapAllBlogs = function() {
           if (tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
           else $('.dt-button.reinitBT').css('visibility', 'hidden');
 
-          if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') var properties = options.tableData.properties;
-          else var properties = options.popupData.label;
+          /*if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') var properties = options.tableData.properties;
+          else var properties = options.popupData.label;*/
 
-          for (var i = 0; i < properties.length; i++) {
-            var min_width = properties[i]['min_width']
-            if (jQuery.type(min_width) !== 'undefined' && jQuery.type(properties[i]['name']) === 'string') {
-              if (jQuery.type(properties[i]['title']) === 'string') {
-                var title = properties[i]['title'];
+          for (var prop in isAllProp) {
+            var min_width = isAllProp[prop]['min_width']
+            if (jQuery.type(min_width) !== 'undefined') {
+              if (jQuery.type(isAllProp[prop]['label']) === 'string') {
+                var title = isAllProp[prop]['label'];
               }
               else {
-                var title = properties[i]['name'];
+                var title = prop;
               }
               $('#table th:contains(' + title + ')').css('min-width', min_width);
             }

@@ -66,223 +66,176 @@ $.fn.mapAllBlogs = function() {
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
       hidden: ['id', 'nom_hopital', 'insee_com', 'département', 'région', 'departement', 'code_region','selected'],
       label: [{
-          value: 'nom_hopital',
-          label: 'établissement',
-          filter: 'selection'
-        }, {
           value: 'nom_commune',
-          label: 'commune',
-          filter: 'selection'
-        }, {
-          value: 'département',
-          filter: 'selection'
-        }, {
-          value: 'région',
-          filter: 'selection'
+          label: 'commune'
         }, {
           value: 'suppressions',
-          filter: 1,
-          min_width: '250px'
         }, {
           value: 'menaces',
-          filter: 1,
-          min_width: '250px'
         }, {
           value: 'postes',
-          filter: 0,
-          min_width: '250px'
         }, {
           value: 'victoires',
-          filter: 1,
-          min_width: '250px'
         }, {
           value: 'ght_nom',
-          label: 'nom du ght',
-          filter: 'selection'
+          label: 'nom du ght'
         }, {
           value: 'ghi_nom',
-          label: 'nom ghi',
-          filter: 'selection'
+          label: 'nom ghi'
         }, {
           value: 'type_etablissement',
-          label: 'type',
-          filter: 'selection'
+          label: 'type'
         }, {
           value: 'public_prive',
-          label: 'public/prive',
-          filter: 'selection'
+          label: 'public/prive'
         }, {
           value: 'text_fusion_groupe',
-          label: 'fusion',
-          brCharListe: false,
-          filter: 0,
-          min_width: '250px'
+          label: 'fusion'
         }, {
           value: 'effectif_total',
-          label: 'effectifs',
-          filter: 0,
-          min_width: '250px'
+          label: 'effectifs'
         }, {
           value: 'fermetures_mef',
-          label: 'fermetures de services',
-          filter: 1,
-          min_width: '250px'
+          label: 'fermetures de services'
         }, {
           value: 'menaces_mef',
-          label: 'services menacés',
-          filter: 1,
-          min_width: '250px'
+          label: 'services menacés'
         }, {
           value: 'victoires_mef',
-          label: 'victoires de services',
-          filter: 1,
-          min_width: '250px'
+          label: 'victoires de services'
         }, {
           value: 'nb_postes_vacants',
-          label: 'postes vacants',
-          filter: 0,
-          min_width: '250px'
+          label: 'postes vacants'
         }, {
           value: 'detail_besoin_effectif',
-          label: 'besoin en effectifs',
-          filter: 0,
-          min_width: '250px'
+          label: 'besoin en effectifs'
         }, {
           value: 'perte_lits',
-          label: 'perte de lits',
-          filter: 0,
-          min_width: '250px'
+          label: 'perte de lits'
         }, {
           value: 'an_ouverture',
-          label: 'ouverture',
-          filter: 0,
-          min_width: '250px'
+          label: 'ouverture'
         }, {
           value: 'an_ferm_site',
-          label: 'fermeture',
-          filter: 0,
-          min_width: '250px'
+          label: 'fermeture'
         }, {
           value: 'site_devenu',
-          label: 'transformation',
-          filter: 0,
-          min_width: '250px'
+          label: 'transformation'
         }, {
           value: 'site_devenu_lien_internet',
-          label: 'information',
-          filter: 0,
-          min_width: '250px'
+          label: 'information'
         }
       ],
     },
     tableData: {
-      /*properties: [{
-        value: 'nom_hopital',
-        label: 'établissement',
+      properties: [{
+        name: 'nom_hopital',
+        title: 'établissement',
         filter: 'selection'
       }, {
-        value: 'nom_commune',
-        label: 'commune',
+        name: 'nom_commune',
+        title: 'commune',
         filter: 'selection'
       }, {
-        value: 'département',
+        name: 'département',
         filter: 'selection'
       }, {
-        value: 'région',
+        name: 'région',
         filter: 'selection'
       }, {
-        value: 'suppressions',
+        name: 'suppressions',
         filter: 1,
         min_width: '250px'
       }, {
-        value: 'postes',
+        name: 'postes',
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'menaces',
+        name: 'menaces',
         filter: 1,
         min_width: '250px'
       }, {
-        value: 'victoires',
+        name: 'victoires',
         filter: 1,
         min_width: '250px'
       }, {
-        value: 'ght_nom',
-        label: 'nom du ght',
+        name: 'ght_nom',
+        title: 'nom du ght',
         filter: 'selection'
       }, {
-        value: 'ghi_nom',
-        label: 'nom ghi',
+        name: 'ghi_nom',
+        title: 'nom ghi',
         filter: 'selection'
       }, {
-        value: 'type_etablissement',
-        label: 'type',
+        name: 'type_etablissement',
+        title: 'type',
         filter: 'selection'
       }, {
-        value: 'public_prive',
-        label: 'public/prive',
+        name: 'public_prive',
+        title: 'public/prive',
         filter: 'selection'
       }, {
-        value: 'text_fusion_groupe',
-        label: 'fusion',
+        name: 'text_fusion_groupe',
+        title: 'fusion',
+        brCharListe: false,
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'fermetures_mef',
-        label: 'fermetures de services',
+        name: 'fermetures_mef',
+        title: 'fermetures de services',
         filter: 1,
         min_width: '250px'
       }, {
-        value: 'menaces_mef',
-        label: 'services menacés',
+        name: 'menaces_mef',
+        title: 'services menacés',
         filter: 1,
         min_width: '250px'
       }, {
-        value: 'victoires_mef',
-        label: 'victoires de services',
+        name: 'victoires_mef',
+        title: 'victoires de services',
         filter: 1,
         min_width: '250px'
       }, {
-        value: 'effectif_total',
-        label: 'effectifs',
+        name: 'effectif_total',
+        title: 'effectifs',
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'nb_postes_vacants',
-        label: 'postes vacants',
+        name: 'nb_postes_vacants',
+        title: 'postes vacants',
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'detail_besoin_effectif',
-        label: 'besoin en effectifs',
+        name: 'detail_besoin_effectif',
+        title: 'besoin en effectifs',
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'perte_lits',
-        label: 'perte de lits',
+        name: 'perte_lits',
+        title: 'perte de lits',
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'an_ouverture',
-        label: 'ouverture',
+        name: 'an_ouverture',
+        title: 'ouverture',
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'an_ferm_site',
-        label: 'fermeture',
+        name: 'an_ferm_site',
+        title: 'fermeture',
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'site_devenu',
-        label: 'transformation',
+        name: 'site_devenu',
+        title: 'transformation',
         filter: 0,
         min_width: '250px'
       }, {
-        value: 'site_devenu_lien_internet',
-        label: 'information',
+        name: 'site_devenu_lien_internet',
+        title: 'information',
         filter: 0,
         min_width: '250px'
-      }],*/
+      }],
       filters: [{
         //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
         data: [{
@@ -1360,37 +1313,28 @@ $.fn.mapAllBlogs = function() {
       console.log('achieved');
       
       loading.css('display', 'none');
-      var regLiLi = new RegExp('<li></li>', 'g');
-      var regLiST = new RegExp('<li> * ', 'g');
-      var regTiMi = new RegExp(' - <i>', 'g');
-      var regForBRListe = {}, isEmptyProp = {};
-      for (var i = 0; i < options['popupData']['label'].length; i++) {
-        if(jQuery.type(options['popupData']['label'][i]['brCharListe']) !== 'undefined') regForBRListe[options['popupData']['label'][i]['value']] = options['popupData']['label'][i]['brCharListe'];
-        else regForBRListe[options['popupData']['label'][i]['value']] = true;
-        isEmptyProp[options['popupData']['label'][i]['value']] = true;
+      var regForBRListe = {}, isAllProp = {};
+      for (var i = 0; i < options['tableData']['properties'].length; i++) {
+        if(jQuery.type(options['tableData']['properties'][i]['brCharListe']) !== 'undefined') regForBRListe[options['tableData']['properties'][i]['name']] = options['tableData']['properties'][i]['brCharListe'];
+        else regForBRListe[options['tableData']['properties'][i]['name']] = true;
       }
-      for (var i = 0; i < indexEvent.length; i++) {     
-        for (var prop in indexEvent[i]) {
-          var propVal = indexEvent[i][prop];
-          if (typeof propVal !== 'undefined' && propVal !== '' && propVal !== ' ') isEmptyProp[prop] = false;
-        }
+      for (var i = 0; i < indexEvent.length; i++) {
         if (jQuery.type(options['brChar']) !== 'undefined') {
           for (var prop in indexEvent[i]) {
             var propVal = indexEvent[i][prop];
             if (typeof propVal === 'string' && propVal !== '' && propVal !== ' ') {
               for (var j = 0; j < options['brChar'].length; j++) {
                 var brChar = options['brChar'][j];
+                propVal = propVal.replaceAll(	brChar + ' * ', brChar + '* ');
                 if (propVal.indexOf(brChar) > -1) {
-                  var regForBR = new RegExp(brChar, 'g');
-                  if( regForBRListe[prop] ) propVal = propVal.replace(regForBR, "</li><li>");
-                  else propVal = propVal.replace(regForBR, "<br>");
-                  if (propVal.indexOf('</li><li>') > -1) {
-                    propVal = '<ul class="popListe"><li>' + propVal + '</li></ul>';
-                    propVal = propVal.replace(regLiLi, '');
+                  if( regForBRListe[prop] ) propVal = propVal.replaceAll(brChar, "</li><li>");
+                  else propVal = propVal.replaceAll(brChar, "<br>");
+                   if (propVal.indexOf('</li><li>') > -1) {
+                    propVal = '<ul class="popListe"><li>' + propVal + '</li></ul>'
+                    propVal = propVal.replaceAll('<li></li>', '');
                   } else propVal = '<div class="popListe">' + propVal + '</div>';
                 }
               }
-              propVal = propVal.replace(regLiST, '<li>* ');
               if (propVal.indexOf('<li>* ') > -1) {
                 var propValn1 = propVal.split('<li>* ')
                 if (propValn1.length > 1) {
@@ -1401,7 +1345,7 @@ $.fn.mapAllBlogs = function() {
                   }
                 }
               }
-              propVal = propVal.replace(regTiMi, '<br><i>');
+              propVal = propVal.replaceAll(' - <i>', '<br><i>');
               indexEvent[i][prop] = propVal;
             }
           }
@@ -3083,66 +3027,64 @@ $.fn.mapAllBlogs = function() {
       }
       function runTable(initSearch) {
 
-        var tableColums = [], columns = [], Filters = [];
-        if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') var properties = options.tableData.properties;
-        else var properties = options.popupData.label;
-
-        var colNumber = 0;
-        for (var i = 0; i < properties.length; i++) {
-          if(isEmptyProp[properties[i]['value']]) continue;
-          if (jQuery.type(properties[i]['value']) === 'string') {
-            if (jQuery.type(properties[i]['label']) === 'string') {
-              var title = properties[i]['label'];
-            }
-            else {
-              var title = properties[i]['value'];
-            }
-            columns.push({
-              data: properties[i]['value'],
-              title: title,
-              defaultContent: '',
-              //selectable: false
-            });
-            if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-              var item = {};
-              if (properties[i]['filter'] == 'selection') {
-                item['column_number'] = colNumber;
-                item['omit_default_label'] = true;
-                item['data'] = ["Sélectionnez"];
-                item['append_data_to_table_data'] = "before";
-                item['filter_match_mode'] = "exact";
-                item['filter_reset_button_text'] = false;
-                item['filter_type'] = 'custom_func';
-                item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                  /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
-                    console.log('test...');
-                  }*/
-                  if (columnVal === filterVal || "Sélectionnez" === filterVal) {
-                    var myFilter = true;
-                  }
-                  else {
-                    var myFilter = false;
-                  };
-                  for (var i = 0; i < indexEventTable.length; i++) {
-                    if (indexEventTable[i]["id"] === stateVal["id"]) {
-                      indexEventTable[i]["selected"] = myFilter;
-                    }
-                  }
-                  return myFilter;
-                };
+        var tableColums = [];
+        if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') {
+          var columns = [];
+          var Filters = [];
+          var properties = options.tableData.properties;
+          for (var i = 0; i < properties.length; i++) {
+            if (jQuery.type(properties[i]['name']) === 'string') {
+              if (jQuery.type(properties[i]['title']) === 'string') {
+                var title = properties[i]['title'];
               }
-              else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
-                if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
-                  item['column_number'] = colNumber;
+              else {
+                var title = properties[i]['name'];
+              }
+              columns.push({
+                data: properties[i]['name'],
+                title: title,
+                defaultContent: '',
+                //selectable: false
+              });
+              if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+                var item = {};
+                if (properties[i]['filter'] == 'selection') {
+                  item['column_number'] = i;
+                  item['omit_default_label'] = true;
+                  item['data'] = ["Sélectionnez"];
+                  item['append_data_to_table_data'] = "before";
+                  item['filter_match_mode'] = "exact";
                   item['filter_reset_button_text'] = false;
                   item['filter_type'] = 'custom_func';
-                  Filters[properties[i]['filter']] = options.tableData['filters'][properties[i]['filter']];
                   item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
-                    if (myFilter(filterVal, columnVal, rowValues, stateVal)) {
-                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
+                      console.log('test...');
+                    }*/
+                    if (columnVal === filterVal || "Sélectionnez" === filterVal) {
+                      var myFilter = true;
                     }
                     else {
+                      var myFilter = false;
+                    };
+                    for (var i = 0; i < indexEventTable.length; i++) {
+                      if (indexEventTable[i]["id"] === stateVal["id"]) {
+                        indexEventTable[i]["selected"] = myFilter;
+                      }
+                    }
+                    return myFilter;
+                  };
+                }
+                else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
+                  if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
+                    item['column_number'] = i;
+                    item['filter_reset_button_text'] = false;
+                    item['filter_type'] = 'custom_func';
+                    Filters[properties[i]['filter']] = options.tableData['filters'][properties[i]['filter']];
+                    item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
+                    if(myFilter(filterVal, columnVal, rowValues, stateVal)) {
+                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    } else {
                       var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                     }
                     for (var i = 0; i < indexEventTable.length; i++) {
@@ -3151,22 +3093,45 @@ $.fn.mapAllBlogs = function() {
                       }
                     }
                     return myFilterValue;
-                  };
-                  item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
+                    };
+                    item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
+                  }
                 }
-              }
-              else {
-                item['column_number'] = colNumber;
-                item['select_type'] = "chosen";
-              }
-              if (jQuery.type(item) !== 'undefined') {
-                item['defaultContent'] = '';
-                tableColums.push(item);
-              }
-            };
+                else {
+                  item['column_number'] = i;
+                  item['select_type'] = "chosen";
+                }
+                if (jQuery.type(item) !== 'undefined') {
+                  item['defaultContent'] = '';
+                  tableColums.push(item);
+                }
+              };
+            }
+          };
+        }
+        else {
+          var item = options.popupData.title;
+          if (typeof item === 'undefined') {
+            var columns = [];
           }
-          colNumber++
-        };
+          else {
+            var columns = [{
+              data: item,
+              title: item,
+              defaultContent: '',
+              //selectable: true
+            }];
+          }
+          for (i = 0; i < options.popupData.properties.length; i++) {
+            var item = options.popupData.properties[i];
+            columns.push({
+              data: item,
+              title: item,
+              defaultContent: '',
+              //selectable: false
+            });
+          }
+        }
         var initComplete = function() {
           var myTable = $(this).DataTable();
           //$('#table_filter').css('visibility', 'hidden');
@@ -3201,12 +3166,10 @@ $.fn.mapAllBlogs = function() {
             }
           });
           tableFilterOn = false;
-          if (tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
+          if ( tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
           else $('.dt-button.reinitBT').css('visibility', 'hidden');
 
-          if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') var properties = options.tableData.properties;
-          else var properties = options.popupData.label;
-
+          var properties = options.tableData.properties;
           for (var i = 0; i < properties.length; i++) {
             var min_width = properties[i]['min_width']
             if (jQuery.type(min_width) !== 'undefined' && jQuery.type(properties[i]['name']) === 'string') {
@@ -3219,7 +3182,7 @@ $.fn.mapAllBlogs = function() {
               $('#table th:contains(' + title + ')').css('min-width', min_width);
             }
           }
-        }
+        }       
 
         /*tableFilterOn = false;
         for (var i = 0; i < indexEventTable.length; i++) indexEventTable[i]["selected"] = true;
@@ -3227,7 +3190,7 @@ $.fn.mapAllBlogs = function() {
           //myTable.search('').draw();
           myTable.search('');
           myTable.searchBuilder.rebuild(initSearchTable);
-        }*/
+        }*/        
         if (jQuery.type(myTable) !== 'undefined') myTable.searchBuilder.rebuild(initSearchTable);
         myTable = $('#table').DataTable({
           destroy: true,
@@ -3238,114 +3201,116 @@ $.fn.mapAllBlogs = function() {
           columns: columns,
           initComplete: initComplete,
           dom: 'Blfrtip',
-          buttons: [{
-            text: 'aide',
-            className: 'helpBT',
-            action: function(e, dt, node, config) {
-              // voir https://obu.edu/_resources/ldp/galleries/fancybox/#usage                   
-              //$.fancybox.open('<div class="message"><h2>Hello!</h2><p>You are awesome!</p></div>');
-              /*$.fancybox.open({
-                src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p></div>',
-                type: 'html',
-                smallBtn: false
-              });*/
-              /*$.fancybox.open({
-                src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p><p><button data-fancybox-close class="btn">Close me</button></p></div>',
-                type: 'html',
-                modal: true
-              });*/
-              $.fancybox.open({
-                src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p><p><button data-fancybox-close class="btn">Close me</button></p></div>',
-                type: 'html',
-                modal: true
-              });
-            }
-          }, {
-            extend: 'searchBuilder',
-            className: 'searchBT',
-            config: {
-              depthLimit: 2
-            },
-            /*action: function(e, dt, node, config) {
-              initSearchTable = myTable.searchBuilder.getDetails();
-            },*/
-          }, {
-            extend: 'csv',
-            //Name the CSV
-            filename: 'file_name',
-            //text: 'Export CSV',
-            className: 'csvBT',
-            //Function which customize the CSV (input : csv is the object that you can preprocesss)
-            customize: function(csv) {
-              //Split the csv to get the rows
-              var split_csv = csv.split("\n");
+          buttons: [
+            {
+              text: 'aide',
+              className: 'helpBT',
+              action: function(e, dt, node, config) {
+                // voir https://obu.edu/_resources/ldp/galleries/fancybox/#usage                   
+                //$.fancybox.open('<div class="message"><h2>Hello!</h2><p>You are awesome!</p></div>');
+                /*$.fancybox.open({
+                  src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p></div>',
+                  type: 'html',
+                  smallBtn: false
+                });*/
+                /*$.fancybox.open({
+                  src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p><p><button data-fancybox-close class="btn">Close me</button></p></div>',
+                  type: 'html',
+                  modal: true
+                });*/
+                $.fancybox.open({
+                  src: '<div class="message"><h2>Lorem ipsum</h2><p>Praesent ut sapien ultricies, lobortis lorem a, viverra odio. Cras dapibus, tellus sed volutpat dignissim, mi augue finibus libero, sit amet sollicitudin arcu velit id diam. Aliquam placerat, dui a ultrices malesuada, libero tortor varius felis, ultrices fermentum arcu mauris in odio. Cras fermentum justo ac tortor bibendum molestie.</p><p><button data-fancybox-close class="btn">Close me</button></p></div>',
+                  type: 'html',
+                  modal: true
+                });
+              }
+            }, {
+              extend: 'searchBuilder',
+              className: 'searchBT',
+              config: {
+                depthLimit: 2
+              },
+              /*action: function(e, dt, node, config) {
+                initSearchTable = myTable.searchBuilder.getDetails();
+              },*/
+            }, {
+              extend: 'csv',
+              //Name the CSV
+              filename: 'file_name',
+              //text: 'Export CSV',
+              className: 'csvBT',
+              //Function which customize the CSV (input : csv is the object that you can preprocesss)
+              customize: function(csv) {
+                //Split the csv to get the rows
+                var split_csv = csv.split("\n");
 
-              //Remove the row one to personnalize the headers
-              //split_csv[0] = '"Latitude","Longitude","Site Name","Description","Antenna Height","Antenna gain","Env loss","Candidate"';
-              split_csv[0] = ''
-              for (var i = 0; i < properties.length; i++) {
-                if (jQuery.type(properties[i]['name']) === 'string') {
-                  if (jQuery.type(properties[i]['title']) === 'string') {
-                    var title = properties[i]['title'];
+                //Remove the row one to personnalize the headers
+                //split_csv[0] = '"Latitude","Longitude","Site Name","Description","Antenna Height","Antenna gain","Env loss","Candidate"';
+                split_csv[0] = ''
+                for (var i = 0; i < properties.length; i++) {
+                  if (jQuery.type(properties[i]['name']) === 'string') {
+                    if (jQuery.type(properties[i]['title']) === 'string') {
+                      var title = properties[i]['title'];
+                    }
+                    else {
+                      var title = properties[i]['name'];
+                    }
+                  }
+                  if (i == 0) split_csv[0] += '"' + title + '"'
+                  else split_csv[0] += ',"' + title + '"'
+                }
+
+                //For each row except the first one (header)
+                $.each(split_csv.slice(1), function(index, csv_row) {
+                  //Split on quotes and comma to get each cell
+                  var csv_cell_array = csv_row.split('","');
+
+                  //Join the table on the quotes and comma; add back the quotes at the beginning and end
+                  csv_cell_array_quotes = csv_cell_array.join('","');
+
+                  //Insert the new row into the rows array at the previous index (index +1 because the header was sliced)
+                  split_csv[index + 1] = csv_cell_array_quotes;
+                });
+
+                //Join the rows with line breck and return the final csv (datatables will take the returned csv and process it)
+                csv = split_csv.join("\n");
+                return csv;
+              }
+            }, {
+              text: 'réinit.',
+              className: 'reinitBT',
+              action: function(e, dt, node, config) {
+
+                //myTable.searchBuilder.rebuild(initSearchTable);
+                for (var i = 0; i < indexEventTable.length; i++) {
+                  if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
+                    if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
+                      indexEventTable[i]["selected"] = true;
+                    }
+                    else {
+                      indexEventTable[i]["selected"] = false;
+                    }
                   }
                   else {
-                    var title = properties[i]['name'];
-                  }
-                }
-                if (i == 0) split_csv[0] += '"' + title + '"'
-                else split_csv[0] += ',"' + title + '"'
-              }
-
-              //For each row except the first one (header)
-              $.each(split_csv.slice(1), function(index, csv_row) {
-                //Split on quotes and comma to get each cell
-                var csv_cell_array = csv_row.split('","');
-
-                //Join the table on the quotes and comma; add back the quotes at the beginning and end
-                csv_cell_array_quotes = csv_cell_array.join('","');
-
-                //Insert the new row into the rows array at the previous index (index +1 because the header was sliced)
-                split_csv[index + 1] = csv_cell_array_quotes;
-              });
-
-              //Join the rows with line breck and return the final csv (datatables will take the returned csv and process it)
-              csv = split_csv.join("\n");
-              return csv;
-            }
-          }, {
-            text: 'réinit.',
-            className: 'reinitBT',
-            action: function(e, dt, node, config) {
-
-              //myTable.searchBuilder.rebuild(initSearchTable);
-              for (var i = 0; i < indexEventTable.length; i++) {
-                if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
-                  if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
                     indexEventTable[i]["selected"] = true;
                   }
-                  else {
-                    indexEventTable[i]["selected"] = false;
+                }
+                if (jQuery.type(myTable) !== 'undefined') myTable.searchBuilder.rebuild(initSearchTable);
+                yadcf.exResetAllFilters(dt);
+                for (var i = 0; i < properties.length; i++) {
+                  if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+                    if (properties[i]['filter'] == 'selection') {
+                      yadcf.exFilterColumn(dt, [
+                        [i, "Sélectionnez"]
+                      ]);
+                    }
                   }
                 }
-                else {
-                  indexEventTable[i]["selected"] = true;
-                }
+                tableFilterOn = false;
+                $('.dt-button.reinitBT').css('visibility', 'hidden');
               }
-              if (jQuery.type(myTable) !== 'undefined') myTable.searchBuilder.rebuild(initSearchTable);
-              yadcf.exResetAllFilters(dt);
-              for (var i = 0; i < properties.length; i++) {
-                if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-                  if (properties[i]['filter'] == 'selection') {
-                    yadcf.exFilterColumn(dt, [
-                      [i, "Sélectionnez"]
-                    ]);
-                  }
-                }
-              }
-              tableFilterOn = false;
-              $('.dt-button.reinitBT').css('visibility', 'hidden');
-            }
-          }, ],
+            },          
+          ],
         });
         myTable.searchBuilder.getDetails();
 

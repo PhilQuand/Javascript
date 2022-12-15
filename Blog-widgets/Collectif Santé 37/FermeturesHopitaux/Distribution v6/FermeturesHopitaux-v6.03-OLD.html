@@ -266,7 +266,6 @@ $.fn.mapAllBlogs = function() {
       }, {
         name: 'text_fusion_groupe',
         title: 'fusion',
-        brCharListe: false,
         filter: 0,
         min_width: '250px'
       }, {
@@ -1402,11 +1401,9 @@ $.fn.mapAllBlogs = function() {
       console.log('achieved');
       
       loading.css('display', 'none');
-      var regForBRListe = {}, isAllProp = {};
-      for (var i = 0; i < options['tableData']['properties'].length; i++) {
-        if(jQuery.type(options['tableData']['properties'][i]['brCharListe']) !== 'undefined') regForBRListe[options['tableData']['properties'][i]['name']] = options['tableData']['properties'][i]['brCharListe'];
-        else regForBRListe[options['tableData']['properties'][i]['name']] = true;
-      }
+      var regLiLi = new RegExp('<li></li>', 'g')
+      var regLiST = new RegExp('<li> * ', 'g')
+      var regTiMi = new RegExp(' - <i>', 'g')
       for (var i = 0; i < indexEvent.length; i++) {
         if (jQuery.type(options['brChar']) !== 'undefined') {
           for (var prop in indexEvent[i]) {
@@ -1414,16 +1411,16 @@ $.fn.mapAllBlogs = function() {
             if (typeof propVal === 'string' && propVal !== '' && propVal !== ' ') {
               for (var j = 0; j < options['brChar'].length; j++) {
                 var brChar = options['brChar'][j];
-                propVal = propVal.replaceAll(	brChar + ' * ', brChar + '* ');
                 if (propVal.indexOf(brChar) > -1) {
-                  if( regForBRListe[prop] ) propVal = propVal.replaceAll(brChar, "</li><li>");
-                  else propVal = propVal.replaceAll(brChar, "<br>");
-                   if (propVal.indexOf('</li><li>') > -1) {
+                  var regForBR = new RegExp(brChar, 'g')
+                  propVal = propVal.replace(regForBR, "</li><li>");
+                  if (propVal.indexOf('</li><li>') > -1) {
                     propVal = '<ul class="popListe"><li>' + propVal + '</li></ul>'
-                    propVal = propVal.replaceAll('<li></li>', '');
-                  } else propVal = '<div class="popListe">' + propVal + '</div>';
+                    propVal = propVal.replace(regLiLi, '');
+                  }
                 }
               }
+              propVal = propVal.replace(regLiST, '<li>* ');
               if (propVal.indexOf('<li>* ') > -1) {
                 var propValn1 = propVal.split('<li>* ')
                 if (propValn1.length > 1) {
@@ -1434,7 +1431,7 @@ $.fn.mapAllBlogs = function() {
                   }
                 }
               }
-              propVal = propVal.replaceAll(' - <i>', '<br><i>');
+              propVal = propVal.replace(regTiMi, '<br><i>');
               indexEvent[i][prop] = propVal;
             }
           }

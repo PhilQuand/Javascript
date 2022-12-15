@@ -155,69 +155,95 @@ $.fn.mapAllBlogs = function() {
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
       hidden: ['id', 'nom_hopital', 'insee_com', 'département', 'région', 'departement', 'code_region','selected'],
       label: [{
+          value: 'nom_hopital',
+          label: 'établissement',
+          filter: 'selection'
+        }, {
           value: 'nom_commune',
-          label: 'commune'
+          label: 'commune',
+          filter: 'selection'
+        }, {
+          value: 'département',
+          filter: 'selection'
+        }, {
+          value: 'région',
+          filter: 'selection'
         }, {
           value: 'suppressions',
+          filter: 1,
+          min_width: '300px'
         }, {
           value: 'menaces',
+          filter: 1,
+          min_width: '300px'
         }, {
-          value: 'postes',
-        }, {
-          value: 'victoires',
+          value: 'victoire',
+          filter: 1,
         }, {
           value: 'ght_nom',
-          label: 'nom du ght'
+          label: 'nom du ght',
+          filter: 'selection'
         }, {
           value: 'ghi_nom',
-          label: 'nom ghi'
+          label: 'nom ghi',
+          filter: 'selection'
+        }, {
+          value: 'ght_code',
+          label: 'code ght',
+          filter: 'selection'
         }, {
           value: 'type_etablissement',
-          label: 'type'
+          label: 'type',
+          filter: 'selection'
         }, {
           value: 'public_prive',
-          label: 'public/prive'
+          label: 'public/prive',
+          filter: 'selection'
         }, {
           value: 'text_fusion_groupe',
-          label: 'fusion'
+          label: 'fusion',
+          brCharListe: false,
         }, {
           value: 'effectif_total',
-          label: 'effectifs'
+          label: 'effectifs',
         }, {
           value: 'fermetures_mef',
-          label: 'fermetures de services'
+          label: 'fermetures de services',
+          filter: 1,
         }, {
           value: 'menaces_mef',
-          label: 'services menacés'
+          label: 'services menacés',
+          filter: 1,
         }, {
           value: 'victoires_mef',
-          label: 'victoires de services'
+          label: 'victoires de services',
+          filter: 1,
         }, {
           value: 'nb_postes_vacants',
-          label: 'postes vacants'
+          label: 'postes vacants',
         }, {
           value: 'detail_besoin_effectif',
-          label: 'besoin en effectifs'
+          label: 'besoin en effectifs',
         }, {
           value: 'perte_lits',
-          label: 'perte de lits'
+          label: 'perte de lits',
         }, {
           value: 'an_ouverture',
-          label: 'ouverture'
+          label: 'ouverture',
         }, {
           value: 'an_ferm_site',
-          label: 'fermeture'
+          label: 'fermeture',
         }, {
           value: 'site_devenu',
-          label: 'transformation'
+          label: 'transformation',
         }, {
           value: 'site_devenu_lien_internet',
-          label: 'information'
+          label: 'information',
         }
       ],
     },
     tableData: {
-      properties: [{
+      /*properties: [{
         name: 'nom_hopital',
         title: 'établissement',
         filter: 'selection'
@@ -324,7 +350,7 @@ $.fn.mapAllBlogs = function() {
         title: 'information',
         filter: 0,
         min_width: '250px'
-      }],
+      }],*/
       filters: [{
         //Les valeurs possibles doivent être précédées de l'index du filtre suivi de : (pour faire le lien avec la collection Filters de runTable)
         data: [{
@@ -1402,15 +1428,27 @@ $.fn.mapAllBlogs = function() {
       console.log('achieved');
       
       loading.css('display', 'none');
+      options['popupData']['hidden'] = options['popupData']['hidden'].concat(["lat", "lng", "iconMarker"]);
       var regForBRListe = {}, isAllProp = {};
-      for (var i = 0; i < options['tableData']['properties'].length; i++) {
-        if(jQuery.type(options['tableData']['properties'][i]['brCharListe']) !== 'undefined') regForBRListe[options['tableData']['properties'][i]['name']] = options['tableData']['properties'][i]['brCharListe'];
-        else regForBRListe[options['tableData']['properties'][i]['name']] = true;
-        isAllProp[options['tableData']['properties'][i]['name']] = [];
-        for (var prop in options['tableData']['properties'][i]) 
-        if(prop == 'titre') isAllProp[options['tableData']['properties'][i]['name']]['label'] = options['tableData']['properties'][i][prop]
-        else if(prop != 'value') isAllProp[options['tableData']['properties'][i]['name']][prop] = options['tableData']['properties'][i][prop]
-        isAllProp[options['tableData']['properties'][i]['name']]['isEmpty'] = true;
+      if(jQuery.type(options['tableData']['properties']) !== 'undefined'){
+        for (var i = 0; i < options['tableData']['properties'].length; i++) {
+          if (jQuery.type(options['tableData']['properties'][i]['brCharListe']) !== 'undefined') regForBRListe[options['tableData']['properties'][i]['name']] = options['tableData']['properties'][i]['brCharListe'];
+          else regForBRListe[options['tableData']['properties'][i]['name']] = true;
+          isAllProp[options['tableData']['properties'][i]['name']] = [];
+          for (var prop in options['tableData']['properties'][i])
+            if (prop == 'titre') isAllProp[options['tableData']['properties'][i]['name']]['label'] = options['tableData']['properties'][i][prop]
+          else if (prop != 'value') isAllProp[options['tableData']['properties'][i]['name']][prop] = options['tableData']['properties'][i][prop]
+          isAllProp[options['tableData']['properties'][i]['name']]['isEmpty'] = true;
+        }
+      } else {
+        for (var i = 0; i < options['popupData']['label'].length; i++) {
+          if (jQuery.type(options['popupData']['label'][i]['brCharListe']) !== 'undefined') regForBRListe[options['popupData']['label'][i]['value']] = options['popupData']['label'][i]['brCharListe'];
+          else regForBRListe[options['popupData']['label'][i]['value']] = true;
+          isAllProp[options['popupData']['label'][i]['value']] = [];
+          for (var prop in options['popupData']['label'][i])
+            if (prop != 'value') isAllProp[options['popupData']['label'][i]['value']][prop] = options['popupData']['label'][i][prop]
+          isAllProp[options['popupData']['label'][i]['value']]['isEmpty'] = true;
+        }
       }
       for (var i = 0; i < indexEvent.length; i++) {
         for (var prop in indexEvent[i]) {
@@ -1464,7 +1502,11 @@ $.fn.mapAllBlogs = function() {
         }
       }
       for (var prop in isAllProp) {
-        if (jQuery.type(isAllProp[prop]['filter']) === 'undefined') isAllProp[prop]['filter'] = 0;
+        /*if(prop == 'ght_code') {
+          var myFilter = isAllProp[prop]['filter']
+          var myFilter = jQuery.type(isAllProp[prop]['filter'])
+        }*/
+        if (jQuery.type(isAllProp[prop]['filter']) === 'undefined' || jQuery.type(isAllProp[prop]['filter']) === 'function') isAllProp[prop]['filter'] = 0;
         if (options['popupData']['title'] !== prop) {
           for (var i = 0; i < options['popupData']['hidden'].length; i++) {
             if (options['popupData']['hidden'][i] === prop && prop != 'département' && prop != 'région') isAllProp[prop]['isEmpty'] = true;
@@ -3189,6 +3231,7 @@ $.fn.mapAllBlogs = function() {
                   item['column_number'] = colNumber;
                   item['filter_reset_button_text'] = false;
                   item['filter_type'] = 'custom_func';
+                  item['filter_default_label'] = 'Sélectionnez';
                   Filters[myProperty['filter']] = options.tableData['filters'][myProperty['filter']];
                   item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
                     var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
@@ -3385,15 +3428,6 @@ $.fn.mapAllBlogs = function() {
                 }
                 if (jQuery.type(myTable) !== 'undefined') myTable.searchBuilder.rebuild(initSearchTable);
                 yadcf.exResetAllFilters(dt);
-                /*for (var i = 0; i < properties.length; i++) {
-                  if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-                    if (properties[i]['filter'] == 'selection') {
-                      yadcf.exFilterColumn(dt, [
-                        [i, "Sélectionnez"]
-                      ]);
-                    }
-                  }
-                }*/
                 var colNumber = 0;
                 for (var prop in isAllProp) {
                   if (isAllProp[prop]["isEmpty"]) continue;

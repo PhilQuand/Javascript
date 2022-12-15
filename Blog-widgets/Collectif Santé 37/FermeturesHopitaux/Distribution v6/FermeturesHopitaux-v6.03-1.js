@@ -1,92 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>IRE 2018 template: Google Sheets to interactive table</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<!-- contruction d'une table jquery -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-
-<!-- export table jquery -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.3/css/buttons.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.4.0/css/searchBuilder.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.2.0/css/dataTables.dateTime.min.css" />
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/searchbuilder/1.4.0/js/dataTables.searchBuilder.min.js"></script>
-    <script src="https://cdn.datatables.net/datetime/1.2.0/js/dataTables.dateTime.min.js"></script>
-
-<!-- Chargement des données venant d'une Google Sheet -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
-
-<!-- multi selection sur les colonnes de la table d'après https://github.com/vedmack/yadcf -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.js" integrity="sha512-stJr1VNN+I0yBoLYTHGUgHIeK8eibAXMzWdZn7SC8vO5FtzzWvQFPMaEWWSpOsnSrJ75GjKjOuJaJoghT3/8bw==" crossorigin="anonymous"></script>
-
-<!-- ressources communes à tous les blogs... -->
-  <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
-  <script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
-
-<!-- Load Leaflet -->
-  <!--link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
-  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script-->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-     crossorigin=""/>  
- <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-     crossorigin=""></script>
-<!-- Load Esri Leaflet from CDN -->
-  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
-  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
-  crossorigin=""></script>
-  <!-- Load Esri Leaflet Geocoder from CDN -->
-  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
-    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
-    crossorigin="">
-  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
-    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
-    crossorigin=""></script>
-<!--Load markerclusters -->
-  <!--link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
-  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
-  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script-->
-  <link href='https://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css' rel='stylesheet' type='text/css'/>
-  <link href='https://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
-  <script src="https://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster.js" type='text/javascript'></script>
-
-  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
-
-<!--Load carte-infos-semaines -->
-  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
-<!--Load carte-FermeturesHopitaux -->
-  <!--script src='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/FermeturesHopitaux-v6.03.js'></script-->
-  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Distribution v6/FermeturesHopitaux-v6.03.css' rel='stylesheet' type='text/css'/>
-<!-- Full screen plugin -->
-  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
-<!-- accés au Geoportail -->
-  <!--script data-key="f5cse26aiqvu6j4xqtngh5zh" src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'></script-->
-  <!--script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.js'></script>
-  <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet.css' rel='stylesheet' />
-  <script src='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.js'></script>
-  <link href='http://ignf.github.io/geoportal-extensions/leaflet-latest/dist/GpPluginLeaflet-src.css' rel='stylesheet' /-->
-<!-- Add fancyBox 3 -->
-<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-<script src="https://philquand.github.io/Javascript/PhotoGaleries/Facebook-like-Photo-Grid/src/images-grid-fancybox.js" type="text/javascript"></script>
-<!-- End FancyBox -->
-</head>
-<body>
-<script>
 (function($) {
 $.fn.mapAllBlogs = function() {
 
@@ -1406,20 +1317,8 @@ $.fn.mapAllBlogs = function() {
       for (var i = 0; i < options['tableData']['properties'].length; i++) {
         if(jQuery.type(options['tableData']['properties'][i]['brCharListe']) !== 'undefined') regForBRListe[options['tableData']['properties'][i]['name']] = options['tableData']['properties'][i]['brCharListe'];
         else regForBRListe[options['tableData']['properties'][i]['name']] = true;
-        isAllProp[options['tableData']['properties'][i]['name']] = [];
-        for (var prop in options['tableData']['properties'][i]) 
-        if(prop == 'titre') isAllProp[options['tableData']['properties'][i]['name']]['label'] = options['tableData']['properties'][i][prop]
-        else if(prop != 'value') isAllProp[options['tableData']['properties'][i]['name']][prop] = options['tableData']['properties'][i][prop]
-        isAllProp[options['tableData']['properties'][i]['name']]['isEmpty'] = true;
       }
       for (var i = 0; i < indexEvent.length; i++) {
-        for (var prop in indexEvent[i]) {
-          var propVal = indexEvent[i][prop];
-          if (typeof propVal !== 'undefined' && propVal !== '' && propVal !== ' ') {
-            if(typeof isAllProp[prop] !== 'undefined') isAllProp[prop]['isEmpty'] = false;
-            else isAllProp[prop] = {isEmpty: false}
-          }
-        }
         if (jQuery.type(options['brChar']) !== 'undefined') {
           for (var prop in indexEvent[i]) {
             var propVal = indexEvent[i][prop];
@@ -1461,14 +1360,6 @@ $.fn.mapAllBlogs = function() {
         }
         else {
           indexEvent[i]["selected"] = true;
-        }
-      }
-      for (var prop in isAllProp) {
-        if (jQuery.type(isAllProp[prop]['filter']) === 'undefined') isAllProp[prop]['filter'] = 0;
-        if (options['popupData']['title'] !== prop) {
-          for (var i = 0; i < options['popupData']['hidden'].length; i++) {
-            if (options['popupData']['hidden'][i] === prop && prop != 'département' && prop != 'région') isAllProp[prop]['isEmpty'] = true;
-          }
         }
       }
       var map_invalidateSize = runMap(indexEvent);
@@ -3136,66 +3027,64 @@ $.fn.mapAllBlogs = function() {
       }
       function runTable(initSearch) {
 
-        var tableColums = [], columns = [], Filters = [];
-        var colNumber = 0;
-
+        var tableColums = [];
+        if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') {
+          var columns = [];
+          var Filters = [];
           var properties = options.tableData.properties;
-        for (var prop in isAllProp) {
-            var myProperty = isAllProp[prop];
-            if (myProperty["isEmpty"]) continue;
-            if (jQuery.type(myProperty['label']) === 'string') {
-              var title = myProperty['label'];
-            }
-            else {
-              var title = prop;
-            }
-            columns.push({
-              data: prop,
-              title: title,
-              defaultContent: '',
-              //selectable: false
-            });
-            var item = {};
-            if (jQuery.type(myProperty['filter']) !== 'undefined') {
-              var item = {};
-              if (myProperty['filter'] == 'selection') {
-                item['column_number'] = colNumber;
-                item['omit_default_label'] = true;
-                item['data'] = ["Sélectionnez"];
-                item['append_data_to_table_data'] = "before";
-                item['filter_match_mode'] = "exact";
-                item['filter_reset_button_text'] = false;
-                item['filter_type'] = 'custom_func';
-                item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                  /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
-                    console.log('test...');
-                  }*/
-                  if (columnVal === filterVal || "Sélectionnez" === filterVal) {
-                    var myFilter = true;
-                  }
-                  else {
-                    var myFilter = false;
-                  };
-                  for (var i = 0; i < indexEventTable.length; i++) {
-                    if (indexEventTable[i]["id"] === stateVal["id"]) {
-                      indexEventTable[i]["selected"] = myFilter;
-                    }
-                  }
-                  return myFilter;
-                };
+          for (var i = 0; i < properties.length; i++) {
+            if (jQuery.type(properties[i]['name']) === 'string') {
+              if (jQuery.type(properties[i]['title']) === 'string') {
+                var title = properties[i]['title'];
               }
-              else if (jQuery.isNumeric(myProperty['filter']) && jQuery.isArray(options.tableData['filters']) && (myProperty['filter'] < options.tableData['filters'].length)) {
-                if (jQuery.isFunction(options.tableData['filters'][myProperty['filter']]['func']) && jQuery.isArray(options.tableData['filters'][myProperty['filter']]['data'])) {
-                  item['column_number'] = colNumber;
+              else {
+                var title = properties[i]['name'];
+              }
+              columns.push({
+                data: properties[i]['name'],
+                title: title,
+                defaultContent: '',
+                //selectable: false
+              });
+              if (jQuery.type(properties[i]['filter']) !== 'undefined') {
+                var item = {};
+                if (properties[i]['filter'] == 'selection') {
+                  item['column_number'] = i;
+                  item['omit_default_label'] = true;
+                  item['data'] = ["Sélectionnez"];
+                  item['append_data_to_table_data'] = "before";
+                  item['filter_match_mode'] = "exact";
                   item['filter_reset_button_text'] = false;
                   item['filter_type'] = 'custom_func';
-                  Filters[myProperty['filter']] = options.tableData['filters'][myProperty['filter']];
                   item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
-                    if (myFilter(filterVal, columnVal, rowValues, stateVal)) {
-                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
+                      console.log('test...');
+                    }*/
+                    if (columnVal === filterVal || "Sélectionnez" === filterVal) {
+                      var myFilter = true;
                     }
                     else {
+                      var myFilter = false;
+                    };
+                    for (var i = 0; i < indexEventTable.length; i++) {
+                      if (indexEventTable[i]["id"] === stateVal["id"]) {
+                        indexEventTable[i]["selected"] = myFilter;
+                      }
+                    }
+                    return myFilter;
+                  };
+                }
+                else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
+                  if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
+                    item['column_number'] = i;
+                    item['filter_reset_button_text'] = false;
+                    item['filter_type'] = 'custom_func';
+                    Filters[properties[i]['filter']] = options.tableData['filters'][properties[i]['filter']];
+                    item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
+                    if(myFilter(filterVal, columnVal, rowValues, stateVal)) {
+                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
+                    } else {
                       var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                     }
                     for (var i = 0; i < indexEventTable.length; i++) {
@@ -3204,22 +3093,46 @@ $.fn.mapAllBlogs = function() {
                       }
                     }
                     return myFilterValue;
-                  };
-                  item['data'] = options.tableData['filters'][myProperty['filter']]['data'];
+                    };
+                    item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
+                  }
                 }
-              }
-              else {
-                item['column_number'] = colNumber;
-                item['select_type'] = "chosen";
-              }
-              if (jQuery.type(item) !== 'undefined') {
-                item['defaultContent'] = '';
-                tableColums.push(item);
-              }
-            };
-            colNumber++
+                else {
+                  item['column_number'] = i;
+                  item['select_type'] = "chosen";
+                }
+                if (jQuery.type(item) !== 'undefined') {
+                  item['defaultContent'] = '';
+                  tableColums.push(item);
+                }
+              };
+            }
           };
-          var initComplete = function() {
+        }
+        else {
+          var item = options.popupData.title;
+          if (typeof item === 'undefined') {
+            var columns = [];
+          }
+          else {
+            var columns = [{
+              data: item,
+              title: item,
+              defaultContent: '',
+              //selectable: true
+            }];
+          }
+          for (i = 0; i < options.popupData.properties.length; i++) {
+            var item = options.popupData.properties[i];
+            columns.push({
+              data: item,
+              title: item,
+              defaultContent: '',
+              //selectable: false
+            });
+          }
+        }
+        var initComplete = function() {
           var myTable = $(this).DataTable();
           //$('#table_filter').css('visibility', 'hidden');
           yadcf.init(myTable, tableColums);
@@ -3256,18 +3169,18 @@ $.fn.mapAllBlogs = function() {
           if ( tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
           else $('.dt-button.reinitBT').css('visibility', 'hidden');
 
-          for (var prop in isAllProp) {
-            if (jQuery.type(isAllProp[prop]['label']) === 'string') {
-              var title = isAllProp[prop]['label'];
-            }
-            else {
-              var title = prop;
-            }
-            var min_width = isAllProp[prop]['min_width']
-            if (jQuery.type(min_width) !== 'undefined') {
+          var properties = options.tableData.properties;
+          for (var i = 0; i < properties.length; i++) {
+            var min_width = properties[i]['min_width']
+            if (jQuery.type(min_width) !== 'undefined' && jQuery.type(properties[i]['name']) === 'string') {
+              if (jQuery.type(properties[i]['title']) === 'string') {
+                var title = properties[i]['title'];
+              }
+              else {
+                var title = properties[i]['name'];
+              }
               $('#table th:contains(' + title + ')').css('min-width', min_width);
             }
-            else $('#table th:contains(' + title + ')').css('min-width', '250px');
           }
         }       
 
@@ -3334,18 +3247,17 @@ $.fn.mapAllBlogs = function() {
                 //Remove the row one to personnalize the headers
                 //split_csv[0] = '"Latitude","Longitude","Site Name","Description","Antenna Height","Antenna gain","Env loss","Candidate"';
                 split_csv[0] = ''
-                var colNumber = 0;
-                for (var prop in isAllProp) {
-                  if (isAllProp[prop]["isEmpty"]) continue;
-                  if (jQuery.type(isAllProp[prop]['label']) === 'string') {
-                    var title = isAllProp[prop]['label'];
+                for (var i = 0; i < properties.length; i++) {
+                  if (jQuery.type(properties[i]['name']) === 'string') {
+                    if (jQuery.type(properties[i]['title']) === 'string') {
+                      var title = properties[i]['title'];
+                    }
+                    else {
+                      var title = properties[i]['name'];
+                    }
                   }
-                  else {
-                    var title = prop;
-                  }
-                  if (colNumber == 0) split_csv[0] += '"' + title + '"'
+                  if (i == 0) split_csv[0] += '"' + title + '"'
                   else split_csv[0] += ',"' + title + '"'
-                  colNumber++
                 }
 
                 //For each row except the first one (header)
@@ -3385,7 +3297,7 @@ $.fn.mapAllBlogs = function() {
                 }
                 if (jQuery.type(myTable) !== 'undefined') myTable.searchBuilder.rebuild(initSearchTable);
                 yadcf.exResetAllFilters(dt);
-                /*for (var i = 0; i < properties.length; i++) {
+                for (var i = 0; i < properties.length; i++) {
                   if (jQuery.type(properties[i]['filter']) !== 'undefined') {
                     if (properties[i]['filter'] == 'selection') {
                       yadcf.exFilterColumn(dt, [
@@ -3393,18 +3305,6 @@ $.fn.mapAllBlogs = function() {
                       ]);
                     }
                   }
-                }*/
-                var colNumber = 0;
-                for (var prop in isAllProp) {
-                  if (isAllProp[prop]["isEmpty"]) continue;
-                  if (jQuery.type(isAllProp[prop]['filter']) !== 'undefined') {
-                    if (isAllProp[prop]['filter'] == 'selection') {
-                      yadcf.exFilterColumn(dt, [
-                        [colNumber, "Sélectionnez"]
-                      ]);
-                    }
-                  }
-                  colNumber++
                 }
                 tableFilterOn = false;
                 $('.dt-button.reinitBT').css('visibility', 'hidden');
@@ -3419,36 +3319,3 @@ $.fn.mapAllBlogs = function() {
   }
 };
 })(jQuery);
-</script>
-<img style="max-width: 250px;" align="center" src="https://1.bp.blogspot.com/-5one8y9NJ90/YBXHCXEmcoI/AAAAAAAAoDI/3MZAUOI27Rc93YhvkIFa1vImvOBcP4DTACLcBGAsYHQ/s0/reforme-hopital-public.jpg" />
-
-<div id="DATA">
-    <div id="exportDATA">
-    <div id="exportCOMMUNE" style="display:none"></div>    
-    <div id="exportINSEE" style="display:none"></div>    
-  </div>
-</div>
-<div id="dataStore" style="display:none"></div>
-<div id="Fermetures"></div>
-
-</body>
-</html>
-
-<script>
-(function($) {
-
-  //var checkIfStoreNeedsUpdate = true;
-
-  // spécial pour le site de la CN
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Ressources Carte)').css('display', 'none');
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Style Carte)').css('display', 'none');
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Presentation Carte)').css('display', 'none');
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Geojson Carte)').css('display', 'none');
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Code Carte)').css('display', 'none');
-	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Données Carte)').css('display', 'none');
-  // fin spécial pour le site de la CN
-  $(document).ready(function() {
-    $('#Fermetures').mapAllBlogs();
-  });
-})(jQuery);
-</script>

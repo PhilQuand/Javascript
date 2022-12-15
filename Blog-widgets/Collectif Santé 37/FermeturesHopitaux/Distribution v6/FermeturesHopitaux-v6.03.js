@@ -1317,8 +1317,20 @@ $.fn.mapAllBlogs = function() {
       for (var i = 0; i < options['tableData']['properties'].length; i++) {
         if(jQuery.type(options['tableData']['properties'][i]['brCharListe']) !== 'undefined') regForBRListe[options['tableData']['properties'][i]['name']] = options['tableData']['properties'][i]['brCharListe'];
         else regForBRListe[options['tableData']['properties'][i]['name']] = true;
+        isAllProp[options['tableData']['properties'][i]['name']] = [];
+        for (var prop in options['tableData']['properties'][i]) 
+        if(prop == 'titre') isAllProp[options['tableData']['properties'][i]['name']]['label'] = options['tableData']['properties'][i][prop]
+        else if(prop != 'value') isAllProp[options['tableData']['properties'][i]['name']][prop] = options['tableData']['properties'][i][prop]
+        isAllProp[options['tableData']['properties'][i]['name']]['isEmpty'] = true;
       }
       for (var i = 0; i < indexEvent.length; i++) {
+        for (var prop in indexEvent[i]) {
+          var propVal = indexEvent[i][prop];
+          if (typeof propVal !== 'undefined' && propVal !== '' && propVal !== ' ') {
+            if(typeof isAllProp[prop] !== 'undefined') isAllProp[prop]['isEmpty'] = false;
+            else isAllProp[prop] = {isEmpty: false}
+          }
+        }
         if (jQuery.type(options['brChar']) !== 'undefined') {
           for (var prop in indexEvent[i]) {
             var propVal = indexEvent[i][prop];
@@ -1360,6 +1372,14 @@ $.fn.mapAllBlogs = function() {
         }
         else {
           indexEvent[i]["selected"] = true;
+        }
+      }
+      for (var prop in isAllProp) {
+        if (jQuery.type(isAllProp[prop]['filter']) === 'undefined') isAllProp[prop]['filter'] = 0;
+        if (options['popupData']['title'] !== prop) {
+          for (var i = 0; i < options['popupData']['hidden'].length; i++) {
+            if (options['popupData']['hidden'][i] === prop && prop != 'département' && prop != 'région') isAllProp[prop]['isEmpty'] = true;
+          }
         }
       }
       var map_invalidateSize = runMap(indexEvent);
@@ -3027,64 +3047,66 @@ $.fn.mapAllBlogs = function() {
       }
       function runTable(initSearch) {
 
-        var tableColums = [];
-        if (jQuery.type(options.tableData) !== 'undefined' && jQuery.type(options.tableData.properties) !== 'undefined') {
-          var columns = [];
-          var Filters = [];
+        var tableColums = [], columns = [], Filters = [];
+        var colNumber = 0;
+
           var properties = options.tableData.properties;
-          for (var i = 0; i < properties.length; i++) {
-            if (jQuery.type(properties[i]['name']) === 'string') {
-              if (jQuery.type(properties[i]['title']) === 'string') {
-                var title = properties[i]['title'];
+        for (var prop in isAllProp) {
+            var myProperty = isAllProp[prop];
+            if (myProperty["isEmpty"]) continue;
+            if (jQuery.type(myProperty['label']) === 'string') {
+              var title = myProperty['label'];
+            }
+            else {
+              var title = prop;
+            }
+            columns.push({
+              data: prop,
+              title: title,
+              defaultContent: '',
+              //selectable: false
+            });
+            var item = {};
+            if (jQuery.type(myProperty['filter']) !== 'undefined') {
+              var item = {};
+              if (myProperty['filter'] == 'selection') {
+                item['column_number'] = colNumber;
+                item['omit_default_label'] = true;
+                item['data'] = ["Sélectionnez"];
+                item['append_data_to_table_data'] = "before";
+                item['filter_match_mode'] = "exact";
+                item['filter_reset_button_text'] = false;
+                item['filter_type'] = 'custom_func';
+                item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
+                  /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
+                    console.log('test...');
+                  }*/
+                  if (columnVal === filterVal || "Sélectionnez" === filterVal) {
+                    var myFilter = true;
+                  }
+                  else {
+                    var myFilter = false;
+                  };
+                  for (var i = 0; i < indexEventTable.length; i++) {
+                    if (indexEventTable[i]["id"] === stateVal["id"]) {
+                      indexEventTable[i]["selected"] = myFilter;
+                    }
+                  }
+                  return myFilter;
+                };
               }
-              else {
-                var title = properties[i]['name'];
-              }
-              columns.push({
-                data: properties[i]['name'],
-                title: title,
-                defaultContent: '',
-                //selectable: false
-              });
-              if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-                var item = {};
-                if (properties[i]['filter'] == 'selection') {
-                  item['column_number'] = i;
-                  item['omit_default_label'] = true;
-                  item['data'] = ["Sélectionnez"];
-                  item['append_data_to_table_data'] = "before";
-                  item['filter_match_mode'] = "exact";
+              else if (jQuery.isNumeric(myProperty['filter']) && jQuery.isArray(options.tableData['filters']) && (myProperty['filter'] < options.tableData['filters'].length)) {
+                if (jQuery.isFunction(options.tableData['filters'][myProperty['filter']]['func']) && jQuery.isArray(options.tableData['filters'][myProperty['filter']]['data'])) {
+                  item['column_number'] = colNumber;
                   item['filter_reset_button_text'] = false;
                   item['filter_type'] = 'custom_func';
+                  Filters[myProperty['filter']] = options.tableData['filters'][myProperty['filter']];
                   item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    /*if(filterVal !== "Sélectionnez" || columnVal === "-1") {
-                      console.log('test...');
-                    }*/
-                    if (columnVal === filterVal || "Sélectionnez" === filterVal) {
-                      var myFilter = true;
+                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
+                    if (myFilter(filterVal, columnVal, rowValues, stateVal)) {
+                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                     }
                     else {
-                      var myFilter = false;
-                    };
-                    for (var i = 0; i < indexEventTable.length; i++) {
-                      if (indexEventTable[i]["id"] === stateVal["id"]) {
-                        indexEventTable[i]["selected"] = myFilter;
-                      }
-                    }
-                    return myFilter;
-                  };
-                }
-                else if (jQuery.isNumeric(properties[i]['filter']) && jQuery.isArray(options.tableData['filters']) && (properties[i]['filter'] < options.tableData['filters'].length)) {
-                  if (jQuery.isFunction(options.tableData['filters'][properties[i]['filter']]['func']) && jQuery.isArray(options.tableData['filters'][properties[i]['filter']]['data'])) {
-                    item['column_number'] = i;
-                    item['filter_reset_button_text'] = false;
-                    item['filter_type'] = 'custom_func';
-                    Filters[properties[i]['filter']] = options.tableData['filters'][properties[i]['filter']];
-                    item['custom_func'] = (filterVal, columnVal, rowValues, stateVal) => {
-                    var myFilter = Filters[parseInt(filterVal.split(":")[0])]['func'];
-                    if(myFilter(filterVal, columnVal, rowValues, stateVal)) {
-                      var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
-                    } else {
                       var myFilterValue = myFilter(filterVal, columnVal, rowValues, stateVal);
                     }
                     for (var i = 0; i < indexEventTable.length; i++) {
@@ -3093,46 +3115,22 @@ $.fn.mapAllBlogs = function() {
                       }
                     }
                     return myFilterValue;
-                    };
-                    item['data'] = options.tableData['filters'][properties[i]['filter']]['data'];
-                  }
+                  };
+                  item['data'] = options.tableData['filters'][myProperty['filter']]['data'];
                 }
-                else {
-                  item['column_number'] = i;
-                  item['select_type'] = "chosen";
-                }
-                if (jQuery.type(item) !== 'undefined') {
-                  item['defaultContent'] = '';
-                  tableColums.push(item);
-                }
-              };
-            }
+              }
+              else {
+                item['column_number'] = colNumber;
+                item['select_type'] = "chosen";
+              }
+              if (jQuery.type(item) !== 'undefined') {
+                item['defaultContent'] = '';
+                tableColums.push(item);
+              }
+            };
+            colNumber++
           };
-        }
-        else {
-          var item = options.popupData.title;
-          if (typeof item === 'undefined') {
-            var columns = [];
-          }
-          else {
-            var columns = [{
-              data: item,
-              title: item,
-              defaultContent: '',
-              //selectable: true
-            }];
-          }
-          for (i = 0; i < options.popupData.properties.length; i++) {
-            var item = options.popupData.properties[i];
-            columns.push({
-              data: item,
-              title: item,
-              defaultContent: '',
-              //selectable: false
-            });
-          }
-        }
-        var initComplete = function() {
+          var initComplete = function() {
           var myTable = $(this).DataTable();
           //$('#table_filter').css('visibility', 'hidden');
           yadcf.init(myTable, tableColums);
@@ -3169,18 +3167,18 @@ $.fn.mapAllBlogs = function() {
           if ( tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
           else $('.dt-button.reinitBT').css('visibility', 'hidden');
 
-          var properties = options.tableData.properties;
-          for (var i = 0; i < properties.length; i++) {
-            var min_width = properties[i]['min_width']
-            if (jQuery.type(min_width) !== 'undefined' && jQuery.type(properties[i]['name']) === 'string') {
-              if (jQuery.type(properties[i]['title']) === 'string') {
-                var title = properties[i]['title'];
-              }
-              else {
-                var title = properties[i]['name'];
-              }
+          for (var prop in isAllProp) {
+            if (jQuery.type(isAllProp[prop]['label']) === 'string') {
+              var title = isAllProp[prop]['label'];
+            }
+            else {
+              var title = prop;
+            }
+            var min_width = isAllProp[prop]['min_width']
+            if (jQuery.type(min_width) !== 'undefined') {
               $('#table th:contains(' + title + ')').css('min-width', min_width);
             }
+            else $('#table th:contains(' + title + ')').css('min-width', '250px');
           }
         }       
 
@@ -3247,17 +3245,18 @@ $.fn.mapAllBlogs = function() {
                 //Remove the row one to personnalize the headers
                 //split_csv[0] = '"Latitude","Longitude","Site Name","Description","Antenna Height","Antenna gain","Env loss","Candidate"';
                 split_csv[0] = ''
-                for (var i = 0; i < properties.length; i++) {
-                  if (jQuery.type(properties[i]['name']) === 'string') {
-                    if (jQuery.type(properties[i]['title']) === 'string') {
-                      var title = properties[i]['title'];
-                    }
-                    else {
-                      var title = properties[i]['name'];
-                    }
+                var colNumber = 0;
+                for (var prop in isAllProp) {
+                  if (isAllProp[prop]["isEmpty"]) continue;
+                  if (jQuery.type(isAllProp[prop]['label']) === 'string') {
+                    var title = isAllProp[prop]['label'];
                   }
-                  if (i == 0) split_csv[0] += '"' + title + '"'
+                  else {
+                    var title = prop;
+                  }
+                  if (colNumber == 0) split_csv[0] += '"' + title + '"'
                   else split_csv[0] += ',"' + title + '"'
+                  colNumber++
                 }
 
                 //For each row except the first one (header)
@@ -3297,14 +3296,17 @@ $.fn.mapAllBlogs = function() {
                 }
                 if (jQuery.type(myTable) !== 'undefined') myTable.searchBuilder.rebuild(initSearchTable);
                 yadcf.exResetAllFilters(dt);
-                for (var i = 0; i < properties.length; i++) {
-                  if (jQuery.type(properties[i]['filter']) !== 'undefined') {
-                    if (properties[i]['filter'] == 'selection') {
+                var colNumber = 0;
+                for (var prop in isAllProp) {
+                  if (isAllProp[prop]["isEmpty"]) continue;
+                  if (jQuery.type(isAllProp[prop]['filter']) !== 'undefined') {
+                    if (isAllProp[prop]['filter'] == 'selection') {
                       yadcf.exFilterColumn(dt, [
-                        [i, "Sélectionnez"]
+                        [colNumber, "Sélectionnez"]
                       ]);
                     }
                   }
+                  colNumber++
                 }
                 tableFilterOn = false;
                 $('.dt-button.reinitBT').css('visibility', 'hidden');

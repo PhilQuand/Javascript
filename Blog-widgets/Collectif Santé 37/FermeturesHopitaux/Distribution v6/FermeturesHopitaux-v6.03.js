@@ -1436,7 +1436,7 @@ $.fn.mapAllBlogs = function() {
         var iconMarkersLength = iconMarkers.length;
         var map, onSetDefaultMapView, refreshIndexEvent, boundsSetDefaultMapView;
         var clickedMarker;
-        var enterPopup = 0;
+        var enterPopup = 0, clikedkLayer = 0;
 
 
         /*function removeAreaMarkers() {
@@ -2369,8 +2369,8 @@ $.fn.mapAllBlogs = function() {
                       else {
                         layer.on({
                           click: clickLayer,
-                          //mouseover: enterLayer,
-                          //mouseout: leaveLayer,
+                          mouseover: enterLayer,
+                          mouseout: leaveLayer,
                          });
                       }
 
@@ -2425,15 +2425,20 @@ $.fn.mapAllBlogs = function() {
                         this.getPopup().on('remove', function() {});
                       }
 
-                      //function enterLayer() {}
+                      function enterLayer() {
+                        if (clikedkLayer != areaName) {
+                          this.bindTooltip(container[0]).openPopup();
+                          //this.bindTooltip('<div>' + clikedkLayer + '</div>');
+                        }
+                      }
 
                       function clickLayer() {
+                        this.unbindTooltip();
+                        clikedkLayer = areaName;
+                        window.location.href = '#infoMap-wrapper';
                         if (enterPopup != areaName) {
                           if (typeof onSetDefaultMapView !== 'undefined') onSetDefaultMapView();
                           enterPopup = 0;
-                          /*option["map"].fitBounds(areaBounds, {
-                            padding: [100, 100]
-                          });*/
                           var northEast = areaBounds.getNorthEast();
                           var southWest = areaBounds.getSouthWest();
                           var center = areaBounds.getCenter();
@@ -2444,10 +2449,7 @@ $.fn.mapAllBlogs = function() {
                           ];
                           //areaNum = getNumItems();
                           // Insert whatever you want into the container, using whichever approach you prefer
-                          this.bindPopup(container[0]).openPopup();
-                          var areaPopup = this.getPopup();
-                          areaPopup.setLatLng(areaBounds.getCenter());
-                          return;
+                          //this.bindPopup(container[0]).openPopup();
                         }
                         map.closePopup();
                         refreshIndexEvent = inMarkers;

@@ -512,7 +512,8 @@ $.fn.mapAllBlogs = function() {
       ]
     },
     ],*/
-    banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
+    //banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
+    banner: 'https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png',
   };  
 
   var loading = $('<div id="loading"/>');
@@ -1654,9 +1655,9 @@ $.fn.mapAllBlogs = function() {
           setDefaultMapView();
 
           var baseMaps = {
-            'par défaut': L.tileLayer('')
+            'par unité': L.tileLayer('')
           };
-          baseMaps['par défaut'].addTo(map);
+          baseMaps['par unité'].addTo(map);
           var legendMaps = {}
 
           // Constructeur du contrôle de carte LeafLet
@@ -1706,7 +1707,26 @@ $.fn.mapAllBlogs = function() {
 
               var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
               var controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();
-              if (option["baseMaps"] !== null) controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">Métropole</div>')
+              if (option["baseMaps"] !== null) {
+                          var popupLegend = $('#menuLegend option:selected');
+                          if (popupLegend.length > 0) {
+                            popupLegend = popupLegend.text();
+                            if(popupLegend === '' ) popupLegend='Établissements'
+                          } else popupLegend='Établissements'
+                        function isFirstCons(popupLegend){
+                          var cons = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"]
+                          for( var i in cons) {
+                            if(popupLegend.startsWith(cons[i])) return true;
+                          }
+                          return false;
+                        }
+                                if (isFirstCons(popupLegend)) {
+                                  controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">Nb. de ' + popupLegend + '</div>');
+                                }
+                                else {
+                                  controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">Nb. d&#39;' + popupLegend + '</div>');
+                                }
+              }
               var controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
               if (objectOverlays["overlayTitle"] != '') {
                 controlOverlaysDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">' + objectOverlays["overlayTitle"] + '</div>')
@@ -1715,7 +1735,7 @@ $.fn.mapAllBlogs = function() {
                 controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-separator").css("display", "none");
                 controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").css("display", "none");
               };
-              var baselayerName = 'par défaut';
+              var baselayerName = 'par unité';
               var legendAllMarkers = addLegend()
               map.on('baselayerchange', function(eventLayer) {
                 baselayerName = eventLayer.name;
@@ -1725,7 +1745,7 @@ $.fn.mapAllBlogs = function() {
                 map.removeControl(option["legend"]["départements"]);
                 map.removeControl(option["legend"]["régions"]);
                 setDefaultMapView();
-                if (baselayerName == 'par défaut') {
+                if (baselayerName == 'par unité') {
                   onSetDefaultMapView = function() {};
                   enterPopup = 0;
                   //legendAllMarkers = addLegend();
@@ -1743,7 +1763,7 @@ $.fn.mapAllBlogs = function() {
               });
               map.on('overlayadd', function(eventLayer) {
                 console.log('adding : ' + eventLayer.name)
-                if (baselayerName == 'par défaut') {
+                if (baselayerName == 'par unité') {
                   for (var k = 0; k < objectOverlays["overlays"].length; k++) {
                     if (objectOverlays["overlays"][k].title == eventLayer.name) {
                       objectOverlays["overlays"][k].isVisible = true;
@@ -1758,7 +1778,7 @@ $.fn.mapAllBlogs = function() {
               });
               map.on('overlayremove', function(eventLayer) {
                 console.log('removing : ' + eventLayer.name)
-                if (baselayerName == 'par défaut') {
+                if (baselayerName == 'par unité') {
                   for (var k = 0; k < objectOverlays["overlays"].length; k++) {
                     if (objectOverlays["overlays"][k].title == eventLayer.name) {
                       objectOverlays["overlays"][k].isVisible = false;
@@ -2020,7 +2040,7 @@ $.fn.mapAllBlogs = function() {
 
             bannerCoord.onAdd = function(map) {
               var divBannerCoord = L.DomUtil.create('div', 'bannerCoord');
-              divBannerCoord.innerHTML = options.banner;
+              divBannerCoord.innerHTML = '<img border="0" data-original-height="200" data-original-width="600" src="' + options.banner + '" />';
               return divBannerCoord;
             };
 
@@ -2072,7 +2092,7 @@ $.fn.mapAllBlogs = function() {
                 loadClustering(option, option["data"]);
                 break;
               default:
-                option["baseMaps"]['par défaut'] = L.tileLayer('');
+                option["baseMaps"]['par unité'] = L.tileLayer('');
             };
             function loadClustering(option) {
               // Constructeur de la carte TopoJSON avec pays pour LeafLet
@@ -2314,18 +2334,18 @@ $.fn.mapAllBlogs = function() {
                             switch (areaNum) {
                               case 0:
                                 popupLegend = toSingular(popupLegend);
-                                popupLegend = "<div class='popItem'><span class='popTitle'>Aucun " + popupLegend + " concern&#232;</span><br></div>"
+                                popupLegend = "<div class='popItem'><span class='popTitle'>Aucun " + popupLegend + " concerné</span><br></div>"
                                 break;
                               case 1:
                                 popupLegend = toSingular(popupLegend);
-                                popupLegend = "<div class='popItem'><span class='popTitle'>Un " + popupLegend + " concern&#232;</span><br></div>"
+                                popupLegend = "<div class='popItem'><span class='popTitle'>Un " + popupLegend + " concerné</span><br></div>"
                                 break;
                               default:
                                 if (isFirstCons(popupLegend)) {
-                                  popupLegend = "<div class='popItem'><span class='popTitle'>Nombre de " + popupLegend + " concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#infoMap-wrapper' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>"
+                                  popupLegend = "<div class='popItem'><span class='popTitle'>Nombre de " + popupLegend + " concernés</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'>clickez pour plus de détails</span></div>"
                                 }
                                 else {
-                                  popupLegend = "<div class='popItem'><span class='popTitle'>Nombre d&#39;" + popupLegend + " concern&#232;s</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'><a href='#infoMap-wrapper' class='smallPolygonLink'>clickez pour plus de détails</a></span></div>"
+                                  popupLegend = "<div class='popItem'><span class='popTitle'>Nombre d&#39;" + popupLegend + " concernés</span><br><span class='popNum'>" + areaNum + "</span><br><span class='popNote'>clickez pour plus de détails</span></div>"
                                 }
                             };
                           }

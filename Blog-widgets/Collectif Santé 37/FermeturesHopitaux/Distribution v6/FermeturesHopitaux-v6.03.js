@@ -25,7 +25,7 @@ $.fn.mapAllBlogs = function() {
       },
       carteMAJ: "19/12/2022",
       //INSEE_KEY: "INSEE_COM",
-       checkIfStoreNeedsUpdate: false,
+      checkIfStoreNeedsUpdate: false,
       dataTransformer: false,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';
@@ -698,6 +698,22 @@ $.fn.mapAllBlogs = function() {
         }
       }
       else {
+        for (var i = 0; i < storedData.length; i++) {
+          var dept = false, reg = false;
+          for (var prop in storedData[i]) {
+            var propVal = storedData[i][prop];
+            if (typeof propVal !== 'undefined' && propVal !== '' && propVal !== ' ') {
+              if (prop == 'département') {
+                dept = true;
+              }
+              else if (prop == 'région') {
+                reg = true;
+              }
+            }
+          }
+          if (dept && reg) continue;
+          options.data.checkIfStoreNeedsUpdate = true;
+        }
         if (typeof options.data.checkIfStoreNeedsUpdate !== 'undefined' && options.data.checkIfStoreNeedsUpdate) geolocData(storedData);
         else runData(storedData);
       }
@@ -709,6 +725,23 @@ $.fn.mapAllBlogs = function() {
       if (!storedData ) storedData = options.data.base;
       else storedData = JSON.parse(storedData);
       storedData = getDataFromJSON(storedData);
+      for (var i = 0; i < storedData.length; i++) {
+        var dept = false,
+          reg = false;
+        for (var prop in storedData[i]) {
+          var propVal = storedData[i][prop];
+          if (typeof propVal !== 'undefined' && propVal !== '' && propVal !== ' ') {
+            if (prop == 'département') {
+              dept = true;
+            }
+            else if (prop == 'région') {
+              reg = true;
+            }
+          }
+        }
+        if (dept && reg) continue;
+        options.data.checkIfStoreNeedsUpdate = true;
+      }
       if (typeof options.data.checkIfStoreNeedsUpdate !== 'undefined' && options.data.checkIfStoreNeedsUpdate) geolocData(storedData);
       else runData(storedData);
       //runData(storedData);

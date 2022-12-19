@@ -2,7 +2,7 @@
               {
           svgInfos: ['Semaine 50', 'du 12 dec.', 'au 18 dec.', '2022'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 50.html',
-        },
+        }, 
               {
           svgInfos: ['Semaine 49', 'du 05 dec.', 'au 11 dec.', '2022'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 49.html',

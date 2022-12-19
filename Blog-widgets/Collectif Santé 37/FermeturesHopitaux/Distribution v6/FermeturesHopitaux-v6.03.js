@@ -25,7 +25,7 @@ $.fn.mapAllBlogs = function() {
       },
       carteMAJ: "19/12/2022",
       //INSEE_KEY: "INSEE_COM",
-      checkIfStoreNeedsUpdate: false,
+       checkIfStoreNeedsUpdate: false,
       dataTransformer: false,
       /*dataTransformer: function(inputData, setCallBack) {
       var outputData = 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/FermeturesHopitaux/Applications/AnalyseCN/export_Tous_les_établissements_concernés-2021_02_23.js';

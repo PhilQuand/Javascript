@@ -711,7 +711,7 @@ $.fn.mapAllBlogs = function() {
               }
             }
           }
-          if (dept && reg) continue;
+          if (dept && reg)  continue;
           options.data.checkIfStoreNeedsUpdate = true;
         }
         if (typeof options.data.checkIfStoreNeedsUpdate !== 'undefined' && options.data.checkIfStoreNeedsUpdate) geolocData(storedData);

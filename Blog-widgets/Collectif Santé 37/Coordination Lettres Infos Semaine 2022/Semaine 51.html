@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>J'avais imaginé en début de semaine un éditorial recensant les service d'urgences, de chirurgie, de maternité et les SMUR fermés ou avec restriction de l'accès pendant cette période de fêtes de fin d'année. Impossible ça croule de partout...</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 51</li>
+<li>Dates: du 19 au 25 décembre 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://drive.google.com/file/d/1NYQA3D3hN_1AUU-DzfjwlDDH-cWQHJzS/view?usp=share_link">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong> Édito (ou point fort de la semaine) : </strong></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<div style="font-family: Arial, serif;">
+
+<p>J'avais imaginé en début de semaine un éditorial recensant les service d'urgences, de chirurgie, de maternité et les SMUR fermés ou avec restriction de l'accès pendant cette période de fêtes de fin d'année. Impossible ça croule de partout. Des ARS déclenchent des plans blancs par départements entiers voire par région, plans blancs qui ne servent quasiment à rien - car le système de santé est à l'os - sauf à reporter une fois encore les interventions, examens et hospitalisations prévus. Un système de santé amaigri, un hôpital public exsangue qui fonctionne à flux tendu ne peut répondre aux besoins de santé et encore moins aux afflux de malades victimes d'épidémies prévisibles.</p>
+<p>Les jérémiades et parlottes – dans le cadre ou non du Conseil National de la Refondation - du ministre de la santé et de la prévention ne résoudront rien. Il s'agit pour nous de rassembler très largement pour imposer une autre politique de santé : une politique qui réponde aux besoins de santé et de soins de la population. Dépenser plus pour mieux prévenir et soigner, voilà l'objectif !</p>
+
+<p align="right"><em>jean-luc landas.</em></p>
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+
+<p style="background-color: #729FD0;" align="center"><strong>ARDENNES </strong></p>
+<p align="center"><strong><em>la maternité de Sedan menacée, le comité reste en alerte</em></strong></p>
+<p align="center"><a href="http://coordination-defense-sante.org/2022/12/ardennes-les-nouvelles-de-decembre-du-comite-de-defense/">le bulletin</a><br /><br /></p>
+<p style="background-color: #E37B23;" align="center"><strong>MAYENNE</strong></p>
+<p align="center" class="disregard"><strong>LE DOSSIER MÉDICAL PEUT-IL ÊTRE VENDU ?</strong></p>
+<p align="justify" class="disregard">Un médecin cessant son activité en fin d'année demande à ses patients un chèque de 6 € au profit d'une association départementale de médecins pour récupérer son dossier médical.</p>
+<p align="justify" class="disregard">Rappelons que le dossier médical est la propriété du patient (en fait copropriété du patient, du médecin, et de l'établissement de soins).</p>
+<p align="justify">Est-il vraiment normal de vendre au patient quelque chose qui lui appartient ?</p>
+<p align="justify">Légalement, seuls des frais d'impression et d'envoi peuvent-être demandés. Mais là on demande aux patients de se rendre au cabinet, ou au siège départemental de l'association avec une clé USB. Donc rien ne justifie ces 6€.</p>
+<p align="justify">De mauvaises langues vont même jusqu'à raconter que les patients qui rejoindraient le pôle de santé libéral tout proche seraient exonérés du règlement de cette somme. On ne peut y croire car si cela était avéré, on entrerait dans le champ de pratiques commerciales qui n'ont rien à voir avec l'exercice médical.</p>
+<p align="justify">AUDACE53 va rassembler les témoignages et divers éléments et interpeller l'ADOPS53, l'Ordre des médecins et éventuellement saisir la direction de la concurrence et des prix.</p>
+<p align="justify">Ceux qui reconnaissent cette situation sont invités à témoigner auprès de l'association</p>
+<p><a href="mailto:contact@audace53.fr">contact@audace53.fr</a>"</p>
+<p style="background-color: #729FD0;" align="center"><strong>CREIL</strong></p>
+<p align="center"><strong><em>à l'hôpital le personnel, en sous effectif constant, n'en peut plus</em></strong></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/hauts-de-france/oise/creil/aux-urgences-de-l-hopital-de-creil-le-cri-d-alarme-du-personnel-soignant-on-a-des-arrets-en-cascade-d-infirmieres-2681176.html?utm_medium=Social&amp;utm_source=Facebook&amp;fbclid=IwAR3Qzr0leyAlvgGJwJbOj0kIX9l5uY3w8XUfoRUd0RFVd1j06CXrtGlt7Yw#Echobox=1671815623">aux-urgences-de-l-hopital-de-creil-le-cri-d-alarme-du-personnel-soignant-</a></p>
+<p style="background-color: #FC3334;" align="center"><strong>AUTUN</strong></p>
+<p align="center"><strong><em>la maternité fermée jusqu'à mi-janvier, prélude à une fermeture définitive ?</em></strong></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/bourgogne-franche-comte/saone-et-loire/maternite-d-autun-l-activite-suspendue-jusqu-a-mi-janvier-faute-de-personnels-2678520.html?fbclid=IwAR3XGdYWh-iTXoM20KNjTEpBuDeBNZPeNwPlJ8pYzbPmve-7jx8SCgi-ck0">L'article</a></p>
+<p style="background-color: #37CC33;" align="center"><strong>CHERBOURG VALOGNES</strong></p>
+<p align="center" style="margin-bottom: 0"><strong><em>association citoyenne de défense du chpc et de promotion de la sante</em></strong></p>
+<p align="center" style="margin-top: 0"><strong><em>Rapport moral 17 décembre 2022</em></strong></p>
+<p align="justify">Depuis les ordonnances de 1971, c’est-à-dire depuis 50 ans, tous les gouvernements ont, en matière de santé et de sécurité sociale, de gestion hospitalière ou d’accès aux soins de premier recours, de formation des médecins et soignants, fait le choix de la maîtrise comptable des dépenses de santé.</p>
+<p align="justify">Numérus clausus réduisant le nombre de médecins formés, liberté totale d’installation des médecins libéraux, compression du nombre de soignants dans les hôpitaux, fermetures de services particulièrement de services d’accueil des urgences et de maternités, non revalorisation des rémunérations, financement par le secteur bancaire privé des investissements, surcoût des matériels et équipements, prix extravagant des médicaments et prothèses, , création d’un secteur 2 avec dépassement d’honoraire qui sont devenus la règle, autorisation de l’activité privée à l’hôpital public , développement des cliniques privées à but lucratif supportées par des fonds privés de groupes financiers et bénéficiant du financement public , arrêt de l’obligation des gardes pour les médecins libéraux etc.</p>
+<p align="justify">Pour parvenir à leurs fins ces mêmes gouvernements ont supprimé les élections des représentants administrateurs des caisses de sécurité sociale, ont supprimé les conseils d’administration des hôpitaux, ont créé les ARS véritables bras armés des ministres de la santé. La complémentaire santé a été offerte au système assuranciel et bancaire, l’objectif national des dépenses d’assurance maladie est voté par les députés toujours en dessous de l’évolution réelle du taux des dépenses hospitalières, tout comme le fameux PLFSS projet de loi de financement de la sécurité sociale qui a créé les franchises et autres forfaits, les vignettes bleues et autres déremboursements.</p>
+<p align="justify">J’en oublie sans doute car chaque année a apporté depuis 50 ans ses mesures délétères, nocives qui ont constitué prises dans leur ensemble et dans leur trajectoire permanente un affaiblissement très grave du service public hospitalier et de la sécurité sociale qui ne couvre plus que la moitié des dépenses de santé. L’autre moitié est à la charge des complémentaires que nous payons de plus en plus cher et des malades à cause des déremboursements et franchises.</p>
+<p align="justify">Pour résumer la philosophie et les conséquences de ces politiques je peux dire :</p>
+<p align="justify">Médecine à 2 vitesses – privatisation dans le Cotentin il y a 30 ans 30ù des actes de chirurgie étaient pratiqués dans le privé et 70% dans le privé. Aujourd’hui ce rapport s’est inversé : 70% pour le privé et 30% pour le secteur public- toute puissance du Conseil de l’Ordre des médecins dont la gestion est complètement opaque – toute puissance des syndicats réactionnaires ultra majoritaires des médecins libéraux et des unions régionales des médecins libéraux- recul de la démocratie sanitaire et tout ça a produit :</p>
+<p align="justify">Les déserts médicaux</p>
+<p align="justify">Le renoncement aux soins</p>
+<p align="justify">Les retards de prise en charge</p>
+<p align="justify">Les accouchements sur le bord des routes ou dans les véhicules des pompiers</p>
+<p align="justify">Des hôpitaux qui manquent de lits our accueillir les malades y compris les enfants</p>
+<p align="justify">Une gestion purement technocratique et financière des hôpitaux avec la tarification à l’activité. Notez que lorsqu’en moyenne européenne la part des personnels chargés de l’administration représente 13% des effectifs, en France cette proportion s’élève à 23%.</p>
+<p align="justify">Les dépenses exorbitantes pour l’installation des médecins libéraux</p>
+<p align="justify">L’incapacité de développer un vaccin contre la covid 19</p>
+<p align="justify">La pénurie de médicaments multipliée par 30 en 10 ans ( les laboratoires pharmaceutiques fabriquent ce qui est le plus rentable ce qui explique la pénurie de paracétamol et d’amoxicilline médicaments utilisé en pédiatrie pour traiter les affections respiratoires de l’enfant. En France le nombre d’entreprises qui produisent les médicaments est passé de 470 en 1980 à 247 aujourd’hui)</p>
+<p align="justify">Revendication exorbitantes d’organisations de médecins libéraux qui demandent le doublement du prix de la consultation</p>
+<p align="justify">Des millions de patients sans médecin traitant y compris ceux qui subissent une affection de longue durée</p>
+<p align="justify">La Manche, le Cotentin sont complètement concernés.</p>
+<p align="justify">Aujourd’hui les sages-femmes quittent les hôpitaux qui manquent déjà de gynécologues et d’obstétriciens.</p>
+<p align="justify">Mal payées, mal considérées malgré un niveau de formation à BAC plus 5 et des responsabilités importantes et un droit de prescription, leurs revendications maintes fois exprimées depuis de nombreuses années ne sont toujours pas satisfaites. Elles ne peuvent plus suivre correctement la patientèle hospitalière, c’est le cas à Pasteur, ne peuvent plus faire de prévention ni d’éducation à la santé alors que c’est tellement important avant et après la naissance. La réduction de la durée de séjour en maternité a été tellement réduite que 10% des accouchées reviennent en urgence à l’hôpital.</p>
+<p align="justify">Est-ce que tout cela était prévisible ? La réponse est OUI</p>
+<p align="justify">Combien de fois avons-nous dénoncé ces politiques libérales, nous parlions de médecine à 2 vitesses, une médecine pour les riches et une médecine pour les pauvres.</p>
+<p align="justify">Est-ce que tout cela était prévisible. La réponse est OUI</p>
+<p align="justify">Depuis longtemps les études de géographie de la santé, de démographie médicale et populationnelle ont décrit et prédit scientifiquement ce qui est advenu. L’évolution de la démographie médicale a été décrite et expliquée. L’évolution du nombre de malades chroniques qui occupent 80% du temps que les médecins consacrent à leurs patients en cabinet, le vieillissement de la population et l’augmentation de la population, l’apparition de nouvelles maladies liées à la dégradation de l’environnement, tout cela a été documenté et publié, adressé aux autorités sanitaires.</p>
+<p align="justify">Le choix de réduire les dépenses de santé en réduisant l’accès aux soins a abouti à une augmentation de la dépense inefficace à cause des retards de prise en charge, des reports comme on dit pudiquement qui amènent à des soins plus lourds et plus couteux, le manque de prévention et d’éducation à la santé qui se traduisent par davantage de MST, d’obésité et de diabète, de trop de cholestérol avec ses conséquences cardiaques, les addictions qui coutent davantage que la prévention et l’éducation à la santé.</p>
+<p align="justify">Enfin le manque de financement chronique a entraîné un endettement très couteux des hôpitaux publics que le Ségur de la santé n’a en rien diminué.</p>
+<p align="justify">Ces gouvernements ont choisi et décidé. Ils connaissaient les conséquences de leurs choix et cependant ils l’ont fait.</p>
+<p align="justify">Tous ces politiques et leurs experts sont responsables de la situation actuelle. Nous ne voulons plus de ces gens-là. Nous ne voulons plus de leurs méthodes autoritaires. Il faut fermer les ARS. Il faut redonner du pouvoir de décision et de contrôle aux citoyens et aux usagers.</p>
+<p align="justify">Il faut développer un maillage du territoire avec des hôpitaux de proximité dotés des services dont les populations ont besoin dans la proximité et de structures publiques du type centre de santé pour développer l’accès aux soins de premier recours, le travail en équipe pluridisciplinaire, la prévention et l’éducation à la santé avec des décisions prises au niveau des bassins de vie et de santé, avec les personnels les élus et les usagers.</p>
+<p align="justify">Les meilleurs experts de ce dont nous avons besoin c’est nous et nous devons reprendre le pouvoir de décider ce qui est bon pour nous et ce dont nous ne voulons plus. J’avais proposé il y a quelques années au Président de notre agglomération Jean-Louis Valentin d’installer une commission de promotion de la santé au niveau de l’agglomération. Je n’étais pas assez naÏf pour en attendre autre chose qu’une réponse négative. Cependant nous devons toujours proposer ça notamment à tous nos élus en leur en expliquant les enjeux. Nous les avons faits évoluer sur les centres de santé. Il faut qu’ils évoluent sur la commission de promotion de la santé. On en prend pour quelques années certes cependant c’est une orientation que nous vous proposons de confirmer.</p>
+<p align="justify">Nous voulons vous dire également que les actions locales sont nécessaires, indispensables car c’est au niveau local qu’on a la meilleure connaissance des difficultés rencontrées par nos concitoyens et évoquer ensemble les solutions.</p>
+<p align="justify">Nous voyons un peu partout des associations locales, des collectifs, des groupements de citoyens et d’usagers qui s’expriment sur leur difficulté d’accès aux soins. Mais chacun dans son coin ça ne fait pas une politique nouvelle en matière de santé, une politique cohérente sur un bassin de vie ou une région avec une gradation des moyens entre centres de santé, hôpital de proximité, centre hospitalier et CHU.</p>
+<p align="justify">Il nous faut nous rencontrer, nous fédérer, nous informer mutuellement et échanger pour porter un message clair par un mouvement puissant. La fonction de la coordination nationale des comités de défense des hôpitaux et maternités de proximité est bien celle-là. Je le dis à tous nos amis à Coutances, sur la côte des iles, à St Lô et dans le sud Manche. Ensemble nous pouvons développer des projets locaux et un projet départemental opposables au Conseil départemental et à l’ARS.</p>
+<p align="justify">Les fameuses réunions du conseil national de la refondation concernant la santé se sont déroulées alors que la majorité a voté l’ONDAM (objectif national des dépenses de l’assurance maladie) et le PLFSS (projet de loi de financement de la sécurité sociale).</p>
+<p align="justify">Macron et sa majorité décident des moyens et après on discute.</p>
+<p align="justify">Ca s’appelle la négociation ou plus exactement le foutage de gueule et un mépris pour les corps intermédiaires, syndicats et associations et la population invitée à s’exprimer alors que la règle a été imposée.</p>
+<p align="justify">Inversons la méthode. Construisons une carte départementale de santé avec les citoyens-usagers et leurs associations et collectifs. Proposons au sein et avec la coordination nationale une autre politique de santé.</p>
+<p align="justify">Vous n’en entendez pas parler mais il ne se passe pas une semaine dans notre pays sans que la question de l’accès aux soins, du manque de place à l’hôpital ne soit soulevée. Ces mouvements épars et parfois très mobilisateurs doivent converger.</p>
+<p align="justify">C’est l’orientation que nous proposons aujourd’hui dans ce rapport.</p>
+<p align="justify">Les rencontres nationales de la coordination nationale auxquelles nous avons participé avec Camille Dupont à Mayenne le mois dernier ont montré que dans 50 départements aujourd’hui des actions sont engagées avec les citoyens usagers, des élus et des personnels de santé pour imposer d’autres choix et proposer un maillage du territoire avec des hôpitaux de proximité avec urgences chirurgie et maternité et médecine polyvalente, pas les hôpitaux de proximité à la sauce Véran-Macron qui sont des coquilles vides, avec en complément ces structures publiques du type centre de santé avec des médecins salariés exerçant en groupe pluridisciplinaire avec des temps de coordination, la pratique du tiers payant pour éviter l’avance des frais, des élus et des usagers impliqués dans leur gestion pour développer l’éducation à la santé et la prévention.</p>
+<p align="justify">Dans le Cotentin nous sommes dans le coup car nous défendons à la fois l’hôpital public et proposons la création d’un centre de santé de l’agglomération à Valognes avec des antennes au sud, à l’est et à l’ouest où la médecine libérale est défaillante.</p>
+<p align="justify">Dans notre bilan d’activité depuis la création de notre association nous pouvons affirmer que</p>
+<ul>
+<li>nous avons contribué à défendre la maternité de niveau 3 à Pasteur avec la néonatalogie</li>
+<li>nous avons contribué à la relance du dossier de la coronarographie avec l’aide d’associations de patients de médecins et d’élus</li>
+<li>nous pouvons affirmer que nous avons contribué par notre persévérance à la réouverture d’un lieu de consultation à l’hôpital de Valognes. Il faut accentuer la pression sur le Maire de Cherbourg et la direction du CHPC pour renforcer et pérenniser cette structure.</li>
+<li>nous pouvons affirmer que nous avons fait avancer les idées pour la création de centres de santé en étant les premiers à faire venir ici à Valognes un représentant de la fédération nationale des centres de santé et une géographe de la santé docteure en géographie de la santé qui a montré l’évolution des modes d’exercice de la médecine générale vers l’exercice coordonné et le salariat. Aujourd’hui dans notre département 3 centres de santé sont sur les rails, Brès-Croizat à Cherbourg, celui d’Isigny le Buat et celui de Bourg vallée. Nous attendons le vote de la CAC du Cotentin pour l’ouverture du centre de santé à Valognes. Ce vote pourrait intervenir dans quelques mois après l’étude de faisabilité.</li>
+</ul>
+<p align="justify">Enfin certains s’opposent à la création des centres de santé parce que chaque médecin y voit moins de patients qu’un médecin de maison de santé ou de pôle libéral.</p>
+<p align="justify">Peut-être en voient-ils moins- mais peut-être les voient-ils mieux pour les voir moins souvent et éviter une consommation médicale inefficace.</p>
+<p align="justify">En conclusion et pour ouvrir la discussion je me permets de souligner qu’il y a eu la semaine dernière un mouvement de grève des médecins avec fermeture des cabinets pour revendiquer le doublement du prix de la consultation. Une autre revendication évoquait leur opposition à l’allongement de l’internat.</p>
+<p align="justify">On voit bien que leurs préoccupations ne sont pas exactement les nôtres.</p>
+<p style="background-color: #BE0202;" align="center"><strong>DOUARNENEZ</strong></p>
+<p align="center" style="margin-bottom: 0"><strong>pas vraiment rassurant le communiqué de l' ARS</strong></p>
+<p align="center" style="margin-top: 0"><strong>à propos d'éventuelles coupures d'électricité</strong></p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2022/12/Prise-en-charge-des-patients-a-haut-risque-vital-.pdf">l'analyse et les inquiétudes du comité des usagers</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF;" align="center"><strong>MAS D'AGENAIS</strong></p>
+<p align="center"><strong><em>manque cruel de médecins , un collectif créé soutenu par le comité de Marmande</em></strong></p>
+<p align="center"><a href="https://actu.fr/nouvelle-aquitaine/le-mas-d-agenais_47159/deserts-medicaux-la-maison-de-sante-du-mas-d-agenais-frappee-par-la-penurie-de-medecins_55944737.html"><strong>l'article</strong></a></p>
+<p style="background-color: #E37B23;" align="center"><strong>BAILLEUL</strong></p>
+<p align="center" style="margin-bottom: 0"><strong><em>un comble : pas de naissance possible à Noël ! Ni de chirurgie Tout fout le camp !</em></strong></p>
+<p align="center" style="margin-top: 0"><strong><em>Le service d'anesthésie ne fonctionne qu'avec des intérimaires sauf un</em></strong></p>
+<p align="center"><a href="https://actu.fr/pays-de-la-loire/sable-sur-sarthe_72264/hopital-du-bailleul-pas-de-chirurgie-ni-daccouchement-pour-le-reveillon-de-noel_56108765.html?fbclid=IwAR2riQ1r984d1ca0s2n7rOjuzqaJCoKXjOdEEXakNLSMEeDGxge0H_ndJvY">l'article</a></p>
+<p style="background-color: #CC0000;" align="center"><strong>PÉRONNE</strong></p>
+<p align="center"><strong>depuis des mois la retraite du pédiatre est annoncée : personne de prévu pour le remplacer</strong></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/hauts-de-france/somme/peronne/la-maternite-de-peronne-ferme-pendant-les-fetes-faute-de-medecins-les-instances-n-ont-pas-fait-ce-qu-il-fallait-pour-preserver-les-postes-2679432.html?fbclid=IwAR1i1PFBsveb1FzWLCN05g-JhXN71uWAYSANeBWuSQTzoNsfW19RgPTu6wU"><strong>la-maternite-de-peronne-ferme-pendant-les-fetes-</strong></a></p>
+<p style="background-color: #729FCF;" align="center"><strong>HAUTS DE FRANCE FINISTERE NORD</strong></p>
+<p align="center"><strong>l'ARS déclenche le plan blanc dans tous les établissements de santé</strong></p>
+<p align="center"><a href="https://www.oisehebdo.fr/2022/12/20/ars-hauts-de-france-etablissements-sante-plan-blanc/?fbclid=IwAR3c10T_wpReCxfeotLcAaNzbiEF_rTvgsQEUlnxW2y-UuDaMJ5DDURShJo">ars-hauts-de-france-etablissements-sante-plan-blanc</a></p>
+<p align="center"><a href="https://www.letelegramme.fr/bretagne/declenchement-du-plan-blanc-dans-les-hopitaux-et-cliniques-du-finistere-nord-23-12-2022-13247961.php#lc1grd3l4ixd1phv7uh">declenchement-du-plan-blanc-dans-les-hopitaux-et-cliniques-du-finistere-nord-</a></p>
+<p style="background-color: #36CC34;" align="center"><strong>CAEN</strong></p>
+<p align="center"><strong>service dégradé aux urgences du CHU</strong></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/normandie/calvados/caen/attention-il-faut-desormais-appeler-le-15-avant-d-aller-aux-urgences-du-chu-de-caen-2680164.htmll'article">l'article</a></p>
+<p style="background-color: #FD3304;" align="center"><strong>LANDERNEAU</strong></p>
+<p align="center"><strong>Un comité de défense de l’hôpital de Landerneau va se créer.</strong></p>
+<p align="center"><strong>Une première réunion aura lieu le jeudi 5 janvier 2023, à 18 h 30 à la salle Toull Kog.</strong></p>
+<p align="justify">À l’initiative des représentants CGT et CFDT du personnel et de quelques élus du territoire, un comité de défense de l’hôpital de Landerneau devrait voir le jour dans la foulée de la mobilisation du 13 décembre dernier. Une première réunion se tiendra le jeudi 5 janvier 2023 à 18 h 30, salle Toull Kog (quartier Saint-Thomas). Ce comité de défense se veut ouvert à tous les usagers, agents hospitaliers actifs et retraités, représentants du personnel, professionnels de santé libéraux, élus.</p>
+<p style="background-color: #FA1CCC;" align="center"><strong>BEGARD</strong></p>
+<p align="center"><strong>impossible de travailler correctement et de gagner sa vie</strong></p>
+<p align="center"><a href="https://actu.fr/bretagne/begard_22004/begard-demission-symbolique-de-224-salaries-de-lhopital-bon-sauveur-pour-alerter_56131805.html">demission-symbolique-de-224-salaries-de-lhopital-bon-sauveur</a></p>
+
+<p class="rubrique" style="display:none">Dossiers :</p>
+<p class="rubrique">Culture et santé :</p>
+
+<p class="titre-rubrique" align="center">L’Hôpital en souffrance: comment retrouver le sens du soin?</p>
+<p align="center"><strong>Une initiative de la Fondation Gabriel Péri</strong></p>
+<p align="center" style="margin-bottom: 0"><strong><em>un intéressant échange entre</em></strong></p>
+<p align="center" style="margin-top: 0"><strong><em>Fanny Vincent , maîtresse de conférences en sociologie et Loïc Pen, médecin urgentiste de Creil</em></strong></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=7x8f1pDgi5w&amp;t=2s">la vidéo </a></p>
+
+<hr />
+
+<p align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

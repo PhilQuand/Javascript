@@ -795,7 +795,7 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1pKMxxFJYk3nTK8ykKRLpyPDniMm8Jxu5/view?usp=share_link"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
 
-  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
+  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
 
 }
 </script>

@@ -1472,7 +1472,7 @@ $.fn.mapAllBlogs = function() {
         var iconMarkersLength = iconMarkers.length;
         var map, onSetDefaultMapView, refreshIndexEvent, boundsSetDefaultMapView;
         var clickedMarker;
-        var enterPopup = 0, clikedkLayer = 0;
+        var enterPopup = 0, clikedkLayer = 0, mapMinZoom = 6, mapMaxZoom = 11;;
 
 
         /*function removeAreaMarkers() {
@@ -1562,6 +1562,7 @@ $.fn.mapAllBlogs = function() {
             }
           return popupContent.html();
         }
+
         if (typeof options.maxClusterRadius !== 'undefined') var maxClusterRadius = options.maxClusterRadius;
         else var maxClusterRadius = 20;
         var markers = L.markerClusterGroup({
@@ -1569,7 +1570,7 @@ $.fn.mapAllBlogs = function() {
           removeOutsideVisibleBounds: true,
           spiderfyDistanceMultiplier: 2,
 
-          disableClusteringAtZoom: 13,
+          disableClusteringAtZoom: mapMaxZoom,
           spiderfyOnMaxZoom: false,
           zoomToBoundsOnClick: false,
           animate: false,
@@ -1581,7 +1582,7 @@ $.fn.mapAllBlogs = function() {
               clLatLong = clusterChildMarkers[i].getLatLng();
               if( Math.abs(clLatLong.lat - loLatLong.lat) > 0.0001 || Math.abs(clLatLong.lng - loLatLong.lng) > 0.0001 ) clusterSize = "small";
             }
-            if(map.getZoom() <= 6) var className = 'marker-cluster marker-cluster-' + clusterSize + ' marker-cluster-unzoomed';
+            if(map.getZoom() <= mapMinZoom) var className = 'marker-cluster marker-cluster-' + clusterSize + ' marker-cluster-unzoomed';
             else {
             var className = 'marker-cluster marker-cluster-' + clusterSize + ' marker-cluster-zoomed';
             }
@@ -1679,10 +1680,10 @@ $.fn.mapAllBlogs = function() {
           map = loadMap(idMap);
 
           //zoomRemove(map);
-          map.options.minZoom = 6;
+          map.options.minZoom = mapMinZoom;
           //map.options.maxZoom = 8;
           //map.options.minZoom = 5;
-          map.options.maxZoom = 11;
+          map.options.maxZoom = mapMaxZoom;
           map.scrollWheelZoom.disable();
 
           setDefaultMapView();

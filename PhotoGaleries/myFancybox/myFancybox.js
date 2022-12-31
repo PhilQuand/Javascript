@@ -13,12 +13,7 @@ $(document).ready(function() {
     var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 
     if (isImage) {
-      var aFancy = $(this)
-      aFancy = aFancy.parent("a")
-      aFancy = aFancy.data('fancybox');
-      //var aClass = $(this).parent("a").attr('class');
-      //var aId = $(this).parent("a").attr('id');
-      //if((typeof aClass ==='undefined') && (typeof aId ==='undefined') && (typeof aFancy ==='undefined')) {
+      var aFancy = $(this).parent("a").data('fancybox');
       if (typeof aFancy === 'undefined') {
         $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
         $(this).parent("a").attr('data-fancybox', 'fancy-box');

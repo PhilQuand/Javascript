@@ -74,7 +74,7 @@ function goFancy() {
     animated: false,
     showClass: false,
     hideClass: false,
-    //mainClass: "gallery-Photos-Corse",
+    mainClass: "gallery-fancy-box",
 
     Toolbar: false,
 

@@ -34,19 +34,13 @@ $(document).ready(function() {
 });
 
 function goFancy() {
-  $(".data-fancybox").fancybox({
+  /*$(".data-fancybox").fancybox({
     buttons: [
       'play',
       'download',
       'thumbs',
       'close'
     ]
-    /*infobar: true,
-    arrows: false,
-    animationEffect: "fade",
-    transitionEffect: "slide",
-    speed: 300,
-    margin: [40, 20]*/
   });
   $(".data-fancybox-inline").fancybox({
     toolbar: true,
@@ -73,13 +67,56 @@ function goFancy() {
         else if (current.index == (instance.group.length - 1)) current.$content.append('<a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
         else current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-prev class="button-previous" href="javascript:;">←</a>');
       }
-      /*if ( instance.group.length > 1 && current.$content ) {
-        current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
-      }*/
-
-      //current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
     }
 
+  });*/
+  Fancybox.bind('[data-fancybox="fancy-box"]', {
+    animated: false,
+    showClass: false,
+    hideClass: false,
+    //mainClass: "gallery-Photos-Corse",
+
+    Toolbar: false,
+
+    closeButton: "top",
+    click: false,
+    dragToClose: false,
+
+    Carousel: {
+      // Disable content slide animation
+      friction: 0,
+
+      // Disable touch guestures
+      Panzoom: {
+        touch: false,
+      },
+
+      Navigation: false,
+    },
+
+    Image: {
+      // Disable animation from/to thumbnail on start/close
+      zoom: false,
+
+      // Disable zoom on scroll event
+      wheel: false,
+
+      // Disable zoom on image click
+      click: false,
+
+      // Fit image horizontally only
+      fit: "contain",
+    },
+
+    // Center thumbnails only if draggable
+    Thumbs: {
+      minScreenHeight: 0,
+      Carousel: {
+        center: function() {
+          return this.elemDimWidth > this.wrapDimWidth;
+        },
+      },
+    },
   });
 }
 

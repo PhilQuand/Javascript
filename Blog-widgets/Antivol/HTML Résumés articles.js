@@ -14,7 +14,6 @@
 <!-- Add myFancybox-->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
-
 <script src='https://philquand.github.io/Javascript/Blog-widgets/Antivol/BibliothequeRadicale.js'></script>
 
 <!-- Add myTimeLine -->

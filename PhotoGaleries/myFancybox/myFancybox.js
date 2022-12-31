@@ -8,6 +8,7 @@
    }
 });*/
 $(document).ready(function() {
+  var isTogoFancy = true;
   $("#page_body").find("a img").each(function() {
     var isImage = /\.(?:jpg|jpeg|gif|png)$/i.test($(this).parent("a").attr("href"));
 
@@ -20,17 +21,18 @@ $(document).ready(function() {
         $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
         $(this).parent("a").attr('data-fancybox', 'fancy-box');
         $(this).parent("a").attr('href', 'javascript:;');
+      } else if (aFancy == 'fancy-box') {
+        isTogoFancy = false;
+      } else {
+        var hasDataFancybox = $(this).parent("a").hasClass('data-fancybox');
+        var hasDataFancyboxInline = $(this).parent("a").hasClass('data-fancybox-inline');
+        if ((!hasDataFancybox) && (!(hasDataFancyboxInline))) {
+          $(this).parent("a").addClass('data-fancybox');
+        }
       }
-      var hasDataFancybox = $(this).parent("a").hasClass('data-fancybox');
-      var hasDataFancyboxInline = $(this).parent("a").hasClass('data-fancybox-inline');
-      if ((!hasDataFancybox) && (!(hasDataFancyboxInline))) {
-        $(this).parent("a").addClass('data-fancybox');
-      }
-    }
-
-    else {}
+    } 
   });
-  goFancy();
+  if(isTogoFancy) goFancy();
 });
 
 function goFancy() {

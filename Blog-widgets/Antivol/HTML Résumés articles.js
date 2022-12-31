@@ -4,16 +4,17 @@
 <!-- Add fancyBox 3 -->
 <!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
 <!--script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script-->
-<!--link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" /-->
-<!-- End FancyBox -->
+<!--link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" /-->
 
 <!--Add fancyBox 4 voir documentation https://fancyapps.com -->
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" rel="stylesheet" type="text/css" />
 
 <!-- Add myFancybox-->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
+<!-- End FancyBox -->
+
 <script src='https://philquand.github.io/Javascript/Blog-widgets/Antivol/BibliothequeRadicale.js'></script>
 
 <!-- Add myTimeLine -->

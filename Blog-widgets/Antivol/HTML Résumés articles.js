@@ -1,16 +1,19 @@
 <!-- jQuery for FancyBox 3-->
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-<!-- Add fancyBox 3 see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
-<!--link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script-->
-<!-- Add fancyBox 4 voir documentation https://fancyapps.com -->
+<!-- Add fancyBox 3 -->
+<!-- see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script-->
+<!--link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" /-->
+<!-- End FancyBox -->
+
+<!--Add fancyBox 4 voir documentation https://fancyapps.com -->
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" rel="stylesheet" type="text/css" />
-<!-- Add myFancybox -->
-<link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
+
+<!-- Add myFancybox-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
-<!-- End FancyBox -->
 
 <script src='https://philquand.github.io/Javascript/Blog-widgets/Antivol/BibliothequeRadicale.js'></script>
 
@@ -22,14 +25,6 @@
 <!-- Fin audio toolbar -->
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
 <script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
-
-<!--p  style="font-size:18px; font-weight: bold; align-content: center;">Pour nous écrire ou nous contacter par téléphone, voici <a href="https://www.lantivol.com/p/contacts.html">nos coordonnées</a>.
-<br/>Pour recevoir notre lettre d'information, <a href="#" onclick="myFootInscription()">inscrivez-vous</a>.</p>
-<script>
-function myFootInscription() {
-  $('button.subscribe-button.pill-button').click();
-}
-</script-->
 
 <style>
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {
@@ -229,7 +224,6 @@ if (window.location.pathname == '/') {
   $('.bg-photo').remove();
   $('.header-widget > div > h1').html('<img src="https://1.bp.blogspot.com/-p9LAvp-6A0c/X1EYOuMRJjI/AAAAAAAAnFM/7mrGVj8oPgAzfu7Q_pDKsr1WXLqtMyQGQCLcBGAsYHQ/s320/Logo%2Bl%2527antivol%2Brouge%2Bet%2Bnoir%2BAzo.png"/><center><p>« Être radical, c’est aller à la racine des problèmes et à la hauteur des solutions »</p></center>');
   //$('.header-widget > div').append('<center><img src="https://1.bp.blogspot.com/-ow5Anx1wNTk/X0qX0h2VojI/AAAAAAAAnE8/zdtTf1hbHyI6a8UHLeGoaUcmm_QLtwhNwCLcBGAsYHQ/s722/Logo%2BAzo%2Bv1%2Btransparent.png"/></center>');
-  $("section.subscribe-section-container").prependTo("div.widget.PageList");
   function banAnim() {
     //$('.page_body .centered-top').append('<div class="video-background"><div class="video-foreground"><iframe style="width:100%;height:100%;" src="http://127.0.0.1:8887/LAntivol.html" frameborder="0" allowfullscreen></iframe></div></div>');
     if (document.referrer == null || document.referrer.indexOf(window.location.hostname) < 0) {

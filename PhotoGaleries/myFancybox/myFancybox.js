@@ -15,18 +15,18 @@ $(document).ready(function() {
     if (isImage) {
       var aFancy = $(this).parent("a").data('fancybox');
       if (typeof aFancy === 'undefined') {
-        $(this).parent("a").attr('data-src', $(this).parent("a").attr("href"));
-        $(this).parent("a").attr('data-fancybox', 'fancy-box');
+        $(this).parent("a").data('src', $(this).parent("a").attr("href"));
+        $(this).parent("a").data('fancybox', 'fancy-box');
         $(this).parent("a").attr('href', 'javascript:;');
       } else if (aFancy == 'fancy-box') {
         isTogoFancy = false;
-      } else {
+      } /*else {
         var hasDataFancybox = $(this).parent("a").hasClass('data-fancybox');
         var hasDataFancyboxInline = $(this).parent("a").hasClass('data-fancybox-inline');
         if ((!hasDataFancybox) && (!(hasDataFancyboxInline))) {
           $(this).parent("a").addClass('data-fancybox');
         }
-      }
+      }*/
     } 
   });
   if(isTogoFancy) goFancy();

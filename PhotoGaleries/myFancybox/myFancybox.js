@@ -71,7 +71,7 @@ function goFancy() {
       }
     }
 
-  });*/
+  });*/ 
   Fancybox.bind('[data-fancybox="fancy-box"]', {
     animated: false,
     showClass: false,

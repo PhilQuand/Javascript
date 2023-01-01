@@ -7,6 +7,7 @@
       return imgBase64;
    }
 });*/
+$.fancybox.defaults.hash = false;
 $(document).ready(function() {
   var isTogoFancy = true;
   $("#page_body").find("a img").each(function() {

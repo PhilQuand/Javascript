@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Sur fond de dérèglement climatique, de guerre en Ukraine, de révoltes populaires matées dans le sang au moyen orient et en Afrique, l’économie saigne les habitants de notre planète. Les maîtres du monde et de notre quotidien font mine de vouloir réorienter leur politique et ne font que pratiquer la fuite en avant, cherchant à imposer une mise en œuvre à vitesse accélérée des recettes libérales qui nous ont menés où nous en sommes.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 52</li>
+<li>Dates: du 26 au 31 décembre 2022</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2023/01/Infos-semaine-52-du-26-décembre-2022-au-1er-janvier.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong> Édito (ou point fort de la semaine) : </strong></p>
+<!--div class="VignetteBR center">
+<div class="divImg relief" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2022/05/Image2.jpeg" />
+</div></div-->
+<div style="font-family: Arial, serif;">
+
+<p><strong>Sur fond de dérèglement climatique, de guerre en Ukraine, de révoltes populaires matées dans le sang au moyen orient et en Afrique, l’économie saigne les habitants de notre planète. Les maîtres du monde et de notre quotidien font mine de vouloir réorienter leur politique et ne font que pratiquer la fuite en avant, cherchant à imposer une mise en œuvre à vitesse accélérée des recettes libérales qui nous ont menés où nous en sommes.</strong></p>
+<p>Catastrophe en cours dans le système de soins en France, mais la sécu est étouffée à coup d’exonérations, les personnels toujours malmenés, les habitants appelés à sont <a href="http://xn--lances-eva.se/">lancées.se</a> passer d’une médecine qui choisit de s’organiser sous l’injonction des profits maximum.</p>
+<p><strong>Les fermetures à répétition des urgences </strong>deviennent les marronniers des médias.<strong> Les maternités </strong>sont fermées pour être regroupées dans les mégapoles où des hôtels assureront un succédané de « proximité ».<strong> Les spécialistes </strong>se forment et s’installent en fonction des seules « lois du marché », délaissant les habitants d’un territoire qui leur a payé les études et permis leur situation sociale.</p>
+<p><strong>On croirait improbable </strong>les discours attribuant au passé les responsabilité de la situation, par ceux et celles qui, justement, l’ont mise en place, et pourtant…</p>
+<p>On croirait impossible de voir ceux qui désertent les gardes et les territoires exiger le doublement de leurs revenus au prétexte de conditions de travail qu’ils ne proposent pas de changer. Car, pourquoi rester muets sur la solution du salariat dans des centres de santé ? A l’abri de la bien bien-pensance médiatique, les portes parole de l’Ordre exercent le chantage sans craindre d’être taxés de « preneurs d’otage » comme il est d’usage pour les grèves des services publics.</p>
+<p><strong>La pandémie continue, </strong>comme cela était prévisible avec l’irruption de ce type de virus dans une obligation de mondialisation. Les labos s’enrichissent sur le dos des populations sans organisation sociale et étranglant celles qui existent. Mais « pas touche aux profits », ils ferment quand des règles de la sécu prévoient de remettre au pot commun une partie de ces profits.</p>
+<p><strong>Ce monde nouveau ressemble furieusement à l’ancien qui se serait emballé.</strong></p>
+<p>Face à cette situation, et malgré les difficultés, de nombreux habitants s’engagent dans la refondation d’une société. Les tâtonnements et divergences, inévitables à ce moment, ne doivent pas nous empêcher de « converger » comme on dit.</p>
+<p><strong>La solidarité, le bien commun de la santé (comme d’autres) retrouvent sens dans les mobilisations, le service public dont se fut le socle, ne peut compter que sur la société, puisque l’État a trahi.</strong></p>
+<p style="color: red"><strong>Au fait, bonne année à tou-te-s, on se retrouve très vite, pour que 2023 bouillonne !</strong></p>
+
+<p align="right"><em>Henri (Sud-Aveyron)</em></p>
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+
+<p style="background-color: #729FD0;" align="center"><strong>REMIREMONT - 88</strong></p>
+<p>ACHARNEMENT MEDIATIQUE CONTRE L’HOPITAL DE REMIREMONT <br />Notre association lutte depuis 7 ans, pour maintenir un hôpital général à Remiremont avec maternité, chirurgie et médecine, proche des populations. <br />Sans cet hôpital, beaucoup d’entre nous dans nos vallées de moyenne montagne, n’auraient souvent le choix qu’entre renoncement aux soins et perte de chance. <br />Or depuis 15 jours nous assistons à un déferlement médiatique à l’encontre de l’hôpital dont nous pensons légitiment qu’il ne sert pas les patients mais vise à enfoncer encore davantage le service public déjà bien affaibli par des dizaines ’année de choix politiques désastreux : tarification à l’activité, objectifs de dépenses annuelles largement en dessous des besoins, management importé des entreprises privés, et seulement orienté du point de vue financier vers la <br />réduction de la dépense notamment de personnel etc... <br /><br />Ademat-H respecte la douleur des familles endeuillées et estime qu’une information claire n’a pas été suffisamment apportée aux familles.</p>
+<p>(...)</p>
+<p><a href="http://www.ademat.org/">www.ademat.org</a> -defense.maternité<a href="mailto:remiremont@gmail.com">remiremont@gmail.com</a></p>
+<p style="background-color: #E37B23;" align="center"><strong>TOURS - 37</strong></p>
+<p>Le 26 décembre 2022, une femme d'une soixantaine d'années en détresse respiratoire a été refusée par les urgences de la clinique de l'Alliance, ELLE EST MORTE. Elle est retournée chez elle, a respecté la procédure, son mari a fait le 15, ELLE EST MORTE avant l'arrivée des secours. Une enquête est diligentée par l'ARS. Les restrictions qui frappent l'hôpital public entraînent la suppression d'une partie de son activité ou son transfert vers le privé sachant que c'est le public qui prend en charge la majeure partie des crises sanitaires. Qui décide de la fermeture des urgences privées ? ELLE EST MORTE</p>
+<p><a href="https://collectifsante37.blogspot.com/2022/12/un-drame-qui-nest-pas-du-au-hasard.html" target="_blank">https://collectifsante37.blogspot.com/2022/12/un-drame-qui-nest-pas-du-au-hasard.html</a></p>
+<p style="background-color: #729FD0;" align="center"><strong>LONJUMEAU – NORD ESSONNE - 91</strong></p>
+<p>L'Hôpital Public de Longjumeau, menacé de fermeture par le Gouvernement, la Maire et ses élus complices, dessert 550 000 habitants.</p>
+<p>Le Groupement Hospitalier du Nord Essonne (GHNE), avec l'accord de l'Agence Régionale de Santé (ARS), a fermé 450 lits et il continue. Il a vendu l'hôpital de Juvisy au groupe spéculatif privé Korian. De plus, le GHNE veut vendre pour des projets immobiliers spéculatifs, l'hôpital de Longjumeau à la ville de Longjumeau avec l'acceptation ravie de la maire de Longjumeau, Mme GELOT présidente du Conseil de surveillance du GHNE. La Communauté d'Agglomération Paris-Saclay (CPS), donne un avis favorable à ces projets.</p>
+<p>Le Préfet de l'Essonne, alors qu'une pétition, avec 70.000 signatures, lui a été remise, n'a pas répondu à la demande de rendez-vous du Comité de Défense. Il s'en lave les mains. (...)</p>
+<p><strong>MANIFESTONS DEVANT LE THÉÂTRE DE LONGJUMEAU LORS DES VŒUX DE Mme LA MAIRE6 JANVIER 2023 À PARTIR DE 19H avec un concert de casseroles</strong></p>
+<p>« <a href="mailto:comitehopitaux91@gmail.com">comitehopitaux91@gmail.com</a> »</p>
+<p style="background-color: #E37B23;" align="center"><strong>C</strong><strong>REIL – SENLIS - </strong><strong>60</strong></p>
+<p>6 mois après la décision de justice qui condamnait la fermeture de la maternité comme étant illégale, une manifestation est organisée le 7 janvier pour revendiquer la réouverture pour assurer 2 hôpitaux, 2 services d’urgences, 2 maternités.</p>
+<p><strong>LE 7 JANVIER 14H30 DEVANT L’HÔPITAL DE CREIL</strong></p>
+<p style="background-color: #729FD0;" align="center"><strong>GANGES – 30</strong></p>
+<blockquote>LA MATERNITÉ DE GANGES EST SUSPENDUE<br />Fin d'année, fin de maternité ? Officiellement, la maternité de Ganges est suspendue. Le directeur de l'ARS déclare qu'elle est toujours dans le schéma des établissements de santé et que cette mesure est provisoire. Malgré tout, dans les faits, il n'y a plus d'accouchement dans des conditions sécurisées à la clinique St Louis de Ganges.</blockquote>
+<blockquote><strong>Pétition contre la fermeture de la maternité de Ganges<br /></strong><a href="https://chng.it/Vpp6xRpsp2">https://chng.it/Vpp6xRpsp2</a></blockquote>
+<p style="background-color: #E37B23;" align="center"><strong>SUD AVEYRON - </strong><strong>12</strong></p>
+<p>Appel public à l’organisation des campagnes de mobilisation début 2023 sur :</p>
+<p>- Le maintien et le fonctionnement des <u>urgences de l’hôpital de St Affrique</u></p>
+<p>- Le <u>bouleversement du climat </u>entraîne déjà des <u>conséquences pour la santé</u>, quelles réponses sont nécessaires dans notre système de santé.</p>
+<p>- Il faut <u>relancer et rénover les services publics</u> (campagne du rassemblement de Mai 23 à Lure)</p>
+<p>Nous vous proposons de <u>participer le samedi 4 février après midi à partir de 14H à des ateliers</u> qui se tiendront successivement, dans la salle Rose Blancard de St Affrique (dans les locaux des syndicats).</p>
+
+<p style="display:none" class="rubrique">Autres infos locales :</p>
+
+<p class="rubrique" style="display:none">Dossiers :</p>
+
+<p class="titre-rubrique" align="center">PSYCHIATRIE, mobilisation en construction.</p>
+<p><strong>Appel du « PRINTEMPS DE LA PSYCHIATRIE »</strong></p>
+<p>(...)En novembre, l'annonce d'une action des syndicats de psychiatres a amené les 5 organisations : Coordination, CGT, SUD, USP et Printemps à sortir un appel en « convergence » avec l'action des psychiatres.</p>
+<p>Aujourd'hui, il apparaît que si nous voulons inverser le rapport de force, il est essentiel de nourrir les mobilisations par l'élaboration de propositions posant les bases d'une autre conception de la psychiatrie, fondée non plus sur la normalisation des personnes et des populations, mais sur la prise en compte de la souffrance psychique singulière de la personne et un accompagnement de la population et de la société pour que celles-ci puissent accueillir ce qu'elle nomme folie.</p>
+<p>Il nous semble que toutes les parties prenantes de l'Interorga y ont  leur place.</p>
+<p>C'est dans ce but que nous vous invitons à venir en débattre lors de la prochaine AG du Printemps qui se tiendra le dimanche 15 janvier</p>
+<p class="titre-rubrique" align="center" style="margin-bottom: 0">SUPPRESSION DU TIMBRE ROUGE. </p>
+<p class="titre-rubrique" align="center" style="margin-top: 0">MOMENT TRAGICO-COMIQUE A LA POSTE</p>
+<p>C’est une page qui se tourne. Dès le 1<sup>er</sup> janvier 2023, <a href="https://www.ouest-france.fr/economie/entreprises/la-poste/le-traditionnel-timbre-rouge-de-la-poste-va-disparaitre-par-quoi-va-t-il-etre-remplace-d0f73624-1fab-11ed-b73d-c186b65f3ccb" target="_blank">la Poste met fin au timbre rouge</a>, qui permettait d’affranchir un pli pour une distribution le lendemain. Le service est remplacé par l’e-Lettre rouge, un courrier dématérialisé.<span lang="hi-IN"> </span><strong>« C’est le courrier prioritaire de 2023 : hybride et plus écologique car évitant de nombreux trajets en camion et en avion »,</strong> assure l’entreprise postale. Mais, concrètement, comment ça marche ?</p>
+<p><strong>« L’idée est… plutôt simple,</strong> grimace une employée de La Poste. <strong>Si vous voulez envoyer un courrier prioritaire à quelqu’un, vous devrez désormais le taper sur le site internet de l’entreprise, ou le numériser puis le joindre en PDF. »</strong></p>
+<p>La lettre sera ensuite transmise à la Poste la plus proche du destinataire. <strong>« Là, un postier imprimera le courrier et le mettra sous plis. » </strong>Plus question, donc, d’envoyer par ce biais un chèque ou une feuille de soins à la Sécurité sociale.</p>
+<p><strong>Un problème de fracture numérique</strong></p>
+<p>La lettre prioritaire totalement dématérialisée possède des avantages certains pour l’entreprise. Elle lui permet notamment d’abandonner les liaisons aériennes, et donc de réduire son empreinte carbone. Mais, <a href="https://www.insee.fr/fr/statistiques/4241397" target="_blank">selon une étude de l’Insee publiée fin 2019, 8 millions de personnes sont encore privées d’équipements informatiques à domicile</a>, et plus d’un tiers des usagers d’Internet manquent des connaissances de base.</p>
+<p><strong>Les employés photographieront les lettres avec leurs téléphones</strong></p>
+<p>Selon une employée de La Poste, le dispositif pour venir en aide aux personnes manquant d’équipement ou mal à l’aise avec l’informatique est encore flou, et devrait être précisé dans les prochaines semaines. <strong>« Mais nous devrions tous être équipés de téléphones professionnels,</strong> estime-t-elle. <strong>Avec ces derniers, nous pourrons prendre une photo des courriers prioritaires, avant de les envoyer dans le serveur de La Poste. »</strong></p>
+<p>Une photo qui fait tiquer. Qu’en est-il du secret de la correspondance, inscrit dans l’article 8 de la Convention européenne des droits de l’homme, qui assure le maintien du caractère privé et secret des correspondances ?</p>
+<p><strong>Une « rematérialisation » dans des espaces sécurisés</strong></p>
+<p>La Poste précise également que les courriers seront <strong>« rematérialisés »,</strong> imprimés donc, dans <strong>« des espaces avec accès sécurisés et restreints aux personnes dûment</strong><strong> habilitées et formées »</strong>. Là encore, plusieurs employés de La Poste doutent de l’endroit où seront installés ces fameux espaces.</p>
+
+<hr />
+
+<p align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

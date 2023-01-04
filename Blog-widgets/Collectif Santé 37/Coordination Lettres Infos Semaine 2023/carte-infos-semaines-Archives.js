@@ -2,6 +2,7 @@
               {
           svgInfos: ['Semaine 52', 'du 26 dec.', 'au 31 dec.', '2022'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 52.html',
+          idGlinkID: 'PreviousLetters'
         }, 
            {
         imgID: 'svgBlue',
@@ -9,7 +10,6 @@
           svgInfosCarte: ['Semaine 52', 'du 26 dec.', 'au 30 dec.', '2022'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/Semaine 52.html',
           idGlinkID: 'Letters2022'
-          idGlinkID: 'PreviousLetters'
         },
               {
           svgInfosCarte: ['Semaine 51', 'du 19 dec.', 'au 25 dec.', '2022'],

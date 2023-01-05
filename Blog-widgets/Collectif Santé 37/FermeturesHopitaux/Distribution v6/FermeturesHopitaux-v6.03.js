@@ -3430,4 +3430,4 @@ $.fn.mapAllBlogs = function(options) {
     };
   }
 };
-})(jQuery);
+})(jQuery); 

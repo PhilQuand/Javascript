@@ -1490,7 +1490,7 @@ $.fn.mapAllBlogs = function(options) {
 
           //map.setView(new L.LatLng(47, 2), 6);
           
-          if (typeof boundsSetDefaultMapView === 'undefined') {
+          if (typeof boundsSetDefaultMapView === 'undefined' || boundsSetDefaultMapView.length == 0 ) {
             /*map.fitBounds([
               [51.10, 2.47],
               [48.37, -5.16],
@@ -2004,6 +2004,7 @@ $.fn.mapAllBlogs = function(options) {
                 //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
               }
               setDefaultMapView();
+              if( contentLegendHtml == '' ) contentLegendHtml = "aucun élément"
               contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
             }
             for (var k = 0; k < iconMarkersLength; k++) {
@@ -2018,7 +2019,6 @@ $.fn.mapAllBlogs = function(options) {
                 if (legendTitle !== '') contentLegendHtml += '<br>'
               }
             }
-            if( contentLegendHtml == '' ) contentLegendHtml = "aucun élément"
             if (legendTitle == '' && tableFilterOn) {
               //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
               var selectNW = {
@@ -3065,7 +3065,7 @@ $.fn.mapAllBlogs = function(options) {
 
             stateChangingButton.addTo(map);
           }
-          else if (states[0].stateName !== 'Hexagone') $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
+          else if (states.length > 0 && states[0].stateName !== 'Hexagone') $('.leaflet-control-layers.leaflet-control').css('visibility', 'hidden');
 
 
           function checkautresDeptsBounds(autresDepts, indexEvent) {

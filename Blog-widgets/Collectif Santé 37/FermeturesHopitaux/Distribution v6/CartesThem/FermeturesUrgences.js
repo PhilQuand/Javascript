@@ -11,10 +11,10 @@
 	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Données Carte)').css('display', 'none');
   // fin spécial pour le site de la CN
   $(document).ready(function() {
-    $('#Fermetures').mapAllBlogs(/*{ 
+    $('#Fermetures').mapAllBlogs({ 
     legend: [
     {
-      title: 'Urgences sup.',
+      title: 'non renseignés',
       //test: function(){},
       filter: {
         func: function(data) {
@@ -24,6 +24,19 @@
         }
         return 0;
         }
+      },
+      affect: function(data) {
+        if (         (
+            ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('RÉDUCTION DES URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('RÉDUCTION DES URGENCES') > -1)) 
+         || ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('RÉDUCTION DE URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('RÉDUCTION DE URGENCES') > -1)) 
+         || ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('RÉDUCTION URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('RÉDUCTION URGENCES') > -1)) 
+         || (isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('INTERRUPTION DES URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('INTERRUPTION DES URGENCES') > -1)) 
+         || ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('INTERRUPTION DE URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('INTERRUPTION DE URGENCES') > -1)) 
+         || ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('INTERRUPTION URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('INTERRUPTION URGENCES') > -1)) 
+        ) {
+          return 0;
+        }
+        else return 1;
       },
       icons: [
         {
@@ -35,7 +48,7 @@
             popupAnchor: [1, -17],
             shadowSize: [20, 20]
           })},
-          title: 'urgences sup.',
+          title: 'réduction/interruption',
           //title: 'une victoire',
           colorBG: '#FFD326',
           colorFG: '#0E0E0E',
@@ -51,7 +64,7 @@
               shadowSize: [20, 20]
             })
           },
-          title: 'non renseignés',
+          title: 'fermetures',
           colorBG: '#29AD27',
           colorFG: '#FFFFFF',
         },
@@ -88,6 +101,6 @@
       ]
     },
     ] 
-    }*/);
+    });
   });
 })(jQuery);

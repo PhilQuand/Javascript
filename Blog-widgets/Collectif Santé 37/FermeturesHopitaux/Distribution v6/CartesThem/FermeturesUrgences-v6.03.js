@@ -346,8 +346,8 @@ $.fn.mapAllBlogs = function() {
           value: '1: avec nettoyage',
           label: 'Avec nettoyage'
         }, {
-          value: '1: avec urgence',
-          label: 'Avec urgence'
+          value: '1: avec urgences',
+          label: 'Avec urgences'
         }, {
           value: '1: avec entretien',
           label: 'Avec entretien'

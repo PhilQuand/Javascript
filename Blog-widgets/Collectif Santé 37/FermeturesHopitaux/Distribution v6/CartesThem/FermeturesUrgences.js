@@ -11,7 +11,7 @@
 	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Données Carte)').css('display', 'none');
   // fin spécial pour le site de la CN
   $(document).ready(function() {
-    $('#Fermetures').mapAllBlogs({ 
+    $('#Fermetures').mapAllBlogs(/*{ 
     legend: [
     {
       title: 'Urgences sup.',
@@ -88,6 +88,6 @@
       ]
     },
     ] 
-    });
+    }*/);
   });
 })(jQuery);

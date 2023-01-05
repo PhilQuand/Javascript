@@ -1,5 +1,5 @@
 (function($) {
-$.fn.mapAllBlogs = function() {
+$.fn.mapAllBlogs = function(options) {
 
   var isOKNumber = data => {
     if (jQuery.type(data) === 'number' && data != '') return true;
@@ -346,6 +346,9 @@ $.fn.mapAllBlogs = function() {
           value: '1: avec nettoyage',
           label: 'Avec nettoyage'
         }, {
+          value: '1: avec urgence',
+          label: 'Avec urgence'
+        }, {
           value: '1: avec entretien',
           label: 'Avec entretien'
         }],
@@ -514,7 +517,8 @@ $.fn.mapAllBlogs = function() {
     ],*/
     //banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
     banner: 'https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png',
-  };  
+  }; 
+  if(typeof options.legend !== 'undefined' ) optionsPlugIn.legend = options.legend;
 
   var loading = $('<div id="loading"/>');
   loading.append('<p>Chargement ...</p>');

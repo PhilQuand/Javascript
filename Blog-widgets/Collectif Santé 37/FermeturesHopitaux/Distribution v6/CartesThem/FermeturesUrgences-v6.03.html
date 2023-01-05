@@ -531,12 +531,13 @@ $.fn.mapAllBlogs = function() {
       title: 'Établissements',
     },*/
     {
-      title: 'Urgences sup.',
+      title: 'urgences supprimées',
       //test: function(){},
       filter: {
         func: function(data) {
         //if ( (isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('URGENCE') > -1) || (isOKString(data['menaces']) && data['menaces'].toUpperCase().indexOf('URGENCE') > -1) ) {
-        if ( (isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('URGENCE') > -1) ) {
+        if ( (isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('URGENCE') > -1) || (isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('URGENCE') > -1)) {
+        //if ( (isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('URGENCE') > -1)) {
           return 1;
         }
         return 0;
@@ -552,7 +553,7 @@ $.fn.mapAllBlogs = function() {
             popupAnchor: [1, -17],
             shadowSize: [20, 20]
           })},
-          title: 'renseignés',
+          title: 'urgences supprimées',
           //title: 'une victoire',
           colorBG: '#FFD326',
           colorFG: '#0E0E0E',

@@ -19,7 +19,7 @@
       filter: {
         func: function(data) {
         //if ( (isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('URGENCE') > -1) || (isOKString(data['menaces']) && data['menaces'].toUpperCase().indexOf('URGENCE') > -1) ) {
-        if ( (isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('URGENCE') > -1) ) {
+        if ( ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('URGENCES') > -1)) ) {
           return 1;
         }
         return 0;

@@ -518,7 +518,9 @@ $.fn.mapAllBlogs = function(options) {
     //banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
     banner: 'https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png',
   }; 
-  if(typeof options.legend !== 'undefined' ) optionsPlugIn.legend = options.legend;
+  if(typeof options !== 'undefined' ) {
+    if(typeof options.legend !== 'undefined' ) optionsPlugIn.legend = options.legend;
+  }
 
   var loading = $('<div id="loading"/>');
   loading.append('<p>Chargement ...</p>');

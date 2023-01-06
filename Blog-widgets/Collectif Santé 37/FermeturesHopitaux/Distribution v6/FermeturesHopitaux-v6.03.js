@@ -1613,6 +1613,9 @@ $.fn.mapAllBlogs = function(options) {
         map.on('zoom', function() {
           $('#contentLegend').html(legendUpdate());
         });
+        map.on('move', function() {
+          $('#contentLegend').html(legendUpdate());
+        });
         function legendUpdate() {
           var mapBounds = map.getBounds()
           var northEast = mapBounds.getNorthEast();

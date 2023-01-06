@@ -1977,8 +1977,8 @@ $.fn.mapAllBlogs = function(options) {
                   lat: 1000000,
                   lng: -1000000
                 };
-                for (var i = 0; i < indexEvent.length; i++) {
-                  if (indexEvent[i]["selected"]) {
+                for (var i = 0; i < indexEventTable.length; i++) {
+                  if (indexEventTable[i]["selected"]) {
                     if (selectNW.lat < indexEventTable[i]["lat"]) selectNW.lat = indexEventTable[i]["lat"];
                     if (selectNW.lng > indexEventTable[i]["lng"]) selectNW.lng = indexEventTable[i]["lng"];
                     if (selectNE.lat < indexEventTable[i]["lat"]) selectNE.lat = indexEventTable[i]["lat"];
@@ -2037,8 +2037,8 @@ $.fn.mapAllBlogs = function(options) {
                 lat: 1000000,
                 lng: -1000000
               };
-              for (var i = 0; i < indexEvent.length; i++) {
-                if (indexEvent[i]["selected"]) {
+              for (var i = 0; i < indexEventTable.length; i++) {
+                if (indexEventTable[i]["selected"]) {
                   if (selectNW.lat < indexEventTable[i]["lat"]) selectNW.lat = indexEventTable[i]["lat"];
                   if (selectNW.lng > indexEventTable[i]["lng"]) selectNW.lng = indexEventTable[i]["lng"];
                   if (selectNE.lat < indexEventTable[i]["lat"]) selectNE.lat = indexEventTable[i]["lat"];

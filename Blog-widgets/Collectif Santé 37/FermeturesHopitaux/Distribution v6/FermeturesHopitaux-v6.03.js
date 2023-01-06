@@ -1610,6 +1610,55 @@ $.fn.mapAllBlogs = function(options) {
         map = initMap('infoMap', indexEvent);
         markers.addTo(map);
         clickedMarker = "";
+        map.on('zoom', function() {
+          $('#contentLegend').html(legendUpdate());
+        });
+        function legendUpdate() {
+          var mapBounds = map.getBounds()
+          var northEast = mapBounds.getNorthEast();
+          var southWest = mapBounds.getSouthWest();
+          var iconMarkersLoc = [];
+
+          for (var k = 0; k < iconMarkersLength; k++) {
+            iconMarkersLoc.push(iconMarkers[k]);
+            iconMarkersLoc[k].nbMapEvents = 0
+            for (var i = 0; i < indexEventTable.length; i++) {
+              if (indexEventTable[i]["selected"] && (indexEventTable[i].iconMarker == k || indexEventTable[i].iconMarker.title == iconMarkers[k].title)) {
+                if (northEast.lat > indexEventTable[i]["lat"] && southWest.lat < indexEventTable[i]["lat"] && northEast.lng > indexEventTable[i]["lng"] && southWest.lng < indexEventTable[i]["lng"]) {
+                  iconMarkersLoc[k].nbMapEvents++;
+                }
+              }
+            }
+          }
+          var totalEvents = 0;
+          var totalMarkers = 0;
+          for (var k = 0; k < iconMarkersLength; k++) {
+            totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
+            if (iconMarkers[k].nbMapEvents != 0) totalMarkers++
+          }
+          var contentLegendHtml = ''
+          if (legendTitle != '') {
+            if (totalMarkers > 1)
+              if (totalEvents == 0) contentLegendHtml += 'aucun élément';
+              else if (totalEvents == 1) contentLegendHtml += totalEvents + ' élément';
+            else if (totalEvents > 1) contentLegendHtml += totalEvents + ' éléments';
+            if (contentLegendHtml == '') contentLegendHtml = "aucun élément"
+            contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
+          }
+          for (var k = 0; k < iconMarkersLoc.length; k++) {
+            if (typeof iconMarkersLoc[k].title !== 'undefined' && iconMarkersLoc[k].nbMapEvents > 0) {
+              if (typeof iconMarkersLoc[k].icon.leaflet === 'undefined') {
+                contentLegendHtml += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkersLoc[k].nbMapEvents + ' ' + iconMarkersLoc[k].title;
+              }
+              else {
+                var iconVal = iconMarkersLoc[k].icon.leaflet;
+                contentLegendHtml += '<img src="' + iconMarkersLoc[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkersLoc[k].nbMapEvents + ' ' + iconMarkersLoc[k].title
+              }
+              if (legendTitle !== '') contentLegendHtml += '<br>'
+            }
+          }
+          return contentLegendHtml;
+        };
         map.on('zoomend', function() {
           if (clickedMarker !== "" && map.getZoom() >= map.options.maxZoom) {
             if (typeof clickedMarker.__parent !== 'undefined') clickedMarker.__parent.spiderfy();
@@ -1954,12 +2003,7 @@ $.fn.mapAllBlogs = function(options) {
               if( iconMarkers[k].nbMapEvents != 0 ) totalMarkers++
             }
             checkautresDepts(map, indexEvent)
-            var contentLegendHtml = ''
             if (legendTitle != '') {
-              if(totalMarkers > 1)
-              if(totalEvents == 0) contentLegendHtml += 'aucun élément';
-              else if(totalEvents == 1) contentLegendHtml += totalEvents + ' élément';
-              else if(totalEvents > 1) contentLegendHtml += totalEvents + ' éléments';
               if (tableFilterOn) {
                 var selectNW = {
                   lat: -1000000,
@@ -2001,26 +2045,10 @@ $.fn.mapAllBlogs = function(options) {
                   ]
                   //map.fitBounds(boundsSetDefaultMapView);
                 }
-                //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span>'
               }
               setDefaultMapView();
-              if( contentLegendHtml == '' ) contentLegendHtml = "aucun élément"
-              contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
-            }
-            for (var k = 0; k < iconMarkersLength; k++) {
-              if (typeof iconMarkers[k].title !== 'undefined' && iconMarkers[k].nbMapEvents > 0) {
-                if (typeof iconMarkers[k].icon.leaflet === 'undefined') {
-                  contentLegendHtml += '<img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title;
-                }
-                else {
-                  var iconVal = iconMarkers[k].icon.leaflet;
-                  contentLegendHtml += '<img src="' + iconMarkers[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkers[k].nbMapEvents + ' ' + iconMarkers[k].title
-                }
-                if (legendTitle !== '') contentLegendHtml += '<br>'
-              }
             }
             if (legendTitle == '' && tableFilterOn) {
-              //contentLegendHtml += '<span style="font-size: x-large; font-weight: bold; color: red; "> *</span><br>'
               var selectNW = {
                 lat: -1000000,
                 lng: 1000000
@@ -2069,7 +2097,9 @@ $.fn.mapAllBlogs = function(options) {
             }
             if (tableFilterOn) $('#star_filter').css('display', 'inline');
             else $('#star_filter').css('display', 'none');
-            return contentLegendHtml;
+            
+            return legendUpdate();
+            
           }
           if(typeof options.banner !== 'undefined') bannerCoord();
           function bannerCoord() {
@@ -2806,6 +2836,7 @@ $.fn.mapAllBlogs = function(options) {
                     enterPopup = 0;
                     map.closePopup();
                     setDefaultMapView();
+                    $('#contentLegend').html(legendUpdate());
                   }
                 }]
               });

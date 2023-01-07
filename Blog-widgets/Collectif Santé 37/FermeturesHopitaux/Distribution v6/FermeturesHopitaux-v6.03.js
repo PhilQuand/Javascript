@@ -1635,19 +1635,20 @@ $.fn.mapAllBlogs = function(options) {
           }
           var totalEvents = 0;
           var totalMarkers = 0;
-          for (var k = 0; k < iconMarkersLength; k++) {
-            totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
-            if (iconMarkers[k].nbMapEvents != 0) totalMarkers++
+          for (var k = 0; k < iconMarkersLoc.length; k++) {
+            totalEvents = totalEvents + iconMarkersLoc[k].nbMapEvents;
+            if (iconMarkersLoc[k].nbMapEvents != 0) totalMarkers++
           }
           var contentLegendHtml = ''
-          if (legendTitle != '') {
-            if (totalMarkers > 1)
-              if (totalEvents == 0) contentLegendHtml += 'aucun élément';
-              else if (totalEvents == 1) contentLegendHtml += totalEvents + ' élément';
-            else if (totalEvents > 1) contentLegendHtml += totalEvents + ' éléments';
-            if (contentLegendHtml == '') contentLegendHtml = "aucun élément"
-            contentLegendHtml = '<span class="legendTitle" style="display:block; text-align:center;">' + contentLegendHtml + '</span>';
+          //if (legendTitle != '') contentLegendHtml += '<span class="legendTitle" style="display:block; text-align:center;">' + legendTitle + '</span>';
+
+          if (totalMarkers > 1) {
+            if (totalEvents == 0) totalEvents = 'aucun élément';
+            else if (totalEvents == 1) totalEvents = totalEvents + ' élément';
+            else if (totalEvents > 1) totalEvents = totalEvents + ' éléments';
+            contentLegendHtml += '<span class="legendTotalEvents" style="display:block; text-align:center;">' + totalEvents + '</span>';
           }
+        
           for (var k = 0; k < iconMarkersLoc.length; k++) {
             if (typeof iconMarkersLoc[k].title !== 'undefined' && iconMarkersLoc[k].nbMapEvents > 0) {
               if (typeof iconMarkersLoc[k].icon.leaflet === 'undefined') {
@@ -1657,7 +1658,7 @@ $.fn.mapAllBlogs = function(options) {
                 var iconVal = iconMarkersLoc[k].icon.leaflet;
                 contentLegendHtml += '<img src="' + iconMarkersLoc[k].icon.leaflet.options.iconUrl + '"> ' + iconMarkersLoc[k].nbMapEvents + ' ' + iconMarkersLoc[k].title
               }
-              if (legendTitle !== '') contentLegendHtml += '<br>'
+              contentLegendHtml += '<br>'
             }
           }
           return contentLegendHtml;
@@ -1910,7 +1911,10 @@ $.fn.mapAllBlogs = function(options) {
                 else menuLegendOptions += '<option data-path=' + i + '>' + options['legend'][i].title + '</option>'
               }
               divlegendAllMarkers.innerHTML += '<select id="menuLegend" style="margin-bottom: 1em">' + menuLegendOptions + '</select>';
-              if(options['legend'].length == 1) divlegendAllMarkers.innerHTML = '<div style="display:none">' + divlegendAllMarkers.innerHTML + '</div>';
+              if(options['legend'].length == 1) {
+                divlegendAllMarkers.innerHTML = '<div style="display:none">' + divlegendAllMarkers.innerHTML + '</div>';
+                if(typeof options['legend'][0].title !== 'undefined' && options['legend'][0].title != '') divlegendAllMarkers.innerHTML += '<span class="legendTitle" style="display:block; text-align:center;">' + options['legend'][0].title + '</span>';
+              }
               if( menuLegend == -1) {
                 menuLegend = 0;
                 divlegendAllMarkers.innerHTML += '<div id="contentLegend" >' + contentLegend(true) + '</div>';

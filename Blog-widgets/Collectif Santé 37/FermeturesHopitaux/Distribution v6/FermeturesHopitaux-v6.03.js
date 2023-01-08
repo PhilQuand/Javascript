@@ -520,6 +520,9 @@ $.fn.mapAllBlogs = function(options) {
   }; 
   if(typeof options !== 'undefined' ) {
     if(typeof options.legend !== 'undefined' ) optionsPlugIn.legend = options.legend;
+    if(typeof options.mapBounds !== 'undefined' ) optionsPlugIn.mapBounds = options.mapBounds;
+    if(typeof options.mapPresentation !== 'undefined' ) optionsPlugIn.mapPresentation = options.mapPresentation;
+    if(typeof options.changeControls !== 'undefined' ) optionsPlugIn.changeControls = options.changeControls;
   }
 
   var loading = $('<div id="loading"/>');
@@ -558,26 +561,16 @@ $.fn.mapAllBlogs = function(options) {
   
   var iconMarkersBuilder, legendTitle, objectOverlays;
 
-  var optionsData = readUrlParam('options');
-  if (typeof optionsData !== 'undefined') {
-    loadFromJS(optionsData,
-      () => {
-        runMapandTable(options);
-      },
-      (optionsData) => {
-        loading.html(optionsData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
-      }
-    );
-  }
-  else runMapandTable(optionsPlugIn);
+  runMapandTable(optionsPlugIn);
 
   function runMapandTable(options) {
 
     if (typeof options == 'undefined' ) var options = {};
     if (typeof options.popupData == 'undefined' ) options.popupData = {};
-    $('#infoMap-wrapper').append('<div class="footMap" style="width: 100%"><div id="star_filter" style="display: inline"><span style="font-size: x-large; font-weight: bold; color: red; ">* <i></span>les données ont été  filtrées dans l' + "'" + 'onglet Données</div><div class="carteMAJ" style="float:right">carte mise à jour le ' + options.data.carteMAJ + '</div></div>');
+    $('#infoMap-wrapper').append('<div class="footMap" style="width: 100%; height: 20px"><div id="star_filter" style="display: inline"><span style="font-size: x-large; font-weight: bold; color: red; ">* <i></span>les données ont été  filtrées dans l' + "'" + 'onglet Données</div><div class="carteMAJ" style="float:right">carte mise à jour le ' + options.data.carteMAJ + '</div></div>');
     
 
+    if (typeof options.mapPresentation !== 'undefined' ) $('#infoMap-wrapper').append('<div class="mapPresentation">'+options.mapPresentation + '</div>')
     if (typeof options['legend'] == 'undefined') {
       options['legend'] = [{
         icons: [{
@@ -1499,14 +1492,27 @@ $.fn.mapAllBlogs = function(options) {
               [43.80, 7.96],
               [49.03, 8.08],
             ]);*/
-            map.fitBounds([
-              [50.10, 2.47],
-              [48.37, -4.16],
-              [43.38, -1.85],
-              [42.47, 3.16],
-              [43.80, 7.96],
-              [47.03, 8.08]
-            ]);
+           if (typeof options.mapBounds === 'undefined' || typeof options.mapBounds.northEast === 'undefined' || typeof options.mapBounds.southWest === 'undefined' 
+            || typeof options.mapBounds.northEast.lat !== 'number' || typeof options.mapBounds.northEast.lng  !== 'number'
+            || typeof options.mapBounds.southWest.lat !== 'number' || typeof options.mapBounds.southWest.lng  !== 'number' ) {
+              map.fitBounds([
+                [50.10, 2.47],
+                [48.37, -4.16],
+                [43.38, -1.85],
+                [42.47, 3.16],
+                [43.80, 7.96],
+                [47.03, 8.08]
+              ]);
+            } else {
+             map.fitBounds([
+              [[options.mapBounds.northEast.lat, options.mapBounds.northEast.lng]],
+              [[options.mapBounds.southWest.lat, options.mapBounds.southWest.lng]]
+             ]);
+             map.setMaxBounds([
+              [[options.mapBounds.northEast.lat, options.mapBounds.northEast.lng]],
+              [[options.mapBounds.southWest.lat, options.mapBounds.southWest.lng]]
+             ]);
+             map.setMinZoom( map.getBoundsZoom( map.options.maxBounds ) );           }
           } else if (boundsSetDefaultMapView.length == 1) {
             map.flyTo(new L.LatLng(
               boundsSetDefaultMapView[0][0],
@@ -1616,10 +1622,25 @@ $.fn.mapAllBlogs = function(options) {
         map.on('move', function() {
           $('#contentLegend').html(legendUpdate());
         });
+        map.on('zoomend', function() {
+          if (clickedMarker !== "" && map.getZoom() >= map.options.maxZoom) {
+            if (typeof clickedMarker.__parent !== 'undefined') clickedMarker.__parent.spiderfy();
+            clickedMarker = "";
+          }
+          var mapBounds = map.getBounds()
+          var northEast = mapBounds.getNorthEast();
+          var southWest = mapBounds.getSouthWest();
+          boundsSetDefaultMapView = [
+            [northEast.lat, northEast.lng],
+            [southWest.lat, southWest.lng]
+          ];
+        });
         function legendUpdate() {
           var mapBounds = map.getBounds()
           var northEast = mapBounds.getNorthEast();
           var southWest = mapBounds.getSouthWest();
+          if($('#exportDATA #exportMAPBOUNDS').length == 0) $('#exportDATA').append($('<div id="exportMAPBOUNDS" style="display:none"></div>'))
+          $('#exportMAPBOUNDS').html('mapBounds : {northEast: {lat: ' + northEast.lat + ', lng: ' + northEast.lng + '},southWest: {lat: ' + southWest.lat + ', lng: ' + southWest.lng + '}}') 
           var iconMarkersLoc = [];
 
           for (var k = 0; k < iconMarkersLength; k++) {
@@ -1663,19 +1684,6 @@ $.fn.mapAllBlogs = function(options) {
           }
           return contentLegendHtml;
         };
-        map.on('zoomend', function() {
-          if (clickedMarker !== "" && map.getZoom() >= map.options.maxZoom) {
-            if (typeof clickedMarker.__parent !== 'undefined') clickedMarker.__parent.spiderfy();
-            clickedMarker = "";
-          }
-          var mapBounds = map.getBounds()
-          var northEast = mapBounds.getNorthEast();
-          var southWest = mapBounds.getSouthWest();
-          boundsSetDefaultMapView = [
-            [northEast.lat, northEast.lng],
-            [southWest.lat, southWest.lng]
-          ];
-        });
 
         markers.on('clusterclick', function(a) {
           if (a.layer._childCount > 0) {
@@ -1692,6 +1700,7 @@ $.fn.mapAllBlogs = function(options) {
           }
         });
 
+        //if (typeof map.options.maxBounds === 'undefined') endMarkerBuild(indexEvent);
         endMarkerBuild(indexEvent);
 
         function makePopUp(input, setCallBack) {
@@ -1801,24 +1810,26 @@ $.fn.mapAllBlogs = function(options) {
               var controlBasemapsAndOverlaysHTML = $(controlBasemapsAndOverlays.getContainer());
               var controlMapsDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-base").first();
               if (option["baseMaps"] !== null) {
-                          var popupLegend = $('#menuLegend option:selected');
-                          if (popupLegend.length > 0) {
-                            popupLegend = popupLegend.text();
-                            if(popupLegend === '' ) popupLegend='Établissements'
-                          } else popupLegend='Établissements'
-                        function isFirstCons(popupLegend){
-                          var cons = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"]
-                          for( var i in cons) {
-                            if(popupLegend.startsWith(cons[i])) return true;
-                          }
-                          return false;
-                        }
-                                if (isFirstCons(popupLegend)) {
-                                  controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">Nb. de ' + popupLegend + '</div>');
-                                }
-                                else {
-                                  controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">Nb. d&#39;' + popupLegend + '</div>');
-                                }
+                var popupLegend = $('#menuLegend option:selected');
+                if (popupLegend.length > 0) {
+                  popupLegend = popupLegend.text();
+                  if (popupLegend === '') popupLegend = 'Établissements'
+                }
+                else popupLegend = 'Établissements'
+
+                function isFirstCons(popupLegend) {
+                  var cons = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"]
+                  for (var i in cons) {
+                    if (popupLegend.startsWith(cons[i])) return true;
+                  }
+                  return false;
+                }
+                if (isFirstCons(popupLegend)) {
+                  controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">Nb. de ' + popupLegend + '</div>');
+                }
+                else {
+                  controlMapsDiv.prepend('<div class="legendTitle" style="display:block; text-align:center;">Nb. d&#39;' + popupLegend + '</div>');
+                }
               }
               var controlOverlaysDiv = controlBasemapsAndOverlaysHTML.find(".leaflet-control-layers-overlays").first();
               if (objectOverlays["overlayTitle"] != '') {
@@ -1844,6 +1855,7 @@ $.fn.mapAllBlogs = function(options) {
                   //legendAllMarkers = addLegend();
                   $('#menuLegend').prop('disabled',false)
                   contentLegend();
+                  setDefaultMapView();
                   $('#btData').css('display','block')
                   stateChangingButton.enable();
                 }
@@ -1867,6 +1879,7 @@ $.fn.mapAllBlogs = function(options) {
                   legendAllMarkers = addLegend(iconNum)
                   map.addControl(legendAllMarkers);*/
                   $('#contentLegend').html(contentLegend());
+                  setDefaultMapView();
                 };
               });
               map.on('overlayremove', function(eventLayer) {
@@ -1882,6 +1895,7 @@ $.fn.mapAllBlogs = function(options) {
                   legendAllMarkers = addLegend(iconNum)
                   map.addControl(legendAllMarkers);*/
                   $('#contentLegend').html(contentLegend());
+                  setDefaultMapView();
                 };
               });
 
@@ -1922,6 +1936,10 @@ $.fn.mapAllBlogs = function(options) {
               else divlegendAllMarkers.innerHTML += '<div id="contentLegend" >' + contentLegend() + '</div>';
 
               if ($('#btData').length == 0) runButtonForTable();
+              if (typeof map.options.maxBounds !== 'undefined') {
+                $('#btData').css('display','none');
+                $('#btAide').css('display','none');
+              }
               
               return divlegendAllMarkers;
             };
@@ -1932,10 +1950,10 @@ $.fn.mapAllBlogs = function(options) {
               'change', // String with event names
               function(e) {
                 L.DomEvent.stop(e);
+                tableFilterOn = false;
                 menuLegend = $('#menuLegend option:selected').data("path");
                 $('#contentLegend').html(contentLegend(true));
-                //runTable();
-              } // Handler function
+               } // Handler function
             );
             return legendAllMarkers;
           }
@@ -2009,7 +2027,7 @@ $.fn.mapAllBlogs = function(options) {
               totalEvents = totalEvents + iconMarkers[k].nbMapEvents;
               if( iconMarkers[k].nbMapEvents != 0 ) totalMarkers++
             }
-            checkautresDepts(map, indexEvent)
+            if (typeof map.options.maxBounds === 'undefined') checkautresDepts(map, indexEvent)
             if (legendTitle != '') {
               if (tableFilterOn) {
                 var selectNW = {
@@ -2053,7 +2071,7 @@ $.fn.mapAllBlogs = function(options) {
                   //map.fitBounds(boundsSetDefaultMapView);
                 }
               }
-              setDefaultMapView();
+              //setDefaultMapView();
             }
             if (legendTitle == '' && tableFilterOn) {
               var selectNW = {
@@ -2097,7 +2115,7 @@ $.fn.mapAllBlogs = function(options) {
                 //map.fitBounds(boundsSetDefaultMapView);
               }
             }
-            setDefaultMapView();
+            //setDefaultMapView();
             function isInMet(selectPoint) {
               if(selectPoint.lat > 40 && selectPoint.lat < 50 && selectPoint.lng > -10 && selectPoint.lng < 10) return true;
               else return false;
@@ -2105,6 +2123,16 @@ $.fn.mapAllBlogs = function(options) {
             if (tableFilterOn) $('#star_filter').css('display', 'inline');
             else $('#star_filter').css('display', 'none');
             
+            if (typeof options['legend'][menuLegend].tableAccess === 'undefined' || options['legend'][menuLegend].tableAccess) {
+              $('#btData').css('visibility', 'visible');
+              $('#btAide').css('visibility', 'visible');
+            }
+            else {
+              $('#btData').css('visibility', 'hidden');
+              $('#btAide').css('visibility', 'hidden');
+             };
+             setMapView();
+
             return legendUpdate();
             
           }
@@ -2120,7 +2148,7 @@ $.fn.mapAllBlogs = function(options) {
               divBannerCoord.innerHTML = '<img border="0" data-original-height="200" data-original-width="600" src="' + options.banner + '" />';
               return divBannerCoord;
             };
-
+                
             bannerCoord.addTo(map);
           }
 
@@ -2775,10 +2803,39 @@ $.fn.mapAllBlogs = function(options) {
             // `fullscreenchange` Event that's fired when entering or exiting fullscreen.
             map.on('fullscreenchange', function() {
               if (map.isFullscreen()) {
-                map.setZoom(7);
+                /*if (typeof options.mapBounds !== 'undefined' && typeof options.mapBounds.northEast !== 'undefined' && typeof options.mapBounds.southWest !== 'undefined' 
+                 && typeof options.mapBounds.northEast.lat === 'number' && typeof options.mapBounds.northEast.lng  === 'number'
+                 && typeof options.mapBounds.southWest.lat === 'number' && typeof options.mapBounds.southWest.lng  === 'number' ) {
+                  map.fitBounds([
+                   [[options.mapBounds.northEast.lat, options.mapBounds.northEast.lng]],
+                   [[options.mapBounds.southWest.lat, options.mapBounds.southWest.lng]]
+                  ]);
+                  map.setMaxBounds([
+                   [[options.mapBounds.northEast.lat, options.mapBounds.northEast.lng]],
+                   [[options.mapBounds.southWest.lat, options.mapBounds.southWest.lng]]
+                  ]);
+                  map.setMinZoom( map.getBoundsZoom( map.options.maxBounds ) );
+                  var bounds = L.latLngBounds([[[options.mapBounds.northEast.lat, options.mapBounds.northEast.lng]],
+                    [[options.mapBounds.southWest.lat, options.mapBounds.southWest.lng]]]);
+                  var wantedZoom = map.getBoundsZoom(bounds, true);
+                  var center = bounds.getCenter();
+                  map.setView(center, wantedZoom);            
+               } else*/ map.setZoom(7);
               }
               else {
-                setDefaultMapView();
+                if (typeof options.mapBounds !== 'undefined' && typeof options.mapBounds.northEast !== 'undefined' && typeof options.mapBounds.southWest !== 'undefined' 
+                 && typeof options.mapBounds.northEast.lat === 'number' && typeof options.mapBounds.northEast.lng  === 'number'
+                 && typeof options.mapBounds.southWest.lat === 'number' && typeof options.mapBounds.southWest.lng  === 'number' ) {
+                  map.fitBounds([
+                   [[options.mapBounds.northEast.lat, options.mapBounds.northEast.lng]],
+                   [[options.mapBounds.southWest.lat, options.mapBounds.southWest.lng]]
+                  ]);
+                  map.setMaxBounds([
+                   [[options.mapBounds.northEast.lat, options.mapBounds.northEast.lng]],
+                   [[options.mapBounds.southWest.lat, options.mapBounds.southWest.lng]]
+                  ]);
+                  map.setMinZoom( map.getBoundsZoom( map.options.maxBounds ) );
+               } else setDefaultMapView();
               }
             });
             
@@ -2849,13 +2906,13 @@ $.fn.mapAllBlogs = function(options) {
               });
               defaultViewButton.addTo(map);
 
-              checkautresDepts(map, indexEvent);
+              if (typeof map.options.maxBounds === 'undefined') checkautresDepts(map, indexEvent);
 
             }
           ).catch(function() {
             console.log('Oh no, epic failure!');
           });
-        };
+    };
 
         function checkautresDepts(map, indexEvent) {
           var autresDepts = [{
@@ -3165,6 +3222,14 @@ $.fn.mapAllBlogs = function(options) {
             //$('.dt-button.reinitBT').css('visibility', 'hidden')
           }
           $('#infoMap-wrapper').prepend('<a href="#fancy-box-dataAide-1"><button type="button" class="styled helpBT" id="btAide">Aide</button></a>');
+            if (typeof options['legend'][menuLegend].tableAccess === 'undefined' || options['legend'][menuLegend].tableAccess) {
+              $('#btData').css('visibility', 'visible');
+              $('#btAide').css('visibility', 'visible');
+            }
+            else {
+              $('#btData').css('visibility', 'hidden');
+              $('#btAide').css('visibility', 'hidden');
+            };
         }
       };
       

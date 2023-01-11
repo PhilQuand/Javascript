@@ -593,6 +593,9 @@ $.fn.mapAllBlogs = function(options) {
       }];
     }
     for (var i = 0; i < options['legend'].length; i++) {
+      if (typeof options['legend'] !== 'undefined' && typeof options['legend'][i] !== 'undefined' && typeof options['legend'][i].filter !== 'undefined' && typeof options['legend'][i].filter.func === 'function') {
+        options['legend'][i].filter = options['legend'][i].filter.func;
+      }
       if (typeof options['legend'][i].title === 'undefined') legendTitle = '';
       if (typeof options['legend'][i]['affect'] === 'undefined') {
         options['legend'][i]['affect'] = function(data) {
@@ -1435,8 +1438,8 @@ $.fn.mapAllBlogs = function(options) {
             }
           }
         }
-        if (jQuery.type(options['legend']) !== 'undefined' && jQuery.type(options['legend'][0].filter) !== 'undefined' && jQuery.type(options['legend'][0].filter.func) !== 'undefined') {
-          if (options['legend'][0].filter.func(indexEvent[i])) {
+        if (typeof options['legend'] !== 'undefined' && typeof options['legend'][0] !== 'undefined' && typeof options['legend'][0].filter === 'function') {
+          if (options['legend'][0].filter(indexEvent[i])) {
             indexEvent[i]["selected"] = true;
           }
           else {
@@ -1980,8 +1983,8 @@ $.fn.mapAllBlogs = function(options) {
               indexEventTable = [];
               var j = 0;
               for (i = 0; i < indexEvent.length; i++) {
-                if (jQuery.type(options['legend']) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
-                  if (options['legend'][menuLegend].filter.func(indexEvent[i])) {
+                if (typeof options['legend'] !== 'undefined' && typeof options['legend'][menuLegend] !== 'undefined' && typeof options['legend'][menuLegend].filter === 'function') {
+                  if (options['legend'][menuLegend].filter(indexEvent[i])) {
                     indexEvent[i]["selected"] = true;
                     indexEventTable.push(indexEvent[i]);
                     //indexEventTable[j++]['indirect'] = i;
@@ -3495,8 +3498,8 @@ $.fn.mapAllBlogs = function(options) {
 
                 //myTable.searchBuilder.rebuild(initSearchTable);
                 for (var i = 0; i < indexEventTable.length; i++) {
-                  if (jQuery.type(options.legend) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter) !== 'undefined' && jQuery.type(options['legend'][menuLegend].filter.func) !== 'undefined') {
-                    if (options['legend'][menuLegend].filter.func(indexEventTable[i])) {
+                  if (typeof options.legend !== 'undefined' && typeof options['legend'][menuLegend] !== 'undefined' && typeof options['legend'][menuLegend].filter === 'function') {
+                    if (options['legend'][menuLegend].filter(indexEventTable[i])) {
                       indexEventTable[i]["selected"] = true;
                     }
                     else {

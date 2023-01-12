@@ -437,83 +437,164 @@ $.fn.mapAllBlogs = function(options) {
         },
       }*/
     },
-    /*legend: [
-    {
-      title: 'Établissements',
-    },
-    {
-      title: 'Étab. renseignés',
-      //test: function(){},
-      filter: {
-        func: function(data) {
-        if ( isOKString(data['suppressions_mef']) || isOKString(data['menaces_mef']) || isOKString(data['victoires_mef']) ) {
-          return 0;
-        }
-        return 1;
-        }
+    /*legend: [{
+        tableAccess: false,
+        title: "services d'urgences",
+        filter: {
+          func: function(data) {
+            //if ( (isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('URGENCE') > -1) || (isOKString(data['menaces']) && data['menaces'].toUpperCase().indexOf('URGENCE') > -1) ) {
+            if (((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('URGENCES') > -1))) {
+              return 1;
+            }
+            return 0;
+          }
+        },
+        affect: function(data) {
+          if ((
+              ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('RÉDUCTION DES URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('RÉDUCTION DES URGENCES') > -1)) ||
+              ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('RÉDUCTION DE URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('RÉDUCTION DE URGENCES') > -1)) ||
+              ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('RÉDUCTION URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('RÉDUCTION URGENCES') > -1)) ||
+              (isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('INTERRUPTION DES URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('INTERRUPTION DES URGENCES') > -1)) ||
+            ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('INTERRUPTION DE URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('INTERRUPTION DE URGENCES') > -1)) ||
+            ((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('INTERRUPTION URGENCES') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('INTERRUPTION URGENCES') > -1))
+          ) {
+            return 1;
+          }
+          else return 0;
+        },
+        icons: [{
+            icon: {
+              leaflet: new L.Icon({
+                iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+                shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+                iconSize: [13, 20],
+                iconAnchor: [6, 20],
+                popupAnchor: [1, -17],
+                shadowSize: [20, 20]
+              })
+            },
+            exalPopup: (champ) => {
+              jQuery.expr[':'].icontains = function(a, i, m) {
+                return jQuery(a).text().toUpperCase()
+                  .indexOf(m[3].toUpperCase()) >= 0;
+              };
+              if (isOKString(champ) && champ.toUpperCase().indexOf('URGENCES') > -1 &&
+                champ.toUpperCase().indexOf('RÉDUCTION DES URGENCES') == -1 &&
+                champ.toUpperCase().indexOf('RÉDUCTION DE URGENCES') == -1 &&
+                champ.toUpperCase().indexOf('RÉDUCTION URGENCES') == -1 &&
+                champ.toUpperCase().indexOf('INTERRUPTION DES URGENCES') == -1 &&
+                champ.toUpperCase().indexOf('INTERRUPTION DE URGENCES') == -1 &&
+                champ.toUpperCase().indexOf('INTERRUPTION URGENCES') == -1) {
+                var myItem = $('<div>' + champ + '</div>')
+                $('* :icontains("urgences")', myItem).filter(function(index) {
+                  return $('*', this).length == 0;
+                }).addClass('exalPopup');
+                return myItem;
+              }
+              else return $('<div>' + champ + '</div>');
+            },
+            title: 'fermetures',
+            //colorBG: '#FFD326',
+            //colorFG: '#0E0E0E',
+            colorBG: '#2C82CA',
+            colorFG: '#FFFFFF',
+          },
+          {
+            icon: {
+              leaflet: new L.Icon({
+                iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
+                shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+                iconSize: [13, 20],
+                iconAnchor: [6, 20],
+                popupAnchor: [1, -17],
+                shadowSize: [20, 20]
+              })
+            },
+            exalPopup: (champ) => {
+              jQuery.expr[':'].icontains = function(a, i, m) {
+                return jQuery(a).text().toUpperCase()
+                  .indexOf(m[3].toUpperCase()) >= 0;
+              };
+              if (isOKString(champ) && champ.toUpperCase().indexOf('URGENCES') > -1 &&
+                (champ.toUpperCase().indexOf('RÉDUCTION DES URGENCES') > -1 ||
+                  champ.toUpperCase().indexOf('RÉDUCTION DE URGENCES') > -1 ||
+                  champ.toUpperCase().indexOf('RÉDUCTION URGENCES') > -1 ||
+                  champ.toUpperCase().indexOf('INTERRUPTION DES URGENCES') > -1 ||
+                  champ.toUpperCase().indexOf('INTERRUPTION DE URGENCES') > -1 ||
+                  champ.toUpperCase().indexOf('INTERRUPTION URGENCES') > -1)) {
+                var myItem = $('<div>' + champ + '</div>')
+                $('* :icontains("urgences")', myItem).filter(function(index) {
+                  return $('*', this).length == 0;
+                }).addClass('exalPopup');
+                return myItem;
+              }
+              else return $('<div>' + champ + '</div>');
+            },
+            title: 'réduction/interruption',
+            colorBG: '#29AD27',
+            colorFG: '#FFFFFF',
+          },
+          {
+            icon: {
+              leaflet: new L.Icon({
+                iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-red.png',
+                shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+                iconSize: [13, 20],
+                iconAnchor: [6, 20],
+                popupAnchor: [1, -17],
+                shadowSize: [20, 20]
+              })
+            },
+            title: 'étab. fermés',
+            colorBG: '#2781CA',
+            colorFG: '#FFFFFF',
+          },
+          {
+            icon: {
+              leaflet: new L.Icon({
+                iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
+                shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+                iconSize: [13, 20],
+                iconAnchor: [6, 20],
+                popupAnchor: [1, -17],
+                shadowSize: [20, 20]
+              })
+            },
+            title: 'étab. avec fermetures',
+            colorBG: '#9C2BCB',
+            colorFG: '#F8F8F8',
+          },
+        ]
       },
-      icons: [
-        {
-          icon: {leaflet: new L.Icon({
-            iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
-            shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-            iconSize: [13, 20],
-            iconAnchor: [6, 20],
-            popupAnchor: [1, -17],
-            shadowSize: [20, 20]
-          })},
-          title: 'renseignés',
+      {
+        //tableAccess: false,
+        title: "services de maternité",
+        filter: function(data) {
+          if (((isOKString(data['suppressions']) && data['suppressions'].toUpperCase().indexOf('MATERNIT') > -1)) || ((isOKString(data['fermetures_mef']) && data['fermetures_mef'].toUpperCase().indexOf('MATERNIT') > -1))) {
+            return 1;
+          }
+          return 0;
+        },
+        icons: [{
+          icon: {
+            leaflet: new L.Icon({
+              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-blue.png',
+              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
+              iconSize: [13, 20],
+              iconAnchor: [6, 20],
+              popupAnchor: [1, -17],
+              shadowSize: [20, 20]
+            })
+          },
+          title: 'fermetures',
           //title: 'une victoire',
           colorBG: '#FFD326',
           colorFG: '#0E0E0E',
-        },
-        {
-          icon: {
-            leaflet: new L.Icon({
-              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-green.png',
-              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-              iconSize: [13, 20],
-              iconAnchor: [6, 20],
-              popupAnchor: [1, -17],
-              shadowSize: [20, 20]
-            })
-          },
-          title: 'non renseignés',
-          colorBG: '#29AD27',
-          colorFG: '#FFFFFF',
-        },
-        {
-          icon: {
-            leaflet: new L.Icon({
-              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-red.png',
-              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-              iconSize: [13, 20],
-              iconAnchor: [6, 20],
-              popupAnchor: [1, -17],
-              shadowSize: [20, 20]
-            })
-          },
-          title: 'étab. fermés',
-          colorBG: '#2781CA',
-          colorFG: '#FFFFFF',
-        },
-        {
-          icon: {
-            leaflet: new L.Icon({
-              iconUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-icon-2x-violet.png',
-              shadowUrl: 'https://philquand.github.io/Javascript/LeafLet/Leaflet-color-markers/img/marker-shadow.png',
-              iconSize: [13, 20],
-              iconAnchor: [6, 20],
-              popupAnchor: [1, -17],
-              shadowSize: [20, 20]
-            })
-          },
-          title: 'étab. avec fermetures',
-          colorBG: '#9C2BCB',
-          colorFG: '#F8F8F8',
-        },
-      ]
-    },
+        }, ],
+      },
+      {
+        title: "établissements",
+      },
     ],*/
     //banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
     banner: 'https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png',
@@ -1568,13 +1649,18 @@ $.fn.mapAllBlogs = function(options) {
             }
           }
           for (var i = 0; i < properties.length; i++) {
-              var item = properties[i];
-              var itemLabel = item;
-             if(jQuery.type(label[item]) === 'string') {
-                itemLabel = label[item];
-              }
-              if (typeof data[item] !== 'undefined' && data[item] != '' && data[item] != ' ' && data[item] != null && data[item] != 'NULL') popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><div>' + data[item] + '</div></div>');
+            var item = properties[i];
+            var itemLabel = item;
+            if (jQuery.type(label[item]) === 'string') {
+              itemLabel = label[item];
+            };
+            if (typeof data[item] !== 'undefined' && data[item] != '' && data[item] != ' ' && data[item] != null && data[item] != 'NULL') {
+              if (typeof data['iconMarker'].exalPopup === 'function') {
+                var myDataItem = data['iconMarker'].exalPopup(data[item]).html();
+              } else var myDataItem = data[item];
+              popupBody.append('<div class="popItem"><span class="popTitle">' + itemLabel + '</span><div>' + myDataItem + '</div></div>');
             }
+          }          
           return popupContent.html();
         }
 
@@ -1719,6 +1805,7 @@ $.fn.mapAllBlogs = function(options) {
               icon: input.iconMarker.icon.leaflet
             });
           }
+          
           marker.bindPopup(input.doc, {
             maxWidth: 400,
             minWidth: 250,
@@ -1728,19 +1815,43 @@ $.fn.mapAllBlogs = function(options) {
             closeButton: true,
             autoPanPadding: [5, 5]
           });
+          
           marker.getPopup().on('remove', function() {
             setCallBack();
           });
-          marker.on('mouseover', function (e) {
+          
+          marker.on('mouseover', function(e) {
             this.unbindTooltip();
             var myPopup = this.getPopup();
-            var myPopupContent = myPopup.getContent();
-            var myPopupShortContent = $(myPopupContent).find('.popLieux');            
-            if(!this.isPopupOpen()) this.bindTooltip('<div class="popLieux" style="background-color: ' + myPopupShortContent.css('background-color') + '; color: ' + myPopupShortContent.css('color') + ';">' + myPopupShortContent.text() + '</div><center><div class="popNote">clickez pour afficher les détails</div></center>').openTooltip();
+            var myPopupContent = $(myPopup.getContent());
+            var myPopupShortContent = myPopupContent.find('.popLieux');
+            /*var myexalPopup = myPopupContent;
+            var myPopupExalContent = '';
+            myexalPopup.find('.popItem *').hide()
+            myexalPopup.find('.popItem').each(function() {
+              $(this).find('.exalPopup').each(function() {
+                $(this).show();
+                var elementsToKeep = $(this).parentsUntil('.popItem');
+                elementsToKeep.each(function() {
+                  $(this).show();
+                });
+               $(elementsToKeep).parent().find('.popTitle').show();
+                //console.log($(elementsToKeep).parent())
+              });
+              myPopupExalContent += $(this).html();
+            });
+            var myTooltip = '<div class="popBody"><div class="popLieux" style="background-color: ' + myPopupShortContent.css('background-color') + '; color: ' + myPopupShortContent.css('color') + ';">' + myPopupShortContent.text() + '</div>' + myPopupExalContent + '<center><div class="popNote">clickez pour afficher les détails</div></center></div>'
+            */
+            var myTooltip = '<div class="popBody"><div class="popLieux" style="background-color: ' + myPopupShortContent.css('background-color') + '; color: ' + myPopupShortContent.css('color') + ';">' + myPopupShortContent.text() + '</div><center><div class="popNote">clickez pour afficher les détails</div></center></div>'
+            if (!this.isPopupOpen()) this.bindTooltip(myTooltip, {
+              sticky: true
+            }).openTooltip();            
           });
+          
           marker.on('click', function (e) {
             this.unbindTooltip();
           });
+          
           return marker;
         }
 

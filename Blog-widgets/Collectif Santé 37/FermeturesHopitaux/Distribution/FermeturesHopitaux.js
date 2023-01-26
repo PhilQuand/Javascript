@@ -65,8 +65,8 @@ $.fn.mapAllBlogs = function(optUdate) {
     popupData : {
       title: 'nom_hopital',
       //properties: ["LIEUX", "SUPPRESSIONS", "MENACES", "victoire"],
-      hidden: ['id', 'nom_hopital', 'insee_com', 'département', 'région', 'departement', 'code_region','selected'],
-      label: [{
+      hidden: ['id', 'nom_hopital', 'services', 'insee_com', 'département', 'région', 'departement', 'code_region','selected'],
+    label: [{
           value: 'nom_hopital',
           label: 'établissement',
           filter: 'selection'
@@ -137,6 +137,10 @@ $.fn.mapAllBlogs = function(optUdate) {
           label: 'victoires de services',
           filter: 1,
         }, {
+          value: 'ouvertures_mef',
+          label: 'ouvertures de services',
+          filter: 1,
+        }, {
           value: 'nb_postes_vacants',
           label: 'postes vacants',
           filter: 0,
@@ -150,11 +154,11 @@ $.fn.mapAllBlogs = function(optUdate) {
            filter: 0,
        }, {
           value: 'an_ouverture',
-          label: 'ouverture',
+          label: 'année d&rsquo;ouverture',
           filter: 0,
         }, {
           value: 'an_ferm_site',
-          label: 'fermeture',
+          label: 'année de fermeture',
           filter: 0,
         }, {
           value: 'site_devenu',
@@ -876,7 +880,7 @@ $.fn.mapAllBlogs = function(optUdate) {
     ],*/
     //banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
     banner: 'https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png',
-    version: 'version 7.1'
+    version: 'version 7.2'
   };  
   if(typeof optUdate !== 'undefined' ) {
     if(typeof optUdate.tableAccess !== 'undefined' ) optionsPlugIn.tableAccess = optUdate.tableAccess;
@@ -3808,6 +3812,7 @@ $.fn.mapAllBlogs = function(optUdate) {
         else {
           var properties = {};
           for (var prop in isAllProp) {
+            if(isAllProp[prop]["isEmpty"]) continue;
             properties[prop] = {propVal: isAllProp[prop], label: prop}
             for (var i = 0; i < options.popupData["label"].length; i++) {
               if(options.popupData["label"][i]["value"] == prop ) { 

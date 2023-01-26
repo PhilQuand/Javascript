@@ -24,6 +24,7 @@ $.fn.mapAllBlogs = function(optUdate) {
         return lieux;
       },
       carteMAJ: "25/01/2023",
+      //tableAccess: false,
       //INSEE_KEY: "INSEE_COM",
       //checkIfStoreNeedsUpdate: true,
       dataTransformer: false,
@@ -880,7 +881,7 @@ $.fn.mapAllBlogs = function(optUdate) {
     ],*/
     //banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
     banner: 'https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png',
-    version: 'version 7.2'
+    version: 'version 7.3'
   };  
   if(typeof optUdate !== 'undefined' ) {
     if(typeof optUdate.tableAccess !== 'undefined' ) optionsPlugIn.tableAccess = optUdate.tableAccess;
@@ -935,7 +936,7 @@ $.fn.mapAllBlogs = function(optUdate) {
 
     if (typeof options == 'undefined' ) var options = {};
     if (typeof options.popupData == 'undefined' ) options.popupData = {};
-    $('#infoMap-wrapper').append('<div class="footMap" style="display: none; width: 100%; height: 20px"><div id="star_filter" style="display: inline"><span style="font-size: x-large; font-weight: bold; color: red; ">* <i></span>les données ont été  filtrées dans l' + "'" + 'onglet Données</div><div class="carteMAJ" style="float:right">carte mise à jour le ' + options.data.carteMAJ + '</div></div>');
+    $('#infoMap-wrapper').append('<div class="footMap" style="display: block; width: 100%; height: 20px"><div id="star_filter" style="display: none"><span style="font-size: x-large; font-weight: bold; color: red; ">* <i></span>les données ont été  filtrées dans l' + "'" + 'onglet Données</div><div class="carteMAJ" style="float:right">carte mise à jour le ' + options.data.carteMAJ + '</div></div>');
     
 
     if (typeof options['tableDataSearch'] !== 'undefined' && typeof options['tableDataSearch']['baseSearch'] !== 'undefined' && typeof options['tableDataSearch']['baseSearch']['features'] !== 'undefined') tableDataSearch = options['tableDataSearch']['baseSearch']['features'];

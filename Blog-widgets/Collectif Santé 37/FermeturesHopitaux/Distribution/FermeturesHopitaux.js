@@ -876,9 +876,10 @@ $.fn.mapAllBlogs = function(optUdate) {
     ],*/
     //banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
     banner: 'https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png',
-    version: 'version 7.0'
+    version: 'version 7.1'
   };  
   if(typeof optUdate !== 'undefined' ) {
+    if(typeof optUdate.tableAccess !== 'undefined' ) optionsPlugIn.tableAccess = optUdate.tableAccess;
     if(typeof optUdate.legend !== 'undefined' ) optionsPlugIn.legend = optUdate.legend;
     if(typeof optUdate.mapBounds !== 'undefined' ) optionsPlugIn.mapBounds = optUdate.mapBounds;
     if(typeof optUdate.mapPresentation !== 'undefined' ) optionsPlugIn.mapPresentation = optUdate.mapPresentation;
@@ -1903,11 +1904,21 @@ $.fn.mapAllBlogs = function(optUdate) {
 
           for (var k = 0; k < iconMarkersLength; k++) {
             iconMarkersLoc.push(iconMarkers[k]);
-            iconMarkersLoc[k].nbMapEvents = 0
-            for (var i = 0; i < indexEventTable.length; i++) {
-              if (indexEventTable[i]["selected"] && (indexEventTable[i].iconMarker == k || indexEventTable[i].iconMarker.title == iconMarkers[k].title)) {
-                if (northEast.lat > indexEventTable[i]["lat"] && southWest.lat < indexEventTable[i]["lat"] && northEast.lng > indexEventTable[i]["lng"] && southWest.lng < indexEventTable[i]["lng"]) {
-                  iconMarkersLoc[k].nbMapEvents++;
+            iconMarkersLoc[k].nbMapEvents = 0;
+            if (typeof indexEventTable !== 'undefined') {
+              for (var i = 0; i < indexEventTable.length; i++) {
+                if (indexEventTable[i]["selected"] && (indexEventTable[i].iconMarker == k || indexEventTable[i].iconMarker.title == iconMarkers[k].title)) {
+                  if (northEast.lat > indexEventTable[i]["lat"] && southWest.lat < indexEventTable[i]["lat"] && northEast.lng > indexEventTable[i]["lng"] && southWest.lng < indexEventTable[i]["lng"]) {
+                    iconMarkersLoc[k].nbMapEvents++;
+                  }
+                }
+              }
+            } else {
+              for (var i = 0; i < indexEvent.length; i++) {
+                if (indexEvent[i]["selected"] && (indexEvent[i].iconMarker == k || indexEvent[i].iconMarker.title == iconMarkers[k].title)) {
+                  if (northEast.lat > indexEvent[i]["lat"] && southWest.lat < indexEvent[i]["lat"] && northEast.lng > indexEvent[i]["lng"] && southWest.lng < indexEvent[i]["lng"]) {
+                    iconMarkersLoc[k].nbMapEvents++;
+                  }
                 }
               }
             }
@@ -2218,7 +2229,9 @@ $.fn.mapAllBlogs = function(optUdate) {
               }
               else divlegendAllMarkers.innerHTML += '<div id="contentLegend" >' + contentLegend() + '</div>';
 
-              if ($('#btData').length == 0) runButtonForTable();
+              if ($('#btData').length == 0 && (typeof options['tableAccess'] === 'undefined' || options['tableAccess'])) {
+                runButtonForTable();
+              }
               if (typeof map.options.maxBounds !== 'undefined') {
                 $('#btData').css('display','none');
                 $('#btAide').css('display','none');
@@ -2260,7 +2273,7 @@ $.fn.mapAllBlogs = function(optUdate) {
             for (i = 0; i < indexEvent.length; i++) {
               refreshIndexEvent.push(i)
             }
-            if (jQuery.type(needsRefresh) !== 'undefined' && needsRefresh) {
+            if (jQuery.type(needsRefresh) !== 'undefined' && needsRefresh && (typeof options['tableAccess'] === 'undefined' || options['tableAccess'])) {
               runTable();
             }
             var iconNum = refreshMarkers(refreshIndexEvent);
@@ -2387,7 +2400,7 @@ $.fn.mapAllBlogs = function(optUdate) {
             if (tableFilterOn) $('#star_filter').css('display', 'inline');
             else $('#star_filter').css('display', 'none');
             
-            if (typeof options['legend'][menuLegend].tableAccess === 'undefined' || options['legend'][menuLegend].tableAccess) {
+            if ((typeof options['tableAccess'] === 'undefined' || options['tableAccess']) && (typeof options['legend'][menuLegend].tableAccess === 'undefined' || options['legend'][menuLegend].tableAccess)) {
               $('#btData').css('visibility', 'visible');
               $('#btAide').css('visibility', 'visible');
             }
@@ -3487,6 +3500,8 @@ $.fn.mapAllBlogs = function(optUdate) {
             $('#infoMap-wrapper > #infoMap').css('display', 'none')
             $('#table_wrapper').css('display', 'block')
             $('#tableSearch_wrapper').css('display', 'block')
+            $('#table_wrapper table.dataTable.no-footer').css('border-bottom-width','1px') 
+            $('#tableSearch_wrapper table.dataTable.no-footer').css('border-bottom-width','1px')
             //if(tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
             $('.dispInfoMap').css('display', 'none');
             $('.footMap').css('display', 'none');
@@ -3505,7 +3520,7 @@ $.fn.mapAllBlogs = function(optUdate) {
             //$('.dt-button.reinitBT').css('visibility', 'hidden')
           }
           $('#infoMap-wrapper').prepend('<a href="#fancy-box-dataAide-1"><button type="button" class="styled helpBT" id="btAide">Aide</button></a>');
-            if (typeof options['legend'][menuLegend].tableAccess === 'undefined' || options['legend'][menuLegend].tableAccess) {
+            if ((typeof options['tableAccess'] === 'undefined' || options['tableAccess']) && (typeof options['legend'][menuLegend].tableAccess === 'undefined' || options['legend'][menuLegend].tableAccess)) {
               $('#btData').css('visibility', 'visible');
               $('#btAide').css('visibility', 'visible');
             }

@@ -793,16 +793,16 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1pKMxxFJYk3nTK8ykKRLpyPDniMm8Jxu5/view?usp=share_link"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"/></a>');
-  //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/a/AVvXsEg0NKOKlXh71__NpdiY48rxfto8Brb9T2n5lW_qkowMJ0AviZEOXGOkKET-gRtaMUghIcTfqbUSIjVCUM2bN76-BkXqsFfnticKWMOBiUojm4xLDqdfv655DzJZrRS24uMWH-Yut_krvjSEacxnpb7VV2Fc25dPKCV46vNgta80mC_iAxaKFm2dqHs6"/></a>');
+  //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
 
 }
 </script>
 <script>
 $(document).ready(function() {
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -823,12 +823,12 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"
         },
-        {
+        /*{
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIYv1S7Pz8tYBl2TuzL4v7Tdwlf9wN4KGJe8HpLYhDxARlODNM9pvidIVI9PWyOSWcvxqh_POhiW7MzRJW42WsVl1nq2_dtpOHrvRHBh9sFWZSk6H4Y3ZATPLmhCPt66HcMC58yl2qSgk1laLzV1Jajh4y67n4NiF2UL3AbxSfmeZdDHVQMIPT32bI/s1600/image.png"
-        },       
+        },*/       
         /*{
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihcTqI0c8IAWwvQ5VsMkq63VuBR3z95tnzz6D5xPThBrSCN_3BOcIs4q7ceWG8v1g_fbB722iQNOzJ6pBfAWV4S2p2zVeLyvIrWnRyo5jqFqFXJAJXUz6bES08xImTta1_p7dmnseziCVnlSjkupSpnhmcwoOamvUpl4r8CFPlW8nbx74FDR50Js23/s1600/tract%20unitaire%208%20avril%202021%20Version%20finale.jpg"

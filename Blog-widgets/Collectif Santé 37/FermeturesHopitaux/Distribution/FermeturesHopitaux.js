@@ -881,7 +881,7 @@ $.fn.mapAllBlogs = function(optUdate) {
     ],*/
     //banner: '<img border="0" data-original-height="200" data-original-width="600" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png"/>',
     banner: 'https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png',
-    version: 'version 7.3'
+    version: 'version 7.4'
   };  
   if(typeof optUdate !== 'undefined' ) {
     if(typeof optUdate.tableAccess !== 'undefined' ) optionsPlugIn.tableAccess = optUdate.tableAccess;
@@ -3505,8 +3505,8 @@ $.fn.mapAllBlogs = function(optUdate) {
             $('#infoMap-wrapper > #infoMap').css('display', 'none')
             $('#table_wrapper').css('display', 'block')
             $('#tableSearch_wrapper').css('display', 'block')
-            $('#table_wrapper table.dataTable.no-footer').css('border-bottom-width','1px') 
-            $('#tableSearch_wrapper table.dataTable.no-footer').css('border-bottom-width','1px')
+            /*$('#table_wrapper table.dataTable.no-footer').css('border-bottom-width','1px') 
+            $('#tableSearch_wrapper table.dataTable.no-footer').css('border-bottom-width','1px')*/
             //if(tableFilterOn) $('.dt-button.reinitBT').css('visibility', 'visible');
             $('.dispInfoMap').css('display', 'none');
             $('.footMap').css('display', 'none');
@@ -3538,6 +3538,7 @@ $.fn.mapAllBlogs = function(optUdate) {
       
       function preDrawTableFilter(thisTable, thisEventTable, otherTable, otherEventTable) {
 
+        $('table.dataTable.no-footer').css('visibility','visible')
         /*if (typeof otherTable !== 'undefined' && thisTable.colIdHopital != -2) {
           if (!thisTable.indirectDraw && !otherTable.indirectDraw) {
             isState = 0;

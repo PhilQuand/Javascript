@@ -37,8 +37,8 @@
 #table_wrapper, #tableSearch_wrapper {
   display: none;
 }
-#table_wrapper table.dataTable.no-footer, #tableSearch_wrapper table.dataTable.no-footer {
-  border-bottom-width: 0;
+table.dataTable.no-footer {
+  visibility: hidden;
 }
 .styledGreen {
   background-color: green;

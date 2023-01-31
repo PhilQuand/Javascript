@@ -130,7 +130,18 @@ body {
 	$('.widget_text.so-panel.widget.widget_custom_html h3:contains(Données Carte)').css('display', 'none');
   // fin spécial pour le site de la CN
   $(document).ready(function() {
-    $('#Fermetures').mapAllBlogs();
+    var optionsData = readUrlParam('options');
+    if (typeof optionsData !== 'undefined') {
+      loadFromJS(optionsData,
+        () => {
+          $('#Fermetures').mapAllBlogs(options);
+        },
+        (optionsData) => {
+          loading.html(optionsData + " :<br>ne semble pas être l'adresse d'un fichier accessible");
+        }
+      );
+    }
+    else $('#Fermetures').mapAllBlogs();
   });
 })(jQuery);
 </script>

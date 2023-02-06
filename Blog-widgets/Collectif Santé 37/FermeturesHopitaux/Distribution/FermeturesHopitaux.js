@@ -60,7 +60,7 @@ $.fn.mapAllBlogs = function(optUdate) {
       );
       }*/
     },
-    fondCarte : 'IGN',
+    //fondCarte : 'IGN',
     maxClusterRadius : 5,
     brChar: ["\r\n","<br>"],
     popupData : {

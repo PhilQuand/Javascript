@@ -726,7 +726,39 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 <!-- End of modal window -->
 <style>
 .bg-photo-overlay {
-  background-image: url("https://1.bp.blogspot.com/-irCxDcyeGC4/XZXsscPP4kI/AAAAAAAAkKM/8rvF00Lvr1Y_iF5BOWT7hOXoqeaXvRJogCPcBGAYYCw/s320/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-10-03%2Ba%25CC%2580%2B14.41.46.png");
+  /*background-image: url("https://1.bp.blogspot.com/-irCxDcyeGC4/XZXsscPP4kI/AAAAAAAAkKM/8rvF00Lvr1Y_iF5BOWT7hOXoqeaXvRJogCPcBGAYYCw/s320/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2019-10-03%2Ba%25CC%2580%2B14.41.46.png");*/
+  background: rgb(243 243 243); 
+  color: #5F5F5F;
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSqDgYuA4EgOeNixdVo90D2tJGtpZSO0aJM_XMfnngwxP5VxfecjNFao6iZ3BX9dCN2UbrXNljTntebt3omFkZIiocX1hHcqLzmRS_p2L2cvwBnmPpoL8DQMljNEIlZmyRrXbsKg7-deqtiawnqrf1F_qrsvT1_hJBWSxdFhxEyrPufwpvURUGsGA8/s1600/Bannie%CC%80re%203500x1000.pn");  
+}
+.centered-top-container .svg-icon-24, body.collapsed-header .centered-top-placeholder .svg-icon-24, .tabs li a, .tabs .overflow-button a, .subscribe-button, .Header p, .Header h1 a, .Header h1 a:visited, .Header h1 a:hover.Header h1 a, .Header h1 a:visited, .Header h1 a:hover {
+  fill: #5F5F5F;
+  color: #5F5F5F;
+}
+.tabs .selected a {
+  color: red;
+}
+.subscribe-button.pill-button.styled {
+    max-width: 100px !important;   /* Largeur du formulaire */
+    border: 0;
+    line-height: 1.5;
+    padding: 0 10px;
+    margin-bottom: 1em;
+    font-size: 0.75rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    //background-color: rgba(208, 225, 226, 1);
+    //background-color: rgba(162, 196, 201, 1);
+    background-color: rgba(220, 0, 0, 1);
+
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 </style>
 <style>
@@ -801,8 +833,10 @@ if ( window.location.pathname == '/' ){
 </script>
 <script>
 $(document).ready(function() {
+  if ( window.location.pathname == '/' ) $('.header-widget').css('visibility', 'hidden')
+  $('.subscribe-button.pill-button').addClass('styled')
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCnMPMVh_CuTG50L0cFxYm0hL6mrFtwOzHOkJr5DsCYH2Gm9LDGcyCiNt0tFjPql7llwhtx_cw30Kk69rALysUKYR7HSRism-P_rpFMh2C9m3i-HEQq3F7W2z6yXutY3_dLmWuGK7RFJcHBww85C8LAdD8rBk2paNEhUZkm8qDpkUyJU1dkr0raqp3/s1600/Communique%CC%81%20intersyndical%2016%2002%202023.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -823,7 +857,7 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCnMPMVh_CuTG50L0cFxYm0hL6mrFtwOzHOkJr5DsCYH2Gm9LDGcyCiNt0tFjPql7llwhtx_cw30Kk69rALysUKYR7HSRism-P_rpFMh2C9m3i-HEQq3F7W2z6yXutY3_dLmWuGK7RFJcHBww85C8LAdD8rBk2paNEhUZkm8qDpkUyJU1dkr0raqp3/s1600/Communique%CC%81%20intersyndical%2016%2002%202023.jpg"
         },
         /*{
           dataType: "images",

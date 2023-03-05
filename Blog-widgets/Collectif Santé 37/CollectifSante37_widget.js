@@ -836,7 +836,7 @@ $(document).ready(function() {
   if ( window.location.pathname == '/' ) $('.header-widget').css('visibility', 'hidden')
   $('.subscribe-button.pill-button').addClass('styled')
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgabIkI-PLo10hAcUaEgP7JQidnD5OJ-tLCLJ_Q03Tsm9s7052sG9D9nqGhfG0Js6aBXUEzOQgXCbc8Ranra6A7MJiY4r2qhgEc6L2V4orsFeYAaZLBChirmUuzueImyawZoghPADnK1Z25NyYocgn1hutMnQMneGv_tW9lMF5IoSo7fC0QfrI-nBg0/s1600/concert%20du%2002.03%2023.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4q6WJzNtnPcIQosYL_a3RGKLl2FW9-OGpZgoyEhE1EluZ1UKMzKmkIqiA2l0GoNiWmDuNwb7CKWBGxslHeMwZQvVpGl1SD2klJhYlmhMPueq_bHQsNJAYFOi8YMe1VVcylst26B3mziMS6f7S2Mox43IgykzXr51mf2-VjlkkhVfHjhlHtcCPEZGi/s1600/Appel%20Unitaire%20Tours%20du%207%20mars.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -855,10 +855,6 @@ $(document).ready(function() {
 <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
 </div>'
         },*/
-        {
-          dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgabIkI-PLo10hAcUaEgP7JQidnD5OJ-tLCLJ_Q03Tsm9s7052sG9D9nqGhfG0Js6aBXUEzOQgXCbc8Ranra6A7MJiY4r2qhgEc6L2V4orsFeYAaZLBChirmUuzueImyawZoghPADnK1Z25NyYocgn1hutMnQMneGv_tW9lMF5IoSo7fC0QfrI-nBg0/s1600/concert%20du%2002.03%2023.jpg"
-        },       
         {
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4q6WJzNtnPcIQosYL_a3RGKLl2FW9-OGpZgoyEhE1EluZ1UKMzKmkIqiA2l0GoNiWmDuNwb7CKWBGxslHeMwZQvVpGl1SD2klJhYlmhMPueq_bHQsNJAYFOi8YMe1VVcylst26B3mziMS6f7S2Mox43IgykzXr51mf2-VjlkkhVfHjhlHtcCPEZGi/s1600/Appel%20Unitaire%20Tours%20du%207%20mars.jpg"

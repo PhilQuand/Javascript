@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p style="margin: 0">L’actualité de la semaine, c’est évidemment la révélation par le Parisien du rapport de l’académie de médecine sur les maternités avant même qu’il ne soit voté.</p>
+<p style="margin: 0">Est ce un ballon d’essai du gouvernement ? Car ce rapport semble plus politique que scientifique !</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+.infoComité .titre { 
+  width: 700px;
+  padding: 10px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 9</li>
+<li>Dates: du 27 février au 5 mars 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/Infos-semaine-9-du-27-février-au-5-mars-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div style="font-family: Arial, serif;">
+
+<p>L’actualité de la semaine, c’est évidemment la révélation par le Parisien du rapport de l’académie de médecine sur les maternités avant même qu’il ne soit voté.</p>
+<p>Est ce un ballon d’essai du gouvernement ? Car ce rapport semble plus politique que scientifique !</p>
+<p>Partant du constat que l’on ne peut que partager, l’état catastrophique des maternités – un constat qui est d’ailleurs malheureusement le même pour l’hôpital public et les soins de premier recours – ce rapport propose comme solutions de poursuivre et d’intensifier les mesures mises en œuvre depuis plus de 20 ans et accentuées par le premier quinquennat d’E. Macron qui n’ont fait qu’aggraver la situation : le regroupement dans les gros centres des services hospitaliers actifs et l’abandon de la proximité au secteur libéral dont on sait pourtant que structurellement il n’est pas fait pour répondre aux besoins, comme peut le faire un service public, assurant une présence égalitaire dans tous les territoires et sa permanence 24h/24 et 7 jours sur 7.</p>
+<p>A lire le rapport, les maternités manquent de sage-femmes car elles les quittent. Il ne propose rien moins qu’un appel d’air en leur proposant plus de travail en libéral !</p>
+<p>La fermeture de plus de 100 maternités aggraverait la sécurité des femmes enceintes, car rappelons le, la sécurité, ce n’est pas la sécurité juridique des soignants entre l’heure de l’entrée à la maternité et la sortie, mais la sécurité globale des premiers jours de la grossesse aux semaines qui suivent l’accouchement et donc la possibilité d’accès rapide à une prise en charge.</p>
+<p>Elle contribuerait à désertifier des pans entiers du territoire français, un non sens à l’heure du réchauffement climatique.</p>
+<p>D’autres solutions existent : c’est vrai qu’il faudrait déjà décider de consacrer à la santé plus d’argent. Car il faut déjà garder les professionnels à l’hôpital. Cela suppose de mieux les payer. En ce qui concerne les médecins, il faudrait aller vers une égalisation des revenus entre le secteur public et le privé. Cela réglerait d’ailleurs déjà une bonne part du problème de l’intérim.</p>
+<p>Cela suppose de passer d’une gestion des hôpitaux axée sur la seule recherche de la rentabilité à une gestion de réponse aux besoins humains, respectant l’éthique des soignants.</p>
+<p>Et il faut former de nouveaux professionnels, sinon, dans 10, voir 15 ou 20 ans, la situation sera pire !</p>
+
+<p align="right"><em>Michèle Leflon</em></p>
+<p>(Voir dans le dossier « maternités » les réactions de Rosine Leverrier et Joseph Maatouk et dans les échos des comités, les réactions à ce rapport)</p>
+<!--div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2023/02/images1-PNG.png" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+
+<p style="background-color: #729FCF;" align="center"><strong>DOLE - 39</strong></p>
+<p><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/02/infos-flash75.pdf">Le flash info 75</a></p>
+<p style="background-color: #729FCF;" align="center"><strong>SEDAN - 08</strong></p>
+<p><strong>La mobilisation paie : sursis pour la maternité ?</strong></p>
+<p><img src="blob:https://wordhtml.com/df01a6ee-a0f8-4610-82ec-ecc72fe18846" alt="" /><br />Il y avait encore plus de monde ce lundi matin devant les archives départementales où la directrice générale de l'ARS recevait les élus et les médecins à propos de l'hôpital de Sedan que lors du rassemblement devant la préfecture lorsque la réunion avait été annulée au dernier moment. Plus d’une trentaine de Sedanais avaient fait le déplacement à la ville préfecture.</p>
+<p>D'après le maire de Sedan, la maternité va continuer son activité grâce à la réserve sanitaire et une grande campagne va être lancée pour recruter des médecins.<br />Le Comité de défense des hôpitaux de proximité des Ardennes reste particulièrement vigilant, d’autant plus que la direction prépare toujours la fermeture !</p>
+<p><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/20230302communique-du-comite-de-defense-des-hopitaux-de-proximite-des-Ardennes.pdf">Le communiqué du 2 mars</a></p>
+<p style="background-color: #729FCF;" align="center"><strong>GUINGAMP - 22</strong></p>
+<p><strong>Manifestation le 11 mars</strong></p>
+<p><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/Communique-Comite-defense-Guingamp-01-03-2023.pdf">Le communiqué après la sortie du rapport Ville</a></p>
+<p><a href="http://coordination-defense-sante.org/2023/03/guingamp-manifestation-le-11-mars/">L’affiche</a></p>
+<p><strong> </strong></p>
+<p><strong>Ciné-débat le 14 mars</strong></p>
+<p><strong> </strong></p>
+<p><img src="blob:https://wordhtml.com/e9d8af4f-327a-408a-8cfb-b966f21119dc" alt="" /></p>
+<p style="background-color: #729FCF;" align="center"><strong>LANNION - 22</strong></p>
+<p><strong>Rassemblement le 8 mars pour la maternité</strong></p>
+<p><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/Comm-presse-230303.pdf">Le communiqué</a></p>
+<p>Sur le site de la Coordination vous trouverez aussi un retour sur le 4 février et la réaction du comité au rapport Ville</p>
+<p><a href="http://coordination-defense-sante.org/2023/03/lannion-rendez-vous-le-8-mars-a-10-h-30-pour-defendre-la-maternite/">L’article sur le site</a></p>
+<p style="background-color: #729FCF;" align="center"><strong>LUÇON - 85</strong></p>
+<p><strong>Retour sur la manifestation du 18 février</strong></p>
+<p><a href="http://coordination-defense-sante.org/2023/03/lucon-retour-sur-la-manifestation-du-18-fevrier/">Images sur le site de la Coordination</a></p>
+<p style="background-color: #729FCF;" align="center"><strong>NORD-ESSONNE - 91</strong></p>
+<p><strong>Réunion du comité le 20 mars</strong></p>
+<p>Le comité invite toutes celles et ceux qui sont intéressés à participer aux actions du comité à une réunion le 20 mars 20 mars à 20h - 19 rue de Champagne à Savigny sur Orge.</p>
+<p>Il vient de se doter d’un nouveau site : <a href="https://cdhne.wordpress.com/">https://cdhne.wordpress.com/</a></p>
+<p style="background-color: #729FCF;" align="center"><strong>MAYENNE - 53</strong></p>
+<p><strong>Réaction au rapport Ville</strong></p>
+<p><a href="http://coordination-defense-sante.org/2023/03/mayenne-audace-53-reagit-au-rapport-ville/">Le communiqué</a></p>
+<p><a href="https://www.francebleu.fr/infos/sante-sciences/deux-hopitaux-mayennais-pourraient-voir-leur-service-de-maternite-supprime-et-regroupe-au-ch-de-laval-7360560?fbclid=IwAR1_am8evPSfmUK2iNIebFTk1v4e4QRzOs86at69J9RWXBbWGzlh0kQAfx0">L’article de France bleu du 2 mars</a></p>
+<p><strong> </strong></p>
+<p style="background-color: #729FCF;" align="center"><strong>MARMANDE - 47</strong></p>
+<p><strong>Projection du film « Premières urgences » le 17 mars</strong></p>
+<p><img src="blob:https://wordhtml.com/d90a9ea4-0f00-4f0f-8366-d6f0e4e42db6" alt="" /></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF;" align="center"><strong>GIEN - 45</strong></p>
+<p><strong>Fermeture de nuit des urgences</strong></p>
+<p><a href="https://www.leberry.fr/gien-45500/actualites/la-fermeture-des-urgences-de-nuit-a-l-hopital-de-gien-une-situation-qui-nous-echappe-totalement_14269001/">L’article du Berry Républicain du 27/02/23</a></p>
+<p style="background-color: #729FCF;" align="center"><strong>CARPENTRAS - 84</strong></p>
+<p><strong>Fermeture des urgences la nuit</strong></p>
+<p><a href="https://www.laprovence.com/actu/en-direct/1888853432232716/vaucluse-lhopital-de-carpentras-va-fermer-ses-urgences-la-nuit">La Provence du 3/3/23</a></p>
+<p style="background-color: #729FCF;" align="center"><strong>LE MANS - 72</strong></p>
+<p><strong>53 chirurgiens de l'hôpital présentent leur démission administrative</strong></p>
+<p><a href="https://www.francetvinfo.fr/sante/hopital/crise/le-mans-53-chirurgiens-de-l-hopital-presentent-leur-demission-administrative-pour-denoncer-la-penurie-de-medecins-et-les-fermetures-de-lits_5688938.html?fbclid=IwAR3GvpuD8IsH9zATzikvKTV-AeGUzXn9dBRGTklw1kuVOuFsEeL0OprEkQM#xtor=CS2-765-[facebook]-">L’article de France Info du 2 mars</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<div align="center">
+<p><strong>CRISE SANITAIRE</strong></p>
+<p><strong>Les leçons de la crise sanitaire vu par le CCNE</strong></p>
+<p>Dans un avis rendu public fin 2022 le Comité Consultatif National d’Ethique (CCNE) tire les « leçons de la crise sanitaire et hospitalière ».</p>
+<p>Cet article interviewe Régis Aubry, chef du service de soins palliatifs du centre hospitalier universitaire (CHU) de Besançon et rapporteur de cet avis du CCNE.</p>
+<p><a href="https://sciences-critiques.fr/regis-aubry-le-systeme-de-soins-actuel-favorise-une-forme-de-maltraitance-par-defaut-dhumanite/">L’article sur le site de Sciences critiques</a></p>
+<p><strong>MATERNITÉS</strong></p>
+<p><strong>Le rapport Ville</strong></p>
+<p>Il a entraîné une effervescence médiatique et cette revue de presse ne cite que les articles qui nous ont été signalés !</p>
+<p><a href="https://www.lefigaro.fr/actualite-france/crise-de-l-hopital-un-rapport-recommande-la-fermeture-des-petites-maternites-pour-renforcer-les-grandes-20230301">Le Figaro le 1</a><a href="https://www.lefigaro.fr/actualite-france/crise-de-l-hopital-un-rapport-recommande-la-fermeture-des-petites-maternites-pour-renforcer-les-grandes-20230301"><sup>er</sup></a><a href="https://www.lefigaro.fr/actualite-france/crise-de-l-hopital-un-rapport-recommande-la-fermeture-des-petites-maternites-pour-renforcer-les-grandes-20230301"> mars</a></p>
+<p><a href="https://www.francebleu.fr/infos/economie-social/il-ne-faudrait-plus-accoucher-dans-les-petites-maternites-notamment-en-lorraine-selon-un-rapport-9922373">L’article de France bleu Sud Lorraine du 1</a><a href="https://www.francebleu.fr/infos/economie-social/il-ne-faudrait-plus-accoucher-dans-les-petites-maternites-notamment-en-lorraine-selon-un-rapport-9922373"><sup>er</sup></a><a href="https://www.francebleu.fr/infos/economie-social/il-ne-faudrait-plus-accoucher-dans-les-petites-maternites-notamment-en-lorraine-selon-un-rapport-9922373"> mars</a></p>
+<p><a href="https://www.europe1.fr/emissions/linterview-de-5h40/insecurite-des-accouchements-dans-certaines-maternites-des-structures-ne-sont-en-capacite-de-prendre-en-charge-des-complications-4169875">Europe 1 le 2 mars</a></p>
+<p><a href="https://france3-regions.francetvinfo.fr/normandie/rapport-sur-les-petites-maternites-10-etablissements-dans-le-viseur-en-normandie-2724906.html">France 3 Normandie le 2 mars</a></p>
+<p><a href="https://www.francetvinfo.fr/sante/professions-medicales/sages-femmes/sante-un-rapport-appelle-a-la-fermeture-des-petites-maternites_5687171.html#xtor=EPR-555-[newsletterquotidienne]-20230302&amp;pid=726375-1477856329-b527ccc8">France info le 2 mars</a></p>
+<p><a href="https://france3-regions.francetvinfo.fr/grand-est/meurthe-et-moselle/nancy/fin-des-accouchements-dans-les-petites-maternites-c-est-500-femmes-enceintes-dans-les-transports-par-jour-le-rapport-explosif-qui-fait-reagir-en-lorraine-2724210.html#Echobox=1677754887">France 3 Grand Est le 2 mars</a></p>
+<p><strong>Réactions</strong></p>
+<p><a href="https://www.apvf.asso.fr/communique_presse/fermetures-de-maternites-stop-a-lhemorragie-dans-les-petites-villes/">Communiqué de l’Association des Petites Villes de France</a></p>
+<p>Pour la Coordination, Rosine Leverrier sur <a href="https://france3-regions.francetvinfo.fr/normandie/programmes/france-3_normandie_jt-19-20-normandie-caen?id=4693993">France 3 Normandie</a></p>
+<p>et celle de Joseph Maatouk sur <a href="https://www.cnews.fr/emission/2023-03-04/la-matinale-week-end-du-04032023-1328909">CNEWS le 4 mars</a> (commencer à 52’)</p>
+<p><strong>RETRAITES</strong></p>
+<p><strong>Le rejet du projet gouvernemental par la Fédération des mutuelles de France</strong></p>
+<p><a href="https://mutuelles-de-france.fr/reforme-des-retraites-des-le-7-mars-toutes-et-tous-mobilises-pour-faire-reculer-le-gouvernement/">Le communiqué de la Fédération des mutuelles de France</a></p>
+<p><strong>LA CONVENTION DE LA MÉDECINE LIBÉRALE</strong></p>
+<p><strong>Et maintenant ? Vite le service public territorial de santé !</strong></p>
+<p><a href="https://www.fncs.org/et-maintenant-vite-le-service-public-territorial-de-sante">Le communiqué </a><a href="https://www.fncs.org/et-maintenant-vite-le-service-public-territorial-de-sante">communs </a><a href="https://www.fncs.org/et-maintenant-vite-le-service-public-territorial-de-sante">des organisations de centres de santé</a></p>
+
+</div>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><a href="https://www.youtube.com/watch?v=Mb9x5CkxgSU">Un économiste démonte les arguments du gouvernement sur la réforme des retraites</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

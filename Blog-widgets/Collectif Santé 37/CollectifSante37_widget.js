@@ -836,7 +836,7 @@ $(document).ready(function() {
   if ( window.location.pathname == '/' ) $('.header-widget').css('visibility', 'hidden')
   $('.subscribe-button.pill-button').addClass('styled')
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4q6WJzNtnPcIQosYL_a3RGKLl2FW9-OGpZgoyEhE1EluZ1UKMzKmkIqiA2l0GoNiWmDuNwb7CKWBGxslHeMwZQvVpGl1SD2klJhYlmhMPueq_bHQsNJAYFOi8YMe1VVcylst26B3mziMS6f7S2Mox43IgykzXr51mf2-VjlkkhVfHjhlHtcCPEZGi/s1600/Appel%20Unitaire%20Tours%20du%207%20mars.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLR9KSOGr6KlxioDp44z6bE7xZ7ZGnoIy4ZV0eaMm3QtVL3rvxDX9zqazzOUAsGpNwftBH8qvhpp4lRlm-zBR5ZUnnYR13tNWk66yKx8v_CQO-Wdx4bgt7IT7vHE-Ov56hUOhwmstujcnFGQvwev4NI9I2a6QksTaFqyufVr5Q4gcS_G2WaRmnTzVD/s1600/Annonce-11-et-15-mars.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -857,10 +857,7 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4q6WJzNtnPcIQosYL_a3RGKLl2FW9-OGpZgoyEhE1EluZ1UKMzKmkIqiA2l0GoNiWmDuNwb7CKWBGxslHeMwZQvVpGl1SD2klJhYlmhMPueq_bHQsNJAYFOi8YMe1VVcylst26B3mziMS6f7S2Mox43IgykzXr51mf2-VjlkkhVfHjhlHtcCPEZGi/s1600/Appel%20Unitaire%20Tours%20du%207%20mars.jpg"
-        },{
-          dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7N3Q-E3ClG74kPdn2dnpmELi20ruLRt2yNBDuyhydClCbw4SeJWxhxG-TrV9AZeswBnfQzxZ8HV9yB3Ie3v22m6RGM_nJ1etOz_8bre49_eIhHPCdvQ0WiNpdfTlVJUo30oC0NlTdAUFoQHVZRmwG-z9CFMJpg75MREGn9AAJeOEGBNEK9chrdCL6/s1600/Appel%20Unitaire%20du%207%20mars.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLR9KSOGr6KlxioDp44z6bE7xZ7ZGnoIy4ZV0eaMm3QtVL3rvxDX9zqazzOUAsGpNwftBH8qvhpp4lRlm-zBR5ZUnnYR13tNWk66yKx8v_CQO-Wdx4bgt7IT7vHE-Ov56hUOhwmstujcnFGQvwev4NI9I2a6QksTaFqyufVr5Q4gcS_G2WaRmnTzVD/s1600/Annonce-11-et-15-mars.jpg"
         },
         /*{
           dataType: "video",

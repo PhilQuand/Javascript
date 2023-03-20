@@ -836,7 +836,7 @@ $(document).ready(function() {
   if ( window.location.pathname == '/' ) $('.header-widget').css('visibility', 'hidden')
   $('.subscribe-button.pill-button').addClass('styled')
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLR9KSOGr6KlxioDp44z6bE7xZ7ZGnoIy4ZV0eaMm3QtVL3rvxDX9zqazzOUAsGpNwftBH8qvhpp4lRlm-zBR5ZUnnYR13tNWk66yKx8v_CQO-Wdx4bgt7IT7vHE-Ov56hUOhwmstujcnFGQvwev4NI9I2a6QksTaFqyufVr5Q4gcS_G2WaRmnTzVD/s1600/Annonce-11-et-15-mars.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjginxHoiENqRo_5wMRqp8f0XiKRcKuqzB9OmTq4qnRfdJYYkqhEg5VoGbzmphkqRszDdzObe9c5459peQ9tNK8l7L0RH8gelT43tAyfmKKRD0ZUViWIqOFfJv3sXXbWPtgik78iFkqrzlRZT7oM4Wq4gT80VxVqmg8xE6YwLbBrtS9jPuBpYypFs8r/s1600/Chinon%2018%20mars.jpg",
       fancyClass: {
         baseClass: 'demain20200923AlaUneBaseClass',
       },
@@ -857,9 +857,13 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLR9KSOGr6KlxioDp44z6bE7xZ7ZGnoIy4ZV0eaMm3QtVL3rvxDX9zqazzOUAsGpNwftBH8qvhpp4lRlm-zBR5ZUnnYR13tNWk66yKx8v_CQO-Wdx4bgt7IT7vHE-Ov56hUOhwmstujcnFGQvwev4NI9I2a6QksTaFqyufVr5Q4gcS_G2WaRmnTzVD/s1600/Annonce-11-et-15-mars.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjginxHoiENqRo_5wMRqp8f0XiKRcKuqzB9OmTq4qnRfdJYYkqhEg5VoGbzmphkqRszDdzObe9c5459peQ9tNK8l7L0RH8gelT43tAyfmKKRD0ZUViWIqOFfJv3sXXbWPtgik78iFkqrzlRZT7oM4Wq4gT80VxVqmg8xE6YwLbBrtS9jPuBpYypFs8r/s1600/Chinon%2018%20mars.jpg"
         },
         /*{
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJUGij_FZeQoABKBoEQhK3ROJ1gEYDebvQJCEQVJpbKZxjlRoS44-ULt3dwot3W5wVKRRhwEtFdK4uWyykxh_inZOT1SOWkbH8Qg3c2yPZp7a6XodRkc7JwawniowwSKhG87uqwvdRadI6rWbjvWmpn2TeiKuqAC_PmSOMpTgMteyvmRHgRxPT1TpS/s1600/RDV-15-mars.jpg"
+        },
+        {
           dataType: "video",
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },*/

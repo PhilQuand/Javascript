@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>
+Le rapport de l'Académie de Médecine est un pas de plus vers la désertification en matière de santé (préconisation de la fermeture d'une centaine de maternités dites « dangereuses »), et la privatisation (entrée des médecins libéraux à l'hôpital).
+</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 13</li>
+<li>Dates: du 27 mars au 2 avril 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/Infos-semaine-13-du-27-mars-au-2-avril-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div style="font-family: Arial, serif;">
+
+<p style="margin:0">Le rapport de l'Académie de Médecine est un pas de plus vers la désertification en matière de santé (préconisation de la fermeture d'une centaine de maternités dites « dangereuses »), et la privatisation (entrée des médecins libéraux à l'hôpital).</p>
+<p style="margin:0">Le 7 avril est la journée mondiale de la santé, avec nombre de pays, nous devons refuser cette main mise sur ce qui nous appartient : plus que jamais la Sécurité Sociale est menacée défendons-la !</p>
+<p align="right"><em>Rosine Leverrier</em></p>
+
+<p align="center"><strong>Appels unitaires pour la journée Mondiale de la Santé le 7 avril</strong></p>
+<p align="center">6 avril, tribunal des politiques de santé à la bourse du travail de Paris</p>
+<p align="center">7 avril : rassemblement devant le ministère de la santé de 11h à 15 h</p>
+<p align="center"><a href="https://coordination-defense-sante.org/">Toutes les infos à la une du site de la Coordination</a></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2023/02/images1-PNG.png" />
+</div></div>
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+
+<p style="background-color: #E37B22;"><strong>FEURS</strong></p>
+<p align="justify">Mobilisation contre la fermeture des urgences</p>
+<p align="justify">LUTTE OUVRIERE AURA BRÈVE 26/03/2023</p>
+<p align="justify">Rassemblement à Feurs le 25 mars 2023</p>
+<p align="justify">À Feurs, petite ville de 8000 habitants dans la Loire, à l’appel du comité de défense du service public hospitalier du Forez, un rassemblement a eu lieu samedi 25 mars pour protester contre la menace de fermeture des urgences de l’hôpital. Cette fermeture, qui pourrait intervenir dès le 4 avril, ne laisserait que les urgences de Montbrison dans le centre Loire et aurait comme conséquence plus de 50 agents hospitaliers sur le carreau.</p>
+<p align="justify">Plus de 500 personnes se sont rassemblées. Les syndicalistes de l’hôpital ont dénoncé la politique de santé du gouvernement. Un médecin urgentiste de l’hôpital de Montbrison a tiré la sonnette d’alarme en alertant sur les dangers de mort encourus par les populations du fait de la fermeture des urgences.</p>
+<p align="justify">Devant le succès de ce rassemblement et le soutien massif de la population, le président du comité de soutien a conclu que la lutte continuait pour obtenir la non fermeture, et les manifestants ont repris : « <em>On lâche rien !</em> ». Rendez-vous est fixé tous les soirs à 18h devant l’hôpital jusqu’au 3 avril…</p>
+<p align="justify">Face au refus de l'ARS de recevoir le collectif, la réaction de Rolland Vachon ; <a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/Vive-la-republique.odt">Vive la république </a></p>
+<p style="background-color: #729FCF;"><strong>SARLAT</strong></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/04/images5.jpeg" alt="inconnu_3.jpg" /></p>
+<p style="margin-bottom:0" align="center"><strong>Depuis le 30 mars, les mamans ne peuvent plus accoucher à Sarlat.</strong></p>
+<p style="margin-top:0" align="center"><strong>C'est inadmissible !</p>
+<p align="center">Nous sommes toutes et tous concerné-e-s !</p>
+<p align="center">Réagissons ensemble, fermement et rapidement pour la réouverture la plus rapide possible de notre maternité !</strong></p>
+<p align="center"><strong>La pétition</strong></p>
+<p align="center"><a href="https://www.change.org/p/urgence-maternit%C3%A9-de-sarlat"><strong>https://www.change.org/p/urgence-maternité-de-sarlat</strong></a></p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/a-la-maternite-de-sarlat-les-futures-mamans-invitees-a-aller-accoucher-ailleurs-4400796">>https://www.francebleu.fr/infos/sante-sciences/a-la-maternite-de-sarlat-les-futures-mamans-invitees-a-aller-accoucher-ailleurs-4400796</a></p>
+<p align="center"><a href="https://www.francebleu.fr/infos/societe/maternite-de-sarlat-emilie-apprend-cinq-jours-avant-son-terme-qu-elle-doit-accoucher-ailleurs-6393443">https://www.francebleu.fr/infos/societe/maternite-de-sarlat-emilie-apprend-cinq-jours-avant-son-terme-qu-elle-doit-accoucher-ailleurs-6393443</a></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/nouvelle-aquitaine/programmes/france-3_nouvelle-aquitaine_19-20-perigords">https://france3-regions.francetvinfo.fr/nouvelle-aquitaine/programmes/france-3_nouvelle-aquitaine_19-20-perigords</a></p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/a-la-maternite-de-sarlat-les-futures-mamans-invitees-a-aller-accoucher-ailleurs-4400796?fbclid=IwAR3qYHIz92nW_eThCldmbt-bXXuuuktEWlpRLxlrclle7bfDBe11zXn1bMw">https://www.francebleu.fr/infos/sante-sciences/a-la-maternite-de-sarlat-les-futures-mamans-invitees-a-aller-accoucher-ailleurs-4400796?fbclid=IwAR3qYHIz92nW_eThCldmbt-bXXuuuktEWlpRLxlrclle7bfDBe11zXn1bMw</a></p>
+<p align="center"><a href="https://www.lefigaro.fr/bordeaux/maternite-fermee-en-dordogne-des-femmes-obligees-de-faire-plus-de-60-km-pour-accoucher-20230329">https://www.lefigaro.fr/bordeaux/maternite-fermee-en-dordogne-des-femmes-obligees-de-faire-plus-de-60-km-pour-accoucher-20230329</a> : Le Figaro le 29 03 2023</p>
+<p style="background-color: #E37B22;"><strong>DOLE</strong></p>
+<p align="center">Après le « rapport Ville » de l'Académie de médecine, le comité s'inquiète de l'avenir de la maternité de Dole et du manque de prise en charge des femmes</p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/communiqueMaternite29mars23_.pdf">communiquéMaternité29mars23_</a></p>
+<p style="background-color: #729FCF;"><strong>LUÇON</strong></p>
+<p align="center">Samedi 15 et dimanche 16 avril rendez vous à Luçon !</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/03/LuconInvitation.jpg" alt="inconnu_4.jpg" /></p>
+<p style="background-color: #E37B22;"><strong>LANNION-TRESTEL</strong></p>
+<p align="center"><strong>Le comité interpelle les élus de l'intercommunalité pour qu'ils s'engage dans la défense de l'hôpital dans son ensemble</strong></p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/Lettre-ouverte-28-03-23.pdf">Lettre ouverte 28 03 23</a></p>
+<p style="background-color: #729FCF;"><strong>MONTCEAUX-LES-MINES</strong></p>
+<p><strong>Le projet du nouvel hôpital de « proximité » ou comment construit un désert en santé !</strong></p>
+<p><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/Codef_aux_acteurs_locaux_29_03_2023.pdf">Codef_aux_acteurs_locaux_29_03_2023</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/03/Perte-de-chance.pdf">Perte de chance</a></p>
+<p style="background-color: #E37B22;"><strong>AUBAGNE</strong></p>
+<p align="center"><strong>Réunion publique le 12 avril à l'appel des maires et du comité</strong></p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/lettre-maires.pdf">lettre maires</a></p>
+<p style="background-color: #729FCF;"><strong>RUFFEC</strong></p>
+<p align="center"><strong>Des avancées pour l'hôpital après plusieurs semaines de lutte</strong></p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/03/le-comte-rendu.odt">le compte rendu</a></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/04/images6.jpeg" alt="inconnu_5.jpg" /></p>
+<p style="background-color: #E37B22;"><strong>MANOSQUE</strong></p>
+<p align="center"><strong>Soirée débat sur la santé le mardi 4 avril à 18h salle des Tilleuls</strong></p>
+<p align="center"><a href="http://coordination-defense-sante.org/wp-content/uploads/2023/04/Soiree-Debat-23-04-04-a-Manosque.pdf">Soirée-Débat 23-04-04 à Manosque</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF;"><strong>ROMILLY</strong></p>
+<p align="center"><strong>Inquiétude sur l'avenir de la maternité avec l'application de la loi RiST. Une pétition est en ligne.</strong></p>
+<p align="center"><a href="https://www.change.org/p/ensemble-mobilisons-nous-pour-maintenir-la-maternit%C3%A9-de-romilly-sur-seine">https://www.change.org/p/ensemble-mobilisons-nous-pour-maintenir-la-maternit%C3%A9-de-romilly-sur-seine</a></p>
+<p style="background-color: #E37B22;"><strong>GRAY</strong></p>
+<p align="center"><strong>Forte mobilisation pour défendre les urgences de l'hôpital</strong></p>
+<p align="center"><a href="https://www.estrepublicain.fr/sante/2023/03/25/gray-forte-mobilisation-pour-les-urgences-de-l-hopital">https://www.estrepublicain.fr/sante/2023/03/25/gray-forte-mobilisation-pour-les-urgences-de-l-hopital</a></p>
+<div style="display: block; width: 90%" align="center">
+<img style="width: 45%; max-width: 600px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/04/images2.jpeg" alt="inconnu_6.jpg" />
+<img style="width: 45%; max-width: 600px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/04/images3.jpeg" alt="inconnu_7.jpg" />
+</div>
+<p style="background-color: #729FCF;"><strong>MONTEAUBAN</strong></p>
+<p align="center"><strong>Fermeture « temporaire » (du 1er avril au 30 septembre) de 30 lits en psychiatrie. L'hôpital est pourtant la seule offre en psychiatrie du département.</strong></p>
+<p align="center"><a href="https://www.ladepeche.fr/2023/03/30/hopital-le-service-de-psychiatrie-ampute-de-30-lits-11098812.php">https://www.ladepeche.fr/2023/03/30/hopital-le-service-de-psychiatrie-ampute-de-30-lits-11098812.php</a></p>
+<p style="background-color: #E37B22;"><strong>PORTO VECCHIO</strong></p>
+<p align="center"><strong>Les conséquences de la fermeture éventuelle de la maternité : fin de grossesse à l'hôtel , déclenchement,...</strong></p>
+<p align="center"><strong>La fermeture, une décision délétère pour les femmes.<br /></strong><a href="https://www.corsematin.com/articles/fermeture-de-la-maternite-de-porto-vecchio-pour-nous-cest-impensable-139755">https://www.corsematin.com/articles/fermeture-de-la-maternite-de-porto-vecchio-pour-nous-cest-impensable-139755</a></p>
+<p align="center"><strong>Une motion votée à l'unanimité par l'Assemblée de Corse</strong></p>
+<p align="center"><a href="https://m.facebook.com/story.php?story_fbid=pfbid0yGm7DBS4SVs8RRjhWkBMnhrTTjUjZYU2C4yB4i6Rq6onTnW7fxdCfiQdju1maUuwl&amp;id=100089933670774"> https://m.facebook.com/story.php?story_fbid=pfbid0yGm7DBS4SVs8RRjhWkBMnhrTTjUjZYU2C4yB4i6Rq6onTnW7fxdCfiQdju1maUuwl&amp;id=100089933670774</a> </p>
+<p style="background-color: #729FCF;"><strong>CARHAIX</strong></p>
+<p align="center"><strong>Face aux menaces de fermetures de services hospitaliers, des Carhaisien-ne-s ont mis une pétition en ligne. L'hôpital de proximité avec tous les services est la garantie de la sécurité en matière de santé.</strong></p>
+<p align="center"><a href="https://www.change.org/p/pour-le-maintien-des-services-de-l-h%C3%B4pital-de-carhaix">La pétition</a></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/affiche-petition-QR-code.pdf">affiche pétition QR code</a><br /><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/original-signe.pdf">original signé</a><br /><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/liste-des-destinatiares.odt">liste des destinatiares</a></p>
+<p style="background-color: #E37B22;"><strong>SUD MANCHE</strong></p>
+<p align="center"><strong>Les conséquences de la loi RiST : les patients n'auront pas accès aux urgences sans passer par le 15</strong></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/normandie/manche/avranches/les-patients-doivent-desormais-appeler-le-15-avant-d-aller-aux-urgences-du-sud-manche-2744854.html#xtor=EPR-521-%5Bfrance3regions%5D-20230401-%5Binfo-image2%5D&amp;pid=726375-1437732574-2a072072">https://france3-regions.francetvinfo.fr/normandie/manche/avranches/les-patients-doivent-desormais-appeler-le-15-avant-d-aller-aux-urgences-du-sud-manche-2744854.html#xtor=EPR-521-[france3regions]-20230401-[info-image2]&amp;pid=726375-1437732574-2a072072</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<div align="center">
+<p class="titre-rubrique" align="center">Une bonne nouvelle pour la Sécu et nos retraites ?</p>
+<p>INSEE 28 / 03 :</p>
+<p align="justify">2022 : « les administrations de sécurité sociale sont excédentaires » (*)</p>
+<p align="justify">« Le solde des administrations de sécurité sociale (Asso) devient excédentaire (+9,2 Md€) après un déficit de 17,2 Md€ en 2021. Les recettes d'impôt (CSG notamment) et de cotisations sociales bénéficient du dynamisme de la masse salariale (+47,2 Md€ soit +7,1 %). Les dépenses augmentent plus modérément (+20,5 Md€ soit +3,0 %) : la hausse des prestations de retraite (en dehors des pensions de l'État qui font partie des dépenses de l'État) est en partie compensée par la baisse des prestations d'activité partielle, d'allocation chômage et des dépenses de vaccination et de dépistage liées à la crise sanitaire ».</p>
+<p class="titre-rubrique" align="center"><strong>L'e. Médecine et téléconsultations : une plate-forme condamnée pour « détournement » de patientèle </strong></p>
+<p><a href="https://www.urps-med-idf.org/condamnation-dune-plateforme-de-teleconsultation/">https://www.urps-med-idf.org/condamnation-dune-plateforme-de-teleconsultation/</a></p>
+<p class="titre-rubrique" align="center"><strong>Le SMG répond à la cour des comptes qui met en cause le choix, par certains élus, d'ouvrir des centres de santé : ils seraient trop coûteux !</strong></p>
+<p><a href="http://coordination-defense-sante.org/communique-du-smg/">http://coordination-defense-sante.org/communique-du-smg/</a></p>
+<p class="titre-rubrique" align="center"><strong>Enquête sur les maternités par l'Organisation Nationale des Syndicats de Sage-Femmes et le collectif Santé en Danger</strong></p>
+<p><a href="https://34st1.r.ag.d.sendibm3.com/mk/mr/QxhscH3IXYrPokIexLVh2KiTCOsHruGXfWvwaQPouSQPqsI6b5WsZ--nLxFZYHbeeWIIPPQeGSGAcJR0hGSCW0GIKQK4660fP1V5OoWFT_yQDglRZUi6UPQfSo4fOddMkwmxYer7IOgdBw">Le communiqué</a></p>
+<p class="titre-rubrique" align="center">La revue Cerise défend les services publics</p>
+<p><a href="https://ceriseslacooperative.info/2023/03/31/journal-davril/"><strong>https://ceriseslacooperative.info/2023/03/31/journal-davril/</strong></a></p>
+</div>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center">Esperanza l'Aranesa pour le bonheur !</p>
+<p align="center"><a href="https://www.youtube.com/watch?v=-cEZG4NcnW8#https://www.youtube.com/watch?v=-cEZG4NcnW8">https://www.youtube.com/watch?v=-cEZG4NcnW8</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

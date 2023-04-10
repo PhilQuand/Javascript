@@ -26,8 +26,9 @@
         for (var i = 0; i < options.images.length; i++) {
           //var slide = $('<div class="carousel__slide"><img class="panzoom__content" src="' + options.images[i] + '" /></div>')
           var ni = i + 1
-          var slide = $(' <div class="carousel__slide" data-src="' + options.images[i] + '"  data-fancybox="gallery" data-caption="Affiche n¡"' + ni + '"><img src="' + options.images[i] + '" /></div>')
-          myMainCarousel.append(slide)
+          //var slide = $(' <div class="carousel__slide" data-src="' + options.images[i] + '"  data-fancybox="gallery" data-caption="Affiche n¡"' + ni + '"><img src="' + options.images[i] + '" /></div>')
+          var slide = $(' <div class="carousel__slide" data-src="' + options.images[i] + '"  data-fancybox="gallery"><img src="' + options.images[i] + '" /></div>')
+         myMainCarousel.append(slide)
         }
         _this.append(myMainCarousel)
 

@@ -6,7 +6,7 @@
       var _this = this;
       Promise.all([
         //  chargements des dépendances css
-        load.css('https://philquand.github.io/Javascript/PhotoGaleries/Facebook-like-Photo-Grid/src/images-grid_3.css'),
+        load.css('https://philquand.github.io/Javascript/PhotoGaleries/Facebook-like-Photo-Grid/src/images-grid.css'),
         //load.css('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'),
         //load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
         //  chargements des dépendances js

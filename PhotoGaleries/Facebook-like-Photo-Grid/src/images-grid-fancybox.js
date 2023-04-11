@@ -1,5 +1,5 @@
 (function($) {
-  $.fn.Carroussel_Fancy = function(options) {
+  $.fn.Carrousel_Fancy = function(options) {
     var randGen = new Generator();
     var randNum = 'ID' + randGen.getrand();
     var _this = this;

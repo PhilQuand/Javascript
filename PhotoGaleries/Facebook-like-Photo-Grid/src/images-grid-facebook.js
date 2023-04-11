@@ -1,5 +1,5 @@
 (function($) {
-  $.fn.FacebookGrid = function(options) {
+  $.fn.Facebook_Fancy = function(options) {
     var args = arguments;
     return this.each(function() {
 

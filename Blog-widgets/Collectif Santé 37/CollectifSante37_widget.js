@@ -5,8 +5,8 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
 <!--Add fancyBox 4 voir documentation https://fancyapps.com -->
-<!--script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-<!--link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" rel="stylesheet" type="text/css" />
+<!--script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script-->
+<!--link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" rel="stylesheet" type="text/css" /-->
 <!-- Add myFancybox -->
 <link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css" rel="stylesheet" type="text/css" />
 <script src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'></script>
@@ -836,9 +836,10 @@ $(document).ready(function() {
   if ( window.location.pathname == '/' ) $('.header-widget').css('visibility', 'hidden')
   $('.subscribe-button.pill-button').addClass('styled')
   $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjginxHoiENqRo_5wMRqp8f0XiKRcKuqzB9OmTq4qnRfdJYYkqhEg5VoGbzmphkqRszDdzObe9c5459peQ9tNK8l7L0RH8gelT43tAyfmKKRD0ZUViWIqOFfJv3sXXbWPtgik78iFkqrzlRZT7oM4Wq4gT80VxVqmg8xE6YwLbBrtS9jPuBpYypFs8r/s1600/Chinon%2018%20mars.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieJDyRZtn3Y9l9tcVhmNIMB5f7g99Nsv9NcsPiX3IVWCnZyI0zAPm3Bz0_0piz2kx7pns9QtigmSeuH6_1wqmxOZtgHtE94KVfXe7L2kXGb93FRms0nxX_LZFlhaRfB7T2XyvsOFpcKVIZhFKYcS64Z9UL4e3lsgqdlcqHkP5RrCnPt-Kd0VQRgfNc/s1600/Appel%20Intersyndical%20du%207%20avril%202023.jpg",
       fancyClass: {
-        baseClass: 'demain20200923AlaUneBaseClass',
+        //baseClass: 'demain20200923AlaUneBaseClass',
+        baseClass: 'articleFancyClass',
       },
       href: [
         /*{
@@ -857,11 +858,11 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjginxHoiENqRo_5wMRqp8f0XiKRcKuqzB9OmTq4qnRfdJYYkqhEg5VoGbzmphkqRszDdzObe9c5459peQ9tNK8l7L0RH8gelT43tAyfmKKRD0ZUViWIqOFfJv3sXXbWPtgik78iFkqrzlRZT7oM4Wq4gT80VxVqmg8xE6YwLbBrtS9jPuBpYypFs8r/s1600/Chinon%2018%20mars.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieJDyRZtn3Y9l9tcVhmNIMB5f7g99Nsv9NcsPiX3IVWCnZyI0zAPm3Bz0_0piz2kx7pns9QtigmSeuH6_1wqmxOZtgHtE94KVfXe7L2kXGb93FRms0nxX_LZFlhaRfB7T2XyvsOFpcKVIZhFKYcS64Z9UL4e3lsgqdlcqHkP5RrCnPt-Kd0VQRgfNc/s1600/Appel%20Intersyndical%20du%207%20avril%202023.jpg"
         },
         /*{
-          dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJUGij_FZeQoABKBoEQhK3ROJ1gEYDebvQJCEQVJpbKZxjlRoS44-ULt3dwot3W5wVKRRhwEtFdK4uWyykxh_inZOT1SOWkbH8Qg3c2yPZp7a6XodRkc7JwawniowwSKhG87uqwvdRadI6rWbjvWmpn2TeiKuqAC_PmSOMpTgMteyvmRHgRxPT1TpS/s1600/RDV-15-mars.jpg"
+          dataType: "iframe",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.html"
         },
         {
           dataType: "video",

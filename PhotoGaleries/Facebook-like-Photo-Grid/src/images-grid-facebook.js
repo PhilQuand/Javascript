@@ -327,7 +327,8 @@
     var firstPictureIndex = firstPicture.data('index');
     var firstPictureWrap = firstPicture.find('.image-wrap a');
     var firstDataSrc = firstPictureWrap.attr("data-src")
-        console.log('firstDataSrc' + firstDataSrc);
+    //console.log('firstDataSrc : ' + firstDataSrc);
+    lastPictureWrap.attr("data-src",firstDataSrc);
     if (jQuery.type(opts.GalleryLink) != 'undefined') {
       $('.' + opts.GalleryLink).attr("href", "javascript:;");
       $('.' + opts.GalleryLink).wrap(

@@ -34,7 +34,7 @@ $(document).ready(function() {
 });
 
 function goFancy() {
-  /*$(".data-fancybox").fancybox({
+  $(".data-fancybox").fancybox({
     buttons: [
       'play',
       'download',
@@ -69,7 +69,7 @@ function goFancy() {
       }
     }
 
-  }); */
+  });
   /*Fancybox.bind('[data-fancybox="fancy-box"]', {
     animated: false,
     showClass: false,

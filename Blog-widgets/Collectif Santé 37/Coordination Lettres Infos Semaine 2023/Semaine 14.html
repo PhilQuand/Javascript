@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>La semaine a été riche en mobilisations.</p>
+<p>La lutte contre le projet Macron-Borne sur la retraite et les journées internationales ds 6 et 7 Avril contre la marchandisation de la santé qui a donné lieu à un procès contre les gouvernements européens.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+#idInfosComités, .refComiteTours, .infosComités {
+    display: none;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 14</li>
+<li>Dates: du 3 au 9 avril 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/Infos-semaine-14-du-3-au-9-avril-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div style="font-family: Arial, serif;">
+
+<p>La semaine a été riche en mobilisations.</p>
+<p>La lutte contre le projet Macron-Borne sur la retraite et les journées internationales ds 6 et 7 Avril contre la marchandisation de la santé qui a donné lieu à un procès contre les gouvernements européens.</p>
+<p>Pendant ce temps, les fermetures de services s'accélèrent … les mobilisations contre ces fermetures aussi !!!</p>
+<p>La semaine qui vient va être déterminante pour le projet gouvernemental de retraite à 64 ans, avec la décision attendue du Conseil Constitutionnel.</p>
+<p>Mais ne nous leurrons pas, cette institution n'a jamais remis en cause la politique libérale, quelque soit le gouvernement en place.</p>
+<p>Il nous faudra certainement nous remobiliser avec le RIP pour imposer un référendum sur le projet.</p>
+<p>Ne lâchons rien dans les semaines à venir pour combattre et gagner contre la politique néfaste et ultralibérale de Macron et consorts.</p>
+<p align="right"><em>Joseph</em></p>
+
+<!--div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="http://coordination-defense-sante.org/wp-content/uploads/2023/02/images1-PNG.png" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<p class="rubrique">L’écho des comités :</p>
+
+<p style="background-color: #729FCF;"><strong>DOLE</strong></p>
+<p align="justify"><strong>EN AVRIL, la Maternité ne tient qu’à un fil...EN MAI, restons mobilisé.e.s !</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/infos-flash77.pdf">infos flash77</a></p>
+<p style="background-color: #E37B22;"><strong>BERGERAC</strong></p>
+<p align="center"><strong>Urgences fermées, population en danger</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/communique-N%C2%B09.pdf">Communiqué pour la fermeture des Urgences</a></p>
+<p style="background-color: #99FC34;"><strong>LUÇON</strong></p>
+<p align="center" style="margin-bottom:0">Comme tous les vendredis, rendez vous à 18 h devant l’hôpital</p>
+<p align="center" style="margin-top:0">Et les samedi 15 et dimanche 16 avril de 10 h à 17 h, ouverture</p>
+<p align="center" style="margin-bottom:0"><strong>Ouverture d'un nouveau restaurant</strong></p>
+<p align="center" style="margin:0"><strong>"RESTAURANT DE PROXIMITE EPHEMERE"</strong></p>
+<p align="center" style="margin:0">Filiale du groupe national de restauration :</p>
+<p align="center" style="margin-top:0">(<strong><span style="color:red">À</span>ménagement <span style="color:red">R</span>estreint de la<span style="color:red">S</span>anté)</strong></p>
+<p align="center">N’oubliez pas de signer et de partager la pétition : <a href="https://chng.it/9Db2vWpC">https://chng.it/9Db2vWpC</a></p>
+<p style="background-color: #99FFFF;"><strong>SARLAT</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CR-rencontre-avec-lars.pdf#chsarlat%20#ARSNA%20#arsdordogne">visite de l'ARS à Sarlat</a></p>
+<p align="center"><a href="https://www.change.org/p/urgence-maternit%C3%A9-de-sarlat">La pétition en ligne</a></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/230330-Courrier-Monsieur-BRAUN-maternite-de-Sarlat.pdf">courrier de Madame Varaillas, Sénatrice de la Dordogne, à Monsieur BRAUN</a></p>
+<p style="background-color: #CBFB04;"><strong>MONTCEAU LES MINES</strong></p>
+<p align="center" style="margin-bottom:0">Les débats sur la création d'un centre de santé</p>
+<p align="center" style="margin-top:0"><a href="https://montceau-news.com/saone_et_loire/732755-saone-et-loire-289.html">Le lien</a></p>
+<p style="background-color: #2AFFFF;"><strong>SEDAN</strong></p>
+<p align="justify" style="margin-bottom:0">En annonçant la fermeture provisoire de la maternité, l'ARS annonçait un point dans quinze jours.</p>
+<p align="justify" style="margin:0">Elle doit savoir le profond mécontentement lié à cette fermeture, qui met en danger la population.</p>
+<p align="justify" style="margin:0">Aussi, notre comité de défense appelle à un rassemblement le samedi 15 avril à 11 h devant l'hôpital.</p>
+<p align="justify" style="margin-top:0">Merci de partager l'information.</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/04/Image2.jpeg" /></p>
+<p style="background-color: #65FC66;"><strong>AUBENAS</strong></p>
+<p align="justify">Les Urgences de l'Hôpital d'Aubenas sont fermées la nuit et ce pour tout le mois d'avril.</p>
+<p align="justify">Le comité a réagi par un <a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/communique-de-presse-accueil-aux-urgences-.pdf">communiqué</a></p>
+<p align="justify">Lors de la dernière journée d'action intersyndicale sur les retraites, le matin, une manifestation a été organisée à Largentière (Ardèche) pour protester contre la fermeture de services publics dont la fermeture du service de médecine et du SSR de l'hôpital de Largentière -Rocher.</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/04/Image3.jpeg" /></p>
+<p align="justify">Plusieurs interventions ont été prononcées devant l'Hôpital dont celle de l'association des Usagers et au nom de la Coordination Nationale.</p>
+<p align="justify">L'après midi, 2500 personnes manifestaient contre la réforme des retraites</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/04/Image4.jpeg" /></p>
+<p style="background-color: #99FC34;"><strong>TOURS</strong></p>
+<p align="center"><a href="https://collectifsante37.blogspot.com/2023/04/rassemblement-l-de-la-journee-mondiale.html">Participation du collectif à la journée contre la mondialisation de la santé</a></p>
+<p style="background-color: #99FFFF;"><strong>MARMANDE</strong></p>
+<p align="justify">L’association urgences accès aux soins pour tous pleinement mobilisé dans la manifestation de ce 6 mars comme toujours et présente tous les vendredis à 17 h devant l’hôpital à Marmande . La pression devient intense aussi à l’hôpital avec les déclarations mortifères d´un professeur Villes encouragées par le pouvoir macroniste ; L’hôpital une nouvelle fois attaqué au lieu de mettre en place une loi de programmation sanitaire santé hôpital publics a l’image de la loi de programmation militaire de 400 milliards en sept ansDebout tous ensemble c’est notre santé à tous et à chacun !</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/04/Image5.jpeg" /></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #99FFFF;"><strong>LANGON</strong></p>
+<p align="center" style="margin-bottom:0">Action pour la défense de l'hôpital de Langon</p>
+<p align="center" style="margin-top:0"><a href="https://actu.fr/nouvelle-aquitaine/langon_33227/appel-a-la-mobilisation-une-action-se-prepare-pour-defendre-l-hopital-de-langon_58753530.html">Article</a></p>
+<p style="background-color: #99FFFF;"><strong>BASTIA</strong></p>
+<p align="center"><a href="https://news.google.com/articles/CBMiZmh0dHBzOi8vd3d3LmNvcnNlbWF0aW4uY29tL2FydGljbGVzL21hbnF1ZS1kZS1tZWRlY2lucy1saG9waXRhbC1kZS1iYXN0aWEtYXUtYm9yZC1kZS1saW1wbG9zaW9uLTEzOTk4NtIBAA?hl=fr&amp;gl=FR&amp;ceid=FR:fr">Fermeture de services à l'hôpital de Bastia</a></p>
+<p style="background-color: #99FECC;"><strong>USSEL</strong></p>
+<p align="center" style="margin-bottom:0">Manifestation contre la fermeture des Urgences</p>
+<p align="center" style="margin-top:0"><a href="https://france3-regions.francetvinfo.fr/nouvelle-aquitaine/correze/ussel/manifestation-contre-les-trois-nuits-de-fermeture-des-urgences-de-l-hopital-d-ussel-2748450.html">Article</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<div align="center">
+<p class="titre-rubrique" align="center"><strong>NSED</strong></p>
+<p><a href="https://www.youtube.com/live/KgxYJCpSpUk?feature=share">video pour le procès du 6 Avril</a></p>
+<p><a href="https://www.facebook.com/HealthNotForSale/videos/5846735948728711">video de l'action à Bruxelles</a></p>
+<p class="titre-rubrique" align="center"><strong>Rapport Ville</strong></p>
+<p>Une enquête de l'inserm sur la mortalité martenelle qui peut contredire le rapport Ville sur les maternités.</p>
+<p><a href="https://presse.inserm.fr/enquete-nationale-perinatale-resultats-de-ledition-2021/65757/">INSERM</a></p>
+<p class="titre-rubrique" align="center"><strong>BILAN DE SANTE EN ILE DE FRANCE</strong></p>
+<p><a href="https://www.ors-idf.org/nos-travaux/publications/la-sante-des-franciliens-2/">Rapport de l'ORS IDF</a></p>
+<p class="titre-rubrique" align="center"><strong>PSYCHIATRIE</strong></p>
+<p><a href="https://coordination-defense-sante.org/non-a-la-fermeture-du-service/">La clinique de Gravières ne fermera pas</a></p>
+<p><a href="https://blogs.mediapart.fr/dr-bb/blog/040423/miseres-de-la-pedopsychiatrie-3">La pédopsychiatrie</a></p>
+<p><a href="https://retraitesinconstitutionnelles.wordpress.com/2023/04/04/les-habits-inconstitutionnels-dune-reform">Sur la réforme des retraites</a></p>
+</div>
+
+<!--p class="rubrique">Culture et santé :</p>
+
+<p align="center">Esperanza l'Aranesa pour le bonheur !</p>
+<p align="center"><a href="https://www.youtube.com/watch?v=-cEZG4NcnW8#https://www.youtube.com/watch?v=-cEZG4NcnW8">https://www.youtube.com/watch?v=-cEZG4NcnW8</a>
+</p-->
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

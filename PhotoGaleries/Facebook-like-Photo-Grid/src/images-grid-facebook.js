@@ -15,20 +15,20 @@
         // If options is plain object - destroy previous instance and create new
         if ($.isPlainObject(options)) {
 
-          if (_this._imgGrid instanceof ImagesGrid) {
+          if (_this._imgGrid instanceof FacebookGrid) {
             _this._imgGrid.destroy();
             delete _this._imgGrid;
           }
 
-          var opts = $.extend({}, $.fn.imagesGrid.defaults, options);
+          var opts = $.extend({}, $.fn.FacebookGrid.defaults, options);
           opts.element = $(_this);
-          _this._imgGrid = new ImagesGrid(opts);
+          _this._imgGrid = new FacebookGrid(opts);
 
           return;
         }
 
         // If options is string - execute method
-        if (typeof options === 'string' && _this._imgGrid instanceof ImagesGrid) {
+        if (typeof options === 'string' && _this._imgGrid instanceof FacebookGrid) {
           switch (options) {
             case 'modal.open':
               _this._imgGrid.modal.open(args[1]);
@@ -54,7 +54,7 @@
    * Plugin default options
    */
 
-  $.fn.imagesGrid.defaults = {
+  $.fn.FacebookGrid.defaults = {
     images: [],
     href: '',
     fancybox: true,
@@ -78,7 +78,7 @@
   };
 
   /**
-   * ImagesGrid
+   * FacebookGrid
    *   opts                    - Grid options 
    *   opts.element            - Element where to render images grid
    *   opts.images             - Array of images. Array item can be string or object { src, alt, title, caption, thumbnail }
@@ -96,7 +96,7 @@
    *   opts.onGridImageLoaded  - Callback function fired when grid image loaded
    */
 
-  function ImagesGrid(opts) {
+  function FacebookGrid(opts) {
 
     this.opts = opts || {};
 
@@ -127,7 +127,7 @@
     this.init();
   }
 
-  ImagesGrid.prototype.init = function() {
+  FacebookGrid.prototype.init = function() {
 
     this.setGridClass();
     this.renderGridItems();
@@ -136,11 +136,11 @@
     this.$window.on('resize', this.onWindowResize);
   }
 
-  ImagesGrid.prototype.createModal = function() {
+  FacebookGrid.prototype.createModal = function() {
 
     var opts = this.opts;
 
-    this.modal = new ImagesGridModal({
+    this.modal = new FacebookGridModal({
       loading: opts.loading,
       images: opts.images,
       nextOnClick: opts.nextOnClick,
@@ -151,7 +151,7 @@
     });
   }
 
-  ImagesGrid.prototype.setGridClass = function() {
+  FacebookGrid.prototype.setGridClass = function() {
 
     var opts = this.opts,
       imgsLen = opts.images.length,
@@ -160,7 +160,7 @@
     this.$element.addClass('imgs-grid imgs-grid-' + cellsCount);
   }
 
-  ImagesGrid.prototype.renderGridItems = function() {
+  FacebookGrid.prototype.renderGridItems = function() {
 
     var opts = this.opts,
       href = opts.href,
@@ -199,7 +199,7 @@
     opts.onGridRendered(this.$element);
   }
 
-  ImagesGrid.prototype.renderGridItem = function(image, index) {
+  FacebookGrid.prototype.renderGridItem = function(image, index) {
 
     var src = image,
       alt = '',
@@ -254,7 +254,7 @@
     opts.onGridItemRendered(item, image);
   }
 
-  ImagesGrid.prototype.renderGridHiddenItem = function(image, index) {
+  FacebookGrid.prototype.renderGridHiddenItem = function(image, index) {
 
     var src = image,
       alt = '',
@@ -299,7 +299,7 @@
     opts.onGridItemRendered(item, image);
   }
 
-  ImagesGrid.prototype.renderViewAll = function() {
+  FacebookGrid.prototype.renderViewAll = function() {
 
     var opts = this.opts;
     _this = this;
@@ -341,13 +341,13 @@
     }
   }
 
-  ImagesGrid.prototype.onWindowResize = function(event) {
+  FacebookGrid.prototype.onWindowResize = function(event) {
     if (this.opts.align) {
       this.align();
     }
   }
 
-  ImagesGrid.prototype.onImageClick = function(event) {
+  FacebookGrid.prototype.onImageClick = function(event) {
 
     var opts = this.opts,
       img = $(event.currentTarget),
@@ -371,7 +371,7 @@
     else this.modal.open(imageIndex);
   }
 
-  ImagesGrid.prototype.onImageLoaded = function(event, imageEl, image) {
+  FacebookGrid.prototype.onImageLoaded = function(event, imageEl, image) {
 
     var opts = this.opts;
 
@@ -385,7 +385,7 @@
     }
   }
 
-  ImagesGrid.prototype.onAllImagesLoaded = function() {
+  FacebookGrid.prototype.onAllImagesLoaded = function() {
 
     var opts = this.opts;
 
@@ -396,7 +396,7 @@
     opts.onGridLoaded(this.$element);
   }
 
-  ImagesGrid.prototype.align = function() {
+  FacebookGrid.prototype.align = function() {
 
     var itemsLen = this.$gridItems.length;
 
@@ -417,7 +417,7 @@
     }
   }
 
-  ImagesGrid.prototype.alignItems = function(items) {
+  FacebookGrid.prototype.alignItems = function(items) {
 
     var itemsHeight = items.map(function(item) {
       return item.find('img').height();
@@ -443,7 +443,7 @@
     });
   }
 
-  ImagesGrid.prototype.destroy = function() {
+  FacebookGrid.prototype.destroy = function() {
 
     this.$window.off('resize', this.onWindowResize);
 
@@ -454,7 +454,7 @@
   }
 
   /**
-   * ImagesGridModal 
+   * FacebookGridModal 
    *  opts                    - Modal options
    *  opts.images             - Array of images
    *  opts.nextOnClick        - Show next image when click on modal image
@@ -464,7 +464,7 @@
    *  opts.onModalImageClick  - Callback function called on modal image click
    */
 
-  function ImagesGridModal(opts) {
+  function FacebookGridModal(opts) {
 
     this.opts = opts || {};
 
@@ -484,7 +484,7 @@
     this.$document.on('keyup', this.onKeyUp);
   }
 
-  ImagesGridModal.prototype.open = function(imageIndex) {
+  FacebookGridModal.prototype.open = function(imageIndex) {
 
     if (this.isOpened()) {
       return;
@@ -494,7 +494,7 @@
     this.render();
   }
 
-  ImagesGridModal.prototype.close = function(event) {
+  FacebookGridModal.prototype.close = function(event) {
 
     if (!this.$modal) {
       return;
@@ -516,11 +516,11 @@
     });
   }
 
-  ImagesGridModal.prototype.isOpened = function() {
+  FacebookGridModal.prototype.isOpened = function() {
     return (this.$modal && this.$modal.is(':visible'));
   }
 
-  ImagesGridModal.prototype.render = function() {
+  FacebookGridModal.prototype.render = function() {
 
     var opts = this.opts;
 
@@ -540,27 +540,27 @@
     });
   }
 
-  ImagesGridModal.prototype.renderModal = function() {
+  FacebookGridModal.prototype.renderModal = function() {
     this.$modal = $('<div>', {
       class: 'imgs-grid-modal'
     }).appendTo('body');
   }
 
-  ImagesGridModal.prototype.renderCaption = function() {
+  FacebookGridModal.prototype.renderCaption = function() {
     this.$caption = $('<div>', {
       class: 'modal-caption',
       text: this.getImageCaption(this.imageIndex)
     }).appendTo(this.$modal);
   }
 
-  ImagesGridModal.prototype.renderCloseButton = function() {
+  FacebookGridModal.prototype.renderCloseButton = function() {
     this.$modal.append($('<div>', {
       class: 'modal-close',
       click: this.close
     }));
   }
 
-  ImagesGridModal.prototype.renderInnerContainer = function() {
+  FacebookGridModal.prototype.renderInnerContainer = function() {
 
     var opts = this.opts,
       image = this.getImage(this.imageIndex);
@@ -612,7 +612,7 @@
     }
   }
 
-  ImagesGridModal.prototype.renderIndicatorContainer = function() {
+  FacebookGridModal.prototype.renderIndicatorContainer = function() {
 
     var opts = this.opts,
       imgsLen = opts.images.length;
@@ -641,7 +641,7 @@
     this.$modal.append(this.$indicator);
   }
 
-  ImagesGridModal.prototype.prev = function() {
+  FacebookGridModal.prototype.prev = function() {
 
     var imgsLen = this.opts.images.length;
 
@@ -655,7 +655,7 @@
     this.updateImage();
   }
 
-  ImagesGridModal.prototype.next = function() {
+  FacebookGridModal.prototype.next = function() {
 
     var imgsLen = this.opts.images.length;
 
@@ -669,7 +669,7 @@
     this.updateImage();
   }
 
-  ImagesGridModal.prototype.updateImage = function() {
+  FacebookGridModal.prototype.updateImage = function() {
 
     var opts = this.opts,
       image = this.getImage(this.imageIndex),
@@ -695,7 +695,7 @@
     opts.onModalImageUpdate(imageEl, image);
   }
 
-  ImagesGridModal.prototype.onImageClick = function(event, imageEl, image) {
+  FacebookGridModal.prototype.onImageClick = function(event, imageEl, image) {
 
     var opts = this.opts;
 
@@ -706,17 +706,17 @@
     opts.onModalImageClick(event, imageEl, image);
   }
 
-  ImagesGridModal.prototype.onImageLoaded = function() {
+  FacebookGridModal.prototype.onImageLoaded = function() {
     this.hideLoader();
   }
 
-  ImagesGridModal.prototype.onIndicatorClick = function(event) {
+  FacebookGridModal.prototype.onIndicatorClick = function(event) {
     var index = $(event.target).data('index');
     this.imageIndex = index;
     this.updateImage();
   }
 
-  ImagesGridModal.prototype.onKeyUp = function(event) {
+  FacebookGridModal.prototype.onKeyUp = function(event) {
 
     if (!this.$modal) {
       return;
@@ -735,7 +735,7 @@
     }
   }
 
-  ImagesGridModal.prototype.getImage = function(index) {
+  FacebookGridModal.prototype.getImage = function(index) {
 
     var opts = this.opts,
       image = opts.images[index];
@@ -752,26 +752,26 @@
     }
   }
 
-  ImagesGridModal.prototype.getImageCaption = function(imgIndex) {
+  FacebookGridModal.prototype.getImageCaption = function(imgIndex) {
     var img = this.getImage(imgIndex);
     return img.caption || '';
   }
 
-  ImagesGridModal.prototype.showLoader = function() {
+  FacebookGridModal.prototype.showLoader = function() {
     if (this.$modal) {
       this.$modal.find('.modal-image img').hide();
       this.$modal.find('.modal-loader').show();
     }
   }
 
-  ImagesGridModal.prototype.hideLoader = function() {
+  FacebookGridModal.prototype.hideLoader = function() {
     if (this.$modal) {
       this.$modal.find('.modal-image img').show();
       this.$modal.find('.modal-loader').hide();
     }
   }
 
-  ImagesGridModal.prototype.destroy = function() {
+  FacebookGridModal.prototype.destroy = function() {
     this.$document.off('keyup', this.onKeyUp);
     this.close();
   }

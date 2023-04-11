@@ -1,17 +1,14 @@
 (function($) {
-  $.fn.imagesGrid = function(options) {
+  $.fn.FacebookGrid = function(options) {
     var args = arguments;
     return this.each(function() {
 
       var _this = this;
       Promise.all([
-        //  chargements des dŽpendances css
-        load.css('https://philquand.github.io/Javascript/PhotoGaleries/Facebook-like-Photo-Grid/src/images-grid.css'),
-        //load.css('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'),
-        //load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
-        //  chargements des dŽpendances js
-        //load.js('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js'),
-        //load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.js'),
+      //  chargements des dŽpendances css
+      load.css('https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'),
+      //  chargements des dŽpendances js
+      load.js('https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js'),
       ]).then(function() {
         console.log('Everything has loaded!');
         // If options is plain object - destroy previous instance and create new
@@ -308,7 +305,7 @@
 
     var lastPicture = this.$element.find('.imgs-grid-image:last');
     var lastPictureIndex = lastPicture.data('index');
-    var lastPictureWrap = lastPicture.find('.image-wrap');
+    var lastPictureWrap = lastPicture.find('.image-wrap a');
     if (lastPictureIndex > -1) {
       lastPictureWrap.append(
         $('<div>', {
@@ -316,25 +313,20 @@
         }).append(
           $('<span>', {
             class: 'view-all-cover',
-            click: this.onImageClick
           })
         ).append(
           $('<span>', {
             class: 'view-all-text',
-            click: function(event) {
-              $("[data-fancybox='fancy-box-" + opts.element.attr('id') + "']").eq(0).find("img").trigger("click");
-            },
-            text: opts.getViewAllText(opts.images.length)
+           text: opts.getViewAllText(opts.images.length)
           })
         )
       );
     }
-    else {
-      var loc = window.location.href;
-      loc = loc.split('#');
-      loc = loc[0];
-      lastPictureWrap.find('img').wrap('<a href="' + loc + '#fancy-box-' + opts.element.attr("id") + '-1"></a>');
-    };
+    var firstPicture = this.$element.find('.imgs-grid-image:first');
+    var firstPictureIndex = firstPicture.data('index');
+    var firstPictureWrap = firstPicture.find('.image-wrap a');
+    var firstDataSrc = firstPictureWrap.attr("data-src")
+        console.log('firstDataSrc' + firstDataSrc);
     if (jQuery.type(opts.GalleryLink) != 'undefined') {
       $('.' + opts.GalleryLink).attr("href", "javascript:;");
       $('.' + opts.GalleryLink).wrap(

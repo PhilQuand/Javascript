@@ -321,3 +321,6 @@ h6 {
 .imgs-grid, .imgs-grid-image::before {
   background-color: white !important;
 }
+.fancybox__carousel .fancybox__slide.has-iframe .fancybox__content, .fancybox__carousel .fancybox__slide.has-map .fancybox__content, .fancybox__carousel .fancybox__slide.has-pdf .fancybox__content {
+   height: 100% !important;
+}

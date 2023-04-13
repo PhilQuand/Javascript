@@ -6,6 +6,7 @@
     Promise.all([
       //  chargements des dépendances css
       load.css('https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'),
+      load.css('https://philquand.github.io/Javascript/PhotoGaleries/Facebook-like-Photo-Grid/src/images-grid.css'),
       //load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/myFancybox.css'),
       //load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css'),
       //  chargements des dépendances js

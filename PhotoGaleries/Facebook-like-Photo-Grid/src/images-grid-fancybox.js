@@ -2,6 +2,7 @@
 Promise.all([
   //  chargements des dépendances css
   load.css('https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'),
+  load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.css'),
   //  chargements des dépendances js
   load.js('https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js'),
 ]).then(

@@ -7,7 +7,7 @@
   load.css('https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'),
   //  chargements des dépendances js
   load.js('https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js'),
-  load.js('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js'),
+  //load.js('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js'),
     ]).then(
     function() {
       console.log('Everything has loaded!');

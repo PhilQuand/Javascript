@@ -832,17 +832,21 @@ if ( window.location.pathname == '/' ){
 }
 </script>
 <script>
-$(document).ready(function() {
-  if ( window.location.pathname == '/' ) $('.header-widget').css('visibility', 'hidden')
-  $('.subscribe-button.pill-button').addClass('styled')
-  $('#ACCEUIL-AlaUne').AlaUneFB4({
+Promise.all([
+  load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'),
+]).then(
+  function() {
+    console.log('Everything has loaded!');
+    if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
+    $('.subscribe-button.pill-button').addClass('styled')
+    $('#ACCEUIL-AlaUne').AlaUneFB4({
       src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieJDyRZtn3Y9l9tcVhmNIMB5f7g99Nsv9NcsPiX3IVWCnZyI0zAPm3Bz0_0piz2kx7pns9QtigmSeuH6_1wqmxOZtgHtE94KVfXe7L2kXGb93FRms0nxX_LZFlhaRfB7T2XyvsOFpcKVIZhFKYcS64Z9UL4e3lsgqdlcqHkP5RrCnPt-Kd0VQRgfNc/s1600/Appel%20Intersyndical%20du%207%20avril%202023.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
       },
-      href: [
-        /*{
+      //fancyClass: "defaultInline",
+      href: [/*{
           dataType: "inline",
           dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
 <ul> \
@@ -858,18 +862,26 @@ $(document).ready(function() {
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieJDyRZtn3Y9l9tcVhmNIMB5f7g99Nsv9NcsPiX3IVWCnZyI0zAPm3Bz0_0piz2kx7pns9QtigmSeuH6_1wqmxOZtgHtE94KVfXe7L2kXGb93FRms0nxX_LZFlhaRfB7T2XyvsOFpcKVIZhFKYcS64Z9UL4e3lsgqdlcqHkP5RrCnPt-Kd0VQRgfNc/s1600/Appel%20Intersyndical%20du%207%20avril%202023.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieJDyRZtn3Y9l9tcVhmNIMB5f7g99Nsv9NcsPiX3IVWCnZyI0zAPm3Bz0_0piz2kx7pns9QtigmSeuH6_1wqmxOZtgHtE94KVfXe7L2kXGb93FRms0nxX_LZFlhaRfB7T2XyvsOFpcKVIZhFKYcS64Z9UL4e3lsgqdlcqHkP5RrCnPt-Kd0VQRgfNc/s1600/Appel%20Intersyndical%20du%207%20avril%202023.jpg",
         },
         /*{
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGsba4dJnfH0eb58jr4acfHnZwtmwE12ggw-NV3x9bnJRXaiIJZ0qsUcIo2Jl-Ofwjeo3_CStb5kQjISIKDWkWRn1oeAs04TEhfNwi9LfLKUKC8ouZgzk4DyaQBeWlo5LgU-FdkE6S4rLOSpkOkELbX-b9lYZTha1Y1U4RxOPDJjCaLjyjm4eoyo57/s1600/tract%20usager%20journ%3Fe%20mondiale%20de%20la%20sant%3F%206%20avril%202023.jpg",
+        },
+        {
           dataType: "iframe",
-          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.html"
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXW6u39vwpYVRChSyYAIw_oXfM6k54kac6I2WFiwytgmEyrVA-zGvfdyVQmD50vsjij4dtSKRSr82YQBHY1iZcrgP0MrCYzogI0nFUdnuT_sOubwYrkbvlTPVgkRCF0HR9ngYrRWvxqJI6gYSh1rTNLYrEIdkEUgKKzpMHxcZQFjRr4Ke9NC4VCUpG/s1600/thumb-pdf.jpg",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.pdf"
         },
         {
           dataType: "video",
-          dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+          //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+          dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },*/
-    ]
-  });
+      ]
+    });
+  }).catch(function() {
+  console.log('Oh no, epic failure!');
 });
 </script>
 <style>

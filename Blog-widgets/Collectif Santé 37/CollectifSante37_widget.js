@@ -806,7 +806,7 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 <script>
 </script>
 <!--link href="https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.css" rel="stylesheet" type="text/css" /-->
-<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
+<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'></script>
 <style>
 .articleFancy {
   display: none;
@@ -835,7 +835,7 @@ if ( window.location.pathname == '/' ){
 $(document).ready(function() {
   if ( window.location.pathname == '/' ) $('.header-widget').css('visibility', 'hidden')
   $('.subscribe-button.pill-button').addClass('styled')
-  $('#ACCEUIL-AlaUne').AlaUne({
+  $('#ACCEUIL-AlaUne').AlaUneFB4({
       src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieJDyRZtn3Y9l9tcVhmNIMB5f7g99Nsv9NcsPiX3IVWCnZyI0zAPm3Bz0_0piz2kx7pns9QtigmSeuH6_1wqmxOZtgHtE94KVfXe7L2kXGb93FRms0nxX_LZFlhaRfB7T2XyvsOFpcKVIZhFKYcS64Z9UL4e3lsgqdlcqHkP5RrCnPt-Kd0VQRgfNc/s1600/Appel%20Intersyndical%20du%207%20avril%202023.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
@@ -882,6 +882,11 @@ $(document).ready(function() {
     margin-bottom: 40px;
 }
 </style>
+<!--style>
+.fancybox__carousel .fancybox__slide.has-iframe .fancybox__content, .fancybox__carousel .fancybox__slide.has-map .fancybox__content, .fancybox__carousel .fancybox__slide.has-pdf .fancybox__content {
+   height: 100%;
+}
+</style-->
 <!-- 
 Mutualisation de la gallerie de photos du post "Des protections et des tests pour toutes et tous les soignant.es !" 
 -->

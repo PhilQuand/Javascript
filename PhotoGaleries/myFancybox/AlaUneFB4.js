@@ -1,6 +1,6 @@
 (function($) {
   var randGen = new Generator();
-  $.fn.AlaUneNew = function(options) {
+  $.fn.AlaUneFB4 = function(options) {
     var _this = this;
     Promise.all([
   //  chargements des dépendances css

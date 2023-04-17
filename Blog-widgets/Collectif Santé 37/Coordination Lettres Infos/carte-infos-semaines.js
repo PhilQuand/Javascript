@@ -1269,16 +1269,22 @@
       function formCurCity(curCity) {
         var cityName = curCity.text();
         //var cityName = curCity.find('b').html();
-        var cityColor = curCity.html().split('background:');
-        if (cityColor.length == 1) cityColor = curCity.html().split('background-color:');
-        if (cityColor.length == 1) cityColor = curCity.html().split('bgcolor="');
-        //cityColor= cityColor[cityColor.length-1].split(';')[0];
-        if (cityColor.length == 1) curCity.html('<p class="western" style="paddin: 5px;" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
+        var cityColor = curCity.html().split(' color:');
+        if (cityColor.length == 1) cityColor = "#141414";
         else {
           cityColor = cityColor[1].split(';')[0];
           cityColor = cityColor.split('"')[0];
-          /*curCity.html('<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; background: ' +  cityColor + '; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>' + cityName + '</b></span></span></p>');*/
-          curCity.html('<p class="western" style="paddin: 5px; background: ' + cityColor + ';" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
+        }
+        var cityBGColor = curCity.html().split('background:');
+        if (cityBGColor.length == 1) cityBGColor = curCity.html().split('background-color:');
+        if (cityBGColor.length == 1) cityBGColor = curCity.html().split('bgcolor="');
+        //cityBGColor= cityBGColor[cityBGColor.length-1].split(';')[0];
+        if (cityBGColor.length == 1) curCity.html('<p class="western" style="padding: 5px;" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
+        else {
+          cityBGColor = cityBGColor[1].split(';')[0];
+          cityBGColor = cityBGColor.split('"')[0];
+          /*curCity.html('<p class="western" style="margin-bottom: 0.28cm; direction: ltr; line-height: 15.84000015258789px; background: ' +  cityBGColor + '; font-family: Calibri, serif; font-size: 11pt;" align="center"><span style="font-family: Arial, serif;"><span style="font-size: 14pt;"><b>' + cityName + '</b></span></span></p>');*/
+          curCity.html('<p class="western" style="padding: 5px; background: ' + cityBGColor + '; color: ' + cityColor + ';" align="center"><span style="font-family: Arial, serif; font-size: 14pt;"><b>' + cityName + '</b></span></p>');
         }
       }
     };

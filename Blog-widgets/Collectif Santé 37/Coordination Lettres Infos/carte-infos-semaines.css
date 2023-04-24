@@ -77,6 +77,9 @@
     //max-height: 70vh;
     overflow: hidden;
 }
+#infoMap .leaflet-popup-scrolled {
+  overflow: hidden;
+}
 .markerPopUp .popupRow {
   display: flex;
 }
@@ -158,7 +161,7 @@
     height: 28px;
 }
 .popupHead {
-    padding-bottom: 10px;
+   //padding-bottom: 10px;
 }
 .popupBody {
     width: 100%;

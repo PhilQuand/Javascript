@@ -840,7 +840,7 @@ Promise.all([
     if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieJDyRZtn3Y9l9tcVhmNIMB5f7g99Nsv9NcsPiX3IVWCnZyI0zAPm3Bz0_0piz2kx7pns9QtigmSeuH6_1wqmxOZtgHtE94KVfXe7L2kXGb93FRms0nxX_LZFlhaRfB7T2XyvsOFpcKVIZhFKYcS64Z9UL4e3lsgqdlcqHkP5RrCnPt-Kd0VQRgfNc/s1600/Appel%20Intersyndical%20du%207%20avril%202023.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCll2-YyEVzsM1Jpq94vLr97pa4Rx3e7A2-9ehCxUAJ4w8YeuhsD_ch5SmqaGq5uoAl7VQ2tTn1VuZ-4tzszP1s-2fh5M_UF3_SrAzAFVCrl1qLV-G78KK6pQzLVzNrbn3xmJ3r4TnXFf_Tu0pflSFtIgXF2OrbM14MdJKtt5xWwYYthxnT6DRiN7S/s1600/Communique%CC%81%20intersyndical%201er%20mai%202023.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -862,13 +862,13 @@ Promise.all([
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieJDyRZtn3Y9l9tcVhmNIMB5f7g99Nsv9NcsPiX3IVWCnZyI0zAPm3Bz0_0piz2kx7pns9QtigmSeuH6_1wqmxOZtgHtE94KVfXe7L2kXGb93FRms0nxX_LZFlhaRfB7T2XyvsOFpcKVIZhFKYcS64Z9UL4e3lsgqdlcqHkP5RrCnPt-Kd0VQRgfNc/s1600/Appel%20Intersyndical%20du%207%20avril%202023.jpg",
-        },
-        /*{
-          dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGsba4dJnfH0eb58jr4acfHnZwtmwE12ggw-NV3x9bnJRXaiIJZ0qsUcIo2Jl-Ofwjeo3_CStb5kQjISIKDWkWRn1oeAs04TEhfNwi9LfLKUKC8ouZgzk4DyaQBeWlo5LgU-FdkE6S4rLOSpkOkELbX-b9lYZTha1Y1U4RxOPDJjCaLjyjm4eoyo57/s1600/tract%20usager%20journ%3Fe%20mondiale%20de%20la%20sant%3F%206%20avril%202023.jpg",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCll2-YyEVzsM1Jpq94vLr97pa4Rx3e7A2-9ehCxUAJ4w8YeuhsD_ch5SmqaGq5uoAl7VQ2tTn1VuZ-4tzszP1s-2fh5M_UF3_SrAzAFVCrl1qLV-G78KK6pQzLVzNrbn3xmJ3r4TnXFf_Tu0pflSFtIgXF2OrbM14MdJKtt5xWwYYthxnT6DRiN7S/s1600/Communique%CC%81%20intersyndical%201er%20mai%202023.jpg",
         },
         {
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBhRNoRBpg6H1p15PI9fXz7DcC5S4OxXf4dL0J2pq_egvxs046ixs_XLRE3yMMKrgink2IipmxMP_eFnZIqIzmPibouDIPgV3Vbx-zPKUHf0K0txLAMLfzRXDGfS7-ex3SaQNTgHkRu9Rn1yffPU-fdkyL27rRGM9lN6RmP6QKo4_ckApH-D5iBRER/s1600/Festilutes.jpg",
+        },
+        /*{
           dataType: "iframe",
           dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXW6u39vwpYVRChSyYAIw_oXfM6k54kac6I2WFiwytgmEyrVA-zGvfdyVQmD50vsjij4dtSKRSr82YQBHY1iZcrgP0MrCYzogI0nFUdnuT_sOubwYrkbvlTPVgkRCF0HR9ngYrRWvxqJI6gYSh1rTNLYrEIdkEUgKKzpMHxcZQFjRr4Ke9NC4VCUpG/s1600/thumb-pdf.jpg",
           dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.pdf"

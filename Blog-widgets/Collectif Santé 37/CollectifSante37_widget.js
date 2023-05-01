@@ -840,7 +840,7 @@ Promise.all([
     if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCll2-YyEVzsM1Jpq94vLr97pa4Rx3e7A2-9ehCxUAJ4w8YeuhsD_ch5SmqaGq5uoAl7VQ2tTn1VuZ-4tzszP1s-2fh5M_UF3_SrAzAFVCrl1qLV-G78KK6pQzLVzNrbn3xmJ3r4TnXFf_Tu0pflSFtIgXF2OrbM14MdJKtt5xWwYYthxnT6DRiN7S/s1600/Communique%CC%81%20intersyndical%201er%20mai%202023.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVLSRFvz425RvRbWnSxmsayaaJ09L9fKj7Comfugnp8rEJh_EMHUAM9YKRn90tMW2Ln49p7NBIA5aD56wmClCT7whuNb8f3PvGsTynK7_9IbNn66xF_AlLlp_yMymLKdR_T9yKl1hYq5MndvZvYC8mBfpGf9zxJoqJpaIuF2Hrzhr6vzJzNNrSWSbc/s1600/Communique%CC%81%20intersyndical%201er%20mai%202023-2.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',

@@ -827,7 +827,7 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1pKMxxFJYk3nTK8ykKRLpyPDniMm8Jxu5/view?usp=share_link"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
+  $('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne" style="cursor: grab;"></div>');
 
 }
 </script>
@@ -840,7 +840,7 @@ Promise.all([
     if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVLSRFvz425RvRbWnSxmsayaaJ09L9fKj7Comfugnp8rEJh_EMHUAM9YKRn90tMW2Ln49p7NBIA5aD56wmClCT7whuNb8f3PvGsTynK7_9IbNn66xF_AlLlp_yMymLKdR_T9yKl1hYq5MndvZvYC8mBfpGf9zxJoqJpaIuF2Hrzhr6vzJzNNrSWSbc/s1600/Communique%CC%81%20intersyndical%201er%20mai%202023-2.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBgo8NGQu8TPbHy5EDMXjeO8xicOcYSWVvlPMMVhbVgtTW-M6HX1gYfMWVYkKWUP6CGkbsYRzEe-gchvkmRLnSomiXbtbnjE1EXKUm6gr5X3YKH8P7d5HuLWQL4P45j3owKnR-GhWTgQhqm6A7oBIa652fXS6TaVCHsGikSfNBb0n3UyoDrku4nuMM/s1600/Communique%CC%81%20intersyndical%2006%2006%202023.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -862,13 +862,13 @@ Promise.all([
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCll2-YyEVzsM1Jpq94vLr97pa4Rx3e7A2-9ehCxUAJ4w8YeuhsD_ch5SmqaGq5uoAl7VQ2tTn1VuZ-4tzszP1s-2fh5M_UF3_SrAzAFVCrl1qLV-G78KK6pQzLVzNrbn3xmJ3r4TnXFf_Tu0pflSFtIgXF2OrbM14MdJKtt5xWwYYthxnT6DRiN7S/s1600/Communique%CC%81%20intersyndical%201er%20mai%202023.jpg",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBgo8NGQu8TPbHy5EDMXjeO8xicOcYSWVvlPMMVhbVgtTW-M6HX1gYfMWVYkKWUP6CGkbsYRzEe-gchvkmRLnSomiXbtbnjE1EXKUm6gr5X3YKH8P7d5HuLWQL4P45j3owKnR-GhWTgQhqm6A7oBIa652fXS6TaVCHsGikSfNBb0n3UyoDrku4nuMM/s1600/Communique%CC%81%20intersyndical%2006%2006%202023.jpg",
         },
-        {
+        /*{
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBhRNoRBpg6H1p15PI9fXz7DcC5S4OxXf4dL0J2pq_egvxs046ixs_XLRE3yMMKrgink2IipmxMP_eFnZIqIzmPibouDIPgV3Vbx-zPKUHf0K0txLAMLfzRXDGfS7-ex3SaQNTgHkRu9Rn1yffPU-fdkyL27rRGM9lN6RmP6QKo4_ckApH-D5iBRER/s1600/Festilutes.jpg",
         },
-        /*{
+        {
           dataType: "iframe",
           dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXW6u39vwpYVRChSyYAIw_oXfM6k54kac6I2WFiwytgmEyrVA-zGvfdyVQmD50vsjij4dtSKRSr82YQBHY1iZcrgP0MrCYzogI0nFUdnuT_sOubwYrkbvlTPVgkRCF0HR9ngYrRWvxqJI6gYSh1rTNLYrEIdkEUgKKzpMHxcZQFjRr4Ke9NC4VCUpG/s1600/thumb-pdf.jpg",
           dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.pdf"

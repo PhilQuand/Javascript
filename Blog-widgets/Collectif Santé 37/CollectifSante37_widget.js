@@ -840,7 +840,7 @@ Promise.all([
     if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBgo8NGQu8TPbHy5EDMXjeO8xicOcYSWVvlPMMVhbVgtTW-M6HX1gYfMWVYkKWUP6CGkbsYRzEe-gchvkmRLnSomiXbtbnjE1EXKUm6gr5X3YKH8P7d5HuLWQL4P45j3owKnR-GhWTgQhqm6A7oBIa652fXS6TaVCHsGikSfNBb0n3UyoDrku4nuMM/s1600/Communique%CC%81%20intersyndical%2006%2006%202023.jpg",
+      src: "https://coordination-defense-sante.org/wp-content/uploads/2023/05/Chinon.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -862,7 +862,7 @@ Promise.all([
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBgo8NGQu8TPbHy5EDMXjeO8xicOcYSWVvlPMMVhbVgtTW-M6HX1gYfMWVYkKWUP6CGkbsYRzEe-gchvkmRLnSomiXbtbnjE1EXKUm6gr5X3YKH8P7d5HuLWQL4P45j3owKnR-GhWTgQhqm6A7oBIa652fXS6TaVCHsGikSfNBb0n3UyoDrku4nuMM/s1600/Communique%CC%81%20intersyndical%2006%2006%202023.jpg",
+          dataSrc: "https://coordination-defense-sante.org/wp-content/uploads/2023/05/Chinon.jpg",
         },
         /*{
           dataType: "images",

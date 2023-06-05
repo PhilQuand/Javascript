@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Selon l’émission Complément d’enquête du 1<sup>er</sup> juin l’enquête diligentée par SAMU-Urgences de France, présidée il n’y a pas si longtemps par François BRAUN, actuel ministre de la Santé, révèle 43 décès inattendus dans les services d’Urgences en décembre 2022 et janvier 2023 alors que 22 départements seulement ont accepté d’y répondre.</p>
+<p align="center"><img style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/43deces.jpg" /></p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 22</li>
+<li>Dates: du 29 mai au 04 juin 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Infos-semaine-22-du-29-mai-au-4-juin-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p align="center"><strong>Silence ! On meurt</strong></p>
+<p>Selon l’émission Complément d’enquête du 1<sup>er</sup> juin l’enquête diligentée par SAMU-Urgences de France, présidée il n’y a pas si longtemps par François BRAUN, actuel ministre de la Santé, révèle 43 décès inattendus dans les services d’Urgences en décembre 2022 et janvier 2023 alors que 22 départements seulement ont accepté d’y répondre.</p>
+<p align="center"><img style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/43deces.jpg" /></p>
+<p>Ces décès surviennent alors que les victimes sont admises depuis 12 h, ou 24 h ou 36 h dans des services d’Urgences saturés, aux prises avec une absence totale de lits d’aval dans l’hôpital et un flux de patients supérieur à leurs capacités de réponse.</p>
+<p>Ce phénomène est en croissance constante. Il est aggravé par la multiplication des fermetures temporaires ou définitives de centres de soins non programmés (CSNP) et de services d’accueil des urgences (SAU).</p>
+<p>Certains taisent les chiffres ou ne se risquent pas à dénoncer de telles situations. Il faudra sans doute un jour juger ces attitudes à l’aune de la non-assistance à personne en danger.</p>
+<p>Déplacer la saturation des services d’Urgences vers les SAMU, avec lesquels il est de plus en plus difficile d’entrer en contact, et des assistants de régulation médicale débordés ne fait qu’introduire une étape de plus dans l’accès au soin d’urgence et éloigner un peu plus les patients de la prise en charge.</p>
+<p>Non, ceux qui dénoncent ces faits ne sont pas des agitateurs mais des professionnels conscients de leurs responsabilités ou des citoyens soucieux de voir l’hôpital public en situation de remplir pleinement ses missions. Ensemble ils posent au ministre cette question :</p>
+<p>Combien faudra-t-il encore de morts évitables pour que, en lien étroit avec les soignants et les représentants des associations de patients, des remèdes soient enfin apportés à cette situation ?</p>
+<p align="right"><em>Roland Vachon</em></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>LONGJUMEAU</strong></p>
+<p align="center"><strong>Pour exiger le MAINTIEN DES URGENCES, DES MATERNITÉS, DES BLOCS OPÉRATOIRES DES HÔPITAUX PUBLICS DE LONGJUMEAU ET ORSAY le comité appel à manifester le 3 juin à 9h30</strong></p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2023/05/longjumeau-manifestation-le-3-juin/" target="_blank" rel="noopener noreferrer"><strong>L’appel</strong></a></u></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CRETEIL</strong></p>
+<p align="center"><strong>Après le drame de Reims, usager-e-s, personnel-le-s et élu-e-s dénoncent une psychiatrie sinistrée qui doit être reconstruite</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Communique-30-mai-2023.pdf" target="_blank" rel="noopener noreferrer"><strong>Communique 30 mai 2023</strong></a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>BRIOUDE</strong></p>
+<p align="center">L'accès aux urgences de l'hôpital de Brioude sera filtré dans la nuit du 1<sup>er</sup> au 2 juin 2023</p>
+<p align="center"><a href="https://www.ch-brioude.fr/1129-2/" target="_blank" rel="noopener noreferrer"><u><strong>Le communiqué</strong></u></a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LURE</strong></p>
+<p align="center">Membre du comité de vigilance de LURE (CV70) depuis 1980 Jean VERNERIE s’est éteint le 30 mai.</p>
+<p lang="fr-FR" align="center"><img style="opacity: 1;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/jean.jpg" alt="jean.jpg" /></p>
+<p align="center">Tous ceux qui l’ont côtoyé lors des très nombreuses Rencontres Nationales de la coordination auxquelles il a participé se souviendront d’un homme engagé, posé et réfléchi, convaincu que l’exercice de la citoyenneté devait être mis au service de tous.</p>
+<p align="center"><strong>LURE encore</strong></p>
+<p align="center">L’AVENIR DE L’HÔPITAL DE JOUR DE LURE (NEUROLOGIE) DE NOUVEAU MENACÉ</p>
+<p align="center">Le comité de vigilance appelle à un rassemblement le 7 juin devant l’hôpital.</p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2023/06/lure-cv70-lhopital-de-jour-de-nouveau-menace/" target="_blank" rel="noopener noreferrer"><strong>L’appel</strong></a></u></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>LOURDES</strong></p>
+<p align="center">Aujourd'hui, 30 mai un groupe de militants de l'association de sauvegarde des hôpitaux et de la Santé dans les Hautes-Pyrénées, a distribué des tracts, informant patients, familles et soignants du projet de fermeture des hôpitaux de Tarbes et Lourdes et de construction d’un hôpital unique. Ils ont recueilli une centaine de signatures de soutien et résument leur position en ces termes :</p>
+<p align="center"><strong>« Dans la continuité de la politique gouvernementale, ce projet, sans aucun doute, appauvrira de nouveau l'offre de santé dans notre département. Nous demandons un débat public sur le thème des hôpitaux et de la santé départementale, la voix des bigourdans doit être entendue. La démocratie et la raison l'exige.»</strong></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LARAGNE</strong></p>
+<p align="center"><strong>Comment se situer en présence de logiques contradictoires ?</strong></p>
+<p align="center"><strong>La recherche Plaid-Care (Psychiatrie et libertés individuelles) étudie le fonctionnement des établissements psychiatriques n’ayant pas ou peu recours à des mesures de contrainte, afin de dégager les leviers d’une discipline plus respectueuse des libertés individuelles</strong>.</p>
+<p>Un décret de septembre 2022 rend obligatoire la présence de chambres d’isolement dans les établissements qui accueillent des patients en situation de soin sans consentement.</p>
+<p>La sénatrice de la Drôme interroge le ministre de la Santé à ce sujet.</p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2023/06/chs-laragne-etude-plaidcare/" target="_blank" rel="noopener noreferrer"><strong>La lettre</strong></a></u></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>PERONNE</strong></p>
+<table width="653" cellspacing="0" cellpadding="7">
+<tbody>
+<tr valign="top">
+<td width="257">
+<p lang="fr-FR" align="center"><img style="opacity: 1;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/peronne.jpg" alt="peronne.jpg" /></p>
+</td>
+<td width="366">
+<p><br /><br /></p>
+<p><strong>La maternité ferme pour un mois faute d’anesthésistes en nombre suffisant.</strong></p>
+<p>Le centre hospitalier explique qu’en dépit « <em>d’importants efforts consentis par la direction et les responsables médicaux depuis plusieurs semaines, le planning d’anesthésie du mois de juin n’a pas pu être constitué</em> ».</p>
+<p><br /><br /></p>
+<p align="center"><u><a href="https://www.courrier-picard.fr/id417609/article/2023-05-28/peronne-la-maternite-ferme-pour-un-mois-faute-danesthesistes-en-nombre-suffisant?fbclid=IwAR3zxFGGS2HzT5u-WNJ5pUEJk2myyFpPs0ZERf7lpbrWgPWueEZt7LtztUg" target="_blank" rel="noopener noreferrer"><strong>L’article</strong></a></u></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>La Fermeture de l'activité d'accouchement de la maternité par carence de médecins anesthésistes, n'impactera pas seulement celle-ci.</p>
+<p>Les médecins anesthésistes-réanimateurs sont un rouage essentiel d'une structure hospitalière publique comme notre Centre Hospitalier de Péronne.</p>
+<p>Au-delà, de l'activité d'accouchement, les médecins anesthésistes-réanimateurs interviennent sur toutes les activités chirurgicales.</p>
+<p>Derrière la maternité, se cache le risque que les activités des services de Chirurgie, Blocs opératoires, hôpital de jour, consultations, unité de surveillance continue, soient également menacés </p>
+<p>Soignants, agents du service Public Hospitalier, usagers, patient, familles de patients, Pompiers, Ambulanciers, citoyens :</p>
+<p>Defendez Votre Hôpital Public</p>
+<p>Notre Bien Commun </p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-rubrique"><strong>Aide médicale d’Etat</strong></p>
+<p>Avant même que le gouvernement ne propose une énième loi sur l’immigration, des sénateurs et sénatrices ont lancé un amendement pour supprimer l’AME, couverture maladie des étrangers non <a href="http://xn--rgularis-b1ah.es/">régularisé.es</a>, personnes qui ont le moins de droits en France. Le Syndicat national des jeunes médecins généralistes, associé à des syndicats, collectifs et associations qui se battent pour la défense du droit à la santé des étrangers, publie un texte-pétition</p>
+<p align="center"><u><a href="https://www.change.org/p/non-%C3%A0-la-suppression-de-l-ame?utm_source=share_petition&amp;utm_medium=custom_url&amp;recruited_by_id=48f75840-99d7-11eb-976e-2d8753a93358" target="_blank" rel="noopener noreferrer"><strong>Pétition · Non à la suppression de l'AME!</strong></a></u></p>
+<p>La Société de Pathologie Infectieuses (SPILF), la Société de Réanimation de Langue Française (SRLF), la Société Française de Santé Publique (SFSP) et la Société Française de Médecine d’urgence (SFMU) ont un positionnement similaire.</p>
+<p align="center"><u><a href="https://www.srlf.org/article/suppression-laide-medicale-detat-ame#:~:text=Un%20amendement%20proposant%20la%20suppression%20de%20l%E2%80%99Aide%20m%C3%A9dicale,%C3%A9t%C3%A9%20vot%C3%A9%20au%20s%C3%A9nat%20le%2015%20Mars%202023." target="_blank" rel="noopener noreferrer"><strong>Suppression de l’Aide médicale d’état (AME) | SRLF</strong></a></u></p>
+<p class="titre-rubrique"><strong>Psychiatrie</strong></p>
+<p align="center"><strong>Un communiqué des Centres d’Entraînement aux Méthodes d’Education Active (CEMEA) après le drame de Reims</strong></p>
+<p align="center"><a href="https://cemea.asso.fr/salle-de-presse/les-cemea-expriment-leurs-idees-et-positionnements/suite-au-deces-de-carene-mezino-infirmiere-a-reims" target="_blank" rel="noopener noreferrer"><u><strong>il faut repenser le projet de la psychiatrie.</strong></u></a></p>
+<p align="center"><strong>Plaidoyer du Printemps de la Psychiatrie pour une psychiatrie accueillante</strong></p>
+<p align="center"><u><a href="https://printempsdelapsychiatrie.org/2023/05/31/communique-du-30-mai-2023/" target="_blank" rel="noopener noreferrer"><strong>Une tragédie, les dérives et une psychiatrie accueillante…</strong></a></u></p>
+<p align="center"><strong>La position du groupe des 39 face aux réactions sécuritaires </strong></p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2023/06/tragedie-de-reims-tribune-du-groupe-des-39/" target="_blank" rel="noopener noreferrer"><strong>La Tribune</strong></a></u></p>
+<p class="titre-rubrique"><strong>CMPP</strong></p>
+<p align="center"><strong>Concertation avec les professionnels qui passe à la trappe, travaux suspendus de façon unilatérale par Direction Générale de la cohésion sociale suite aux annonces du Président de la République, le 26 avril, lors de la Conférence Nationale du Handicap.</strong></p>
+<p align="center"><u><a href="https://www.change.org/p/non-a-la-destruction-des-cmpp/u/31639915?recruiter=false&amp;utm_source=share_update&amp;utm_medium=email&amp;utm_campaign=share_email_responsive&amp;recruited_by_id=638eed60-0165-11ee-9c3b-43d10bb242fa" target="_blank" rel="noopener noreferrer"><strong>Réactions </strong></a></u></p>
+<p class="titre-rubrique"><strong>Accouchements hors maternités</strong></p>
+<p align="center">Texte final du travail de Frédérique PFEIFFER sur l'inflation actuelle des accouchements hors maternités en France métropolitaine en 2023</p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2023/06/accouchements-hors-maternite-en-france-metropolitaine-en-2023/" target="_blank" rel="noopener noreferrer"><strong>accouchements-hors-maternite-en-france-metropolitaine-en-2023/</strong></a></u></p>
+<p class="titre-rubrique"><strong>SENAT</strong></p>
+<p align="center">Question de de Madame Laurence COHEN, sénatrice, au ministre de la santé, sur les décrets de septembre 2022 portant modification de l’organisation sanitaire en psychiatrie.</p>
+<p align="center"><u><a href="https://www.senat.fr/basile/visio.do?id=qSEQ230607008&amp;idtable=q436745&amp;_nu=7008&amp;rch=qs&amp;de=20220603&amp;au=20230603&amp;dp=1+an&amp;radio=dp&amp;aff=sep&amp;tri=dd&amp;off=0&amp;afd=ppr&amp;afd=ppl&amp;afd=pjl&amp;afd=cvn" target="_blank" rel="noopener noreferrer"><strong>QE Décrets sur la psychiatrie - Sénat</strong></a></u></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><u><a href="https://www.youtube.com/watch?v=_DHVSaGRkPY" target="_blank" rel="noopener noreferrer"><strong>Budget de la sécu : "Merci pour ce moment de magie"</strong></a></u></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

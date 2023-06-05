@@ -26,7 +26,7 @@
 <link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
 <script src='https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Scripts.js'></script>
 <!-- Add footnotes ressources -->
-<script src='https://philquand.github.io/Javascript/FootnotesAndRef.js' type='text/javascript'></script>
+<!script src='https://philquand.github.io/Javascript/FootnotesAndRef.js' type='text/javascript'></script-->
 <!-- Fin footnotes ressources -->
 <style>
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {

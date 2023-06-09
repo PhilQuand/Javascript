@@ -840,7 +840,7 @@ Promise.all([
     if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://coordination-defense-sante.org/wp-content/uploads/2023/05/Chinon.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwjJNAEGEkrD3eb5xpp61ytraCZUYGj0UpSqSGZMjqUJBalctWR6oSIKOm_3WUdN6iwXZkXNruO0Wn_okY-2BtOuD1DVOhMyQVu6vyBu4Is7nNH5czNK5FfzsRD3UrIMUnSOhnQ2DskAqKW_gLIa7xQmwoXSe6UutT7wky67rL_ydVZSA9rUJYf8rv/s1600/Action%20du%2015%20juin%202023%20intersyndicale%2037-2.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -862,13 +862,13 @@ Promise.all([
         },*/
         {
           dataType: "images",
-          dataSrc: "https://coordination-defense-sante.org/wp-content/uploads/2023/05/Chinon.jpg",
-        },
-        /*{
-          dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBhRNoRBpg6H1p15PI9fXz7DcC5S4OxXf4dL0J2pq_egvxs046ixs_XLRE3yMMKrgink2IipmxMP_eFnZIqIzmPibouDIPgV3Vbx-zPKUHf0K0txLAMLfzRXDGfS7-ex3SaQNTgHkRu9Rn1yffPU-fdkyL27rRGM9lN6RmP6QKo4_ckApH-D5iBRER/s1600/Festilutes.jpg",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHEks2X6FVyKVreRicgOvsrx1Yz_Cavrg6KPA0aPHNnFm4pONj-aMde7-Rnhqw-Z0V6jvQDT9af9fC6AdJrg78zsNs7T40PHNUesf5Q7j6Wi2LKIXpdiwej2AlGobF4rqPbXa9Hm8nAU8JE5_kX9Qw0dxreAOeWxuclf-PzLgzMTzmSJQUom6JEcoL/s1600/Rassemblement%20Depardieu.jpg"
         },
         {
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMuioid73JVKv8-DLoXpX6U_K6jfgWfiyeSMEi_fzW4dbXD8lJhtuHsRBc-l4P3AuK9tu7PXoY4XGvRxFfQJuG7OaFeZQ2ZzS-ldNAvtHq4KOWNG05D5HaF5wf1t98MXZ_IggwM5LY2xrz8A-Z65LjHpOiZL3jYSxBuG2ZtPtol8qGwUI1hmrfIhtv/s1600/Action%20du%2015%20juin%202023%20intersyndicale%2037.jpg"
+        },
+        /*{
           dataType: "iframe",
           dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXW6u39vwpYVRChSyYAIw_oXfM6k54kac6I2WFiwytgmEyrVA-zGvfdyVQmD50vsjij4dtSKRSr82YQBHY1iZcrgP0MrCYzogI0nFUdnuT_sOubwYrkbvlTPVgkRCF0HR9ngYrRWvxqJI6gYSh1rTNLYrEIdkEUgKKzpMHxcZQFjRr4Ke9NC4VCUpG/s1600/thumb-pdf.jpg",
           dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.pdf"

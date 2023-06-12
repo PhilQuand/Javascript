@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Notre système de santé se délite … Des lits, des services ferment les uns après les autres sans solution pour la population à part le recours au privé, là où c’est possible (essentiellement dans les grandes villes) et si elle en a les moyens financiers.</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 23</li>
+<li>Dates: du 05 au 11 juin 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Infos-semaine-23-du-5-au-211-juin-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p align="justify">Notre système de santé se délite … Des lits, des services ferment les uns après les autres sans solution pour la population à part le recours au privé, là où c’est possible (essentiellement dans les grandes villes) et si elle en a les moyens financiers.</p>
+<p align="justify">Les généralistes libéraux, en nombre trop restreint, traduisent pour certains leur malaise le plus mal possible : en pénalisant la population. L’exemple donné dans ce bulletin de surfacturation des consultations s’étend à d’autres départements.</p>
+<p align="justify">Le Ministre de la Santé et de la Prévention se veut rassurant : il est surtout sourd aux revendications et aveugle à la gravité de la situation.</p>
+<p align="justify">Pendant ce temps là les députés de la majorité présidentielle tentent de détourner l’attention avec une proposition de loi portée par F. Valletoux, ancien président de la FHF, pour « améliorer l’accès aux soins ». Elle suscite un assaut de réactions corporatistes, tout en étant vide ! La Coordination l’a dit : « la liberté d’installation ne peut être opposée à l’intérêt général ! ». Mais répartir un peu mieux la pénurie sera une goutte d’eau si des mesures de fond ne sont pas prises : la première est d’augmenter résolument le nombre de médecins en formation, favoriser l’orientation vers la médecine générale, veiller à ce que les étudiants n’abandonnent pas le métier au terme de leurs études (cf les éléments sur la démographie médicale annoncés par l’Ordre des médecins et présenté dans les dossiers de ce bulletin) si l’on ne veut pas que dans 10 ans la situation ne soit pas pire qu’aujourd’hui. La seconde est de créer un service public de soins de premier recours, autour des centres de santé : un vrai gain de temps médical en laissant à d’autres la gestion et un attrait net pour les jeunes générations.</p>
+<p align="justify">La santé, mais aussi le social ! Le dernier dossier de ce bulletin donne des éléments sur la reconnaissance par le Comité des droits sociaux du Conseil de l’Europe de la violation par l’État français de ses obligations vis-à-vis des personnes en situation de handicap et de leurs familles. Cela concerne pour partie les établissements de santé.</p>
+<p align="justify">Si le ministre est sourd et aveugle, la population ne l’est pas et agit ! Ce bulletin fait échos des mobilisations de la semaine : Longjumeau, Feurs, Lure, Luçon, Péronne … Samedi prochain, c’est une manifestation d’ampleur régionale qui est prévue en Bretagne et le 20, une intersyndicale reconstituée des personnels hospitaliers appelle à l’action. A toutes ces mobilisations, la Coordination apporte son soutien.</p>
+<p align="justify">Cela ne peut plus durer ! Bercy commande le ministre, disent certains. Avec un élément clé : la loi de financement de la Sécurité Sociale (LFSS) qui fixe les dotations des hôpitaux pour l’année à venir. En 2019, la mobilisation autour de l’hôpital avait obligé le gouvernement à modifier son projet, trop peu certes, mais il avait du bouger. Cette année il faut faire mieux ! Dés maintenant disons haut et fort que la LFSS 2024 doit répondre aux besoins de la population !</p>
+<p align="right"><em>Michèle Leflon</em></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LONGJUMEAU - 91</strong></p>
+<p align="center"><strong>Manifestation le 3 juin</strong></p>
+<p align="center"><img style="opacity: 1;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/longjumeau.jpg" alt="" align="middle" /></p>
+<p align="justify">Très belle manifestation ce samedi 3 juin devant l'Hôpital de Longjumeau à l'appel du Comité de Défense des Hôpitaux du Nord-Essonne</p>
+<p align="justify">L'hôpital de Juvisy à été vendu à Korian, groupe spéculatif pour un Ephad privé </p>
+<p align="justify">Les hôpitaux de Longjumeau et d'Orsay sont menacés de fermeture en 2024 par le gouvernement, l'Agence Régionale de Santé et des <a href="http://xn--lu-9ia.es/">élu.es</a> de droite complices qui soutiennent avec acharnement la casse de nos hôpitaux publics au profit du privé.</p>
+<p align="justify">Ils refusent de recevoir les délégations du Comité de Défense malgré les 70 000 signatures qui ont été remises.</p>
+<p align="justify">Halte à la casse de nos Hôpitaux de proximité !!</p>
+<p align="justify">Agissons contre cette politique méprisante de nos besoins et de nos vies, destructrice du Service public de Santé !</p>
+<p align="justify">Ces choix politiques sont inacceptables.</p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>ARDENNES - 08</strong></p>
+<p align="center"><strong>Accès aux soins : la population pénalisée !</strong></p>
+<p align="justify">Difficile de trouver un médecin traitant dans les Ardennes ! C’est le résultat de dizaines d’années de limitation du nombre de médecins formés, par des décisions des gouvernements successifs pour limiter les dépenses de santé mais avec le soutien des syndicats les plus réactionnaires de médecins : ce qui est rare est cher !</p>
+<p align="justify">La situation n’est pas près de s’arranger car le Président de la République n’a remis en cause le numerus clausus, le mécanisme qui limitait le nombre de médecins formés, que dans les mots, pas dans les actes !</p>
+<p align="justify">Ce qui est rare est cher ! Des médecins ardennais ont donc décidé de passer à l’acte en faisant payer plus cher de 5€ leurs consultations, au-delà du tarif remboursé par la Sécurité Sociale, un surcoût totalement à la charge de leurs consultants !</p>
+<p align="justify">Certes, leur situation est difficile – trop de travail – et les relations compliquées avec une Sécurité Sociale aux ordres du gouvernement. Mais ce n’est pas une raison pour pénaliser la population ! Ni d’affirmer comme le fait l’un d’entre eux dans la presse locale « Nos entreprises sont en danger », symbolisant crûment comment la santé a été transformée en une marchandise.</p>
+<p align="justify">Cela montre plus que jamais l’urgence d’un service public de soins de premier recours autour des centres de santé avec des médecins salariés et non payés à l’acte et d’un retour à une gestion démocratique de la Sécurité Sociale redonnant le pouvoir de décision aux cotisants avec l’élection directe de leurs représentants.</p>
+<p align="center"><a href="https://www.egora.fr/actus-pro/remuneration/80781-on-n-a-plus-rien-a-perdre-unis-une-soixantaine-de-medecins-des-ardennes">L’article d’Egora</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SARLAT - 24</strong></p>
+<p align="center"><strong>Les accouchements reprennent à la maternité</strong></p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/les-accouchements-reprennent-a-la-maternite-de-sarlat-en-dordogne-7007821">L’article de France Bleu du 5 juin</a></p>
+<p align="center">mais…</p>
+<p align="center"><strong>L’accueil des urgences ferme toute la journée le lundi 5</strong></p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/l-accueil-des-urgences-de-l-hopital-de-sarlat-en-dordogne-ferme-toute-la-journee-lundi-4342735">L’article de France bleu du 5 juin</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>GUINGAMP - 22</strong></p>
+<p align="center"><strong>Manifestation le 17 juin pour l’hôpital public en Bretagne</strong></p>
+<p align="center"><img style="opacity: 1;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/guingamp-1.jpg" alt="" align="middle" /></p>
+<p align="center"><a href="https://www.ouest-france.fr/sante/hopital/une-journee-de-mobilisation-pour-lhopital-public-a-guingamp-le-17-juin-2023-2fc93f4a-0074-11ee-9c72-8895ed7c2106?fbclid=IwAR2F6IxAKSiwZrF9NAv4_hK-8lQG6O2PSwwAsjs7Rk0JrCNNOitJVVQ6VsY">La presse l’annonce !</a></p>
+<p align="center"><strong>Accouchement au bord de la route</strong></p>
+<p align="center"><a href="https://actu.fr/bretagne/belle-isle-en-terre_22005/guingamp-la-maternite-fermee-une-maman-accouche-dans-lambulance-des-pompiers_59688916.html?fbclid=IwAR0iPKowE3xzgA29uyv2wjUa_h_RV-x4loUyNnLvM_bO9IBMhXBtA_A7q3o">L’article de actu.fr du 5 juin</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CRÉTEIL - 94</strong></p>
+<p align="center"><strong>Les suites de la consultation citoyenne sur le PRS</strong></p>
+<p align="justify">Un diaporama a été confectionné, qui prend en compte le résultat de du travail collectif et citoyen sur plus d'un an de rencontres-débats dans tout le Val-de-Marne. Une expérience unique en Ile-de-France et que nous aurions aimé que l'ARS organise. Notons néanmoins la présence de plusieurs des membres du CTSA 94 à nos réunions.</p>
+<p align="justify">Nous avons proposé aux parlementaires du département de nous aider à présenter ce document au Ministre de la santé, le 22 juin prochain, car c'est bien à ce niveau que se trouvent les réponses aux enjeux que nous posons. Ils relèvent des moyens humains et financiers à abonder comme des évolutions de lois et décrets susceptibles de permettre à l'ARS de les mettre en œuvre.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/06/creteil-la-suite-des-debats-sur-le-projet-regional-de-sante/">La suite de l’article et le diaporama</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>TOUL - 54</strong></p>
+<p align="center"><strong>Menace sur la maternité</strong></p>
+<p align="justify">Dans un article de l’Est Républicain (réservé aux abonnés) le Pr Olivier Morel, chef du pôle de gynécologie-obstétrique au CHRU de Nancy se livre à un plaidoyer pour le regroupement des maternités et donne en exemple : « Si, demain, on arrêtait les accouchements à Toul (54), cela ne signifierait pas qu’on désertifie le secteur. Au contraire, si vous ne demandez pas au personnel de travailler la nuit, il sera d’autant plus disponible en journée pour assurer un suivi de grossesse… »</p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>AUBAGNE</strong><strong> - </strong><strong>13</strong></p>
+<p align="center"><strong>Inquiétude autour du futur hôpital</strong></p>
+<p align="justify">Un nouvel hôpital doit être construit pour remplacer l'établissement actuel, sur un terrain en périphérie. Mais le projet n’est pas dimensionné pour les besoins du territoire ! Le comité et les syndicats s’inquiètent.</p>
+<p align="justify">Lors d’un comité social et économique extraordinaire, les représentants syndicaux ont unanimement voté contre le projet capacitaire du projet de nouvel hôpital. Il ne reprend que l’existant actuel très insuffisant du fait de l’évolution de la population.</p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>FEURS - 42</strong></p>
+<p align="center"><strong>Mobilisation le vendredi 9 juin pour les urgences</strong></p>
+<p align="center"> <img style="opacity: 1;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/feurs-1.jpg" alt="" align="middle" /></p>
+<p align="justify">Beaucoup de monde à braver la pluie pour poursuivre l’objectif de faire ré-ouvrir les urgences de Feurs.</p>
+<p align="justify">C’est le lancement officiel d’une grande opération "Balance ta carte" dixit la chanteuse Angèle...</p>
+<p align="justify">En Décembre on envoie des lettres au Père Noël, en Juin ce sont des cartes à votre ARS pour que notre souhait de réouverture des urgences de Feurs soit entendu et se concrétise !</p>
+<p align="justify">Prochaine mobilisation le vendredi 16 juin avec un défi, un repas participatif et la table la plus longue du monde où chacun amène son verre, des tréteaux, du salé, du sucré … </p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/06/feurs-mobilise-pour-ses-urgences/">La carte postale sur le site de la Coordination</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LURE - 70</strong></p>
+<p align="center"><strong>Rassemblement contre la fermeture de l’hôpital de jour</strong></p>
+<p align="center"><img style="opacity: 1;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/20230607_115910-scaled.jpg" alt="" align="middle" /></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/06/lure-mobilisation-contre-la-fermeture-de-lhopital-de-jour/">L’article sur le site de la Coordination</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>LANNION - 22</strong></p>
+<p align="center"><strong>Accès aux urgences à nouveau régulé</strong></p>
+<p align="center"><a href="https://www.ouest-france.fr/bretagne/lannion-22300/lannion-lacces-aux-urgences-a-nouveau-regule-la-nuit-du-9-au-10-juin-800fa85e-053d-11ee-a82c-9672aa278afa?fbclid=IwAR0r05NaqMtC0BsygXjA59yJt96p5SktxjJqeddNsX9TBoAdxGw5B2BcdOg">L’article d’Ouest France</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CONCARNEAU - 29</strong></p>
+<p align="center"><strong>Appel à participer à la manifestation de Guingamp le 17 juin</strong></p>
+<p align="justify">Face aux annonces de nouvelles fermetures de maternités, de services d’urgences et de chirurgie en Bretagne, le Comité de défense de l’hôpital de Concarneau appelle à la manifestation régionale du 17 juin à Guingamp.</p>
+<p align="justify">L’effondrement du système public de santé s’accélère en Bretagne.</p>
+<p align="justify">Les maternités de Guingamp, Carhaix, Landerneau et Lannion ferment ou sont menacées de fermeture. Les fermetures de services d’urgences ou encore de Chirurgie, comme à Landerneau, s’accélèrent sur toute la Bretagne. Enfin, la semaine dernière, le Directeur du CHIC Quimper-Concarneau évoquait la possibilité de ne pas pouvoir maintenir les urgences de jour à Concarneau alors que la population est multipliée par 3 l’été.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/CP-manifestation-Guingamp-17-juin.pdf">La suite du communiqué</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>LUÇON - 85</strong></p>
+<p align="center"><strong>Deuxième anniversaire de la mobilisation</strong></p>
+<p align="center">2ème anniversaire de la mobilisation pour un hôpital qui réponde aux besoins de la population du territoire Sud-Vendée Littoral. </p>
+<p align="center">Ils veulent détricoter notre hôpital, ils doivent le développer. </p>
+<p align="center"><img style="opacity: 1;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Lucon-1.jpg" alt="" align="middle" /></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/06/lucon-deuxieme-anniversaire-de-la-mobilisation/">Plus de photos</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>RENNES - 35</strong></p>
+<p align="center"><strong>Fermeture de lits en psychiatrie</strong></p>
+<p align="center"><a href="https://actu.fr/bretagne/rennes_35238/hopital-guillaume-regnier-a-rennes-20-lits-vont-fermer-la-cgt-en-colere_59699626.html?fbclid=IwAR323rr09DSQddEc_nYsD4geHvbs6PrAVqIGnZDM_si-IlHhCJ9w21_q0rs">L’article d’actu.fr du 8 juin</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MONTAUBAN - 82</strong></p>
+<p align="center"><strong>La cardiologie a fermé.</strong></p>
+<p align="justify">Au total ce sont 110 lits fermés. La CGT lance son bureau d’embauche</p>
+<p align="center"><a href="https://www.ladepeche.fr/2023/06/06/110-lits-deja-fermes-a-lhopital-de-montauban-selon-la-cgt-qui-rouvre-son-bureau-dembauche-le-13-juin-11244629.php?fbclid=IwAR2szR3xnTXJ-Jv1v-AnPLIqpqceEX2M9kZmehQJCDpfT0XQr-Zr2bvotpk">L’article de La Dépêche du 6 juin</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>PÉRONNE - 80</strong></p>
+<p align="center"><strong>Manifestation contre la fermeture de la maternité</strong></p>
+<p align="justify">La maternité de Péronne est fermée pour le mois de juin. La maternité avait déjà fermé temporairement en décembre. Une manifestation à l’appel de l’intersyndicale de l’hôpital (CFDT, FO, CGT et UNSA) a rassemblé de 500 à 700 personnes, personnels, élus, usagers ce samedi</p>
+<p align="center"><a href="https://www.letelegramme.fr/france/dans-la-somme-une-manifestation-contre-la-fermeture-temporaire-dune-maternite-6366434.php">L’article du Télégramme</a></p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/peronne-soignants-et-patients-main-dans-la-main-contre-la-fermeture-temporaire-de-la-maternite-8618331">L’article de France Bleu</a></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/hauts-de-france/somme/peronne/fermeture-de-la-maternite-de-peronne-le-personnel-soignant-et-les-habitants-se-mobilisent-inquiets-de-voir-d-autres-services-fermer-2792430.html">L’article de France 3</a></p>
+<p align="center">Et une très belle vidéo réalisée par le syndicat autonome qui l’a envoyé à la Coordination.</p>
+<p align="center"><a href="https://www.youtube.com/watch?v=GjnZk-dxiBo">La vidéo</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>MOBILISATION DES PERSONNELS HOSPITALIERS</strong></p>
+<p align="center"><strong>Une journée de mobilisation intersyndicale est prévue le 20 juin</strong></p>
+<p align="center">L’appel rassemble la CGT Santé Action sociale, FO services publics, Sud Santé Sociaux et l’UNSA</p>
+<p align="center"><a href="https://sante.cgt.fr/Tou-te-s-ensemble-et-uni-e-s-le-mardi-20-juin-2023">Tract de la CGT</a></p>
+<p align="center"><a href="https://www.force-ouvriere.fr/hopitaux-l-executif-tente-la-diversion-avec-son-plan-innovation-sante-2030">Communiqué de FO</a></p>
+<p class="titre-dossiers"><strong>DÉMOGRAPHIE MÉDICALE</strong></p>
+<p align="center"><strong>Le Conseil National de l’Ordre des Médecins a dévoilé son nouvel atlas de la démographie médicale</strong></p>
+<p align="center"><a href="https://www.egora.fr/actus-pro/demographie-medicale/80850-le-plus-inquietant-c-est-l-abandonnisme-a-la-fin-des-etudes-de?nopaging=1">L’article d’Egora</a></p>
+<p align="center"><strong>La Proposition de loi proposée par F. Valletoux</strong></p>
+<p align="center"><a href="https://www.fredericbizard.com/ppl-n1175-un-modele-dobstination-dans-lechec/?fbclid=IwAR3scD1pHq_xBYJtskDI3a9OHbDqEL0j4yBLknaGpUhwV3GdH-SYnjyNm7s">La critique par F. Bizard</a></p>
+<p align="center"><a href="https://anemf.org/actualites-divers/proposition-de-loi-valletoux-quand-le-dogme-de-la-regulation-menace-lacces-aux-soins/">Le communiqué commun ANEMF ISNAR IMG et REAGJIR</a></p>
+<p align="center"><a href="https://www.quechoisir.org/billet-du-president-proposition-de-loi-valletoux-l-art-de-la-fausse-lutte-contre-les-deserts-medicaux-n108242/">Le communiqué de l’UFC Que Choisir</a></p>
+<p class="titre-dossiers"><strong>TÉLÉCONSULTATION</strong></p>
+<p align="center"><strong>Une attaque inédite contre l’accès aux soins</strong></p>
+<p align="center">Ramsay propose un abonnement !</p>
+<p align="center"><a href="https://www.egora.fr/actus-pro/e-sante/80824-moins-cher-que-netflix-avec-son-offre-de-teleconsultation-illimitee-pour">L’article d’Egora</a></p>
+<p align="center"><a href="https://www.conseil-national.medecin.fr/publications/communiques-presse/cnom-soppose-linitiative-groupe-ramsay">Le communiqué de l’Ordre des médecins</a></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p align="center"><strong>Insupportable discrimination dans le droit d’asile</strong></p>
+<p align="center"><a href="https://blogs.mediapart.fr/les-invites-de-mediapart/blog/060623/cour-nationale-du-droit-d-asile-sur-la-voie-de-la-psychophobie-institutionnelle">Tribune sur la Psychophobie à la CNDA</a></p>
+<p class="titre-dossiers"><strong>PERSONNES AGÉES</strong></p>
+<p align="center"><strong>Été sous haute tension</strong></p>
+<p align="center"><a href="https://ad-pa.fr/communique-2023-06-06-Ete-sous-haute-tension-dans-le-secteur-des-personnes-agees">Le communiqué de l’AD PA</a></p>
+<p align="center">(Association des directeurs au service des personnes âgées)</p>
+<p class="titre-dossiers"><strong>HANDICAP</strong></p>
+<p align="center"><strong>Non respect par la France de quatre articles de la Charte Sociale Européenne</strong></p>
+<p align="justify">Le 17 avril 2023, le Comité des droits sociaux du Conseil de l’Europe a rendu publique sa décision reconnaissant la violation par l’État français de ses obligations vis-à-vis des personnes en situation de handicap et de leurs familles.</p>
+<p align="justify">C’est l’aboutissement d’une réclamation collective déposée par APF France handicap, l’Unapei, l’Unafam et la FNATH en 2018 face au non-respect par l’État français de ses obligations envers les personnes en situation de handicap et leurs familles.</p>
+<p align="justify">Concernant la politique santé le Comité a retenu à l’unanimité la rédaction suivante :</p>
+<p align="justify">« <em>293 - Dans ces conditions, le Comité considère que la mise en œuvre des exigences d'accessibilité des établissements de santé (prévues dans la législation depuis 1975 et réaffirmées en 2005) et les mesures prises pour répondre aux besoins spécifiques des personnes handicapées dans les établissements de santé, ne peuvent être considérées comme conformes à l'exigence de l'article 11§1 selon laquelle les groupes vulnérables à risque particulièrement élevé de non-exercice de leur droit à la protection de la santé, y compris les personnes handicapées, doivent être protégés de manière adéquate. Par conséquent, on ne peut pas dire que les autorités aient réalisé des progrès suffisants et opportuns en ce qui concerne l'accessibilité des soins de santé pour les personnes handicapées.</em></p>
+<p align="justify"><em>294 - Au vu de ce qui précède, le Comité dit qu'il y a violation de l'article 11§1 de la Charte au motif que les autorités n'ont pas adopté de mesures efficaces dans un délai raisonnable pour remédier aux problèmes persistants d'accès aux services de santé par des personnes handicapées. </em>»</p>
+<p align="center"><a href="https://www.apf-francehandicap.org/sites/default/files/_depresse_vf.pdf">Le  de presse inter-associatif</a></p>
+<p align="center"><a href="https://passidoucefrance.org/">Le site dédié</a></p>
+<p align="center"><a href="https://www.coe.int/fr/web/european-social-charter/-/la-d%C3%A9cision-sur-le-bien-fond%C3%A9-dans-forum-europ%C3%A9en-des-personnes-handicap%C3%A9es-edf-et-inclusion-europe-c.-france-r%C3%A9clamation-n%C2%B0-168/2018-est-d%C3%A9sormais-publique">La décision du Conseil de l’Europe</a></p>
+<p align="center"><strong>Conférence Nationale du Handicap</strong></p>
+<p align="center">Réactions des associations !</p>
+<p align="center"><a href="https://www.apf-francehandicap.org/sites/default/files/cp_cnh_avril_2023_vdef.pdf">Le communiqué de APF France Handicap</a></p>
+<p align="center"><a href="https://www.unapei.org/presse/lunapei-ne-participera-pas-a-la-conference-nationale-du-handicap/">Le communiqué de l’UNAPEI</a></p>
+<p align="center"><a href="https://www.fnath.org/communique-presse/conference-nationale-du-handicap-des-annonces-importanteset-de-fortes-attentes/">Le communiqué de la FNATH</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><strong>État limite</strong></p>
+<p align="center"><a href="https://www.francetvinfo.fr/culture/cinema/festival-de-cannes/critiques/festival-de-cannes-2023-etat-limite-un-documentaire-sur-la-psychiatrie-pour-crier-au-secours-l-hopital-va-craquer_5836565.html">La critique sur France info de ce documentaire sur la psychiatrie</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

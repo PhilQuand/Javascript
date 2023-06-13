@@ -840,7 +840,7 @@ Promise.all([
     if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwjJNAEGEkrD3eb5xpp61ytraCZUYGj0UpSqSGZMjqUJBalctWR6oSIKOm_3WUdN6iwXZkXNruO0Wn_okY-2BtOuD1DVOhMyQVu6vyBu4Is7nNH5czNK5FfzsRD3UrIMUnSOhnQ2DskAqKW_gLIa7xQmwoXSe6UutT7wky67rL_ydVZSA9rUJYf8rv/s1600/Action%20du%2015%20juin%202023%20intersyndicale%2037-2.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMuioid73JVKv8-DLoXpX6U_K6jfgWfiyeSMEi_fzW4dbXD8lJhtuHsRBc-l4P3AuK9tu7PXoY4XGvRxFfQJuG7OaFeZQ2ZzS-ldNAvtHq4KOWNG05D5HaF5wf1t98MXZ_IggwM5LY2xrz8A-Z65LjHpOiZL3jYSxBuG2ZtPtol8qGwUI1hmrfIhtv/s1600/Action%20du%2015%20juin%202023%20intersyndicale%2037.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -859,11 +859,11 @@ Promise.all([
 <p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
 <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
 </div>'
-        },*/
+        },
         {
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHEks2X6FVyKVreRicgOvsrx1Yz_Cavrg6KPA0aPHNnFm4pONj-aMde7-Rnhqw-Z0V6jvQDT9af9fC6AdJrg78zsNs7T40PHNUesf5Q7j6Wi2LKIXpdiwej2AlGobF4rqPbXa9Hm8nAU8JE5_kX9Qw0dxreAOeWxuclf-PzLgzMTzmSJQUom6JEcoL/s1600/Rassemblement%20Depardieu.jpg"
-        },
+        },*/
         {
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMuioid73JVKv8-DLoXpX6U_K6jfgWfiyeSMEi_fzW4dbXD8lJhtuHsRBc-l4P3AuK9tu7PXoY4XGvRxFfQJuG7OaFeZQ2ZzS-ldNAvtHq4KOWNG05D5HaF5wf1t98MXZ_IggwM5LY2xrz8A-Z65LjHpOiZL3jYSxBuG2ZtPtol8qGwUI1hmrfIhtv/s1600/Action%20du%2015%20juin%202023%20intersyndicale%2037.jpg"

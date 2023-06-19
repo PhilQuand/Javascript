@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Saluons la mobilisation bretonne : près de 4000 personnes ce samedi 17 juin à Guingamp pour exiger la réouverture de la maternité et plus largement défendre l’hôpital public en Bretagne.</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 24</li>
+<li>Dates: du 12 au 19 juin 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Infos-semaine-24-du-12-au-19-juin-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p align="justify">Saluons la mobilisation bretonne : près de 4000 personnes ce samedi 17 juin à Guingamp pour exiger la réouverture de la maternité et plus largement défendre l’hôpital public en Bretagne.</p>
+<p align="justify">D’autres nouvelles de la semaine sont moins bonnes :</p>
+<p align="justify">- le rejet par l’assemblée nationale d’un amendement à la proposition de loi visant à améliorer l’accès aux soins, qui entendait conditionner au départ d’un confrère l’installation de médecins généralistes dans les zones déjà bien pourvues. Cet amendement minimaliste a été rejeté par la majorité du camp présidentiel, de la droite, et de tous les députés du Rassemblement national. Les zones bien pourvues représentant au plus 15 % du territoire national, ce n’aurait été qu’une très légère entorse à la liberté d’installation, mais en mettant fin au débat sur la répartition, cela aurait permis de passer aux propositions de fond, celle d’augmenter le nombre de professionnels formés, celle de la création d’un service public de soins de premier recours !</p>
+<p align="justify">- l’annonce par le gouvernement d’une diminution de la prise en charge des soins dentaires par la Sécurité Sociale, curieuse mesure pour un ministre de la santé qui se dit aussi de la prévention. C'est pénaliser ceux qui n'ont pas de mutuelles, souvent les plus précaires, c'est pénaliser ceux qui en ont une, car par la force des choses, les cotisations vont augmenter ! Bref, c'est pénaliser tout le monde. C'est un pas de plus dans la casse de notre Sécurité Sociale solidaire ! Et un cadeau pour les assurances privées, pour le monde de la finance.</p>
+<p align="justify">C’est une raison supplémentaire, s’il en était besoin, pour mettre en œuvre la décision prise à Lure avec toutes les organisations avec lesquelles notre Coordination travaille, avec la Convergence des Services Publics, avec Notre Santé En Danger, d’une grande campagne pour que le projet de loi de financement 2024 de la Sécurité Sociale (PLFSS) réponde aux besoins de la population : l’étranglement financier de l’hôpital public, du médico-social ne peut plus durer.</p>
+<p align="justify">Pour ceux qui veulent vivre ou revivre Lure, le <a href="https://www.nesp2023.com/r%C3%A9solutions">site internet</a> regroupe images, vidéos, compte-rendus et Média 25-Radio BIP a aussi des vidéos sur son <a href="https://radiobip.fr/site/blog/2023/06/15/video-convergence-nationale-a-lure-mai-2023/">site</a>.</p>
+<p align="right"><em>Michèle Leflon</em></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>OLORON SAINTE-MARIE - 64</strong></p>
+<p align="center"><strong>Rassemblement devant l’hôpital le 20 juin</strong></p>
+<p align="justify">L'association « SOS proximité, santé, offre de soins de proximité » soutient l’appel à rassemblement devant l’hôpital le 20 juin initié par la CGT du centre hospitalier d’Oloron. Celle-ci invite à participer à un rassemblement devant l’établissement de santé, mardi 20 juin à partir de 15h. L’objectif est « d’informer la population et les élus de la situation de l’hôpital », en évoquant, « les urgences », « les réorganisations de travail », « les travaux », « la fermeture du bloc du lundi 31 juillet au mardi 15 août », « et toutes les situations qui font que l’hôpital public est en grande souffrance plus que jamais aujourd’hui ».</p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT-AFFRIQUE - 12</strong></p>
+<p align="center"><strong>Le comité s’exprime sur l’installation d’une IRM privée</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Point-Le-Manifeste-130623.pdf">La déclaration du comité</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DRAGUIGNAN - 83</strong></p>
+<p align="center"><strong>Une première victoire – on continue – rassemblement le 23 juin</strong></p>
+<p style="margin:0" align="justify">Une première victoire : l’annonce par la direction du Centre Hospitalier de la Dracénie d’une réouverture partielle des urgences de nuit à l’hôpital de Draguignan ! Effective depuis le 19 mai, officialisée à partir du 9 juin. Partielle, car elle ne concerne que la fin de la semaine.</p>
+<p style="margin:0" align="justify">Le collectif actif depuis 19 mois continuera à se battre jusqu’à la réouverture totale et vous invite à fêter ce progrès devant le service des urgences le vendredi 23 juin 2023 à partir de 18h30 »</p>
+<p style="margin-top:0" align="justify">Le combat, c’est aussi pour la réouverture des lits en psychiatrie et pour l’hôpital public mis à mal depuis des années.</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/draguignan.jpg" />
+</div></div>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BERGERAC- 24</strong></p>
+<p align="center"><strong>Succès de la réunion publique</strong></p>
+<p align="justify">Elle a réuni 80 personnes, avec des élus locaux, un conseiller général, des maires ruraux, des représentants du comité de Sarlat.</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/BergeracP1230614.jpg" />
+</div></div>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/06/bergerac-succes-de-la-reunion-publique/">L’article sur le site de la Coordination</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>FEURS - 42</strong></p>
+<p align="center"><strong>Un repas pour les urgences !</strong></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Image11.png" />
+</div></div>
+<p align="justify">L’assistance a été nombreuse à témoigner son soutien à l’action en faveur de la réouverture des urgences en partageant un moment convivial et de solidarité avec nos soignants mis à l'honneur lors de cette soirée.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/06/feurs-les-cartes-postales/">Les cartes postales de la résistance</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CONCARNEAU - 29</strong></p>
+<p align="center"><strong>Grève au SSR de Concarneau</strong></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Image9.jpeg" />
+</div></div>
+<p align="justify">Le comité a été soutenir la mobilisation des personnels du SSR de Concarneau. Suite au regroupement de tous les lits (Quimper, St Yvi et Concarneau), il va y avoir des suppressions de postes. Le bâtiment superbe est en cours de finition. Gestion Ugecam.</p>
+<p align="center"><a href="https://www.letelegramme.fr/finistere/concarneau-29900/un-appel-a-la-greve-au-pole-de-readaptation-de-cornouaille-a-concarneau-6371699.php?fbclid=IwAR1ZgeFZIV7MosPCnrFLa1UwMh94wTilu4YggBFOlnqYAIkF_XwkHphuA7Y">L’appel à la grève sur le site du Télégramme</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CHÂTEAUDUN - 28</strong></p>
+<p align="center"><strong>Journée porte-ouverte à l’hôpital</strong></p>
+<p style="margin-bottom:0" align="center">Le comité présent. Il fait aussi des permanences</p>
+<p style="margin-top:0" align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Journee-porte-ouverte-du-CH-de-Chateaudun-le-10-juin-2023.pdf">Le bulletin d’information du comité</a></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/IMG_20230610_1219165741.jpg" />
+</div></div>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>RUFFEC - 16</strong></p>
+<p align="center"><strong>Un repas débat</strong></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/RuffecIMG_20230610_100703.jpg" />
+</div></div>
+<p style="margin-bottom:0" align="justify">Le comité a organisé un repas-débat, salle des fêtes de Montalembert, petite commune du bassin de vie de l'hôpital de Ruffec.</p>
+<p style="margin-top:0" align="justify">Thème du débat "éléments clés du fonctionnement de notre système de santé" avec la participation de Joseph Maatouk, membre de la commission formation de la Coordination.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/06/ruffec-repas-debat/">L’article sur la site de la Coordination</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GUINGAMP - 16</strong></p>
+<p align="center"><strong>Près de 4 000 personnes dans les rues pour défendre la maternité</strong></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/Image10.png" />
+</div></div>
+<p style="margin-bottom:0" align="center"><a href="https://actu.fr/bretagne/guingamp_22070/guingamp-pres-de-4-000-personnes-dans-les-rues-pour-defendre-la-maternite_59745200.html?fbclid=IwAR092AVr0fkkdfDzEdAtyJsyf4SN1Lek71_t99E8oFetIKnZKrFCjAa0ufk">L’article de Actu.fr du 17 juin</a></p>
+<p style="margin:0" align="center"><a href="https://www.letelegramme.fr/cotes-d-armor/guingamp-22200/direct-suivez-la-mobilisation-a-guingamp-pour-defendre-lhopital-et-la-maternite-6374407.php">L’article du Télégramme</a></p>
+<p style="margin-top:0" align="center"><a href="https://www.ouest-france.fr/bretagne/guingamp-22200/direct-a-guingamp-grande-mobilisation-pour-defendre-lhopital-public-en-bretagne-3e40db36-0c5a-11ee-8c50-0fd99fb8fbe3">L’article de Ouest France</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TARBES - 65</strong></p>
+<p style="margin-bottom:0" align="center"><strong>Communiqué du comité</strong></p>
+<p style="margin-top:0" align="center">Deux dates : 19 et 20 juin</p>
+<p style="margin-bottom:0" align="justify">🚩19 juin 2023 Préfecture Tarbes 14 heures</p>
+<p style="margin:0" align="justify">L’association de sauvegarde de l’hôpital et de la santé dans les Hautes-Pyrénées demande l'organisation d'assises départementales de la santé. Nous considérons que la santé publique, l'organisation des soins dans notre territoire, mérite un véritable débat public.</p>
+<p style="margin:0" align="justify">Le Préfet des Hautes-Pyrénées a annoncé une réunion en préfecture sur le thème de la fermeture des hôpitaux de Tarbes et Lourdes et de la construction d'un hôpital sur le territoire de Lanne.</p>
+<p style="margin:0" align="justify">N'ayant, toujours, pas reçu d'invitation, nous vous proposons d'y participer en se rendant ce 19 juin à 14 heures sur le parvis de la préfecture de Tarbes. …</p>
+<p style="margin:0" align="justify">🚩 20 juin 2023 Préfecture Tarbes 14 h 30</p>
+<p style="margin:0" align="justify">La CGT Santé, Solidaire et d'autres syndicats des Hautes-Pyrénées ont décidé d'appeler localement pour la journée nationale d'action du 20 juin 2023. Un rassemblement est prévu à 14 h 30 devant la Préfecture des Hautes-Pyrénées. ...</p>
+<p style="margin-top:0" align="justify">🌐 Notre association s'associe à cet appel au rassemblement, comme la veille, nous tiendrons un stand d'information.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/06/tarbes-communique-du-comite/">La totalité du communiqué sur le site de la Coordination</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>NANTES - 44</strong></p>
+<p align="center"><strong>Manifestation du collectif psychiatrie le 16 juin</strong></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/manifestation-collectif-psychiatrie-44-nantes-16-juin-2023-.jpg" />
+</div></div>
+<p style="margin-bottom:0" align="justify">Vendredi 16 juin une soixante de membres du personnel des hôpitaux psychiatriques et du secteur sanitaire et social ont alerté place Royale à Nantes sur la situation catastrophique de ces secteurs : manque de personnel, fermeture de lits, délai de rendez vous de plusieurs mois à plusieurs années, maltraitance institutionnelle des malades et des personnels. Ils ont constitué devant un hôpital psychiatrique sous dimensionné</p>
+<p style="margin-top:0" align="justify">Une file d'attente de patient.e.s en demande de soins et le collectif nantais pour le droit à la santé et à la protection sociale pour toutes et tous étaient présents en soutien à cette initiative.</p>
+<p align="center"><strong>Pour l’accès aux soins des personnes immigrés</strong></p>
+<p align="justify">Le collectif nantais pour le droit à la santé et à la protection sociale pour toutes et tous s'est joint au rassemblement contre la loi Darmanin réduisant le droit d'asile et l'accès aux soins des personnes immigrées. Les participant.e.s ont pris connaissance du communiqué du 18 avril de la Coordination Nationale.</p>
+<p align="center"><a href="http://nantes.maville.com/actu/actudet_-cinquante-personnes-rassemblees-contre-le-projet-de-loi-sur-l-immigration-a-nantes-_fil-5819022_actu.Htm">Sur le site nantes.maville</a></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/06/NantesIMG_2871.jpg" />
+</div></div>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CAEN - 14</strong></p>
+<p align="center"><strong>À l’EPSM le pire a été évité le 6 juin</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/13-06-2023-CE-SONT-DES-CHOSES-QUI-ARRIVENT.pdf">Le tract de la CGT</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>PORTO-VECCHIO - 20</strong></p>
+<p align="center"><strong>Avenir incertain pour la maternité</strong></p>
+<p align="center"><a href="https://www.corsematin.com/articles/pour-la-maternite-de-porto-vecchio-lavenir-demeure-incertain-143511">L’article de Corse Matin du 16 juin</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>FONTENAY LE COMTE - 85</strong></p>
+<p align="center"><strong>Une pétition contre la fermeture intermittente des urgences</strong></p>
+<p align="center"><a href="https://www.change.org/p/non-aux-fermetures-r%C3%A9p%C3%A9titives-des-urgences-de-l-h%C3%B4pital-de-fontenay-le-comte-vend%C3%A9e?signed=true">Le lien vers la pétition</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LIVRY-GARGAN - 93</strong></p>
+<p align="center"><strong>Fermeture de la maternités</strong></p>
+<p align="center"><a href="https://www.iledefrance.ars.sante.fr/lars-ile-de-france-prend-acte-de-la-decision-de-la-clinique-vauban-livry-gargan-93-de-renoncer">Le communiqué de l’ARS</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>DÉMOGRAPHIE MÉDICALE</strong></p>
+<p align="center"><strong>Proposition de loi sur l’accès aux soins</strong></p>
+<p align="center"><a href="https://www.apvf.asso.fr/wp-content/uploads/2023/06/CP-APVF-Deserts-medicaux-150623-V2-1.pdf">Le communiqué de l’association des petites villes de France</a></p>
+<p class="titre-dossiers"><strong>MÉDICAMENTS</strong></p>
+<p align="center"><strong>Pénurie de médicaments : les annonces du Président de la République</strong></p>
+<p align="center"><a href="https://sante.gouv.fr/IMG/pdf/dossier_de_presse_-_relocalisations_de_medicaments_essentiels.pdf">Le dossier de presse du gouvernement</a></p>
+<p align="center"><a href="https://otmeds.org/communique-de-presse/macron-6-ans-de-dogmatisme-seuls-25-medicaments-concernes-sur-450-critiques-le-storytelling-du-president-atteint-ses-limites/">La réaction de l’observatoire dans la transparence des politiques du médicament</a></p>
+<p align="center">Pénurie de médicaments nécessaires aux IVG</p>
+<p align="center"><a href="https://www.nouvelobs.com/opinions/20230615.OBS74550/penurie-de-medicaments-necessaires-aux-ivg-pour-une-politique-de-relocalisation-en-urgence.html?fbclid=IwAR2DtZIZTzu5txpYJOwz86rN4p6cMaEs4a7nbMs-LTMVtqk_kCIFoFWnerQ">Une tribune</a></p>
+<p class="titre-dossiers"><strong>ALERTE ROUGE À LA CNAV</strong></p>
+<p align="center"><strong>Tentatives de suicide, burn-out, stress et fatigue</strong></p>
+<p align="center"><a href="https://www.politis.fr/articles/2023/05/tentatives-de-suicide-burn-out-stress-et-fatigue-alerte-rouge-a-la-cnav/?code=MTY4NDUwMjI0NjY3NTIjITIzMzkxMSMhbmljb2xldmljZW50ZUBsYXBvc3RlLm5ldCMhcGF5d2FsbF9vZmZyZV9hcnRpY2xl">L’article de Politis du 17 mai 2023</a></p>
+<p class="titre-dossiers"><strong>LA SANTÉ MALADE</strong></p>
+<p align="center"><strong>Pourquoi les médecins vont ils mal ?</strong></p>
+<p align="center"><a href="https://www.radiofrance.fr/franceculture/podcasts/avec-philosophie/pourquoi-les-medecins-vont-ils-mal-2806672">Une émission de France Culture</a></p>
+<p align="center"><strong>Appel à la grève des praticiens hospitaliers le 3 juillet</strong></p>
+<p align="center"><a href="https://aph-france.fr/Communique-de-presse-Greve-du-3.html">Le communiqué de l’APH</a></p>
+<p align="center"><a href="https://www.jeunesmedecins.fr/communiques-de-presse/jeunes-medecins-rejoint-aph-et-sera-en-greve-le-3-juillet-prochain">Le communiqué de Jeunes Médecins</a></p>
+<p align="center"><strong>Reconstruction de l'hôpital public</strong></p>
+<p align="center"><a href="https://www.jean-jaures.org/publication/un-plan-de-reconstruction-de-lhopital-public/">Une note de la Fondation Jean-Jaurès et du groupe socialistes et apparentés de l’Assemblée nationale</a></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p align="center"><strong>Psychologues</strong></p>
+<p align="center"><strong><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/positionnement_des_psychologues_ufmict-cgt_12_juin_2023-2.pdf">Contribution des psychologues de la CGT</a></strong></p>
+<p align="center"><strong>Consultation citoyenne sur le management de l'enfance</strong></p>
+<p align="center"><a href="https://blogs.mediapart.fr/dr-bb/blog/260523/consultation-citoyenne-sur-le-management-de-lenfance">Un billet de blog</a></p>
+<p align="center"><strong>Détruire le soin, bafouer le droit : un nouvel impératif gestionnaire ?</strong></p>
+<p align="center"><a href="https://blogs.mediapart.fr/dr-bb/blog/070623/detruire-le-soin-bafouer-le-droit-un-nouvel-imperatif-gestionnaire">Un billet de blog</a></p>
+<p align="center"><strong>Arrêtez le massacre : vers une psychophobie instituée</strong></p>
+<p align="center"><a href="https://blogs.mediapart.fr/dr-bb/blog/140623/arretez-le-massacre-1-vers-une-psychophobie-instituee">Un billet de blog</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><a href="https://radiobip.fr/site/blog/2023/06/15/video-convergence-nationale-a-lure-mai-2023/">Vidéo de la conclusion de l’initiative de Lure</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -837,7 +837,7 @@ Promise.all([
 ]).then(
   function() {
     console.log('Everything has loaded!');
-    if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
+    //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
       src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMuioid73JVKv8-DLoXpX6U_K6jfgWfiyeSMEi_fzW4dbXD8lJhtuHsRBc-l4P3AuK9tu7PXoY4XGvRxFfQJuG7OaFeZQ2ZzS-ldNAvtHq4KOWNG05D5HaF5wf1t98MXZ_IggwM5LY2xrz8A-Z65LjHpOiZL3jYSxBuG2ZtPtol8qGwUI1hmrfIhtv/s1600/Action%20du%2015%20juin%202023%20intersyndicale%2037.jpg",

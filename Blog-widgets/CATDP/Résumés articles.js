@@ -874,7 +874,7 @@ Promise.all([
 ]).then(
   function() {
     console.log('Everything has loaded!');
-    if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
+    //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
       src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6I5ERpLY5FfIKpNYm0vhMGrN6wDtwyfPCE0GY2QQ8mgYypcQfLo_Fh8Bzcvx_Ms4ddfjAxMKGh989nJ4mvIuHmEf3jfzGRI4qEZNdGnDKtBmIVKsSJd89sYPRUKCDOEplcKHcWyHLyFolWRdwLk1fleUkEcXwnUqDGzyeD5zefXCYdR839I-b6iaN4A/s1600/FLYER%2010%20ANS.png",

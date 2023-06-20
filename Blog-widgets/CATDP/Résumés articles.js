@@ -827,7 +827,7 @@ $('.fancybox')
 .img-foreground {
   background-color: white;
   animation-name: stretch;
-  animation-duration: 2.5s; 
+  animation-duration: 5.0s; 
   //animation-timing-function: ease-out; 
   animation-delay: 0;
   animation-direction: alternate;
@@ -865,19 +865,25 @@ $('.fancybox')
 <script>
 if ( window.location.pathname == '/' ){
   $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");
-  //$('.page_body').append('<div class="img-foreground" id="ACCEUIL-AlaUne"></div>');
+  $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div><p style="cursor: unset; margin:0; color:blue; font: italic bold 0.8em serif;" align="center">cliquez sur l'+ "'"+'image pour plus de détails</p></div>');
 }
 </script>
-<script type='module' src='https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUne.js'></script>
 <script>
-$(document).ready(function() {
-  $('#ACCEUIL-AlaUne').AlaUne({
-      src: "https://blogger.googleusercontent.com/img/a/AVvXsEjdktRYT45D-6D5AuzBXX_o7zvXOB5XYUrU9uJSXPkdhCBjZ6Iowg5wVs41Tuc9KfGdoq9vqjgBlup2pLUgSU7mts-i8CTxDz3A9FuRim-rutg4KaWrW8fe5vdamX6KgFcB9a4u4zkn0BN-0NwfZCQE_4lKPf9qetiUK7B5pTTw_qVBreVInoSwuDpLbQ",
+Promise.all([
+  load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'),
+]).then(
+  function() {
+    console.log('Everything has loaded!');
+    if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
+    $('.subscribe-button.pill-button').addClass('styled')
+    $('#ACCEUIL-AlaUne').AlaUneFB4({
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6I5ERpLY5FfIKpNYm0vhMGrN6wDtwyfPCE0GY2QQ8mgYypcQfLo_Fh8Bzcvx_Ms4ddfjAxMKGh989nJ4mvIuHmEf3jfzGRI4qEZNdGnDKtBmIVKsSJd89sYPRUKCDOEplcKHcWyHLyFolWRdwLk1fleUkEcXwnUqDGzyeD5zefXCYdR839I-b6iaN4A/s1600/FLYER%2010%20ANS.png",
       fancyClass: {
-        baseClass: 'demain20200923AlaUneBaseClass',
+        //baseClass: 'demain20200923AlaUneBaseClass',
+        baseClass: 'articleFancyClass',
       },
-      href: [
-        /*{
+      //fancyClass: "defaultInline",
+      href: [/*{
           dataType: "inline",
           dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
 <ul> \
@@ -892,23 +898,27 @@ $(document).ready(function() {
 </div>'
         },
         {
-          dataType: "iframe",
-          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Animations-Une/arbre-de-noel-tournant.html"
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHEks2X6FVyKVreRicgOvsrx1Yz_Cavrg6KPA0aPHNnFm4pONj-aMde7-Rnhqw-Z0V6jvQDT9af9fC6AdJrg78zsNs7T40PHNUesf5Q7j6Wi2LKIXpdiwej2AlGobF4rqPbXa9Hm8nAU8JE5_kX9Qw0dxreAOeWxuclf-PzLgzMTzmSJQUom6JEcoL/s1600/Rassemblement%20Depardieu.jpg"
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEjdktRYT45D-6D5AuzBXX_o7zvXOB5XYUrU9uJSXPkdhCBjZ6Iowg5wVs41Tuc9KfGdoq9vqjgBlup2pLUgSU7mts-i8CTxDz3A9FuRim-rutg4KaWrW8fe5vdamX6KgFcB9a4u4zkn0BN-0NwfZCQE_4lKPf9qetiUK7B5pTTw_qVBreVInoSwuDpLbQ"
-        },       
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6I5ERpLY5FfIKpNYm0vhMGrN6wDtwyfPCE0GY2QQ8mgYypcQfLo_Fh8Bzcvx_Ms4ddfjAxMKGh989nJ4mvIuHmEf3jfzGRI4qEZNdGnDKtBmIVKsSJd89sYPRUKCDOEplcKHcWyHLyFolWRdwLk1fleUkEcXwnUqDGzyeD5zefXCYdR839I-b6iaN4A/s1600/FLYER%2010%20ANS.png"
+        },
         /*{
-          dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/a/AVvXsEgwJe3hWfjPRvDhVgJoi42H8dZvU8SVfuKYlD2UJxTBhPzp_yRuoSRrPcs53q_lbVqIDPiDiqWjZPFjTqu9oiJYepThpEf21Hw8vTpWGlpZZWuI8acFq7TzVyMMmqcjFI6ES0tOrKd-nubNG5JooTCbYLswMKZ2vKF7h6MDYXRoBVQSvCmUJfpvbd3C"
-        },       
+          dataType: "iframe",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXW6u39vwpYVRChSyYAIw_oXfM6k54kac6I2WFiwytgmEyrVA-zGvfdyVQmD50vsjij4dtSKRSr82YQBHY1iZcrgP0MrCYzogI0nFUdnuT_sOubwYrkbvlTPVgkRCF0HR9ngYrRWvxqJI6gYSh1rTNLYrEIdkEUgKKzpMHxcZQFjRr4Ke9NC4VCUpG/s1600/thumb-pdf.jpg",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.pdf"
+        },
         {
           dataType: "video",
-          dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+          //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+          dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"
         },*/
-    ]
-  });
+      ]
+    });
+  }).catch(function() {
+  console.log('Oh no, epic failure!');
 });
 </script>
 <style>

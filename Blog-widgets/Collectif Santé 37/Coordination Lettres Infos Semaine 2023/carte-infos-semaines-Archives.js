@@ -1,7 +1,12 @@
     var archi = [
               {
+          svgInfos: ['Semaine 25', 'du 20 june', 'au 25 june', '2023'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 25.html',
+        }, 
+              {
           svgInfos: ['Semaine 24', 'du 12 june', 'au 18 june', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 24.html',
+          idGlinkID: 'PreviousLetters'
         }, 
               {
           svgInfos: ['Semaine 23', 'du 05 june', 'au 11 june', '2023'],

@@ -827,7 +827,7 @@ if ( window.location.pathname == '/' ){
   //$('.page_body').append('<a href="https://drive.google.com/file/d/1pKMxxFJYk3nTK8ykKRLpyPDniMm8Jxu5/view?usp=share_link"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-  //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div><p style="cursor: unset; margin:0; color:blue; font: italic bold 0.8em serif;" align="center">cliquez sur l'+ "'"+'image pour plus de détails</p></div>');
+  $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div><p style="cursor: unset; margin:0; color:blue; font: italic bold 0.8em serif;" align="center">cliquez sur l'+ "'"+'image pour plus de détails</p></div>');
 
 }
 </script>
@@ -840,7 +840,7 @@ Promise.all([
     //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMuioid73JVKv8-DLoXpX6U_K6jfgWfiyeSMEi_fzW4dbXD8lJhtuHsRBc-l4P3AuK9tu7PXoY4XGvRxFfQJuG7OaFeZQ2ZzS-ldNAvtHq4KOWNG05D5HaF5wf1t98MXZ_IggwM5LY2xrz8A-Z65LjHpOiZL3jYSxBuG2ZtPtol8qGwUI1hmrfIhtv/s1600/Action%20du%2015%20juin%202023%20intersyndicale%2037.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitsKkiPMMm1qvgpzkaCg-TUhxqMxK-zg5q71jjNwW1Fl7X18kVnoUqZv9EceEflyy_x3gngmoT5qBrxtWo8Q1GUYY6IHW-cW5EDx1Xq4WXMPkG-rIoXicN59cE0m8r9YP_478MFkTby6wDeYBggdxOcULctev4N6tKmU6Ed1V6roYqBGDZvniCIbGTzyU/s1600/Soire%CC%81e%20de%CC%81bat%20Ine%CC%81galite%CC%81s.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -866,7 +866,7 @@ Promise.all([
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMuioid73JVKv8-DLoXpX6U_K6jfgWfiyeSMEi_fzW4dbXD8lJhtuHsRBc-l4P3AuK9tu7PXoY4XGvRxFfQJuG7OaFeZQ2ZzS-ldNAvtHq4KOWNG05D5HaF5wf1t98MXZ_IggwM5LY2xrz8A-Z65LjHpOiZL3jYSxBuG2ZtPtol8qGwUI1hmrfIhtv/s1600/Action%20du%2015%20juin%202023%20intersyndicale%2037.jpg"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK2eRRmdHjIBnpFKy2jpkk6zBXB7JnUsdMI9dxhy7_k8PnxUeg6szMJc5ldRY42NopQcuKEXKZUlSVhkX1F44VBRpOGFc1v5g9SZYTTjw-B2PTaMOzYjJtLjkHiILBHxEP6cfmhyCRtPYO4QIDvI07AmPFARzVkQIoPw4WcLFYaxneCAgNNbu56xG5ymU/s1600/Soire%CC%81e%20de%CC%81bat%20Ine%CC%81galite%CC%81s.jpg"
         },
         /*{
           dataType: "iframe",

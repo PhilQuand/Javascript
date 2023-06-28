@@ -86,7 +86,7 @@
           _this = _this.parent();
           break;
         case "string":
-          if (src.indexOf('http') == 0) src = ('<img class="img-AlaUne" src="' + src + '" />');
+          if (src.indexOf('http') == 0) src = ('<div><img class="img-AlaUne" src="' + src + '" /><p style="margin:0; color:blue; font: italic bold 0.8em serif;" align="center">cliquez pour plus de détails</p></div>');
           $(_this).find('.' + randNum + ':first').html(src);
           break;
         default:

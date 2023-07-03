@@ -15,7 +15,6 @@
               {
           svgInfos: ['Semaine 23', 'du 05 june', 'au 11 june', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 23.html',
-          idGlinkID: 'PreviousLetters'
         }, 
               {
           svgInfos: ['Semaine 22', 'du 28 may', 'au 04 june', '2023'],
@@ -28,7 +27,6 @@
               {
           svgInfos: ['Semaine 20', 'du 15 may', 'au 21 may', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 20.html',
-          idGlinkID: 'PreviousLetters'
         }, 
               {
           svgInfos: ['Semaine 19', 'du 08 may', 'au 14 may', '2023'],

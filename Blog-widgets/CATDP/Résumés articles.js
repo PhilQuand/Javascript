@@ -865,7 +865,7 @@ $('.fancybox')
 <script>
 if ( window.location.pathname == '/' ){
   $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");
-  $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div><p style="cursor: unset; margin:0; color:blue; font: italic bold 0.8em serif;" align="center">cliquez sur l'+ "'"+'image pour plus de détails</p></div>');
+  $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 }
 </script>
 <script>

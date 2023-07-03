@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p align="justify">Comme vous le verrez dans le bulletin, les résistances sont nombreuses à la politique de casse de l'hôpital public.</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 26</li>
+<li>Dates: du 26 juin au 02 juillet 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Infos-semaine-26-du-26-juin-au-2-juillet-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p align="justify">Comme vous le verrez dans le bulletin, les résistances sont nombreuses à la politique de casse de l'hôpital public.</p>
+<p align="justify">C'est de bonne augure pour la rentrée où nous aurons à lutter pour un Projet de loi de financement de la Sécurité Sociale répondant mieux aux besoins de santé de la population.</p>
+<p align="right"><e>Joseph MAATOUK</e></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BRIOUDE</strong></p>
+<p style="margin-bottom:0" align="justify">Le 24 juin, le Comité de vigilance de l'hôpital public était sur le marché de Brioude pour distribuer son bulletin d'information.</p>
+<p style="margin-top:0" align="justify">Pour l'occasion les membres du Comité avaient revêtu les chasubles de la Coordination nationale.<u><strong><br /></strong></u></p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2023/06/brioude-le-bulletin-de-juin-du-comite/">Le journal de l'association</a></u></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>RAMBOUILLET</strong></p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2023/06/rambouillet-le-bulletin-du-collectif/">Bulletin du collectif</a></u></p>
+<p style="background-color: #FA99FF;"><strong>HENRI MONDOR</strong></p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2023/06/creteil-entrevue-avec-le-cabinet-du-ministre/">Communiqué du comité après la rencontre avec le ministre de la santé</a></u></p>
+<p style="background-color: #66CC99;"><strong>MONTCEAU LES MINES</strong></p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/CodefLes-Usagers-Pe%CC%81nalise%CC%81s.pdf">Communiqué de l'association</a></u></p>
+<p style="background-color: #9999CC"><strong>MAYENNE</strong></p>
+<p style="margin-bottom:0" align="center">Actions pour les urgences des hôpitaux de Mayenne</p>
+<p style="margin-top:0" align="center"><u><a href="https://www.francebleu.fr/infos/sante-sciences/un-ete-noir-dans-les-trois-hopitaux-de-la-mayenne-bientot-un-signalement-au-procureur-de-la-republique-7564577">Article</a></u></p>
+<p style="background-color: #99CCCC"><strong>LE BLANC</strong></p>
+<p align="center"><u><a href="https://www.radiofrance.fr/franceinter/podcasts/le-zoom-de-la-redaction/le-zoom-de-la-redaction-du-mardi-27-juin-2023-7343830?fbclid=IwAR27uMVZ8bGB1lKS_4XWnqDhPwivlmdJ2LVGZxLZifd7P50k8yC42n0Q1AU_aem_Ab1t8ImSIAPCi-uFdZgsppNYoBmCDWMiAyR-xiYewhGVmYYXrnI7S9gIyydHHKgGPXA">Enquête radio france sur les fermetures de maternités</a></u></p>
+<p style="background-color: #CBFC67"><strong>LURE ET HAUTE SAÔNE</strong></p>
+<p align="center"><u><a href="https://www.francetvinfo.fr/societe/euthanasie/reportage-fin-de-vie-dans-le-desert-palliatif-de-la-haute-saone-des-soignants-depasses-face-aux-souffrances-des-malades_5911838.html#xtor=CS2-765-[autres]-">Enquête sur les déserts soignants</a></u></p>
+<p style="background-color: #2AFFFF"><strong>FEURS</strong></p>
+<p align="center"><strong>Un nouveau rassemblement a eu lieu le vendredi 30 juin</strong></p>
+<p style="margin-top:0" align="center"><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/2023-06-27RecapitulatifdepuisFermeturedesUrgences1eravril2023.pdf">Récapitulatif des actions du comité</a></u></p>
+<p style="background-color: #99FD99"><strong>SAINT GIRONS</strong></p>
+<p align="center"><strong>Manifestation le 27 juin</strong></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/07/photos-manifs-27-juin-2023-1.jpg" alt="" /></p>
+<p align="justify">Cette manifestation a rassemblé un millier de personnes, nous pouvions y voir des élus, des soignants, des citoyens ainsi que des syndicats et partis politiques.</p>
+<p align="center"><u><a href="https://www.radiocouserans.fr/le-journal-du-28-06-2023?fbclid=IwAR1oZFKnMhXaXOnVAZWMGpWrtbzQVSEErExcpN-s5sSgabHoUi5PzR9JkFQ">Le reportage de Radio Couserans</a></u></p>
+<p style="background-color: #9999FF"><strong>GANGES</strong></p>
+<p style="margin-bottom:0" align="center">Des nouvelles de la nouvelle clinique de Ganges</p>
+<p style="margin-top:0" align="center"><u><a href="https://actu.fr/occitanie/ganges_34111/herault-les-photos-de-la-future-polyclinique-et-maternite-de-ganges-a-l-horizon-2026_58097926.html?fbclid=IwAR3FHtSW9KULS7uQ21xyN5SWaPe_MFhtvhgWzxBvpPQVH-gLVXvss7aPfj0">Article de presse</a></u></p>
+<p style="background-color: #FFFCA6"><strong>REMIREMONT</strong></p>
+<p align="center"><u><a href="https://www.vosgesmatin.fr/sante/2023/06/30/remiremont-pres-de-200-personnes-manifestent-devant-le-centre-hospitalier">Article sur la manifestation de vendredi</a></u></p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Communique-de-presse-du-30.pdf">Le communiqué de presse de l'ADEMAT H</a></u></p>
+<p style="background-color: #FA99FF"><strong>LANNION</strong></p>
+<p style="margin-bottom:0" align="justify">Avec l'autorisation du maire de Lannion, président du conseil de surveillance, une quinzaine de membres du comité de défense se sont invités au conseil de surveillance de l'hôpital</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Le comité est aussi intervenu au conseil communautaire avec pour but d'alerter les élus des dangers du rapprochement clinique hôpital et de leur signifier leur pouvoir face aux décisions de l'ARS</p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/LannionIntervention-CS-V-30-juin-2023_VF.pdf">L'intervention au nom du comité au conseil de surveillance</a></p>
+<p style="margin-top:0" align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Discours-LTC_mardi-27-juin-2023.pdf">L'intervention au conseil communautaire</a></p>
+<p><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Image3.jpg" alt="" /></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>GRAND HÔPITAL PARIS NORD</strong></p>
+<p align="center"><strong>GRAND HÔPITAL PARIS NORD, UNE PREMIÈRE VICTOIRE ✌️</strong></p>
+<p style="margin-bottom:0" align="justify">Ce jeudi 22 juin, lors de l'audience qui s'est tenue au tribunal administratif à Montreuil, le rapporteur public a remis en cause la déclaration d'utilité publique du Grand hôpital Paris Nord, fusion des hôpitaux Bichat et Beaujon, faute d'une offre de soins suffisante, ouvrant la voie à une annulation de celle-ci par le juge administratif.</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">C'est une véritable victoire pour les syndicats et collectifs tel que le nôtre "Pas ça, pas là, pas comme ça" ! qui dénonçons depuis le début, la suppression de 300 lits, la diminution de l'accueil d'urgence et la disparition de la moitié de la maternité, la dégradation des conditions de travail des soignants et l'implantation en cœur de notre ville, entrainant de grosses perturbations en matière d'insertion urbaine, de trafic routier ou de respect de l'environnement.</p>
+<p style="margin-bottom:0; margin-top:0" align="justify" class="disregard">Le rapporteur du Ministère Public nous a donné raison en demandant : l'"annulation totale, pour défaut d'utilité publique compte tenu notamment de l'insuffisante offre de soins par rapport à l'existant et aux besoins" et en déclarant un "vice de procédure dès lors que le rapport de contre-expertise relatif au volet hospitalier ne figurait pas au dossier de l'étude d'impact".</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Après que 91,5% des habitants ayant répondu à l'enquête publique se soient déclarés hostiles au projet présenté par l''Assistance Publique-Hopitaux de Paris (AP-HP), après que les deux enquêteurs de la Commission Nationale du Débat Public aient démissionné faute de concertation et d'écoute des habitants, après des milliers de pétitions recueillies, des dizaines de mobilisations et de manifestations, notre collectif citoyen "Pas ça, pas là, pas comme ça" avec les syndicats CGT et Sud, les collectifs inter hôpitaux et inter urgences, et les associations de patients, nous venons de remporter une belle victoire dans ce bras de fer contre ce projet initié avant la crise covid par l'AP-HP.</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Les conclusions du rapporteur sont claires et sans ambiguïté. Nous espérons que le juge les prendra en compte dans sa décision au tribunal administratif qui devrait intervenir d'ici quelques semaines.</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Pour ce qui nous concerne, nous continuons d'être de toutes les mobilisations, de porter haut et fort les exigences d'offres de soins pour nos populations, d'exiger la rénovation de Bichat et Beaujon et la construction d'un nouvel hôpital (500 lits) en Seine-Saint-Denis, seule alternative capable de répondre à la carence d'offre de soins dont sont victimes les populations.</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Merci à chacune et chacun de ceux qui se sont mobilisés.</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Nous nous réjouissons de cette première victoire. Nous restons vigilants et disponibles pour poursuivre le combat pour exiger un projet qui saura répondre aux besoins des territoires et des populations tout en permettant des conditions de travail dignes aux soignants et personnels.</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Saint-Ouen le 22 Juin 2023.</p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Pour le collectif "Pas ça, pas là, pas comme ça"</p>
+<p style="margin-top:0" align="justify">Denis Vemclefs, Emilie Lecroq, @Christophe Hery, Anne Sermot, Christian Mesnier, @Dominique Garcia, Yannis Abgrall, Juliette Ryan, Benoît Belloni, Yasmine Kavass, Nico Dfr, @Ketty Gally, Anne-Marie Riche...</p>
+<p align="center"><u><a href="https://france3-regions.francetvinfo.fr/paris-ile-de-france/seine-saint-denis/hopital-grand-paris-nord-le-rapporteur-public-defavorable-au-projet-d-amenagement-2800112.html">L'article de France 3 du 21 juin</a></u></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>DETTE PUBLIQUE </strong></p>
+<p align="center"><u><a href="https://www.fondation-copernic.org/wp-content/uploads/2023/06/Dette-Copernic-Attac.pdf">Dossier</a></u></p>
+<p style="text-transform: uppercase;" class="titre-dossiers"><strong>Grève des médecins hospitaliers</strong></p>
+<p align="center"><u><a href="https://rapportsdeforce.fr/classes-en-lutte/3-juillet-la-psychiatrie-en-greve-on-ne-peut-pas-regarder-les-choses-seffondrer-070218640">Appel à la grève dans le secteur de la psychiatrie</a></u></p>
+<p style="margin-bottom:0" align="center"><a href="https://aph-france.fr/Preavis-de-greve-du-3-juillet-2023.html#:~:text=Action%20Praticiens%20H%C3%B4pital%20a%20d%C3%A9pos%C3%A9%20hier%20soir%20un,8%20heures%20au%20mardi%204%20juillet%208%20heures.">Appel à la grève de l’APH</a></p>
+<p style="margin-top:0; margin-bottom:0" align="center"><a href="https://fr.linkedin.com/pulse/3-juillet-2023-gr%C3%A8ve-de-tous-les-praticiens-snphar-elargi-">Le préavis du SNPHAR E</a></p>
+<p style="margin-top:0; margin-bottom:0" align="center"><a href="https://france3-regions.francetvinfo.fr/grand-est/haut-rhin/zero-brancard-dans-nos-couloirs-comment-les-urgences-comptent-faire-greve-le-3-juillet-dans-le-haut-rhin-2804984.html">L’article de France 3 Grand Est</a></p>
+<p style="margin-top:0" align="center"><a href="https://www.samu-urgences-de-france.fr/fr/actualites/infos-du-ca-de-sudf/lundi-3-juillet-nous-serons-tous-en-greve-/art_id/1115">Info de SUdF</a></p>
+<p align="center"><strong>Et grève au centre 15</strong></p>
+<p align="center"><u><a href="https://www.lanouvellerepublique.fr/niort/urgences-le-15-en-greve-illimitee-a-partir-du-3-juillet-2023">Article de la Nouvelle République</a></u></p>
+<p class="titre-dossiers"><strong>PROPOSITION DE LOI DU GROUPE LFI</strong></p>
+<p align="center">Proposition de loi du groupe LFI à l'Assemblée Nationale sur l'accueil physique dans les services publics</p>
+<p align="center"><u><a href="https://www.assemblee-nationale.fr/dyn/16/textes/l16b1063_proposition-loi#">Proposition</a></u></p>
+<p class="titre-dossiers"><strong>SMG 44</strong></p>
+<p align="center"><u><a href="https://lnk.pmlte-etae-1.ovh/Q9EX553h6pjrT7tef5wRzCNPA/099100097049050053053048064099111111114100105110097116105111110045100101102101110115101045115097110116101046111114103/m405f2600595/versionWeb.html">Communiqué</a></u></p>
+<p class="titre-dossiers"><strong>AME</strong></p>
+<p style="margin-bottom:0" align="center">L’AME n’est pas un instrument de politique migratoire</p>
+<p style="margin-top:0" align="center"><a href="https://www.fncs.org/l-ame-n-est-pas-un-instrument-de-politique-migratoire">Communiqué de la Fédération Nationale des Centres de Santé</a></p>
+<p class="titre-dossiers"><strong>APPEL DES APPELS</strong></p>
+<p align="center"><a href="http://www.appeldesappels.org/tam-tam/respublica-dans-quelle-crise-sommes-nous-r-n-15-2285.htm"><u>Article de </u><u>R. </u><u>Gori</u></a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Les superlatifs ne suffisent plus à décrire la dégradation de l’accès aux soins, à l’hôpital, en ville …</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 27</li>
+<li>Dates: du 03 juillet au 09 juillet 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Infos-semaine-27-du-3-au-9-juillet-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Les superlatifs ne suffisent plus à décrire la dégradation de l’accès aux soins, à l’hôpital, en ville …</p>
+<p>Devant la défaillance des services d’urgence, la population, les élus, les soignants se mobilisent, comme à Laval ce samedi ou à Périgueux mardi prochain.</p>
+<p>La régulation par les centres 15 ne règle rien : l’embouteillage des urgences n’est pas du aux personnes pouvant être prises en charge ailleurs, mais bien à celles qui doivent être hospitalisées et stagnent sur des brancards, faute de lits dans les services d’aval. Repousser leur admission à l’hôpital de quelques heures ou jours en compliquant le circuit, c’est prendre le risque d’aggraver leur cas, c’est une angoisse supplémentaire pour elles et leurs familles. Il faut rouvrir des lits !</p>
+<p>Mais le personnel manque, les médecins continuent à quitter l’hôpital public !</p>
+<p>C’est un véritable appel au secours que la grève des médecins hospitaliers du début de semaine : dans le désordre, avec selon les syndicats un appel à la grève le 3 ou le 4, mais une grève très majoritairement suivie. La réaction ministérielle n’a fait que confirmer ce qui avait été la cause de la rupture des négociations comme témoigne le SNPHAR-E « Le cabinet du ministre nous a informé qu'il n'y a aucun moyen supplémentaire »</p>
+<p>Il y a urgence à rapprocher les conditions de revenus des médecins hospitaliers de ceux des établissements privés, à rapprocher aussi les conditions de travail, mieux partager la pénibilité, et le laisser-faire du gouvernement au détriment du service public témoigne de sa volonté de favoriser le secteur privé tout en accroissant les restes à charge pour la population.</p>
+<p>Si le cabinet du ministre, sous contrôle de Bercy, du ministère des finances, ne sait où trouver des moyens supplémentaires, majoritairement les citoyen.ne.s savent où trouver cet argent, par exemple en supprimant les milliards d’exonérations de cotisation des grandes entreprises : ils veulent une autre répartition des fruits de leur travail ! Le projet de loi de financement 2024 de la Sécurité Sociale devra en tenir compte pour donner aux hôpitaux les moyens de leur fonctionnement, de quoi mieux payer leurs personnels, pour créer aussi les conditions d’un vrai service public de soins de proximité. Et il devra changer d’orientation et mieux rembourser les soins en allant vers une prise en charge à 100 % par la Sécurité Sociale, plutôt que de désengager celle-ci au profit des complémentaires, inégalitaires. C’est le sens d’une grande campagne décidée à Lure pour que le PLFSS 2024 réponde aux besoins de la population et dans laquelle notre Coordination prendra toute sa place.</p>
+<p align="right"><e>Michèle Leflon</e></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BERGERAC – SARLAT – PÉRIGUEUX - 24</strong></p>
+<p style="margin-bottom:0;" align="center"><strong>Manifestation mardi 11 juillet</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Les Comité de défense Du service public de santé du Bergeracois, Comité de défense de l’hôpital public et de la maternité de Sarlat, des associations, des organisations syndicales, les retraités CGT, des élus locaux appellent à manifester le mardi 11 juillet à 15h à Périgueux devant le palais de justice puis à manifester jusqu’à la préfecture pour défendre notre système public de santé et un accès aux soins pour tous.</p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/tract-Perigueux.pdf">Le tract d'appel</a></p>
+<p style="margin-top:0" align="center"><a href="https://coordination-defense-sante.org/2023/07/bergerac-sarlat-perigueux-appel-a-manifestation-le-11-juillet/">Plus d'informations avec la motion pour les élus</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MONTARGIS - 45</strong></p>
+<p style="margin-bottom:0" align="center"><strong>Soutien à la mobilisation contre la privatisation de l’EHPAD public de Dordives</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Le " Collectif montargois notre hôpital, notre santé on y tient " est aux côtés des personnels et des familles de l'Ehpad public de Dordives pour dénoncer sa privatisation, décidée dans le plus grand secret par le Conseil départemental du Loiret et le maire de Dordives.</p>
+<p style="margin-top:0" align="center"><a href="https://coordination-defense-sante.org/2023/07/montargis-soutien-de-lehpad-public-de-dordives/">L’article</a></p>
+<p style="margin-bottom:0" align="center"><strong>Le collectif de soutien du centre hospitalier de l’agglomération montargoise sera présent au village des associations, des cultures et cuisines du monde de Chalette le 14 juillet.</strong></p>
+<p style="margin-top:0;" align="justify">Le collectif sera installé sous la halle. Il proposera un espace ludique sur les luttes en santé. L'objectif : informer des actions menées pour dénoncer le manque d'accès aux soins et faire connaître nos propositions alternatives.</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Image1.jpeg" alt="" /></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DOLE - 39</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/07/dole-le-flash-info-n81/">Info flash 81</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>BESANÇON - 25</strong></p>
+<p style="margin-bottom:0" align="center"><strong>Le CoDeS 25 dénonce le démantèlement de la Sécurité Sociale</strong></p>
+<p style="margin-top:0" align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Communique-de-presse-300623-CoDeS-25.pdf">Le communiqué</a></p>
+<p style="margin-bottom:0" align="center"><strong>Et il prépare une étape du tour de France de la Santé pour le 16 septembre</strong></p>
+<p style="margin-top:0" align="center"><a href="https://coordination-defense-sante.org/2023/07/besancon-le-codes-25-denonce-le-demantelement-de-la-securite-sociale/">L'article</a></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/07/16-septembre-Codes25.jpg" alt="" /></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LAVAL - 53</strong></p>
+<p style="margin-bottom:0" align="center"><strong>L'appel à l'aide des députés</strong></p>
+<p style="margin-top:0" align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/crise-aux-urgences-en-mayenne-les-deputes-lancent-un-appel-a-l-aide-au-ministre-de-la-sante-2616301">L'article de Ici du 6 juillet</a></p>
+<p align="center"><strong>Manifestation du 8 juillet</strong></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Image4.jpeg" alt="" /></p>
+<p style="margin-bottom:0" align="justify">Environ 350 personnes devant l'hôpital de Laval pour protester contre la fermeture des urgences la nuit en Mayenne. Une délégation a été reçue à la préfecture.</p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/200-manifestants-dans-les-rues-de-laval-pour-denoncer-la-fermeture-de-nuit-des-urgences-en-mayenne-5383800">L'article de France bleu du 8 juillet</a></p>
+<p style="margin-top:0" align="center"><a href="https://www.ouest-france.fr/pays-de-la-loire/laval-53000/laval-des-centaines-de-manifestants-contre-la-fermeture-des-urgences-6e934ccc-1d8c-11ee-a01b-166bff887be0">L'article d'Ouest France du 8 juillet</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>VENDOME - 41</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="center"><strong>Poursuite de l’activité de la maternité</strong></p>
+<p style="margin-top:0; margin-top:0" align="center"><a href="https://www.centre-val-de-loire.ars.sante.fr/poursuite-de-lactivite-de-la-maternite-de-vendome-lars-pilote-la-derniere-phase-du-projet">Le communiqué de l’ARS</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>AGEN - 47</strong></p>
+<p style="margin-bottom:0;" align="center"><strong>Grève aux urgences psychiatriques d'Agen</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="center">ou comment la régulation des urgences impacte aussi la psychiatrie</p>
+<p style="margin-top:0" align="center"><a href="https://www.sudouest.fr/sante/hopital/le-systeme-ne-tient-plus-a-la-candelie-la-greve-se-poursuit-15808835.php">L'article de Sud Ouest du 4 juillet</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p style="margin-bottom:0;" align="center"><strong>L'USP analyse l'arrêté du 30 mars 2023 relatif aux dotations relatives à la file active et à la qualité des codages… dans le champ des activités de psychiatrie</strong></p>
+<p style="margin-top:0" align="center"><a href="https://www.uspsy.fr/?p=26998">Le communiqué du 3 juillet</a></p>
+<p class="titre-dossiers"><strong>MORTALITÉ INFANTILE</strong></p>
+<p style="margin-bottom:0;" align="center"><strong>L’urgence d’agir</strong></p>
+<p style="margin-top:0" align="center"><a href="http://www.reseau-environnement-sante.fr/cp-mortalite-infantile-prematurite/">Le communiqué du Réseau Environnement Santé</a></p>
+<p class="titre-dossiers"><strong>PÉRIODE ESTIVALE</strong></p>
+<p style="margin-bottom:0;" align="center"><strong>Les ARS gèrent la pénurie !</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://www.bretagne.ars.sante.fr/preparation-de-la-periode-estivale-un-plan-dactions-en-5-mesures">Communiqué de l'ARS Bretagne</a></p>
+<p style="margin-top:0" align="center"><a href="https://www.centre-val-de-loire.ars.sante.fr/anticipation-de-la-periode-estivale-pour-les-urgences-et-soins-non-programmes-lars-et-ses-0">CommunIqué de l'ARS Centre Val de Loire</a></p>
+<p style="margin-bottom:0;" align="center"><strong>SOS médecins suspend ses collaborations avec le SAS</strong></p>
+<p style="margin-top:0" align="center"><a href="https://sosmedecins-france.fr/content/uploads/2023/06/CP-SOS-MEDECINS-SAS-1er-juillet-2.pdf">Le communiqué du 30 juin</a></p>
+<p style="margin-bottom:0;" align="center"><strong>Grève des assistants de régulation médicale</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="center">Le développement de la régulation systématique des urgences met en difficulté les assistants de régulation médicale et de plus en plus de centre 15 se mettent en grève</p>
+<p style="margin-top:0" align="center"><a href="https://www.midilibre.fr/2023/07/03/greve-du-samu-decouvrez-quels-sont-les-departements-concernes-par-la-greve-illimitee-des-arm-11312296.php">L'article de Midi Libre du 3 juillet</a></p>
+<p class="titre-dossiers"><strong>GRÈVE DES MÉDECINS HOSPITALIERS</strong></p>
+<p style="margin-bottom:0" align="center">Des reportages</p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://www.francetvinfo.fr/sante/hopital/crise/reportage-des-services-entiers-sont-fermes-les-soignants-denoncent-une-situation-a-l-hopital-pire-que-l-an-dernier_5926334.html">Reportage de France Info du 3 juillet</a></p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://www.francebleu.fr/infos/societe/hopitaux-les-medecins-urgentistes-rochelais-en-greve-lundi-operation-zero-brancards-dans-les-couloirs-8643369">A La Rochelle, opération zéro brancard</a></p>
+<p style="margin-top:0" align="center"><a href="https://www.dna.fr/sante/2023/07/03/hopital-public-les-medecins-appeles-a-faire-greve-en-ce-debut-de-semaine">L'article des Denières Nouvelles d'Alsace du 3 juillet</a></p>
+<p style="margin-bottom:0" align="center"><strong>Des communiqués de presse</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://www.snphare.fr/assets/media/communiquee-greeve-des-ph.pdf">Le communiqué de presse de la conférence nationale des présidents de CME</a></p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://mailchi.mp/avenir-hospitalier.fr/grve-des-praticiens-hospitaliers-du-lundi-3-juillet-un-norme-succs-et-aprs?e=59a6dc9618">Bilan de la grève par l'APH</a></p>
+<p style="margin-bottom:0; margin-top:0" align="center">"le ministère des finances vous offre deux cafés pour tenir pendant votre prochaine garde"</p>
+<p style="margin-top:0" align="center"><a href="https://aph-france.fr/Le-lundi-3-juillet-2023-jour-de-greve-des.html">Le communiqué de l'APH du 5 juillet</a></p>
+<p class="titre-dossiers"><strong>EHPAD</strong></p>
+<p style="margin-bottom:0" align="center">Que cherche finalement le gouvernement? La mort des EHPAD publics, avant celle des D3S ?</p>
+<p style="margin-top:0" align="center"><strong><a href="https://www.chfo.org/2023/06/30/la-mort-des-ehpad-avant-celle-des-d3s/">Le communiqué des cadres hospitaliers FO</a></strong></p>
+<p class="titre-dossiers"><strong>LABORATOIRES PHARMACEUTIQUES</strong></p>
+<p style="margin-bottom:0" align="center"><strong>Interview d'Hélène Frachon revenant sur l'affaire du Médiator</strong></p>
+<p style="margin-top:0" align="center"><a href="https://www.radiofrance.fr/franceculture/podcasts/la-science-cqfd/grand-entretien-avec-irene-frachon-1445205">L'émission de France Culture du 7 juillet</a></p>
+<p style="margin-bottom:0" align="center"><strong>36 propositions pour lutter contre la pénurie de médicaments</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Un rapport sénatorial vient de faire 36 propositions pour lutter contre la pénurie de médicaments. On y trouve par exemple la nécessité de renforcer les capacités d’intervention publiques, en mettant fin au démantèlement des capacités de production de l’établissement pharmaceutique de l’AP-HP</p>
+<p style="margin-bottom:0; margin-top:0" align="center"><a href="https://www.senat.fr/travaux-parlementaires/structures-temporaires/commissions-denquete/2022-2023-ce-penurie-de-medicaments.html">Les documents sur le site du Sénat</a></p>
+<p style="margin-top:0" align="center"><a href="https://senateurscrce.fr/activite-des-senateurs/article/36-propositions-pour-lutter-contre-la-penurie-de-medicaments">La présentation de Laurence Cohen, rapporteure de la commission d'enquête</a></p>
+<p class="titre-dossiers"><strong>DOCUMENTATION</strong></p>
+<p style="margin-bottom:0" align="center"><strong>Le numéro 45 des cahiers de santé publique et de protection sociale est en ligne</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="justify">Il comporte tout un dossier sur la question du suicide assisté, de l'euthanasie et des soins palliatifs, mais aussi un article sur le service public territorial de santé, un sur la loi RIST, un sur les maternités et un sur la financiarisation des soins.</p>
+<p style="margin-top:0" align="center"><a href="https://cahiersdesante.fr/?utm_source=brevo&amp;utm_campaign=Nouvel%20diteur%20Les%20Cahiers%20de%20sant%20N45%20sont%20en%20ligne&amp;utm_medium=email">Le numéro 45</a></p>
+<p class="titre-dossiers"><strong>SOINS PALLIATIFS</strong></p>
+<p style="margin-bottom:0" align="center"><strong>Rapport de la Cour des Comptes</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="justify">À la demande de l’Assemblée nationale, dans le contexte du débat public sur la fin de vie, la Cour des Comptes vient de publier un rapport sur les conditions d’accès aux soins palliatifs. Sans étonnement on y lit la description des inégalités territoriales avec 22 départements sans aucune Unité de Soins palliatifs. Fidèle aux principes de la Cour des Comptes, le rapport, au delà de quelques recommandations de bon sens, cherche les pistes pour moins dépenser, parmi lesquelles former les personnels existants. La réponse de l’AD-PA est cinglante : il faut déjà avoir assez de personnels ! </p>
+<p style="margin-bottom:0; margin-top:0" align="center"><strong><a href="https://www.ccomptes.fr/system/files/2023-07/20230705-soins-palliatifs.pdf">Le rapport </a></strong></p>
+<p style="margin-top:0" align="center"><strong><a href="https://ad-pa.fr/communique-2023-07-06-soins-palliatifs-preconisation-de-la-cour-des-comptes">La réaction de l'AD-PA</a></strong> (Association des Directeurs au service des Personnes Agées)</p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><u><a href="https://youtu.be/lIaiEhvJNOY">En Marche ! - Les Goguettes (en trio mais à quatre)</a></u></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

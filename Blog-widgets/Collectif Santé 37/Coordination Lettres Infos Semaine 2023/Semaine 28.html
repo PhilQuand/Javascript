@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Le 10 juillet dernier l’ARS Auvergne – Rhône – Alpes mettait sur son site un communiqué de presse titré : « <strong>ACCÈS AUX SOINS : Les urgences, c’est pas une évidence ! » </strong>et accessible à partir de ce lien</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 28</li>
+<li>Dates: du 10 juillet au 16 juillet 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Infos-semaine-28-du-10-au-16-juillet-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Le 10 juillet dernier l’ARS Auvergne – Rhône – Alpes mettait sur son site un communiqué de presse titré : « <strong>ACCÈS AUX SOINS : Les urgences, c’est pas une évidence ! » </strong>et accessible à partir de ce lien</p>
+<p><a href="https://www.auvergne-rhone-alpes.ars.sante.fr/media/111688/download?inline">https://www.auvergne-rhone-alpes.ars.sante.fr/media/111688/download?inline</a></p>
+<p><strong>Malheureusement si, pour nous c’est une évidence.</strong></p>
+<p>Les innombrables recommandations qui multiplient les tours et les détours dans l’accès aux services d’accueil des Urgences sont la preuve manifeste que ces services ne sont plus en mesure de répondre aux besoins de la population.</p>
+<p>Ils sont la preuve que ceux qui sont responsables de leur existence ont fait le choix de ne plus allouer les moyens humains et financiers nécessaires à ceux qui sont en charge de leur fonctionnement.</p>
+<p>Cette déliquescence du service public hospitalier ne se limite pas aux Urgences.</p>
+<p>Dans un article du 12 juillet 2023 réservé aux abonnés on peut lire : « <em>A Moulins, Strasbourg ou Lyon, faute de praticiens ou d’infirmiers, il faut déprogrammer des opérations ou retarder des chimiothérapies. Chez les médecins, qui racontent une dégradation à bas bruit de l’offre de soins, l’inquiétude monte.</em> »</p>
+<p>Le problème n’est pas nouveau. Le 3 août 2022 François Braun, ministre de la Santé et de la prévention, en déplacement au CHU de Nantes, déclarait déjà :</p>
+<p>« <em>Il n’y a pas de fermetures d’urgences. Je crois qu’il faut arrêter avec ce terme, qui est tout le temps utilisé, qui fait peur. Il n’y a pas de fermetures, il y a un accès régulé […] vers les services d’urgences, <strong>dans les</strong><strong>endroits où il n’y a plus les moyens pour faire tourner les services sans cette régulation</strong>.</em> »</p>
+<p align="right"><e>Roland Vachon</e></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #8EAADB"><strong>BEAUJON - BICHAT</strong></p>
+<p align="justify">Le préfet de Seine – Saint-Denis, le directeur de l’ARS Ile-de-France, la direction de l’APHP, le ministère de la santé continueront-ils de défendre un projet qui vise à « réduire l’offre de soins existant sur le territoire concerné alors qu’elle est déjà inférieure à la moyenne nationale, que 90 % de la population a exprimé son opposition » et que le Tribunal Administratif de Montreuil vient de donner raison aux particuliers et associations qui dénonçaient les manquements à la procédure et contestaient son utilité publique.</p>
+<p class="disregard" align="justify">Le dossier était porté par le syndicat Sud Santé Solidaires des personnels de l’Assistance Publique-Hôpitaux de Paris, l’association Collectif Inter-Hôpitaux, l’association Collectif Inter-Urgences, Mme Maria-Luigia Citrini, Mme Anne Gervais, M. Christian Mesnier, M. Olivier Milleron, Mme Paulette Morin, M. Pierre Schwob,</p>
+<p align="justify">Pour accéder au jugement et au communiqué : <a href="https://coordination-defense-sante.org/2023/07/hopital-nord-aphp-decision-du-ta-et-communique/">Le lien</a></p>
+<p style="background-color: #E37B22"><strong>SARLAT -BERGERAC - PERIGUEUX</strong></p>
+<p align="justify">Ils ont défilé pour défendre les hôpitaux de Dordogne</p>
+<p align="center"><a href="https://www.sudouest.fr/sante/hopital/social-ils-ont-defile-pour-defendre-les-hopitaux-de-dordogne-15898406.php"><strong>L’article</strong></a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #66FECC"><strong> MEULAN-EN-YVELINES</strong></p>
+<p align="justify">Faute de personnel suffisant durant la période des congés d’été, les trois hôpitaux du nord des Yvelines situés à Meulan-Les Mureaux, Poissy-Saint-Germain-en-Laye et Mantes-la-Jolie sont contraints de revoir leur organisation pour les mois de juillet et août 2023.</p>
+<p align="center"><a href="https://actu.fr/ile-de-france/meulan-en-yvelines_78401/les-urgences-de-l-hopital-de-meulan-en-yvelines-resteront-fermees-la-nuit-cet-ete_59803513.html"><strong>L’article</strong></a></p>
+<p style="background-color: #66FECC"><strong>PONTIVY</strong></p>
+<p align="justify">Dans un article du 14 juillet 2023 réservé aux abonnés on peut lire :</p>
+<p style="margin-bottom:0" align="justify">« Les fermetures saisonnières de lits dans certains services et les Ehpad, la déprogrammation d’interventions chirurgicales puis la régulation de l’accès aux urgences en soirée ne suffisent plus. Il y a un problème aigu en maternité avec un risque de fermeture entre le 7 et le 20 août », prévient Olivier Le Roux, le secrétaire du syndicat CGT du Groupe hospitalier de Centre-Bretagne.</p>
+<p style="margin-top:0" align="justify">En cause encore et toujours les effectifs de médecins et d’infirmières insuffisants.</p>
+<p style="background-color: #66FECC"><strong>ANCENIS</strong></p>
+<p align="justify">La CGT annonce une manifestation à la rentrée pour s’opposer à la fermeture redoutée du bloc obstétrical de la maternité du centre hospitalier Erdre et Loire, qui signifierait le transfert des femmes enceintes vers d’autres établissements au moment de leurs accouchements.</p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/ancenis-la-maternite-risque-de-fermer-sa-salle-d-accouchement-faute-de-personnel-2254258"><strong>L’article</strong></a></p>
+<p style="background-color: #66FECC"><strong>DAX</strong></p>
+<p align="justify">Services d’urgences fermés, accueil « régulé » sur des plages horaires de plus en plus larges du fait du sous-effectif.</p>
+<p align="center"><a href="https://www.sudouest.fr/sante/urgences-de-l-hopital-de-dax-un-acces-encore-plus-restreint-pour-cet-ete-15840783.php?fbclid=IwAR1PJl3JrsW2XeQyni4FDBhReRGIBpgSt2oS9sakuU0JVUSTftgzvX7F2YQ"><strong>L’article</strong></a></p>
+<p style="background-color: #66FECC"><strong>VEINISSIEUX</strong></p>
+<p align="justify">L’Union mutualiste de gestion des établissements du Grand Lyon (UMGEGL), une structure privée qui réunit l’hôpital Les Portes du Sud et la maison de retraite médicalisée La Solidage, a annoncé demander à être placée en redressement judiciaire.</p>
+<p align="justify">Les maires souhaitent être reçus par l’UMGEGL afin d’échanger sur la situation des établissements de santé et « sur la stratégie de la Mutualiste qui laisse à penser à une reprise déguisée ».</p>
+<p align="justify">De son côté l’ARS se déclare « soucieuse du maintien des activités de soins essentielles pour répondre aux besoins des habitants, sur un territoire fragile »</p>
+<p align="justify">NDLR : Là aussi le privé prospère avec l’aide de l’ARS sur les carences du service public hospitalier.</p>
+<p align="center"><a href="https://www.expressions-venissieux.fr/2023-07-12-portes-du-sud-les-maires-recus-par-lagence-regionale-de-sante/"><strong>L’article</strong></a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>CNAM – Rapport Charges et Produits 2024</strong></p>
+<p style="margin-bottom:0" align="justify">« La situation dans laquelle se trouve notre système de santé appelle à bien des égards à ce que des réponses rapides soient initiées et mises en œuvre. Les défis que rencontre notre système de santé s’inscrivent pour autant dans la durée.</p>
+<p style="margin-top:0" align="justify">Inscrire ces réflexions dans une perspective de moyen et long terme et porter l’idée de mener des actions de manière durable est un enjeu capital pour toute politique de gestion du risque. L’ambition du rapport de propositions de l’Assurance Maladie est d’aider notre système de santé et les acteurs qui le font vivre à concilier ces deux échelles de temps de manière efficace et pragmatique, au bénéfice du plus grand nombre. »</p>
+<p style="margin-bottom:0" align="justify">Ou Comment passer de ce qui a eu lieu à ce qui va se produire ?</p>
+<p style="margin-top:0" align="justify">Mais de quel risque parle parle-t-on ? Du risque en santé ou du risque financier ?</p>
+<p align="center"><a href="https://assurance-maladie.ameli.fr/sites/default/files/2023-07_synthese-rapport-propositions-pour-2024_assurance-maladie.pdf"><strong>La synthèse du rapport</strong></a></p>
+<p align="center"><a href="https://assurance-maladie.ameli.fr/sites/default/files/2023-07_rapport-propositions-pour-2024_assurance-maladie.pdf"><strong>Le rapport</strong></a></p>
+<p style="margin-top:0" align="center"><strong>Rapport Charges et Produits 2024</strong></p>
+<p style="margin-bottom:0" align="center">Extrait du rapport mentionné ci-dessus</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/07/Image3.png" alt="inconnu.jpg" /></p>
+<p align="justify">Le constat :</p>
+<p align="justify">Les effectifs des professions qui relèvent du numérus clausus continuent de baisser.</p>
+<p align="justify">Dans le secteur privé les effectifs des infirmières et des masseurs-kinésithérapeutes ont quasiment doublé, avec des taux de progression de 98 et 88% sur un an.</p>
+<p align="justify">Pour les sages-femmes ils ont même quadruplé avec un taux de progression supérieur à 300 %.</p>
+<p align="justify">Ces progressions sont le résultat des transferts du public vers le privé, de l’ordre de 49 000 pour ls infirmières, de 36000 pour les kinés et de 6 000 pour les sages-femmes. En s’appuyant sur l’impact de la politique nationale de santé, chacun pourra mesurer là l’intérêt que portent nos gouvernants à l’hôpital public.</p>
+<p class="titre-dossiers"><strong>Et en même temps</strong></p>
+<p align="justify">Signature de l'avenant 7 entre la Caisse Nationale de l'Assurance Maladie et la profession de sage-femme reconnaissant le rôle des sages-femmes en matière de santé publique et de réévaluant significativement les revenus des sages-femmes libérales.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/07/sages-femmes-signature-de-lavenant-n7-juillet-2023/"><strong>Le communiqué de l’ONSSF</strong></a></p>
+<p class="titre-dossiers"><strong>4e année d’internat de médecine générale</strong></p>
+<p align="justify">Les internes en médecine générale, jusqu’à présent formés en trois ans, devront à l’avenir effectuer une année supplémentaire en cabinet médical.</p>
+<p align="justify">Deux objectifs présentés par le Ministre : « renforcer la formation » et « répondre aux besoins de santé croissants de la population, en particulier dans les territoires plus isolés et moins dotés en matière de ressource médicale. »</p>
+<p align="justify">Pour simplifier les IMG vont être appelés en renfort dans les déserts médicaux, là où justement leurs collègues seniors sont défaillants et où la proportion des maîtres de stage universitaire chargés de les former est la plus faible.</p>
+<p align="center"><a href="https://www.20minutes.fr/societe/4041009-20230613-etudes-medecine-quoi-va-ressembler-4e-annee-internat-medecine-generale"><strong>Le descriptif</strong></a></p>
+<p style="margin-bottom:0" align="justify">En réaction, la Fédération Nationale des Centres de Santé s’interroge :</p>
+<p style="margin-top:0" align="justify">« Quelle mouche a piqué les auteurs du rapport sur la 4ème année de médecine générale en préconisant une formation en exercice libéral exclusif à temps plein pour la réalisation de la 4ème année d'internat de médecine générale, avec une rémunération à l'acte de ces médecins juniors. »</p>
+<p align="center"><a href="https://www.fncs.org/4eme-annee-de-medecine-generale-qui-a-peur-du-medecin-salarie"><strong>Le communiqué</strong></a></p>
+<p class="titre-dossiers"><strong>Maternités</strong></p>
+<p align="justify">Au moins 10 % des maternités en « fermeture partielle » selon un syndicat de sages-femmes</p>
+<p align="center"><a href="https://www.lemonde.fr/societe/article/2022/07/01/au-moins-10-des-maternites-en-fermeture-partielle-selon-un-syndicat-de-sages-femmes_6132931_3224.html"><strong>L’article</strong></a></p>
+<p class="titre-dossiers"><strong>Santé : Une financiarisation rampante</strong></p>
+<p align="justify">Comme pour les médicaments et les vaccins, le phénomène de concentration d’activités de santé conduit par de grands groupes financiers protégés par le secret des affaires augmente progressivement notre dépendance.</p>
+<p align="justify">La loi prévoit des garde-fous mais les investisseurs financiers ont su trouver des astuces pour les contourner et l’ordonnance de février 2022 sur les professions libérales réglementées n’a toujours pas fait l’objet de décret d’application.</p>
+<p align="center"><a href="https://actu.orange.fr/economie/l-emprise-croissante-des-fonds-d-investissement-inquiete-le-monde-de-la-sante-CNT0000025ubnJ.amp"><strong>L’article</strong></a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><a href="https://www.youtube.com/watch?v=_aXA1jRXWnk"><strong>https://www.youtube.com/watch?v=_aXA1jRXWnk</strong></a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -1,87 +1,91 @@
     var archi = [
               {
-          svgInfos: ['Semaine 30', 'du 24 july', 'au 31 july', '2023'],
-          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 30.html',
+          svgInfos: ['Semaine 31', 'du 31 juil.', 'au 08 août', '2023'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 31.html',
         }, 
               {
-          svgInfos: ['Semaine 29', 'du 18 july', 'au 23 july', '2023'],
-          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 29.html',
+          svgInfos: ['Semaine 30', 'du 24 juil.', 'au 31 juil.', '2023'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 30.html',
           idGlinkID: 'PreviousLetters'
         }, 
               {
-          svgInfos: ['Semaine 28', 'du 10 july', 'au 17 july', '2023'],
+          svgInfos: ['Semaine 29', 'du 18 juil.', 'au 23 juil.', '2023'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 29.html',
+        }, 
+              {
+          svgInfos: ['Semaine 28', 'du 10 juil.', 'au 17 juil.', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 28.html',
         }, 
               {
-          svgInfos: ['Semaine 27', 'du 03 july', 'au 09 july', '2023'],
+          svgInfos: ['Semaine 27', 'du 03 juil.', 'au 09 juil.', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 27.html',
         }, 
               {
-          svgInfos: ['Semaine 26', 'du 26 june', 'au 03 july', '2023'],
+          svgInfos: ['Semaine 26', 'du 26 juin', 'au 03 juil.', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 26.html',
         }, 
               {
-          svgInfos: ['Semaine 25', 'du 20 june', 'au 25 june', '2023'],
+          svgInfos: ['Semaine 25', 'du 20 juin', 'au 25 juin', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 25.html',
         }, 
               {
-          svgInfos: ['Semaine 24', 'du 12 june', 'au 18 june', '2023'],
+          svgInfos: ['Semaine 24', 'du 12 juin', 'au 18 juin', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 24.html',
         }, 
               {
-          svgInfos: ['Semaine 23', 'du 05 june', 'au 11 june', '2023'],
+          svgInfos: ['Semaine 23', 'du 05 juin', 'au 11 juin', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 23.html',
         }, 
               {
-          svgInfos: ['Semaine 22', 'du 28 may', 'au 04 june', '2023'],
+          svgInfos: ['Semaine 22', 'du 28 mai', 'au 04 juin', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 22.html',
         }, 
               {
-          svgInfos: ['Semaine 21', 'du 22 may', 'au 28 may', '2023'],
+          svgInfos: ['Semaine 21', 'du 22 mai', 'au 28 mai', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 21.html',
         }, 
               {
-          svgInfos: ['Semaine 20', 'du 15 may', 'au 21 may', '2023'],
+          svgInfos: ['Semaine 20', 'du 15 mai', 'au 21 mai', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 20.html',
         }, 
               {
-          svgInfos: ['Semaine 19', 'du 08 may', 'au 14 may', '2023'],
+          svgInfos: ['Semaine 19', 'du 08 mai', 'au 14 mai', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 19.html',
         }, 
               {
-          svgInfos: ['Semaine 18', 'du 01 may', 'au 08 may', '2023'],
+          svgInfos: ['Semaine 18', 'du 01 mai', 'au 08 mai', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 18.html',
         }, 
               {
-          svgInfos: ['Semaine 17', 'du 24 apr.', 'au 30 apr.', '2023'],
+          svgInfos: ['Semaine 17', 'du 24 avr.', 'au 30 avr.', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 17.html',
         }, 
               {
-          svgInfos: ['Semaine 16', 'du 17 apr.', 'au 23 apr.', '2023'],
+          svgInfos: ['Semaine 16', 'du 17 avr.', 'au 23 avr.', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 16.html',
         }, 
               {
-          svgInfos: ['Semaine 15', 'du 10 apr.', 'au 16 apr.', '2023'],
+          svgInfos: ['Semaine 15', 'du 10 avr.', 'au 16 avr.', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 15.html',
         }, 
               {
-          svgInfos: ['Semaine 14', 'du 03 mar.', 'au 09 apr.', '2023'],
+          svgInfos: ['Semaine 14', 'du 03 mars', 'au 09 avr.', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 14.html',
         }, 
               {
-          svgInfos: ['Semaine 13', 'du 27 mar.', 'au 02 apr.', '2023'],
+          svgInfos: ['Semaine 13', 'du 27 mars', 'au 02 apr.', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 13.html',
         }, 
               {
-          svgInfos: ['Semaine 12', 'du 20 mar.', 'au 26 mar.', '2023'],
+          svgInfos: ['Semaine 12', 'du 20 mars', 'au 26 mars', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 12.html',
         }, 
               {
-          svgInfos: ['Semaine 11', 'du 13 mar.', 'au 19 mar.', '2023'],
+          svgInfos: ['Semaine 11', 'du 13 mars', 'au 19 mars', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 11.html',
         }, 
               {
-          svgInfos: ['Semaine 10', 'du 06 mar.', 'au 12 mar.', '2023'],
+          svgInfos: ['Semaine 10', 'du 06 mars', 'au 12 mars', '2023'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 10.html',
         }, 
               {

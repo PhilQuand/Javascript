@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+Retour de vacances, rencontre d’un ami au marché : ça va ? Mieux, car j’ai été hospitalisé le mois dernier pour une pancréatite : trois jours sur un brancard aux urgences, pas dormi, j’ai souffert. Mais pourquoi ? Pas de place dans le service de médecine. Et maintenant ? J’ai du aller en privé avec dépassement d’honoraires pour faire l’échographie de contrôle prévue un mois après, pas moyen de l’avoir avant septembre au CHU ! Et moi je vais bien, mais un copain qui a du être opéré d’une hernie discale compliquée attend toujours au bout de trois semaines d’hospitalisation une place en rééducation pour avoir la kinésithérapie adaptée
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 31</li>
+<li>Dates: du 31 juillet au 06 août 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/Infos-semaine-30-du-31-juillet-au-6-aout-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p style="text-indent:5%">Retour de vacances, rencontre d’un ami au marché : ça va ? Mieux, car j’ai été hospitalisé le mois dernier pour une pancréatite : trois jours sur un brancard aux urgences, pas dormi, j’ai souffert. Mais pourquoi ? Pas de place dans le service de médecine. Et maintenant ? J’ai du aller en privé avec dépassement d’honoraires pour faire l’échographie de contrôle prévue un mois après, pas moyen de l’avoir avant septembre au CHU ! Et moi je vais bien, mais un copain qui a du être opéré d’une hernie discale compliquée attend toujours au bout de trois semaines d’hospitalisation une place en rééducation pour avoir la kinésithérapie adaptée….</p>
+<p style="text-indent:5%">Deux témoignages de la dégradation de l’accès aux soins à l’hôpital public avec tiers payant et sans dépassements d’honoraires.</p>
+<p style="text-indent:5%">Dans cette édition de notre bulletin, comme chaque semaine, nous vous ferons faire le tour de France des difficultés rencontrées tant pour l’accès à la médecine, à la chirurgie, à la maternité, aux urgences et même aux SMUR, pour les urgences vitales, sans compter les temps d’attente lors des appels aux centres 15 débordés. Mais aussi des comités, adhérents ou non à notre Coordination Nationale qui ne se résignent pas et se battent !</p>
+<p style="text-indent:5%">D’aucuns comme ce matin lors de la matinale de France Culture nous expliquent que c’est comme ça : il n’y a pas assez de médecins, de soignant.e.s à l’hôpital public. Mais ils oublient de dire pourquoi :</p>
+<p style="text-indent:5%">parce que les personnels hospitaliers – qui devraient assurer l’accès 24 heures sur 24, 7 jours sur 7, nuits, samedi, dimanche et jours fériés – sont en nombre insuffisant et moins rémunérés que ces mêmes personnes en exercice libéral, alors oui, la carrière hospitalière n’attire plus. Et en plus si l’homéopathie n’a plus grâce aux yeux de la Sécu qui ne la rembourse plus, ce gouvernement la pratique : 460 postes d’internes en plus cette année ( 9484 au lieu de 9024 en 2022 ) c’est bien, mais nettement insuffisant pour espérer combler le retard pris pour combler le déficit de médecins dû au numerus clausus pratiqué pendant des dizaines d’années. Il faut créer des postes de professeurs d’université, des locaux pour accueillir des milliers d’étudiant.e.s en plus, il faut augmenter substantiellement le budget de la Sécurité Sociale pour financer les salaires des personnels hospitaliers, arrêter les exonérations de cotisations de la Sécurité Sociale.</p>
+<p style="text-indent:5%">Sans ces décisions, les mesurettes proposées par les ministres de la Santé, quels qu’ils ou elles soient, ne pourront rendre l’attractivité, l’efficacité de l’hôpital public et endiguer sa dégradation et les vagues de démission.</p>
+
+
+<p align="right"><e>Jean-Luc Landas</e></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #CC0000"><strong>SARLAT</strong></p>
+<p align="center">le comité et la visite du ministre de la santé à l’hôpital le 29 juillet</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/les-membres-u-comite-de-Sarlat-attendent-le-ministre-de-la-sante.pdf">les-membres-du-comite-de-Sarlat-attendent-le-ministre-de-la-sante</a></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/23-08-01-ENTREVUE-LORS-DE-LA-VISITE-DU-MINISTRE.pdf"><strong>ENTREVUE-LORS-DE-LA-VISITE-DU-MINISTRE.</strong></a></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/communique-suite-a-la-visite-du-Ministre-de-la-Sante-2023-07-31-def.pdf"><strong>Communique-suite-a-la-visite-du-Ministre-de-la-Sante-2023-07-31-</strong></a></p>
+<p align="center"><strong><em>accès à la santé et lutte contre les déserts médicaux</em></strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/motion-du-Conseil-Departemental-de-la-Dordogne.doc"><strong>motion-du-Conseil-Departemental-de-la-Dordogne.</strong></a></p>
+<p style="background-color: #CC0000"><strong>BERGERAC</strong></p>
+<p align="center"><strong> visite du ministre de la santé en Dordogne :</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/07/lettre-ouverte-ministre-de-la-sante.pdf">la lettre ouverte du comité au ministre</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>AUTUN</strong></p>
+<p align="center"><strong>les élus s’élèvent contre la fermeture de la maternité d’Autun et le font savoir au directeur de l’ ARS</strong></p>
+<p align="center"><a href="https://www.lejdc.fr/autun-71400/actualites/fermeture-de-la-maternite-d-autun-virulente-passe-d-armes-entre-des-elus-du-morvan-et-l-agence-regionale-de-sante_14349150/"><strong>fermeture-de-la-maternite-d-autun-virulente-passe-d-armes-entre-des-elus-du-morvan-et-l-agence-regionale-de-sante</strong></a></p>
+<p style="background-color: #0228C9; color: #F7F7F7"><strong>BAGNÈRES DE BIGORRE</strong></p>
+<p align="center"><strong>les urgences fermées deux jours en août et menacées en septembre et octobre ?</strong></p>
+<p align="center"><strong>Le comité de défense s’alarme, la CGT appelle à la grève .</strong></p>
+<p align="center"><a href="https://www.nrpyrenees.fr/2023/08/01/bagneres-de-bigorre-appel-a-la-greve-a-lhopital-contre-la-fermeture-des-urgences-11373039.php"><strong>contre-la-fermeture-des-urgences-</strong></a></p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>LUÇON</strong></p>
+<p align="center"><strong>Vacances ou pas : toujours mobilisés chaque vendredi à 18h00 devant l’hôpital pour exiger un hôpital de plein exercice !</strong></p>
+<p style="background-color: #6728CC; color: #F7F7F7"><strong>MONTCEAU LES MINES</strong></p>
+<p align="center"><strong>UN NOUVEL HÔPITAL : L’ENFUMAGE TOUJOURS PAS LEVÉ</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/le">le</a><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/LENFUMAGE-NEST-PAS-ENCORE-LEVE.pdf"> communiqué du comité</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #FC0000"><strong>TOURS</strong></p>
+<p align="center"><strong>insuffisance de personnel pour assurer des soins de qualité :</strong></p>
+<p align="center"><a href="https://www.lanouvellerepublique.fr/indre-et-loire/tours-greve-reconduite-en-reanimation-pediatrique-a-l-hopital-clocheville"><strong>greve-reconduite-en-reanimation-pediatrique-a-l-hopital-clocheville</strong></a></p>
+<p style="background-color: #40E0D0"><strong>SAINTES</strong></p>
+<p align="center"><strong>la pédiatrie en souffrance :</strong></p>
+<p align="center"><strong>pas de naissance possible le 30 juillet</strong></p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/faute-de-pediatre-l-hopital-de-saintes-renvoie-bebes-et-futures-mamans-vers-d-autres-hopitaux-7886710"><strong>faute-de-pediatre-l-hopital-de-saintes-renvoie-bebes-et-futures-mamans-vers-d-autres-hopitaux-</strong></a></p>
+<p align="center"><strong>fermeture des urgences pédiatriques sauf urgences vitales jusqu’au 1<sup>er</sup> septembre</strong></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/nouvelle-aquitaine/charente-maritime/saintes/urgences-pediatriques-de-l-hopital-de-saintes-fermeture-jusqu-au-1-septembre-sauf-urgence-vitale-2821466.html?s=09"><strong>urgences-pediatriques-de-l-hopital-de-saintes-fermeture-jusqu-au-1-septembre-</strong></a></p>
+<p style="background-color: #3EFA99"><strong>VIRE</strong></p>
+<p align="center">La clinique, un commerce comme un autre ?</p>
+<p align="center"><strong>Durant 3 semaines les services d'hospitalisation et les urgences spécialisées seront fermés à la clinique, propriété du groupe Vivalto !</strong></p>
+<p align="center"><a href="https://actu.fr/societe/la-clinique-notre-dame-de-vire-normandie-ferme-pour-les-vacances_59919743.html">https://actu.fr/societe/la-clinique-notre-dame-de-vire-normandie-ferme-pour-les-vacances_59919743.html</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>URGENCES</strong></p>
+<p align="center"><strong>l’appel au 15 avant de venir aux urgences : l’enquête de l’ Humanité</strong></p>
+<p align="center"><a href="https://www.humanite.fr/social-et-economie/urgences-medicales/hopital-le-15-cache-misere-des-urgences-hospitalieres-804599?utm_campalign=NEWS%20EX%20ABO%20010823&amp;utm_medium=email&amp;utm_source=brevo">le-15-cache-misere-des-urgences-hospitalieres</a></p>
+<p align="center"><strong>l’insuffisance des services d’urgence : le dossier de Complément d’enquête</strong></p>
+<p align="center"><a href="https://www.francetvinfo.fr/replay-magazine/france-2/complement-d-enquete/complement-d-enquete-du-jeudi-1-juin-2023-quand-les-urgences-ne-repondent-plus_5821454.html"><strong>quand-les-urgences-ne-repondent-plus</strong></a></p>
+<p class="titre-dossiers"><strong>DÉSERTS MÉDICAUX</strong></p>
+<p align="center"><strong>une station balnéaire sans médecin et l’afflux de vacanciers</strong></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/normandie/manche/dans-ce-village-normand-la-population-est-multipliee-par-5-durant-l-ete-mais-doit-vivre-sans-medecin-2820164.html#at_medium=5&amp;at_campalign_group=1&amp;at_campalign=france3regions&amp;at_offre=4&amp;at_variant=Normandie&amp;at_send_date=20230802&amp;at_recipient_id=726375-1437732574-2a072072">-la-population-est-multipliee-par-5-durant-l-ete-mais-doit-vivre-sans-medecin-</a></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p align="center"><strong>la situation dramatique de l’accès aux soins psychiatriques en Sarthe</strong></p>
+<p align="center"><a href="https://blogs.mediapart.fr/adecouvelaere/blog/310723/la-psychiatrie-sarthoise-en-danger-la-degradation-dramatique-de-l-offre-de-soins">l'article</a></p>
+<p style="margin-bottom:0;" align="center"><strong>Sauver la pédopsychiatrie de secteur en Lozère :</strong></p>
+<p style="margin-bottom:0; margin-top:0" align="center"><strong>il faut maintenir la Ribambelle !</strong></p>
+<p style="margin-top:0" align="center"><a href="mailto:lesamisdelaribambelle@gmail.com">lesamisdelaribambelle@gmail.com</strong></a></p>
+<p align="center"><a href="https://www.change.org/p/sauver-la-p%C3%A9dopsychiatrie-de-secteur-en-loz%C3%A8re-maintenir-la-ribambelle-%C3%A0-florac?recruiter=1313298362&amp;recruited_by_id=4985f120-2d5c-11ee-a4df-9bf9e6ae0ce2&amp;utm_source=share_petition&amp;utm_campalign=share_petition&amp;utm_medium=whatsapp&amp;utm_content=washarecopy_36977718_fr-FR%3A4">la pétition</a></p>
+<p align="center"><strong>l’appel à témoignage du quotidien Le Monde</strong></p>
+<p align="center"><a href="https://www.lemonde.fr/societe/appel-temoignages/2023/08/02/appel-a-temoignages-vous-rencontrez-des-difficultes-a-maintenir-votre-suivi-psychiatrique-racontez-nous_6184236_3224.html">appel-a-temoignages-vous-rencontrez-des-difficultes-a-maintenir-votre-suivi-psychiatrique-racontez-nous</a></p>
+<p align="center"><strong>Témoignage : au village , des malades psychiatriques des villageois parmi les autres habitants</strong></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=QY-EGOvwrcs">la vidéo</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><strong>H6 l’hôpital du peuple</strong></p>
+<p align="center"><strong>réalisatrice : Ye Ye</strong></p>
+<p align="center"><strong>un documentaire pouvant être l’introduction à un débat sur la Sécu et l’accès aux soins , la relation soignant-soigné, les usines à soins …</strong></p>
+<p align="center">L’hôpital du Peuple n°6 est l’un des plus grands de Shanghai. Ici se côtoient personnel médical, patients et familles aux vies bouleversées. À travers des histoires croisées se dessine un portrait de la Chine d’aujourd’hui entre capitalisme et culture traditionnelle. Face aux aléas de la vie et à l’accès inégalitaire aux soins, la tendresse et le sens de l’humour chinois surgissent au moment où on les attend le moins.</p>
+<p align="center"><strong>"sauver la sécu pour sauver l'hôpital", conférence gesticulée d'Eric Daverat, ex cadre infirmier, sur l'état du système hospitalier public.</strong></p>
+<p align="center"><a href="https://m.youtube.com/watch?fbclid=IwAR1FdwLoEyk_WPAwtMDy_4wb7zjkjq4jRa_0oyrTFOGO0cG4HJ7oDl6Vb88_aem_AWmfUPWtyffSCe2p6vT6WTWEuKV7WH08PV_KPQTainPH8wctvc39HSg0oJSzr-hU1eQ&amp;v=10GHWePSCfQ&amp;feature=youtu.be">la vidéo</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

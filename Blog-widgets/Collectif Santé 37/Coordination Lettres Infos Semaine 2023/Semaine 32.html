@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>  
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Décidemment cette semaine, les services d'Urgences prennent cher.</p>
+<p>Saura-t-on un jour le bilan en perte de chances pour les patients et usagers ?</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 450px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 32</li>
+<li>Dates: du 07 juillet au 13 août 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/Infos-semaine-32-du-7-au-13-aout-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Décidemment cette semaine, les services d'Urgences prennent cher.</p>
+<p>Saura-t-on un jour le bilan en perte de chances pour les patients et usagers ?</p>
+<p>Cela prépare-t-il la mise en œuvre d'un décret transformant les services d'urgences en simple permanence de soins non programmés ...mais plus du tout 24h/24 et 7jours/7.</p>
+<p>Les services publics d'Urgences, comme toujours, représentent pour la majorité de la population le dernier recours.</p>
+<p>Les Services d'Urgences ne sont pas les seuls en danger : partout des services de spécialités, des maternités voient leur fonctionnement diminuer.</p>
+<p>Il nous faut préparer vite la mobilisation de la rentrée avec le tour de France et l'action de Convergences pour un budget de la Sécurité Sociale à la hauteur des besoins.</p>
+<p>Il faut mettre en accusation ce pouvoir méprisant envers la population.</p>
+
+<p align="right"><e>Joseph MAATOUK</e></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/05/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #F5E675"><strong>CARHAIX</strong></p>
+<p style="margin-bottom:0;" align="justify">Une enquête du comité de Carhaix « met en lumière » les dysfonctionnements des Urgences depuis la réorganisation.</p>
+<p style="margin-top:0;" align="center"><a href="https://www.lepoher.fr/hopital-de-carhaix-une-situation-ubuesque/?fbclid=IwAR3TKszPhYb4phUtr3bGK76YN6izkJtd1Gign54yltZf-Hug9Gvayv08vC8_aem_AYwJ2ZB18pjubFcqZdN2llQPqUPOLvRU05NxYqFri_MwPNvuUvlAIvhsHQmVt22CPb8">https://www.lepoher.fr/hopital-de-carhaix-une-situation-ubuesque/?fbclid=IwAR3TKszPhYb4phUtr3bGK76YN6izkJtd1Gign54yltZf-Hug9Gvayv08vC8_aem_AYwJ2ZB18pjubFcqZdN2llQPqUPOLvRU05NxYqFri_MwPNvuUvlAIvhsHQmVt22CPb8</a></p>
+<p style="background-color: #F5E675"><strong>LUÇON</strong></p>
+<p style="margin-bottom:0;" align="justify">Les Urgences de Luçon fermées</p>
+<p style="margin-top:0;" align="center"><a href="https://www.ouest-france.fr/pays-de-la-loire/lucon-85400/en-vendee-les-urgences-de-lucon-de-nouveau-fermees-a-partir-de-jeudi-3-aout-f2cfbe4e-3137-11ee-895b-b99bc8a96af7">https://www.ouest-france.fr/pays-de-la-loire/lucon-85400/en-vendee-les-urgences-de-lucon-de-nouveau-fermees-a-partir-de-jeudi-3-aout-f2cfbe4e-3137-11ee-895b-b99bc8a96af7</a></p>
+<p style="background-color: #99FFFF"><strong>BRIOUDE</strong></p>
+<p style="margin-bottom:0;" align="justify">Encore une fermeture des Urgences</p>
+<p style="margin-top:0;" align="center"><a href="https://www.lamontagne.fr/brioude-43100/actualites/du-12-au-15-aout-l-acces-aux-urgences-de-l-hopital-de-brioude-sera-regule-la-nuit-par-le-15_14355693/">https://www.lamontagne.fr/brioude-43100/actualites/du-12-au-15-aout-l-acces-aux-urgences-de-l-hopital-de-brioude-sera-regule-la-nuit-par-le-15_14355693/</a></p>
+<p style="background-color: #9999FF; color: #F7F7F7"><strong>BAGNERES DE BIGORRE</strong></p>
+<p style="margin-bottom:0;" align="justify">!!! URGENCE DE BAGNERES !!!</p>
+<p style="margin-bottom:0; margin-top:0;" align="justify">Un rassemblement à eu lieu, ce matin à 10 h 30 devant l'hôpital de Bagnères afin de protester contre la fermeture des urgences bagnéraises. </p>
+<p style="margin-bottom:0; margin-top:0;" align="justify">La population a compris la nécessité de se mobiliser contre cette fermeture qui malheureusement se précise. Malgré la période estivale, nombreux ont répondus présents. </p>
+<p style="margin-top:0;" align="justify">Notre association départementale à aussi, tenu toute sa place lors de ce rassemblement.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/bagnere-de-bigorre-300-personnes-pour-defendre-les-urgences/">https://coordination-defense-sante.org/2023/08/bagnere-de-bigorre-300-personnes-pour-defendre-les-urgences/</a></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/08/Image3.jpeg" alt="" width="198" height="149" hspace="12" /></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #7BF971"><strong>CORSE</strong></p>
+<p style="margin-bottom:0;" align="justify">Les déserts médicaux en Corse interrogent aussi le Conseil de l'Ordre.</p>
+<p style="margin-top:0;" align="center"><a href="https://france3-regions.francetvinfo.fr/corse/haute-corse/bruno-manzi-ordre-des-medecins-2b-aujourd-hui-les-gens-m-accostent-dans-la-rue-pour-me-demander-de-leur-trouver-un-medecin-2816996.html">https://france3-regions.francetvinfo.fr/corse/haute-corse/bruno-manzi-ordre-des-medecins-2b-aujourd-hui-les-gens-m-accostent-dans-la-rue-pour-me-demander-de-leur-trouver-un-medecin-2816996.html</a><br /><br /><a href="https://france3-regions.francetvinfo.fr/corse/haute-corse/collectif-des-medecins-liberaux-de-haute-corse-macron-reve-d-une-medecine-a-deux-vitesses-ou-il-faut-etre-riche-pour-voir-un-medecin-2815562.html">https://france3-regions.francetvinfo.fr/corse/haute-corse/collectif-des-medecins-liberaux-de-haute-corse-macron-reve-d-une-medecine-a-deux-vitesses-ou-il-faut-etre-riche-pour-voir-un-medecin-2815562.html</a></p>
+<p style="background-color: #7BF971"><strong>HAUTE SAVOIE</strong></p>
+<p style="margin-bottom:0;" align="justify">Un article qui attire l'attention de la situation catastrophique du centre 15 en Haute Savoie</p>
+<p style="margin-top:0;" align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/communique_presse_centre_15_du_03-08-23.pdf">https://coordination-defense-sante.org/wp-content/uploads/2023/08/communique_presse_centre_15_du_03-08-23.pdf</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>LOI BIEN VIEILLIR</strong></p>
+<p align ="justify">Le gouvernement veut faire payer les familles</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/23-08-08-Com-UCR-CGT-Coup-froid-perte-autonomie.pdf">https://coordination-defense-sante.org/wp-content/uploads/2023/08/23-08-08-Com-UCR-CGT-Coup-froid-perte-autonomie.pdf</a></p>
+<p class="titre-dossiers"><strong>URGENCES</strong></p>
+<p align ="justify">Conséquences de la fermeture de services d'urgences, les délais d'intervention du SAMU s'allongent.</p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/occitanie/aveyron/rodez/pres-de-deux-heures-a-attendre-l-arrivee-du-samu-un-aveyronnais-porte-plainte-pour-non-assistance-a-personne-en-danger-2822093.html">https://france3-regions.francetvinfo.fr/occitanie/aveyron/rodez/pres-de-deux-heures-a-attendre-l-arrivee-du-samu-un-aveyronnais-porte-plainte-pour-non-assistance-a-personne-en-danger-2822093.html</a> </p>
+<p align ="justify">A Saint Tropez aussi</p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/les-urgences-de-saint-tropez-sont-fermees-ce-mardi-soir-8371640">https://www.francebleu.fr/infos/sante-sciences/les-urgences-de-saint-tropez-sont-fermees-ce-mardi-soir-8371640</a></p>
+<p align ="justify">A Sarlat aussi</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/08/Etat-durgence_-temoignage.pdf">https://coordination-defense-sante.org/wp-content/uploads/2023/08/Etat-durgence_-temoignage.pdf</a></p>
+<p align ="justify">Un point sur les fermetures des Urgences</p>
+<p align="center"><a href="https://www.jim.fr/e-docs/urgences_les_fermetures_de_services_se_multiplient_cet_ete_198476/document_actu_pro.phtml">https://www.jim.fr/e-docs/urgences_les_fermetures_de_services_se_multiplient_cet_ete_198476/document_actu_pro.phtml</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p style="margin-bottom:0;" align="justify">Exposition Colis suspect</p>
+<p style="margin-top:0;" align="center"><a href="https://youtu.be/Lc1rTNCoNWk">https://youtu.be/Lc1rTNCoNWk</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -1141,6 +1141,12 @@
     var banDiv = $('<div class="coordCN" />').insertAfter(banDiv);
     curElem = fillDiv(banDiv, curElem, '', $(this));
 
+    // recherche d'un commentaire infosComités
+    ///var infosComités = $(this).find('.infosComités').first();
+    //var curElem = infosComités.children().first();
+    //InfosComitésCom = curElem.html();
+    InfosComitésCom = "";
+
     // structuration de infosComités
     var infosComités = $(this).find('.infosComités').first();
     var curElem = infosComités.children().first();
@@ -1252,6 +1258,7 @@
           formCurCity(curCity);
         }
         else if (curCity !== '') $(this).appendTo(curCity);
+        else InfosComitésCom += $(this).prop("outerHTML");
       });
 
       function isCurCity(curTest) {
@@ -1337,10 +1344,12 @@
 
     //$(document).ready(function() {
     if ($("#idInfosComités").length) {
+      var mapTitle = '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>'
+      if (typeof InfosComitésCom !== 'undefined') mapTitle += InfosComitésCom
       $('#idInfosComités').InfosComités({
         iconMarkers: iconMarkers,
         //iconMarkers: [{class: "infoComité", title: 'Échos'}],
-        mapTitle: '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>',
+        mapTitle: mapTitle,
         //divBannerCoordHTML: '<img border="0" data-original-height="200" data-original-width="600" src="https://1.bp.blogspot.com/-pXVkNpYJIk8/XZCohoeh7eI/AAAAAAAAkBQ/v2KhWtV8COg6VS95lEZOfl0TkbSVuvXSgCLcBGAsYHQ/s320/L%2527e%25CC%2581cho%2Bdes%2Bcomite%25CC%2581s.png"/>'
       });
       //$('.corpsLettre > .infosComités').css('display', 'none');

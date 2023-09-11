@@ -824,7 +824,7 @@ if ( window.location.pathname == '/' ){
 
   //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
   //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
-  //$('.page_body').append('<a href="https://drive.google.com/file/d/1pKMxxFJYk3nTK8ykKRLpyPDniMm8Jxu5/view?usp=share_link"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMoKCzNBODTHZvEv4GYTW2bijFLhsYhsgWpIsLkHZlVs_vA2-YnPwK1_wp185VWC81FzJkEjhvmb5oi7cZBxj_L8dokgGLtAMHifHSmF1Z4obHFQL2YlxZFWl8P2Sm755_fq8Xw--2LhrpDuwnlRsvmhyiG7qwHe_aAKonughhWGhB1ZaFrOgQwYvM/s1600/SMG%20Communique%20d2022-11-22.jpg"/></a>');
+  //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
   //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
   $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
@@ -840,7 +840,7 @@ Promise.all([
     //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitsKkiPMMm1qvgpzkaCg-TUhxqMxK-zg5q71jjNwW1Fl7X18kVnoUqZv9EceEflyy_x3gngmoT5qBrxtWo8Q1GUYY6IHW-cW5EDx1Xq4WXMPkG-rIoXicN59cE0m8r9YP_478MFkTby6wDeYBggdxOcULctev4N6tKmU6Ed1V6roYqBGDZvniCIbGTzyU/s1600/Soire%CC%81e%20de%CC%81bat%20Ine%CC%81galite%CC%81s.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2Ismg2MWlK1xbC3sIbftCq7FkmR4yu8Qcif3_c45Ohwlnko-__Ci6kViSvBR5_z1nmdnAb_anh7KptxOuPVkzkQGG1b_iMNMOdu7hVKwxtkfEx93B3HiieZWwsIwYiS9JezyReVYgCwBY2ybMs4M-RPMTFv2MHtxtd4nr6BcXDWnWymeu6P5KSbh9GNY/s1600/affiche_MP.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -866,14 +866,15 @@ Promise.all([
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK2eRRmdHjIBnpFKy2jpkk6zBXB7JnUsdMI9dxhy7_k8PnxUeg6szMJc5ldRY42NopQcuKEXKZUlSVhkX1F44VBRpOGFc1v5g9SZYTTjw-B2PTaMOzYjJtLjkHiILBHxEP6cfmhyCRtPYO4QIDvI07AmPFARzVkQIoPw4WcLFYaxneCAgNNbu56xG5ymU/s1600/Soire%CC%81e%20de%CC%81bat%20Ine%CC%81galite%CC%81s.jpg"
-        },
-        /*{
-          dataType: "iframe",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXW6u39vwpYVRChSyYAIw_oXfM6k54kac6I2WFiwytgmEyrVA-zGvfdyVQmD50vsjij4dtSKRSr82YQBHY1iZcrgP0MrCYzogI0nFUdnuT_sOubwYrkbvlTPVgkRCF0HR9ngYrRWvxqJI6gYSh1rTNLYrEIdkEUgKKzpMHxcZQFjRr4Ke9NC4VCUpG/s1600/thumb-pdf.jpg",
-          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.pdf"
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2Ismg2MWlK1xbC3sIbftCq7FkmR4yu8Qcif3_c45Ohwlnko-__Ci6kViSvBR5_z1nmdnAb_anh7KptxOuPVkzkQGG1b_iMNMOdu7hVKwxtkfEx93B3HiieZWwsIwYiS9JezyReVYgCwBY2ybMs4M-RPMTFv2MHtxtd4nr6BcXDWnWymeu6P5KSbh9GNY/s1600/affiche_MP.jpg",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2Ismg2MWlK1xbC3sIbftCq7FkmR4yu8Qcif3_c45Ohwlnko-__Ci6kViSvBR5_z1nmdnAb_anh7KptxOuPVkzkQGG1b_iMNMOdu7hVKwxtkfEx93B3HiieZWwsIwYiS9JezyReVYgCwBY2ybMs4M-RPMTFv2MHtxtd4nr6BcXDWnWymeu6P5KSbh9GNY/s1600/affiche_MP.jpg"
         },
         {
+          dataType: "iframe",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/2023-06-22-Tour%20de%20France%20pour%20la%20Sant%3F%3F-VF-3.pdf"
+        },
+        /*{
           dataType: "video",
           //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"

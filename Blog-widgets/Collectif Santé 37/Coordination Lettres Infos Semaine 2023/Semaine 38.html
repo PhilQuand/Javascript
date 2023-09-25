@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Le gouvernement dévoile progressivement ses intentions par rapport au futur projet de loi de financement de la Sécurité Sociale (PLFSS).</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 38</li>
+<li>Dates: du 18 au 24 septembre 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Infos-semaine-38-du-18-au-24-septembre-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Le gouvernement dévoile progressivement ses intentions par rapport au futur projet de loi de financement de la Sécurité Sociale (PLFSS). Il annonce un ONDAM (Objectif National des Dépenses d’Assurance Maladie) un peu plus élevé que celui-précédemment annoncé … mais cela avait déjà fuité et cette manœuvre ne doit pas masquer que cet objectif des dépenses d’assurance maladie pour 2024 (3,2%) est notoirement insuffisant, ne compensant même pas l’inflation alors que tous les hôpitaux sont en difficulté, avec des conséquences dramatiques pour la population. Pour certain.e.s, c’est une question de vie ou de mort !</p>
+<p>Il confirme vouloir augmenter les restes à charge, confortant notre pays dans un système de santé à deux vitesses : les témoignages de dépassements d’honoraires astronomiques se multiplient, facilités par l’allongement des délais d’attente pour un rendez-vous chez un spécialiste. On attend par contre désespérément un geste d’E. Borne ou d’A. Rousseau pour augmenter le nombre d’étudiants en médecine, au-delà de mesures homéopathiques.</p>
+<p>Avec Convergence des Services Publics, la Coordination a lancé une pétition pour que ce PLFSS réponde aux besoins de la population. Évidemment bien accueillie dans les milieux militants, comme à la fête de l’Humanité où la Coordination tenait un stand ou lors des étapes du tour de France pour la santé, cette pétition, dont une maquette pour impression papier est disponible sur notre site, permet d’aller à la rencontre de la population, en colère des difficultés d’accès aux soins, heureuse qu’on lui présente un moyen simple d’action. Des débats passionnants s’engagent.</p>
+<p>Le gouvernement doit entendre ce mécontentement profond, même s’il paraît parfois trop silencieux.</p>
+<p>Avec la fin de l’été, nos comités, même s’ils étaient restés très vigilants pendant la période des congés, relancent les mobilisations et sur les chapeaux de roues : ce bulletin en est l’écho. Les 35èmes rencontres nationales de la Coordination se préparent activement pour les 17, 18 et 19 novembre : Dole nous attend (voir ci-dessous) : au programme, centres de santé, psychiatrie, organisation territoriale de la santé, et bien sur l’assemblée générale.</p>
+<p align="right"><e>Michèle Leflon</e></p>
+
+<!--div class="VignetteBR  flex left">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Image7.jpeg" />
+</div>
+<div class="divText" align="center">
+<p><a href="https://www.nesp2023.com/media"><strong>nesp2023</strong></a></p>
+<p><a href="https://youtu.be/l'interview">l'interview</a><a href="https://youtu.be/YKTTnYhRwPY"> de Michèle Leflon</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/04/CONV-TRACT-FINMARS.pdf"><strong>programme des journées de Lure</strong></a></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*figure {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+  border: thin silver solid;
+  margin: 0.5em;
+  padding: 0.5em;
+}*/
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>BESANÇON - 25</strong></p>
+<p align="center"><strong>L’étape du 16 septembre du Tour de France de la Santé</strong></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/IMG_6313.jpg" alt=""/></p>
+<p style="margin-bottom: 0;" align="center">Les usagers ont été très présents et très sensibles à l'action et au sujet en question.</p>
+<p style="margin-top: 0;" align="center"><a href="https://coordination-defense-sante.org/2023/09/besancon-letape-du-tour-de-france-du-16-septembre/">Compte-rendu et images</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>FEURS - 42</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>La réouverture des urgences, c’est possible !</strong></p>
+<p style="margin: 0;" align="justify">Un travail collectif entre élus, professionnels de Santé, membres du Comité a permis de mettre au point des solutions qui doivent être présentées en CSE (Comité Social d'Établissement) et CME (Commission Médicale d'Établissement) pour validation, avec pour objectif de demander un Conseil de Surveillance Extraordinaire pour la réouverture des urgences.</p>
+<p style="margin: 0;" align="center"><a href="https://coordination-defense-sante.org/2023/09/feurs-des-perspectives-de-reouverture-des-urgences-et-une-reunion-publique/">L’article sur le site de la Coordination</a></p>
+<p align="center"><strong>Une réunion publique est déjà prévue le 10 novembre</strong></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/forez.jpg" alt="" /></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>LURE - 70</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Le CV 70 fête ses 40 ans de mobilisation le 5 octobre</strong></p>
+<p style="margin-top: 0;" align="center"><strong><a href="https://coordination-defense-sante.org/2023/09/lure-40-ans-de-mobilisation/">L’article sur le site de la Coordination</a></strong></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>TARBES - 65</strong></p>
+<p align="center"><strong>Réunion publique le 5 octobre</strong></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Tarbes-vusuel-5oct2023.jpg" alt=""/><br clear="ALL" /><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/TarbesA5-tract-5oct2023.pdf">Le tract d’invitation</a></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>MAYENNE - 53</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Chronique du mépris ordinaire</strong></p>
+<p style="margin-top: 0;" align="center"><strong><a href="https://coordination-defense-sante.org/2023/09/mayenne-chronique-du-mepris-ordinaire/">Le communiqué commun d’Audace 53 et de l’ACCDM</a></strong></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>SAINT-GIRONS - 09</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Réunion publique le 29 septembre</strong></p>
+<p style="margin-top: 0;" align="center"><strong><a href="https://coordination-defense-sante.org/2023/09/st-girons-reunion-publique-le-29-septembre/">L’invitation</a></strong></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>MANOSQUE - 04</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Appel à la population et aux élus</strong></p>
+<p style="margin: 0;" align="justify">Depuis maintenant une bonne dizaine d'années, on constate une forte dégradation, sur le Bassin de Santé du Centre Hospitalier de Manosque (119.000 personnes réparties sur 71 communes dont 8 du Haut-Var) de l’accès à une santé et des soins de proximité et de qualité.</p>
+<p style="margin: 0;" align="justify">Cette formulation n'est pas une simple vue de l'esprit. C'est la situation catastrophique quotidienne que subissent les Populations avec :</p>
+<p style="margin-top: 0;" align="center"><a href="https://coordination-defense-sante.org/2023/09/manosque-appel-a-la-population-avec-des-propositions-concretes/">La suite sur le site de la Coordination</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MONTARGIS - 45</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Succès du ciné-débat</strong></p>
+<p style="margin: 0;" align="justify">Les 70 participants à cette soirée ont échangé après la projection sur la situation préoccupante des hôpitaux du Loiret. En s'accordant sur le fait qu'une mobilisation devait grandir pour stopper la casse de l'hôpital public.</p>
+<p style="margin-top: 0;" align="center"><strong><a href="https://coordination-defense-sante.org/2023/09/montargis-retour-sur-du-cine-debat-premieres-urgences/">L’article sur le site de la Coordination</a></strong></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>CHARLEVILLE-MÉZIÈRES - 08</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Encore plus de 150 signatures pour que le PLFSS réponde aux besoins de la population</strong></p>
+<p style="margin-top: 0;" align="justify">Festival des marionnettes oblige, c’est avec de grands crayons que le comité de défense des hôpitaux est parti à la rencontre des festivaliers. Des échanges intéressants.</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/marionnettes-rotated.jpg" alt=""/></p>
+<p align="center"><strong><a href="https://coordination-defense-sante.org/2023/09/charleville-mezieres-plus-de-150-petitions-signees/">L’article sur le site de la Coordination</a></strong></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>DOLE - 39</strong></p>
+<p align="center"><strong>Le comité prépare activement les Rencontres Nationales de la Coordination</strong></p>
+<p style="margin-bottom: 0;" align="justify">Au cours d’une conférence de presse, le comité a relayé sa campagne actuelle sur le PLFSS et annoncé les prochaines rencontres.</p>
+<p style="margin-top: 0;" align="center"><strong><a href="http://www.defense-hopitaux-dole.fr/a37.pdf">L’article de la Voix du Jura</a></strong></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>MONTREUIL - 93</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Le comité présent à la journée des associations</strong></p>
+<p style="margin: 0;" align="center">Et 132 signatures de la pétition pour que le PLFSS répond aux besoins de la population</p>
+<p style="margin-top: 0;" align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Montreuil-Hopital-tract-septembre-2023.pdf">Le tract diffusé</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MARMANDE - 47</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Signature de la pétition à propos du PLFSS</strong></p>
+<p style="margin-top: 0;" align="center">Le comité, présent sur le marché ce 23 septembre, a recueilli 102 signatures.</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Image9.jpeg" alt=""/></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>SARLAT - 24</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ciné-débat dans le cadre du tour de France de la Santé</strong></p>
+<p style="margin-top: 0;" align="justify">Le Comité de Défense de l'Hôpital de Sarlat participe au Tour de France de la Santé et pour l'étape à Sarlat a souhaité la projection de ce film qui traite de la psychiatrie dans le contexte des grandes difficultés des hôpitaux psychiatriques.</p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/sarlat-cine.jpg"/></p>
+<p align="center"><strong><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/sarlat.pdf">Le tract</a></strong></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>RODEZ – DECAZEVILLE - 12</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Les urgences encore régulées</strong></p>
+<p style="margin-top: 0;" align="center"><a href="https://actu.fr/occitanie/rodez_12202/occitanie-pour-la-enieme-fois-dans-l-ete-les-urgences-de-ces-hopitaux-encore-regulees_60075194.html?fbclid=IwAR1rFRCOOZEXe5JwEP0lSXc5uB0jHgWroBaFo1iteJgeQOyGVaqhllRTVgI">L’article de Actu.fr du 13/09/23</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>CHARTRES - 28</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Préavis de grève à l’hôpital</strong></p>
+<p style="margin-top: 0;" align="center"><a href="https://www.lechorepublicain.fr/chartres-28000/actualites/des-preavis-de-greve-deposes-dans-plusieurs-services-des-hopitaux-de-chartres-pour-reclamer-des-recrutements_14371604/?fbclid=IwAR2Wod1Nu5wcb_GjLVkXpu3BKhR0OycXhMSyDvlH1yL4Sl8EOYHamr3AswY">L’article de l’Echo Républicain du 15/09/23</a></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>DOUAI - 59</strong></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Image6.jpeg" alt="" /></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>PORTO VECCHIO - 20</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Plutôt des bonnes nouvelles pour la maternité</strong></p>
+<p style="margin: 0;" align="center">Vigilance !!</p>
+<p style="margin-top: 0;" align="center"><a href="https://www.corsematin.com/article/sante/16010955595005/marie-helene-lecenne-ars-la-maternite-de-lospedale-ne-fermera-pas?fbclid=IwAR3oIa_3Jzz3ccn_F5gd_EGTUz_jii4O7e-Ea2y2RncLYU3qN_-Fe7OujGM">L’article de Corse Matin du 19/09/23</a></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>CARHAIX - 29</strong></p>
+<p align="center"><strong>Prochaine manifestation, le 30 septembre à Quimper</strong></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>ROANNE - 42</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Une pétition contre la privatisation de l’EHPAD Aurelia</strong></p>
+<p style="margin-top: 0;" align="center"><a href="http://www.leslignesbougent.org/petitions/non-a-la-privatisation-de-lehpad-aurelia-a-roanne-15103/">La pétition</a></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>MONTPELLIER - 34</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Les salariés d’Onet (société de nettoyage) qui interviennent au CHU de Montpellier, sont désormais en grève illimité</strong></p>
+<p style="margin-top: 0;" align="center"><a href="https://ulmontpellier.reference-syndicale.fr/2023/09/15/les-salaries-donet-societe-de-nettoyage-qui-interviennent-au-chu-de-montpellier-sont-desormais-en-greve-illimite/">Le communiqué de l’UL CGT de Montpellier</a></p>
+<p align="justify">D’après un <a href="https://www.mediapart.fr/journal/economie-et-social/190923/dans-le-secteur-de-la-proprete-les-negociations-salariales-patinent">article de Médiapart</a> (réservé aux abonnés), un nouveau système de pointage a mis le feu aux poudres, fliquant les salarié.e.s et leur faisant perdre du temps. Les organisations syndicales du secteur dénoncent les temps partiels imposés, les salaires qui ne suivent pas les augmentations de SMIC  et plaident pour des marchés de meilleure qualité dans ce secteur ou la commande publique représente un tiers des marchés. La Feets FO réclame des critères sociaux dans ces marchés.</p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>SAINT ALBAN - 48</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Afin de discuter d’un grand plan d’urgence pour la psychiatrie en Lozère permettant de répondre à l’ensemble des besoins en soins psychiques de la population, les personnels, avec le syndicat CGT du CHFT, invite à un débat public le mardi 17 octobre à partir de 18h à l’espace Jean Jaurès à Mende</strong></p>
+<p style="margin-top: 0;" align="center"><strong><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/St-AlbanCommunique-de-presse-sept-23.docx">Communiqué de presse CGT du Centre hospitalier François Tosquelles</a></strong></p>
+<p style="background-color: #709DCC; color: #F7F7F7"><strong>LANGRES - 52</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>6000 personnes dans la rue contre le projet de restructuration</strong></p>
+<p style="margin-top: 0;" align="center"><strong>des hôpitaux du Sud-Haute Marne</strong></p>
+<p align="center"><img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Image10.jpeg" alt=""/></p>
+<p align="center"><a href="https://jhm.fr/avenir-des-hopitaux-demonstration-de-force-a-langres/?fbclid=IwAR2RQgxn2Ls-zYiptm3lC4bnTfN03osOsSTvs1FUS-UpCltezBuEn2rOKKw">L’article du Journal de la Haute-Marne</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/avortement.jpg" />
+</div></div>
+<p class="titre-dossiers"><strong>EUROPE</strong></p>
+<p align="center"><strong>En vue des élections européennes, le réseau européen contre la commercialisation de la santé et de la protection sociale engage une grande campagne en lien avec EPSU et PHM</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/09/reseau-europeen-fiches-de-travail/">Pour en savoir plus</a></p>
+<p class="titre-dossiers"><strong>MÉDICAMENTS</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Industrie pharmaceutique et PLFSS</strong></p>
+<p style="margin: 0;" align="center">Des cadeaux aux labos !</p>
+<p style="margin-top: 0;" align="center"><a href="https://www.bfmtv.com/economie/entreprises/industries/le-gouvernement-fait-un-geste-financier-vers-l-industrie-pharmaceutique_AD-202309200076.html">L’article de BFM du 20/09/23</a></p>
+<p style="margin-bottom: 0;" align="center"><strong>Conflits d’intérêts majeurs pour un nouveau directeur de l’INCA</strong></p>
+<p style="margin-top: 0;" align="center"><a href="https://formindep.fr/absence-declaration-interet-conflits-majeurs-directeur-inca-formindep-transparence-integrite/">Le communiqué du FORMINDEP du 21 septembre</a></p>
+<p class="titre-dossiers"><strong>SERVICES PUBLICS</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Rapport sur l’état des services publics</strong></p>
+<p style="margin: 0;" align="justify">Le collectif « Nos services Publics », regroupant des agents des services publics, vient de sortir un excellent rapport sur l’état des services publics.</p>
+<p style="margin: 0;" align="justify">« Ce rapport met en évidence les conséquences d'un décalage croissant entre les besoins sociaux et les moyens des services publics : développement des inégalités, espace grandissant pour le secteur privé, et ruptures avec les agents publics comme avec la population. » Tout un chapitre est consacré à la santé.</p>
+<p style="margin-top: 0;" align="center"><strong><a href="https://nosservicespublics.fr/rapport-etat-services-publics-2023">Le rapport</a></strong></p>
+<p class="titre-dossiers"><strong>CRISE SANITAIRE - PLFSS</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>La santé s’effondre en Bretagne</strong></p>
+<p style="margin-top: 0;" align="center"><a href="https://www.breizh-info.com/2023/09/14/224569/menace-de-fermeture-de-la-maternite-et-de-la-chirurgie-a-lhopital-de-guingamp-droit-de-retrait-a-quimper-greve-illimitee-au-chu-de-saint-brieuc-la-sante-seffondre-en-bretagne/?fbclid=IwAR3Wm3nmBEMuQIKgRMCQhbwAE1YjbfYBANztOm98OJ63Ugx37lZv76BLqdU">L’article de Breizh-info du 14/09/23</a></p>
+<p style="margin-bottom: 0;" align="center"><strong>La FHF s’inquiète de la préparation du PLFSS</strong></p>
+<p style="margin-top: 0;" align="center"><a href="https://www.fhf.fr/actualites/communiques-de-presse/budgets-des-hopitaux-et-ehpad-publics-la-fhf-alerte-sur-labsolue-necessite-de-moyens-supplementaires">Communiqué de la FHF</a></p>
+<p style="margin-bottom: 0;" align="center"><strong>Un nouveau directeur à la DGOS</strong></p>
+<p style="margin: 0;" align="center">(Direction Générale de l’Offre de Soins, une des grandes directions du ministère de la santé)</p>
+<p style="margin: 0;" align="justify">Ça tourne vite : le Pr Christian Rabaud ne sera resté que cinq mois à la tête de la direction générale de la Santé. C’est le Dr Grégory Emery, médecin spécialiste de santé publique,  numéro deux de l'agence depuis 2022 qui lui succède. Il a débuté sa carrière à la direction générale de l'offre de soins en 2017, avant de devenir conseiller de deux ministres de la Santé, Agnès Buzyn et Olivier Véran, ainsi que du Premier ministre Edouard Philippe au plus gros de la crise du Covid en 2020. En 2021, il avait souhaité rejoindre le groupe Korian, mais la Haute Autorité pour la transparence de la vie publique s'y était opposée.</p>
+<p style="margin-top: 0;" align="justify">Ça n'annonce rien de bon !</p>
+<p style="margin-bottom: 0;" align="center"><strong>Stratégie Nationale de Santé</strong></p>
+<p style="margin: 0;" align="justify">Le gouvernement doit arrêter en novembre la Stratégie Nationale de Santé pour la période 2023-2033. Les annonces ne sont pas à la hauteur des enjeux. Il s’agit plutôt de la compilation des projets gouvernementaux (parfois déjà annoncés).</p>
+<p style="margin: 0;" align="justify">Il y a un choix assumé d’adopter un principe de responsabilité individuelle et aucune mesure concrète sur les déterminants de la santé liés à l’environnement économique et social.</p>
+<p style="margin: 0;" align="justify">Et il n’y a pas de place pour les services publics, avec le choix affiché pour la pratique libérale.</p>
+<p style="margin: 0;" align="justify">D’un point de vue démocratique, on ne peut que s’étonner du court temps de consultation (moins d’un mois) par ailleurs concomitant des consultations sur les Projets Régionaux de Santé.</p>
+<p style="margin: 0;" align="center"><a href="https://sante.gouv.fr/IMG/pdf/projet_sns.pdf">Le projet de Stratégie Nationale de Santé</a></p>
+<p style="margin-top: 0;" align="center"><a href="https://sante.gouv.fr/actualites/actualites-du-ministere/article/strategie-nationale-de-sante-2023-2033-ouverture-d-une-consultation-publique-en">Ouverture d’une consultation publique en ligne</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><a href="https://www.radiofrance.fr/franceinter/podcasts/secrets-d-info/secrets-d-info-du-samedi-23-septembre-2023-5350647">Enquête sur la pénurie de médicaments</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

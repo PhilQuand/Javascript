@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2022/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>En ce début Octobre, les actions se multiplient dans le cadre du Tour de France de la santé ou plus généralement pour protester contre les fermetures de services.</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 39</li>
+<li>Dates: du 25 septembre au 01 octobre 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Infos-semaine-39-su-13-septembre-au-1er-octobre-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>En ce début Octobre, les actions se multiplient dans le cadre du Tour de France de la santé ou plus généralement pour protester contre les fermetures de services.</p>
+<p>La période est aussi celle de la révision des Projets Régionaux de Santé et là aussi des résistances se font jour et pas des moindre : le Conseil Régional Ile de France, les Conseils Départementaux de l'Ardèche et de le Drôme, entre autres ;</p>
+<p>Cela veut dire que la politique du gouvernement et du nouveau Ministre de la Santé rencontre des oppositions importantes et fragilise sa position.</p>
+<p>Et pourtant les fermetures continuent.</p>
+<p>Et le Projet de Loi de Financement de la Sécurité Sociale (PLFSS 2024), maintenant connu, n'incite pas à l'optimisme ; c'est le moins que l'on puisse dire.</p>
+<p>Il nous faut redoubler d'efforts pour faire avancer la politique de santé vers une vraie réponse aux besoins.</p>
+<p align="right"><e>Joseph</e></p>
+<p><a href="https://tourdefrancesante.gogocarto.fr/map?fbclid=IwAR0QJspBeNnBNiQjRAMNB3HbukawkcfvZrLK5dGvHAmJMBFd10s81m5Tfow#/carte/@48.779,2.668,11z?cat=all">La carte de France des initiatives du tour de France</a></p>
+
+<div style="text-indent: 0; border: thick double black; solid; margin: 0.5em; padding: 0.5em; line-height: 1.4" align="center">
+<div class="VignetteBR  flex right">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Annick-Flageollet-vers-6.jpg" />
+</div>
+<div class="divText" align="justify">
+<p>Annick Flageollet que beaucoup d'entre nous connaissait depuis des années, nous a quitté ce samedi.</p>
+<p> Du collectif La santé n'est pas une marchandise qu'elle a animé avec Antoinette et Aviva, au Collectif national contre les franchises, à Notre Santé en Danger et à tous les combats menés pour l'accès aux soins pour toutes et tous partout, Annick était présente, souriante toujours et attentive aux autres, dans l'échange, mais ferme sur ses positions. </p>
+<p> Aux côtés des sans papiers, elle avait élargi sa famille de coeur à celles et ceux qu'elle avait accompagnés.<br /><br /> Du fait de ses problèmes de santé, qui l'ont conduit à être hospitalisée ces derniers mois, elle n'avait plus participé à nos réunions et échanges.</p>
+<p> Elle nous manque.</p>
+<p> Antoinette, toi qui était son binôme pendant toutes ces années de militantisme, je sais ta peine. Je t'embrasse. </p>
+<p align=right>Françoise</p>
+</div></div>
+</div>
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*figure {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+  border: thin silver solid;
+  margin: 0.5em;
+  padding: 0.5em;
+}*/
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #F5E675"><strong>RUFFEC</strong></p>
+<p>Initiative du comité de Ruffec dans le cadre du Tour de France.</p>
+<p><a href="https://coordination-defense-sante.org/2023/09/ruffec-rassemblement-le-10-octobre/">Appel</a></p>
+<p style="background-color: #F5E675"><strong>APT</strong></p>
+<p>Les actions du comité</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Apt_pour-coordination.pdf">Bilan</a></p>
+<p style="background-color: #44FD66"><strong>OLORON SAINTE MARIE</strong></p>
+<p>Dans le cadre de la campagne pour un PLFSS 2024, une initiative du comité</p>
+<p><a href="https://coordination-defense-sante.org/2023/09/oloron-reunion-publique-le-6-octobre/">Invitation</a></p>
+<p style="background-color: #9999FF; color: #F7F7F7"><strong>MONTARGIS - GIEN</strong></p>
+<p><a href="https://coordination-defense-sante.org/2023/09/gien-un-nouveau-comite-se-cree/">Pour la défense des Urgences de <u>Gi</u></a><u>en</u></p>
+<p style="background-color: #66FFFF"><strong>CRÉTEIL</strong></p>
+<p>Pour les rencontres citoyennes de la santé dans le Val de Marne</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/19-oct-2023-Rencontres-Citoyennes-Creteil.pdf">Invitation</a></p>
+<p>Le Conseil Régional s'est prononcé contre le PRS IDF</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/creteil-Communique-suite-au-vote-de-la-re%CC%81gion-sur-le-PRS-V2.pdf">Communiqué du comité</a></p>
+<p style="background-color: #CBFC67"><strong>MONTREUIL</strong></p>
+<p>« Hôpital public, Sécurité Sociale, même combat » le comité du CHIC de Montreuil organise une initiative publique</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/montreuil-Hopital-tract-septembre-2023-1.pdf">invitation</a></p>
+<p style="background-color: #66FC03"><strong>ARDENNES</strong></p>
+<p>A propos de la campagne de justification d'Orpéa</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/orpea-mis-en-forme.pdf">Le communiqué du comité</a></p>
+<p>les liaisons dangereuses d'Orpéa</p>
+<p><a href="https://www.investigate-europe.eu/fr/posts/orpea-france-care-homes-luxembourg-lipany-probe?fbclid=IwAR2JOOAAeHe6UfMmNeyuYxAdvFMsufnVeOuoaLQiNlSFujOp4L1WwrhtsxQ_aem_AUoLqBDW2Ivs8nKaX-P4EYF7HeeU1PmX3PGUWEmKbirrPw19CWLRsQcK4Hxhtz1rnxI&amp;s=09">Article</a></p>
+<p style="background-color: #2AFFFF"><strong>BERNAY</strong></p>
+<p>Conflit entre les médecins et direction, danger pour l'hôpital</p>
+<p><a href="https://actu.fr/normandie/bernay_27056/hopital-de-bernay-conflit-ouvert-entre-des-medecins-et-la-direction_60137468.html">Article de presse</a></p>
+<p style="background-color: #99CC67"><strong>DOURDAN - ETAMPES</strong></p>
+<p>Les inquiétudes en Sud Essonne</p>
+<p><a href="https://coordination-defense-sante.org/2023/10/sud-essonne-projet-du-centre-hospitalier-sud-essonne/">Première déclaration de projet emportant mise en compatibilité du PLU : projet du Centre Hospitalier Sud-Essonne</a></p>
+<p style="background-color: #0066FF; color: #F7F7F7"><strong>QUIMPER</strong></p>
+<p>Préavis de grève illimité à l'hôpital</p>
+<p><a href="https://www.ouest-france.fr/bretagne/guingamp-22200/un-preavis-de-greve-illimitee-depose-a-lhopital-de-guingamp-43ec0b22-5c47-11ee-b3bf-85356afed175?fbclid=IwAR02G8UYsdePUZwZAqKCgB1T3OmbABDT44dJYyq-q-gfFzfhr_2a7FX1mBE">Article</a></p>
+<p><strong>Manifestation du 30 septembre</strong></p>
+<p>Près de 2000 manifestants à Quimper ce samedi 30 septembre contre la régulation des urgences de nuit à Carhaix.</p>
+<p>Le comité de Concarneau était présent.</p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/09/quimper1.jpg" alt="" /></p>
+<p><a href="https://coordination-defense-sante.org/2023/09/quimper-pres-de-2000-manifestants/">L’article sur le site de la Coordination</a></p>
+<p><a href="https://www.ouest-france.fr/sante/hopital/video-ce-qu-il-faut-retenir-de-la-manifestation-pour-la-defense-de-l-hopital-de-carhaix-a-quimper-96f42301-2ce4-3ed7-ad2b-f5214445527e">Article de Ouest France</a></p>
+<p style="background-color: #CFE7F5"><strong>GRANVILLE</strong></p>
+<p>Dans le cadre du tour de France, le comité de défense de l'hôpital souhaite organiser un ciné-débat autour du film "Sur l'Adamant", les dates possibles étant les 16-17 et 19 octobre et cherche intervenant pour y participer.</p>
+<p style="background-color: #CBFB04"><strong>TOURS</strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/Tours20231007.pdf">Initiative commune à Tours dans le cadre du Tour de France</a></p>
+<p>Pour info, le collectif 37 Notre Santé danger appelle à venir soutenir le personnel en grève de Clocheville et du CHU de Tours le 2 octobre à 14h30 devant l'hôpital Clocheville;</p>
+<p><a href="https://www.lanouvellerepublique.fr/indre-et-loire/tours-le-preavis-de-greve-maintenu-a-l-hopital-pediatrique-clocheville?">l'article de la Nouvelle République</a></p>
+<p><a href="https://france3-regions.francetvinfo.fr/centre-val-de-loire/indre-loire/tours/on-est-a-bout-de-souffle-greve-generale-des-soignants-prevue-pour-la-premiere-fois-a-l-hopital-pour-enfants-de-clocheville-a-tours-2846762.html">et l'interview de syndicalistes de Clocheville sur FR3 </a></p>
+<p style="background-color: #9999FF; color: #F7F7F7"><strong>NANTES</strong></p>
+<p>La campagne "pour un budget de la Sécu qui réponde aux besoin de la population " a démarré dans l'agglomération nantaise. À ce jour ce sont 222 signatures qui ont été récoltées sur les marchés Zola à Nantes et du 8 mai à Rezé, lors du rassemblement pour le droit à l' IVG le 28 septembre, à la réunion de rentrée des retraité.e.s de la CGT ( où nous sommes intervenus à propose de notre enquête sur les dépassements d'honoraires en Loire Atlantique ) et diverses réunions d'organisations composant le collectif nantais pour le droit à la santé et à la protection sociale pour toutes et tous .</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/SCHU8814223092609300.pdf">Signalement procureur</a></p>
+<p style="background-color: #99FC34"><strong>MARMANDE - TONNEINS</strong></p>
+<p><a href="https://coordination-defense-sante.org/2023/09/marmande-tonneins-rassemblement-lundi-2-a-11h-devant-lhopital-de-tonneins/">Les actions du comité</a></p>
+<p>La venue d’E. Macron à Tonneins</p>
+<p><a href="https://www.sudouest.fr/politique/emmanuel-macron/emmanuel-macron-a-tonneins-ils-veulent-demander-au-president-un-systeme-de-sante-digne-du-xxie-siecle-16866712.php">Manifestation</a></p>
+<p style="background-color: #CFE7F5"><strong>VIRE</strong></p>
+<p>Réunion publique suivie de l'AG le 4 octobre à 18h salle de la Tour aux Raines à Vire</p>
+<p style="background-color: #FFB66C"><strong>DOLE</strong></p>
+<p>Le tour de France de la santé fait escale à Dole le 7 octobre</p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Dole-7-octobre.jpg" alt="" /></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/infos-flash83.pdf">Le flash info</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #7BF971"><strong>BRETAGNE</strong></p>
+<p>Des élus de Côte d'Armor se sont réunis pour mettre en cause l’attitude de l’État dans les EHPAD</p>
+<p><a href="https://france3-regions.francetvinfo.fr/bretagne/cotes-d-armor/sinon-ce-sont-les-vieux-qui-vont-trinquer-deficits-dans-les-ehpad-des-maires-bretons-en-justice-contre-l-etat-2843861.html?fbclid=IwAR1LfVIFfD7s5hs7psoW6xaBdDKbNjqk4lGDfQeyQhlx94Y-vQBrhd_6Lvg">article</a></p>
+<p style="background-color: #99FECC"><strong>TRAPPES</strong></p>
+<p>Le Département des Yvelines finance le robot chirurgical de l'hôpital privé de Trappes</p>
+<p><a href="https://www.yvelines-infos.fr/le-departement-finance-le-robot-chirurgical-de-lhopital-prive-de-trappes/?utm_source=Sarbacane&amp;utm_medium=email&amp;utm_campaign=YINFOS%2029SEPTEMBRE2023">Article</a></p>
+<p style="background-color: #01CCFF"><strong>HÔPITAL DE SAINT MAURICE</strong></p>
+<p>La restructuration de l'hôpital de Saint Maurice inquiète les professionnels</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/2023-09-25-Communique-de-presse-Collectif.pdf">Tract</a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/09/affiche-manif-17-octobre.pdf" target="_blank">https://coordination-defense-sante.org/wp-content/uploads/2023/09/affiche-manif-17-octobre.pdf</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>CHANGER DE CAP</strong></p>
+<p><a href="https://oxi90.com/IPCRWSF67/BD24310DB3644EA0A9F1C4CF5A786DCF.php">Bulletin numéro 40 </a></p>
+<p class="titre-dossiers"><strong>SNPEH</strong></p>
+<p>Un communiqué du syndicat nationale de la pédiatrie alerte sur la situation catastrophique de ce secteur.</p>
+<p><a href="https://www.snpeh.org/pediatrie-en-detresse-un-appel-pressant-a-laction-1142/">Le communiqué</a></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p>Appel des organisations de la psychiatrie pour une refondation de la santé mentale</p>
+<p><a href="https://www.santementale.fr/2023/09/vers-un-conseil-national-de-la-refondation-de-la-sante-mentale/">appel</a></p>
+<p class="titre-dossiers"><strong>PLFSS 2024</strong></p>
+<p><a href="https://www.assemblee-nationale.fr/dyn/16/textes/l16b1682_projet-loi.pdf">Texte du PLFSS 2024</a></p>
+<p><a href="https://presse.economie.gouv.fr/27092023-dp-projet-de-loi-de-financement-de-la-securite-sociale-pour-2024/">Dossier de presse</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

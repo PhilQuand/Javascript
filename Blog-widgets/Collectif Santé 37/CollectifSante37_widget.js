@@ -840,7 +840,7 @@ Promise.all([
     //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2Ismg2MWlK1xbC3sIbftCq7FkmR4yu8Qcif3_c45Ohwlnko-__Ci6kViSvBR5_z1nmdnAb_anh7KptxOuPVkzkQGG1b_iMNMOdu7hVKwxtkfEx93B3HiieZWwsIwYiS9JezyReVYgCwBY2ybMs4M-RPMTFv2MHtxtd4nr6BcXDWnWymeu6P5KSbh9GNY/s1600/affiche_MP.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLndXhQjJ_SbhL4WBQN-mvZ4cMAgNPBPk-PuQ1xh0NeaRMZimHZav9xGwm5i7N8seMBKNLeZKpBQqZiZgStamKIWKEPGF8ACJ_w-Voaprh9fH5MxG1jrTLAvMC6LKMtW9q3tSXQaOmALbnVHY1KLxGfEAP4O4Djh7bui3TKsvzD7okZfmbs_m80ly2wgA/s1600/Clocheville.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -863,16 +863,36 @@ Promise.all([
         {
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHEks2X6FVyKVreRicgOvsrx1Yz_Cavrg6KPA0aPHNnFm4pONj-aMde7-Rnhqw-Z0V6jvQDT9af9fC6AdJrg78zsNs7T40PHNUesf5Q7j6Wi2LKIXpdiwej2AlGobF4rqPbXa9Hm8nAU8JE5_kX9Qw0dxreAOeWxuclf-PzLgzMTzmSJQUom6JEcoL/s1600/Rassemblement%20Depardieu.jpg"
-        },*/
+        },
         {
           dataType: "images",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2Ismg2MWlK1xbC3sIbftCq7FkmR4yu8Qcif3_c45Ohwlnko-__Ci6kViSvBR5_z1nmdnAb_anh7KptxOuPVkzkQGG1b_iMNMOdu7hVKwxtkfEx93B3HiieZWwsIwYiS9JezyReVYgCwBY2ybMs4M-RPMTFv2MHtxtd4nr6BcXDWnWymeu6P5KSbh9GNY/s1600/affiche_MP.jpg",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2Ismg2MWlK1xbC3sIbftCq7FkmR4yu8Qcif3_c45Ohwlnko-__Ci6kViSvBR5_z1nmdnAb_anh7KptxOuPVkzkQGG1b_iMNMOdu7hVKwxtkfEx93B3HiieZWwsIwYiS9JezyReVYgCwBY2ybMs4M-RPMTFv2MHtxtd4nr6BcXDWnWymeu6P5KSbh9GNY/s1600/affiche_MP.jpg"
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6n0URyfZimMSM0Ue0PTFiMgQoD78lfJTLh-7e44rQN-bEYxsfyNacUMUFjcU8vjz9VrTTdDLtaTDaSCa_glwuSTBqJTeRjab3dFsEVt5YGSYA5-uKyWnhTdJbmN9lIVTU2coHOBeYyLTQ28jfp33xCKHE5UdRXPpsz-8VJuUf24Nuquhi1jfn8PMh5cI/s1600/recto%20avec%20signatures%20en%20cours%20sans%20logo.jpg",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6n0URyfZimMSM0Ue0PTFiMgQoD78lfJTLh-7e44rQN-bEYxsfyNacUMUFjcU8vjz9VrTTdDLtaTDaSCa_glwuSTBqJTeRjab3dFsEVt5YGSYA5-uKyWnhTdJbmN9lIVTU2coHOBeYyLTQ28jfp33xCKHE5UdRXPpsz-8VJuUf24Nuquhi1jfn8PMh5cI/s1600/recto%20avec%20signatures%20en%20cours%20sans%20logo.jpg"
+        },
+        {
+          dataType: "images",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"
+        },*/
+        {
+          dataType: "iframe",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/Le%20CHRU%20de%20Tours%20brule%20oct%2023.pdf"
         },
         {
           dataType: "iframe",
           dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",
           dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/2023-06-22-Tour%20de%20France%20pour%20la%20Sant%3F%3F-VF-3.pdf"
+        },
+        {
+          dataType: "iframe",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOC5a6pHJi0OSaDmkKhsUm7gbrXW2r7Lg1NoPFbuWV-b5Cm58IATRSfKSHgVoXWlV4oV_WApmNo6R_7gECh1mHuQADWD3o0ByTZvMkiAkC1qjv5RAsCtktrpKQIci_nDIBx5NhUxjhZqEOumDu7vQdfmra7tPU6AxRvazR_qg5XvJGN3HKPufQD_pQr3w/s1600/Pe%CC%81tition-09-15.jpg",
+          dataSrc: "https://www.convergence-sp.fr/wp-content/uploads/2023/09/PLFSS-2024-Petition-Papier-2023-09-02.pdf"
+        },
+        {
+          dataType: "images",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"
         },
         /*{
           dataType: "video",

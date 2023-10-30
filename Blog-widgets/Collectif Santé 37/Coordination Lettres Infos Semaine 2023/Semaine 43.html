@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Il existe plusieurs  façons de creuser un déficit : dépenser trop ou limiter les recettes, c'est la décision du gouvernement en fixant d'emblée celles-ci par le 49.3. Une politique délétère que nous devons combattre.</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 43</li>
+<li>Dates: du 23 au 29 octobre 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Infos-semaine-43-du-23-au-29-octobre-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Il existe plusieurs  façons de creuser un déficit : dépenser trop ou limiter les recettes, c'est la décision du gouvernement en fixant d'emblée celles-ci par le 49.3. Une politique délétère que nous devons combattre.</p>
+<p align="right"><e>R. Leverrier</e></p>
+
+<p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border-style: groove; align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div>
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729ECE"><strong>GUINGAMP</strong></p>
+<p align="center">La stratégie de l'ARS dénoncée par le comité</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/communique-comite.pdf">communiqué comité</a></p>
+<p align="center">La maternité suspendue 6 mois de plus : une décision inacceptable pour le collectif santé et les élu-e-s</p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/bretagne/cotes-d-armor/guingamp/maternite-de-guingamp-les-accouchements-toujours-suspendus-la-colere-et-l-angoisse-sur-l-agglomeration-2862260.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=france3regions&amp;at_offre=4&amp;at_variant=Bretagne&amp;at_send_date=20231025&amp;at_recipient_id">https://france3-regions.francetvinfo.fr/bretagne/cotes-d-armor/guingamp/maternite-de-guingamp-les-accouchements-toujours-suspendus-la-colere-et-l-angoisse-sur-l-agglomeration-2862260.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=france3regions&amp;at_offre=4&amp;at_variant=Bretagne&amp;at_send_date=20231025&amp;at_recipient_id</a></p>
+<p align="center"><a href="https://actu.fr/bretagne/guingamp_22070/nous-vivons-un-effondrement-sanitaire-sindigne-le-comite-de-defense-de-lhopital-de-guingamp_60254488.html?fbclid=IwAR23dxetYl4hykuG_tPKobcJheLUkNcJIxutdbwPxZ-EOgpNNPoKH4jdLpk">https://actu.fr/bretagne/guingamp_22070/nous-vivons-un-effondrement-sanitaire-sindigne-le-comite-de-defense-de-lhopital-de-guingamp_60254488.html?fbclid=IwAR23dxetYl4hykuG_tPKobcJheLUkNcJIxutdbwPxZ-EOgpNNPoKH4jdLpk</a><br /> </p>
+<p style="background-color: #EC9D7E"><strong>BRIOUDE</strong></p>
+<p style="margin-bottom: 0" align="center"><strong>Des solutions pour l'installation de médecins </strong></p>
+<p style="margin-top: 0" align="center"><a href="https://www.lamontagne.fr/brioude-43100/actualites/le-manque-de-medecins-a-brioude-a-l-ordre-du-jour-des-secondes-assises_14393357/">L’article de la Montagne du 25/10</a></p>
+<p align="center"><a href="https://tele-regain.fr/assises-de-la-sante-brioude/">Les assises de la santé de Brioude sur Télé-Regain</a></p>
+<p style="background-color: #729ECE"><strong>LONGWY</strong></p>
+<p align="center">Le comité fait signer la pétition lors de la journée des associations</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/10/longwy-le-comite-fait-signer-la-petition/">L’article sur le site de la Coordination</a></p>
+<p style="background-color: #EC9D7E"><strong>NORD ESSONNE</strong></p>
+<p align="center"><strong>Dans le cadre du Tour de France, le comité fait le tour des hôpitaux en danger</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/10/nord-essonne-une-journee-de-manifestation-pour-defendre-lhopital-public-seul-garant-du-droit-a-la-sante/">Photos sur le site de la Coordination</a></p>
+<p style="background-color: #729ECE"><strong>RAMBOUILLET</strong></p>
+<p align="justify">Dans le cadre du Tour de France de la Santé un appel unitaire, CGT, FO et le collectif santé hôpital sud Yvelines, à un rassemblement devant l'hôpital de Rambouillet</p>
+<p align="center">Le 10 novembre à 13h</p>
+<p align="justify">pour exiger une politique de santé publique à la hauteur de nos besoins</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/rambouilletTract-commun-CGT-FO-A5.jpg">L’appel unitaire</a></p>
+<p align="center">Lettre au député et au sénateur avant le vote du PLFSS</p>
+<p align="center"><a href="https://collectifhopitalrambouilletblog.wordpress.com/2023/10/25/lettre-envoyee-au-depute-de-notre-circonscription-m-philippe-emmanuel-et-au-senateur-m-larcher/">https://collectifhopitalrambouilletblog.wordpress.com/2023/10/25/lettre-envoyee-au-depute-de-notre-circonscription-m-philippe-emmanuel-et-au-senateur-m-larcher/</a></p>
+<p style="background-color: #EC9D7E"><strong>ST AFFRIQUE</strong></p>
+<p align="center"><strong>Le comité appelle à un rassemblement le vendredi 27 octobre</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Le-MANIF-tract-271023-PLFSS.pdf">Le MANIF tract 271023 PLFSS</a><br /><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/St-Affrique.docx">St Affrique</a> </p>
+<p style="background-color: #729ECE"><strong>BESANÇON</strong></p>
+<p align="center">A l'heure du vote du PLFSS à l'Assemblée, le comité de Besançon fait un état des lieux du CHU</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Communique-de-presse-251023.pdf">Communiqué de presse 251023</a></p>
+<p style="background-color: #EC9D7E"><strong>ALES</strong></p>
+<p align="center"><strong>Dans le cadre du Tour de France de la Santé : réunion du 24 octobre à Alès</strong></p>
+<p align="center"><a href="https://www.francebleu.fr/infos/sante-sciences/le-tour-de-france-de-la-sante-s-arrete-a-ales-gard-le-24-octobre-8157502">https://www.francebleu.fr/infos/sante-sciences/le-tour-de-france-de-la-sante-s-arrete-a-ales-gard-le-24-octobre-8157502</a></p>
+<p align="center"><strong>Déclaration du comité</strong></p>
+<p align="center"><img class="skip-lazy" style="width: 350px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/images2.png"/></p>
+<p align="center">Alès</p>
+<p style="background-color: #729ECE"><strong>SARLAT</strong></p>
+<p align="justify">Après la venue du Ministre de la Santé au mois de juillet, le comité continue la lutte pour l'hôpital. Claudine Le Barbier, référent en Périgord, de l'association de citoyens contre les déserta médicaux élargit le débat : « le manque de médecins généralistes impacte les urgences».</p>
+<p align="center"><strong><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/10e-anniversaire.pdf">10e anniversaire</a><br /></strong><strong><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/rassemblement-19-10-2023-dix-ans..pdf">rassemblement 19 10 2023 dix ans.</a></strong></p>
+<p style="background-color: #EC9D7E"><strong>MONTLUCON</strong></p>
+<p align="center"><strong>Une population intéressée par le comité et ses combats au forum des associations.</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/montlucon/">https://coordination-defense-sante.org/montlucon/</a></p>
+<p align="center"><img class="skip-lazy" style="width: 350px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/images4.png" /></p>
+<p style="background-color: #729ECE"><strong>LES ARDENNES</strong></p>
+<p align="center">Remise des pétitions au député</p>
+<p align="center"><img class="skip-lazy" style="width: 350px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/remisedespetitions.jpg" /></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/10/les-ardennes-remise-des-petitions-au-depute/">L’article sur le site de la Coordination</a></p>
+<p style="background-color: #EC9D7E"><strong>MANOSQUE</strong></p>
+<p align="center"><strong>Le comité de Manosque et la CGT de 04 interpellent le préfet sur la mise en danger de la population face aux manques d'offre de soins dans le département.</strong></p>
+<p align="center"><strong><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Courrier-au-Prefet-USD-04-du-18-octobre-2023.pdf">Courrier au Préfet USD 04 du 18 octobre 2023</a></strong></p>
+<p style="background-color: #729ECE"><strong>TOURS</strong></p>
+<p align="justify"><strong>Les syndicats sont unis pour alerter sur l'état du CHU : suppression d'emplois, non recrutement...les grèves touchent aujourd'hui l'ensemble des services !</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/10/tours/">https://coordination-defense-sante.org/le-chru-de-tours-brule-oct-23/</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #EC9D7E"><strong>PARIS NORD</strong></p>
+<p align="center">Si le Tribunal ne remet pas en cause le nouvel hôpital il demande l'organisation d'une nouvelle enquête publique</p>
+<p align="center"><a href="https://www.leparisien.fr/seine-saint-denis-93/hopital-grand-paris-nord-a-saint-ouen-la-justice-demande-lorganisation-dune-nouvelle-enquete-publique-24-10-2023-DGIGGUMVNFE65A27W5PE7CLGEU.php">https://www.leparisien.fr/seine-saint-denis-93/hopital-grand-paris-nord-a-saint-ouen-la-justice-demande-lorganisation-dune-nouvelle-enquete-publique-24-10-2023-DGIGGUMVNFE65A27W5PE7CLGEU.php</a></p>
+<p align="center"><strong>Dans le cadre du Tour de France de la Santé, une déambulation s'est déroulée à Paris et aux Lilas</strong></p>
+<p align="center"><strong><a href="https://coordination-defense-sante.org/21-octobre-paris/">https://coordination-defense-sante.org/21-octobre-paris/</a></strong></p>
+<p style="background-color: #729ECE"><strong>ST MAURICE</strong></p>
+<p align="justify"><strong>Privatisation, suppressions de postes, les hôpitaux de St Maurice dans le Val de Marne sont en danger. Des associations et la CGT ont créé un collectif et manifesté ce 17 octobre. Prochaine étape le 7 novembre.</strong></p>
+<p align="center"><strong><a href="http://www.sante.cgt.fr/La-CGT-des-Hopitaux-de-St-Maurice-et-des-Murets-94-se-battent-contre-la-vente-a">http://www.sante.cgt.fr/La-CGT-des-Hopitaux-de-St-Maurice-et-des-Murets-94-se-battent-contre-la-vente-a</a></strong> </p>
+<p style="background-color: #EC9D7E"><strong>LOIRET</strong></p>
+<p align="center">Face aux déserts médicaux, l'Association des Maires du Loiret veulent déposer plainte contre l’État pour non assistance à personnes en danger</p>
+<p align="center"><a href="https://www.larep.fr/orleans-45000/actualites/desert-medical-l-association-des-maires-du-loiret-veut-deposer-plainte-contre-l-etat-pour-non-assistance-a-personne-en-danger_14344412/?s=09">https://www.larep.fr/orleans-45000/actualites/desert-medical-l-association-des-maires-du-loiret-veut-deposer-plainte-contre-l-etat-pour-non-assistance-a-personne-en-danger_14344412/?s=09</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers">MG France réclame un "100% soins primaires"</p>
+<p align="center"><strong><a href="https://www.mgfrance.org/publication/communiquepresse/3416-100-soins-primaires-communique-mg-france">https://www.mgfrance.org/publication/communiquepresse/3416-100-soins-primaires-communique-mg-france</a></strong></p>
+<p class="titre-dossiers"><strong>Question de la sénatrice Mme Marianne Margaté sur la situation de la pédopsychiatrie en Seine et Marne</strong></p>
+<p align="center"><a href="https://www.senat.fr/questions/base/2023/qSEQ231008748.html">https://www.senat.fr/questions/base/2023/qSEQ231008748.html</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center">Italie-France tellement de points communs !</p>
+<p align="center"><a href="https://www.youtube.com/watch?v=SnKY8aN3AxM">https://www.youtube.com/watch?v=SnKY8aN3AxM</p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

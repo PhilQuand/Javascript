@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+<p>Tous les mauvais coups sont permis pour brider l’accès aux soins de toutes et de tous !</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 44</li>
+<li>Dates: du 30 octobre au 5 novembre 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/11/Infos-semaine-44-du-30-octobre-au-5-novembre-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Tous les mauvais coups sont permis pour brider l’accès aux soins de toutes et de tous ! Après un PLFSS de misère, c’est le projet de loi sur l’immigration qui prévoit de supprimer l’AME, l’aide médicale d’État, à destination des étrangers sans titre de séjour, avec déjà des conditions si restrictives que beaucoup d’entre eux ne peuvent y recourir. Des voix nombreuses se lèvent pour dénoncer cette incroyable régression dans un pays qui se dit celui des libertés et des droits de l’Homme. La Coordination s’associe évidemment à cette protestation.</p>
+<div class="VignetteBR  flex right">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" style="margin-top: 0" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="justify">
+La pétition pour que le PLFSS (Projet de loi de financement de la Sécurité Sociale) réponde aux besoins de la population rentre dans la ligne droite de sa dernière semaine ! Elle sera remise à l’Elysée ensuite. Profitez en pour multiplier les initiatives à la rencontre de la population. Le renouvellement des 49.3, s ‘il coupe le débat à l’Assemblée Nationale, contribue au mécontentement général et facilite les débats pour faire connaître nos propositions.
+</div></div>
+<div class="VignetteBR  flex right">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" style="margin-top: 0" src="https://coordination-defense-sante.org/wp-content/uploads/2023/11/Image5.jpeg" />
+</div>
+<div class="divText" align="justify">
+L’actualité de la Coordination, c’est aussi évidemment nos prochaines rencontres nationales à Dole les 17, 18 et 19 novembre prochain. Nos amis de Dole nous y attendent avec impatience. Un grand merci pour leur implication. Ils présentent ces rencontres dans leur dernier flash d’infos : l<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/11/infos-flash84.pdf">’info flash 84</a>.
+</div></div>
+<p align="right"><e>Michèle Leflon</e></p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div>
+
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LANNION - 22</strong></p>
+<p align="center"><strong>Débat du 23 octobre</strong></p>
+<p>Salle comble et attentive pour le débat de plus de 2h animé par Christophe Prudhomme et Françoise Nay.</p>
+<p>Le thème : les Urgences régulées. Et pour commencer novembre, prévision de 17 fermetures !!!</p>
+<p>Belle réussite malgré une campagne de communication minimaliste</p>
+<p align="center"><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/11/Image3.jpeg" /></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/11/lannion-le-debat-du-23-octobre/">L’article sur le site de la Coordination</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>REMIREMONT - 88</strong></p>
+<p align="center"><strong>Mobilisation pour un centre de santé</strong></p>
+<p>À la suite d AG de mars, l’ADEMAT-H a décidé de lancer un appel à Manifestation d'Intérêt auprès des élus (maires conseillers municipaux, communautaires, conseillers départementaux Pays, des professionnels de santé des adhérents ADEMAT-H.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/11/APPEL-A-MANIFESTATION-DINTERET-AMI-.Version-CAocx.pdf">L'appel à manifestation d'intérêt</a></p>
+<p>Pour éclairer la problématique, nous avons invité le Dr richard Lopez président de la Fabrique des Centres de santé à une assemblée débat : 70 personnes étaient présentes</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/11/CR-reunion-centres-de-sante-Ademat-24-oct2023.pdf">Le compte-rendu de la réunion</a></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/11/Revue-de-presse-centres-de-sante.pdf">La revue de presse</a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=M3dIZrApmVg">L’interview du président de l’ADEMAT-H sur France 3</a></p>
+<p>L'objectif maintenant est d'obtenir une étude de faisabilité financée par l'ARS</p>
+<p align="center"><strong>C’est aussi la signature de la pétition</strong></p>
+<p>60 signatures récoltées pour que le PLFSS réponde aux besoins de la population</p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>IVRY-SUR-SEINE - 94</strong></p>
+<p align="center"><strong>Débat sur les centres de santé le 16 novembre</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/11/ivry-sur-seine-projection-du-film-loup-y-es-tu/">L’invitation</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MONTCEAU LES MINES - 71</strong></p>
+<p align="center"><strong>Communiqué du CODEF</strong></p>
+<p>Une nuit de fermeture des urgences, c’est trop … et un très mauvais signal</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/11/CODEFLA-SITUATION-SE-DE%CC%81GRADE-DANGEREUSEMENT.pdf">Le communiqué</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT-AFFRIQUE - 12</strong></p>
+<p align="center"><strong>Rassemblement le 28 octobre</strong></p>
+<p>Un rassemblement a réuni 25 personnes environ pour protester contre l’adoption du budget de la Sécurité Sociale par 49.3.</p>
+<p>Le Manifeste a écrit une lettre au député Jean-François Rousset pour lui demander de tout faire pour que le budget des hôpitaux augmente au moins de 10 %.</p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>QUIMPER - 29</strong></p>
+<p align="center"><strong>Rassemblement le 24 octobre</strong></p>
+<table cellspacing="0" cellpadding="0">
+<p align="center"><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/11/Image4.jpeg" /></p>
+<p>Une cinquantaine de manifestants se sont rassemblés devant la préfecture de Quimper, avec la participation du comité de défense de l’hôpital de Concarneau le 24 octobre pour exiger que le projet de loi de financement de la Sécurité sociale 2024 puisse répondre aux besoins de la population.</p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LUÇON - 85</strong></p>
+<p align="center"><strong>Les Olympiades de l’accès aux soins</strong></p>
+<p>À Luçon, l'ADSP poursuit ses rassemblements tous les vendredis à 18 h devant l'hôpital et prépare les Olympiades de l'accès aux soins pour la semaine du 20 au 25 novembre qui se terminera par une cérémonie de clôture le 25 novembre avec un débat « un service de santé public pour toutes et tous », en présence de Victor Duchesne, économiste de la santé.</p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/11/Lucon.pdf">L'affiche</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>CHARLEVILLE-MÉZIÈRES - 08</strong></p>
+<p align="center"><strong>On signe la pétition pour que le PLFSS réponde aux besoins</strong></p>
+<p>Encore 124 signatures recueillies pour la pétition pour que le PLFSS réponde aux besoins de la population ce mardi 30 octobre en une heure devant l'hôpital Manchester. Les gens sont très mécontents de l'accès aux soins et signent sans presque discuter ! C'est évident pour eux qu'il faut des moyens pour la santé !</p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MONT-SAINT-MARTIN - 54</strong></p>
+<p align="center"><strong>Des cartons rouges pour la politique gouvernementale</strong></p>
+<p align="center"><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/11/pays-haut.jpg" /></p>
+<p>Le lundi 30 octobre, devant l'hôpital de Mont-St-Martin, l'Association Santé Pays-Haut s'est associée à plus de 60 initiatives dans le cadre du Tour de France pour la santé, impulsé de septembre à novembre 2023 par la Coordination Nationale des comités de défense des hôpitaux et maternités.</p>
+<p>Elle a à cette occasion décerné des “Cartons rouges”:</p>
+<p>- à la politique générale de santé du gouvernement et à ses déclinaisons par les instances locales, qui impactent particulièrement notre Territoire,</p>
+<p>- et, en particulier, au Projet de Loi de Financement de la Sécurité Sociale 2024 (PLFSS).</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/11/mont-saint-martin-le-tour-de-france-de-la-sante-y-passe-avec-lassociation-sante-pays-haut/">L’article sur le site de la Coordination</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MARMANDE - 47</strong></p>
+<p align="center"><strong>Dernière ligne droite avant la rencontre avec les conseillers de l’Elysée</strong></p>
+<p>L’entrevue avec les conseillers du Président de la République aura finalement lieu le 6 novembre. Rappelons que ce rendez-vous a été gagné par la mobilisation du comité lors de la venue du Président de la République à Tonneins. La liste des revendications a été affinée lors de la réunion publique du 24 octobre réunissant usagers, élus et soignants :</p>
+<p>- concrétiser la promesse de l’ancien premier ministre que l’État prenne à sa charge le déficit de l’hôpital</p>
+<p>- officialiser la maison médicale de garde</p>
+<p>- et toutes une série de mesures exceptionnelles adaptées au territoire</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>FONTENAY LE COMTE - 85</strong></p>
+<p align="center"><strong>Menaces sur l’hôpital !</strong></p>
+<p>Un week-end de fermeture du service de pédiatrie a amené le collectif SOS Santé Sud Vendée et des médecins, dont le président de la CTPS Sud-Vendée à une conférence de presse pour faire part de leur inquiétude vis à vis de la réduction des services des hôpitaux.</p>
+<p align="center"><a href="https://youtu.be/gHw02Nb3440?feature=shared">L’interview de la chef de service de pédiatrie</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>SAINT-MAURICE - 94</strong></p>
+<p align="center"><strong>Avenir des hôpitaux saint-Maurice et les Murets</strong></p>
+<p>Le collectif pour l'avenir des hôpitaux saint Maurice et les murets tient sa prochaine réunion d'organisation du collectif le mardi 7 novembre 17h30-19h30 8 impasse crozatier dans le 12ème.</p>
+<p align="center"><a href="https://collectif-avenir-hsm-murets.blogspot.com/">Le site du collectif</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>PÉRIGUEUX - 24</strong></p>
+<p align="center"><strong>Débat autour du film « Premières urgences »</strong></p>
+<p>Vendredi 27 octobre 2023, à Périgueux, dans le cadre du Tour de France pour la Santé, une belle soirée consacrée à la santé en général et plus particulièrement aux urgences. Comme support au débat, projection d’un film réalisé en région Parisienne à l’hôpital Delafontaine à Saint-Denis dans le service des urgences. On a pu y voir manque de lits pour hospitaliser les situations le nécessitant, manque de personnels, matériel défaillant, mais aussi l’engagement des personnels dans l’équipe. Le débat a porté sur les urgences en Dordogne et la question de la fermeture-régulation.</p>
+<p>Des contacts ont été pris pour aller vers la création d’un comité de défense de la santé et de l’accès aux soins sur le grand Périgueux.</p>
+<p>La pétition a été bien signée.</p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>MÉDECINE DU TRAVAIL</strong></p>
+<p align="center"><strong>Un médecin du travail convoqué devant l’ordre des médecins suite à la plainte d’un employeur</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2023/11/Soutien-JL-Zylberberg-28-11-2023-devant-chambre-disciplinaire-Ordre-des-medecins.pdf">L’appel à soutien de l’association Santé et Médecine du Travail</a></p>
+<p class="titre-dossiers"><strong>PÉNURIE DE MÉDICAMENTS</strong></p>
+<p align="center"><strong>Pourquoi la France pourrait de nouveau connaître des problèmes d’approvisionnement</strong></p>
+<p align="center"><a href="https://www.francetvinfo.fr/sante/medicament/penuries-de-medicaments-pourquoi-la-france-pourrait-de-nouveau-connaitre-des-problemes-d-approvisionnement-cet-hiver_6145551.html#xtor=EPR-749-%5BNLbestofhebdo%5D-20231028-%5Bcontent4%5D">Un article sur le site de France Info du 27 octobre</a></p>
+<p style="margin-top:3em" align="center"><strong>Sanofi met en bourse son pôle « Grand Public »</strong></p>
+<p align="center"><a href="https://www.bfmtv.com/amp/economie/replay-emissions/les-experts-du-soir/sanofi-met-en-bourse-son-pole-grand-public-27-10_VN-202310270775.html">Les Experts du soir sur BFM business</a></p>
+<p class="titre-dossiers"><strong>AME</strong></p>
+<p>L'AME (aide médicale d’État) est accordée à tous les étrangers qui résident depuis plus de trois mois. Sa suppression est prévue dans la loi immigration que le Sénat s'apprête à étudier à partir de lundi. Une tribune de 3000 soignants est parue dans le Monde cette semaine pour demander son maintien.</p>
+<p>Le rapport Evin/Stefanini demandée par la Première Ministre a été remis ce jeudi. Il confirme l’utilité de ce dispositif, l’absence d’abus.</p>
+<p align="center"><a href="https://www.radiofrance.fr/franceinter/utile-et-pas-si-couteux-voici-les-premieres-conclusions-du-rapport-sur-l-aide-medicale-d-etat-1976206">L’article sur le site de France Inter du 3 novembre</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align="center"><a href="https://www.youtube.com/watch?v=sapNe-xc99M">Qu’est ce que l’AME ?</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

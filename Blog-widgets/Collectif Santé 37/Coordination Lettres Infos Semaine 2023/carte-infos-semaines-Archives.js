@@ -1,7 +1,7 @@
     var archi = [
               {
           svgInfos: ['Semaine 45', 'du 06 nov.', 'au 12 nov.', '2023'],
-          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 44.html',
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 45.html',
         }, 
               {
           svgInfos: ['Semaine 44', 'du 30 oct.', 'au 05 nov.', '2023'],

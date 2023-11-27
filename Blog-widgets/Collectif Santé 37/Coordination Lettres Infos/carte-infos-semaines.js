@@ -1,4 +1,4 @@
-(function($) {
+  (function($) {
   $.fn.InfosComités = function(options) {
 
     //if (typeof options === 'undefined' || typeof options.href === 'undefined') return;
@@ -791,35 +791,35 @@
             icon: input.iconMarker.icon
           });
         }
-        marker.bindPopup(input.doc, {
-          maxWidth: 400,
-          minWidth: 250,
-          maxHeight: 300,
-          className: 'popupCustom',
-          autoPan: true,
-          closeButton: true,
-          autoPanPadding: [5, 5]
-        });
-        marker.getPopup().on('remove', function() {
-          setCallBack();
-        });
-
-        function customTip() {
-          this.unbindTooltip();
-          if (!this.isPopupOpen()) this.bindTooltip(établissement, {
-            direction: 'left',
-            permanent: false,
-            sticky: true,
-            offset: [10, 0],
-            opacity: 0.5,
-            className: 'tooltipCustom'
-          }).openTooltip();
-        }
-        function customPop() {
-          this.unbindTooltip();
-        }
-        marker.on('mouseover', customTip);
-        marker.on('click', customPop);
+          marker.bindPopup(input.doc, {
+            maxWidth: 400,
+            minWidth: 250,
+            maxHeight: 300,
+            className: 'popupCustom',
+            autoPan: true,
+            closeButton: true,
+            autoPanPadding: [5, 5]
+          });
+          
+          marker.getPopup().on('remove', function() {
+            setCallBack();
+          });
+          
+          marker.on('mouseover', function(e) {
+            this.unbindTooltip();
+            var myPopup = this.getPopup();
+            var myPopupContent = $(myPopup.getContent());
+            //var myPopupShortContent = myPopupContent.find('.popLieux');
+            var myPopupShortContent = $(myPopupContent.html());
+            var myTooltip = '<div class="popBody"><div class="popLieux" style="background-color: ' + myPopupShortContent.css('background-color') + '; color: ' + myPopupShortContent.css('color') + '; font-size: 12px; text-align: center">' + myPopupShortContent.text() + '</div><center><div class="popNote">clickez pour afficher les détails</div></center></div>'
+            if (!this.isPopupOpen()) this.bindTooltip(myTooltip, {
+              sticky: true
+            }).openTooltip();            
+          });
+          
+          marker.on('click', function (e) {
+            this.unbindTooltip();
+          });
 
         return marker;
       }

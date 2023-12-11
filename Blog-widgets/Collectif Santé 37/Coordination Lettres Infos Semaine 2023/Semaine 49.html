@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>D’abord un coup de massue, l’adoption à l’Assemblée sans vote, grâce au fameux 49.3, de la loi de financement de la Sécurité Sociale : restrictions des réponses aux besoins de soins garanties. Mais c’est une victoire à la Pyrrhus du gouvernement car de très nombreuses forces se sont prononcées contre le contenu de cette loi, certaines pour la première fois ( France Asso Santé, de nombreuses collectivités territoriales, la Fédération Hospitalière de France, la Caisse nationale d’ Assurance Maladie et même la commission des affaires sociales de l’ Assemblée !).</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 49</li>
+<li>Dates: du 4 au 10 déc. 2023</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/12/Infos-semaine-49-du-4-au-10-dec-2023.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<div class="VignetteBR float right">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/12/Résumé_1.png" />
+<img clear="both" class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/12/Résumé_3.png" />
+</div>
+<div class="divText">
+<p><strong><em>Le gouvernement tue les hôpitaux sans débat.</em></strong></p>
+<p><em>La démocratie est bafouée. La santé est en danger. Pour la vingtième fois, le gouvernement s’est appuyé sur l’article 49.3 de la constitution pour passer en force le 1er décembre le projet de loi de financement de la Sécurité Sociale 2024 (PLFSS) et éviter un vote parlementaire. Il ne pouvait même plus supporter d'entendre qu'il avait tort. Rappelons que la commission des affaires sociales de l'Assemblée Nationale avait voté contre ce projet de loi.</em></p>
+<p><strong><em>Le ministère tentent d’étouffer la parole des professionnels</em></strong></p>
+<p><em>Depuis le 1er décembre, Caroline Brémaud n'est plus cheffe du service des urgences de l'hôpital de Laval. Décision conjointe du Directeur de l'hôpital et du Président de la Communauté Médicale de l'Etablissement.</em></p>
+<img style ="float:left; max-width: 200px; margin: 10px 10px 0 0" class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/12/Résumé_2.png" />
+<p><em>Caroline Brémaud dit la casse de l'hôpital public, la dégradation de l'accès aux soins, en Mayenne en particulier, et la mise en danger de la population avec des fermetures totales ou partielles du service des urgences des hôpitaux mayennais, et de celui de Laval en particulier.</em></p>
+<p><em>Les manifestants sont venus dénoncer cette sanction samedi 9 à Laval. La coordination apporte tout son soutien.</em></p>
+<p><strong><em>Actions, grèves, coordinations, réunions publiques, les citoyens agissent.</em></strong></p>
+<p><em>Le site de la coordination fait le point sur ces questions et beaucoup d’autres.</em></p>
+</div></div>
+<p align="right" style="margin-top: 5em;" clear="both"><i>Henri sud-Aveyron</i></p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div>
+
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #FC0000; color: #F7F7F7"><strong>LAVAL</strong></p>
+<p>La destruction de l'hôpital public est avérée. Les moyens manquent. Les équipes sont épuisées, détruites à force de conditions de travail dégradées, et quittent le navire. Les conditions d'accueil des patients sont jugées indignes par les équipes elles-mêmes.<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/12/Image5.jpg"/></p>
+<p>Elles n'ont plus que le temps des gestes techniques, et plus celui de l'écoute. Les patients sont hospitalisés dans les couloirs des urgences, parfois plusieurs jours, faute de lits d'hospitalisation en aval. Et le nombre de patients pour chaque soignant est tel que la peur de l'erreur médicale et celle qu'une mort évitable survienne sont omniprésentes.</p>
+<p>L'hôpital public se meurt, détruit par une politique qui, depuis des années, lui demande d'être rentable et de fonctionner comme une entreprise, mais ses équipes n'ont, de toute évidence, pas le droit de le dire. </p>
+<p>Caroline Brémaud le dit. Elle est sanctionnée, privée de sa chefferie. </p>
+<p align="center"><a href="http://www.change.org/p/une-d%C3%A9cision-incompr%C3%A9hensible-ou-h%C3%A9las-trop-compr%C3%A9hensible-pour-les-urgences-de-laval?signed=true">La pétition</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LUÇON</strong></p>
+<p><strong>VIGILANCE à l’hôpital de Luçon !</strong></p>
+<p>L’accès aux soins pour toutes et tous partout sur le territoire est un droit fondamental.</p>
+<p>Restons mobilisés !</p>
+<p><strong>Dernier rendez-vous </strong>: <strong style="color: red">VENDREDI 8 DECEMBRE 2023 18H </strong>  devant les Urgences</p>
+<p style="margin-bottom: 0"><strong>Les Olympiades de l'accès aux soins ont pris fin samedi dernier</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Après 2 ans et demi de mobilisation, l'ADSP (l'Association d'Usagers des Services Publics) continue ses manifestations pour un accès aux soins pour toutes et tous.</p>
+<p style="margin-top: 0;">Toute la semaine dernière, la Flamme des Olympiades de l'accès aux soins a traversé le Sud Vendée Littoral avant d'achever son parcours pour une cérémonie de clôture. Toutes les délégations se sont rassemblées sur la Place Leclerc avant de défiler dans les rues du centre-ville où diverses animations étaient prévues avant de raviver la Flamme du malade inconnu devant l'hôpital.</p>
+<p align="center"><a href="https://www.tlsv.fr/toutes-les-videos/cadre-de-vie/entry-3521-lucon-les-olympiades-de-l-acces-aux-soins-ont-pris-fin-samedi-dernier.html">Reportage sur tlsv</a></p>
+<p style="background-color: #FC0000; color: #F7F7F7"><strong>GUIMGAMP</strong></p>
+<p style="margin-bottom: 0"><strong>Côtes-d'Armor : Margot est née dans la voiture, ses parents en colère témoignent</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Magot Le Piver est née dans la voiture de ses parents, habitants Yvias, le 16 novembre, sur la route de la maternité. Une histoire qui aurait pu mal finir, témoignent ses parents.</p>
+<p style="margin-top: 0; margin-bottom: 0">Une histoire anecdotique, mais qui aura pu tourner au drame.</p>
+<p style="margin-top: 0; margin-bottom: 0"><strong>Née devant une pizzeria et un garage automobile</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Margot est donc née au 2, rue de Paris à St Brieuc.</p>
+<p style="margin-top: 0; margin-bottom: 0">Si vous cherchez sur Google Map, vous n’y trouverez pas de clinique ou de maternité, mais une enseigne de pizzeria et un garage automobile…</p>
+<p style="margin-top: 0; margin-bottom: 0">Nous sommes partis d’Yvias à 7 h 32 précisément. Je n’étais pas stressée.</p>
+<p style="margin-top: 0; margin-bottom: 0"><strong>La maman perd les eaux à hauteur de Plérin</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">À l’origine, la jeune femme devait <strong>accoucher à Guingamp</strong> comme pour ses deux aînés, Louis, 10 ans, et Paul, 6 ans, mais les nuages qui s’amoncellent sur la <a href="https://actu.fr/bretagne/guingamp_22070/la-maternite-suspendue-six-mois-de-plus-a-guingamp-la-senatrice-annie-le-houerou-reagit_60252309.html">maternité de Pabu</a> l’ont contrainte à <strong>opter pour Saint-Brieuc.</strong></p>
+<p style="margin-top: 0;"><a href="https://actu.fr/bretagne/yvias_22390/cotes-darmor-margot-est-nee-dans-la-voiture-ses-parents-en-colere-temoignent_60412813.html">https://actu.fr/bretagne/yvias_22390/cotes-darmor-margot-est-nee-dans-la-voiture-ses-parents-en-colere-temoignent_60412813.html</a></p>
+<p style="margin-bottom: 0"><strong>Et dans le même secteur de soin</strong></p>
+<p style="margin-top: 0;">Un véhicule SAMU en panne le 6 décembre avec un patient à bord. Le véhicule était en attente de remplacement depuis deux ans !<strong>GISOR</strong></p>
+<p style="background-color: #FEFB01"><strong>GISORS</strong></p>
+<p style="margin-bottom: 0"><strong>Faute de moyens, l’hôpital se tourne vers le privé et fait appel aux dons !</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Il y avait bien eu les annonces d’O. Véran, alors ministre de la santé en novembre 22 promettant des fonds pour agrandir le service d’urgences, accueillir une IRM, rénover l’EHPAD.  Mais cela ne suffit pas et l’hôpital a décidé de créer un « fond de dotation pour le Pôle sanitaire du Vesin » et fait appel aux dons.</p>
+<p style="margin-top: 0; margin-bottom: 0">Le comité de défense de l’hôpital, par la voix de son président, Marcel Larmanou, a réagi :</p>
+<p style="margin-top: 0; margin-bottom: 0">« <em>Cette décision peut étonner voire choquer ! Comment un hôpital public en est il arrivé à faire appel à la charité se financer en partie ?</em></p>
+<p style="margin-top: 0;"><a href="https://coordination-defense-sante.org/2023/12/gisors-lhopital-a-la-recherche-de-financement/">Information complète sur le site de la coordination</a></p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>LUYNE - 37</strong></p>
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/12/Image4.jpg" />
+</div>
+<div class="divText">
+<p style="margin-bottom: 0"><a href="https://collectifsante37.blogspot.com/2023/12/greve-au-ch-de-luynes-37le-5-decembre-23.html">Grève au CH de Luynes (37) le 5 décembre 23</a></p>
+<p style="margin-top: 0;">Àprès 2 semaines de grève, les personnels du CH de Luynes faisaient un rassemblement ce 5 décembre à l'appel de FO et SUD devant l'établissement pour appuyer les négociations pour une amélioration des conditions de travail. Depuis l'après covid les dégradations de condition de travail et de soins avec les absences non remplacées sont devenus au-delà de l'acceptabilité</p>
+</div></div>
+<p style="background-color: #FEFB01;"><strong>VIRE</strong></p>
+<p style="margin-bottom: 0">Vire, le comité organise une campagne pour alerter élu-e-s et ars sur le manque de médecins traitants. Nous proposons la mise en place d'un centre public de santé en partenariat avec l'hôpital. C'était la 3ème réunion publique ce mercredi, avec la présence d'une adjointe aux maire</p>
+<p style="margin-top: 0;">Plus d’informations sur le site de la coordination : <a href="https://coordination-defense-sante.org/2023/12/vire-le-collectif-lance-une-campagne-pour-alerter-lars-et-les-elus-es-sur-le-manque-de-medecins-traitants-cest-aujourdhui-plus-de-500-lettres-qui-sont-deja-signees-et-seront-deposees-a-lars/">https://coordination-defense-sante.org/2023/12/vire-le-collecti…-deposees-a-lars/</a><span lang="HI">‎</span></p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>LE CREUZOT-MONTCEAU</strong></p>
+<p style="margin-bottom: 0"><strong>Énervons-nous ensemble et réagissons</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Dans un entretien publié le 23 novembre, réagissant à la plainte auprès du conseil d’Etat de l’UFC Que Choisir, le Ministre de la Santé se déclare « énervé » qu’on l’accuse d’inaction face aux inégalités croissantes d’accès aux soins. Il lui est « insupportable » d’apparaître déconnecté…</p>
+<p style="margin-top: 0; margin-bottom: 0">La critique est blessante mais il est difficile de nier la réalité.</p>
+<p style="margin-top: 0; margin-bottom: 0">C’est au ministère de la santé qu’incombe l’amélioration des conditions de travail des soignants et d’accueil des patients. C’est peut-être « énervant » mais il est difficile de le nier. C’est le ministère de la santé qui doit réagir face au 53 000 décès en excès relevé par l’INSEE en 2022, à l’augmentation de la mortalité infantile.</p>
+<p style="margin-top: 0; margin-bottom: 0">Enervons-nous ensemble et réagissons !</p>
+<p style="margin-top: 0;">Voir le site du comité :<a href="http://www.lecodef.org/">www.lecodef.org</a></p>
+<p style="background-color: #FEFB01;"><strong>ARDENNES</strong></p>
+<p style="margin-bottom: 0"><strong>Des pansements sur des jambes de bois !</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Le comité de défense des hôpitaux de proximité des Ardennes se félicite des investissements annoncés dans les hôpitaux de Manchester et de Sedan. Mais une peinture neuve ne peut faire oublier la diminution des possibilités de se soigner dans le département.</p>
+<p style="margin-top: 0; margin-bottom: 0">→ Le service de néonatalogie de Sedan a fermé ses portes, et la presse régionale fait la publicité pour le service privé de Bezannes.</p>
+<p style="margin-top: 0; margin-bottom: 0">→ Une pose de pacemaker est nécessaire ?... Alors direction Bezannes ! I</p>
+<p style="margin-top: 0; margin-bottom: 0"><strong>Car les murs, c'est bien, mais des murs vides, c'est inutile.</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Que fait-on pour arrêter la captation des médecins spécialistes par le privé, en néonatalogie, en anesthésie, en obstétrique etc ... ?</p>
+<p style="margin-top: 0; margin-bottom: 0">À quand une égalisation des revenus entre public et privé et un partage de la pénibilité du travail de nuit ?</p>
+<p style="margin-top: 0;"><a href="http://sauvegardehopital.over-blog.com/">sauvegardehopital.over-blog.com</a></p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>LAMONZIE St MARTIN- DORDOGNE</strong></p>
+<p style="margin-bottom: 0"><strong>La santé et le soin en question</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Ce jeudi 30 novembre le Comité de Défense du Service Public de Santé et du Médico-Social  organisait une réunion publique à Lamonzie St Martin pour échanger et débattre de la politique de santé de l’Etat et du Médico-social.</p>
+<p style="margin-top: 0; margin-bottom: 0">Une quarantaine personnes ont assisté à cette rencontre où a été débattu de  la politique désastreuse du gouvernement.</p>
+<p style="margin-top: 0; margin-bottom: 0">Thierry Auroy Peytou, maire de la commune,  a présenté les actions menées par la CAB (Communauté d’Agglo du Bergeracois) en matière d’accès aux soins de ville,  puis Daniel GARRIGUE  et Luc CADILLON ont tour à  tour expliqué les raisons  qui mettent gravement en difficulté l’accès aux soins pour tous dans le Bergeracois (comme partout)</p>
+<p style="margin-top: 0;">(Informations auprès du comité de Bergerac ou sur <a href="https://coordination-defense-sante.org/le-comite-de-bergerac-2/">le site de la coordination</a>)</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #FEFB01"><strong>JUVISY</strong></p>
+<p style="margin-bottom: 0"><strong><em>Le personnel soignant de l'hôpital de Juvisy-sur-Orge (Essonne) a appris la fermeture du service d’urgences en juin 2024.</em></strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Une nouvelle fermeture d'urgences touche l'hôpital public français. Cette fois, c’est à l'hôpital de Juvisy-sur-Orge, dans l'Essonne. Le personnel soignant a reçu, mardi matin, un mail de la direction du Groupe hospitalier Nord-Essonne, dont fait partie leur établissement, leur annonçant la fermeture de leur service en juin 2024 et leur mutation à l'hôpital de Longjumeau, à 10 km. La direction doit rencontrer les soignants, surpris et agacés, ce vendredi matin.</p>
+<p style="margin-top: 0; margin-bottom: 0">"Je n’ai pas les mots…", confie Stan, une aide-soignante, devant les urgences de Juvisy. "On nous avait dit qu’on resterait ouvert et qu’en 2026, il y aurait un nouveau bâtiment des urgences" pointe sa collègue Véronique. Mais il n’y aura finalement pas de nouveau bâtiment. "Je suis déçue, on nous prend pour des pions, lâche Stan. On se retrouve dans la situation où soit on va à Longjumeau, soit on trouve un autre poste ailleurs."</p>
+<p style="margin-top: 0;"><em><a href="https://rmc.bfmtv.com/actualites/societe/sante/on-nous-prend-pour-des-pions-les-urgences-de-l-hopital-de-juvisy-sur-orge-vont-fermer_AV-202312010173.html?fbclid=IwAR0ZqMtI9VwZH9q9jH8K_Up0ZasFFf9vF-Z7RIiG8SIOEmz4WYROtaL28Ew">https://rmc.bfmtv.com/actualites/societe/sante/on-nous-prend-pour-des-pions-les-urgences-de-l-hopital-de-juvisy-sur-orge-vont-fermer_AV-202312010173.html?fbclid=IwAR0ZqMtI9VwZH9q9jH8K_Up0ZasFFf9vF-Z7RIiG8SIOEmz4WYROtaL28Ew</a></em></p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>SENLIS-OISE</strong></p>
+<p style="margin-bottom: 0"><strong>Accès aux soins dans l’Oise : Le rapport alarmant de l’UFC Que Choisir</strong></p>
+<p style="margin-top: 0;">L’antenne senlisienne de l’association de consommateurs UFC Que Choisir alerte sur l’accès aux soins dans le département de l’Oise. Au niveau national, l’UFC Que Choisir a déposé un recours devant le conseil d’Etat «pour que la plus haute autorité administrative du pays constate et sanctionne l’inaction du gouvernement, mais également qu’elle l’enjoigne à prendre sans délai les mesures courageuses permettant de résorber la fracture sanitaire». <a href="https://www.quechoisir.org/action-ufc-que-choisir-petition-acces-aux-soins-j-accuse-l-etat-n113334/">Une pétition est également en ligne.</a> L’association a également publié <a href="https://www.quechoisir.org/carte-interactive-fracture-sanitaire-n21245/">une carte interactive de «la fracture sanitaire»</a>.</p>
+<p style="margin-bottom: 0"><strong>L’Oise, un désert médical ?</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">«L’accès géographique à la médecine de ville est extrêmement dégradé dans l’Oise», estime l’UFC Que Choisir. L’association donne quelques chiffres. Selon elle, 7,8% des habitants de l’Oise résident dans un désert médical pour l’ophtalmologie ; 45,8%des femmes et 49,8% des enfants qui y vivent sont respectivement dans un désert médical gynécologique et pédiatrique.</p>
+<p style="margin-top: 0; margin-bottom: 0">(… article complet sur le lien</p>
+<p style="margin-top: 0;"><a href="https://www.oisehebdo.fr/2023/11/21/acces-soins-oise-rapport-alarmant-ufc-que-choisir/?fbclid=IwAR0YhS1lYvzOUNjaNlq5PMhPgKP5lAbjNB2cCptHacFZwyNhNmS8XEA6C_8">https://www.oisehebdo.fr/2023/11/21/acces-soins-oise-rapport-alarmant-ufc-que-choisir/?fbclid=IwAR0YhS1lYvzOUNjaNlq5PMhPgKP5lAbjNB2cCptHacFZwyNhNmS8XEA6C_8</a><br /><br /></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>Comment construire en Europe des services publics pour répondre aux besoins ?</strong></p>
+<p style="margin-bottom: 0">À quelques mois du renouvellement du Parlement européen, plusieurs organisations, organisent une <strong>rencontre débat </strong>sur le thème "<strong>Comment construire en Europe des services publics répondant aux besoins."</strong>Cette rencontre est organisé le <strong>samedi 16 décembre de 9h30 à 17h30 </strong>dans la salle Henaff de la Bourse du travail à Paris</p>
+<p style="margin-top: 0;">(<a href="https://coordination-defense-sante.org/wp-content/uploads/2023/12/Flyer-SP-Europe-2023-12-16-V2.pdf">voir sur le site de la coordination pour les inscriptions</a>)</p>
+<p><img style ="float:left; max-width: 200px; margin: 10px 10px 0 0" class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/12/Image-1.png"/><strong>Le Tour de France pour la Santé décerne 49.3 Cartons Rouges à la Loi de Financement de la Sécurité Sociale, qui accélère l'effondrement de notre système de santé !</strong></p>
+<p class="titre-dossiers" clear="both"><strong>NOUS AVONS AUSSI REÇU A LA COORD</strong></p>
+<p class="titre-rubrique"><strong>MUTUELLES DE FRANCE et BUDGET SECU</strong></p>
+<p style="margin-bottom: 0">Le gouvernement fait de la santé de la population sa variable d’ajustement comptable</p>
+<p style="margin-top: 0; margin-bottom: 0"><strong>Les Mutuelles de France dénoncent un budget de la Sécurité sociale </strong>irresponsable, dicté par Bercy. La loi de financement 2024 fait reculer le droit à la santé et augmente le coût de la maladie pour les ménages.</p>
+<p style="margin-top: 0;"><a href="https://mutuelles-de-france.fr/lfss-2024-le-gouvernement-fait-de-la-sante-de-la-population-sa-variable-dajustement-comptable/">https://mutuelles-de-france.fr/lfss-2024-le-gouvernement-fait-de-la-sante-de-la-population-sa-variable-dajustement-comptable/</a></p>
+<p class="titre-rubrique"><strong>Des organisations de PSYCHIATRES RÉAGISSENT sur LES ACTES TERRORISTES et leur UTILISATION POLITIQUE</strong></p>
+<p style="margin-bottom: 0"><strong>Maladie mentale et actes terroristes : la tentation des amalgames ?</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Nous partageons l’émotion suscitée au sein de la population et nous comprenons les préoccupations face au phénomène de radicalisation à l'origine des actes terroristes.</p>
+<p style="margin-top: 0; margin-bottom: 0">Face à cette horreur, la tentation est grande de donner à penser que nous pourrions avoir prise sur une part de ses causalités en suggérant que ces actes de violence extrêmes pourraient relever, pour partie, d’une pathologie psychiatrique : un tiers de ces personnes, avance-t-on, présenteraient des troubles psychologiques… Le Ministre de l’intérieur vient d’annoncer le chiffre de 20 %. Mais selon quels critères, quelles études épidémiologiques ? </p>
+<p style="margin-top: 0; margin-bottom: 0">Norbert SKURNIK Président de l’Intersyndicale de la Défense de la Psychiatrie Publique (IDEPP)</p>
+<p style="margin-top: 0; margin-bottom: 0">Michel TRIANTAFYLLOU Président du Syndicat des Psychiatres d’Exercice Public (SPEP)</p>
+<p style="margin-top: 0; margin-bottom: 0">Marie-José CORTÈS Présidente du Syndicat des Psychiatres des Hôpitaux (SPH)</p>
+<p style="margin-top: 0; margin-bottom: 0">Charles-Olivier PONS Président de l’Union Syndicale de la Psychiatrie (USP)</p>
+<p style="margin-top: 0;">(… <a href="https://www.uspsy.fr/?p=27026">communiqué intégral</a>)</p>
+<p class="titre-rubrique"><strong>EHPAD Des associations d’élus locaux interpellent le gouvernement</strong></p>
+<p style="margin-bottom: 0">Hôpitaux et EHPAD publics : l’absence de compensation intégrale par le Gouvernement des coûts de l’inflation créerait les conditions d’une crise sanitaire, économique et sociale</p>
+<p style="margin-top: 0; margin-bottom: 0">Depuis plusieurs mois, les hôpitaux publics alertent sur l’inflation très importante qu’ils subissent et sur l’explosion de leurs dépenses qui en découle. Les analyses convergent pour estimer qu’un financement complémentaire de l’ordre de 1 milliard d’euros en 2023 pour les seuls hôpitaux publics est indispensable. Pour les EHPAD publics, le besoin de financement supplémentaire pour 2023 est estimé à 200 millions d’euros.( …)</p>
+<p style="margin-top: 0;"><a href="https://www.apvf.asso.fr/wp-content/uploads/2023/12/CP-FHF_Hopitaux-et-EHPAD-publics-0712.pdf">https://www.apvf.asso.fr/wp-content/uploads/2023/12/CP-FHF_Hopitaux-et-EHPAD-publics-0712.pdf</a></p>
+<p class="titre-rubrique"><strong>COP 28 CLIMAT et SANTÉ</strong></p>
+<p style="margin-top: 0; margin-bottom: 0"><strong>La COP 28 a consacré pour la première fois une journée au lien entre santé et climat</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Pour la première fois dans le cadre de la conférence mondiale pour le climat, une journée a été consacrée à la santé, et une déclaration officielle sur le climat et la santé a été publiée, à l'occasion de la 28e Conférence des parties (COP28), qui se déroule du 30 novembre au 12 décembre à Dubaï aux Emirats arabes unis.</p>
+<p style="margin-top: 0; margin-bottom: 0"><a href="https://sante.gouv.fr/ministere/europe-et-international/actualites-europeennes-et-internationales/article/cop28-a-dubai-un-moment-decisif-pour-le-climat-et-la-sante">Lien </a></p>
+<p class="titre-rubrique"><strong>Quand les Groupes privés s’organisent.</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Les métiers de la santé n’attirent plus autant. Le groupe Ramsay santé a signé un partenariat avec Territoires solidaires pour y apporter un début de solution</p>
+<p style="margin-top: 0; margin-bottom: 0">C’est à la clinique Belharra de Bayonne que le pôle Sud Aquitaine de Ramsay santé et Territoires solidaires ont lié leurs destins par convention, ce lundi 4 décembre. Les cliniques du groupe Ramsay entendent ainsi donner du sens à leurs métiers, qui recrutent chaque année près de 120 CDI sur le secteur basco-landais, où travaillent 1 500 personnels de santé.</p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p class="titre-rubrique"><strong>DANSES POPULAIRES ET EXTRÊMES DROITES</strong></p>
+<p style="margin-top: 0; margin-bottom: 0">Le weekend du 16 et 17 décembre se tiendront les assises debout des danses libératrices à AERI, vous trouverez le programme en pièce-jointe pour la journée du 16 qui est ouverte à toustes. Au programme danse folk, atelier sur le consentement, danse contact, autodéfense féministe, danse jazz, discussion sur l'éco-fascisme et d'autres !</p>
+<p style="margin-top: 0; margin-bottom: 0"><a href="https://corpsetgraphies.assoconnect.com/collect/description/356251-s-danser-contre-l-oppression?messageSuccess%5b0%5d=L%27offre%20a%20bien%20%C3%A9t%C3%A9%20enregistr%C3%A9e">https://corpsetgraphies.assoconnect.com/collect/description/356251-s-danser-contre-l-oppression?messageSuccess[0]=L%27offre%20a%20bien%20%C3%A9t%C3%A9%20enregistr%C3%A9e</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
         }, 
               {
           svgInfos: ['Semaine 52', 'du 25 dec.', 'au 31 dec.', '2023'],
-          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 51.html',
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2023/Semaine 52.html',
           idGlinkID: 'PreviousLetters'
         }, 
               {

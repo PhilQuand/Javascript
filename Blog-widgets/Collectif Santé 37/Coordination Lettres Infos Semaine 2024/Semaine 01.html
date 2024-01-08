@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<center><strong>Veut-on, peut-on conjuguer Santé, Sécurité et Liberté ?</strong></center>
+<p>À Meaux une mère de famille et ses quatre enfants ont été retrouvés morts à leur domicile ce lundi 25 décembre 2023 dans la soirée. Le père, déjà connu pour des faits de violences et troubles psychiatriques, a été arrêté et placé en garde à vue.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 52</li>
+<li>Dates: du 1er au 7 jan. 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/Infos-semaine-1-du-1er-au-7-janvier-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p class="titre-rubrique" style="margin: 1em;"><strong>Veut-on, peut-on conjuguer Santé, Sécurité et Liberté ?</strong></p>
+<p>À Meaux une mère de famille et ses quatre enfants ont été retrouvés morts à leur domicile ce lundi 25 décembre 2023 dans la soirée. Le père, déjà connu pour des faits de violences et troubles psychiatriques, a été arrêté et placé en garde à vue.</p>
+<p>Sur BFMTV, Jean-François Copé, maire de Meaux, a interpellé les pouvoirs publics sur la question de la "santé psychiatrique", une "priorité absolue", "un problème de société absolument majeur".</p>
+<p>Il indique que "Nous avons aujourd'hui avec la santé psychiatrique, un problème de santé majeur auquel nous ne répondons pas parce que nous n'avons pas les moyens, les praticiens suffisants. C'est un problème récurrent".</p>
+<p>Dans une tribune parue le 3 janvier 2024 Monsieur COPE fait ensuite référence aux positions du Printemps de la Psychiatrie qui précisent : "Aujourd'hui, le discours officiel soutenu par les lobbys est triomphaliste. Il promet le rétablissement et l'inclusion pour tous. Mais nous savons qu'en réalité il masque l'abandon des soins de base et des soins au long cours souvent nécessaires (psychothérapie, activités et accompagnements thérapeutiques...), qui ainsi se réduisent à une ordonnance de médicaments". Dans le prolongement il suggère que les politiques étudient le programme proposé par les professionnels regroupés dans cette association.</p>
+<p>Alors que le secteur de la santé est placé sous le règne de l’arbitraire et du pouvoir sans partage du ministère et des agences régionales de santé depuis la loi Bachelot de 2009 faut-il voir dans la prise de position de Monsieur COPE un message lénifiant destiné à ses administrés ou une réelle prise de conscience de la situation sinistrée de la psychiatrie publique, de l’impératif d’y remédier et de la nécessité d’associer les professionnels de ce secteur à l’analyse du constat et à la recherche de solution ? Peut-on espérer que le bon sens qui sous-tend sa proposition devienne contagieux ?</p>
+<p>Pour le profane que je suis, la recherche des profits par les lobbies du médicament et la quête perpétuelle d’économies aussitôt englouties par le ministère ne saurait constituer une politique de santé, d’autant que le déficit perdure puisqu’il constitue pour les uns comme pour l’autre d’une arme de guerre contre l’hôpital public.</p>
+<p>Cette politique me paraît par ailleurs contenir en germe les germes de ses échecs prévisibles.</p>
+<p>Elle s’attaque aux forces vives du soin psychiatrique en s’efforçant de réduire les équipes soignantes (infirmières, psychologues…). Ce faisant, elle ferme des portes qui constituaient autant de recours possibles pour le malade ou pour ses proches en période de mal-être, de stress ou de crise pour les conduire progressivement à un interlocuteur privilégié, voir unique : le prescripteur de médicaments.</p>
+<p>Or rien ne garantit que ce prescripteur sera disponible et accessible en période de crise, ni que les patients accepteront de façon rigoureuse une prise de médicaments au long cours que d’aucun présente comme la barrière suprême pour la sécurité de la population bien que cette affirmation soit malheureusement régulièrement démentie par des drames.</p>
+<p>Comme le relève Monsieur COPE, le problème est récurrent.</p>
+<p>Il est temps que les responsables de la politique de santé arrivent à se convaincre que la solution passe par un suivi régulier et pérenne du patient par des équipes soignantes formées et en nombre adapté à la file d’attente prise en charge c’est-à-dire que les modalités de ce suivi soient définies conjointement par l’Etat bien sûr, mais aussi par les élus nationaux et locaux, par les professionnels de santé des différentes branches impliquées et par les représentants des usagers, tous concernés au premier chef par la recherche et la mise en œuvre de solutions pérennes ?</p>
+<p align="right" style="margin-top: 1em;" clear="both"><i>Rolland Vachon</i></p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #E6D76E"><strong>Côtes d’Armor - 22</strong></p>
+<p>Les Côtes d’Armor département délaissé.</p>
+<p>600 000 personnes c'est la population qui est sacrifiée. Seuls 3 services d'urgences sur 5 ouverts lors de la saint Sylvestre.</p>
+<p>Les directions des différents établissements ont mentionné dans des communiqués qu'en cas de besoin, les personnes devaient contacter le 15 avant de se déplacer.</p>
+<p align="center"><u><a href="https://www.ch-lannion.fr/Regulation-de-l-acces-aux-urgences-du-Centre-Hospitalier-de-Lannion-Trestel-les-422">Lannion-Trestel-du 30 décembre 2023 au 6 janvier 2024</a></u></p>
+<p align="center"><a href="https://www.ouest-france.fr/sante/urgences-fermees-la-nuit-du-31-decembre-en-cotes-darmor-il-faut-requisitionner-des-medecins-b9c0d578-a740-11ee-bd70-78fa15e16d04"><u>Lannion, Pontivy, Guingamp et Carhaix -fermees-la-nuit-du-31-decembre</u></a></p>
+<p align="center"><u><a href="https://www.letelegramme.fr/cotes-d-armor/saint-brieuc-22000/le-service-des-soins-urgents-de-lhopital-prive-des-cotes-darmor-ferme-du-26-au-30-decembre-6493421.php">saint-brieuc-hopital-prive-des-cotes-darmor-ferme-du-26-au-30-decembre-</a></u></p>
+<p style="background-color: #E6D76E"><strong>Remiremont – Lure - 70</strong></p>
+<p>Le CV 70 demande donc instamment que la décision de fermeture des urgences de</p>
+<p>l’Hôpital de Remiremont soit annulée et la réouverture de véritables urgences des hôpitaux de Lure (actuellement fermées le soir et la nuit) et de Luxeuil-Les-Bains (totalement fermées).</p>
+<p align="center"><u><a href="https://coordination-defense-sante.org/2024/01/lure-remiremont-lettre-urgences-de-nuit-02-01-2024/"><strong>La lettre</strong></a></u></p>
+<p style="background-color: #E6D76E"><strong>Luçon - 85</strong></p>
+<p align="center">VIGILANCE à l’hôpital de Luçon ! Restons mobilisés !</p>
+<p align="center">En 2024 on continue ! C’est ce qui a été décidé vendredi dernier par l’assemblée présente au rassemblement.</p>
+<p align="center">L’accès aux soins pour toutes et tous partout sur le territoire est un droit fondamental.</p>
+<p align="center">Prochains rendez-vous : VENDREDI 5 JANVIER 2024 18H devant les Urgences</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #7BF971"><strong>La Ferté-Bernard - 72</strong></p>
+<p>Après 199 jours de fermeture en 2023 c’est à nouveau mal parti pour les patients qui ont besoin du service des urgences.</p>
+<p align="center"><a href="https://www.ouest-france.fr/pays-de-la-loire/la-ferte-bernard-72400/les-urgences-de-la-ferte-bernard-ouvertes-seulement-huit-jours-en-janvier-68700936-aa34-11ee-a01a-903e3279d34e"><strong>L’article</strong></a></u></p>
+<p style="background-color: #7BF971"><strong>Saint-Calais - 72</strong></p>
+<p>Série de fermetures également annoncées pour le service des urgences</p>
+<p align="center"><a href="https://www.ouest-france.fr/pays-de-la-loire/saint-calais-72120/hopital-de-saint-calais-de-nouvelles-fermetures-du-service-des-urgences-7d838ec4-ab10-11ee-a01a-903e3279d34e"><strong>L’article</strong></a></u></p>
+<p style="background-color: #7BF971"><strong>Saint-Tropez - 83</strong></p>
+<p align="center">La fermeture des urgences de nuit prolongée tout le mois de janvier</p>
+<p align="center"><a href="https://actu.fr/provence-alpes-cote-d-azur/saint-tropez_83119/les-urgences-de-saint-tropez-fermees-la-nuit-pendant-tout-le-mois-de-janvier_60515698.html"><strong>L’article</strong></a></u></p>
+<p style="background-color: #7BF971"><strong>Bagnols sur Cèze - 30</strong></p>
+<p align="center">Urgences de nuit à nouveau régulées pendant 5 nuits.</p>
+<p align="center"><a href="https://www.midilibre.fr/2024/01/03/les-urgences-de-bagnols-sur-ceze-de-nouveau-regulees-pendant-cinq-nuits-consecutives-en-raison-dun-effectif-medical-insuffisant-11675061.php"><strong>L’article</strong></a></u></p>
+<p style="background-color: #7BF971"><strong>Longué-Jumelles - 49</strong></p>
+<p>La stratégie de concentration de l’offre de soin continue d’éloigner les services hospitaliers des patients et de leurs familles.</p>
+<p>À compter du 1<sup>er</sup> janvier 2024 les 35 lits de l’unité de soins de longue durée du centre hospitalier de Longué-Jumelles sont transférées au CH de Saumur (Maine-et-Loire), selon une décision publiée au recueil des actes administratifs de la préfecture de région le 28 décembre 2023.</p>
+<p style="background-color: #7BF971"><strong>Saint-Malo, Dinan, Cancale - 35</strong></p>
+<p>À compter du 1er janvier 2024, les hôpitaux de Saint-Malo, Dinan et Cancale ne feront plus qu’un au sein du groupement hospitalier<strong>.</strong></p>
+<p align="center"><a href="https://www.ouest-france.fr/bretagne/saint-malo-35400/le-conseil-municipal-enterine-la-fusion-des-hopitaux-de-saint-malo-dinan-et-cancale-163b2832-9a92-11ee-97d2-9b86ef7e3954"><strong>L’article</strong></a></u></p>
+<p align="center"><a href="https://www.ouest-france.fr/sante/hopital/fusion-entre-les-hopitaux-de-saint-malo-dinan-et-cancale-fo-denonce-un-passage-en-force-86dc5a4c-9a84-11ee-99a8-c8cd0c676f82"><strong>Lire aussi</strong></a></u></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-rubrique">Évolution des effectifs salariés du secteur hospitalier</p>
+<p>La base de données relative à cette évolution jusqu’au 31 décembre 2021 vient d’être publiée. Elle est accessible à partir de l’adresse ci- dessous :</p>
+<p align="center"><a href="https://www.data.gouv.fr/fr/datasets/effectifs-salaries-hospitaliers-series-longues/#/resources">https://www.data.gouv.fr/fr/datasets/effectifs-salaries-hospitaliers-series-longues/#/resources</a></u></p>
+<p>Pour la consulter descendre dans la page jusqu’à : « Effectifs salariés hospitaliers_Prod2023.xlsx » puis cliquer sur Voir les métadonnées.</p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p>L’auteur présente dans cet article une réflexion critique sur le traitement et l’analyse des inégalités de santé qui bien souvent se contentent de moyennes générales. Celles-ci, faute d’analyses plus fines finissent par masquer la réalité complexe du vivant et ne répondent qu’à des préoccupations prédéfinies. Les inégalités de santé doivent toutes être prises en compte sans se limiter aux inégalités sociales. L’auteur souligne l’importance de la granularité pour conduire l’étude des inégalités territoriales.</p>
+<p align="center"><a href="https://cahiersdesante.fr/editions/47-decembre-2023-2/inegalites-de-sante/?print-posts=pdf"><strong>https://cahiersdesante.fr/editions/47-decembre-2023-2/inegalites-de-sante/?print-posts=pdf</strong></a></u></p>
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

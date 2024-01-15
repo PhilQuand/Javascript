@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p class="titre-rubrique" style="margin: 1em;">la santé en deuxième division ? La charité ou l’argent public ?</p>
+<p>Non il n’y a plus de ministre de la santé à part entière et on peut craindre que la difficulté d’accès aux soins continue de s’accroître en raison de la multiplication des déserts médicaux, de la fermeture de nombreux lits d’hôpitaux publics, du manque de formation de professionnel.le.s de santé et du grand nombre de leurs départs des hôpitaux publics. Les visites ministérielles médiatisées, dont les représentant.e.s syndicaux sont soigneusement écarté.e.s, ne changeront rien si les effets d’annonce ne sont pas suivis d’effet. Le Premier Ministre annonce 32 milliards de plus en 5 ans pour la santé . Un Président, qui vient de le nommer, nous a susurré il n’y a pas si longtemps qu’il n’y a pas d’argent magique : qui devons nous croire ? Certains ne s’y trompent pas comme le directeur du grand hôpital Pompidou de l’ Assistance Publique-Hôpitaux de Paris et celui du Centre Hospitalier de Gisors qui tendent la sébile pour équiper leur établissement ( voir ci-dessous ).</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 02</li>
+<li>Dates: du 8 au 14 jan. 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/Infos-semaine-2-du-8-au-14-janvier-2024-1.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p class="titre-rubrique" style="margin: 1em;">la santé en deuxième division ? La charité ou l’argent public ?</p>
+<p>Non il n’y a plus de ministre de la santé à part entière et on peut craindre que la difficulté d’accès aux soins continue de s’accroître en raison de la multiplication des déserts médicaux, de la fermeture de nombreux lits d’hôpitaux publics, du manque de formation de professionnel.le.s de santé et du grand nombre de leurs départs des hôpitaux publics. Les visites ministérielles médiatisées, dont les représentant.e.s syndicaux sont soigneusement écarté.e.s, ne changeront rien si les effets d’annonce ne sont pas suivis d’effet. Le Premier Ministre annonce 32 milliards de plus en 5 ans pour la santé . Un Président, qui vient de le nommer, nous a susurré il n’y a pas si longtemps qu’il n’y a pas d’argent magique : qui devons nous croire ? Certains ne s’y trompent pas comme le directeur du grand hôpital Pompidou de l’ Assistance Publique-Hôpitaux de Paris et celui du Centre Hospitalier de Gisors qui tendent la sébile pour équiper leur établissement (voir ci-dessous).</p>
+<p>À Nantes 2 malades sont morts sur un brancard aux Urgences, l’une attendant d’obtenir une place dans une chambre d’hospitalisation, l’autre , gravement atteinte victime d’un arrêt cardiaque . La chef de service nous explique que les procédures ont été respectées ! Certes oui mais est-ce encore soigner que de se satisfaire de telles conditions de prise en charge que je qualifie d’indignes . Ce ne sont pas les soignant.e.s qui sont indignes mais les décisions qui imposent la pénurie de moyens aux professionnel.le.s de santé. À Lille, la plus grande maternité publique de France est obligée de transférer des femmes pour accoucher dans les des femmes pour accoucher faute de pédiatres en nombre suffisant . </p>
+<p>Certains vont être tentés d’ écouter les sirènes ministérielles, d’autres, dont nous sommes, préfèrent se lever et réclamer « des lits, des bras », une répartition équitable des professionnel.le.s sur le territoire à l’image de notre Présidente samedi sur BFM TV (<a href="https://youtu.be/ygBCmGHv1BM?t=1088">première intervention</a>, <a href="https://youtu.be/ygBCmGHv1BM?t=2235">seconde intervention</a>) et FR3 (<a href="https://youtu.be/L4bPu_oUWM0">enregistrement FR3</a>) et des centaines de manifestant.e.s à Bernay et des milliers à Lannion ce dernier samedi (voir ci-dessous).</p>
+<p>D’autres encore s’ingénient à pratiquer une médecine humaniste respectueuse de la dignité des patient.e.s, citoyen.ne.s à part entière : partagez 45 minutes de bonheur, d’espoir, d’humanité avec Radio Pin Pon de l’hôpital psychiatrique de Niort ! Respect et chapeau bas !</p>
+<p align="right" style="margin-top: 1em;" clear="both"><i>jean-luc Landas</i></p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #0329CC; color: #F7F7F7"><strong>LANNION</strong></p>
+<p><strong>2 à 3000 personnes exigent  l’ouverture des Urgences 24/24 et 7 jours sur 7 !</strong></p>
+<p>Depuis l'été 2023, les urgences de Lannion-Trestel sont "régulées" - fermées la nuit de façon perlée.Juste avant Noël, la sentence tombe : fermeture pendant toutes les vacances de Noël et  à partir du 1er mars. Initialement prévu pour 6 mois, ce projet  néfaste a été revu à la baisse pour 4 mois. C'est -à -dire jusqu'à fin juin. Mais ne soyons pas dupes, la période estivale ne sera certainement pas couverte. Alors que Lannion est à 80km de l'hôpital-pivot du GHT est à plus d'une heure en temps normal, c'est un bassin de population de 100000 habitants pouvant monter à plus de 150000 l'été qui sera dépourvu de premiers secours, entraînant une perte de chance certaine pour sa population.</p>
+<p>Immédiatement, le Comité a réagi et organisé une manifestation ce samedi 13 janvier. Lors des sessions de tractage et de signature de la pétition, nous avions bien senti que la prise de conscience des citoyens était palpable. Mais nous ne nous attendions pas à une telle mobilisation. 2000 participants pour la préfecture, certainement plus de 3000 dans les faits, malgré un froid de canard et un ciel très maussade. Les pompiers, des personnels de l'hôpital, des élus, des citoyens de tous âges, les syndicats. Une belle mobilisation qui couronne un travail de terrain de plusieurs années.</p>
+<p>Un bel essai qu'il va falloir transformer.</p>
+<p>Quelques jours plutôt 40 élus s’étaient rendus chez le Préfet pour défendre la maternité de  Guingamp et les urgences de Lannion</p>
+<p align="center"><strong><em>les compte-rendus  des medias</em></strong></p>
+<p align="center"><a href="https://www.ouest-france.fr/bretagne/lannion-22300/video-les-manifestants-disent-non-a-la-regulation-des-urgences-de-nuit-a-lannion-f95d5be9-e5df-3d04-bcc8-6fae179f4ea0"><strong>video-les-manifestants-disent-non-a-la-regulation-des-urgences-de-nuit-a-lannion-</strong></a></p>
+<p align="center"><a href="https://www.letelegramme.fr/cotes-d-armor/lannion-22300/urgences-menacees-entre-2-000-et-3-000-manifestants-a-lannion-en-images-6503763.php"><strong>urgences-menacees-entre-2-000-et-3-000-manifestants-a-lannion</strong></a></p>
+<p align="center"><a href="https://france3-regions.francetvinfo.fr/bretagne/cotes-d-armor/lannion/veuillez-declarer-votre-probleme-entre-8h-et-19h-les-urgences-de-lannion-fermees-la-nuit-2-000-personnes-rassemblees-2905892.html"><strong>veuillez-declarer-votre-probleme-entre-8h-et-19h</strong></a></p>
+<p style="background-color: #CC0000"><strong>FEURS</strong></p>
+<p>Tous nos vœux de Bonne Année 2024, ainsi qu'à vos proches. Qu'elle soit porteuse d'espoir et de sens pour réaliser vos aspirations les plus chères et que la Santé vous accompagne dans cette réalisation.</p>
+<p style="margin-bottom:0;">Nous avons tenu une conférence de presse avec la municipalité avec qui nous travaillons depuis mai 2023 sur le <span>do</span>ssier des Urgences et nous avons tenu à  communiquer après le Conseil de Surveillance ( CS) du Centre Hospitalier  du 21 décembre 2023. La présentation de notre projet  n'ayant pas été acceptée en Commission médicale d’ Établissement ( CME)  d'octobre 2023.</p>
+<p style="margin:0; color:blue; font-weight: bold;">La CME et le CS du 21/12/2023 ont validé la conclusion du groupe de travail demandé par la CME en octobre, soit : une demande de dérogation auprès de l'ARS pour déposer un <span>do</span>ssier d'autorisation d'activité d'une antenne SMUR du CHF à Feurs.</p>
+<p style="margin-top:0">Ce dispositif n'étant pas prévu au SRS (Schéma Régional de Santé), 2023-2028, pour le département de la Loire, cette proposition nécessite une dérogation préalable au dépôt d'un <span>do</span>ssier.</p>
+<p>Cette demande a été soutenue par le courrier d'élus du Rhône, adressé à la direction et au Président et Vice Président du CS du CHF pour le CS du 21/12.</p>
+<p>Un courrier co-signé par les trois élus : le Député J. Taite, le Sénateur J.Claude Tissot, le Sénateur P.Jean Rochette va être adressé à la Direction de l'ARS AURA. Les trois élus confirment leur engagement dans cette dynamique, avec la volonté de coopérer pour cette demande de dérogation pour une antenne SMUR à Feurs.</p>
+<p style="font-weight: bold;">Depuis Mars 2023 et après plusieurs mois de mobilisation où vous avez été très présents, nous voulons vous remercier encore pour ce bel élan de solidarité et d'engagement, pour votre soutien à rouvrir les urgences et le SMUR de Feurs, fermées si brutalement.</p>
+<p>Nous pensons, qu'il faut savoir évoluer, écouter les professionnels et aussi la population et profiter de cette opportunité pour revaloriser le CHF, envoyer un signal fort pour que le bassin de Feurs reste dynamique !</p>
+<p>La mairie ne peut que se féliciter de réveiller la morosité ambiante, économique de cette partie du département. Cela confirme une fois de plus que pour développer le CHF, IL FAUT MAINTENIR FEURS qui sert de point d'accroche pour l'activité médicale de tout ordre au centre du département. Que des soignants, des citoyens, des élus acceptent de travailler ensemble sincèrement pour porter des idées, reconstruire et protéger la population est un signal fort pour l'avenir de notre CHF. </p>
+<p>C'est notre souhait pour 2024., d’autant plus que la population du Forez continue d’augmenter selon un article du Progrès du 7 janvier dernier.</p>
+<p>Nous continuons à nous mobiliser pour que l'autorisation de l'ARS soit validée.<br />  </p>
+<p style="text-align: right">Le bureau du Comité</p>
+<p align="center"><a href="https://www.leprogres.fr/sante/2024/01/11/mairie-et-comite-de-defense-de-l-hopital-determines-a-avoir-un-smur"><strong>L’article du Progres</strong></a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BERNAY</strong></p>
+<p><strong>La direction a annoncé l’arrêt de l’activité chirurgicale à 18h00, du service  de stérilisation la nuit, les week-ends et jours fériés, la fermeture de la cuisine centrale et la régulation de l’accès aux urgences par le SAMU :</strong></p>
+<p align="center"><a href="https://actu.fr/normandie/bernay_27056/bernay-un-rassemblement-pour-defendre-lhopital-lheure-de-la-revolte-a-sonne_60556653.html"><strong>un-rassemblement-pour-defendre-l'hôpital</strong></a></p>
+<p><strong>plus de 200 manifestant.e.s dans les rue de Bernay</strong></p>
+<p align="center"><a href="https://www.paris-normandie.fr/id483525/article/2024-01-13/bernay-plus-de-200-manifestants-mobilises-pour-lhopital-et-le-service-public"><strong>l’article </strong></a></p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>GISORS</strong></p>
+<p align="center"><strong>à votre bon cœur, Messieurs Dames !</strong></p>
+<p align="center"><strong>La charité au secours de l’ hôpital</strong></p>
+<p align="center"><a href="https://actu.fr/normandie/gisors_27284/hopital-de-gisors-une-soiree-tres-privee-pour-se-financer_60512996.html"><strong>https://actu.fr/normandie/gisors_27284/hopital-de-gisors-une-soiree-tres-privee-pour-se-financer_60512996.html</strong></a></p>
+<p style="background-color: #6728CC; color: #F7F7F7"><strong>BERGERAC</strong></p>
+<p>Que doit-on  attendre de la nomination hier de G. ATTAL comme premier ministre par le président de la République ?</p>
+<p>Peu importe  celui ou celle qui est nommé, la seule attente que nous puissions avoir en est un changement radical de politique.</p>
+<p>Ce qui est impératif est bien d'arrêter de diviser le pays  en montrant du doigt toujours les mêmes, les immigrés comme étant responsables de tous les maux de notre société.</p>
+<p>Rappelons que le coût de l' AME ( Aide Médicale d'Etat) est de l'ordre de 1,2 milliard d'euros soit  0,47% des dépenses de santé</p>
+<p>Ce n'est donc pas cela qui fera revenir à l'équilibre le budget de la sécu. Augmenter ses recettes  est la seule solution possible.</p>
+<p>La fraude à l'assurance maladie, selon la Cour des Comptes, représente un montant autour de 4 milliards d'euros. Sur cette part, la grande majorité, 80%, vient de professionnels. </p>
+<p>L'AME a un  coût trois fois moins élevé que la fraude des professionnels de santé et est vitale pour que puisse se soigner toute personne arrivant sur notre territoire, quelle que soit sa nationalité, sans aucune discrimination, quelle que soit sa situation.</p>
+<p>Peu importe donc  le nom du nouveau ministre de la santé qui sera nommé, ce qui nous  importe c'est qu'il mette en oeuvre une autre politique, novatrice, radicalement opposée à celles menées depuis 25 ans (fermeture de lits, de services, démantèlement du service public) qui redonne des moyens financiers et humains aux hôpitaux.</p>
+<p>Qui stoppe cette gouvernance libérale et mette plus de démocratie à l'hôpital, qui forme en urgence plus de médecins , généralistes et spécialistes, qui redonne du sens au soin en psychiatrie avec des moyens budgétaires et des personnels pour redévelopper une politique de secteur afin accompagner les personnes souffrant de maladies psychiatriques.</p>
+<p>Qui réouvre des lits d'hospitalisation partout où cela est nécessaire, qui cesse les politiques de santé mentale protocolisée, la judiciarisation systématique des actes médico-légaux.</p>
+<p>Pour relancer une psychothérapie institutionnelle ouverte au monde , porteuse d'intégration sociale.</p>
+<p>Aujourd'hui les Praticiens à Diplôme Hors  Union Européenne, les "Padhues", doivent maintenant passer un concours appelé « épreuves de vérification des connaissances » (EVC) pour obtenir un nouveau statut de « praticien associé ». Au-delà du 31 décembre 2023, les médecins étrangers non lauréats de l'examen ne pourront plus renouveler leur contrat.</p>
+<p>Alors que l'on manque cruellement de médecins, il est inconcevable de menacer ces praticiens  de ne pouvoir exercer.</p>
+<p>Sur tous ces points, notre comité de défense du service public de santé et du médico-social continuera à lutter pour qu'une autre politique de santé soit mise en oeuvre, répondant aux besoins de toutes et de tous , sans discrimination.</p>
+<p style="background-color: #0329CC; color: #F7F7F7"><strong>NANTES</strong></p>
+<p align="center"><strong>Le quartier populaire du Clos Toreau  perd son dernier médecin généraliste</strong></p>
+<p>Depuis le 15 décembre, ce quartier  situé à 2,5 km du CHU est un désert médical : la dernière médecin généraliste, exténuée est partie en retraite. Aussitôt la nouvelle connue les militantes de la CLCV (Confédération du Logement et du Cadre de Vie) et ceux du Collectif nantais pour le droit à la santé et à la protection sociale pour toutes et tous se sont mobilisés : 2 réunions publiques, intervention à la réunion de quartier, rencontre avec l’adjointe de quartier et l’adjointe à la santé, la députée de la circonscription,  conférences de presse, organisation de 4 permanences à la maison de quartier pour aider les personnes sans médecins traitants dans leur recherche. Nous avons recensé 17 cabinets médicaux à proximité (à moins de 45 minutes en transport en commun) où exercent 50 médecins généralistes libéraux : seuls 3 médecins acceptent des nouveaux patients dont 2 au compte-goutte...</p>
+<p>Une rencontre est prévue ce mercredi avec l’ ARS et la CPAM . Nous vous tiendrons au courant.</p>
+<p>Nous sommes toujours sans nouvelles, ne serait ce que d’un accusé de réception à notre courriel de l’Union Régionale des Médecins Libéraux dont le premier service est : <a href="https://urml-paysdelaloire.org/2023/05/23/actions-en-faveur-de-linstallation-en-pays-de-la-loire/"><strong>actions-en-faveur-de-linstallation-en-pays-de-la-loire/</strong></a></p>
+<p><strong>Faut-il lancer un avis de recherche pour disparition inquiétante ?</strong></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #0329CC; color: #F7F7F7"><strong>MEULAN LES MUREAUX</strong></p>
+<p>aux urgences  il manque une infirmière pour accueillir correctement les patient.e.s : la seule  en poste doit à la fois   être à l’entrée et dans les box.  Aucun renfort possible car ses collègues sont seules dans les services pour 28 patient.e.s.</p>
+<p>Le directeur dit non : pas assez de travail …. alors c’est la grève.</p>
+<p align="center"><a href="https://www.francetvinfo.fr/economie/greve/greve-aux-urgences/reportage-il-n-y-a-qu-une-infirmiere-pour-28-patients-a-l-hopital-de-meulan-les-mureaux-les-urgences-en-greve-pour-reclamer-un-poste-supplementaire_6293121.html"><strong>Reportage</strong></a></p>
+<p>et à Mantes la jolie ça bouchonne, 12 heures d’attente !  « Comme dans le reste du département « d’après Le Parisien »</p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-rubrique"><strong>vœux</strong></p>
+<p><strong>La santé un droit pour tous et l’ ADEL : un monde sans sida  en 2030</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/CP-Voeux2024-LaSante-ADEL.pdf"><strong>CP-Voeux2024-LaSante-ADEL.</strong></a></p>
+<p class="titre-rubrique"><strong>FÉDÉRATION NATIONALE DES CENTRES DE SANTÉ</strong></p>
+<p><strong> </strong>La présidente, le conseil d'administration et l'équipe salariée vous souhaite une très bonne année. </p>
+<p>Que 2024 continue à faire grandir la place des Centres de Santé dans l'accès aux soins et le droit à la santé pour toutes et tous.</p>
+<p>Cette place nous la devons à notre engagement collectif pour une approche globale de la santé et à notre détermination à faire reculer les inégalités de santé réaffirmant que chaque personne a droit à des soins de qualité.</p>
+<p>Alors, plus que jamais, la FNCS s'inscrira dans notre ambition commune de contribuer à une société de bien-être et d'épanouissement. Que cette année soit empreinte de réussites collectives.</p>
+<p align="center">Meilleurs vœux de santé et de bonheur.</p>
+<p class="titre-rubrique"><strong>DÉMOGRAPHIE DES PROFESSIONS DE SANTÉ</strong></p>
+<p align="center"><a href="https://drees.solidarites-sante.gouv.fr/communique-de-presse-jeux-de-donnees/demographie-des-professionnels-de-sante-au-1er-janvier-2023"><strong>La Gazette des communes  s’y intéresse</strong></a></p>
+<p align="center"><a href="https://www.lagazettedescommunes.com/906512/deserts-medicaux-toujours-moins-de-medecins-generalistes/"><strong>https://www.lagazettedescommunes.com/906512/deserts-medicaux-toujours-moins-de-medecins-generalistes/</strong></a></p>
+<p class="titre-rubrique"><strong>PSYCHIATRIE</strong></p>
+<p style="margin-bottom:0;" align="center"><strong>Immersion dans le soin : faire de la radio à l’hôpital psychiatrique :</strong></p>
+<p style="margin-top:0;" align="center"><strong>45 minutes de bonheur !</strong></p>
+<p align="center"><a href="https://www.francetvinfo.fr/replay-magazine/france-2/13h15/13h15-le-dimanche-radio-pinpon_6255477.html"><strong>"13h15 le dimanche". Radio Pinpon</strong></a></p>
+<p align="center"><strong>la négation du soin psychiatrique</strong></p>
+<p align="center"><a href="https://printempsdelapsychiatrie.org/2024/01/09/les-pygmalions-parlementaires-de-la-psychiatrie-securitaire/">le billet de Mathieu Bellahsen</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p><strong>puisque le Président nous invite au réarmement, un peu de comique troupier pour nous mettre à niveau !</strong></p>
+<p align="center"><a href="https://www.youtube.com/la">la</a><a href="https://www.youtube.com/watch?v=mluu9VIGifQ">video</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

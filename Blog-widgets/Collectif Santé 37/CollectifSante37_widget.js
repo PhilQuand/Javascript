@@ -840,7 +840,7 @@ Promise.all([
     //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGquB_x3BMSr78UOi5mfjh1FWN3TRfa8V5Bb016ZUwnyaON5AB336-mZlLHuHVc2JedvN2yny5cEiRpzpusdcZ8422eMHcfnnFUqyPQHZp5FIcq-5vXcY5u_M6L0ttNNv-AbM1gZgm8B0GFLGjO7LFY3bm1zTyndE2PuthN86OGEL1zzeGCL6tICPUdyI/s1600/Affiche%20TOUR%20DE%20FRANCE%20DE%20LA%20SANTE.jpg",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_FQFbtFIaWtkpeUNt1WWcYeUhAwsD8I2B8JsHgNpY7QuxyPPICuVK5XmKdK5qNQ81qdcKBXM8kSCBOiIE4FBQm-e1mm-bFO0OkiBtscng24SBOX_3uOHfs76iQwxdvFGy8wGT_tse-4gKoQBzLLCVAWVEZ3Yct9Rj_bcYvpu-CZC55BY3JM40nQcmKlk/s1600/visuel%20loi%20darmanin.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -859,21 +859,21 @@ Promise.all([
 <p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
 <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
 </div>'
+        },*/
+        {
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZZDQy8xurUBISmPZlagOGOklj9d_IiibhlehPruCagm79LXcEWowkzmGU7JG8rtyIXtWxvE1bul057IF8uyCeMufQapxDjiE_ofvcFNE9FEL3W2W7rkL-PnXeJ04KeeDt8fC3uyMZMz33c1bOAiLtJvyvB_8VHxOldnFhwpoWbYDFJgQpsgTCKn2OFMg/s1600/dernier%20appel%20local%2014%20janvier%20tours.jpg"
         },
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHEks2X6FVyKVreRicgOvsrx1Yz_Cavrg6KPA0aPHNnFm4pONj-aMde7-Rnhqw-Z0V6jvQDT9af9fC6AdJrg78zsNs7T40PHNUesf5Q7j6Wi2LKIXpdiwej2AlGobF4rqPbXa9Hm8nAU8JE5_kX9Qw0dxreAOeWxuclf-PzLgzMTzmSJQUom6JEcoL/s1600/Rassemblement%20Depardieu.jpg"
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png"
         },
-        {
-          dataType: "images",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6n0URyfZimMSM0Ue0PTFiMgQoD78lfJTLh-7e44rQN-bEYxsfyNacUMUFjcU8vjz9VrTTdDLtaTDaSCa_glwuSTBqJTeRjab3dFsEVt5YGSYA5-uKyWnhTdJbmN9lIVTU2coHOBeYyLTQ28jfp33xCKHE5UdRXPpsz-8VJuUf24Nuquhi1jfn8PMh5cI/s1600/recto%20avec%20signatures%20en%20cours%20sans%20logo.jpg",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6n0URyfZimMSM0Ue0PTFiMgQoD78lfJTLh-7e44rQN-bEYxsfyNacUMUFjcU8vjz9VrTTdDLtaTDaSCa_glwuSTBqJTeRjab3dFsEVt5YGSYA5-uKyWnhTdJbmN9lIVTU2coHOBeYyLTQ28jfp33xCKHE5UdRXPpsz-8VJuUf24Nuquhi1jfn8PMh5cI/s1600/recto%20avec%20signatures%20en%20cours%20sans%20logo.jpg"
-        },
-        {
+        /*{
           dataType: "images",
           dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"
-        },*/
+        },
         {
           dataType: "iframe",
           dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",

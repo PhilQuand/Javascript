@@ -254,9 +254,61 @@ $(document).ready(function() {
   $('.widget.Label > details > summary > .collapsible-title  > .title').html('Mots-clefs');
   $('.widget.Attribution').css('display', 'none');
   $('.widget.Attribution').css('display', 'none');
+  if (window.location.pathname != '/') {
+    $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
+    $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('invisible');
+    $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-conteneurFlex"></div>' )
+    $('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h1 style="color: white">Vous trouvez cet article intéressant ?</h1><h2 style="color: white">Faites-le savoir et partagez-le</h2></div>')
+    $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-enfantFlex_2"></div>' )
+    $('.post-share-buttons-conteneurFlex .post-share-buttons.post-share-buttons-bottom').addClass('post-share-buttons-enfantFlex_3');    
+  }
 });
 </script>
 <style>
+.post-share-buttons-conteneurFlex{
+  display:flex;
+  flex-direction:row; /* par défaut axe horizontal */
+  align-items: center; /* aligne les éléments de menu au centre verticalement */
+  /* ou */
+  /*flex-direction: column;*/ /* axe vertical  enfants seront l'un en dessous des autres */
+  /*flex-direction: row-reverse;*/ /* ordre inversé */
+  /*flex-direction: column-reverse;*/
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5em;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-image: linear-gradient(90deg, rgb(105, 111, 133), rgb(173, 178, 194));
+  color: rgb(24, 27, 31);
+}
+.post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_1 {
+  flex-grow:1;
+  /*flex:1 0 200px;*/   /* cette ligne est un raccourci de la suite */
+  /*flex-grow:1;*/ /* l'élément peut s'agrandir, s'étendre au reste de la page */
+  /*flex-shrink:0;*/ /* l'élément ne peut pas de réduire */
+  /*flex-basis:200px;*/ /* l'élément fait 200px sauf s’il reste de la place */
+}
+.post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_2 {
+  flex-basis:48px;
+  background-color: white;/*Gris*/
+  box-sizing: border-box;
+  height: 48px;
+  width: 48px;
+  margin-right: 30px;    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  /*flex:1 0 200px;*/   /* cette ligne est un raccourci de la suite */
+  /*flex-grow:1;*/ /* l'élément peut s'agrandir, s'étendre au reste de la page */
+  /*flex-shrink:0;*/ /* l'élément ne peut pas de réduire */
+  /*flex-basis:200px;*/ /* l'élément fait 200px sauf s’il reste de la place */
+}
+.post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_3 {
+    margin-right: 5px;
+    margin-top: 8px;
+}
 .mySumReg img {
   max-height: 50px;
 }

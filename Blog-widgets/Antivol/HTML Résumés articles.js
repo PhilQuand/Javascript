@@ -257,13 +257,13 @@ $(document).ready(function() {
   if (window.location.pathname != '/') {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('invisible');
-    $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-conteneurFlex"></div>' )
-    //$('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h1 style="color: white">Vous trouvez cet article intéressant ?</h1><h2 style="color: white">Faites-le savoir et partagez-le</h2></div>')
-    //$('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h2 style="color: white">partager cet article</h2></div>')
-    $('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><p style="margin-bottom: 0; margin-top: 10px; color: white; font-size: 24px;">Vous avez apprécié cet article ?</p><p style="margin-bottom: 10px; margin-top: 0; color: white; font-size: 24px;">Faites-le savoir et partagez-le</p></div>')
-    $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-enfantFlex_2"></div>' )
+    $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-conteneurFlex"></div>' );
+    //$('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h1 style="color: white">Vous trouvez cet article intéressant ?</h1><h2 style="color: white">Faites-le savoir et partagez-le</h2></div>');
+    //$('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h2 style="color: white">partager cet article</h2></div>');
+    $('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><p style="margin-bottom: 0; margin-top: 10px; color: white; font-size: 24px;">Vous avez apprécié cet article ?</p><p style="margin-bottom: 10px; margin-top: 0; color: white; font-size: 24px;">Faites-le savoir et partagez-le</p></div>');
+    $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-enfantFlex_2"></div>' );
     $('.post-share-buttons-conteneurFlex .post-share-buttons.post-share-buttons-bottom').addClass('post-share-buttons-enfantFlex_3');    
-    $('.post-share-buttons-conteneurFlex').insertBefore('.post .post-bottom');  }
+  }
 });
 </script>
 <style>
@@ -271,7 +271,7 @@ $(document).ready(function() {
   margin-bottom: 0;
 }
 .post .post-bottom{
-  //flex-direction: column-reverse;
+  flex-direction: column;
 }
 .post-share-buttons-conteneurFlex{
   display:flex;
@@ -279,6 +279,7 @@ $(document).ready(function() {
   align-items: center; /* aligne les éléments de menu au centre verticalement */
   /* ou */
   /*flex-direction: column;*/ /* axe vertical  enfants seront l'un en dessous des autres */
+  /*flex-direction:row;*/ /* par défaut axe horizontal */
   /*flex-direction: row-reverse;*/ /* ordre inversé */
   /*flex-direction: column-reverse;*/
   width: 430px;

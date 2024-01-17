@@ -258,13 +258,21 @@ $(document).ready(function() {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-conteneurFlex"></div>' )
-    $('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h1 style="color: white">Vous trouvez cet article intéressant ?</h1><h2 style="color: white">Faites-le savoir et partagez-le</h2></div>')
+    //$('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h1 style="color: white">Vous trouvez cet article intéressant ?</h1><h2 style="color: white">Faites-le savoir et partagez-le</h2></div>')
+    //$('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h2 style="color: white">partager cet article</h2></div>')
+    $('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><p style="margin-bottom: 0; margin-top: 10px; color: white; font-size: 24px;">Vous avez apprécié cet article ?</p><p style="margin-bottom: 10px; margin-top: 0; color: white; font-size: 24px;">Faites-le savoir et partagez-le</p></div>')
     $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-enfantFlex_2"></div>' )
     $('.post-share-buttons-conteneurFlex .post-share-buttons.post-share-buttons-bottom').addClass('post-share-buttons-enfantFlex_3');    
-  }
+    $('.post-share-buttons-conteneurFlex').insertBefore('.post .post-bottom');  }
 });
 </script>
 <style>
+.post .post-body.entry-content.float-container{
+  margin-bottom: 0;
+}
+.post .post-bottom{
+  //flex-direction: column-reverse;
+}
 .post-share-buttons-conteneurFlex{
   display:flex;
   flex-direction:row; /* par défaut axe horizontal */
@@ -273,13 +281,16 @@ $(document).ready(function() {
   /*flex-direction: column;*/ /* axe vertical  enfants seront l'un en dessous des autres */
   /*flex-direction: row-reverse;*/ /* ordre inversé */
   /*flex-direction: column-reverse;*/
-  width: 800px;
+  width: 430px;
+  //margin-top: 1.5em;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.5em;
+  padding-left: 2em;
   box-sizing: border-box;
-  border-radius: 8px;
-  background-image: linear-gradient(90deg, rgb(105, 111, 133), rgb(173, 178, 194));
+  border-radius: 50px;
+  /*background-image: linear-gradient(90deg, rgb(105, 111, 133), rgb(173, 178, 194));
+  background-image: linear-gradient(90deg,rgba(76, 54, 255, 1), rgba(76, 54, 255, 0.5));*/
+  background-color: #6F4BFF;
   color: rgb(24, 27, 31);
 }
 .post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_1 {
@@ -312,6 +323,8 @@ $(document).ready(function() {
 .mySumReg img {
   max-height: 50px;
 }
+</style>
+<style>
 .header {
   text-align: justify;
   font-family: "Arial Rounded MT Bold"; 

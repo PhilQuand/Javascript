@@ -263,17 +263,24 @@ $(document).ready(function() {
     $('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><p style="margin-bottom: 0; margin-top: 10px; color: white; font-size: 24px;">Vous avez apprécié cet article ?</p><p style="margin-bottom: 10px; margin-top: 0; color: white; font-size: 24px;">Faites-le savoir et partagez-le</p></div>');
     $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-enfantFlex_2"></div>' );
     $('.post-share-buttons-conteneurFlex .post-share-buttons.post-share-buttons-bottom').addClass('post-share-buttons-enfantFlex_3');    
-  }
+    $('.post-share-buttons-conteneurFlex').closest('.main.section').addClass('articleComplet');
+ }c
 });
 </script>
 <style>
-.post .post-body.entry-content.float-container{
+.articleComplet .jump-link.flat-button.ripple{
+   font: normal bold 15px Calibri;
+}
+.articleComplet .post-body.entry-content.float-container{
   margin-bottom: 0;
 }
-.post .post-bottom{
+.articleComplet .post-bottom{
   flex-direction: column;
 }
-.post-share-buttons-conteneurFlex{
+.articleComplet .post-footer.float-container{
+  width:100%;
+}
+.articleComplet .post-share-buttons-conteneurFlex{
   display:flex;
   flex-direction:row; /* par défaut axe horizontal */
   align-items: center; /* aligne les éléments de menu au centre verticalement */
@@ -294,14 +301,14 @@ $(document).ready(function() {
   background-color: #6F4BFF;
   color: rgb(24, 27, 31);
 }
-.post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_1 {
+.articleComplet .post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_1 {
   flex-grow:1;
   /*flex:1 0 200px;*/   /* cette ligne est un raccourci de la suite */
   /*flex-grow:1;*/ /* l'élément peut s'agrandir, s'étendre au reste de la page */
   /*flex-shrink:0;*/ /* l'élément ne peut pas de réduire */
   /*flex-basis:200px;*/ /* l'élément fait 200px sauf s’il reste de la place */
 }
-.post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_2 {
+.articleComplet .post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_2 {
   flex-basis:48px;
   background-color: white;/*Gris*/
   box-sizing: border-box;
@@ -317,7 +324,7 @@ $(document).ready(function() {
   /*flex-shrink:0;*/ /* l'élément ne peut pas de réduire */
   /*flex-basis:200px;*/ /* l'élément fait 200px sauf s’il reste de la place */
 }
-.post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_3 {
+.articleComplet .post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_3 {
     margin-right: 5px;
     margin-top: 8px;
 }

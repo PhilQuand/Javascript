@@ -865,7 +865,7 @@ $('.fancybox')
 <script>
 if ( window.location.pathname == '/' ){
   $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");
-  //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+  $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 }
 </script>
 <script>
@@ -877,7 +877,7 @@ Promise.all([
     //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6I5ERpLY5FfIKpNYm0vhMGrN6wDtwyfPCE0GY2QQ8mgYypcQfLo_Fh8Bzcvx_Ms4ddfjAxMKGh989nJ4mvIuHmEf3jfzGRI4qEZNdGnDKtBmIVKsSJd89sYPRUKCDOEplcKHcWyHLyFolWRdwLk1fleUkEcXwnUqDGzyeD5zefXCYdR839I-b6iaN4A/s1600/FLYER%2010%20ANS.png",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -903,7 +903,7 @@ Promise.all([
         },*/
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6I5ERpLY5FfIKpNYm0vhMGrN6wDtwyfPCE0GY2QQ8mgYypcQfLo_Fh8Bzcvx_Ms4ddfjAxMKGh989nJ4mvIuHmEf3jfzGRI4qEZNdGnDKtBmIVKsSJd89sYPRUKCDOEplcKHcWyHLyFolWRdwLk1fleUkEcXwnUqDGzyeD5zefXCYdR839I-b6iaN4A/s1600/FLYER%2010%20ANS.png"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png"
         },
         /*{
           dataType: "iframe",

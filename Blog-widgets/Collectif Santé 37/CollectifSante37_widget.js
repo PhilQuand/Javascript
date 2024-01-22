@@ -813,24 +813,99 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 }
 </style>
 <script>
-if ( window.location.pathname == '/' ){
-  // pétition change.org sur la réanimation pédiatrie
-  //$('.page_body').append('<a href="https://www.change.org/p/emmanuel-macron-agn%C3%A8s-buzyn-sauvons-la-r%C3%A9animation-p%C3%A9diatrique-l-appel-des-parents"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://4.bp.blogspot.com/-oAseGH4-Rmg/XjbyJbrWCvI/AAAAAAAAk7I/1vgAZGlYieAsQ9j9lz5mETgq60UGBo8nACLcBGAsYHQ/s1600/Pe%25CC%2581tition%2BPe%25CC%2581diatrie.jpg" /></a>');
-  //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-4c9MRQiEeb8/Xka1VOFAoFI/AAAAAAAAk-c/j8BJiF1bV1wABPVcnicsgbs9ouZ2nKMVwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.png" /></a>');
-  //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-hxTYiKnKI1A/XklzVPvsmJI/AAAAAAAAk_g/8vb0ElqOgdgLKvjT17apdQ9CP779ZtPlwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.jpg" /></a>');
-  
-  //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
-  //$('.page_body').append('<a href="https://youtu.be/s45Lh2yf3Yg"><img class="img-foreground" src="https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg" /></a>');
+$(document).ready(function() {
+  if (window.location.pathname == '/') {
+    // pétition change.org sur la réanimation pédiatrie
+    //$('.page_body').append('<a href="https://www.change.org/p/emmanuel-macron-agn%C3%A8s-buzyn-sauvons-la-r%C3%A9animation-p%C3%A9diatrique-l-appel-des-parents"><img class="img-foreground" border="0" data-original-height="512" data-original-width="512" src="https://4.bp.blogspot.com/-oAseGH4-Rmg/XjbyJbrWCvI/AAAAAAAAk7I/1vgAZGlYieAsQ9j9lz5mETgq60UGBo8nACLcBGAsYHQ/s1600/Pe%25CC%2581tition%2BPe%25CC%2581diatrie.jpg" /></a>');
+    //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-4c9MRQiEeb8/Xka1VOFAoFI/AAAAAAAAk-c/j8BJiF1bV1wABPVcnicsgbs9ouZ2nKMVwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.png" /></a>');
+    //$('.page_body').append('<a href="https://youtu.be/7tO2IkLDNlk"><img class="img-foreground" src="https://1.bp.blogspot.com/-hxTYiKnKI1A/XklzVPvsmJI/AAAAAAAAk_g/8vb0ElqOgdgLKvjT17apdQ9CP779ZtPlwCLcBGAsYHQ/s1600/Capture%2Bd%25E2%2580%2599e%25CC%2581cran%2B2020-02-14%2Ba%25CC%2580%2B15.56.33.jpg" /></a>');
 
-  //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
-  //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
-  //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
-  //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
+    //$('.page_body').append('<a href="https://collectifsante37.blogspot.com/#iframes-1"><div class="img-foreground gallery-container"></div></a>');
+    //$('.page_body').append('<a href="https://youtu.be/s45Lh2yf3Yg"><img class="img-foreground" src="https://1.bp.blogspot.com/-WZXU_66vqLA/X_XvXVTVgYI/AAAAAAAAn2k/RkRd0NvQBj0g8HpgqZSYac74EpQaFd3-QCLcBGAsYHQ/s0/Flash-2021-01-05.jpg" /></a>');
 
-  $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    //$('.page_body').append('<div class="img-foreground gallery-container"></div>');
+    //$('.page_body').append('<img class="img-foreground" src="http://coordination-defense-sante.org/wp-content/uploads/2021/11/4dC3A9cembre.jpg" />');
+    //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
+    //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-}
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+
+  }
+  if (window.location.pathname != '/') {
+    $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
+    $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('invisible');
+    $('.post .post-share-buttons.post-share-buttons-bottom').wrap('<div class="post-share-buttons-conteneurFlex"></div>');
+    //$('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h1 style="color: white">Vous trouvez cet article intéressant ?</h1><h2 style="color: white">Faites-le savoir et partagez-le</h2></div>');
+    //$('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><h2 style="color: white">partager cet article</h2></div>');
+    $('.post-share-buttons-conteneurFlex').prepend('<div class="post-share-buttons-enfantFlex_1"><p style="margin-bottom: 0; margin-top: 10px; color: white; font-size: 24px;">Vous avez apprécié cet article ?</p><p style="margin-bottom: 10px; margin-top: 0; color: white; font-size: 24px;">Faites-le savoir et partagez-le</p></div>');
+    $('.post .post-share-buttons.post-share-buttons-bottom').wrap('<div class="post-share-buttons-enfantFlex_2"></div>');
+    $('.post-share-buttons-conteneurFlex .post-share-buttons.post-share-buttons-bottom').addClass('post-share-buttons-enfantFlex_3');
+    $('.post-share-buttons-conteneurFlex').closest('.main.section').addClass('articleComplet');
+  }
+});
 </script>
+<style>
+.articleComplet .jump-link.flat-button.ripple{
+   font: normal bold 15px Calibri;
+}
+.articleComplet .post-body.entry-content.float-container{
+  margin-bottom: 0;
+}
+.articleComplet .post-bottom{
+  flex-direction: column;
+}
+.articleComplet .post-footer.float-container{
+  width:100%;
+}
+.articleComplet .post-share-buttons-conteneurFlex{
+  display:flex;
+  flex-direction:row; /* par défaut axe horizontal */
+  align-items: center; /* aligne les éléments de menu au centre verticalement */
+  /* ou */
+  /*flex-direction: column;*/ /* axe vertical  enfants seront l'un en dessous des autres */
+  /*flex-direction:row;*/ /* par défaut axe horizontal */
+  /*flex-direction: row-reverse;*/ /* ordre inversé */
+  /*flex-direction: column-reverse;*/
+  width: 500px;
+  //margin-top: 1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2em;
+  box-sizing: border-box;
+  border-radius: 50px;
+  /*background-image: linear-gradient(90deg, rgb(105, 111, 133), rgb(173, 178, 194));
+  background-image: linear-gradient(90deg,rgba(76, 54, 255, 1), rgba(76, 54, 255, 0.5));*/
+  background-color: #669695;
+  color: rgb(24, 27, 31);
+}
+.articleComplet .post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_1 {
+  flex-grow:1;
+  /*flex:1 0 200px;*/   /* cette ligne est un raccourci de la suite */
+  /*flex-grow:1;*/ /* l'élément peut s'agrandir, s'étendre au reste de la page */
+  /*flex-shrink:0;*/ /* l'élément ne peut pas de réduire */
+  /*flex-basis:200px;*/ /* l'élément fait 200px sauf s’il reste de la place */
+}
+.articleComplet .post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_2 {
+  flex-basis:48px;
+  background-color: white;/*Gris*/
+  box-sizing: border-box;
+  height: 48px;
+  width: 48px;
+  margin-right: 30px;    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  /*flex:1 0 200px;*/   /* cette ligne est un raccourci de la suite */
+  /*flex-grow:1;*/ /* l'élément peut s'agrandir, s'étendre au reste de la page */
+  /*flex-shrink:0;*/ /* l'élément ne peut pas de réduire */
+  /*flex-basis:200px;*/ /* l'élément fait 200px sauf s’il reste de la place */
+}
+.articleComplet .post-share-buttons-conteneurFlex .post-share-buttons-enfantFlex_3 {
+    margin-right: 5px;
+    margin-top: 8px;
+}
+</style>
 <script>
 Promise.all([
   load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'),

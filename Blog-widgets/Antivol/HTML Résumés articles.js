@@ -264,7 +264,7 @@ $(document).ready(function() {
     $('.post .post-share-buttons.post-share-buttons-bottom').wrap( '<div class="post-share-buttons-enfantFlex_2"></div>' );
     $('.post-share-buttons-conteneurFlex .post-share-buttons.post-share-buttons-bottom').addClass('post-share-buttons-enfantFlex_3');    
     $('.post-share-buttons-conteneurFlex').closest('.main.section').addClass('articleComplet');
- }c
+ }
 });
 </script>
 <style>

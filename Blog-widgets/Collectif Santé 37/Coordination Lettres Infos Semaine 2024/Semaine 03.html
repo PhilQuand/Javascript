@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p class="titre-rubrique" style="margin: 1em;">Défendre la démocratie pour mobiliser</p>
+<p><em>Quand un Premier ministre annonce un "investissement massif", mais celui-ci correspond en fait à la hausse déjà votée dans la loi de financement de la Sécurité sociale en décembre.</em></p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 03</li>
+<li>Dates: du 15 au 21 jan. 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/Infos-semaine-3-du-15-au-21-janvier-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p class="titre-rubrique" style="margin: 1em;">Défendre la démocratie pour mobiliser</p>
+<p><em>Quand un Premier ministre annonce un "investissement massif", mais celui-ci correspond en fait à la hausse déjà votée dans la loi de financement de la Sécurité sociale en décembre.</em></p>
+<p><em>Quand une Direction d’ARS fait un démenti sur des fermetures de lits dans les services d’un hôpital, précisant « qu’ils sont juste gelés par manque de médecins » et que les habitants subissent cette non-fermeture-fermée depuis des mois, sans perspective de dégel.</em></p>
+<p><em>Quand des élus annoncent qu’ils feront tout pour défendre les moyens de la santé et sont pour des embauches importantes de professionnels de santé...et votent un budget de la sécu qui ne le permet pas.</em></p>
+<p><em>Quand un gouvernement annonce 32 milliards d’euros supplémentaires pour le système de santé sans préciser que cela concerne la médecine de ville, les installations privées autant que l’hôpital, qu’il en faudrait 18 milliards par an et que ça s’étale sur 5 ans, ...c’est à dire qu’on en saura la vérité qu’après leur départ.</em></p>
+<p>Quand les vieilles ficelles de la xénophobie et du militarisme sont réactivées pour faire oublier les causes économiques et politiques des choix qui conduisent à la paupérisation des citoyens et de la majorité du monde, par des « démocrates » en lutte contre ce qu’ils-elles nomment le « populisme» !</p>
+<p>Et bien oui. Çà marche !</p>
+<p>Çà déroute, ça dégoûte, ça démobilise.</p>
+<p>Mais nous n’avons pas le choix, la mobilisation passe par l’appel à la raison, à l’intelligence, à la solidarité pour mobiliser. La bataille n’est pas perdue comme le nombre de comités engagés dans des actions locales le démontre. Et surtout, leur manière de s’imposer est en accord avec leur vision méprisante de l’humanité, la notre contribue à l’émancipation.</p>
+<p>Bon nous n’avons pas les trompettes médiatiques de notre coté. Mais nous avons nos réseaux, nos échanges, nos initiatives. Et ce n’est pas parce que la mode est à la chape de plomb que notre combat ne gagne pas des forces.</p>
+<p>On dirait même que parfois ils s’affolent un peu nos dirigeants, parce qu’un hôpital qui ferme tout le monde comprend que ça n’est pas « le Progrès ».</p>
+<p align="right" style="margin-top: 1em;" clear="both"><i>Henri (sud Aveyron)</i></p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GANGES</strong></p>
+<p>Voici les interrogations posées à l’ARS par le comité concernant le Centre Périnatal de Proximité. Rappelons que pour le collectif ce CPP ne répond aucunement au droit légitime des femmes d’avoir accès à une maternité de proximité, qui seule permet à la fois un suivi gynécologique complet et un accouchement en toute sécurité, à la clinique ou à la maison.</p>
+<p><a href="https://coordination-defense-sante.org/2024/01/ganges/">https://coordination-defense-sante.org/2024/01/ganges/</a></p>
+<p style="background-color: #CC0000"><strong>BERNAY</strong></p>
+<p><strong>e la cuisine centrale de Bernay au profit de celle d’Évreux.</strong></p>
+<p>Après la manifestation du 13 janvier qui a réuni plus de 400 personnes, c’est lors des vœux du maire que la mobilisation contre ces réductions d’activité s’est manifestée avec la formation d’une chaîne humaine</p>
+<p><a href="https://coordination-defense-sante.org/2024/01/bernay-se-bat-pour-son-hopital/">https://coordination-defense-sante.org/2024/01/bernay-se-bat-pour-son-hopital/</a></p>
+<p>Nous étions plus de 400 à manifester ce samedi matin, nous nous rendons ce soir aux vœux du maire mais nous pensons que toutes ces actions dans un temps très court, puisque l'échéance est le 05 février ,ne permettront pas de sauver notre chirurgie.</p>
+<p>Nous pensons envahir<strong> tous les jours le hall de notre établissement durant un temps donné  et nous y coucher afin de faire savoir que notre intention est de reprendre possession de notre établissement public et que nous nous y installons afin d'être au cœur des prises en charge.</strong></p>
+<p><strong>Pensez vous que tous les comités pourraient adhérer à cette action dans le but de nationaliser nos différents mouvements?</strong></p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>AUTUN</strong></p>
+<p>Quand le député macroniste Rebeyrotte trouve bien l'ouverture potentielle de 2 chambres type appart'hotel pour compenser la fermeture de la maternité d Autun !</p>
+<p>(...)</p>
+<p>«Ainsi les parturientes, sentant le terme arriver, pourraient venir s’installer avec leur conjoint, en famille, à 35 minutes de la maternité de l’Hôtel-Dieu du Creusot, en toute sécurité, avec un suivi et un parcours de surveillance et de soins adaptés.</p>
+<p>Cette option offerte aux femmes serait un réel progrès dans la gestion de la suspension de la Maternité d’Autun et prendrait enfin en compte les problèmes de distance et les risques générés. (...)</p>
+<p style="margin-bottom: 0">Rémy REBEYROTTE,</p>
+<p style="margin-top: 0">Député de Saône-et-Loire</p>
+<p style="background-color: #FEFB01; color: #0070C0"><strong>SARLAT</strong></p>
+<p><strong><em>C DANS L'AIR SPÉCIAL FR 5 LE DIMANCHE 28 JANVIER À 20H30</em></strong></p>
+<p><strong>LE RÉALISATEUR ALAIN PIROT EST VENU PASSÉ 3 JOURS EN</strong><strong>PÉRIGORD AVEC LE COMITÉ</strong></p>
+<p><em>Démographie : la bombe humaine</em></p>
+<p>Magazine Actualité (France - 2024)</p>
+<p>Regardez ce dimanche 28 janvier sur FRANCE 5 à 21:05 le programme "C dans l'air spécial" produit en France en 2024. D'une durée de 135 min ce programme est adapté à tous publics.</p>
+<p>D'ici à 2100, la Terre dépassera les 10 milliards d'humains. Jamais la planète n'aura été aussi peuplée. Une explosion démographique qui va bouleverser les équilibres mondiaux. Alors que l'Europe et la Chine font face au vieillissement inexorable de leurs populations, l'Afrique et l'Asie voient leur nombre de jeunes exploser. À l'image de l'Inde, forte de son 1,4 milliard d'habitants, et qui compte bien capitaliser sur cette dynamique des naissances pour s'imposer sur la scène internationale. Quant à l'Afrique, au tournant du siècle, elle abritera près de la moitié de l'humanité. Face à ce séisme, le monde est-il prêt ?</p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>RIANTEC</strong></p>
+<div class="VignetteBR flex right" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/Image3.jpeg" />
+</div>
+<div class="divText">
+<p>Riantec. Une cinquantaine de manifestants devant</p>
+<p>l’hôpital</p>
+<p>Les experts-visiteurs de la Haute autorité de santé (HAS) ont contrôlé l’hôpital de Kerdurand, mardi, pour la certification de l’établissement. Vers 14 h 30, un comité d’accueil les attendait devant l’entrée. Une cinquantaine de manifestants les ont alertés sur les conditions de travail à l’hôpital qui, selon eux, se dégradent.</p>
+<p>Frédéric, du syndicat Sud, explique : <strong>« On nous demande de faire toujours plus avec toujours moins de moyens. Nous cumulons les heures supplémentaires. Ça ne peut plus durer. »</strong></p>
+<p>Jean-Christophe Phelep, directeur du Groupement hospitalier Bretagne Sud, est particulièrement visé par les manifestants. Le communiqué de la CGT précise que « <strong>depuis l’arrivée de Jean-Christophe Phelep, tout est compté. Que ce soit le nombre de personnel, le matériel, et aujourd’hui ce qu’il y a dans l’assiette de nos résidents. De plus, le soin relationnel, cœur du métier des soignants, se réduit considérablement</strong> ».</p>
+</div></div>
+<p style="background-color: #269933; color: #FEFB01"><strong>SUD AVEYRON</strong></p>
+<p>Le Manifeste s’est associé aux rassemblement du <strong>21 janvier à Millau</strong>. 400 personnes contre la loi Darmanin ont ainsi fait le lien entre cette loi xénophobe qui, sous prétexte d’être « proche des gens », fait barrage à l’arrivée de deux médecins (PADHUE) au services médecine de l’hôpital de Saint Affrique. Ce service dont 55 % des lits sont fermés ...faute de médecins.</p>
+<p><strong>Le 26 janvier le Manifeste, des médecins et syndicalistes de l’hôpital de St Affrique animeront une réunion publique dans la salle du Conseil Municipal de Belmont, aux cotés des élu-e-s.</strong></p>
+<p style="background-color: #FEFB01; color: #2B7BB6"><strong>LUÇON</strong></p>
+<p><strong>VIGILANCE à l’hôpital de Luçon !</strong></p>
+<p><strong>En 2024 on continue, on ne lâche rien !</strong></p>
+<p><strong>L’accès aux soins pour toutes et tous partout sur le territoire est un droit fondamental.</strong></p>
+<p><strong>Restons mobilisés !</strong></p>
+<p><strong>Prochains rendez-vous </strong>: <strong>VENDREDI 19 JANVIER 2024 18H </strong>devant les Urgences</p>
+<p>Merci de diffuser cette information et de la partager avec vos familles, vos amis et sur vos réseaux.</p>
+<p style="background-color: #FC0000; color: #F7F7F7"><strong>AUBENAS</strong></p>
+<p><strong>Assemblée du comité</strong></p>
+<p>HÔPITAL SACRIFIE SANTÉ EN DANGER</p>
+<p>Les statistiques officielles le disent crûment : le nombre de lits d'hospitalisation publique continue de baisser. Au 31 décembre 2022, les capacités d'accueil des établissements de santé se répartissent entre hospitalisation complète (374 000 lits) et partielle (85 000 places) ; Ces chiffres étaient respectivement de 413 206 et 71 942 en 2013.</p>
+<p>A l'hôpital d'Aubenas : les lits de gastro entérologie et de cardiologie sont fermés , le service des Urgences a fermé plusieurs mois la nuit depuis avril 2023.</p>
+<p>Les personnels médicaux et paramédicaux, pourtant dévoués, sont épuisés par les conséquences de cette politique hospitalière conduisant à un manque de personnel et de moyens.</p>
+<p>La population a du mal à trouver un médecin traitant ( 20% de la population du Sud Ardèche)</p>
+<p>Les délais de rendez vous chez un spécialiste ou un généraliste s'allongent d'année en année.</p>
+<p>Aucune étude n'existe pour mesurer les conséquences de cette politique qui massacre les structures de santé et ne peut que conduire à une perte de chance pour la santé de la population.</p>
+<p>Déjà concernant la protection maternelle et infantile où la France était, dans les années 90, en tête des pays de l'OCDE, nous nous retrouvons actuellement dans le peloton de queue de ce classement.</p>
+<p>L'année 2023 a été une année de forte mobilisation de la population pour nos retraites, l'année 2024 doit être une année de mise sous protection de notre système de santé et de protection sociale mis en place à la Libération par le Conseil National de la Résistance et qui a conduit à notre Sécurité Sociale.</p>
+<p>Celle ci est en grave danger, les assurances privées lorgnent sur les 600 milliards de notre Sécurité Sociale pour en faire une source de profits pour les actionnaires des sociétés d'assurance.</p>
+<p>La fin de l'année 2023 a connu une mobilisation forte du personnel et des usagers ; gageons que cette mobilisation se poursuivra cette année.</p>
+<p>Vous pourrez compter sur notre association pour aider et prendre toute sa place dans ces mobilisations.</p>
+<p>L'AVENIR DE L'HÔPITAL NE POURRA S'ÉCRIRE QUE PAR L'INTERVENTION CONJOINTE DES PERSONNELS, DES USAGERS ET DES ÉLUS</p>
+<p style="background-color: #FC0000; color: #F7F7F7"><strong>St MEEN</strong></p>
+<p><strong>La fermeture de l’Ehpad, de Saint-Méen-le-Grand, reçue comme un coup de massue</strong></p>
+<p>À Saint-Méen-le-Grand (Ille-et-Vilaine), les 46 résidents de l’Ehpad la Fontaine Costard ont appris la fermeture imminente de leur établissement. Ils devraient être transférés au Centre hospitalier Brocéliande. Le CHU de Rennes, qui gère l’établissement, assure que « rien n’est acté » à ce jour.</p>
+<p><strong>Les soignants vent debout contre la fermeture de l’Ehpad de Saint-Méen-le-Grand</strong></p>
+<p>Alors que le CHU temporise, le maire de Saint-Méen-le-Grand confirme le projet de fermeture de l’Ehpad du centre-ville. Les soignants du syndicat Sud dénoncent les conséquences de la fusion avec l’hôpital de Montfort-sur-Meu.</p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>DOLE</strong></p>
+<p>DES NOUVEAUX BLOCS OPÉRATOIRES.… SEULEMENT EN AMBULATOIRE !</p>
+<p>Ainsi les nouveaux blocs de chirurgie ambulatoire devraient être inaugurés le 23 janvier prochain pour un coût annoncé de 13 millions d’euros. Mais l’ouverture effective de cet équipement n’interviendra qu’au mois de mars.</p>
+<p>Au-delà de bâtiments nouveaux, et avec la conservation de 2 anciens blocs, ce sont une trentaine de chirurgiens du CHU de Besançon « qui se relaieraient » pour opérer à Dole.</p>
+<p>Le Comité de Défense des hôpitaux de Dole sera très vigilant sur la réalité de la mise en œuvre de cette coopération médicale.</p>
+<p>Dans tous les cas, cela ne répondra pas à tous les besoins de chirurgie pour la population du bassin dolois, puisqu’il n’y aura que de la chirurgie ambulatoire (opération programmée, entrée le matin et sortie dans la journée).</p>
+<p>30 % environ des patients ne peuvent être opérés en ambulatoire, souvent âgés ou en situation d’urgence, ils ne seront pas pris en charge à Dole.</p>
+<p>Les opérations chirurgicales d’urgence ou nécessitant une hospitalisation resteront sur Besançon, alors qu’à nouveau le CHU est engorgé et peine notamment à faire face aux Urgences.</p>
+<p>Voir l’article de <a href="https://france3-regions.francetvinfo.fr/bourgogne-franche-comte/doubs/besancon/urgences-au-chu-de-besancon-nous-connaissons-des-temps-d-attente-qui-ne-sont-pas-admissibles-reconnait-l-%20hopital-2907926.html">France 3</a> :</p>
+<p>C’est pourquoi, le Comité de défense des hôpitaux publics de Dole continue à demander la réouverture de la chirurgie conventionnelle à Dole, alors qu’il y aura maintenant 6 blocs opératoires.</p>
+<p>Des recrutements de chirurgien.nes sont possibles, à condition de leur assurer la pérennité de leur activité !</p>
+<p><a href="https://coordination-defense-sante.org/2024/01/dole-le-premier-bulletin-de-lannee-du-comite/">https://coordination-defense-sante.org/2024/01/dole-le-premier-bulletin-de-lannee-du-comite/</a></p>
+<p style="background-color: #269933; color: #F7F7F7"><strong>LANNION</strong></p>
+<p><strong>40 élus chez le préfet pour défendre les soins et l'hôpital de Lannion</strong></p>
+<p>40 élus des Côtes-d'Armor se rendront chez le préfet pour lui remettre un appel pour réclamer "santé et dignité pour tous". Au centre du problème :  les urgences de Lannion. </p>
+<p><strong>« Une situation inacceptable »</strong></p>
+<p>A l’initiative du maire de Saint-Quay-Perros, Olivier Houzet, ces élus locaux réclament « santé et dignité pour tous ».</p>
+<p>Au centre du problème, les fermetures à répétition des <strong>urgences de Lannion et la maternité de Guingamp. </strong></p>
+<p><a href="https://actu.fr/bretagne/lannion_22113/40-elus-chez-le-prefet-pour-defendre-les-soins-et-lhopital-de-lannion_60542090.html?fbclid=IwAR2LwbSamE_Y5ki1vwxddKRR3vxeqC-ZWGW26ca7twsjU4dQp32VMqeVpiA--">https://actu.fr/bretagne/lannion_22113/40-elus-chez-le-prefet-pour-defendre-les-soins-et-lhopital-de-lannion_60542090.html?fbclid=IwAR2LwbSamE_Y5ki1vwxddKRR3vxeqC-ZWGW26ca7twsjU4dQp32VMqeVpiA</a></p>
+<p style="background-color: #FEFB01; color: #0936FF"><strong>GISORS</strong></p>
+<p><strong>Sans commentaires !</strong></p>
+<p style="margin-bottom: 0">Tout a été mis en œuvre en fin d'année par l'hôpital de Gisors pour séduire les chefs d'entreprises.</p>
+<p style="margin: 0">Objectif : obtenir des dons, faute de fonds publics suffisants.</p>
+<p style="margin-top: 0">La direction de l’hôpital de Gisors s’est lancée en fin d’année 2023 dans une opération de séduction envers les entrepreneurs du Vexin.</p>
+<p>Afin de pallier un financement public qui se raréfie, cette première soirée de gala était l’occasion pour l’hôpital de demander la charité auprès de ceux qui semblent avoir les moyens de lui venir en aide : les entrepreneurs locaux.</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #FC0000; color: #F7F7F7"><strong>LUYMES</strong></p>
+<p><strong>En grève depuis le 22 novembre pour ses conditions de travail dégradées,</strong> le personnel de cet établissement est sorti dans les rues de Luynes pour manifester. Depuis cette date les négociations n'ont toujours pas abouti, mais les grévistes se battent toujours contre le manque de personnel qui met en danger les résidents...</p>
+<p><a href="https://collectifsante37.blogspot.com/2024/01/le-ch-de-luynes-37-manifeste-sa-colere.html">https://collectifsante37.blogspot.com/2024/01/le-ch-de-luynes-37-manifeste-sa-colere.html</a></p>
+<p style="background-color: #F4A460"><strong>PONTIVY</strong></p>
+<p>Pontivy, 1 500 personnes dans la rue pour défendre leur hôpital public [Vidéo]</p>
+<p>Comme en 2021, le collectif de défense du centre hospitalier du Centre-Bretagne a réussi à mobiliser 1 500 personnes, ce samedi 20 janvier, à Pontivy. Avec un seul mot d’ordre : « sauver notre hôpital de proximité ».</p>
+<p>En 2021, déjà, plus de 1 500 personnes avaient manifesté à Pontivy (56) pour défendre le centre hospitalier du Centre-Bretagne (CHCB). Relancé en décembre, le collectif de défense du CHCB a repris le combat en organisant, ce samedi 20 janvier, à Pontivy, une nouvelle journée de mobilisation.</p>
+<p><strong>Hôpital sacrifié = patients en danger</strong></p>
+<p>Il y a  urgence. La situation s’est aggravée et l’hôpital de Noyal-Pontivy souffre toujours, faute de moyensains et financiers. Les urgences de nuit sont très régulièrement régulées. La loi Rist, qui plafonne la rémunération des médecins intérimaires, a fait fuir les candidats. Le chef des urgences et la cheffe du service de médecine polyvalente ont démissionné en 2023. Et pour le collectif, l’équation est simple : hôpital sacrifié = patients en danger. « Il y a deux ans, on avait déjà fait la demande expresse d’un plan Marshall. Il nous faut des moyens exceptionnels pour des territoires exceptionnels comme le nôtre », insiste le Dr Alaman-Trévidic, membre de la commission médicale du CHCB.</p>
+<p style="background-color: #FEFB01"><strong>LUNÉVILLE</strong></p>
+<p><strong>Les accouchements suspendus à la maternité de Lunéville pour deux mois</strong></p>
+<p>L'agence régionale de santé du Grand Est annonce la suspension des accouchements pour deux mois à Lunéville à compter du 1er février, faute de gynécologues-obstétriciens en nombre suffisant.</p>
+<p>Il n'y aura pas d'accouchements à la maternité de Lunéville pendant au moins deux mois, du 1er février au 31 mars. L'annonce a été faite par l'agence régionale de santé du Grand Est ce mardi 16 janvier. En cause, un manque de gynécologue-obstétricien pour assurer toutes les gardes suite à plusieurs départs pas encore compensés. Conséquence :  la salle de naissance de la maternité sera fermée, salle qui accueille 500 à 600 accouchements chaque année.</p>
+<p style="background-color: #AFEEEE"><strong>MEULAN</strong></p>
+<p><strong>Suite à la grève du personnel du CH de Meulan</strong>, </p>
+<p>- 1 aide soignante supplémentaire la journée .</p>
+<p>- ⁠1 infirmière supplémentaire la nuit .</p>
+<p>- ⁠la comptabilité du temps de repas en temps de travail effectif</p>
+<p>- ⁠la  comptabilité du temps de débordement des transmissions en travail effectif après 12h de service</p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>OLÉRON</strong></p>
+<p><strong>Pour soutenir les soignants et l'hôpital public de Saint-Pierre d'Oléron, menacé de fermeture, un grand RDV citoyen a eu lieu devant la CDC (à Saint-Pierre) Mercredi 17 Janvier à partir de 15H30,</strong></p>
+<p>Un collectif de citoyens se constitue afin d'envisager les modalités d'actions pour que l'hôpital fonctionne normalement !</p>
+<p style="background-color: #FEFB01; color: #0070C0"><strong>MULHOUSE</strong></p>
+<p><strong>Mulhouse : le centre de santé Edens ferme, plus de 1000 patients concernés</strong></p>
+<p>Le centre Edens a brutalement fermé ses portes le 10 janvier à Mulhouse, suite à une décision de justice. Cet établissement s'occupait d'enfants et de jeunes adultes touchés par des maladies chroniques telles que le diabète. Plus de 1000 patients sont concernés.</p>
+<p>La douche froide en ce début d'année pour près de 1200 familles du sud de l'Alsace et du nord de la Franche-Comté. Le <strong>centre de santé Edens</strong> installé à Mulhouse rue de Soultz dans le quartier de Bourtzwiller a fermé ses portes quasiment du jour au lendemain le 10 janvier. Il avait été ouvert il y a une dizaine de mois en mars 2023 par la pédiatre Fatiha Guemaziet. Ce centre s'occupait d'enfants et de jeunes adultes touchés par des <strong>maladies chroniques</strong> comme le <strong>diabète</strong>. Les parents ont appris la nouvelle via un simple mail, le centre aurait des difficultés financières.</p>
+<p><strong><em>Maud Czaja</em>,<em>Patrick Genthon</em>Jeudi 18 janvier 2024 à 19:36 Par <em>France Bleu Alsace</em>,</strong></p>
+<p style="background-color: #FEFB01; color: #0070C0"><strong>MANTES LA JOLIE</strong></p>
+<p><em>« Le manque de lits, la pénurie de médecins de ville et les vacances du personnel conduisent à une saturation des services des urgences en région parisienne. Ce mercredi 3 janvier, le panneau à l’entrée du service des Urgences de Mantes la Jolie annonce la couleur : sauf problème vital, il faut attendre douze heures et trente minutes, ce mercredi, pour être pris en charge par un médecin des urgences. »</em></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>Documents Juridiques ou utiles</strong></p>
+<p class="titre-rubrique"><strong>IMPLANTATION URGENCES</strong></p>
+<p><strong>Décret n° 2023-1374 du 29 décembre 2023 relatif aux conditions d'implantation de l'activité de médecine d'urgence</strong></p>
+<p>le décret fixe les conditions d'implantation pour l'activité autorisée de soins de médecine d'urgence, notamment la nouvelle modalité d'exercice d'Antenne de médecine d'urgence. Il prévoit les conditions de l'autorisation de l'activité et de son renouvellement. Il ouvre la possibilité de recourir à des équipes non médicalisés dans le cadre d'une implantation de structure mobile d'urgence et de réanimation médicalisée. Il prévoit la mise en œuvre d'un dispositif de gestion des lits pour tous les établissements autorisés à la prise en charge de patients dans un service d'urgences ou d'urgences pédiatriques. Il précise enfin l'articulation entre les structures de médecine d'urgence et les plateaux techniques spécialisés permettant des prises en charge spécifiques (ophtalmologie, cardiologie, etc.).</p>
+<p><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048730260">https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048730260 </a></p>
+<p style="margin-bottom: 0">NOR : SPRH2325309D</p>
+<p style="margin: 0">ELI : https://www.legifrance.gouv.fr/eli/decret/2023/12/29/SPRH2325309D/jo/texte</p>
+<p style="margin: 0">Alias : https://www.legifrance.gouv.fr/eli/decret/2023/12/29/2023-1374/jo/texte</p>
+<p style="margin-top: 0"><a href="https://www.legifrance.gouv.fr/jorf/jo/2023/12/30/0303">JORF n°0303 du 30 décembre 2023</a></p>
+<p class="titre-rubrique"><strong>DÉSERTS MÉDICAUX</strong></p>
+<p><strong>toujours moins de médecins généralistes</strong></p>
+<p>Publié le 09/01/2024 • Par <a href="https://www.lagazettedescommunes.com/journaliste/jeremy-fichaux/">Jérémy Fichaux</a> • dans : <a href="https://www.lagazettedescommunes.com/rubriques/actu-sante-social/">Actu Santé Social</a>, <a href="https://www.lagazettedescommunes.com/rubriques/france/">France</a></p>
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/Image4-1.jpeg" alt="inconnu_1.jpg" />
+</div>
+<div class="divText">
+<p>Indispensables à la vie d'une commune, les médecins généralistes sont recherchés par un grand nombre d'élus. La balance entre l'offre médicale et la demande vacille selon certains territoires. Dans son dernier comptage, la Drees souligne une nouvelle fois une baisse des effectifs.</p>
+</div></div>
+<p class="titre-rubrique"><strong>FORMATIONS PADHUE</strong></p>
+<p><a href="https://www.macsf.fr/responsabilite-professionnelle/ethique-et-societe/l-acces-au-plein-exercice-pour-les-medecins-a-diplome-europeen-ou-a-diplome-hors-union-europeenne">https://www.macsf.fr/responsabilite-professionnelle/ethique-et-societe/l-acces-au-plein-exercice-pour-les-medecins-a-diplome-europeen-ou-a-diplome-hors-union-europeenne</a></p>
+<p class="titre-rubrique"><strong>CONTRE LA MARCHANDISATION DE LA SANTÉ</strong></p>
+<p style="margin-bottom: 0">les fiches définitives de la campagne européenne sont sorties</p>
+<p style="margin-top: 0"><a href="https://coordination-defense-sante.org/2024/01/campagne-europeenne-la-sante-avant-le-marche/">https://coordination-defense-sante.org/2024/01/campagne-europeenne-la-sante-avant-le-marche/</a></p>
+<p class="titre-dossiers"><strong>NOUS AVONS AUSSI REÇU A LA COORD</strong></p>
+<p><strong>Communiqué de presse du 18 janvier 2024 de l’association Santé et Médecine du Travail</strong></p>
+<p class="titre-rubrique"><strong>Sanction inique contre un médecin du travail indépendant</strong></p>
+<p>Le docteur Jean-Louis ZYLBERBERG médecin du travail du BTP vient d'être interdit d'exercice médical pour un an dont six mois avec sursis, sanction d’une exceptionnelle sévérité, par la chambre disciplinaire régionale de l'ordre des médecins de Paris pour avoir rédigé des avis d’inaptitude de sauvegarde de leur santé, avec l'accord de ces salariés au statut très précarisé. Aucun n’a été entendu par l’ordre des médecins.</p>
+<p>(...)</p>
+<p>La direction du service de médecine du travail du BTP cherche par ailleurs à licencier le docteur Zylberberg, sa qualité de représentant CGT y étant explicitement évoquée.</p>
+<p>Cette plainte devant l’ordre est donc un pur prétexte pour tenter d’évincer un médecin du travail.</p>
+<p>C'est l'action des médecins du travail en faveur exclusivement de la santé au travail des salariés qui est en jeu.</p>
+<p>Le patronat cherche à intimider les médecins du travail quand ils agissent exclusivement en protection de la sant&amp;#233 ; des salariés selon leur mission réglementaire.</p>
+<p>En utilisant la chambre disciplinaire de l’ordre des médecins, juridiction d'exception, le patronat cherche à court-circuiter les règles de droit de protection de la santé des salariés</p>
+<p class="titre-rubrique"><strong>PADHUE</strong></p>
+<p>Certains praticiens à diplôme étranger hors Union Européenne (PADHUE) subissent l’insupportable. Ces praticiens exerçant en France depuis de nombreuses années sous des statuts précaires et souvent sous-payés ont rempli leurs missions de soin et se sont intégrés dans nos hôpitaux, nos villes, notre pays.</p>
+<p><strong>Communiqué</strong></p>
+<p>APH</p>
+<p>La démographie médicale est effectivement un problème à régler de manière urgente, en se donnant aujourd’hui les moyens d’intégrer les PADHUE qui permettent à l’hôpital de « tenir » dans de nombreux établissements. Il est aussi indispensable d’anticiper demain avec les étudiants qui sont dans nos facultés actuellement.</p>
+<p>(...)</p>
+<p>La gestion de ces PADHUE qualifiés de « stock » est à ce jour pour nous incompréhensible. Ces praticiens ont participé à nos côtés à la gestion de l’épidémie Covid dans l’intérêt de tous nos concitoyens. Leurs parcours ont été rendus chaotiques de par l’épidémie mais surtout de par les retards de l’instruction de l’examen de leurs dossiers de candidatures, puis pour certains par les délais nécessaires pour réunir leur jury d’examen.</p>
+<p><a href="https://aph-france.fr/La-situation-vecue-par-nos-collegues-PADHUE-est-indigne-de-la-France.html">https://aph-france.fr/La-situation-vecue-par-nos-collegues-PADHUE-est-indigne-de-la-France.html</a></p>
+<p class="titre-rubrique"><strong>Le plasma sanguin : un commerce très rentable</strong></p>
+<p><a href="https://www.radiofrance.fr/franceinter/podcasts/l-interview/l-interview-de-secrets-d-info-du-samedi-13-janvier-2024-8648476">https://www.radiofrance.fr/franceinter/podcasts/l-interview/l-interview-de-secrets-d-info-du-samedi-13-janvier-2024-8648476</a></p>
+<p class="titre-rubrique"><strong>Restriction des feuilles de soins papier</strong></p>
+<p style="margin-bottom: 0">Parfois les patient·es oublient ou perdent leur carte Vitale...  Parfois certaines situations ne nous permettent pas de dématérialiser les facturations. En effet, les patient·es n'ont pas tous·tes droit à la carte Vitale. Soit parce qu'ilelles ont l'Aide médicale d'État (AME) ou qu'ilelles sont en situation de demandeur·euses d'asile et ont droit à la Complémentaire santé solidaire (CSS). </p>
+<p style="margin-top: 0">Nous, soignant·es, par notre implantation territoriale, notre implication dans l'accueil des plus vulnérables ou du fait de nos compétences linguistiques, nous recevons dans nos cabinets ces patient·es. Appliquant le tiers-payant, nous faisons signer les feuilles de soins papier que nous envoyons par lot aux caisses.</p>
+<p>Depuis quelques temps déjà, nous avons du mal à recevoir les feuilles de soins papier que nous demandons via le portail Amelipro. Le site Internet est maintenant le seul moyen ou presque de communiquer avec nos Caisses primaires d'Assurance maladie (CPAM) de rattachement. Lorsque nous interrogeons les délégué·es de l'Assurance maladie, on nous dit « oui il y a eu un problème avec les fournisseurs, je fais remonter l'information...».</p>
+<p>(...)</p>
+<p>Le groupe d'animation du Syndicat de la Médecine Générale</p>
+<p class="titre-rubrique"><strong>Indécence et indignité à l’hôpital public</strong></p>
+<p>Par Philippe Bizouarn, médecin au CHU de Nantes et philosophe à l’université de Paris-Cité (L’Humanité)</p>
+<p>Dans de nombreux hôpitaux, les <a href="https://www.humanite.fr/social-et-economie/hopital-public/hopital-public-un-sos-international-contre-une-sante-a-deux-vitesses-708839">services d’urgence</a> débordés ne peuvent plus accueillir les patients qui arrivent en ambulance où ils vont rester de nombreuses heures en attente d’une place – d’un brancard le plus souvent. Pour libérer les ambulances, certains hôpitaux ont trouvé une solution : accueillir les patients sous des tentes ou dans des <a href="https://www.francebleu.fr/infos/sante-sciences/urgences-saturees-a-strasbourg-l-unite-mobile-d-accueil-reste-en-place-plus-longtemps-que-prevu-9502922">préfabriqués</a>, érigés dans les parkings, lieux de refuge non médicalisé pour ces patients devenus proprement réfugiés sanitaires. Indignité. Indécence. En ces hôpitaux devenus inhospitaliers.</p>
+<strong>Indécence ordinaire à l’hôpital</strong></p>
+<p>L’hôpital est devenu inhabitable. Au sens propre du mot. L’humiliation vécue par les patients abandonnés sur leurs brancards en est le signe prédictif. L’humiliation vécue par les patients rassemblés sous ces abris de fortune en est la preuve vivante.</p>
+<p>Bien sûr, ces patients « parqués » savent qu’enfin quelqu’un s’est occupé d’eux en ne les abandonnant pas à la porte de ces urgences qu’ils avaient voulu franchir pour qu’on puisse prendre soin d’eux.(…) Il faudra pourtant bien mettre des mots sur ces expériences d’accueil dégradé. Il faudra bien dire que ces situations indécentes ne sont jamais dignes d’une société où la <a href="https://www.editions-allia.com/fr/livre/447/de-la-decence-ordinaire">décence ordinaire</a>, naissant des expériences communes, exprime les relations nouées entre les personnes partageant les valeurs de solidarité et de fraternité.</p>
+<p>(...)</p>
+<p><strong>L’idiotie rationnelle du calcul économique</strong></p>
+<p>Depuis plus de 40 ans, les politiques hospitalières ont prônées l’austérité, en fermant des milliers de lits au nom d’une rationalité économique et du sauvetage du système de santé. Idiotie rationnelle, nous dirait <a href="https://www.eyrolles.com/Entreprise/Livre/ethique-et-economie-9782130578581/">Armatya Sen</a>, prix Nobel d’économie. Les idiots rationnels sont celles et ceux qui ont cru, et croient encore, que la poursuite d’une telle politique est une nécessité, en commettant l’erreur que nous, citoyens, et nous, travailleurs du soin, sauront nous adapter en ré-organisant nos services, et nos parkings-refuges.</p>
+<p>(…)</p>
+<p><a href="https://www.humanite.fr/en-debat/hopital-public/indecence-et-indignite-a-lhopital-public">https://www.humanite.fr/en-debat/hopital-public/indecence-et-indignite-a-lhopital-public</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p class="titre-rubrique"><strong>Faire société malgré les attentats</strong></p>
+<p>Vincent DE GAULEJAC, Isabelle SERET</p>
+<p>Ce livre propose une méthode d'intervention restaurative qui rassemble tous les acteurs concernés et décrit les effets d'un travail en commun sur plusieurs années débouchant sur des actions politiques.</p>
+<p>14x22, 250 pages  - 23,50 €</p>
+<p>Collection <a href="http://znq8.mjt.lu/lnk/AVUAADOkTlcAAc-pznAAAAIQILUAAAAAVuYAKxPnAAYYVwBlqkIzJLaJBcEPTj69o_CTD9SgZwAF1kE/3/iZE81NboTAWyt6hHVt9aPg/aHR0cHM6Ly93d3cuZWRpdGlvbnMtZXJlcy5jb20vY29sbGVjdGlvbi8xMjkvc29jaW9sb2dpZS1jbGluaXF1ZQ">Sociologie clinique</a><a href="http://znq8.mjt.lu/lnk/AVUAADOkTlcAAc-pznAAAAIQILUAAAAAVuYAKxPnAAYYVwBlqkIzJLaJBcEPTj69o_CTD9SgZwAF1kE/4/uumnGh6EYwXNWlKrp-ABHA/aHR0cHM6Ly93d3cuZWRpdGlvbnMtZXJlcy5jb20vY29sbGVjdGlvbi85NS9yZWxhdGlvbnM"> dirigée par Vincent de Gaulejac</a></p>
+<p>Les attentats visent à fracasser la société. Les traumatismes touchent les victimes directes et leurs proches, mais aussi les familles des auteurs, les institutions chargées d'en traiter les conséquences et la société dans son ensemble. Comment restaurer toutes ces fractures ?</p>
+<p class="titre-rubrique"><strong>BD</strong></p>
+<p>La passionnante bande dessinée "Les Âmes fendues" raconte le quotidien de l'hôpital psychiatrique Camille-Claudel d'Angoulême. Son scénariste raconte ce qui l'a motivé et ce qui l'a le plus marqué pendant son reportage. Son livre tente de déconstruire les clichés sur les maladies psychiatriques </p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

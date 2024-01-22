@@ -831,7 +831,7 @@ $(document).ready(function() {
     $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
-  if (window.location.pathname != '/') {
+  if (window.location.pathname != '/' && window.location.pathname.indexOf("/search") == -1) {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').wrap('<div class="post-share-buttons-conteneurFlex"></div>');
@@ -841,6 +841,10 @@ $(document).ready(function() {
     $('.post .post-share-buttons.post-share-buttons-bottom').wrap('<div class="post-share-buttons-enfantFlex_2"></div>');
     $('.post-share-buttons-conteneurFlex .post-share-buttons.post-share-buttons-bottom').addClass('post-share-buttons-enfantFlex_3');
     $('.post-share-buttons-conteneurFlex').closest('.main.section').addClass('articleComplet');
+  }
+  else {
+    $('.post .post-share-buttons.post-share-buttons-top').addClass('visible');
+    $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('visible');
   }
 });
 </script>

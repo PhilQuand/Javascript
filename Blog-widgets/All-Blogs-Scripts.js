@@ -433,3 +433,26 @@ function createSummaryAndThumbfromDiv(div, isRegular) {
   else summary = '<div style="position: 0;" class="mySumFeat"><div style="display: inline-block; margin: 1em 0 1em 0;">' + imgtag + resul.summary + '</div></div>';
   div.innerHTML = summary;
 }
+
+var hasMultipleTitle = function() {
+  var hasMultipleTitle = false;
+  $('.post-title').each(function() {
+    if ($(this).children().length == 0) {
+      var title = $(this).html().split('.');
+      if (title.length > 1) {
+        $(this).html(title[0])
+        $('<p style="font-size:24px; font-style: italic" class="post-title entry-title">' + title[1] + '</p>').insertAfter($(this));
+        hasMultipleTitle = true;
+      }
+    }
+    else {
+      var title = $(this).children().html().split('.');
+      if (title.length > 1) {
+        $(this).children().html(title[0])
+        $('<p style="font-size:24px; font-style: italic" class="post-title entry-title">' + title[1] + '</p>').insertAfter($(this).children())
+        hasMultipleTitle = true;
+      }
+    }
+  });
+  return hasMultipleTitle;
+}

@@ -254,6 +254,9 @@ $(document).ready(function() {
   $('.widget.Label > details > summary > .collapsible-title  > .title').html('Mots-clefs');
   $('.widget.Attribution').css('display', 'none');
   $('.widget.Attribution').css('display', 'none');
+
+  hasMultipleTitle();
+  
   if (window.location.pathname != '/' && window.location.pathname.indexOf("/search") == -1) {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('invisible');
@@ -269,6 +272,7 @@ $(document).ready(function() {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('visible');
     $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('visible');
   }
+
 });
 </script>
 <style>

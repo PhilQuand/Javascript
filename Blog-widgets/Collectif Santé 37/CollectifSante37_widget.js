@@ -830,7 +830,9 @@ $(document).ready(function() {
 
     $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
-  }
+  }  
+    hasMultipleTitle();
+
   if (window.location.pathname != '/' && window.location.pathname.indexOf("/search") == -1) {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('invisible');

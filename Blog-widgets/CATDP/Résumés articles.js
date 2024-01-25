@@ -726,7 +726,7 @@ $(document).ready(function() {
 }
 .customInlineBaseClass.fancybox-is-open .fancybox-bg {
     opacity: 0.1;
-    transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+    //transition-timing-function: cubic-bezier(.22, .61, .36, 1);
 }
 
 .customInlineBaseClass.fancybox-is-open .fancybox-content {
@@ -863,12 +863,12 @@ $('.fancybox')
 }*/
 </style>
 <script>
-if ( window.location.pathname == '/' ){
-  $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");
-  $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
-}
-</script>
-<script>
+$(document).ready(function() {
+  if (window.location.pathname == '/') {
+    $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+  }
+
 Promise.all([
   load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'),
 ]).then(
@@ -919,6 +919,10 @@ Promise.all([
     });
   }).catch(function() {
   console.log('Oh no, epic failure!');
+});
+
+  hasMultipleTitle();
+
 });
 </script>
 <style>

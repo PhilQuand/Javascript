@@ -830,8 +830,74 @@ $(document).ready(function() {
 
     $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
-  }  
-    hasMultipleTitle();
+  }
+
+  Promise.all([
+    load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'),
+  ]).then(
+    function() {
+      console.log('Everything has loaded!');
+      //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
+      $('.subscribe-button.pill-button').addClass('styled')
+      $('#ACCEUIL-AlaUne').AlaUneFB4({
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_FQFbtFIaWtkpeUNt1WWcYeUhAwsD8I2B8JsHgNpY7QuxyPPICuVK5XmKdK5qNQ81qdcKBXM8kSCBOiIE4FBQm-e1mm-bFO0OkiBtscng24SBOX_3uOHfs76iQwxdvFGy8wGT_tse-4gKoQBzLLCVAWVEZ3Yct9Rj_bcYvpu-CZC55BY3JM40nQcmKlk/s1600/visuel%20loi%20darmanin.jpg",
+        fancyClass: {
+          //baseClass: 'demain20200923AlaUneBaseClass',
+          baseClass: 'articleFancyClass',
+        },
+        //fancyClass: "defaultInline",
+        href: [
+          /*{
+                    dataType: "inline",
+                    dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
+          <ul> \
+          <li>pour des moyens en effectifs et des financements à la hauteur des besoins de la population,</li> \
+          <li>pour les 183€ pour toutes et tous et la revalorisation des grilles salariales pour toutes et tous sans barrage,</li> \
+          <li>pour le maintien et l&#39;amélioration des conventions collectives,</li> \
+          <li>non a la marchandisation de la santé, du social et du médicosocial</li> \
+          </ul> \
+          <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>mardi 15 juin à 14h30<br />Devant l’ARS</b>.</p> \
+          <p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
+          <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
+          </div>'
+                  },*/
+          {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu5dTWIBKS67INl1_fT9WD2KMqlFItaxcKU06f29Cdwg-i_f2aYIEmaDrbAYkH5bW5-5ZhIRUUtUe99U1Z84KNCjV0y-yNc1yWWTOkAED7iZEQ1gk5vqD5qEXowNdqh3AJbUN8IAzXxEPFBcX5aJ9hwiqNKksjB6CvD0Bh7D_w_Xpc2wxsajvM4cD-Ihc/s1600/mobilisation%20contre%20la%20loi%20immigration%203%20fe%CC%81vrier%2024.jpg"
+          },
+          {
+            dataType: "images",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png"
+          },
+          /*
+          {
+            dataType: "iframe",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/2023-06-22-Tour%20de%20France%20pour%20la%20Sant%3F%3F-VF-3.pdf"
+          },
+          {
+            dataType: "iframe",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOC5a6pHJi0OSaDmkKhsUm7gbrXW2r7Lg1NoPFbuWV-b5Cm58IATRSfKSHgVoXWlV4oV_WApmNo6R_7gECh1mHuQADWD3o0ByTZvMkiAkC1qjv5RAsCtktrpKQIci_nDIBx5NhUxjhZqEOumDu7vQdfmra7tPU6AxRvazR_qg5XvJGN3HKPufQD_pQr3w/s1600/Pe%CC%81tition-09-15.jpg",
+            dataSrc: "https://www.convergence-sp.fr/wp-content/uploads/2023/09/PLFSS-2024-Petition-Papier-2023-09-02.pdf"
+          },
+          {
+            dataType: "images",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"
+          },
+          /*{
+            dataType: "video",
+            //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
+            dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"
+          },*/
+        ]
+      });
+    }).catch(function() {
+    console.log('Oh no, epic failure!');
+  });
+  
+  hasMultipleTitle();
 
   if (window.location.pathname != '/' && window.location.pathname.indexOf("/search") == -1) {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
@@ -848,6 +914,8 @@ $(document).ready(function() {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('visible');
     $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('visible');
   }
+
+
 });
 </script>
 <style>
@@ -911,77 +979,7 @@ $(document).ready(function() {
     margin-right: 5px;
     margin-top: 8px;
 }
-</style>
-<script>
-Promise.all([
-  load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'),
-]).then(
-  function() {
-    console.log('Everything has loaded!');
-    //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
-    $('.subscribe-button.pill-button').addClass('styled')
-    $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_FQFbtFIaWtkpeUNt1WWcYeUhAwsD8I2B8JsHgNpY7QuxyPPICuVK5XmKdK5qNQ81qdcKBXM8kSCBOiIE4FBQm-e1mm-bFO0OkiBtscng24SBOX_3uOHfs76iQwxdvFGy8wGT_tse-4gKoQBzLLCVAWVEZ3Yct9Rj_bcYvpu-CZC55BY3JM40nQcmKlk/s1600/visuel%20loi%20darmanin.jpg",
-      fancyClass: {
-        //baseClass: 'demain20200923AlaUneBaseClass',
-        baseClass: 'articleFancyClass',
-      },
-      //fancyClass: "defaultInline",
-      href: [/*{
-          dataType: "inline",
-          dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
-<ul> \
-<li>pour des moyens en effectifs et des financements à la hauteur des besoins de la population,</li> \
-<li>pour les 183€ pour toutes et tous et la revalorisation des grilles salariales pour toutes et tous sans barrage,</li> \
-<li>pour le maintien et l&#39;amélioration des conventions collectives,</li> \
-<li>non a la marchandisation de la santé, du social et du médicosocial</li> \
-</ul> \
-<p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>mardi 15 juin à 14h30<br />Devant l’ARS</b>.</p> \
-<p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
-<p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
-</div>'
-        },*/
-        {
-          dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYF_QsBqvkmeNShUgZtywKkzV82omB_HeiAxa7lAMJcAflSn0KBoNmGRThG0sFG8jdVKjCgeQeH3sOU_H2aTgrn3oojVe7H9z21ciGDaGZq-NGqa9Nao5fNrMGYs3AjXEe0mOb-8xfT1_Ifu7197BhPr-fpDqYohNwQWnzNKjaV4LXmkinezlivwM5H9g/s1600/appel%20local%20Mobilisation_2101_4.jpg"
-        },
-        {
-          dataType: "images",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png"
-        },
-        /*{
-          dataType: "images",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"
-        },
-        {
-          dataType: "iframe",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",
-          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/2023-06-22-Tour%20de%20France%20pour%20la%20Sant%3F%3F-VF-3.pdf"
-        },
-        {
-          dataType: "iframe",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOC5a6pHJi0OSaDmkKhsUm7gbrXW2r7Lg1NoPFbuWV-b5Cm58IATRSfKSHgVoXWlV4oV_WApmNo6R_7gECh1mHuQADWD3o0ByTZvMkiAkC1qjv5RAsCtktrpKQIci_nDIBx5NhUxjhZqEOumDu7vQdfmra7tPU6AxRvazR_qg5XvJGN3HKPufQD_pQr3w/s1600/Pe%CC%81tition-09-15.jpg",
-          dataSrc: "https://www.convergence-sp.fr/wp-content/uploads/2023/09/PLFSS-2024-Petition-Papier-2023-09-02.pdf"
-        },
-        {
-          dataType: "images",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"
-        },
-        /*{
-          dataType: "video",
-          //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
-          dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"
-        },*/
-      ]
-    });
-  }).catch(function() {
-  console.log('Oh no, epic failure!');
-});
-</script>
-<style>
+
 .demain20200923AlaUneBaseClass  .fancybox-slide.fancybox-slide--iframe .fancybox-content {
     max-width: calc(100% - 80px);
     max-height: 180px;

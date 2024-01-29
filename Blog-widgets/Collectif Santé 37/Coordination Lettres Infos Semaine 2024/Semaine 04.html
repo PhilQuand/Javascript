@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Des franchises médicales pour « responsabiliser » les Français : la santé ne peut être gratuite, nous répètent les élus de droite.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 04</li>
+<li>Dates: du 22 au 28 jan. 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/Infos-semaine-4-du-22-au-28-janvier-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Des franchises médicales pour « responsabiliser » les Français : la santé ne peut être gratuite, nous répètent les élus de droite. Nous le savons, nous, que la santé n’est pas gratuite : ce sont nos cotisations qui permettent à la Sécu de répondre aux besoins de la population ! Ce sont leur politique qui, depuis des décennies, permettent  au patronat de s’exonérer de ses obligations. N’oublions pas « chacun paie selon ses moyens et reçoit selon ses besoins » !</p>
+<p align="right" style="margin-top: 1em;" clear="both"><i>Rosine Leverrier</i></p>
+
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/communique-franchises-VD.pdf">Communiqué de la Coordination Nationale</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/CP-FranchisesSanitaires-26janv2024.pdf">Communiqué de l’association La Santé in droit pour tous</a></p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TARBES</strong></p>
+<p><strong>L'association de sauvegarde des hôpitaux et de la santé des Hautes-Pyrénées pense que le projet du nouvel hôpital à Lanne peut encore être remis en cause. Les membres de cette association s'en sont expliqués lors d'une conférence de presse à Odos.</strong></p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/hautes-pyrenees-nouvel-hopital-a-lanne-pourquoi-les-opposants-pensent-que-le-projet-peut-encore-etre-remis-en-cause/?fbclid=IwAR31KzALcf3adLdN6XmG0o5VskN5iBs5Nee_pase1tu_D8dTgvw0EOp_vSs">L’article de la semaine des Pyrénées</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>RAMBOUILLET</strong></p>
+<p><strong>Un rôle essentiel des comités de la Coordination : informer la population. Le comité de Rambouillet s’y emploie avec la lettre mensuelle !</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/communique-franchises-VD.pdf">Le flash info de janvier</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MÉTROPOLE LYONNAISE</strong></p>
+<p style="margin-bottom:0" align=center><strong>Pour la défense du site de l’hôpital Henry Gabrielle</strong></p>
+<p style="margin-top:0" >Le Comité de Défense, créé depuis 2016 et transformé en Association de Sauvegarde de l’hôpital Henry Gabrielle vient d’adhérer à la Coordination. Il se bat pour empêcher la fermeture du site de l’hôpital de rééducation fonctionnelle des Hospices Civils de Lyon (HCL), Henry Gabrielle, à Saint Genis Laval en bordure de la Métropole de Lyon.</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/01/metropole-de-lyon-une-association-pour-la-sauvegarde-de-lhopital-henry-gabrielle/">La présentation de l’association et de sa lutte</a></p>
+<p align=center><a href="https://www.change.org/p/sauvons-l-h%C3%B4pital-de-personnes-handicap%C3%A9es-henry-gabrielle-m%C3%A9tropole-de-lyon">La pétition à signer</a></p>
+<p>Des vidéos de témoignages : <a href="https://www.youtube.com/channel/UCtgHByxE0gq12rVlCRDtDnA">Sauvons l’Hôpital Henry Gabrielle – YouTube</a></p>
+<p>La page Facebook : <a href="https://www.facebook.com/henrygabrielleastgenislaval/?locale=fr_FR">Hôpital Henry Gabrielle : c’est à St Genis Laval </a></p>
+<div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/henry-gaby-photo-de-groupe.jpg" />
+</div></div>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>LURE - 70</strong></p>
+<p><strong>Le comité s’adresse aux représentants au Conseil territorial de Santé</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/Lettre-au-CTS.doc">https://coordination-defense-sante.org/wp-content/uploads/2024/01/Lettre-au-CTS.doc</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MAYENNE</strong></p>
+<p><strong>Une délégation de syndicats et des comités reçue par la préfète autour des difficultés des hôpitaux.</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/01/mayenne-rencontre-avec-la-prefete/">https://coordination-defense-sante.org/2024/01/mayenne-rencontre-avec-la-prefete/</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>BERNAY</strong></p>
+<p style="margin-bottom:0" >Un communiqué qui fait suite à une conférence des maires à laquelle nous avons été conviés, organisée en urgence sur le devenir de notre établissement par le président de la communauté de communes, suite à notre mobilisation, en présence de l'ARS , de la direction, de médecins et de représentants des usagers :</p>
+<p style="margin-top:0" >"Nous nous félicitons d’avoir obtenu par notre détermination et nos actions le maintien des urgences viscérales 7j/7 ET 24h/24 mais il nous reste à conquérir le maintien des urgences orthopédiques qui ont aussi toute leur place dans l’offre de soins de proximité. Nous allons suivre de très près le <span>dos</span>sier « cuisine » et son projet. Restons très vigilants et mobilisés car nul doute que l’ARS et cette direction commune néfaste pour notre établissement reviendront à la charge et que les intentions de fermeture sont encore et toujours prégnantes dans leurs esprits y compris pour le service de cardiologie. Ne leur laissons pas penser qu’ils nous ont endormis !!!"</p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>REMIREMONT</strong></p>
+<p><strong>Le comité a saisi le Tribunal Administratif pour faire invalider le PRS 2023/2028.</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/ADEMAT-H-a-saisi-le-TA-1.pdf">Le communiqué</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong> NANTES</strong></p>
+<p style="margin-bottom:0" align=center><strong>Un nouveau désert médical : le quartier populaire du Clos Toreau  </strong></p>
+<p style="margin-top:0" >La dernière médecin généraliste du Clos Toreau, quartier populaire de Nantes, est partie en retraite le 15 décembre dernier, 1250 patient.e.s sont sans médecin traitant. Une idée a germé dans l'esprit de l'une d'elles lors d'une réunion publique : et si on faisait une vidéo ? eh bien la voici : <a href="https://www.youtube.com/watch?v=Wk3CfdgtIhY">https://www.youtube.com/watch?v=Wk3CfdgtIhY</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TERRITOIRE DE BELFORT</strong></p>
+<p><strong>Des Urgences saturées, des patients qui attendent sur des brancards, la direction de l’hôpital du Nord Franche Comté appelle à l’aide la réserve sanitaire.</strong></p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/bourgogne-franche-comte/territoire-de-belfort/belfort/temoignages-patients-dans-les-couloirs-insultes-demissions-le-quotidien-insoutenable-du-personnel-des-urgences-de-l-hopital-nord-franche-comte-2911055.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=france3regions&amp;at_offre=4&amp;at_variant=Bourgogne_Franche-Comt%C3%A9&amp;at_send_date=20240124&amp;at_recipient_id=726375-1481139083-8f82e397">L’article de France 3 Bourgogne Franche comté du 23 janvier</a></p>
+<p align=center><a href="https://www.ouest-france.fr/sante/hopital/urgences-saturees-soignants-a-bout-que-se-passe-t-il-a-lhopital-nord-franche-comte-4f618562-bac6-11ee-afe8-d81ceac7fa4c?utm_source=mailjet_of_newsletter-matinale-perso&amp;mgo_eu=4305761&amp;mgo_l=VW6qlSC8RBGXNTkZ4RLTYA.34.7&amp;utm_content=20240125&amp;utm_campaign=neolane_of_newsletter-matinale-perso&amp;utm_medium=email&amp;utm_term=844000&amp;vid=4305761&amp;mediego_euid=4305761">L’article d’Ouest France du 24 janvier</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>REDON</strong></p>
+<p style="margin-bottom:0" align=center><strong>Plusieurs milliers de personnes dans les rues de Redon</strong></p>
+<p style="margin-top:0" >Le projet de nouvel hôpital, tel qu’il est redimensionné par l’Agence régionale de santé  ne correspond pas aux attentes du territoire. Un appel à un nouveau rassemblement pour le 23 mars est lancé, ainsi qu’une <a href="https://chng.it/D9X69qXGmh">pétition</a>.</p>
+<p align=center><a href="https://actu.fr/bretagne/redon_35236/redon-appel-a-un-nouveau-rassemblement-pour-l-hopital-le-23-mars-2024_60623212.html?app=1&amp;fbclid=IwAR1ijJZeXYCCqKwP5Z885HzyVVDPjsi_gTe7tPnx5eUB5KZM0KbnAvRN2_Y.">L’article d’actu.fr du 27 janvier</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<div style="text-align: center">
+<p><strong>Les vœux du "Tour de France" et des organisations à Mme la ministre du Travail, de la Santé et des Solidarités...Mme Vautrin</strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/2024-01-14-VRS-Voeux-du-Tour-de-France-pour-la-Sante-et-des-organisations-signataires-a-Mme-Vautrin-Ministre.pdf">Les voeux</a></p>
+<p>Oui, les médecins à diplôme hors de l’union Européenne sont les bienvenus !</p>
+<p><a href="https://sante.cgt.fr/PADHUEs-Regularises-et-maintenus-dans-la-precarite">https://sante.cgt.fr/PADHUEs-Regularises-et-maintenus-dans-la-precarite</a></p>
+<p><strong>Éducation publique, santé des droits en retrait !</strong></p>
+<p align=center><a href="https://blogs.mediapart.fr/christophe-prudhomme/blog/220124/sante-education-meme-combat">https://blogs.mediapart.fr/christophe-prudhomme/blog/220124/sante-education-meme-combat</a></p>
+<p><strong>Quant le salariat des médecins est une réponse qualitative aux soins de 1<sup>er</sup> recours !</strong></p>
+<p align=center><a href="https://www.fncs.org/sites/default/files/CP_refus_de_limmobilisme_FNCS_USCMCS_IJFR_CDSC-DESKTOP-95E7MHB.pdf">Communiqué de la Fédération Nationale des Centres de Santé</a></p>
+<p><strong>Les dangers de la privatisation du médicament !</strong></p>
+<p align=center><a href="https://www.radiofrance.fr/franceinter/danger-des-antidepresseurs-la-justice-enquete-9382541">https://www.radiofrance.fr/franceinter/danger-des-antidepresseurs-la-justice-enquete-9382541</a></p>
+</div>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align=center><strong>Quand Gauvin Sers s’adresse au président</strong></p>
+<p align=center><a href="https://www.youtube.com/watch?v=HB9fvp1yRsI">https://www.youtube.com/watch?v=HB9fvp1yRsI</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

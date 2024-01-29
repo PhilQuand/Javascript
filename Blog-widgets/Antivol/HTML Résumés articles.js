@@ -255,30 +255,6 @@ $(document).ready(function() {
   $('.widget.Attribution').css('display', 'none');
   $('.widget.Attribution').css('display', 'none');
 
-/*var hasMultipleTitleTEST = function() {
-  var hasMultipleTitle = false;
-  $('.post-title').each(function() {
-    if ($(this).children().length == 0) {
-      $(this).addClass('allBlogTitleMain')
-      var title = $(this).html().split('.');
-      if (title.length > 1) {
-        $(this).html(title[0])
-        $('<p class="post-title entry-title allBlogSubTitleMain">' + title[1] + '</p>').insertAfter($(this));
-        hasMultipleTitle = true;
-      }
-    }
-    else {
-      $(this).addClass('allBlogTitleLink')
-      var title = $(this).children().html().split('.');
-      if (title.length > 1) {
-        $(this).children().html(title[0])
-        $('<p class="post-title entry-title allBlogSubTitleLink">' + title[1] + '</p>').insertAfter($(this))
-        hasMultipleTitle = true;
-      }
-    }
-  });
-  return hasMultipleTitle;
-}*/  
   hasMultipleTitle();
   
   if (window.location.pathname != '/' && window.location.pathname.indexOf("/search") == -1) {

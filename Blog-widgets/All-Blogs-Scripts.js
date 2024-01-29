@@ -473,7 +473,7 @@ var hasMultipleTitle = function() {
       var title = $(this).children().html().split('.');
       if (title.length > 1) {
         $(this).children().html(title[0])
-        $('<p class="post-title entry-title allBlogSubTitleLink">' + title[1] + '</p>').insertAfter($(this).children())
+        $('<p class="post-title entry-title allBlogSubTitleLink">' + title[1] + '</p>').insertAfter($(this))
         hasMultipleTitle = true;
       }
     }

@@ -276,10 +276,6 @@ $(document).ready(function() {
 });
 </script>
 <style>
-.allBlogTitleMain, .allBlogSubTitleMain, .allBlogTitleLink, .allBlogSubTitleLink{
-     clear: left;
-     margin: 0;
-}
 .articleComplet .jump-link.flat-button.ripple{
    font: normal bold 15px Calibri;
 }

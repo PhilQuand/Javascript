@@ -1,102 +1,107 @@
 (function($) {
   var randGen = new Generator();
-  $.fn.AlaUneFB4 = function(options) {
+  $.fn.AlaUneFB4TEST = function(options) {
     var _this = this;
     Promise.all([
-  //  chargements des dépendances css
-  load.css('https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'),
-  load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.css'),
-  //  chargements des dépendances js
-  load.js('https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js'),
-  //load.js('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js'),
+      //  chargements des dépendances css
+      load.css('https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'),
+      load.css('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.css'),
+      //  chargements des dépendances js
+      load.js('https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js'),
+      //load.js('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js'),
     ]).then(
-    function() {
-      console.log('Everything has loaded!');
-      if (jQuery.type(options) == 'undefined') return false;
-      if (jQuery.type(options.href) == 'undefined') {
-        return;
-      }
-      if (jQuery.type(options.Num) != 'undefined') var randNum = 'HD' + options.Num;
-      else var randNum = 'FB' + randGen.getrand();
-      var randHid = 'HD' + randGen.getrand();
-      switch (jQuery.type(options.href)) {
-        case "string":
-          $(_this).children(":first").wrap('<a href="' + options.href + '"></a>');
-          break;
-        case "array":
-          break;
-        case "object":
-          options.href = [options.href]
-          break;
-        default:
-          log('AlaUne plugin error options.href = ' + options.href);
-      }
-      if (jQuery.type(options.top) != 'undefined') var relTop = options.top;
-      if (jQuery.type(options.offSet) != 'undefined') var relPageCoords = options.offSet;
-      if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
-      if (jQuery.type(options.height) != 'undefined') var relPageHeight = options.height;
-      if (jQuery.type(options.href) == 'undefined') {
-        return;
-      }
-      for (var i = 0; i < options.href.length; i++) {
-        if (jQuery.type(options.href[i].dataType) == 'string') {
-          if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
-          else {
-            var dataOptions = '';
-            if (jQuery.type(options.href[i].dataCaption) != 'undefined') dataOptions += 'data-caption="'+  options.href[i].dataCaption + '" ';
-            if (jQuery.type(options.href[i].dataWidth) != 'undefined') dataOptions += 'data-width="'+  options.href[i].dataWidth + '" ';
-            if (jQuery.type(options.href[i].dataHeight) != 'undefined') dataOptions += 'data-height="'+  options.href[i].dataHeight + '" ';
-            if (jQuery.type(options.href[i].dataThumb) != 'undefined') dataOptions += 'data-thumb="'+  options.href[i].dataThumb + '"' ;
-             switch (options.href[i].dataType) {
-              case "inlineId":
-                if (jQuery.type(options.href[i].dataThumb) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '">inline ' + i + '</a>');
-                else $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '" '+ '  ' + dataOptions + '>inline ' + i + '</a>');
-                break;
-              case "inline":
-                 var convertMeToImg = '<div class="defaultFancyWrapper" style="display:none;" id="' + randHid + i + '"> \
+      function() {
+        console.log('Everything has loaded!');
+        if (jQuery.type(options) == 'undefined') return false;
+        if (jQuery.type(options.href) == 'undefined') {
+          return;
+        }
+        if (jQuery.type(options.Num) != 'undefined') var randNum = 'HD' + options.Num;
+        else var randNum = 'FB' + randGen.getrand();
+        var randHid = 'HD' + randGen.getrand();
+        switch (jQuery.type(options.href)) {
+          case "string":
+            $(_this).children(":first").wrap('<a href="' + options.href + '"></a>');
+            break;
+          case "array":
+            break;
+          case "object":
+            options.href = [options.href]
+            break;
+          default:
+            log('AlaUne plugin error options.href = ' + options.href);
+        }
+        if (jQuery.type(options.top) != 'undefined') var relTop = options.top;
+        if (jQuery.type(options.offSet) != 'undefined') var relPageCoords = options.offSet;
+        if (jQuery.type(options.width) != 'undefined') var relPageWidth = options.width;
+        if (jQuery.type(options.height) != 'undefined') var relPageHeight = options.height;
+        if (jQuery.type(options.href) == 'undefined') {
+          return;
+        }
+        for (var i = 0; i < options.href.length; i++) {
+          if (jQuery.type(options.href[i].dataType) == 'string') {
+            if (jQuery.type(options.href[i].dataSrc) == 'undefined') log('for href[' + i + '] dataSrc is undefined');
+            else {
+              var dataOptions = '';
+              if (jQuery.type(options.href[i].dataCaption) != 'undefined') dataOptions += 'data-caption="' + options.href[i].dataCaption + '" ';
+              if (jQuery.type(options.href[i].dataWidth) != 'undefined') dataOptions += 'data-width="' + options.href[i].dataWidth + '" ';
+              if (jQuery.type(options.href[i].dataHeight) != 'undefined') dataOptions += 'data-height="' + options.href[i].dataHeight + '" ';
+              if (jQuery.type(options.href[i].dataThumb) != 'undefined') dataOptions += 'data-thumb="' + options.href[i].dataThumb + '"';
+              switch (options.href[i].dataType) {
+                case "inlineId":
+                  if (jQuery.type(options.href[i].dataThumb) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '">inline ' + i + '</a>');
+                  else $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + options.href[i].dataSrc + '" data-fancybox="' + randNum + '" ' + '  ' + dataOptions + '>inline ' + i + '</a>');
+                  break;
+                case "inline":
+                  var convertMeToImg = '<div class="defaultFancyWrapper" style="display:none;" id="' + randHid + i + '"> \
                               <div class="fontFancy defaultFancy"> \
                               ' + options.href[i].dataSrc + ' \
                               </div></div>';
-                 $(_this).append(convertMeToImg);
+                  $(_this).append(convertMeToImg);
 
-                if (jQuery.type(options.href[i].dataThumb) == 'undefined') dataOptions += 'data-thumb="https://blogger.googleusercontent.com/img/a/AVvXsEjMWxblwgtmKTWNF_fJjbBus9KzMH1RKOrZiSzW2wv3nxFBAlV3gpc77oYJHo05s8QbCiyxnSQ5rVtbRwoeBAKlKqak4ifKKJR6EugSQmQdXilvW7vgOWLgxmPk6bKKn9SbLCy61YbjJtEpeoEizWoPfN0RZq-Ern7NywqYMzss64bc0lvcxDR_zv_z"' ;
-                $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" '+ '  ' + dataOptions + '>inline ' + i + '</a>');
-                break;
-              case "iframe":
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" '+ '  ' + dataOptions + '>iframe ' + i + '</a>');
-                break;
-              case "images":
-                if (jQuery.type(options.href[i].dataThumb) == 'undefined') dataOptions += 'data-thumb="'+  options.href[i].dataSrc + '"' ;
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>images ' + i + '</a>');
-                break;
-              case "video":
-                if (jQuery.type(options.href[i].dataRatio) != 'undefined') dataOptions += 'data-ratio="'+  options.href[i].dataRatio + '"  ';
-                $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc+ '" ' + '  ' + dataOptions + '>video ' + i + '</a>');
-                break;
-              default:
-                console.log('AlaUne plugin error options.href = ' + options.href);
+                  //if (jQuery.type(options.href[i].dataThumb) == 'undefined') dataOptions += 'data-thumb="https://blogger.googleusercontent.com/img/a/AVvXsEjMWxblwgtmKTWNF_fJjbBus9KzMH1RKOrZiSzW2wv3nxFBAlV3gpc77oYJHo05s8QbCiyxnSQ5rVtbRwoeBAKlKqak4ifKKJR6EugSQmQdXilvW7vgOWLgxmPk6bKKn9SbLCy61YbjJtEpeoEizWoPfN0RZq-Ern7NywqYMzss64bc0lvcxDR_zv_z"' ;
+                  if (jQuery.type(options.href[i].dataName) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" ' + '  ' + dataOptions + '>inline ' + i + '</a>');
+                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" ' + '  ' + dataOptions + '>' + options.href[i].dataName + '</a>');
+                  //$(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" '+ '  ' + dataOptions + '>' + inlineName + '</a>');
+                  break;
+                case "iframe":
+                  if (jQuery.type(options.href[i].dataName) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" ' + '  ' + dataOptions + '>iframe ' + i + '</a>');
+                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" ' + '  ' + dataOptions + '>' + options.href[i].dataName + '</a>');
+                  break;
+                case "images":
+                  if (jQuery.type(options.href[i].dataThumb) == 'undefined') dataOptions += 'data-thumb="' + options.href[i].dataSrc + '"';
+                  if (jQuery.type(options.href[i].dataName) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>images ' + i + '</a>');
+                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>' + options.href[i].dataName + '</a>');
+                  break;
+                case "video":
+                  if (jQuery.type(options.href[i].dataRatio) != 'undefined') dataOptions += 'data-ratio="' + options.href[i].dataRatio + '"  ';
+                  if (jQuery.type(options.href[i].dataName) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>video ' + i + '</a>');
+                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>' + options.href[i].dataName + '</a>');
+                  break;
+                default:
+                  console.log('AlaUne plugin error options.href = ' + options.href);
+              }
             }
           }
         }
-      }
-      var src = options.src;
-      switch (jQuery.type(src)) {
-        case "undefined":
-          $(_this).wrap('<div class="alaUneWrapper"/>');
-          _this = _this.parent();
-          break;
-        case "string":
-          if (src.indexOf('http') == 0) src = ('<div><img class="img-AlaUne" src="' + src + '" /><p style="margin:0; color:blue; font: italic bold 0.8em serif;" align="center">cliquez pour plus de détails</p></div>');
-          $(_this).find('.' + randNum + ':first').html(src);
-          break;
-        default:
-          log('AlaUne plugin error src');
-      }
-      $(_this).find('.' + randNum + ':first').css('display','block');
-      $(_this).find('.' + randNum + ':first').css('cursor','grab');
-    /*}).catch(function() {
-      console.log('Oh no, epic failure!');*/
-    });
+        var src = options.src;
+        switch (jQuery.type(src)) {
+          case "undefined":
+            $(_this).wrap('<div class="alaUneWrapper"/>');
+            _this = _this.parent();
+            break;
+          case "string":
+            if (src.indexOf('http') == 0) src = ('<div><img class="img-AlaUne" src="' + src + '" /><p style="margin:0; color:blue; font: italic bold 0.8em serif;" align="center">cliquez pour plus de détails</p></div>');
+            $(_this).find('.' + randNum + ':first').html(src);
+            break;
+          default:
+            log('AlaUne plugin error src');
+        }
+        $(_this).find('.' + randNum + ':first').css('display', 'block');
+        $(_this).find('.' + randNum + ':first').css('cursor', 'grab');
+        /*}).catch(function() {
+          console.log('Oh no, epic failure!');*/
+      });
   }
 
   function Generator() {};

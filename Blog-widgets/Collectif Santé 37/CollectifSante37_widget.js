@@ -833,14 +833,14 @@ $(document).ready(function() {
   }
 
   Promise.all([
-    load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'),
+  load.js('https://philquand.github.io/Javascript/PhotoGaleries/myFancybox/AlaUneFB4.js'),
   ]).then(
     function() {
       console.log('Everything has loaded!');
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_FQFbtFIaWtkpeUNt1WWcYeUhAwsD8I2B8JsHgNpY7QuxyPPICuVK5XmKdK5qNQ81qdcKBXM8kSCBOiIE4FBQm-e1mm-bFO0OkiBtscng24SBOX_3uOHfs76iQwxdvFGy8wGT_tse-4gKoQBzLLCVAWVEZ3Yct9Rj_bcYvpu-CZC55BY3JM40nQcmKlk/s1600/visuel%20loi%20darmanin.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9Yfs8fmKE-enkyszdoGkbfYg8zmduHr-E6L6zHHxfDhyphenhyphenbSj1fv5EZWq8Bok9-Q6v-x9uC04PXMYLjWUbzcX6u5C62bbE5V2Li71o83-mxnxFR8GN3I0-bZGMVvPQwhk50K4jsFguccMMwhKvIWmgD2F9SryBwMGhe6Mr_6DgE66uup4T0DBpaGENU6nU/s1600/aff%20SANTE%20MENTALE%20SOIGNER%20OU%20EXCLURE%202024.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -863,12 +863,11 @@ $(document).ready(function() {
                   },*/
           {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu5dTWIBKS67INl1_fT9WD2KMqlFItaxcKU06f29Cdwg-i_f2aYIEmaDrbAYkH5bW5-5ZhIRUUtUe99U1Z84KNCjV0y-yNc1yWWTOkAED7iZEQ1gk5vqD5qEXowNdqh3AJbUN8IAzXxEPFBcX5aJ9hwiqNKksjB6CvD0Bh7D_w_Xpc2wxsajvM4cD-Ihc/s1600/mobilisation%20contre%20la%20loi%20immigration%203%20fe%CC%81vrier%2024.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9Yfs8fmKE-enkyszdoGkbfYg8zmduHr-E6L6zHHxfDhyphenhyphenbSj1fv5EZWq8Bok9-Q6v-x9uC04PXMYLjWUbzcX6u5C62bbE5V2Li71o83-mxnxFR8GN3I0-bZGMVvPQwhk50K4jsFguccMMwhKvIWmgD2F9SryBwMGhe6Mr_6DgE66uup4T0DBpaGENU6nU/s1600/aff%20SANTE%20MENTALE%20SOIGNER%20OU%20EXCLURE%202024.jpg"
           },
           {
             dataType: "images",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJj3zch-qwKctx4DaezmIi5bhJdJkq0G_NyjfVQUfEasKggY1AVrHqo-Ltgh_MXXOEt1iGLUYiZvdYao6WhUmbGFLtLfiBQF4oM6tvrNuwnr9xBl0RHuaMp4qxYnGENcCqMFhurgG_PumI0JrkTQCH7iXuaLuR7oEbfaK8EWcRrr_TTvMoxzQJWY85Q34/s1600/texte%20SANTE%20MENTALE%20SOIGNER%20OU%20EXCLURE%202024.jpg",
           },
           /*
           {
@@ -919,6 +918,9 @@ $(document).ready(function() {
 });
 </script>
 <style>
+/*.allBlogTitleMain, .allBlogTitleMain a, .allBlogSubTitleMain, .allBlogSubTitleMain a, .allBlogTitleLink, .allBlogTitleLink a, .allBlogSubTitleLink, .allBlogSubTitleLink a{
+    color: #C40402;
+}*/
 .articleComplet .jump-link.flat-button.ripple{
    font: normal bold 15px Calibri;
 }

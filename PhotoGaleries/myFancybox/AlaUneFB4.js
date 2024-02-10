@@ -60,23 +60,23 @@
                   $(_this).append(convertMeToImg);
 
                   //if (jQuery.type(options.href[i].dataThumb) == 'undefined') dataOptions += 'data-thumb="https://blogger.googleusercontent.com/img/a/AVvXsEjMWxblwgtmKTWNF_fJjbBus9KzMH1RKOrZiSzW2wv3nxFBAlV3gpc77oYJHo05s8QbCiyxnSQ5rVtbRwoeBAKlKqak4ifKKJR6EugSQmQdXilvW7vgOWLgxmPk6bKKn9SbLCy61YbjJtEpeoEizWoPfN0RZq-Ern7NywqYMzss64bc0lvcxDR_zv_z"' ;
-                  if (jQuery.type(options.href[i].dataName) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" ' + '  ' + dataOptions + '>inline ' + i + '</a>');
-                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" ' + '  ' + dataOptions + '>' + options.href[i].dataName + '</a>');
+                  if (jQuery.type(options.href[i].dataLink) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" ' + '  ' + dataOptions + '>inline ' + i + '</a>');
+                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" ' + '  ' + dataOptions + '>' + options.href[i].dataLink + '</a>');
                   //$(_this).append('<a style="display:none" class="' + randNum + '" data-src="#' + randHid + i + '" data-fancybox="' + randNum + '" '+ '  ' + dataOptions + '>' + inlineName + '</a>');
                   break;
                 case "iframe":
-                  if (jQuery.type(options.href[i].dataName) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" ' + '  ' + dataOptions + '>iframe ' + i + '</a>');
-                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" ' + '  ' + dataOptions + '>' + options.href[i].dataName + '</a>');
+                  if (jQuery.type(options.href[i].dataLink) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" ' + '  ' + dataOptions + '>iframe ' + i + '</a>');
+                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.iframe" data-type="iframe" data-fancybox="' + randNum + '" data-src="' + options.href[i].dataSrc + '" href="javascript:;" ' + '  ' + dataOptions + '>' + options.href[i].dataLink + '</a>');
                   break;
                 case "images":
                   if (jQuery.type(options.href[i].dataThumb) == 'undefined') dataOptions += 'data-thumb="' + options.href[i].dataSrc + '"';
-                  if (jQuery.type(options.href[i].dataName) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>images ' + i + '</a>');
-                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>' + options.href[i].dataName + '</a>');
+                  if (jQuery.type(options.href[i].dataLink) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>images ' + i + '</a>');
+                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.images" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>' + options.href[i].dataLink + '</a>');
                   break;
                 case "video":
                   if (jQuery.type(options.href[i].dataRatio) != 'undefined') dataOptions += 'data-ratio="' + options.href[i].dataRatio + '"  ';
-                  if (jQuery.type(options.href[i].dataName) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>video ' + i + '</a>');
-                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>' + options.href[i].dataName + '</a>');
+                  if (jQuery.type(options.href[i].dataLink) == 'undefined') $(_this).append('<a style="display:none" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>video ' + i + '</a>');
+                  else $(_this).append('<a style="display:block; cursor: grab;" class="' + randNum + ' fancybox.video" data-fancybox="' + randNum + '" href="' + options.href[i].dataSrc + '" ' + '  ' + dataOptions + '>' + options.href[i].dataLink + '</a>');
                   break;
                 default:
                   console.log('AlaUne plugin error options.href = ' + options.href);

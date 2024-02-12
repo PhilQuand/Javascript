@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2022 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Il est arrivé le nouveau ministre délégué à la santé et à la prévention. Il n’est pas un inconnu du milieu de la santé : il a été président de la Fédération Hospitalière de France et comme député, il a récemment fait adopter la loi visant à améliorer l'accès aux soins par l'engagement territorial des professionnels, une loi à la marge des problèmes rencontrés par nos concitoyens en matière d’accès aux soins. Il n’y a même pas eu le courage politique d’accepter l’amendement interdisant l’installation d’un nouveau médecin dans les zones sur-dotées, sauf en remplacement d’un départ à la retraite. En donnant une personnalité juridique aux GHT (Groupement Hospitalier de Territoire), cette loi est une petite touche supplémentaire dans l’absorption des services hospitaliers de proximité dans les hôpitaux support pour faciliter leur disparition.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 06</li>
+<li>Dates: du 5 au 11 fév. 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Infos-semaine-6-du-du-5-au-11-février-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Il est arrivé le nouveau ministre délégué à la santé et à la prévention. Il n’est pas un inconnu du milieu de la santé : il a été président de la Fédération Hospitalière de France et comme député, il a récemment fait adopter la loi visant à améliorer l'accès aux soins par l'engagement territorial des professionnels, une loi à la marge des problèmes rencontrés par nos concitoyens en matière d’accès aux soins. Il n’y a même pas eu le courage politique d’accepter l’amendement interdisant l’installation d’un nouveau médecin dans les zones sur-dotées, sauf en remplacement d’un départ à la retraite. En donnant une personnalité juridique aux GHT (Groupement Hospitalier de Territoire), cette loi est une petite touche supplémentaire dans l’absorption des services hospitaliers de proximité dans les hôpitaux support pour faciliter leur disparition.</p>
+<p>Surtout, le Premier Ministre a déjà tracé la route à suivre : pas un mot sur l’hôpital dans son discours de politique générale et pas un centime de plus. Dans sa visite au CHU de Dijon, G. Attal avait recyclé de l’argent déjà prévu donnant le ton : une communication trompeuse ! Par contre, la population est dans le collimateur : doublement des franchises médicales, taxe « lapin » visant à faire payer les rendez-vous non honorés.</p>
+<p>Pendant ce temps, les témoignages affluent, d’absence de médecins traitants, de difficultés d’accès à un spécialiste, d’incidents ou d’accidents dans les services d’urgence, de restes à charge …</p>
+<p>Et la mobilisation de la population grandit : cette semaine, un rassemblement est prévu mardi 13 à Sarlat et une manifestation samedi 17 à Lannion. La Coordination apporte tout son soutien à ces actions.</p>
+<p align="right" style="margin-top: 1em;" clear="both"><i>Michèle Leflon</i></p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.groupmarker-2 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>SARLAT - 24</strong></p>
+<p align=center><strong>Mobilisation générale pour l’hôpital</strong></p>
+<p>Rien ne va plus ! Devant la gravité de la situation, le comité lance une pétition, organise un rassemblement mardi 13 février devant l’hôpital, s’adresse au défenseur des droits au nom de la discrimination géographique.</p>
+<p align=center><a href="https://chng.it/74THkvSzzG">La pétition</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Sarlat7-02-2024-defenseure-des-droits.pdf">Le recours au défenseur des droits</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/02/sarlat-2/">Toutes les informations sur le site de la Coordination</a></p>
+<p style="background-color: #719DCC; color: #F7F7F7"><strong>BRIOUDE - 43</strong></p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 400px;">
+<div style="text-align: center"><strong>L’IRM, c’est pour quand ?</strong></div>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/02/brioudephoto_1.jpg" />
+</div></div>
+<p>Ce samedi 3 février le Comité de vigilance de l’hôpital public de Brioude a distribué sur le marché de Brioude son bulletin d’information « Échos, Échos » avec entre autre la demande d’un centre de santé et l’inquiétude face au retard dans la mise en œuvre de la promesse de l’installation d’une IRM</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Echos-Echos_6.pdf">Echos Echos 6</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MONTCEAU LES MINES - 71</strong></p>
+<p align=center><strong>Ce n’est pas le CODEF qui le dit !</strong></p>
+<p>Un témoignage paru dans la presse locale sur le service des urgences a incité le comité à publier un communiqué.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Ce-nest-pas-le-Codef-qui-le-dit.pdf">Le communiqué</a></p>
+<p align=center><a href="https://montceau-news.com/sante/772837-galuzot-entre-devouement-total-et-exasperation.html">Le témoignage dans Montceau News</a></p>
+<p style="background-color: #719DCC; color: #F7F7F7"><strong>NANTES - 44</strong></p>
+<p align=center><strong>Au clos Toreau on ne baisse pas les bras</strong></p>
+<p>Dans ce quartier de Nantes, les habitants du Clos-Toreau se démènent et multiplient les initiatives pour avoir un médecin</p>
+<p align=center><a href="https://www.ouest-france.fr/pays-de-la-loire/nantes-44000/on-ne-baisse-pas-les-bras-il-nous-faut-un-medecin-au-clos-toreau-un-collectif-au-taquet-d2c27ff8-c6a4-11ee-bfe6-fbc37e462228">L’article d’Ouest France</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MARMANDE - 47</strong></p>
+<p align=center><strong>Le comité toujours présent devant l’hôpital le vendredi</strong></p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Image7.jpeg" alt="" /><br clear="left" /><br /></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/02/marmande-toujours-presents-devant-lhopital-le-vendredi/">L’article sur le site de la Coordination</a></p>
+<p style="background-color: #719DCC; color: #F7F7F7"><strong>TARBES - 65</strong></p>
+<p align=center><strong>Non à l’hôpital unique</strong></p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Image3.jpeg" alt="" /><br clear="left" /><br /></p>
+<p style="margin-bottom:0">Une douzaine de membre l'Association ont tenu ''le siège devant la Préfecture'', le Préfet des Hautes-Pyrénées avait organisé une réunion du comité de pilotage de l'hôpital unique.</p>
+<p style="margin-top:0">Lors de cette initiative, ils ont distribué des tracts et obtenu des signatures sur la pétition contre l'Hôpital unique de Lanne.</p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>VIRE - 14</strong></p>
+<p align=center><strong>Le comité en action</strong></p>
+<p>Le collectif santé Virois « Touche pas à ma Santé à mon Hosto » organise une réunion publique : le jeudi 15 février à 18h à la salle Jean Moulin où seront abordées les informations obtenues lors des démarches effectuées depuis janvier et organiser un déplacement à l’ARS afin de remettre les centaines de lettres signées par des habitants sans médecin traitant.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Virecollectif-com-reunion-publique-du-15-fevrier.pdf">Le communiqué</a></p>
+<p style="background-color: #719DCC; color: #F7F7F7"><strong>TOURS - 37</strong></p>
+<p align=center><strong>Une soirée sur le thème la santé mentale soigner ou exclure </strong></p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/02/aff-SANTE-MENTALE-SOIGNER-OU-EXCLURE-2024.jpg" alt="" /><br clear="left" /><br /></p>
+<p>Elle est organisée le 15 février aux Studios à Tours par le collectif 37 Notre Santé en danger dans le cadre du CNP Cinéma National Populaire, en collaboration avec des associations de soutien aux <a href="http://migrant.es/">migrant.es</a>: Emmaus 100 pour 1, RESF, et la CIMADE.</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/02/tours-soiree-sur-le-theme-la-sante-mentale/">Plus d’infos</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MONTARGIS - 45</strong></p>
+<p align=center><strong>AG du comité</strong></p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Montargis20240203_154549.jpg" alt="" /><br clear="left" /><br /></p>
+<p>Un riche débat, des propositions d’actions et le comité s'est également portée candidat pour accueillir les prochaines Rencontres nationales de la Coordination à l'automne prochain</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/02/montargis-ag-du-comite-2/">Le compte-rendu sur le site de la Coordination</a></p>
+<p style="background-color: #719DCC; color: #F7F7F7"><strong>DOLE - 39</strong></p>
+<p align=center><strong>L’AG du comité aura lieu le 19 mars</strong></p>
+<p>Le dernier info flash s’accompagne d’un questionnaire pour connaître les attentes de la population en matière de santé, mais il présente aussi un témoignage.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/02/DoleInfos-Flash88.pdf">L’Info Flash</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>RAMBOUILLET - 78</strong></p>
+<p align=center><strong>Le flash info du comité</strong></p>
+<p>Réponse au député, témoignage, doliprane … le collectif hôpital santé public sud Yvelines s’exprime</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Rambouillet-_flash-infos-20.pdf">La publication</a></p>
+<p style="background-color: #719DCC; color: #F7F7F7"><strong>LANNION - 22</strong></p>
+<p align=center><strong>Non à la fermeture des urgences</strong></p>
+<p>Après la manifestation du 13 janvier, une pétition est lancée et une nouvelle manifestation est prévue le samedi 17 février.</p>
+<p align=center><a href="https://www.leslignesbougent.org/petitions/hopital-de-lannion-trestel-gardons-nos-urgences-ouvertes-h24-365j-an-16234/">La pétition</a></p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/02/Lannion-Affichette-A4-nouvelle-manif-logo-Comite-scaled.jpg" alt="" /><br clear="left" /><br /></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/01/lannion-des-milliers-de-personnes-dans-la-rue-contre-la-fermeture-des-urgences/">Retour sur la manifestation du 13 janvier sur le site de la Coordination</a></p>
+<p align=center><a href="https://ladeviation.com/actualite/agiter/manifestation-urgences-hopital-lannion/">L’article de La déviation</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>DOURDAN - 91</strong></p>
+<p style="margin-bottom:0" align=center><strong>Le privé en marche !</strong></p>
+<p style="margin:0">Des nouvelles du nouveau service privé de gynécologie installé à l'hôpital public de Dourdan par la mairie avec la bénédiction de la direction du CHSE :</p>
+<p style="margin:0">- PointGyn a ouvert en janvier à la place du CPP (centre périnatal de proximité) transféré à l'étage dans un espace non adapté.</p>
+<p style="margin:0">- Un seul gynécologue au lieu de plusieurs annoncés</p>
+<p style="margin:0">- Consultation seulement 2 fois/semaine mardi et jeudi.</p>
+<p style="margin:0">- Même pas la moitié de l’espace loué occupé et rénové alors que le CPP manque de place.</p>
+<p style="margin-top:0">- Prix de la consultation environ 80€ pour ce type de cabinet privé.</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #719DCC; color: #F7F7F7"><strong>ÎLE DE RÉ - 17</strong></p>
+<p align=center><strong>La mobilisation pour l’EHPAD public de l’île continue.</strong></p>
+<p>Le collectif citoyen « Sauvons le seul Ehpad public de l'île de Ré » vient de s’adresser aux 10 maires de l’île.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/02/RE_Motion-Maires.pdf">La lettre</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MEAUX - 77</strong></p>
+<p style="margin-bottom:0" align=center><strong>Changement de directeur</strong></p>
+<p style="margin-top:0" align=center>C’était espéré. L’ancien sévit maintenant à Lorient</p>
+<p align=center><a href="https://actu.fr/ile-de-france/meaux_77284/2024-une-annee-pleine-de-defis-pour-lhopital-de-meaux_60598626.html?fbclid=IwAR2n1J_scXbgCGcEqYs50NqYpB-df5ebTcdjVgQVYK5iXEMfGtAPlRvoR68">L’article de actu.fr du 23 février</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>PADHUE</strong></p>
+<p style="margin-bottom:0" align=center><strong>Le nouveau gouvernement s’agite mais comment ?</strong></p>
+<p style="margin-top:0">La situation des Praticiens hospitaliers à Diplôme Hors Union Européenne n’est toujours pas réglée</p>
+<p style="margin-bottom:0" align=center><a href="http://snmhfo.n.s.f.unblog.fr/files/2024/02/le-2-fevrier-2024v2.pdf">Communiqué du 2 février</a></p>
+<p style="margin-top:0" align=center><a href="https://sante.cgt.fr/IMG/pdf/tract_ufmict_padhue_appel_15_02_2024.pdf">Le tract d'appel au 15 février</a></p>
+<p style="margin-bottom:0" align=center><strong>L’avis de l’académie de médecine</strong></p>
+<p style="margin-top:0" align=center><a href="https://www.academie-medecine.fr/avis-de-lacademie-nationale-de-medecine-concernant-les-praticiens-a-diplomes-hors-union-europeenne-padhue/">L’avis de l’académie de médecine</a></p>
+<p class="titre-dossiers"><strong>DÉMOGRAPHIE MÉDICALE</strong></p>
+<p style="margin-bottom:0" align=center><strong>Médecins solidaires</strong></p>
+<p style="margin:0">Même si la solution est discutable (problématique du suivi des patients évoquée dès le début de l'émission), la volonté de répondre à des besoins est là.</p>
+<p style="margin-top:0" align=center><a href="https://www.radiofrance.fr/franceinter/podcasts/carnets-de-campagne/carnets-de-campagne-du-lundi-08-janvier-2024-6057807">Une émission de Radio France du 8 janvier</a></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p style="margin-bottom:0" align=center><strong>Assises citoyennes du soin psychique</strong></p>
+<p style="margin-top:0" align=center><a href="https://printempsdelapsychiatrie.org/2024/01/02/assises-citoyennes-du-soin-psychique-le-24-et-25-mai-2024/">Ce sera le 24 et 25 mai. Les inscriptions sont ouvertes</a></p>
+<p style="margin-bottom:0" align=center><strong>L’accueil inconditionnel institue une relation fiable et rassurante qui permet l’approche d’une subjectivité pathologique</strong></p>
+<p style="margin-top:0" align=center><a href="https://lanticapitaliste.org/opinions/sante/laccueil-inconditionnel-institue-une-relation-fiable-et-rassurante-qui-permet">Une interview de Jean Pierre Martin dans l’Anticapitaliste</a></p>
+<p class="titre-dossiers"><strong>EHPAD</strong></p>
+<p style="margin-bottom:0" align=center><strong>Rôle du médecin coordonnateur</strong></p>
+<p style="margin-top:0">L’Association Française des Directeurs de Soins (AFDS) ainsi que de l’Association Nationale des Cadres de Santé (ANCIM) réagit à un article de la loi visant à améliorer l’accès aux soins par l’engagement territorial des professionnels, dite « Loi Valletoux » sur la définition du rôle du médecin coordonnateur en EHPAD.</p>
+<p align=center><a href="https://www.cadredesante.com/spip/profession/management/article/loi-valletoux-l-afds-et-l-ancim-reagissent-dans-un-communique-commun">Le communiqué</a></p>
+<p class="titre-dossiers"><strong>PIRATAGE DES DONNÉES DE SANTÉ</strong></p>
+<p style="margin-bottom:0" align=center><strong>33 millions de Français concernés par un piratage</strong></p>
+<p style="margin:0" align=center><a href="https://www.rfi.fr/fr/france/20240210-donn%C3%A9es-de-sant%C3%A9-33-millions-de-fran%C3%A7ais-concern%C3%A9s-par-un-piratage-une-enqu%C3%AAte-ouverte">L’article de RFI</a></p>
+<p style="margin-top:0" align=center><a href="https://www.rtl.fr/actu/sciences-tech/vol-de-donnees-chez-viamedis-et-almerys-les-victimes-peuvent-porter-plainte-en-ligne-7900351545">L’article de RTL</a></p>
+<p class="titre-dossiers"><strong>PROJETS GOUVERNEMENTAUX</strong></p>
+<p style="margin-bottom:0" align=center><strong>« Taxe lapin » et autres mesurettes de Gabriel Attal pour le système de santé</strong></p>
+<p style="margin-top:0" align=center><a href="https://www.alternatives-economiques.fr/nicolas-da-silva/taxe-lapin-autres-mesurettes-de-gabri style="margin-bottom:0"el-attal-systeme-de-san/00109594">Un article de Nicolas Da Silva dans Alternatives Economiques</a></p>
+
+<p class="rubrique">De nos partenaires</p>
+
+<p class="titre-rubrique"><strong>CAMPAGNE EUROPÉENNE</strong></p>
+<p>Campagne européenne avec le « Réseau européen : Notre santé n’est pas à vendre », l’EPSU (European Public Service Union) et PHM (People Health Movement)</p>
+<p style="margin-bottom:0" align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/01/20240205conference-de-presse-PWP-MAG.pdf">Le powerpoint présenté lors de la conférence de presse de lancement</a></p>
+<p style="margin:0" align=center><a href="https://coalitionsante.be/campagne/health4all/">Le site de la campagne</a></p>
+<p style="margin-top:0" align=center><a href="https://coordination-defense-sante.org/2024/01/campagne-europeenne-la-sante-avant-le-marche/">Sur le site de la Coordination</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p style="margin-bottom:0" align=center><strong>Monsieur le Président...</strong></p>
+<p style="margin-top:0" align=center><a href="https://www.youtube.com/watch?v=HB9fvp1yRsI">"Monsieur le Président" : Gauvain Sers, carte blanche sur France Inter</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+    $('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: "simpleBlueIcon",
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: "simpleGreenIcon",
+          title: 'Autres infos locales'
+        }, {
+          class: "marker-3",
+          icon: "simpleVioletIcon",
+          title: 'Europe'
+        }]*/
+    );
+});
+</script>
+</body>
+</html>

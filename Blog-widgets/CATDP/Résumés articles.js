@@ -864,6 +864,10 @@ $('.fancybox')
 </style>
 <script>
 $(document).ready(function() {
+  hasMultipleTitle();
+  
+  hasShareBan();
+
   if (window.location.pathname == '/') {
     $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");
     $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
@@ -877,7 +881,7 @@ Promise.all([
     //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJ9gLopdjigtG0RYvDXlPm8_GbH0Y2lSJA3mTO8yvfut894ktf-7RckjygRperdBASXrOWWYSo0OAt4_iI0LkbBoWbDk_DjT8gbsPjpK1W0TaUF4eKeTd4tX4xsVwoN8qb5e2m01pzLeodjn653gvL4fVm2tf6dMqPPNWFTulayBndM1SR86-ecWcRC0m-/s1600/Appel%208%20mars%20P2.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -896,11 +900,15 @@ Promise.all([
 <p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
 <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
 </div>'
+        },*/
+        {
+          dataType: "images",
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJ9gLopdjigtG0RYvDXlPm8_GbH0Y2lSJA3mTO8yvfut894ktf-7RckjygRperdBASXrOWWYSo0OAt4_iI0LkbBoWbDk_DjT8gbsPjpK1W0TaUF4eKeTd4tX4xsVwoN8qb5e2m01pzLeodjn653gvL4fVm2tf6dMqPPNWFTulayBndM1SR86-ecWcRC0m-/s1600/Appel%208%20mars%20P2.jpg"
         },
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHEks2X6FVyKVreRicgOvsrx1Yz_Cavrg6KPA0aPHNnFm4pONj-aMde7-Rnhqw-Z0V6jvQDT9af9fC6AdJrg78zsNs7T40PHNUesf5Q7j6Wi2LKIXpdiwej2AlGobF4rqPbXa9Hm8nAU8JE5_kX9Qw0dxreAOeWxuclf-PzLgzMTzmSJQUom6JEcoL/s1600/Rassemblement%20Depardieu.jpg"
-        },*/
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj96nXNSNEJZcG0lk_W7xC85dQN0UMsOZZNhxiyUKkTEk3T0OUmC0DzUNkXIHRODPHTXWpnRQ_WDBd5ZCkDFW7v50-_dgzlm9HkxA12PYnZ4Fqf77zZyP8-cqoRAizXsIPdqMng1MjP-rGSz-ChKeqamvlz2i32Zds_RfuqTk-D1-F8-Cfmh3Ehk9AbzcOi/s1600/Appel%208%20mars%20P1.jpg"
+        },
         {
           dataType: "images",
           dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png"

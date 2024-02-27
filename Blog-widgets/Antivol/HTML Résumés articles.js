@@ -257,7 +257,7 @@ $(document).ready(function() {
 
   hasMultipleTitle();
   
-  if (window.location.pathname != '/' && window.location.pathname.indexOf("/search") == -1) {
+  if (window.location.pathname != '/' && window.location.pathname.indexOf("/search") == -1 && window.location.pathname.indexOf("/p/") == -1) {
     $('.post .post-share-buttons.post-share-buttons-top').addClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').removeClass('invisible');
     $('.post .post-share-buttons.post-share-buttons-bottom').wrap('<div class="post-share-buttons-conteneurFlex"></div>');
@@ -297,7 +297,7 @@ $(document).ready(function() {
   /*flex-direction:row;*/ /* par défaut axe horizontal */
   /*flex-direction: row-reverse;*/ /* ordre inversé */
   /*flex-direction: column-reverse;*/
-  width: 430px;
+  /*width: 430px;*/
   //margin-top: 1.5em;
   margin-left: auto;
   margin-right: auto;

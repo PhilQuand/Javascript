@@ -867,6 +867,7 @@ $(document).ready(function() {
   hasMultipleTitle();
   
   hasShareBan();
+  $('.articleComplet .post-share-buttons-conteneurFlex').css('background-color','#828131')
 
   if (window.location.pathname == '/') {
     $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");

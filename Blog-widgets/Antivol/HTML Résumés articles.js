@@ -258,6 +258,7 @@ $(document).ready(function() {
   hasMultipleTitle();
   
   hasShareBan();
+  $('.articleComplet .post-share-buttons-conteneurFlex').css('background-color','#6F4BFF')
 
 });
 </script>

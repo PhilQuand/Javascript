@@ -828,7 +828,7 @@ $(document).ready(function() {
     //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
     //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
 
@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9Yfs8fmKE-enkyszdoGkbfYg8zmduHr-E6L6zHHxfDhyphenhyphenbSj1fv5EZWq8Bok9-Q6v-x9uC04PXMYLjWUbzcX6u5C62bbE5V2Li71o83-mxnxFR8GN3I0-bZGMVvPQwhk50K4jsFguccMMwhKvIWmgD2F9SryBwMGhe6Mr_6DgE66uup4T0DBpaGENU6nU/s1600/aff%20SANTE%20MENTALE%20SOIGNER%20OU%20EXCLURE%202024.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTkClDMIxOYncc1MJaEFcGmCFzgbys86fECTU2CXdZtBN_ocVGshi_bqlwSLVLMm95MFer2NvcInBtuX_cQ56-hWrvBi0j5ICavjEkYzwP1QyZAy1Y_3Hmu3IalTkkBuOtP49AQ_83u-QELRax4oyGpw9qOc1TTKefIFLySpLB_m2yWug9H2_l1C0l0Sc/s1600/tract%206%20avril%2024%20.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -863,13 +863,13 @@ $(document).ready(function() {
                   },*/
           {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9Yfs8fmKE-enkyszdoGkbfYg8zmduHr-E6L6zHHxfDhyphenhyphenbSj1fv5EZWq8Bok9-Q6v-x9uC04PXMYLjWUbzcX6u5C62bbE5V2Li71o83-mxnxFR8GN3I0-bZGMVvPQwhk50K4jsFguccMMwhKvIWmgD2F9SryBwMGhe6Mr_6DgE66uup4T0DBpaGENU6nU/s1600/aff%20SANTE%20MENTALE%20SOIGNER%20OU%20EXCLURE%202024.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTkClDMIxOYncc1MJaEFcGmCFzgbys86fECTU2CXdZtBN_ocVGshi_bqlwSLVLMm95MFer2NvcInBtuX_cQ56-hWrvBi0j5ICavjEkYzwP1QyZAy1Y_3Hmu3IalTkkBuOtP49AQ_83u-QELRax4oyGpw9qOc1TTKefIFLySpLB_m2yWug9H2_l1C0l0Sc/s1600/tract%206%20avril%2024%20.jpg"
           },
+          /*
           {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJj3zch-qwKctx4DaezmIi5bhJdJkq0G_NyjfVQUfEasKggY1AVrHqo-Ltgh_MXXOEt1iGLUYiZvdYao6WhUmbGFLtLfiBQF4oM6tvrNuwnr9xBl0RHuaMp4qxYnGENcCqMFhurgG_PumI0JrkTQCH7iXuaLuR7oEbfaK8EWcRrr_TTvMoxzQJWY85Q34/s1600/texte%20SANTE%20MENTALE%20SOIGNER%20OU%20EXCLURE%202024.jpg",
           },
-          /*
           {
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",

@@ -1175,7 +1175,8 @@
         //if (i == 1) keyStr = 'Autres infos locales';
         curElem = fillDiv(banDiv, curElem, 'Autres infos locales', infosComités);
         // structuration de echoCom
-        fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString());
+        if (i == 1) fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString());
+        else fillComitéDiv(infosComités.find('.groupmarker-' + i.toString()).first(), "infoComité marker-" + i.toString() + " AutresInfosLocales");
         // marker-0  pour Coordination
         changeMarker('Coordination', 'marker-' + i.toString(), 'marker-0', infosComités);
       };
@@ -1274,7 +1275,7 @@
           formCurCity(curCity);
         }
         else if (curCity !== '') $(this).appendTo(curCity);
-        else InfosComitésCom += $(this).prop("outerHTML");
+        else  if (!$(this).hasClass("markerGroupDeb")) InfosComitésCom += $(this).prop("outerHTML");
       });
 
       function isCurCity(curTest) {

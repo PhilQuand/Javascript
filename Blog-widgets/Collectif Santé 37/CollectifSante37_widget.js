@@ -767,8 +767,8 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
   //top: 75px;
   top: 0.1em;
   left: 0.1em;
-  width: 30%;
-  max-width: 800px;
+  width: 25%;
+  max-width: 600px;
   //height: 100%;
   //pointer-events: none;
   cursor:pointer;
@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTkClDMIxOYncc1MJaEFcGmCFzgbys86fECTU2CXdZtBN_ocVGshi_bqlwSLVLMm95MFer2NvcInBtuX_cQ56-hWrvBi0j5ICavjEkYzwP1QyZAy1Y_3Hmu3IalTkkBuOtP49AQ_83u-QELRax4oyGpw9qOc1TTKefIFLySpLB_m2yWug9H2_l1C0l0Sc/s1600/tract%206%20avril%2024%20.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLToTN9xjhP9i4k60rAX7Ik0zl45OYleNksYki5z6slRF6UPdiKfaUglcXGCMojJv6hWmC-56f3CnYp6RGbGxT9mKO4VP9PeC9ggOess-yUP_yUlPGGlwQ2PpAIZ_Dk3RTwEbhTMOwh32LQnPc8mP_dgOUGYziqnpjlaV6HI_P_2FYP8xhMf8kxLU64u4/s1600/2024-05%20EHPAD%20intersyndicale16.5%20V.3%20%282%29.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -863,7 +863,7 @@ $(document).ready(function() {
                   },*/
           {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTkClDMIxOYncc1MJaEFcGmCFzgbys86fECTU2CXdZtBN_ocVGshi_bqlwSLVLMm95MFer2NvcInBtuX_cQ56-hWrvBi0j5ICavjEkYzwP1QyZAy1Y_3Hmu3IalTkkBuOtP49AQ_83u-QELRax4oyGpw9qOc1TTKefIFLySpLB_m2yWug9H2_l1C0l0Sc/s1600/tract%206%20avril%2024%20.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLToTN9xjhP9i4k60rAX7Ik0zl45OYleNksYki5z6slRF6UPdiKfaUglcXGCMojJv6hWmC-56f3CnYp6RGbGxT9mKO4VP9PeC9ggOess-yUP_yUlPGGlwQ2PpAIZ_Dk3RTwEbhTMOwh32LQnPc8mP_dgOUGYziqnpjlaV6HI_P_2FYP8xhMf8kxLU64u4/s1600/2024-05%20EHPAD%20intersyndicale16.5%20V.3%20%282%29.jpg"
           },
           /*
           {

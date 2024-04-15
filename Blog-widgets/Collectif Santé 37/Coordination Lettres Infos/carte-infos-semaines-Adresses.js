@@ -405,6 +405,8 @@ var inpAddress = [
   lat: 4.926, lng:  -52.313},
 { inpText: "VARSOVIE",
   lat: 52.2435, lng:  21.0163},
+{ inpText: "BARCELONE",
+  lat: 41.388, lng: 2.158},
 { inpText: "SUD SANTÉ SOCIAUX",
   lat: 48.827737, lng: 2.379217 },
 { inpText: "COORDINATION NATIONALE",

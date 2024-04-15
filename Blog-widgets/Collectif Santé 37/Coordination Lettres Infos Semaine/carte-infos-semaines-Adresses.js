@@ -243,5 +243,6 @@ var inpAddress = [
   lat: 47.0192, lng: 4.8355},
 { inpText: "Brest",
   lat: 48.3904, lng: -4.4865},
-];
+{ inpText: "Barcelone",
+  lat: 41.388, lng: 2.158},];
 

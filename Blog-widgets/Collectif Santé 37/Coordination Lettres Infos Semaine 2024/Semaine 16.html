@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2024 semaines 14</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Chaque semaine nous vient une information qui recule les limites de l'horreur dans la prise en charge des patients à l'hôpital public ; aujourd'hui c'est un malade des Urgences de Nimes qui est couché à même le sol sur un matelas (plus de brancard, voir plus bas).</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 16</li>
+<li>Dates: Du 15 au 21 avril 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/04/Infos-semaine-16-du-15-au-21-avril-2024-.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px">
+
+<p>Chaque semaine nous vient une information qui recule les limites de l'horreur dans la prise en charge des patients à l'hôpital public ; aujourd'hui c'est un malade des Urgences de Nimes qui est couché à même le sol sur un matelas (plus de brancard, voir plus bas).</p>
+<p>Et on nous dit qu'on veut taxer les malades qui viennent pas à leur rendez vous !!!</p>
+<p>A quand une taxe pour les gouvernements qui ne répondent pas aux besoins constitutionnels de santé de la population !!!!</p>
+<p>On a envie de dire Dégage comme lors des révolutions de la misère des pays du Moyen Orient.</p>
+<p>Le ridicule n'a pas de limite, dit-on, mais il peut tuer.</p>
+<p>Heureusement les comités et la population réagissent fortement.</p>
+<p>Développons au plus près de la population des actions pour résister.</p>
+<p style="font-style: italic" align="right">Joseph</p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<<a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<style>
+.CN-block {
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.CN-block p {
+  margin: 0;
+}
+</style>
+
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GUINGAMP</strong></p>
+<p align=center><strong>1500 personnes dans les rues de Guingamp, le dimanche 14 avril </strong></p>
+<p align=center>Revue de presse</p>
+<p align=center><a href="https://www.ouest-france.fr/societe/manifestation/manifestation-departementale-pour-la-sante-un-millier-de-personnes-a-guingamp-ce-dimanche-c78ceeac-fa34-11ee-8656-3015bc260248">Ouest France</a></p>
+<p align=center><a href="https://www.francebleu.fr/infos/societe/bien-sur-que-j-ai-peur-1200-manifestants-a-guingamp-pour-defendre-le-systeme-de-sante-1651446">France bleu</a></p>
+<p align=center><a href="https://www.liberation.fr/societe/sante/un-millier-de-manifestants-a-guingamp-pour-defendre-le-systeme-de-sante-20240414_AFWRPMJLOVGYNNFOLPIQAB3X4Y/">Libération</a></p>
+<p align=center><a href="https://www.europe1.fr/sante/bretagne-1200-manifestants-a-guingamp-pour-defendre-le-systeme-de-sante-4241494">Europe 1</a></p>
+<p align=center><a href="https://www.lefigaro.fr/actualite-france/bretagne-1200-manifestants-a-guingamp-pour-defendre-le-systeme-de-sante-20240414">Le Figaro</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>FEURS</strong></p>
+<p align=center><strong>Le Comité de défense et de soutien du Centre Hospitalier du Forez a tenu son AG</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/04/le-comite-de-defense-et-de-soutien-du-centre-hospitalier-du-forez-a-tenu-son-ag/">Le compte-rendu</a></p>
+<p style="background-color: #66FD99"><strong>MOISSAC</strong></p>
+<p align=center><strong>Forum santé</strong></p>
+<p>Un forum santé est organisé par le comité de défense de l’Hôpital Castelsarrasin Moissac L’association des Amis et Usagers de l’Hôpital de Montauban Les Unions Syndicales Santé Départementales CGT et FO le mercredi 24 Avril</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/04/castelsarrasin-un-forum-pour-debattre/">Invitation</a></p>
+<p style="background-color: #F967FF"><strong>MONTCEAU LES MINES</strong></p>
+<p>Le syndicat CGT de l'hôpital de Montceau les Mines (membre du CODEF), dans une lettre ouverte interpelle les élus pour la réhabilitation de l'hôpital</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/04/Lettre_Ouverte_CGT_CHM.pdf">lettre</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LODÈVE</strong></p>
+<p>Face à des fermetures intermittentes des Urgences du CH de Lodève, une manifestation est organisée le 22 Avril</p>
+<p align=center><a href="https://coordination-defense-sante.org/?p=36962&amp;preview=true">Tract appel</a></p>
+<p style="background-color:#44FD66"><strong>LUÇON</strong></p>
+<p>Les rassemblements continuent devant l’hôpital tous les vendredis et le 25 mai, ce sera le festival des Cannes pour le 3ème anniversaire de la mobilisation</p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/04/Flyer-festival-scaled.jpg"/></p>
+<p style="background-color: #3399FF"><strong>LURE</strong></p>
+<p align=center><strong>Passage de témoin au Comité de Vigilance 70.</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/04/Bureau-du-CV-70-2024.pdf">Lettre présidente</a></p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/04/photo-1-CV-70-16-avril-2024.jpg" /></p>
+<p style="background-color: #7CFC00"><strong>BRIOUDE</strong></p>
+<p align=center><strong>Echos Echos est distribué sur le marché</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/04/Echos-Echos_7.pdf">le journal du comité</a></p>
+<p style="background-color: #7CFC00"><strong>CONVERGENCE URGENCE SANTÉ SUD MANOSQUE 04</strong></p>
+<p align=center><strong>Manifestation Jeudi 18 avril 2024</strong></p>
+<p align=center>Rassemblement devant l'Hôpital de Manosque à 17h00</p>
+<p align=center>Départ en cortège vers la Porte Saunerie - prises de paroles vers 18h30</p>
+<p align=center><a href="https://www.hauteprovenceinfo.com/actualite-43620-sante-appel-a-manifestation-pour-l-hopital-de-manosque" target="_blank">https://www.hauteprovenceinfo.com/actualite-43620-sante-appel-a-manifestation-pour-l-hopital-de-manosque</a></p>
+<p align=center><a href="https://www.frequencemistral.com/Collectif-Sante-Haute-Provence-Appel-a-mobilisation-pour-l-hopital-public_a14667.html" target="_blank">https://www.frequencemistral.com/Collectif-Sante-Haute-Provence-Appel-a-mobilisation-pour-l-hopital-public_a14667.html</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/04/manosque-2/">Sur le site de la Coordination</a></p>
+<p style="background-color: #87CEEB"><strong>SARLAT</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/04/sarlat-lactivite-du-comite/">Retour sur l’activité depuis le début de l’année</a></p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/04/24-03-25-13.jpg" /></p>
+<p style="background-color: #F0E68C"><strong>BERNAY</strong></p>
+<p align=center><strong>Après un comité de suivi, une lettre ouverte du comité</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/04/bernay-lettre-ouverte-du-comite/">La lettre</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #2AFFFF"><strong>LE BLANC</strong></p>
+<p>Dans une lettre au Ministre de la Santé, le Comité d'Usagers du CH du Blanc l'interpelle sur la situation de l'hôpital, ses propositions.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/04/LETTRE-OUVERTE-MINISTRE-SANTE-15.04.2024-signee.pdf">La lettre</a></p>
+<p style="background-color: #2AFFFF"><strong>SAINT MAURICE</strong></p>
+<p>Le collectif pour l'avenir des hôpitaux Saint-Maurice et les murets, poursuit ses actions de sensibilisations auprès du public.</p>
+<p>Le 3ème volet du tryptique de Nicolas Philibert (psychiatrie-Esquirol-hôpital Saint Maurice) "La machine à écrire" sort ce jour et le 2ème "Averroes et Rosa Parks" qui se passe à l'hôpital est toujours en salle.</p>
+<p>Le collectif a engagé des frais et a donc une cagnotte en ligne (et toujours la pétition à signer en ligne aussi)</p>
+<p>Toutes les infos et les liens sur notre site internet</p>
+<p align=center><a href="https://collectif-avenir-hsm-murets.blogspot.com/" target="_blank">https://collectif-avenir-hsm-murets.blogspot.com/</a></p>
+<p style="background-color: #FEFB01"><strong>CAEN</strong></p>
+<p align=center><strong>Fermetures de lits à l‘hôpital psychiatrique</strong></p>
+<p align=center>Les soignants manifestent</p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/normandie/calvados/caen/la-population-est-en-danger-ils-se-couchent-par-terre-pour-denoncer-la-fermeture-de-lits-en-psychiatrie-2957186.html">L’article de France 3</a></p>
+<p style="background-color: #66CC00"><strong>BORDEAUX</strong></p>
+<p>Une jeune femme décède dans une clinique de Bordeaux à la suite d'une opération bénigne ; le père porte plainte.</p>
+<p align=center><a href="http://france3-regions.francetvinfo.fr/nouvelle-aquitaine/gironde/bordeaux/sa-fille-decede-apres-une-operation-benigne-il-porte-plainte-je-veux-qu-on-m-aide-a-chercher-la-verite-2955941.html">Article</a></p>
+<p style="background-color: #FEA07A"><strong>LOIRE ATLANTIQUE</strong></p>
+<p>Jeudi 18 avril: belle mobilisation qui a eu lieu entre Redon et Blain pour défendre la psychiatrie publique. De nombreux hôpitaux psy étaient représentés : Blain, Redon, Nantes (Saint-Jacques- CHu de Nantes et Daumezon), Allonnes, Angers, Saint-Nazaire, Lorient , Vannes, Rennes, Cholet ✊ Quelle belle convergence ? Et aussi l'UL CGt de Redon et Blain.... une belle intersyndicale CGT et SUD... Et la présence d'élus, de la coordination nationale de défense des hôpitaux et maternités de proximité, et de la population...</p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/04/Image2-1.jpg" /></p>
+<p align=center><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/04/Image3.jpg" /></p>
+<p style="background-color: #3FFD99"><strong>NIMES</strong></p>
+<p>Ce ne sont même plus des brancards !!! Un patient a passé 3H sur un matelas par terre au service des Urgences du CHU de Nïmes</p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/occitanie/gard/nimes/un-patient-sur-un-matelas-par-terre-le-chu-de-nimes-deborde-allez-faire-une-i-r-m-dans-le-prive-2900864.html?utm_term=Autofeed&amp;utm_medium=Social&amp;utm_source=Twitter#Echobox=1704451953">article</a></p>
+<p style="background-color: #FFE4E1"><strong>MANTES LA JOLIE</strong></p>
+<p align=center><strong>Coupure de courant à l’hôpital</strong></p>
+<p align=center><a href="https://actu.fr/ile-de-france/mantes-la-jolie_78361/coupure-de-courant-geante-a-lhopital-de-mantes-que-sest-il-passe_60922067.html">L’article d’actu.fr</a></p>
+<p style="background-color: #C71585; color: #F7F7F7"><strong>FÉCAMP</strong></p>
+<p align=center><strong>Les urgences encore fermées</strong></p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/normandie/seine-maritime/fecamp/pourquoi-les-urgences-de-l-hopital-de-fecamp-ferment-a-nouveau-ce-soir-et-pour-trois-autres-nuits-2958053.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=normandie&amp;at_offre=4&amp;at_variant=V2&amp;at_send_date=20240421&amp;at_recipient_id=726375-1437732574-2a072072">l’article de France 3</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>PADHUE</strong></p>
+<p>Des situations dramatiques pour les Praticiens à diplôme hors Union européenne … et pour la population</p>
+<p align=center><a href="https://www.change.org/p/des-situations-dramatiques-pour-les-padhues-et-pour-nos-h%C3%B4pitaux?source_location=search">Signez la nouvelle pétition</a></p>
+<p class="titre-dossiers"><strong>OMS</strong></p>
+<p>L'OMS attire l'attention sur les inégalités d'accès aux soins</p>
+<p align=center><a href="https://www.who.int/fr/news/item/05-04-2024-who-calls-for-action-to-uphold-right-to-health-amidst-inaction--injustice-and-crises">Communiqué</a></p>
+<p class="titre-dossiers"><strong>DÉPENSES D’ASSURANCE MALADIE</strong></p>
+<p align=center><strong>Avis du comité d’alerte sur l’évolution des dépenses d’assurance maladie</strong></p>
+<p align=center><a href="https://www.securite-sociale.fr/files/live/sites/SSFR/files/Avis%20comit%C3%A9%20d'alerte%20Ondam%202024-1.pdf">L’avis</a></p>
+<p>Au delà de l'avalanche de chiffres et de pourcentages deux choses à retenir :</p>
+<p>- le probable doublement du déficit des hôpitaux publics pour cause de sous-financement chronique,</p>
+<p><em>"Beaucoup d’établissements n’ayant pas encore définitivement arrêté leurs comptes, le montant du déficit des établissements publics de santé pour 2023 n’est pas connu. À ce stade, il ne peut donc qu’être estimé, avec des incertitudes notables. Selon l’estimation du ministère de la santé, il pourrait quasiment doubler par rapport à 2022 (il avait alors atteint 1,0 Md€)."</em></p>
+<p>- les interrogations des experts sur les causes de la sous-activité récurrente des établissements publics de santé par rapport aux prévisions, interrogations d'autant plus étonnantes que l'on assiste, année après année, à des suppressions de services et de lits et à une augmentation du nombre de postes non pourvus. Difficile de faire autant ou plus avec moins.</p>
+<p><em>"Le comité appelle donc à une vigilance renforcée sur l’évolution des dépenses d’assurance maladie, de soins de ville comme liées aux établissements de santé. À cet égard, le « point de fuite » du déficit des établissements publics de santé, qui s’élargit, est une préoccupation majeure. Il appelle une analyse précise des raisons de la sous-activité récurrente des établissements de santé par rapport aux prévisions, un suivi continu de l’évolution comparée de leur activité et de leurs effectifs, une accélération de la remontée de leurs données comptables et la mise en œuvre de mesures, qui ne sauraient être principalement de soutien financier, visant à résorber leur déficit croissant.</em>"</p>
+<p class="titre-dossiers"><strong>AME</strong></p>
+<p>Les sociétés savantes ont rédigé un communiqué sur les dangers de la remise en cause de l'AME</p>
+<p align=center><a href="https://www.fncs.org/les-soignants-toujours-unis-pour-la-sauvegarde-de-l-ame">communiqué</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align=center><a href="https://youtu.be/8o2MfgvbyuQ?si=HWVPOO6KEajNj8Jh">Quand t’es dans le désert</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos: Spécial 7 avril',
+        }, {
+          class: "marker-2",
+          icon: simpleGoldIcon,
+          title: 'Échos: Autres initiatives',
+        }, {
+          class: "marker-3",
+          icon: simpleVioletIcon,
+          title: 'Échos: Actions à venir'
+        }, {
+          class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+    );
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

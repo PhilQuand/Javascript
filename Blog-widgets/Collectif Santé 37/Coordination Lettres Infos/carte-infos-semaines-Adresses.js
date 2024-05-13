@@ -411,4 +411,6 @@ var inpAddress = [
   lat: 48.827737, lng: 2.379217 },
 { inpText: "COORDINATION NATIONALE",
   lat: 47.687, lng: 6.495},
+{ inpText: "COMITÉS BRETONS",
+  lat: 48.11788, lng: -1.68141},
 ];

@@ -307,6 +307,8 @@ var inpAddress = [
   lat: 48.8629, lng: 2.5454},
 { inpText: "LUCON",
   lat: 46.45498, lng: -1.1666},
+{ inpText: "MONTLUCON",
+  lat: 46.34181, lng: 2.60914},
 { inpText: "COLLECTIF LA SANTE UN DROIT POUR TOUS",
   lat: 44.8443, lng:  -0.5827},
 { inpText: "SEINE SAINT DENIS",

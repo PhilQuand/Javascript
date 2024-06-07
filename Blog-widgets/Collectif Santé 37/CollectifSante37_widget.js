@@ -828,7 +828,7 @@ $(document).ready(function() {
     //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
     //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
 
@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLToTN9xjhP9i4k60rAX7Ik0zl45OYleNksYki5z6slRF6UPdiKfaUglcXGCMojJv6hWmC-56f3CnYp6RGbGxT9mKO4VP9PeC9ggOess-yUP_yUlPGGlwQ2PpAIZ_Dk3RTwEbhTMOwh32LQnPc8mP_dgOUGYziqnpjlaV6HI_P_2FYP8xhMf8kxLU64u4/s1600/2024-05%20EHPAD%20intersyndicale16.5%20V.3%20%282%29.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj26NCGOFouGYJhyphenhyphenZIdAjyiXru230Ke4NSaLQEBgBIXJiW8CEnSHcpsxTgi7Wborr5eKGFg_EKgfOrYaI7MTLHyO4bMrHa6vPC7z3FMmS7rXHigS2Kv9vDOUQZzUFfZxI10EBSIT2R75mqWIuBYXix7Wh7Bur2vZSkVsRsJpNt3CKoamT1ZizoJSU8DtWyo/s1600/2024-06-06-communique%20Les%20arre%CC%82ts%20maladie%20dans%20le%20viseur%20du%20gouvernement%20et%20de%20la%20Cour%20des%20comptes%20%2000001.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -862,13 +862,17 @@ $(document).ready(function() {
           </div>'
                   },*/
           {
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLToTN9xjhP9i4k60rAX7Ik0zl45OYleNksYki5z6slRF6UPdiKfaUglcXGCMojJv6hWmC-56f3CnYp6RGbGxT9mKO4VP9PeC9ggOess-yUP_yUlPGGlwQ2PpAIZ_Dk3RTwEbhTMOwh32LQnPc8mP_dgOUGYziqnpjlaV6HI_P_2FYP8xhMf8kxLU64u4/s1600/2024-05%20EHPAD%20intersyndicale16.5%20V.3%20%282%29.jpg"
+            dataType: "iframe",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/2024-06-06-Arrets-maladie.pdf"
           },
           /*
           {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJj3zch-qwKctx4DaezmIi5bhJdJkq0G_NyjfVQUfEasKggY1AVrHqo-Ltgh_MXXOEt1iGLUYiZvdYao6WhUmbGFLtLfiBQF4oM6tvrNuwnr9xBl0RHuaMp4qxYnGENcCqMFhurgG_PumI0JrkTQCH7iXuaLuR7oEbfaK8EWcRrr_TTvMoxzQJWY85Q34/s1600/texte%20SANTE%20MENTALE%20SOIGNER%20OU%20EXCLURE%202024.jpg",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLDwOXi5ernN6Tpo3Hyqj4japcYAOsVWi_VND39XiTKcA5u6WcqngJaZZDJff9yAnPrPwfbE8K8Uqe1yzb6ANdNP5-U3N-dun1qxegB_JQiFOkVPwBfxRbZDYmCcuU0VhswzN5Ee5X3YroSWjeToEi3Bl5BO0Q-HGpvGlTimbASHi9jKJOQ_Ap7NUlVo0/s1600/2024-06-06-communique%20Les%20arre%CC%82ts%20maladie%20dans%20le%20viseur%20du%20gouvernement%20et%20de%20la%20Cour%20des%20comptes%20%2000001.jpg"
+          },
+          {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxfIK-lzv4UGo1s_Vym0Uqjt_oL-MHlCQV4ilzEw9Vzq1VLhTzlOJX2EY8AESsT49l6CRXgCky34kqETwr3JhMuCUQWsqLBs9QErBX1s_X8Y76mCV64RYU5hTFFPDZlha13eH6UFEZQxqg6kEhGAzGPP2_rKHc08Y9jYESD3HZeyoviu_6Ma0tbGg5G50/s1600/2024-06-06-communique%20Les%20arre%CC%82ts%20maladie%20dans%20le%20viseur%20du%20gouvernement%20et%20de%20la%20Cour%20des%20comptes%20%2000002.jpg",
           },
           {
             dataType: "iframe",

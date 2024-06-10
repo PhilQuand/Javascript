@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2024 semaines 20</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Les conséquences de la règle européenne des 3% de déficit du budget de l'Etat font encore des siennes.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 23</li>
+<li>Dates: Du 03 au 09 juin 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/06/Infos-semaine-23-du-3-au-9-juin-2024-.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p><em>Un incident technique ne nous a pas permis la parution de ce bulletin la semaine dernière. Veuillez nous en excuser ! Les principaux éléments, en particulier les informations en provenance de nos comités, sont reprises dans ce bulletin.</em></p>
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Les conséquences de la règle européenne des 3% de déficit du budget de l'Etat font encore des siennes.</p>
+<p>La Cour des Comptes propose de supprimer les remboursements des arrêts maladie de courte durée ; après la hausse des restes à charges, les choix économiques du Ministre de l'Economie sont marqués du sceau du libéralisme.</p>
+<p>Des cadeaux pour les grandes entreprises et des sacrifices pour la population.</p>
+<p>Les mêmes recettes ne pourront produire que les mêmes effets (approfondissement de la crise, politique antisociale, …).</p>
+<p>Les choix européens sont en discussion actuellement pour quelle Europe ??</p>
+<p style="font-style: italic" align="right">Joseph</p>
+
+<div style="text-align: center">
+<p><strong>Pour en finir avec les restes à charge pour les malades</strong></p>
+<p><strong>agir en signant et en faisant signer massivement</strong></p>
+<p><strong>la </strong><u><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/" target="_blank"><strong>pétition</strong></a></u></p>
+<p><strong>pour toutes vos initiatives publiques :</strong></p>
+<p><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf" target="_blank"><strong>la-pétition-papier</strong></a></u></p>
+<p><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/convergencesecu1.pdf"><strong>Le numéro 0 du bulletin de la campagne</strong></a></u></p>
+</div>
+<!--div style="text-align:center">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p class="titre-rubrique"><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p class="titre-rubrique"><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><u><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></u></p>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></u></p>
+</div-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<!--style>
+.CN-block {
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.CN-block p {
+  margin: 0;
+}
+.leaflet-popup-content-wrapper img {
+  max-width: 240px !important;
+}
+</style-->
+
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GUINGAMP</strong></p>
+<p align=center><strong>Les maires des Côtes d'Armor veulent assigner l’État sur sa politique de santé.</strong></p>
+<p align=center><u><a href="https://www.letelegramme.fr/bretagne/acces-a-la-sante-des-maires-des-cotes-darmor-veulent-attaquer-letat-6596698.php?fbclid=IwZXh0bgNhZW0CMTEAAR1V6sIUrMaP_KjVK8EQizhqmxMJL0Hr6cXQzjrF47gfL4lU3pbC9uiVYAg_aem_AaPD9CqFnZ0qtzbIjwAmcD9UnTWDZFV40uZZmu-Qd_SQ_PTHr3PbFdzlhyeCtkdtP2puEE7tEeAKoXkyZjOB6bUo">Article</a></u></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>NANTES</strong></p>
+<p align=center><strong>Pétition de Convergence contre les restes à charge</strong></p>
+<div class="CN-block" style="margin-block-start:1em">
+<p>245 signatures ont été recueillies à Nantes à ce jour: </p>
+<p>72 à l'entrée du CHU </p>
+<p>47 à l'entrée de la clinique Confluences</p>
+<p>88 à la manifestation du 4 juin des secteurs sanitaires, médico-sociaux et  sociaux </p>
+<p>16 à une réunion d' Ensemble et de la GDS</p>
+<p>22 à une réunion de la LDH </p>
+</div>
+<p>Excellent accueil des initiatives, d'autres sont prévues d'ici la fin juin sur des marchés de l'agglomération après les élections européennes. Le nombre de signatures recueillies ne dépend que du nombre de militant.e.s disponibles.</p>
+<p>jluc landas, collectif nantais pour le droit à la santé et à la protection sociale pour toutes et tous .</p>
+<p style="background-color: #2AFFFF"><strong>LUÇON</strong></p>
+<p align=center><strong>Les rassemblements continuent tous les vendredi à 18 h devant l’hôpital</strong></p>
+<p style="background-color: #F967FF"><strong>BAGNERES DE BIGORRE</strong></p>
+<p align=center><strong>Les Urgences de l'hôpital sont en danger.</strong></p>
+<p align=center><u><a href="https://france3-regions.francetvinfo.fr/occitanie/hautes-pyrenees/tarbes/service-des-urgences-a-l-hopital-il-n-y-a-pas-de-volonte-de-recruter-des-medecins-une-fermeture-definitive-est-elle-a-craindre-2978522.html?fbclid=IwZXh0bgNhZW0CMTEAAR1JgAqlPnM7D5sA_tA5rdO3nf3TFrbsU1MFOKRqAGokWc6AdE9sr1oB7ho_aem_AdyySJ0uadma0TqyNI9CxNvWfnmbBDoiepHRRM5Vc0ZEVvvfe-vyhfPoUXEsRR4894PPcoyhXcvXqC-VABnWwj4u">Article</a></u></p>
+<p style="background-color: #44FD66"><strong>MONTAIGU</strong></p>
+<p>Il en est question cet été , les Urgences de l'Hopital de Montaigu devraient fermer pour Deux mois : Juillet et Août...l'Année dernière c'était trois semaines... Les Urgences de l'hôpital ne fonctionnent plus à présent la nuit de 20 h00 ou 22h00 jusqu'à 8h30 selon les jours... elles peuvent malheureusement être aussi fermées certains week-ends par manque d'effectifs...  On privilégiera les urgences des Sables ou de Challans pour gérer en priorité la clientèle touristique au détriment de la première zone économique du bocage ...Cherchez l'erreur....</p>
+<p style="background-color: #3399FF; color: #F7F7F7"><strong>MONTCEAU LES MINES</strong></p>
+<p>Le CODEF a publié un communiqué à propos de la proposition de la Cour des Comptes sur les arrêts maladie</p>
+<p align=center><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/06/Les-arre%CC%82ts-maladies-dans-le-viseur-du-gouvernement.pdf">Communiqué</a></u></p>
+<p style="background-color: #0066FF; color: #F7F7F7"><strong>LONGWY</strong></p>
+<p align=center>Le comité alerte sur les difficultés d'accès à la santé des frontaliers.</p>
+<p align=center><u><a href="https://coordination-defense-sante.org/2024/06/sante-pays-haut-assurer-lacces-aux-soins-pour-tous-dans-la-region-frontaliere/">Communiqué</a></u></p>
+<p style="background-color: #669933; color: #F7F7F7"><strong>MONTREUIL</strong></p>
+<p align=center><strong>Le Comité appelle à signer la pétition contre les restes à charge.</strong></p>
+<p>Le gouvernement annonce vouloir faire 40 milliards d'économies d'ici 2025, en s'attaquant avant tout à notre système social, nos services publics, la Sécurité sociale qui prend en charge nos soins, l'hôpital public!</p>
+<p>D'autres choix sont possibles.</p>
+<p>La Convergence des comités de défense et de développement des services publics, dont le Comité de défense du CHI A. Grégoire est pleinement partie prenante, lance dès maintenant une grande campagne en partant des besoins de la population en terme de santé, une des premières préoccupations des français.</p>
+<p>Une pétition est à disposition "En finir avec les restes à charge pour les malades", afin que chacun.e, dans votre territoire s'engage sans attendre d'autres mauvaises nouvelles!</p>
+<p>Tout acte d'expression, de refus, de résistance ont leur effet et sont bénéfiques pour, qu'aussi notre hôpital ait les moyens de fonctionner pour remplir ses missions de santé publique</p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>DOLE</strong></p>
+<p align=center><strong>Lundi 3 juin, au cinéma de la MJC à 20h, débat autour du film « Mme Hauffman »</strong></p>
+<p align=center><strong>Mardi 4 juin devant l'hôpital avec les questionnaires sur l'accès aux soins</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/06/Infos-Flash96.pdf"><u>Infos Flash96</u></a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TARBES-LOURDES</strong></p>
+<p align=center><strong>Le collectif demande une réunion à Lourdes à propos du projet d'un hôpital central</strong></p>
+<p align=center><a href="https://www.lourdes-infos.com/65100lourdes/spip.php?article30304&amp;fbclid=IwZXh0bgNhZW0CMTEAAR26Al77MDxMZk51CEtia4yLe1Y86D5Vu-pYzbWORBBPZYjnoxbAZq15w78_aem_AbwfOL_f1NFtizmJiIeMj8RG1R-ywP5g6trQEFB83NsO7Zxg4tBOp1OjjnwhodGqtd0I_JT8FLcLMFV7O9ov-Wsl"><u>L’article de Lourdes-info du 17 mai</u></a></p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/concertation-sur-le-projet-dhopital-a-lanne-pourquoi-cette-association-veut-une-reunion-a-lourdes/?fbclid=IwZXh0bgNhZW0CMTEAAR00c9v7s10Iey5POuzdbScOjI_JNiUSrXEiRcaLh3LM5ruCn39Va6_JsEs_aem_AbXANI-suGstEIQmy9mEVWDT5PmH7o4O1-qMTCgOzSeuAli4KGmAj7eZrlHIf7ZzajK31JiketOkzuJb_wC3WWGB">L’article de la semaine des Pyrénées du 28 mai</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>CHATEAUDUN</strong></p>
+<p align=center><strong>Le comité fait une conférence de presse pour alerter sur la privatisation possible de l'EHPAD</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/06/Conference-de-presse-pour-le-futur-EHPAD-de-Chateaudun.odt">Le communiqué de presse</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MONTARGIS</strong></p>
+<p align=center><strong>Le comité mène une campagne contre le reste à charge pour les patients</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/Montargis-tract-questionnaire.pdf">Le tract du comité</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>RAMBOUILLET</strong></p>
+<p align=center><strong>Le collectif demande une table ronde pour trouver des solutions au manque de médecins en Ile de France</strong></p>
+<p align=center><a href="https://www.bfmtv.com/paris/replay-emissions/bonjour-paris/yvelines-la-penurie-de-medecins-inquiete-un-collectif-demande-la-tenue-d-une-table-ronde-pour-trouver-des-solutions_VN-202405270107.html">L’interview sur BFM TV</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CHARLEVILLE-MÉZIÈRES</strong></p>
+<p align=center><strong>Le comité interroge le maire sur son refus de lui accorder une subvention </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/06/Le-courrier.pdf">Le courrier</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>LANNION</strong></p>
+<p><strong>50 personnes étaient rassemblées devant la sous préfecture lors de la rencontre du comité avec la sous -préfète. Le comité a demandé la réouverture des urgences la nuit et la tenue d'une table ronde, avec tous les acteurs de la santé, afin d'élaborer des propositions pour le territoire</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/06/COMMUNIQUE-DE-PRESSE-25.05.2024.odt">Le communiqué à la suite de l’entrevue</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/06/lettre-sous-prefete-avril-2024.odt">Le courrier de demande de RV</a></p>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>MILLAU</strong></p>
+<p><strong>Large mobilisation avec la participation du Manifeste de St Affrique, de la CGT et de Sud Santé contre la non reconduction du titre de séjour d’un médecin psychiatre de l’hôpital de Millau</strong></p>
+<p>Malgré un rassemblement qui a réuni 300 personnes le 28 mai devant la sous-préfecture, une mobilisation qui a dépassé l’Aveyron avec une pétition de plus de 15000 signatures, ce médecin a été l’objet d’une OQTF le 31 mai</p>
+<p align=center><a href="https://www.journaldemillau.fr/2024/05/29/millau-une-mobilisation-reussie-pour-le-service-de-psychiatrie-11980776.php">Le journal de Millau du 29 mai</a></p>
+<p align=center><a href="https://www.ladepeche.fr/2024/05/29/video-300-personnes-pour-soutenir-un-medecin-aveyronnais-sous-le-coup-dune-oqtf-11980833.php">La dépêche du Midi du 29 mai</a></p>
+<p align=center><a href="https://www.millavois.com/2024/05/29/millau-plus-de-300-personnes-soutiennent-le-medecin-menace-dexpulsion/">L’article du Millavoix</a></p>
+<p align=center><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.mesopinions.com%2Fpetition%2Fsante%2Fmenace-expulsion-imminente-medecin-psychiatre-sud%2F230848%3Ffbclid%3DIwZXh0bgNhZW0CMTEAAR17C1Trk-ZEHSJaibCROuIHKnYUQ2pIDviiHg0MetK2xO17U0t8oWja0nk_aem_AV4VoziompF_uy4zBYwqjAL2Q-tO72caEwQiGrTtkj-rRoX5bCGfOsT7OJAFpgJEC7MxQuqxQfakS8SaF4BtEYmF&amp;h=AT0fpcd0xfKku1PaiNDrGYXDt_5znU5FliWU5Xg1s2Ikl8znHs7Yck45RAOvS5VzoqO8sARjlZp5dW8T1wmld3ldV8Rt_s9iekWk8SwkTh3U1KuJ5ISNko6JLKZLS6HM0rIHPzEV20359DHZHA&amp;__tn__=H-R&amp;c[0]=AT0p_2NoAtAqS5em8y9NuyfiXou5ApTcyTxkQzLNSuFAIEg37-ojoU8BN-kxUqC01rC85nx0zJnGlUk2CBugmibSw4oImJcwGyn6piysXNPJsS_11h2_KZw8Ag9vCiiy-s2-4QrSBs8wW325-jiBRgvpJ0Hm7lQMK78R3H1K-4B3VK7D2RyB8w">La pétition</a></p>
+<p align=center><a href="https://www.millavois.com/2024/06/03/millau-la-ligue-de-droit-de-lhomme-pour-un-droit-a-la-sante-mentale-pour-tous/">La réaction de la section de la LDH de Millau à l’expulsion dans le Millavoix du 3 juin</a></p>
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LODÈVE</strong></p>
+<p align=center><strong>L'association « Pour de véritables urgences au CH de Lodève » soutient l'appel de la CGT le mardi 11 juin à 17h. </strong></p>
+<p align=center>Elle veut faire de cette journée une grande mobilisation des élus de la Communauté de Communes du Lodévois et du Larzac et de la population</p>
+<p style="background-color: #44FD66"><strong>DRAGUIGNAN</strong></p>
+<p align=center><strong>Ne boudons pas les victoires ; les urgences de Draguignan réouvrent la nuit.</strong></p>
+<p align=center>Bravo pour la lutte.</p>
+<p align=center><u><a href="https://coordination-defense-sante.org/2024/06/draguignan-victoire-les-urgences-sont-re-ouvertes-la-nuit/">Article</a></u></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #44FD66"><strong>EHPAD ÎLE DE RE</strong></p>
+<p align=center><strong>Des inquiétudes sur le sort des EHPAD de l’Île de Ré</strong></p>
+<div class="CN-block" style="margin-block-start:1em">
+<p>Les conditions de l'exercice pour le personnel</p>
+<p align=center><u><a href="https://liseuse.lanewscompany.com/printpage.php?img=https://archives.tendanceouest.com/publications/61/25498/169/hd/source-1717514513-10.jpg">Article</a></u></p>
+</div>
+<div class="CN-block" style="margin-block-start:1em">
+<p>L'EHPAD de Saint Martin en danger</p>
+<p align=center><u><a href="https://www.realahune.fr/ou-en-est-lehpad-de-saint-martin/">Article</a></u></p>
+</div>
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>SAINT-MAURICE</strong></p>
+<p><strong>Le collectif pour l'avenir des hôpitaux de Saint Maurice et les Murets se bat pour un accueil digne des personnes en psychiatrie, il s'oppose à la cession au privé de la moitié des bâtiments accueillant la psychiatrie et la construction de bâtiments 3 fois moins grands sur une parcelle boisée de l'hôpital.</strong></p>
+<p>Le lien pour aider le collectif dans une démarche judiciaire:<a href="https://www.helloasso.com/associations/france-nature-environnement-94/collectes/soutenons-la-lutte-pour-les-hopitaux-de-saint-maurice" target="_blank"><u>https://www.helloasso.com/associations/france-nature-environnement-94/collectes/soutenons-la-lutte-pour-les-hopitaux-de-saint-maurice</u></a></p>
+<p>Et voici le lien du blog pour plus d'informations et d'actualités:</p>
+<p align=center><a href="https://collectif-avenir-hsm-murets.blogspot.com/" target="_blank"><u>https://collectif-avenir-hsm-murets.blogspot.com/</u></a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<div style="text-align: center">
+<p class="titre-dossiers"><strong>ÉCONOMIE </strong></p>
+<p class="titre-rubrique"><strong>L'Agence Standard et Poors a baissé la note de la France.</strong></p>
+<p>Quelles conséquences sur la politique sociale de la France ;</p>
+<p><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/06/24-06-05-Note-de-standard-and-Poors.docx">Article</a></u></p>
+<p class="titre-rubrique"><strong>Rapport de la Cour des Comptes sur la Sécurité Sociale</strong></p>
+<p><a href="http://uro4.mjt.lu/lnk/AUYAAEMfjr0AAcvUdkoAALIcoCsAAAAFGcMAJQJmAAW0UABmWcCB3qzUlM6DSWqxzf5xhNa6SgAFeLU/3/BcY_bP6Dz4T0_BiR9CFneQ/aHR0cHM6Ly93d3cudmVpbGxlLWFjdGV1cnMtc2FudGUuZnIvMjAyNC8wNS8zMS8xOC1taWxsaWFyZHMtZGUtbWFucXVlLWEtZ2FnbmVyLXBvdXItbGEtc2VjdS1hbmFseXNlLw" target="_blank"><u>Philippe Leduc, médecin et journaliste santé, fait le point</u></a></p>
+<p class="titre-rubrique"><strong>Menaces sur les arrêts de travail : une réaction</strong></p>
+<p><u><a href="https://www.sante-et-travail.fr/arrets-maladie-eviter-raccourcis">Article</a></u></p>
+<p class="titre-dossiers"><strong>DÉMOGRAPHIE MÉDICALE</strong></p>
+<p class="titre-rubrique"><strong>Les étudiants en médecine français qui ont dû faire les études à l'étranger sont-ils bienvenus en France à la fin de leurs études ?</strong></p>
+<p><u><a href="https://www.egora.fr/actus-pro/politiques/etudiants-en-medecine-francais-partis-letranger-nest-plus-les-bienvenus">Article</a></u></p>
+<p class="titre-rubrique"><strong>Une analyse de la situation des inégalités territoriales en matière de santé</strong></p>
+<blockquote> <a href="https://www.vie-publique.fr/en-bref/294142-acces-aux-soins-les-inegalites-territoriales-saggravent" target="_blank"><u>https://www.vie-publique.fr/en-bref/294142-acces-aux-soins-les-inegalites-territoriales-saggravent</u></a></blockquote>
+<p class="titre-rubrique"><strong>Médecins PADHUE</strong></p>
+<p>Annonces du gouvernement sur les postes ouverts.</p>
+<p><u><a href="https://www.egora.fr/actus-pro/hopitaux/medecins-etrangers-4-000-postes-ouverts-aux-candidats-admis-aux-evc-2024">Article</a></u></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p class="titre-rubrique"><strong>Collectif de psychologues : nous ne voulons pas être aux ordres ! Nous voulons être acteurs de notre profession !</strong></p>
+<p><a href="https://coordination-defense-sante.org/communique-05-2024/">https://coordination-defense-sante.org/communique-05-2024/</a></p>
+</div>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p class="titre-rubrique"><strong>Toujours d'actualité !</strong></p>
+<p align=center><a href="https://www.youtube.com/watch?v=urVfi9Yswaw#https://www.youtube.com/watch?v=urVfi9Yswaw">https://www.youtube.com/watch?v=urVfi9Yswaw#https://www.youtube.com/watch?v=urVfi9Yswaw</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+    );
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

@@ -840,40 +840,32 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj26NCGOFouGYJhyphenhyphenZIdAjyiXru230Ke4NSaLQEBgBIXJiW8CEnSHcpsxTgi7Wborr5eKGFg_EKgfOrYaI7MTLHyO4bMrHa6vPC7z3FMmS7rXHigS2Kv9vDOUQZzUFfZxI10EBSIT2R75mqWIuBYXix7Wh7Bur2vZSkVsRsJpNt3CKoamT1ZizoJSU8DtWyo/s1600/2024-06-06-communique%20Les%20arre%CC%82ts%20maladie%20dans%20le%20viseur%20du%20gouvernement%20et%20de%20la%20Cour%20des%20comptes%20%2000001.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYtZ5UoiNnMvqvoCDorcT6p8n89nGnkc1UVxB_o-JudBjMtNPxcj8e5Zly0fQiHoBwE1marThTNwZJy9TpZmmztdvXfzUtoaxtTs3QWLLiXSrvNMjcx29Hy_wfYjVoAUqT8S7uRJd3giYqA6s5dq3CZDMucd3Ml6rrIvTcWUvkuMNYar38iosE8c7VyKE/s1600/2024-06-14-Communique%CC%81-0.png",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
         },
         //fancyClass: "defaultInline",
         href: [
-          /*{
+          {
                     dataType: "inline",
                     dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
-          <ul> \
-          <li>pour des moyens en effectifs et des financements à la hauteur des besoins de la population,</li> \
-          <li>pour les 183€ pour toutes et tous et la revalorisation des grilles salariales pour toutes et tous sans barrage,</li> \
-          <li>pour le maintien et l&#39;amélioration des conventions collectives,</li> \
-          <li>non a la marchandisation de la santé, du social et du médicosocial</li> \
+          Appel à rassemblement et manifestation pour : <ul> \
+          <li>faire barrage au Rassemblement National lors des élections législatives des 30 juin et 7 juillet,</li> \
+          <li>et s’opposer aux politiques anti-sociales,</li> \
           </ul> \
-          <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>mardi 15 juin à 14h30<br />Devant l’ARS</b>.</p> \
-          <p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
-          <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
+          <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
-                  },*/
-          {
-            dataType: "iframe",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/2024-06-06-Arrets-maladie.pdf"
-          },
-          /*
+                  },
           {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLDwOXi5ernN6Tpo3Hyqj4japcYAOsVWi_VND39XiTKcA5u6WcqngJaZZDJff9yAnPrPwfbE8K8Uqe1yzb6ANdNP5-U3N-dun1qxegB_JQiFOkVPwBfxRbZDYmCcuU0VhswzN5Ee5X3YroSWjeToEi3Bl5BO0Q-HGpvGlTimbASHi9jKJOQ_Ap7NUlVo0/s1600/2024-06-06-communique%20Les%20arre%CC%82ts%20maladie%20dans%20le%20viseur%20du%20gouvernement%20et%20de%20la%20Cour%20des%20comptes%20%2000001.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigwTAVlzr8lLyqRKAT-Q4_qYI1vZMxiSl18dOnyk3kqTO9ViBwkbw9qmYr99is8e9DJwyGlPxQF7mnOHN3sVGLRqWnic4mCAN5ne4tEqmnXbnuCPL8bvnjK8Jf7c6nIbRNZJSiwUWK_V9nYKh9zUGbngQBe5Lb6g71wl1XIkkLcO8eGImFRisJ_jGQUjM/s1600/2024-06-14-Communique%CC%81-1.jpg"
           },
           {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxfIK-lzv4UGo1s_Vym0Uqjt_oL-MHlCQV4ilzEw9Vzq1VLhTzlOJX2EY8AESsT49l6CRXgCky34kqETwr3JhMuCUQWsqLBs9QErBX1s_X8Y76mCV64RYU5hTFFPDZlha13eH6UFEZQxqg6kEhGAzGPP2_rKHc08Y9jYESD3HZeyoviu_6Ma0tbGg5G50/s1600/2024-06-06-communique%20Les%20arre%CC%82ts%20maladie%20dans%20le%20viseur%20du%20gouvernement%20et%20de%20la%20Cour%20des%20comptes%20%2000002.jpg",
           },
+          /*
           {
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",

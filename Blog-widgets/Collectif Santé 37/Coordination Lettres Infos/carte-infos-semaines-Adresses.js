@@ -1,4 +1,6 @@
 var inpAddress = [
+{ inpText: "BRETAGNE",
+  lat: 48.117, lng: -1.680},
 { inpText: "NORMANDIE",
   lat: 48.989, lng: 0.215},
 { inpText: "DECAZEVILLE",

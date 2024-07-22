@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2024 semaines 20</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Malgré une campagne de presse jamais vue, le pire a été évité le 7 juillet dernier, mais les problèmes persistent dans le domaine de la santé...</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 29</li>
+<li>Dates: Du 15 au 21 juillet 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/07/Infos-semaine-29-du-15-au-21-juillet-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Malgré une campagne de presse jamais vue, le pire a été évité le 7 juillet dernier, mais les problèmes persistent dans le domaine de la santé ;</p>
+<p>Beaucoup d'espoirs qui ne doivent pas être déçus.</p>
+<p>Mobilisons nous pour rappeler les urgences sociales pour les hôpitaux de proximité et la santé dans notre pays.</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Joseph</p>
+<div style="text-align:center; line-height: 2em;">
+<!--p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p-->
+<p class="titre-rubrique"><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p class="titre-rubrique"><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<!--style>
+.CN-block {
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.CN-block p {
+  margin: 0;
+}
+.leaflet-popup-content-wrapper img {
+  max-width: 240px !important;
+}
+</style-->
+
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LURE - 70</strong></p>
+<p align=center><strong>GH 70,  SAUVONS NOTRE HÔPITAL</strong></p>
+<p>Le Comité de Vigilance pour le maintien des services publics de proximité de Haute Saône (<strong>CV 70) vous</strong>  invite à soutenir l'<strong>initiative de l'intersyndicale du personnel  de l'Hôpital départemental</strong> (GH 70) en signant leur  pétition.</p>
+<p>L'accès à l'hôpital public pour toutes et tous est une préoccupation  légitime et  majeure. Pour le maintenir, l'améliorer, il faut du personnel  en nombre suffisant, formé,  et reconnu à la hauteur de son engagement. </p>
+<p>La direction du GH 70 ne semble pas du tout aller dans ce sens là, bien au contraire,  la situation se tend.  Le mal être au travail, les mauvaises conditions, les reculs sur les rémunérations sont dénoncés par le personnel et ses représentant.e.s </p>
+<p>Le CV 70 s'inquiète fortement de la situation : un personnel dévalorisé, en sous-effectif accentué par des  départs, n'est pas en mesure d'apporter les soins adéquats aux personnes hospitalisées. </p>
+<p>Pour le CV 70, en plus d'un plan d'urgence au niveau national pour répondre aux besoins de la population, la direction du GH 70 doit cesser ses mesures dévalorisantes à l'encontre de son personnel et rétablir un dialogue social plus serein.</p>
+<p><strong>Ensemble, défendons un service public  de santé de proximité, de qualité, accessible à toutes les personnes qui en ont besoin sans aucune discrimination.</strong></p>
+<p align=center><a href="https://www.change.org/sauvonsnotrehopital">https://www.change.org/sauvonsnotrehopital</a></p>
+
+<p style="background-color: #E37B22; color: #F7F7F7"><strong>CHÂTEAUDUN - 28</strong></p>
+<div class="CN-block" style="margin-block-start:1em; text-align:center">
+<p><strong>Le Comité a rencontré le Maire de Châteaudun.</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/07/chateaudun-rencontre-entre-le-comite-et-la-mairie/">CR</a></p>
+</div>
+
+<p style="background-color: #2BFFFF"><strong>LUÇON - 85</strong></p>
+<div class="CN-block" style="margin-block-start:1em; text-align:center">
+<p><strong>Bien sûr on continue, bien sûr on ne lâche rien !</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/07/Image1.jpeg" /></p>
+</div>
+<p>Les rassemblements du vendredi continuent : le prochain vendredi 26 juillet à 18 h</p>
+
+<p style="background-color: #2BFFFF"><strong>SAINT-GIRONS - 09</strong></p>
+<p style="margin-block-start:1em; text-align:center"><strong>Saccage des locaux du syndicat CGT du CHAC</strong></p>
+<p>Le week-end du 6/7 juillet, le syndicat CGT du Centre Hospitalier Ariège Couserans (CHAC) a été la cible d’attaques innommables : ses locaux ont été littéralement dévastés. Le réseau des eaux a été saboté, les portes et armoires défoncées, les matériels, les ordinateurs et l'intégralité des archives détruites ainsi que les mobiliers lacérés. Tous les murs, portes et mobiliers ont été tagués de messages odieux à la gloire du Rassemblement National, maculés de symboles nazis ou faisant référence à ; des groupuscules ultra violents d’extrême droite, de messages indépendantistes, d’insultes et de menaces de mort à l’endroit de ses dirigeants syndicaux.</p>
+<p align=center><a href="https://gazette-ariegeoise.fr/a-lhopital-du-couserans-les-locaux-de-la-cgt-vandalises-menaces-et-tags-nazis-sur-les-murs/">L’article de la Gazette ariégeoise</a></p>
+<p>Un rassemblement de soutien a eu lieu le 18 juillet rassemblant plus de 200 personnes venues dire leur dégoût face à des actions de cette bassesse.</p>
+<p>La Coordination Nationale assure de sa solidarité les Ariégeois.</p>
+
+<p style="display:none">Autres infos locales :</p>
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>AVENIR DES ÉTUDIANTS EN MÉDECINE </strong></p>
+<p>Le nombre de postes ouverts pour le troisième cycle de médecine est connu : 1500 de moins que l'année dernière ;</p>
+<p align=center><a href="https://www.egora.fr/etudiants/etudes-de-medecine/internat-le-nombre-de-postes-ouverts-la-rentree-enfin-revele">Article</a></p>
+
+<p class="titre-dossiers"><strong>INDUSTRIE PHARMACEUTIQUE</strong></p>
+<p>Le groupe pharmaceutique Servier entend se séparer de sa filiale Biogaran, qui représente pratiquement un tiers des ventes de médicaments génériques en France.</p>
+<p>Les employés du groupe tirent la sonnette d'alarme : la vente pourrait conduire à une perte de souveraineté si la production est délocalisée, à une baisse de réactivité face aux crises sanitaires, à plus de ruptures de stocks en pharmacies …</p>
+<p align=center><a href="https://www.change.org/p/biogaran-pour-le-maintien-du-m%C3%A9dicament-g%C3%A9n%C3%A9rique-fabriqu%C3%A9-en-france">Plus d’explications dans la pétition</a></p>
+
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p align=center>Les propositions de la CGT</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/07/33.24-BF.NE-Note-CNP-Pour-sauver-la-psychiatrie-faison-Front-populaire-_18-juillet-6.pdf">Communiqué CNP CGT</a></p>
+
+<p class="titre-dossiers"><strong>EHPAD</strong></p>
+<p align=center><strong>Un appel au secours pour le financement</strong></p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/normandie/orne/des-collegues-appellent-au-secours-ils-sont-au-bord-de-la-faillite-une-maison-de-retraite-mise-en-vente-sur-leboncoin-3006095.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=normandie&amp;at_offre=4&amp;at_variant=V2&amp;at_send_date=20240718&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM984169">Article</a></p>
+
+<p class="titre-dossiers"><strong>COLLECTIF INTER HÔPITAUX</strong></p>
+<p>En prévision de la discussion budgétaire 2025, le CIH fait part dans un communiqué de ses exigences</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/07/CP-CIH-17-juillet-24.pdf">Communiqué</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+    );
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

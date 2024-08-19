@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2024 semaines 20</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Démocratie bloquée, et pendant ce temps…</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 33</li>
+<li>Dates: Du 13 au 18 août 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/08/Infos-semaine-33-du-13-au-18-août-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p><strong>Démocratie bloquée, et pendant ce temps…</strong></p>
+<p>Des fermetures de services d’urgences, des accès restreints (la com dit « régulés pour brouiller la réalité) cet été aura été un moment de tous les records. Les comités s’inquiètent d’une rentrée qui pourrait voir cette situation se prolonger.</p>
+<p><strong>Un recrutement de médecins diminué de 1510 postes pour la rentrée prochaine dans les fac de médecine.</strong></p>
+<p>Les raisons invoquées, un nombre très significatif d'étudiants a décidé de redoubler la dernière année de second cycle pour ne pas essuyer les plâtres de la réforme et avoir plus d'atouts pour choisir leur spécialité l'année prochaine.</p>
+<p>Moins de candidats aux épreuves, donc le nombre de postes d'interne a été baissé !</p>
+<p>S’ajoute à cela, une campagne actuelle des étudiants qui ont passés les épreuves, car il y a eu des <strong>diminutions de postes dans les spécialités les plus « prisées »</strong> et donc moins de chances même pour les mieux classés d'accéder à leur choix.</p>
+<p>Bref, il y a un mélange de n'importe quoi de la part du gouvernement, de corporatisme des étudiants et ce qu'il faudrait c'est sans doute une grande réforme des études médicales mais dans l'immédiat, … monsieur Macron fait des calculs…</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Henri Celié.</p>
+
+<!--div style="font-weight: bold; text-align: center">
+<p><em>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </em></p>
+<p>pour en finir avec les restes à charge pour les malades </p>
+<p>agir en signant et en faisant signer massivement </p>
+<p>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/">pétition</a></p>
+<p style="margin-top:1em;">pour toutes vos initiatives publiques : </p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf">la-pétition-papier</a></p>
+<p style="margin-top:1em;">71 signatures recueillies à Montluçon </p>
+<p>le comité de Concarneau la fait signer tout l’été <br /></p>
+</div-->
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2023/10/Image2.png" />
+</div>
+<div class="divText" align="center">
+<p><strong>pour que le budget 2024 de la Sécu réponde aux besoins de la population :</strong></p>
+<h2><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></h2>
+<p><strong>Et faites la signer ! </strong></p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<div>
+<p>Sommaire :</p>
+</div>
+
+<!--style>
+.CN-block {
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.CN-block p {
+  margin: 0;
+}
+.leaflet-popup-content-wrapper img {
+  max-width: 240px !important;
+}
+</style-->
+
+<p class="rubrique écho_des_comités">L’écho des comités :</p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BERNAY</strong></p>
+<p><strong>Alors que les sujets de discorde n’ont pas manqué ces derniers mois (avenir de la chirurgie à Bernay, fermeture de la cuisine centrale de l’hôpital, recrutement des médecins…), ce n’est pas cet accès régulé aux urgences qui contribuera à rapprocher les positions.</strong></p>
+<p>« Mettre cela en place le 5 août… Ils ont peut-être pensé que ça allait passer sans susciter de réaction » à propos de l’obligation désormais imposée aux usagers eurois de <strong>composer le 15 </strong>et d’obtenir une autorisation avant de pouvoir se rendre dans un service d’urgences.</p>
+<p><strong>L’association Liberté Égalité Proximité </strong>dit réagir avec colère et dépit à cette annonce.</p>
+<p>Dans un désert médical tel que le territoire de Bernay, comment peut-on compliquer l’accès aux urgences des citoyens, seul recours aux soins pour des usagers délaissés, sans médecin traitant ? Le service des urgences est souvent le repère médical de nombreuses personnes rassurées par son existence en cas de besoin.</p>
+<p>Temps d’attente et nombre de médecins</p>
+<p>L’ancienne infirmière et cadre de santé parle d’une restriction des droits à l’accès aux soins, et d’un <strong>nouvel obstacle à franchir</strong> pour être soigné sereinement.</p>
+<p>Elle pointe<strong> plusieurs faiblesses </strong>dans ce nouveau dispositif, à différents niveaux de la chaîne. Avoir recourt au Samu 27 restera « un exercice chronophage », pense-t-elle, en raison du <strong>délai d’attente. </strong>« Cela peut arriver qu’il soit de 20 minutes ».</p>
+<p>Ensuite, si l’accès à un service hospitalier est refusé en raison d’une pathologie jugée non urgente, « <strong>vers quels professionnels </strong>ces patients seront-ils dirigés par le 15 quand on sait qu’obtenir un rendez-vous chez un médecin dans un délai bref est devenu impossible ? »</p>
+<p>Dans le territoire de Bernay, « <strong>peu de médecins</strong> ont répondu favorablement à la demande de l’ARS de prendre en charge ces patients sous 48 heures ». « Ils ont pourtant prospecté dans les alentours, jusqu’à Thiberville, Beaumesnil… », ajoute-t-elle. « Et 48 heures, c’est long et souvent inadapté !</p>
+<p>Responsabilité </p>
+<p>Alors, certes, les urgences ne seront pas fermées, et les habitants pourront toujours continuer de s’y présenter, même sans avoir appelé le Samu au préalable. Mais avec le risque de pas obtenir de soins rapidement.</p>
+<p>Quelqu’un qui arrive avec une douleur thoracique est pris en charge. Par contre, pour un problème plus bénin, comme une tendinite par exemple, si la personne n’est pas admise, elle devra retourner en salle d’attente et contacter le 116/117 pour la suite de sa prise en charge.</p>
+<p>Quid, dans ces conditions, de la responsabilité qui pèsera sur les épaules des infirmiers d’accueil et d’orientation lorsqu’il faudra faire comprendre aux usagers que leur place n’est pas aux urgences ?</p>
+<p>Des conséquences financières ?</p>
+<p>(...)</p>
+<p>S’il y a moins de passages aux urgences, quelles seront les conséquences financières pour le centre hospitalier de Bernay ? Est-ce qu’il y aura une baisse des dotations ? Et au final, ne va-t-on pas considérer qu’il n’y a plus suffisamment d’activité pour laisser les urgences ouvertes 24 h/24 ?</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TARBES - LOURDES</strong></p>
+<p>"Suite au  débat organisé par la commission nationale du débat public  sur le projet d'hôpital commun de Lanne qui s'est  clôturé le 18  juillet, « fin des contributions le 24 juillet et rapport à venir fin  août 2024 » . L'association pour la sauvegarde de la santé et des  hôpitaux des Hautes Pyrénées qui s'est particulièrement investie dans ce  débat, ayant participé aux différentes réunions publiques et ateliers  qui ont été organisés, a tenu une conférence de presse hier lundi 30  juillet pour faire le point sur le déroulement du débat.</p>
+<p>Pour l'association,  pas de surprise, elle qui avait déjà  évoqué les  plus de 23000 signatures d'opposition enregistrées. Ces réactions du  public traduisent 3 sentiments : </p>
+<p>– l'incompréhension de ne  pas pouvoir faire évoluer les structures existantes qui renvoient  toujours, malgré les difficultés, une image positive. </p>
+<p>– l'incohérence de vouloir  urbaniser 17ha de zones naturelles et agricoles en totale contradiction  avec les orientations liées à la protection de l'environnement et de la  transition énergétique.</p>
+<p>– la colère de voir une  nouvelle fois un grand service public s'éloigner avec toutes les  complications que cela ne manquerait pas de générer pour tous ceux qui  habitent déjà loin, qui sont moins autonomes dans les déplacements, qui  sont en situation de précarité et qui ont déjà du mal à se soigner." </p>
+<p>Trouvé sur la page FB du comité. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>NANTES</strong></p>
+<p>Les permanences se poursuivent tout l'été au Clos Toreau pour aider les malades et les familles sans médecin à trouver un médecin traitant après le départ en retraite de la dernière médecin généraliste de ce quartier populaire. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LUÇON</strong></p>
+<p>Les rassemblements du vendredi à 18h00 devant les urgences de l'hôpital de Luçon continuent tout l'été. 24 personnes y ont participé ce 9 juillet. les principaux sujets abordés : les fermetures répétées du service des urgences, la dernière la veille, la saturation des urgences du CHU de Nantes et des fermetures de lits d'hospitalisation et ses conséquences ( morts sur des brancards en attendant une place d'hospitalisation, attente de dizaines d'heures ), la financiarisation de la santé ( cliniques, laboratoires, radiologie, EHPAD ) avec la participation de Jean-Luc Landas, membre du Bureau de la Coordination Nationale.</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LANNION</strong></p>
+<p>Le <strong>comité de défense de l’hôpital Lannion-Trestel</strong> a été reçu le 10 juillet en mairie de Lannion en présence du maire Paul Le Bihan (président du conseil de surveillance de l’hôpital), du président de l’Agglo Gervais Egault, de la sous-préfète Pauline Dubus, du directeur délégué de l’hôpital, de la directrice du groupe hospitalier de Saint-Brieuc et du représentant départemental de l’ARS.</p>
+<p>« La situation de l’hôpital est alarmante. L’ouverture des urgences H24 n’est toujours pas à l’ordre du jour. Il a été acté que <strong>les urgences resteront fermées durant 13 heures chaque nuit</strong> et qu’une réouverture à l’automne est loin d’être certaine. Nous considérons qu’il s’agit d’une réelle perte de chance pour la population du Trégor », déplore le comité dans un communiqué.</p>
+<p>Il appelle les élus « à agir ensemble pour gagner <strong>un hôpital de plein droit à Lannion.</strong> Il est essentiel que les élus locaux et communautaires s’unissent et s’organisent pour assurer la défense du centre hospitalier de Lannion. (…) Les élus devraient commander une étude à l’Observatoire régional de santé en matière de besoins sanitaires, étude qui servirait de base à l’élaboration d’un projet d’établissement adapté ».</p>
+<p>Et ils devraient peser pour la nomination d’<strong>un directeur de plein exercice</strong> « qui reprenne les clés de l’établissement ».</p>
+<p><a href="https://actu.fr/bretagne/lannion_22113/lannion-le-comite-de-defense-de-lhopital-en-appelle-aux-elus_61453568.html" target="_blank">https://actu.fr/bretagne/lannion_22113/lannion-le-comite-de-defense-de-lhopital-en-appelle-aux-elus_61453568.html</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BREST</strong></p>
+<p>Au centre hospitalier de Brest, les heures d’attente aux urgences affichées sur un «mur de la honte» !</p>
+<div class="CN-block" style="margin-block-start:1em;">
+<p>« Au centre hospitalier de Brest, les heures d’attente aux urgences affichées sur un «mur de la honte»</p>
+<p>Sur la période du 10 juillet au 7 août 2024, 127 patients de plus de 75 ans auraient attendu en moyenne 23 heures sur un brancard aux urgences de Brest (Finistère), selon le syndicat CGT du centre hospitalier. Il a donc décidé de placarder leurs âges pour alerter sur les conditions de travail des soignants et d’accueil des patients. »</p>
+</div>
+<p>« M/Mme LG, 92 ans, a passé 31 heures sur un brancard » ; « M/Mme K, 91 ans, a passé 29 heures sur un brancard » ; « M/Mme Q, 75 ans, a passé 30 heures sur un brancard » Les chiffres font froid dans le dos. Entre le 10 juillet et le 7 août 2024, 127 patients de plus de 75 ans ont attendu en moyenne 23 heures aux urgences du centre hospitalier universitaire (CHU) de Brest (Finistère).</p>
+<p>« M/Mme LG, 92 ans, a passé 31 heures sur un brancard » ; « M/Mme K, 91 ans, a passé 29 heures sur un brancard » ; « M/Mme Q, 75 ans, a passé 30 heures sur un brancard » Les chiffres font froid dans le dos. Entre le 10 juillet et le 7 août 2024, 127 patients de plus de 75 ans ont attendu en moyenne 23 heures aux urgences du centre hospitalier universitaire (CHU) de Brest (Finistère).</p>
+<p><a href="https://www.letelegramme.fr/finistere/brest-29200/127-patients-de-plus-de-75-ans-ont-attendu-23-h-en-moyenne-a-brest-une-action-syndicale-du-personnel-des-urgences-6642162.php">https://www.letelegramme.fr/finistere/brest-29200/127-patients-de-plus-de-75-ans-ont-attendu-23-h-en-moyenne-a-brest-une-action-syndicale-du-personnel-des-urgences-6642162.php</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>VAL DE MARNE </strong></p>
+<p>(Témoignage militant)</p>
+<p>Sur les conséquences des « déserts médicaux dans des zones urbaines.</p>
+<p>Les dermatos par exemple c’est pas mieux.</p>
+<p>Exemple : la seule dermato de ma commune a pris sa retraite. Il y a 1 an ou 2 elle m’avait demandé de la revoir, mais c’est trop tard.</p>
+<p>J’essaie les communes environnantes : pas de rdv possible (un des dermatos – d’ailleurs non dispo - demande des sommes astronomiques)</p>
+<p>Je finis par négocier un rdv à l’hôpital militaire Bégin (94)</p>
+<p>Et là je me fais engueuler : « ici les militaires ont la priorité. On ne traite que les cas graves. Si les gens viennent faute de dermato en ville on ne pourra pas traiter les cas graves…. »</p>
+<p>- Pourtant j’avais une ordonnance de mon médecin (c’est obligatoire pour un rdv dermato, pas sûr que ce soit une économie pour la Sécu)</p>
+<p>- Il y a du vrai que l’hôpital ne peut se substituer à tout.</p>
+<p>- La « solution » est de laisser les situations s’aggraver. Voilà où on en est en France !  </p>
+<p>Noter : si l’hôpital Bégin est encore ouvert c’est parce qu’on l’avait sauvé de la fermeture il y a quelques années.</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CAEN</strong></p>
+<p>Caen. Un "effondrement inéluctable" des urgences du CHU</p>
+<p>Santé. Depuis plusieurs mois, un collectif de médecins des urgences du CHU de Caen dénonce la situation critique de leur service, tant sur leurs conditions de travail que sur la prise en charge des patients. Une situation qui "s'aggrave, et sans réponses" de la part de la direction de l'hôpital.</p>
+<p><a href="https://www.tendanceouest.com/actualite-421419-caen-un-effondrement-ineluctable-des-urgences-du-chu?s=09">https://www.tendanceouest.com/actualite-421419-caen-un-effondrement-ineluctable-des-urgences-du-chu?s=09</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>ALLIER</strong></p>
+<p>Une malade du cancer attaque en justice la Sécu pour que son coûteux traitement soit pris en charge</p>
+<p><strong><a href="https://www.20minutes.fr/sante/4105719-20240813-allier-malade-cancer-attaque-justice-secu-couteux-traitement-pris-charge" target="_blank">https://www.20minutes.fr/sante/4105719-20240813-allier-malade-cancer-attaque-justice-secu-couteux-traitement-pris-charge</a> </strong></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LA ROCHELLE</strong></p>
+<p>Dans la même semaine, les syndicats ont déclenché un « danger grave imminent » pour le service de chirurgie orthopédique et tirent la sonnette d’alarme sur la situation très tendue au centre de gérontologie</p>
+<p><a href="https://www.sudouest.fr/charente-maritime/la-rochelle/hopital-de-la-rochelle-nouvelles-tensions-dans-les-services-20949739.php?csnt=1913ba0eef5" target="_blank">https://www.sudouest.fr/charente-maritime/la-rochelle/hopital-de-la-rochelle-nouvelles-tensions-dans-les-services-20949739.php?csnt=1913ba0eef5</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINTES</strong></p>
+<p>L'hôpital de Saintes réduit encore l'activité des urgences pédiatriques qui était déjà régulée depuis le début de l'été</p>
+<p><a href="https://www.francebleu.fr/infos/sante-sciences/l-hopital-de-saintes-reduit-encore-l-activite-des-urgences-pediatriques-qui-etait-deja-regulee-depuis-le-debut-de-l-ete-5448760">https://www.francebleu.fr/infos/sante-sciences/l-hopital-de-saintes-reduit-encore-l-activite-des-urgences-pediatriques-qui-etait-deja-regulee-depuis-le-debut-de-l-ete-5448760</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DIGNE</strong></p>
+<p>Après Manosque… Digne inquiète pour ses urgences.</p>
+<p>Actualités. Manosque, Digne maintenant, Aix-en-Provence mobilisé et "surchargé", les services des urgences inquiètent...</p>
+<p><a href="https://www.hauteprovenceinfo.com/actualite-44741-apres-manosque-digne-inquiete-pour-ses-urgences" target="_blank">https://www.hauteprovenceinfo.com/actualite-44741-apres-manosque-digne-inquiete-pour-ses-urgences</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong><strong>CHARTRES</strong></strong></p>
+<p>Lits saturés, patients géolocalisés, délais d'attente allongés : plongée au cœur des urgences de l'hôpital de Chartres, en surchauffe depuis début août</p>
+<p><a href="https://www.lechorepublicain.fr/chartres-28000/actualites/lits-satures-patients-geolocalises-delais-d-attente-allonges-plongee-au-cur-des-urgences-de-l-hopital-de-chartres-en-surchauffe-depuis-debut-aout_14547146/" target="_blank">https://www.lechorepublicain.fr/chartres-28000/actualites/lits-satures-patients-geolocalises-delais-d-attente-allonges-plongee-au-cur-des-urgences-de-l-hopital-de-chartres-en-surchauffe-depuis-debut-aout_14547146/</a></p>
+
+<p class="rubrique" style="display:none">Dossiers :</p>
+
+<p class="rubrique"><strong>Documents Juridiques ou utiles</strong></p>
+<p><strong>Soins palliatifs réflexion (France Culture)</strong></p>
+<p><a href="https://www.radiofrance.fr/franceculture/podcasts/le-grand-reportage/soins-palliatifs-soulager-et-accompagner-3542100" target="_blank">https://www.radiofrance.fr/franceculture/podcasts/le-grand-reportage/soins-palliatifs-soulager-et-accompagner-3542100 </a></p>
+<p class="titre-rubrique"><strong>PSYCHIATRIE</strong></p>
+<p><strong>Une voie française pour une psychiatrie différente </strong><br />Document établi à la demande de M. Jack RALITE, Ministre de la Santé, <br />Coordinateurs : Docteurs <strong>M. et J. Demay</strong> / Juillet 1982</p>
+<p><a href="http://ancien.serpsy.org/rapport/DEMAY.html">http://ancien.serpsy.org/rapport/DEMAY.html</a></p>
+<div class="CN-block titre-rubrique" style="margin-block-start:1em;">
+<p><strong>ACCÈS AUX SOINS HOSPITALIERS (doc FHF)</strong></p>
+<p><strong>PREMIÈRE ÉDITION DU « BAROMÈTRE DE L’ACCÈS AUX SOINS »</strong></p>
+</div>
+<p>Évolution de l’activité hospitalière et accès aux soins depuis le Covid :</p>
+<p>mutation des prises en charge ou bombe à retardement de santé publique ?</p>
+<p>Mars 2024</p>
+<p><a href="https://www.fhf.fr/sites/default/files/2024-03/202403_FHF_Synth%C3%A8seBarom%C3%A8tre_VDEF_0.pdf">https://www.fhf.fr/sites/default/files/2024-03/202403_FHF_Synth%C3%A8seBarom%C3%A8tre_VDEF_0.pdf</a></p>
+<p class="titre-rubrique"><strong>URGENCES</strong></p>
+<p><strong>services d'urgences contraints de fermer temporairement faute de soignants </strong></p>
+<p>Surcroit d'activité et pénurie de personnels obligent certains services d'urgences à baisser le rideau temporairement cet été.</p>
+<p><a href="https://www.francetvinfo.fr/sante/hopital/crise/hopital-de-nombreux-services-d-urgences-sont-contraints-de-fermer-temporairement-faute-de-soignants_6724473.html?s=09">https://www.francetvinfo.fr/sante/hopital/crise/hopital-de-nombreux-services-d-urgences-sont-contraints-de-fermer-temporairement-faute-de-soignants_6724473.html?s=09</a></p>
+<p class="titre-rubrique"><strong>NUMÉRISATION</strong></p>
+<p><strong>- ENJEUX ÉTHIQUES</strong></p>
+<p>Le présent article propose un tour d’horizon des différents enjeux éthiques liés au développement et à l’utilisation des technologies d’IA dans le milieu de la santé, en deux parties. D’abord, nous abordons les enjeux éthiques liés à l’exploitation de données massives nécessaires à l’entraînement des algorithmes de l’IA. Ensuite, nous présenterons les principaux enjeux éthiques liés au développement et à l’utilisation des SIA en santé, en abordant la façon dont ces systèmes impactent nos vies ainsi que l’environnement physique et social dans lesquels nous vivons.</p>
+<p><a href="https://journals.openedition.org/ethiquepublique/7978">https://journals.openedition.org/ethiquepublique/7978</a></p>
+<p><strong>- PSY DE SUBSTITUTION</strong></p>
+<p>Selon OpenAI, son chatbot peut désormais tenir des discussions fluides à l’oral et « lire » les émotions de ses utilisateurs. Une innovation qui intervient alors que l’usage de l’intelligence artificielle générative à des fins thérapeutiques se répand, soulevant des interrogations chez les professionnels de santé.</p>
+<p><a href="https://www.lemonde.fr/pixels/article/2024/08/06/comment-l-ia-bouscule-le-milieu-de-la-sante-mentale-plutot-que-de-payer-une-nouvelle-seance-chez-le-psy-j-allais-sur-chatgpt_6270640_4408996.html" target="_blank">https://www.lemonde.fr/pixels/article/2024/08/06/comment-l-ia-bouscule-le-milieu-de-la-sante-mentale-plutot-que-de-payer-une-nouvelle-seance-chez-le-psy-j-allais-sur-chatgpt_6270640_4408996.html</a></p>
+<p class="titre-rubrique"><strong>DOSSIER MEDIAPART</strong></p>
+<p>Dossier L’hôpital à bout de souffle</p>
+<p>Nos enquêtes, reportages et analyses sur la crise traversée depuis des années par le système hospitalier, et encore aggravée par l’épidémie de Covid-19.</p>
+<p><a href="https://www.mediapart.fr/journal/france/dossier/l-hopital-bout-de-souffle?utm_source=global&amp;utm_medium=social&amp;utm_campaign=SharingApp&amp;xtor=CS3-5" target="_blank">https://www.mediapart.fr/journal/france/dossier/l-hopital-bout-de-souffle?utm_source=global&amp;utm_medium=social&amp;utm_campaign=SharingApp&amp;xtor=CS3-5</a> </p>
+<p><strong>« Un système concurrentiel dans le domaine sanitaire, c'est inadmissible » </strong></p>
+<p>Michel Antony, responsable du Comité de vigilance pour le maintien des services de proximité pour la Haute-Saône, actif depuis 1982<em>, </em>a été co-fondateur et président de la Coordination nationale des comités de défense des hôpitaux et maternités de proximité. Il propose un état des lieux de la désertification médicale, de ses conséquences et revient sur les actions à mener pour enrayer ce phénomène.</p>
+<p>« Quand on arrive par nos pressions militantes à bloquer la machine, elle est grippée, et ça les emmerde !»</p>
+<p>« Le monde rural est véritablement dans une situation hyper tendue. Mais le pire ce sont la Seine-Saint-Denis, le Val-de-Marne et les départements d'Outre-Mer ! »</p>
+<p><strong>-in-Transrural Initiatives, La revue associative des territoires ruraux, n.502, p.06-08, mai-août 2024</strong></p>
+<p class="titre-rubrique"><strong>LES EHPAD ÇA PEUT RAPPORTER</strong></p>
+<p>Le magazine Challenges a dévoilé son classement annuel des 500 plus grandes fortunes professionnelles de France. Parmi elles, de nombreux fondateurs ou héritiers de groupes d'Ehpad. Le classement des 500 plus grandes fortunes de France, publié le 18 juillet par l'hebdomadaire Challenges, comprend une quarantaine de personnalités issues du secteur de la santé, dont plusieurs entrepreneurs ayant fait fortune dans le domaine des Ehpad et des cliniques privées, ainsi que quelques rares startuppers, a constaté APMnews/Gerontonews.</p>
+<p><strong>Les huit personnalités en lien avec le secteur du grand âge sont: </strong></p>
+<p>- Yves Journel, qui a fondé la holding Sagesse retraite santé (SRS), avec notamment le réseau européen de maisons de retraite DomusVi, et qui en détient encore près de la moitié, a perdu 16 places dans le classement, pour occuper le 70e rang, avec une fortune évaluée à 1,8 milliard d'euros</p>
+<p>- les cofondateurs de Doctolib, Stanislas Niox-Chateau, Ivan Schneider et Jessy Bernal, qui détiennent une part minoritaire du capital, ont amassé une fortune de 1,2 milliard d'euros et occupent la 111e place du classement (-7 places vs 2023)</p>
+<p>- Jean-Claude Marian, fondateur du groupe d'Ehpad et de cliniques Orpea, cédées pour 770 millions d'euros, possède avec sa famille une fortune évaluée à 1 milliard d'euros et figure à la 137e place</p>
+<p>- Philippe Austruy et sa famille sont 174èmes, avec 750 millions d'euros. L'entrepreneur a notamment géré des groupes de cliniques privées et d'Ehpad Medifutur, Medipep et Générale de santé via sa foncière Sis care</p>
+<p>- Jean-François Gobertier, qui a fait fortune dans les Ehpad et est encore propriétaire de maisons de retraite via sa holding spécialisée dans la santé et l'hôtellerie GDP Vendôme, a cumulé 575 millions d'euros de fortune et figure à la 251ème place (-34 places)</p>
+<p>- Samuel Gelrubin et sa famille ont hérité du groupe Terrot, foncière immobilière qui s'est notamment orientée vers les Ehpad avec le groupe Bridge. Leur fortune, de 500 millions d'euros, les place au 279ème rang (-39 places) Patrick Teycheney, qui a revendu le groupe d'Ehpad Colisée en 2015 et en a conservé 3% avant de se réorienter vers les grands crus, dispose d'une fortune de 500 millions d'euros. Il est lui aussi 279e (-39)</p>
+<p>- François et Pierre Guichard, fils du fondateur des cliniques (et d'un Ehpad) GBNA, sont 375èmes +62 places) avec 350 millions d'euros. »</p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+    );
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

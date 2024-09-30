@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2024 semaines 20</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Le projet de loi de financement de la Sécurité Sociale 2025 n’est pas encore connu, mais les coupes budgétaires ont été annoncées.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 39</li>
+<li>Dates: Du 23 au 29 septembre 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Infos-semaine-39-du-23-au-29-septembre-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito&#8239;: </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Le PLFSS de tous les dangers !</p>
+<p>Le projet de loi de financement de la Sécurité Sociale 2025 n’est pas encore connu, mais les coupes budgétaires ont été annoncées.</p>
+<p>Pourtant, la situation dramatique des urgences, des maternités, de la psychiatrie, de tous les hôpitaux de proximité appelés « petits » pour justifier et relativiser leur fermeture, manière de cacher que le réseau hospitalier est ainsi amputé de son lien de service public le plus accessible !</p>
+<p>Au moment où le gouvernement poursuit une logique refusée par les électeurs, même la Fédération Hospitalière de France demande un <span>rattrapa</span>ge sur 2024 de 2,4 milliards d’euros supplémentaires et une réévaluation de l’ONDAM de l’ordre de 3,9 milliards d’euros pour 2025.</p>
+<p>Dans les mesures d’économies à l’étude, la mise en cause des ALD (affections de longue durée), les arrêts de travail, les transports sanitaires …</p>
+<p>Et l’on connaît la tentation du nouveau Premier Ministre de remettre en cause l’AME pour caresser le racisme dans le sens du vote.</p>
+<p>Malgré la vague de dégoût et l’impuissance démocratique, qui traverse le pays, des propositions visent à remobiliser, autour des services public, des services de santé de proximité, de la solidarité.</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Henri (Sud Aveyron)</p>
+<!--p style="margin: 1em; text-align: right; font-style: italic">Joseph Maatouk.</p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques&#8239;: </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+<p><strong>La Coordination Nationale fait la Fête&#8239;! </strong></p>
+<p><strong>Beaucoup de rencontres , d’échanges, de participation à des débats sur d’autres stands et de signatures de pétition contre les restes à charge </strong></p>
+<p><a href="https://coordination-defense-sante.org/2024/09/la-coordination-nationale-a-la-fete-de-lhumanite-2/"><strong>Le reportage</strong></a><br /></p>
+</div-->
+
+<div>
+<p>Sommaire&#8239;:</p>
+</div>
+
+<!--style>
+.CN-block {
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.CN-block p {
+  margin: 0;
+}
+.leaflet-popup-content-wrapper img {
+  max-width: 240px !important;
+}
+</style-->
+
+<p class="rubrique écho_des_comités">L’écho des comités&#8239;:</p>
+
+<p style="background-color: #fc0000; color: #F7F7F7"><strong>REMIREMONT</strong></p>
+<p><strong>VERS LA SUPPRESSION DE NOTRE HÔPITAL AVEC MÉDECINE, MATERNITÉ, CHIRURGIE, URGENCES ? UNE CERTITUDE : UNE AGGRAVATION TRÈS IMPORTANTE DE L’ACCÈS AUX SOINS POUR TOUS LES VOSGIENS. </strong></p>
+<p><u>Le 9 mars 2024, nous étions 3000 avec quasiment tous nos élus pour demander le maintien d’un hôpital complet à Remiremont.</u></p>
+<p>Cette demande nous l’avons renouvelée auprès de Madame la Préfète le 2 mai. En guise de réponse nous avons eu le lendemain, la suspension/fermeture de la néonatologie, le déclassement de la maternité de niveau 2 en 1. En cette rentrée, le directeur du Groupement Hospitalier de Territoire (GHT.) soumet pour avis aux conseils de surveillance des hôpitaux un volumineux document d’orientation (2024-2029) du système hospitalier public pour le département des Vosges (Projet Medico-Soignant Partagé, PMSP). Voir sur <a href="http://www.ademat.org/">www.ademat.org</a> notre analyse et le document intégral.</p>
+<p>• Ce projet met en cause la maternité, la chirurgie, les urgences, la biologie de notre hôpital,</p>
+<p>• Fait l’impasse sur les besoins de la population,</p>
+<p>• Nie l’existence des habitants nord haut-saônois,</p>
+<p>• Nie Remiremont comme ville-siège de l’hôpital de la montagne sud en ignorant la géographie, et</p>
+<p>les réalités socio-économiques de notre secteur de montagne.</p>
+<p>La stratégie développée est officiellement sous tendue par une démographie soignante en grande tension. Elle oublie qu’étant en système concurrentiel, le privé à but lucratif recrute nombre de médecins et soignants, pour assurer la prise en charge de ceux qui ont les moyens de se déplacer à Nancy et de payer des droits à dépassements. De plus le privé offre des niveaux de rémunérations plus importants sans assurer les contraintes du service public (gardes, astreintes 24/24). Conséquences : refus de soins, pertes de chance, morts indues..</p>
+<p><u>En fait, comme il s’agit de faire des économies et uniquement cela, ils contractent l’offre de soins avec l’objectif de n’arriver qu’à un seul hôpital de recours par département</u></p>
+<p><em>Et d’autres informations en contactant l’ADEMAT</em></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LUÇON</strong></p>
+<p><strong><u>Rassemblement hebdomadaire vendredi devant les urgences de l’hôpital de Luçon</u></strong></p>
+<p>avec la présence de Pierre Henriet député Horizon réélu grâce au Front républicain, de Dominique Bonin, maire de Luçon, Arnaud Charpentier, conseiller départemental et d’une trentaine de citoyennes et citoyens. Dans son allocution d’Évelyne Deluze, Présidente de l’ADSP a rappelé les exigences d’un hôpital de proximité de plein exercice défendues depuis 160 semaines, l’effondrement de l’hôpital public en Vendée . Le député a reconnu que les mesures gouvernementales depuis 2017 n’ont pas réussi à maintenir l’hôpital public à flot ( y compris la suppression du numerus clausus et les mesures du Ségur de la santé) ni augmenté son attractivité pour le personnel contrairement à ce qu’il affirmait les années précédentes et qu’il a soutenu par ses votes à l’Assemblée.</p>
+<p>Bien qu’il admette qu’un effort financier considérable soit nécessaire tant pour le financement de la Sécurité Sociale que pour la formation des médecins, dentistes, pharmaciens et personnels soignants, il doute très fort que ce soit le cas lors du vote de la loi de finances et de la loi de finances de la Sécurité Sociale 2025 au Parlement.</p>
+<p>Nous verrons bien quels seront ses votes!</p>
+<p>PJ : l’assemblée et le député Pierre Henriet signant la pétition contre les restes à charge que lui présente Antoinette de l’ADSP</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/09/lucon-le-rassemblement-du-28-septembre/">https://coordination-defense-sante.org/2024/09/lucon-le-rassemblement-du-28-septembre/</a></p>
+
+<p style="background-color: #fc0000; color: #F7F7F7"><strong>CHATELLERAULT</strong></p>
+<p style="font-size: large; font-weight: bold">Hommage à Elise</p>
+<p>Intervention au nom du comité de défense de l’hôpital du Nord Vienne</p>
+<p>Le drame qui nous amène à intervenir aujourd’hui n’est pas à ranger dans les faits divers mais souligne combien l’inhumanité dont les responsables politiques aux affaires dans notre pays ces dernières décennies font preuve peut engendrer comme conséquences.</p>
+<p>Quand les pouvoirs publics et certains élus locaux continuent de vanter les « bienfaits » du regroupement du GHNV avec le CHU il paraît nécessaire de regarder la réalité en face et de s’interroger sur les choix opérés et leurs conséquences pour les habitants de nos territoires, patients de l’hôpital public et professionnels de santé de ces établissements.</p>
+<p>(...)</p>
+<p>Quand les directions des hôpitaux gèrent le service public comme une entreprise marchande, en utilisant les mêmes méthodes d’encadrement des salariés, les résultats sont identiques : pression, mal-être, perte de sens au travail, démotivation. Les conséquences sont dévastatrices tant pour les usagers que pour les personnels. Et, s’agissant des métiers du soin, sentiment de maltraitance faute de disposer du temps nécessaire auprès des patients.</p>
+<p>Face à cette réalité, il nous faut une politique publique ambitieuse, c’est un enjeu majeur des prochaines années. A titre d’exemple, soulignons que d’ici 2050 plus de 4 millions de personnes de plus de 60 ans seront en situation de perte d’autonomie contre 2,5 millions aujourd’hui, les besoins sont donc immenses.</p>
+<p>L’hôpital public français a besoin de médecins et de soignants, Il faut donc commencer par garder ceux que nous avons.</p>
+<p>L’organisation sanitaire doit être élaborée démocratiquement et se faire autour du service public avec un maillage d’hôpitaux répondant aux besoins de proximité, aux besoins en psychiatrie aussi et la triste actualité</p>
+<p>(...)</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/09/chatellerault-une-marche-blanche-a-eu-lieu-ce-samedi-28-septembre-en-hommage-a-elise/" target="_blank">https://coordination-defense-sante.org/2024/09/chatellerault-un…-hommage-a-elise/</a></p>
+
+<p style="background-color: #269933; color: #F7F7F7"><strong>SARLAT</strong></p>
+<p style="font-size: large; font-weight: bold">Défendons l’Aide‐Médicale d’État !</p>
+<p><u>Qu’est‐ce que l’Aide Médicale d’État ?</u></p>
+<p>C’est la prise en charge sanitaire par l’État de tout individu, non assuré par la Sécurité sociale française, ayant besoin d’avoir accès aux soins de premier recours.</p>
+<p>C’est le cas de tous ceux qui fuient la guerre, la famine et la pauvreté, les catastrophes climatiques. Arrivant sur le territoire français, ils ont besoin d’avoir accès, comme tout individu, à des soins de première urgence.</p>
+<p>D’ailleurs, la défenseure des droits préconise de fusionner l’Aide Médicale d’État à la Sécurité sociale.</p>
+<p>Le dispositif des soins urgents et vitaux ne représente que 0.5% des dépenses de l’Assurance maladie en France.*</p>
+<p><u>Pourquoi est‐elle absolument nécessaire ?</u></p>
+<p>Il est nécessaire de prévenir chez ces personnes toute aggravation d’une pathologie, dommageable pour elles et tous les autres, ce qui entraînerait alors des soins plus importants.</p>
+<p><u>Il faut aussi éviter tout engorgement des urgences.</u></p>
+<p>Plusieurs milliers de médecins ont déjà fait part de leur inquiétude à ce sujet et en cela, ils sont soutenus par une majorité de syndicats, d’associations, de formations politiques, de collectifs et de mutuelles. Comment accepter, par exemple, au XXIe siècle, la possible propagation de la tuberculose, maladie que l’on croyait éradiquée ?</p>
+<p><u>Plus généralement, nous nous devons de sortir d’un chacun pour soi </u>qui nous mène droit à la catastrophe.</p>
+<p>Ainsi, dans les pays anglo‐saxons, où chacun dépense des sommes folles pour se soigner, leur espérance de vie s’effondre et leur mortalité progresse. Faut‐il en arriver, à admettre, comme aux États‐Unis, qu’il faille aller faire la guerre moyennant finance pour payer l’hospitalisation d’un proche, ainsi que cela est arrivé pour une maman américaine ?</p>
+<p>Supprimer l’Aide Médicale d’État c’est prendre le risque d’abandonner la protection et l’accès aux soins pour tous, garantis par un système fondé sur la cotisation de tous suivant ses moyens et pour recevoir selon ses besoins.</p>
+
+<p style="background-color: #fc0000; color: #F7F7F7"><strong>ARPAJON</strong></p>
+<p style="font-size: large; font-weight: bold">La maternité d'ARPAJON est en colère !</p>
+<p>Aujourd'hui, la qualité des soins de nuit est en danger. En effet, le poste d'auxiliaire de puériculture de nuit n'est plus considéré comme essentiel au bon fonctionnement de la maternité par le directeur du CHSF et du CHA.</p>
+<p>Malheureusement, suite à cette décision, le contrat d'une de nos collègues n'est pas renouvelé, nous privant ainsi d'une personne dynamique, compétente et appréciée par l'ensemble de l'équipe.</p>
+<p>Cette suppression de poste entraînera inéluctablement des délais d'attente plus long, donc des prises en charges moins efficaces et une qualité des soins réduite, mettant en danger les patient(e)s, les nouveaux-nés, ainsi qu'un épuisement de l'équipe de nuit dû à un manque d'effectif.</p>
+<p><strong>Ce poste obtenu (après de nombreuses négociations), il y a plus de deux ans, a permis de garantir une meilleure prise en charge des urgences obstétricales, des urgences gynécologiques et de la salle de naissance, améliorant les conditions de travail difficiles et permettant de garantir la sécurité de nos patientes. </strong></p>
+<div class="CN-block" style="margin-block-start:1em; text-align:center">
+<p><strong>Ne retournons pas en arrière, arrêtons de privilégier l'aspect financier, privilégions l'aspect humain de notre profession!!!!</p>
+<p>Priorité aux patientes et leurs bébés: SOINS, SÉCURITÉ, BIENVEILLANCE, ACCOMPAGNEMENT.</p>
+</div>
+<p>Qu'en est-il de leur promesse de ne pas supprimer de postes en maternité ?</p></p>Par cette pétition, nous leur demandons l'ANNULATION du gel du poste de notre collègue Auxiliaire de Puériculture, dont nous avons besoin, au sein de notre équipe. Ainsi que la pérennité de ce poste. </strong></p>
+<p style="background-color: #fefb01"><strong>AUBENAS</strong></p>
+<p style="font-size: large; font-weight: bold">ALD</p>
+<p>Les Usagers de l’hôpital d’Aubenas Vous êtes près de 80 000 patients, en Ardèche, à avoir reçu récemment cet avis de la part de l'Assurance Maladie (12 millions en France).</p>
+<p>Il s'agit d'une demande de règlement de la franchise médicale pour les personnes en Affection de Longue Durée (ALD).</p>
+<p>Ce prélèvement (taxe sur les boites de médicaments) concerne tous les assurés mais s’effectue automatiquement pour ceux qui ne sont pas en ALD, et est compris dans la part non remboursée ce qui rend ce reste à charge invisible et « indolore » !</p>
+<p>C'est une illustration de la, politique antisociale conduite par les gouvernements précédents et aggravée par le gouvernement Macron qui vise à faire payer aux personnes vivant de leur travail les cadeaux faits aux entreprises sur le dos de la Sécurité Sociale (dégrèvements de cotisations entre autres).</p>
+<p>Depuis plusieurs années, les sommes qui restent à charge des assuré(e)s augmentent de <strong>plus en plus</strong></p>
+<p>(...)</p>
+<p>Le journal d’information du comité et l’invitation à la manifestation du 1er octobre</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/09/aubenas-le-journ">https://coordination-defense-sante.org/2024/09/aubenas-le-journ</a><a href="https://coordination-defense-sante.org/2024/09/aubenas-le-journal-dinformation-du-comite-et-linvitation-a-la-manifestation-du-1er-octobre/" target="_blank">…n-du-1er-octobre/</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TARBES-LOURDES</strong></p>
+<p>Nouvel hôpital à Lanne : l’association veut que la concertation se poursuive</p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/tarbes-lourdes-sante-nouvel-hopital-a-lanne-lassociation-veut-que-la-concertation-se-poursuive/?fbclid=IwY2xjawFhLF5leHRuA2FlbQIxMQABHZWasdYQC9wpdNERpY-6ddD8gydZS1fWzb-HOEK_cAuCeeYKRWcYhxRN0w_aem_5ApvuA9WUPmtt5i5GGn6Ww">https://www.lasemainedespyrenees.fr/tarbes-lourdes-sante-nouvel-hopital-a-lanne-lassociation-veut-que-la-concertation-se-poursuive/?fbclid=IwY2xjawFhLF5leHRuA2FlbQIxMQABHZWasdYQC9wpdNERpY-6ddD8gydZS1fWzb-HOEK_cAuCeeYKRWcYhxRN0w_aem_5ApvuA9WUPmtt5i5GGn6Ww</a></p>
+
+<p style="background-color: #269933; color: #F7F7F7"><strong>BERGERAC</strong></p>
+<p style="font-size: large; font-weight: bold">Sauver la Sécu et l’hôpital public</p>
+<p>Nous prenons acte de la nomination de Geneviève Darrieussecq au ministère de la santé. Pour sauver notre sécurité sociale et le service public de soin des mesures à prendre s’imposent rapidement. Le projet de loi de financement de la sécurité sociale doit être voté par le parlement avant la fin de l’année.</p>
+<p>De ce projet de budget dépendra le sort de nos hôpitaux et de notre politique de santé.</p>
+<p>Il faut en urgence si l’on veut répondre aux besoins:</p>
+<p>Augmenter les budgets hospitaliers, supprimer la T2A, augmenter les effectifs et salaires des médecins hospitaliers et des personnels paramédicaux. Rouvrir des lits et services partout où cela est nécessaire.</p>
+<p>Développer des centres de santé.</p>
+<p>Revoir l’articulation médecine de ville/hôpital et nota</p>
+<p>Redonner des moyens financiers et humains pour une psychiatrie publique répondant aux attentes des usagers tout comme pour le secteur médico-social.</p>
+<p>L’accès aux soins est de plus en plus restreint et compliqué sur tout le territoire national et particulièrement en Dordogne où depuis un an l’accès aux services d’urgences sot drastiquement régulés, les maternités de Sarlat et Bergerac sont toujours sur la sellette.</p>
+<p>Ce sont des actes forts que nous attendons.</p>
+
+<p style="background-color: #fefb01"><strong>ARDENNES</strong></p>
+<p style="font-size: large; font-weight: bold">CHINA : viser l'équilibre financier ou la santé de la population ?</p>
+<p>La direction du Centre Hospitalier intercommunal du Nord Ardenne (CHINA) se réjouit d'un budget excédentaire de 1 M € en 2023.</p>
+<p>Alors que le Fédération Hospitalière de France, présidée par le maire de Reims, alerte sur le déficit croissant des hôpitaux publics et réclame une augmentation de l'ONDAM hospitalier (Objectif National des Dépenses d'Assurance Maladie - soit les ressources prévues pour les hôpitaux ) de 6% en 2025, les sites regroupés du Nord Ardenne (Charleville-Mézières, Sedan, Nouzonville, Fumay) feraient exception en France.</p>
+<p>À quel prix pour les populations ? La quasi fermeture de la chirurgie à Sedan (reste un peu de chirurgie ambulatoire), la fermeture de la maternité, la fermeture des soins critiques à Sedan, ceux à visée cardiologique d'abord, ayant entraîné le départ des médecins cardiologues de l'hôpital public, les soins continus polyvalents ensuite. Comment la direction de l'hôpital peut-elle se vanter ensuite de l'agrandissement du service de réanimation à Manchester ? Un simple transfert avec au décours une réduction du nombre des lits !</p>
+<p>À quel prix pour le personnel ? Si l'on ne peut que se féliciter de la titularisation de personnel, c'est aussi avec des réductions d'effectifs, et l'aggravation des conditions de travail, comme le passage en 12h des aides-soignantes de Nouzonville.</p>
+<p>La direction a fait pire que ce qui était prévu dans le plan de performance en 2018 pour dégager des excédents au détriment de la population et des personnels, un plan sur lequel le comité avait largement alerté.</p>
+<p>Le projet d'un centre moderne de cancérologie est une bonne nouvelle. Mais des précisions doivent être apportées : les investissements en locaux et en appareillage sont-ils publics ou privés ? Les médecins libéraux ou de statut public ? (Sachant que les cancérologues sont les spécialistes libéraux les mieux payés). Pour notre comité, il n'est pas envisageable que le budget de l'hôpital, l'argent de la Sécurité sociale, notre argent, vienne enrichir des intérêts privés.</p>
+<p>Se réjouir d'un budget en excédent après une fermeture de maternité est honteux et indécent. La santé de la population passe au-dessus de l'équilibre financier de l'hôpital. Le nouveau gouvernement doit d'ailleurs entendre la nécessité de donner des moyens financiers aux hôpitaux à hauteur des besoins tant en personnels que de services pour assurer la proximité des soins.</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #269933; color: #F7F7F7"><strong>NANTES</strong></p>
+<p>La CGT Santé fait un signalement pour mise en danger des patients due aux manques de moyens en pédopsychiatrie de psychiatrie à l’Hôpital de Nantes.</p>
+
+<p style="background-color: #fefb01"><strong>BREST </strong></p>
+<p><strong>Surprise routière sur Facebook</strong></p>
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Image2.jpg	" /></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>PAYS DE VILAINE</strong></p>
+<p>L’antenne locale de l'Association des citoyens contre les déserts médicaux, des Pays de Vilaine :</p>
+<p>Nous sommes énormément mobilisés pour la défense de l'hôpital local.</p>
+<p>Nous envisageons de constituer un comité local de la coordination nationale des comités de défense des hôpitaux et des maternités de proximité, mais nous n'avons pas encore eu le temps sur le <span>dos</span>sier administratif nécessaire.</p>
+<p><strong>Nous avons organisé plusieurs manifestations au cours du printemps, mais l'ARS n'a pas modifié son projet de construction d'un mini hôpital,</strong> et les élus commencent à vouloir accepter le projet de l'ARS (construire un mini bâtiment de 6000 mètres carrés et 116 lits au lieu de 134 actuellement) car ils craignent de ne pas pouvoir obtenir plus d'argent dans un contexte de coupes budgétaires massives dans le secteur de la santé...</p>
+<p>De notre côté nous sommes farouchement opposés à toute réduction du nombre de lits. L'ARS propose notamment de basculer d'une maternité de 15 lits par une maternité de 10 lits.</p>
+<p style="font-size: large; font-weight: bold">Association Loisirs et Solidarité des Retraités</p>
+<div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Image4.jpg" />
+</div>
+<div class="divText">
+<p>L'association Loisirs et Solidarité des Retraités organisait deux  semaines de rencontre sur le thème du droit à la santé.</p>
+<p>Elle a invité La Coordination Nationale pour faire connaître ses positions et propositions.</p>
+<p>La première semaine Edith Pot représentait la Coordination ; la deuxième semaine Jean Luc Landas était présent.</p>
+<p>Un riche débat a eu lieu, des pétitions contre les franchises médicales ont été signées et tout le monde s'est donné rendez vous le 1er Octobre pour réclamer un PLFSS  2025 à la hauteur des besoins.</p>
+<p>Joseph Maatouk</p>
+</div></div>
+<p style="background-color: #fc0000; color: #F7F7F7"><strong>VERNON - EURE</strong></p>
+<p>Travaux de modernisation et de restructuration , l’ARS et hôpital de l'Eure lance les grandes manœuvres</p>
+
+<p class="rubrique"><span style="sisplay:none"Dossiers :</span>Documents Juridiques ou utiles</p>
+
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Image1.jpg" /></p>
+<p class="titre-dossiers"><strong>Soins psychiques : les soignants à l'oeuvre</strong></p>
+<p>Numéro 131 - Revue trimestrielle</p>
+<p>Avec la participation de <a href="https://www.editions-eres.com/nos-auteurs/151154/albufera-altimari-karen" target="_blank">Karen ALBUFERA ALTIMARI</a>, <a href="https://www.editions-eres.com/nos-auteurs/64990/ambroise-pascale" target="_blank">Pascale AMBROISE</a>, <a href="https://www.editions-eres.com/nos-auteurs/151155/bock-cyrille" target="_blank">Cyrille BOCK</a>, <a href="https://www.editions-eres.com/nos-auteurs/96122/boulanger-sindy" target="_blank">Sindy BOULANGER</a></p>
+<p class="titre-dossiers"><strong>FINANCIARISATION DE L’OFFRE DE SOINS : UNE OPA SUR LA SANTÉ ?</strong></p>
+<p>Un rapport de la commission des affaires sociales du Sénat.</p>
+<p>Récemment entrée dans le débat public, la financiarisation de l’offre de soins demeure mal appréhendée et insuffisamment régulée par les autorités sanitaires, malgré les transformations de l’offre qu’elle induit.</p>
+<p>Au terme de neuf mois de travaux, la commission des affaires sociales formule 18 propositions visant à mieux maîtriser le phénomène, à limiter ses conséquences indésirables et à protéger l’indépendance des professionnels de santé</p>
+<p align=center><a href="https://www.senat.fr/fileadmin/Presse/Documents_pdf/20240925_Essentiel_financiarisation.pdf">https://www.senat.fr/fileadmin/Presse/Documents_pdf/20240925_Essentiel_financiarisation.pdf</a></p>
+<p class="titre-dossiers"><strong>Pour des services publics répondant aux besoins de la population mobilisons nous le 1<sup>er</sup> octobre !</strong></p>
+<p>Alors que les services publics apportent du soin, du lien et de la sécurité à la population nous avons assisté, au cours des dernières décennies, à un vaste mouvement continu de fermetures et de réductions d'accès des services publics, prioritairement au sein du monde rural et des quartiers populaires sans que le développement de l'administration en ligne ne compense ce manque surtout quand il s'agit de services publics de proximité du quotidien.</p>
+<p>Pour la Convergence nationale des collectifs de défense et de développement des services publics il est urgent de mettre fin à cette politique de casse que le nouveau gouvernement Barnier entend poursuivre. Il faut répondre aux besoins de services publics pour les populations, notamment les plus modestes.</p>
+<p>C'est pourquoi nous réaffirmons nos exigences :</p>
+<ul>
+<li>l'arrêt des fermetures de services publics et l'abandon des politiques qui conduisent aux dégradations dans ces services publics</li>
+<li>le développement des services publics et de la protection sociale</li>
+<li><strong>l'ouverture d'un grand débat national sur l'avenir et les moyens affectés aux services publics existants et la création de services publics du logement, de l'eau et du médicament, notamment.</strong></li>
+</ul>
+<p>En ce sens nous appelons chacune et chacun à se mobiliser au sein de ses collectifs et à participer aux différentes initiatives proposées par les organisations syndicales partout en France le 1</span><sup><span lang="fr-FR">er</span></sup><span lang="fr-FR">octobre.</p>
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Image3.png" /></p>
+<p align=center><strong>Site <a href="http://www.convergence-sp.fr/" target="_blank">www.convergence-sp.fr/</a></strong></p>
+<p class="titre-dossiers"><strong>DÉSERTS MÉDICAUX : Questionnaire préparatoire à Audition Sénat 17 septembre 2024</strong></p>
+<p>Réponses AnneORTH (Charente) Claudine LE BARBIER(Dordogne) à l’audition.ACCDM (Association des Citoyens Contre les Déserts Médicaux)</p>
+<p align=center><a href="https://webmail.coordination-defense-sante.org/cpsess3627260811/3rdparty/roundcube/?_task=mail&amp;_action=get&amp;_mbox=INBOX.Bulletin&amp;_uid=1083&amp;_token=aCOlJLfnkVqHwixbmgEYuXaCS1u9BfKL&amp;_part=4">Sénat version 5 sept.docx(~62 ko)</a></p>
+<div class="CN-block" style="margin-block-start:1em; text-align:center">
+<p class="titre-dossiers" style="font-size: large"><em><strong>« Santé Mentale Grande Cause Nationale 2025 »</strong></em></p>
+<p class="titre-dossiers"><strong>Pour un soutien fort aux soins psychiatriques de proximité.</strong></p>
+</div>
+<p>La Santé mentale comme grande cause nationale 2025, annoncée par le Premier Ministre ce 22 septembre, ne peut que réjouir les acteurs de terrain que nous sommes.</p>
+<p>Toutefois nous souhaitons que la dimension des soins psychiatriques ne soit pas oubliée dans le cadre de cette grande priorité nationale. En effet la situation des établissements publics autorisés en psychiatrie ne fait que se dégrader depuis la crise COVID en lien avec des problèmes de démographie médicale et soignante sans précédents.</p>
+<p>Nous rappelons à ce propos les deux axes majeurs que nous avons identifiés :</p>
+<p>1/ Offrir à tous un accès à des soins de proximité de façon aussi égale et équitable que possible ce qui implique d’améliorer l’accès aux Centres Médico-Psychologiques ainsi que la gestion des soins non programmés et l’articulation avec les services d’urgence tant pour la psychiatrie adulte que pour la psychiatrie de l’enfant et de l’adolescent.</p>
+<p>2/ Mettre l'accent sur les soins pour les adultes et les mineurs les plus fragiles et présentant les troubles les plus sévères afin d’éviter les ruptures de soins.</p>
+<p>Cela implique le renforcement des moyens humains pour l’ensemble des services de psychiatrie sectorisés en diversifiant les professionnels qui y travaillent et en ayant une véritable réflexion sur l’attractivité de notre discipline et plus généralement celle de l’hôpital public.</p>
+<p>C’est pourquoi nous souhaitons pouvoir rapidement rencontrer Mme Darrieussecq, Ministre de la Santé, afin de lui présenter notre analyse de la situation et nos proposition</p>
+<p>Paris, le 25 septembre 2024</p>
+<p>COMMUNIQUE DE PRESSE de 17 associations professionnelles de la psychiatrie</p>
+<p align=center><a href="https://coordination-defense-sante.org/cp-sante-mentale-grande-cause-nationale-2025-vdef-24092024/" target="_blank">https://coordination-defense-sante.org/cp-sante-mentale-grande-cause-nationale-2025-vdef-24092024/</a></p>
+
+<p class="rubrique">Culture et santé&#8239;:</p>
+
+<p><em><strong>À écouter</strong></em></p>
+<p style="font-size: large; font-weight: bold">Menaces sur l’AME</p>
+<p align=center><a href="https://www.francetvinfo.fr/sante/vrai-ou-faux-supprimer-l-ame-entrainera-t-il-un-risque-sanitaire_6807178.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=video&amp;at_offre=3&amp;at_variant=V3&amp;at_send_date=20240928&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1012136">https://www.francetvinfo.fr/sante/vrai-ou-faux-supprimer-l-ame-entrainera-t-il-un-risque-sanitaire_6807178.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=video&amp;at_offre=3&amp;at_variant=V3&amp;at_send_date=20240928&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1012136</a></p>
+<p><strong>L’installation des médecins</strong></p>
+<p align=center><a href="https://www.radiofrance.fr/franceculture/podcasts/le-billet-politique">https://www.radiofrance.fr/franceculture/podcasts/le-billet-politique</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+    );
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

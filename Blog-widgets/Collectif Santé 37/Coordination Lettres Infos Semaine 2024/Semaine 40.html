@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2024 semaines 20</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Une analyse importante du rapport du Conseil de l'Ordre des Médecins&#8239;: merci à notre ami Vincent Carlier</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 40</li>
+<li>Dates: Du 30 septembre au 06 octobre 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Infos-semaine-40-du-30-septembre-au-6-octobre-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito&#8239;: </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p><strong>Une analyse importante du rapport du Conseil de l'Ordre des Médecins&#8239;: merci à notre ami Vincent Carlier</strong></p>
+<p><strong>Je viens de lire avec attention le document dont les médias se font l'écho.</strong></p>
+<p>C'est un doc fort intéressant pour chaque comité qui trouvera les infos de son département, sa région et pourra faire des comparatifs, des analyses d'évolution ... </p>
+<p>Plus généralement, le diable se cache dans quelques détails.</p>
+<ol>
+<li>Il y a une légère augmentation certes mais ... Elle est due à une forte augmentation des médecins à diplômes étrangers UE ( Roumanie en majorité) et hors UE. Cela montre que notre université n'est toujours pas en capacité de former le nombre suffisant d'entrants pour compenser les sortants. Cela montre aussi que l'on continue de "pomper" des médecins à des pays qui en ont aussi besoin. Elle est aussi due à l'augmentation des retraités actifs qui travaillent de plus en plus vieux. </p>
+</li>
+<li>Les disparités géographiques sont énormes et certains départements cumulent les difficultés (c'est le cas du nôtre le 47) alors que d'autres n'en ont pas. L'étude ne montre pas les disparités départementales, on sait qu'elles existent (c'est le cas du 64 par exemple). C'est la limite et aussi le biais de l'étude.</p>
+</li>
+<li>Certaines spécialités sont sinistrées (gynécologie) et la médecine générale est aussi en recul. Le nombre d'urgentistes augmente mais l'observation montre que c'est insuffisant au regard de la médecine d'urgence qui pallie au manque ... de médecins de premier recours.</p>
+</li>
+<li>La médecine salariée augmente et se féminise. Cela implique de nouvelles pratiques. De fait, cela entraîne moins de consultations par médecin ce qui arithmétiquement accroît la pénurie.</p>
+</li>
+<li>Le vieillissement de la population entraîne davantage de soins. Globalement, cela nécessite davantage de soignants. Certains départements se retrouvent avec un cumul défavorable. </p>
+</li>
+<li>Enfin, la question de l'éloignement des soins de premier recours n'est pas abordée ce qui selon les situations locales est un vrai problème</p>
+</li>
+</ol>
+<p>En conclusion, les macronistes béats comme l'horrible SEU de France Inter se félicitent. Les journalistes sérieux sont bien plus nuancés. </p>
+<p>Nous, acteurs de terrain savons que la situation ne s'arrange pas et que l'augmentation famélique du nombre d'étudiants prolonge l'état de crise dans lequel nous sommes. Cette étude apporte de nombreux arguments à tous les étages de notre lutte pour l'accès aux soins pour toutes et tous, partout, et à toute heure. . </p>
+<p align=center><a href="https://www.conseil-national.medecin.fr/sites/default/files/external-package/analyse_etude/nn4fmo/cnom_atlas_demographie_2024_-_tome_1.pdf" target="_blank">https://www.conseil-national.medecin.fr/sites/default/files/external-package/analyse_etude/nn4fmo/cnom_atlas_demographie_2024_-_tome_1.pdf</a></p>
+<!--p style="margin: 1em; text-align: right; font-style: italic">Joseph Maatouk.</p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques&#8239;: </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+<p><strong>La Coordination Nationale fait la Fête&#8239;! </strong></p>
+<p><strong>Beaucoup de rencontres , d’échanges, de participation à des débats sur d’autres stands et de signatures de pétition contre les restes à charge </strong></p>
+<p><a href="https://coordination-defense-sante.org/2024/09/la-coordination-nationale-a-la-fete-de-lhumanite-2/"><strong>Le reportage</strong></a><br /></p>
+</div-->
+
+<div>
+<p>Sommaire&#8239;:</p>
+</div>
+
+<!--style>
+.CN-block {
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.CN-block p {
+  margin: 0;
+}
+.leaflet-popup-content-wrapper img {
+  max-width: 240px !important;
+}
+</style-->
+
+<p class="rubrique écho_des_comités">L’écho des comités&#8239;:</p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MONTARGIS</strong></p>
+<p><strong>Les luttes pour la santé seront sur le devant de la scène à Chalette-sur-Loing les  11, 12 et 13 octobre, avec la tenue des 36èmes Rencontres nationales de la Coordination.</strong></p>
+
+<div class="VignetteBR center" style="align-items: center;">
+<div class="divImg" style="max-width: 80%;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Image1.jpg" />
+<p style="font-style: italic">Les membres du Collectif montargois "Notre santé, notre hôpital on y tient"  sont mobilisés, avec le soutien de la région Centre Val-de-Loire et des collectivités locales, pour faire de ces journées anniversaires, un carrefour d'expression et de revendication  citoyenne, politique, syndicale, mutualiste et associative. </p>
+</div></div>
+<p>Construire et agir ensemble pour que l'accès aux soins devienne effectif pour toutes et tous, grâce à un service public de santé rénové et renforcé.</p>
+<p>Notre comité appelle la population chalettoise et les habitants de l'agglomération montargoise à venir en nombre à la réunion publique qui ouvrira ces Rencontres, le vendredi 11 octobre à 18h au Centre culturel du Hangar 5 rue de la Forêt. </p>
+<p>Le débat public portera sur le thème : Quelle formation des soignants pour répondre aux besoins des usagers "</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SARLAT</strong></p>
+<p align=center><strong>Ce que vivent les femmes enceintes et les pères quand les maternités sont soumises aux fermetures&#8239;!</strong></p>
+<p align=center><a href="https://www.france24.com/fr/%C3%A9missions/c-est-en-france/20240924-fermera-fermera-pas-les-maternit%C3%A9s-de-proximit%C3%A9-en-danger?" target="_blank"><u>https://www.france24.com/fr/%C3%A9missions/c-est-en-france/20240924-fermera-fermera-pas-les-maternit%C3%A9s-de-proximit%C3%A9-en-danger?</u></a></p>
+<p align=center><a href="https://www.facebook.com/profile.php?id=100069695974271" target="_blank"><u>https://www.facebook.com/profile.php?id=100069695974271</u></a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LUÇON</strong></p>
+<div style="text-align: center">
+<p><strong>VIGILANCE à l’hôpital de Luçon&#8239;!</strong></p>
+<p><strong>Nous exigeons le MAINTIEN des URGENCES et du SMUR 24H/24 et 7J/7</strong></p>
+<p><strong>Bien sûr on continue, bien sûr on ne lâche rien&#8239;!</strong></p>
+<p><strong>L’accès aux soins pour toutes et tous sur tout le territoire est un droit fondamental.</strong></p>
+<p><strong>Restons mobilisés&#8239;!</strong></p>
+<p><strong>ATTENTION&#8239;: Prochains rendez-vous&#8239;: VENDREDI 4 et VENDREDI 11 OCTOBRE 2024 18H </strong>devant les Urgences</p>
+<p><strong>Les jours diminuent mais pas notre motivation.</strong></p>
+<p><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/lucon-218x300.jpg" alt="" width="218" height="300" name="images3" border="0" /></p>
+</div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>REMIREMONT</strong></p>
+<div style="text-align: center">
+<p><strong>Manifestation DIMANCHE 13 octobre à 10h15</strong></p>
+<p><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/remiremont-300x209.jpg" alt="" width="353" height="296" name="images5" border="0" /></p>
+<p align=center><a href="https://coordination-defense-sante.org/a-la-une-2/remiremont-4/">https://coordination-defense-sante.org/a-la-une-2/</a><a href="https://coordination-defense-sante.org/a-la-une-2/remiremont-4/"><strong>remiremont-4</strong>/</a></p>
+</div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CARHAIX</strong></p>
+<div style="text-align: center">
+<p><strong>Le comité appelle à une manifestation le 12 octobre pour défendre les hôpitaux en Bretagne&#8239;!</strong></p>
+<p><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Visuel-Carhaix-12-10-24.jpg" alt="" width="176" height="227" name="images4" border="0" /></p>
+<p align=center><a href="https://www.letelegramme.fr/finistere/landerneau-29800/le-comite-de-defense-de-lhopital-de-landerneau-appelle-a-manifester-le-12-octobre-a-carhaix-6674730.php" target="_blank"><u>https://www.letelegramme.fr/finistere/landerneau-29800/le-comite-de-defense-de-lhopital-de-landerneau-appelle-a-manifester-le-12-octobre-a-carhaix-6674730.php</u></a></p>
+</div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LODÈVE</strong></p>
+<p align=center><strong>ASSISES DE LA SANTÉ le samedi 12 octobre 2024 à 13h30 à la salle Marie-Christine Bousquet, 1 place Francis Morand à Lodève(34).</strong></p>
+<p>3 tables rondes sur les thèmes suivants&#8239;:</p>
+<div style="text-align: center">
+<p><strong>- Quels axes d'amélioration de l'offre de soins en Lodévois et Larzac ?</strong></p>
+<p><strong>- Évolution des services d'urgence publique : quelles propositions pour les territoires ruraux ?</strong></p>
+<p><strong>- Système de santé et de protection sociale en France : forces et perspectives</strong></p>
+</div>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LONS LE SAUNIER</strong></p>
+<div style="text-align: center">
+<p><strong>Alternative Mutualiste et Mutuelle de France unie ont appelé à un rassemblement </strong></p>
+<p><strong>le 1er octobre pour sauver l'Hôpital Public</strong></p>
+<p><strong>À Lons 4 services chirurgies ont été fermés en 10 ans</strong></p>
+<p><strong>c'est 120 lits en moins&#8239;!</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/lons-le-saulnier/">Sur le site de la Coordination</a></p>
+</div>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>La psychiatrie en France</strong></p>
+<p align=center><a href="https://cahiersdesante.fr/editions/50-septembre-2024/resume-psychiatrie/" target="_blank"><u>https://cahiersdesante.fr/editions/50-septembre-2024/resume-psychiatrie/</u></a></p>
+<p><strong>Croix Rouge&#8239;: après la fermeture de centres de santé, la psychiatrie menacée. Les professionnels en lutte s'inquiètent&#8239;!</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/tract-de-la-greve-cmpp-bapu-crf/">https://coordination-defense-sante.org/tract-de-la-greve-cmpp-bapu-crf/</a></p>
+<p><strong>Les cahiers de santé analysent la situation, notamment dans le domaine des soins de 1er recours</strong></p>
+<p align=center><a href="http://r.email.gabrielperi.fr/mk/cl/f/sh/1t6Af4OiGsE8LR3Z0ajWykPXuh0S1K/B-nitKUTZetf" target="_blank"><u>https://cahiersdesante.fr/</u></a></p>
+
+<p class="rubrique">Culture et santé&#8239;:</p>
+
+<p align=center><strong>Si Dominique Seux vous le dit&#8239;!</strong></p>
+<p align=center><a href="https://www.radiofrance.fr/franceinter/podcasts/l-edito-eco/l-edito-eco-du-jeudi-03-octobre-2024-9385976#https://www.radiofrance.fr/franceinter/podcasts/l-edito-eco/l-edito-eco-du-jeudi-03-octobre-2024-9385976">#https://www.radiofrance.fr/franceinter/podcasts/l-edito-eco/l-edito-eco-du-jeudi-03-octobre-2024-9385976</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+    );
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

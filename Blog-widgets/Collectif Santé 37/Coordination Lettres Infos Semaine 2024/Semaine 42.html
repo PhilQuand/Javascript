@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2024 semaines 20</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>La Coordination a fêté le week-end dernier ces vingt ans d’existence au cours de rencontres nationales toujours aussi riches, joyeuses, formatrices, force de propositions et de mobilisations</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 42</li>
+<li>Dates: Du 14 au 20 octobre 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Infos-semaine-42-du-14-au-20-octobre-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito&#8239;: </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>La Coordination a fêté le week-end dernier ces vingt ans d’existence au cours de rencontres nationales toujours aussi riches, joyeuses, formatrices, force de propositions et de mobilisations. Vous pouvez trouver <a href="https://coordination-defense-sante.org/wp-content/uploads/2023/06/PLAQUETTE_20ANS_COORDINATION_def-2_compressed-1.pdf">la plaquette anniversaire des 20 ans</a> sur le site,qui s’enrichit aussi au fur et à mesure de leur mise en forme des compte-rendus, photos et vidéos de ces rencontres (<a href="https://coordination-defense-sante.org/2024/06/les-36emes-rencontres-nationales-de-la-coordination/">à retrouver ici</a>). Bravo au Collectif Montargois « Notre hôpital, notre santé on y tient » pour la qualité de l’accueil et merci à la région, la communauté d’agglomération et la mairie de Chalette sur Loing pour leur soutien.</p>
+<p>Des rencontres joyeuses, mais du pain sur la planche ! Le 29 octobre, au début du débat sur le PLFSS (Projet de loi de Financement de la Sécurité Sociale) à l’Assemblée Nationale, les organisations syndicales de la santé appellent à mobilisation pour défendre une prise en charge de qualité, accessible dans la proximité pour toute la population. Une <a href="https://www.change.org/p/sauvons-l-hopital-public-et-notre-systeme-de-sant%C3%A9-et-d-action-sociale?redirect_reason=guest_user">pétition</a> est lancée également : n’hésitez pas à la signer ! La Coordination appelle à un soutien actif ! Le projet gouvernemental veut en effet essorer encore davantage les hôpitaux. L’augmentation des dotations prévues aux hôpitaux (l’ONDAM ou objectif national des dépenses d’assurance maladie) devient nulle une fois retirée diverses mesures décidées ces derniers mois et l’augmentation des cotisations retraite des personnels ! Alors qu’il faudrait 6 à 10 % d’augmentation.</p>
+<p>Et l’hôpital ne résume pas le PLFSS ! Haro sur les malades avec l’augmentation du ticket modérateur des consultations médicales, une stupide paperasserie demandée aux médecins pour tenter de limiter le remboursement des transports sanitaires. Quel étonnement que cela augmente, avec la fermeture de site de proximité, le tout ambulatoire amenant des patients à des allers et retours multiples vers l’hôpital ! C’est aussi une atteinte aux indemnités journalières en cas d’arrêt de travail.</p>
+<p>Le gouvernement n’a qu’un mot à la bouche : la réduction des dépenses ! Et si on augmentait les cotisations, en appliquant aussi le principe de la Sécurité Sociale aux employeurs : « à chacun selon ses moyens », en augmentant les cotisations de ceux qui font le plus de profits ?</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Michèle Leflon.</p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques&#8239;: </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+<p><strong>La Coordination Nationale fait la Fête&#8239;! </strong></p>
+<p><strong>Beaucoup de rencontres , d’échanges, de participation à des débats sur d’autres stands et de signatures de pétition contre les restes à charge </strong></p>
+<p><a href="https://coordination-defense-sante.org/2024/09/la-coordination-nationale-a-la-fete-de-lhumanite-2/"><strong>Le reportage</strong></a><br /></p>
+</div-->
+
+<div>
+<p>Sommaire&#8239;:</p>
+</div>
+
+<!--style>
+.CN-block {
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.CN-block p {
+  margin: 0;
+}
+.leaflet-popup-content-wrapper img {
+  max-width: 240px !important;
+}
+</style-->
+
+<p class="rubrique écho_des_comités">L’écho des comités&#8239;:</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>REMIREMONT - 88</strong></p>
+<p align=center><strong>Manifestation du 13 octobre</strong></p>
+<p align=center><a href="https://youtu.be/Ep24FwBWFi0?si=-0eL6ZSNRfk2yxxq">Vidéo de la manifestation par Vosges Info</a></p>
+<p align=center><a href="https://youtu.be/e-TKGP3TSwY?si=LZgRv2mJBNOb_Fl6">Vidéo de France 3</a></p>
+
+<p style="background-color: #e37b22; color: #F7F7F7"><strong>DECIZE - 89</strong></p>
+<p align=center><strong>D’autres maires suivent l’exemple de la maire de Decize</strong></p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/bourgogne-franche-comte/nievre/une-maire-interdit-a-ses-concitoyens-de-tomber-malades-je-me-moque-des-gens-qui-se-moquent-de-nous-3044368.html">L’article de France 3 du 14 octobre</a></p>
+<p align=center>Et l’initiative est relayée ailleurs en France dans la presse régionale&#8239;!</p>
+<p align=center><a href="https://www.ladepeche.fr/2024/10/16/deserts-medicaux-une-maire-de-la-nievre-interdit-aux-habitants-de-sa-commune-de-tomber-malade-12264095.php">L’article de la Dépêche du 16 octobre</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MARMANDE - 47</strong></p>
+<p align=center><strong>Il y a urgence sur la santé</strong></p>
+<p align=center><a href="https://actu.fr/nouvelle-aquitaine/marmande_47157/il-y-a-urgence-sur-la-sante-alerte-un-collectif-a-lhopital-de-marmande_61726040.html">Le Républicain à la rencontre du comité de défense</a></p>
+
+<p style="background-color: #e37b22; color: #F7F7F7"><strong>SARLAT - 24</strong></p>
+<p align=center><strong>Retour sur la venue du directeur de l’ARS à Sarlat</strong></p>
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Image1-1.jpg" /></p>
+<p align=center><a href="https://www.francebleu.fr/infos/sante-sciences/le-directeur-de-l-agence-regionale-de-sante-attendu-a-l-hopital-de-sarlat-9709565">L’article de France Bleu du 3 octobre</a></p>
+<p align=center><strong>La maternité ne rouvrira pas ce lundi 21</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/10/sarlat-la-maternite-ne-rouvrira-pas-lundi-21/">Le communiqué</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DOLE - 39</strong></p>
+<p align=center><strong>Point de rencontre le 2 novembre</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/10/dole-point-de-rencontre-samedi-2-novembre/">L’info flash</a></p>
+
+<p style="background-color: #e37b22; color: #F7F7F7"><strong>NANTES - 44</strong></p>
+<p align=center><strong>La situation s'aggrave à l'établissement psychiatrique de Loire-Atlantique nord (EPSYLAN)</strong></p>
+<p>Cet établissement couvre 55% du territoire de Loire-Atlantique soit environ 365000 habitants. Selon le Président du Conseil de surveillance et le directeur de l' établissement, suite à des départs des arrêts maladie des lits d'hospitalisation ont été fermés réduisant la capacité d'accueil de 74 à 20 lits ce qui ne permet pas de faire face aux besoins. Actuellement seuls y exercent 6 équivalents temps plein au lieu des 19 nécessaires ! Une partie des patients sont pris en charge par le CHU de Nantes et le centre hospitalier Daumezon mais ceci ne couvrent pas l'ensemble des besoins. Il est à craindre en l'absence de recrutement de nouveaux praticiens que la dernière unité d'hospitalisation ferme et que seule subsiste l'activité ambulatoire. Le Premier ministre a annoncé que la santé mentale serait grande cause nationale en 2025 : on croise les doigts ! </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MANOSQUE - 04</strong></p>
+<p align=center><strong>La fièvre monte dans les Alpes de Haute Provence</strong></p>
+<p>Le "Collectif Santé Haute Provence" et la "Convergence Urgence Santé Sud 04" ont décidé d'élargir leur périmètre d'intervention et d'action à l’ensemble du Département des Alpes de Haute Provence ainsi qu'aux 7 Communes du Haut-Var de la "Communauté de Communes Provence Verdon" (qui sont sur le Bassin de Santé du CH Manosque).</p>
+<p>Une conférence de presse a été tenue le 2 octobre pour populariser l’action de la maire de Dignes et les collectifs étaient présents&#8239;:</p>
+<ul>
+<li>Lors de la manifestation du lundi 14 octobre devant l'ARS-Paca à Marseille (à l'initiative de l'Intersyndicale - CGT, CFDT, FO, CFTC, CGC, FSU, Sud, Solidaires, .... des RETRAITÉS du 13)</li>
+<li>Lors du congrès des maires à Manosque, avec un excellent accueil de la plupart des maires</li>
+</ul>
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Image7.jpg" /></p>
+<p align=center><a href="https://alpesdusud.alpes1.com/news/alpes-de-haute-provence/104852/convergence-urgence-sante-enjoint-les-maires-bas-alpins-a-mettre-en-demeure-l-etat">L’article de Alpes 1</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Alerte-aux-Populations-Votre-vie-est-en-danger-24-10-02-Definitif.pdf">Alerte aux Populations - Votre vie est en danger</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Lettre-Ouverte-Maires-04-Haut-Var-24-10-02-Definitif.pdf">La lettre Ouverte Maires 04 &amp; Haut-Var</a></p>
+<p align=center><a href="http://chng.it/ZyMrBWvxVt">La pétition</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/10/manosque-en-action/">Plus d’informations sur le site de la Coordination</a></p>
+
+<p style="background-color: #e37b22; color: #F7F7F7"><strong>DRAGUIGNAN - 83</strong></p>
+<p align=center><strong>Le collectif relance l’action</strong></p>
+<p>Suite à la nouvelle du 7 octobre, les urgences du CHD sont refermées les nuits des lundi, mardi, mercredi et jeudi. Un 1er rassemblement a eu lieu vendredi dernier le 11 octobre devant les urgences.</p>
+<p>Ce vendredi 18 octobre, nouveau rassemblement à 18h30 devant les urgences du CHD à l'initiative du collectif urgence aux urgences</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LODÈVE - 34</strong></p>
+<p align=center><strong>Des assises de la santé très suivies</strong></p>
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Image5.jpg" /></p>
+<p>L'Association Pour de Véritables Urgences à l'Hôpital organisait des assises le samedi 12 octobre</p>
+<p align=center><a href="https://www.midilibre.fr/2024/10/14/sante-des-assises-tres-suivies-pour-faire-entendre-la-voix-de-lodeve-et-du-lodevois-12258936.php">L’article du Midi Libre du 14 octobre</a></p>
+
+<p style="background-color: #e37b22; color: #F7F7F7"><strong>BAGNÈRES DE BIGORRE - 65</strong></p>
+<p align=center><strong>Des urgences ouvertes aléatoirement et un projet d'imagerie privé très contestable</strong></p>
+<p>La direction de l'hôpital de Bagnères de Bigorre avec l'ARS a mis en place un fonctionnement aux urgences très insatisfaisant. Le service des urgences de Bagnères s 'est soldé cet été par près de 90 % environ de fonctionnement sans présence de Médecins Urgentistes laissant le service qu'avec des infirmières ne pouvant réaliser que des prises en charge très limitées.</p>
+<p>De plus, il y a un projet d’imagerie privée à Pouzac, très contestable</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/communique%CC%81-1024.pdf">Le communiqué en pdf</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Motion-du-conseil-communautaire-pour-lho%CC%82pital-de-Bagne%CC%80res.pdf">Motion du conseil communautaire pour l'hôpital de Bagnères</a></p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/sante-lhopital-de-bagneres-de-bigorre-en-danger-lassociation-sauvons-lhopital-b2b-tire-la-sonnette-dalarme/?fbclid=IwY2xjawGAdXJleHRuA2FlbQIxMQABHS5EYiskMoGwOc91BlkRn2wEdjh7MfSxNmELcIjgJRmhKVjoGXD7Sz-9Mg_aem_4Ubpt40rPDezBVg-SA1E9Q">L’article de La semaine des Pyrénées du 19 octobre</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>VOIRON - 38</strong></p>
+<p align=center><strong>Mobilisation contre la fermeture des urgences</strong></p>
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/Image3.jpg" /></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/TRACT-ROND-POINT-V5.pdf">Le tract </a></p>
+
+<p class="rubrique">Autres infos locales&#8239;:</p>
+
+<p style="background-color: #e37b22; color: #F7F7F7"><strong>MEULAN LES MUREAUX - 78</strong></p>
+<p align=center><strong>Une pétition pour sauver l’hôpital</strong></p>
+<p align=center><a href="https://www.mesopinions.com/petition/sante/sauvons-hopital-meulan-mureaux/234743">Le lien</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CARHAIX - 29</strong></p>
+<p align=center><strong>La manifestation du 12 octobre a réunit des milliers de personnes</strong></p>
+<p align=center><a href="https://youtu.be/WfaLrHaXl9U?si=tvqEAnNQlR_d2taY">La vidéo de la manif par un ami brestois</a></p>
+<p align=center><a href="https://www.lefigaro.fr/conjoncture/a-carhaix-des-milliers-de-personnes-manifestent-contre-la-regulation-des-urgences-la-nuit-20241012?fbclid=IwY2xjawF8fglleHRuA2FlbQIxMQABHe6EVTopgkLmwtFvrMKDhFrcYqLeHZcoASW_9HeP0Ihp6UvSQVYSzhCANg_aem_HkMs5KpLURQ5tm5upIo4ZQ">L’article du Figaro</a></p>
+<p align=center><a href="https://www.lepoher.fr/melanie-thomin-depute-reaction-protocole-hopital-carhaix-urgence-sante/?fbclid=IwY2xjawF-LnVleHRuA2FlbQIxMQABHQeqOH3M0kbVTRmCa4ZsLbHmRFmmvgtFXCj1jxNBvtGbdEYGFs-U5NsMag_aem_j1JFosFk_etw_r4jQ2CE-g">Mélanie Thomin dénonce un “risque avéré d’abandon des urgences de Carhaix” </a></p>
+<p align=center><a href="https://www.lepoher.fr/urgences-hopital-de-carhaix-chru-brest-carhaix-christian-troadec-comite-de-suivi/">Urgences de Carhaix : des pistes mais pas d’avancées</a></p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/bretagne/finistere/quimper/urgences-de-carhaix-la-reunion-s-acheve-sur-un-nouveau-constat-d-echec-3046453.html">La réunion s’achève sur un nouveau constat d’échec</a></p>
+
+<p style="background-color: #e37b22; color: #F7F7F7"><strong>VAISON LA ROMAINE - 84</strong></p>
+<p align=center><strong>Le centre médico-psychologique pour enfants et adolescents de Vaison-la-Romaine a fermé ses portes</strong></p>
+<p align=center><a href="https://www.laprovence.com/article/sante/1249596543339314/le-centre-medico-psychologique-pour-enfants-et-adolescents-de-vaison-la-romaine-a-ferme-ses-portes">L’article de La Provence du 15 octobre</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CRÉTEIL - 94</strong></p>
+<p align=center><strong>Rencontre citoyenne de la santé</strong></p>
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/462873516_122198196194198443_6729944446218305503_n.jpg" /></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/2024-11-07-Coordination-V2.pdf">Le tract</a></p>
+
+<p style="background-color: #e37b22; color: #F7F7F7"><strong>AVIGNON - 84</strong></p>
+<p align=center><strong>La CGT sonde la population sur l’avenir aux soins</strong></p>
+<p align=center><a href="https://www.laprovence.com/article/sante/3928026549159414/a-lhopital-davignon-la-cgt-sonde-la-population-sur-l-acces-aux-soins">L’article de la Provence du 18 octobre</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>ETAMPES - 91</strong></p>
+<p align=center><strong>Réunion publique sur le système de santé le 24 octobre</strong></p>
+<p align=center>avec la participation de Michel Espinat, administrateur de la Coordination</p>
+<p align=center><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/10/0u0N5iNINQNqIWV1.png" /></p>
+
+<p class="rubrique">Dossiers&#8239;:</p>
+
+<p class="titre-dossiers"><strong>PLFSS</strong></p>
+<p class="titre-rubrique"><strong>La réaction intersyndicale des personnels hospitaliers et du médicosocial</strong></p>
+<p align=center><a href="https://sante.cgt.fr/IMG/pdf/appel_unitaire_29_octobre_2024-2.pdf">Appel à la mobilisation le 29 octobre</a></p>
+<p align=center><a href="https://www.change.org/p/sauvons-l-hopital-public-et-notre-systeme-de-sant%C3%A9-et-d-action-sociale?redirect_reason=guest_user">La pétition</a></p>
+<p class="titre-rubrique"><strong>Majoration du ticket modérateur</strong></p>
+<p>Cette mesure du PLFSS a entraîné de multiples condamnations.</p>
+<p>Les mutuelles ne doivent pas devenir les variables d’ajustement des déséquilibres budgétaires de l’Assurance maladie</p>
+<p align=center><a href="https://www.mutualite.fr/content/uploads/2024/10/241024-cp-tm-consultation.pdf">Communiqué de la Mutualité Française</a></p>
+<p>Majoration du ticket modérateur : la double peine</p>
+<p align=center><a href="https://reagjir.org/majoration-du-ticket-moderateur-la-double-peine/">Le communiqué de REAGJIR</a></p>
+<p>Augmentation du "ticket modérateur" : MG France lance l’alerte</p>
+<p align=center><a href="https://www.mgfrance.org/publication/communiquepresse/3532-augmentation-du-ticket-moderateur-sur-les-consultations">Le communiqué de MG France</a></p>
+<p>La baisse du remboursement des consultations par la Sécu va creuser les inégalités d’accès à la santé, préviennent les experts</p>
+<p align=center><a href="https://www.whatsupdoc-lemag.fr/article/la-baisse-du-remboursement-des-consultations-par-la-secu-va-creuser-les-inegalites-dacces">L’article de What’s up doc&#8239;? du 15 octobre</a></p>
+<p class="titre-rubrique"><strong>Cancer : les Départements de gauche de la région réagissent aux futures coupes budgétaires des Centres des dépistages</strong></p>
+<p align=center><a href="https://www.sudouest.fr/premium/dans-vos-departements/cancer-les-departements-de-gauche-de-la-region-reagissent-aux-futures-coupes-budgetaires-des-centres-des-depistages-21678701.php?fbclid=IwY2xjawF7MOVleHRuA2FlbQIxMQABHUdYi8vFTCvcFFF08z05LyqS96OrkoEutD7hf7_lwRWbEfNyani3AboUtw_aem_U1lMnfvf2Iv-hNSi_PecaA">L’article de Sud-Ouest du 7 octobre</a></p>
+<p class="titre-rubrique"><strong>Pour s’informer sur le PLFSS</strong></p>
+<p>Visioconférence géante sur le le Projet de loi de Finances de la Sécurité Sociale (PLFSS) le vendredi 25 octobre 2024 de 18H à 20H30 organisée par le Réseau Éducation Populaire, l 'Ufal, Alternative mutualiste et divers syndicats de salariés.</p>
+<p>Pour recevoir le lien de connexion, adressez un mail soit à <a href="mailto:bernard.teper@reseaueducationpopulaire.info">bernard.teper@reseaueducationpopulaire.info</a> soit à <a href="mailto:e.balay@mutuelles-entis.fr">e.balay@mutuelles-entis.fr</a></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p class="titre-rubrique"><strong>Santé mentale : grande cause ou grande casse nationale ?</strong></p>
+<p align=center><a href="https://elucid.media/societe/sante-mentale-grande-cause-ou-grande-casse-nationale-roland-gori">Un article de Roland Gori</a></p>
+<p class="titre-rubrique"><strong>Bas les masques</strong></p>
+<p align=center><a href="https://www.uspsy.fr/?p=27113">Le communiqué de l’USP</a></p>
+<p class="titre-dossiers"><strong>INDUSTRIE PHARMACEUTIQUE</strong></p>
+<p class="titre-rubrique"><strong>Réactions à la vente du Doliprane à un fonds américain </strong></p>
+<p align=center><a href="https://www.francetvinfo.fr/sante/medicament/vente-du-doliprane-a-un-fonds-americain-un-enjeu-de-souverainete-estime-guilhem-carayon-vice-president-de-l-union-des-droites-pour-la-republique_6837392.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=video&amp;at_offre=3&amp;at_variant=V3&amp;at_send_date=20241014&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1018794">Un article de France Info du 14/10</a></p>
+<p class="titre-dossiers"><strong>GRAND ÂGE</strong></p>
+<p class="titre-rubrique"><strong>«&#8239;Les vieux méritent mieux&#8239;»</strong></p>
+<p align=center><a href="https://www.fnadepa.com/wp-content/uploads/2024/09/Communique-de-presse-Mobilisation-Grand-age-24-sept-2024.pdf">Communiqué de presse</a></p>
+<p class="titre-rubrique"><strong>Un dossier dans Basta</strong></p>
+<p align=center><a href="https://basta.media/crise-ehpad">Le grand format</a></p>
+<p class="titre-rubrique"><strong>En attendant un véritable service public de l’autonomie</strong></p>
+<p align=center><a href="https://senateurscrce.fr/activite-des-senateurs/la-discussion-et-le-vote-de-la-loi/affaires-sociales/article/85-des-ehpad-publics-sont-actuellement-en-deficit">L’intervention de Cathy Apourceau Poly</a></p>
+<p class="titre-rubrique"><strong>Convention citoyenne "Bien vieillir à Lure et dans les environs"</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/CC-PROPOSITIONS-ETE2024.doc">Les propositions</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/10/CONVENTION-PRESENTATION-FINALE2024-SIMPLIFIEE.pdf">Présentation</a></p>
+<p class="titre-dossiers"><strong>FINANCIARISATION DE LA SANTÉ </strong></p>
+<p class="titre-rubrique"><strong>Un rapport du Sénat</strong></p>
+<p>En ouvrant le lien, on peut ouvrir le lien vers le rapport complet ou «&#8239;l'essentiel&#8239;» du rapport de la commission sénatorial  présenté le 24 septembre 2024.</p>
+<p>Loin d'être rédigé par de dangereux gauchistes, on y retrouve nos préoccupations et les 18 propositions recoupent certaines des nôtres.</p>
+<p>Si on regarde de près la biologie médicale, les dérives se voient déjà sur le terrain avec l'impossibilité d'avoir des analyses après 12h, la pression mise par des groupes puissants sur la CNAM  (peudo grève récente) mais aussi sur les organisations territoriales ...</p>
+<p>On partage aussi les craintes sur l'abandon de territoires non «&#8239;lucratifs&#8239;» ou de soins non lucratifs laissés à l'hôpital public.</p>
+<p align=center><a href="https://www.senat.fr/travaux-parlementaires/commissions/commission-des-affaires-sociales/financiarisation-du-systeme-de-sante.html">Sur le site du Sénat</a></p>
+<p class="titre-dossiers"><strong>NON À LA SUPPRESSION DES SERVICES DU CONTRÔLE MÉDICAL DE L’ASSURANCE MALADIE</strong></p>
+<p>La Caisse Nationale d’Assurance Maladie (CNAM) a le projet de transformer le Service du Contrôle Médical (SCM) de l’Assurance Maladie. Ce projet prévoit l’intégration du SCM au sein des Caisses primaires d’assurance maladie. S’il aboutissait, ce serait une perte d’indépendance médicale au détriment des droits des patients.</p>
+<p align=center><a href="https://www.cgtcnam.fr/wp-content/uploads/2024/10/241010-COURRIERS-INTERSYNDICALE-DEPUTE-SENATEUR-VDEF.pdf">Le courrier adressé par l’intersyndicale de la CNAM aux parlementaires</a></p>
+<p class="titre-dossiers"><strong>DÉMOGRAPHIE MÉDICALE</strong></p>
+<p class="titre-rubrique"><strong>Il faut former plus de médecins et de soignants</strong></p>
+<p align=center><a href="https://senateurscrce.fr/activite-des-senateurs/la-discussion-et-le-vote-de-la-loi/affaires-sociales/article/il-faut-former-plus-de-medecins-et-de-soignants">Intervention au Sénat de Céline Brulin, sénatrice communiste de Seine Maritime</a></p>
+<p class="titre-rubrique"><strong>Sur les centres de santé</strong></p>
+<p align=center><a href="https://www.whatsupdoc-lemag.fr/article/si-les-centres-de-sante-perdent-de-largent-cest-quils-sont-mal-geres-ah-bon-tes-sur">Un article de What’s up doc&#8239;? du 16 octobre</a></p>
+<p class="titre-dossiers"><strong>DE NOS PARTENAIRES</strong></p>
+<p class="titre-rubrique"><strong>Convergence Services Publics</strong></p>
+<p align=center><a href="https://www.convergence-sp.fr/wp-content/uploads/2024/10/CSP-LI-2024-10.pdf">La lettre d’octobre de Convergence Services Publics</a></p>
+<p class="titre-rubrique"><strong>La FNCS élit son nouveau conseil d’administration et son nouveau bureau</strong></p>
+<p align=center><a href="https://www.fncs.org/la-fncs-elit-son-nouveau-conseil-d-administration-et-son-nouveau-bureau">Le communiqué</a></p>
+
+<p class="rubrique">Culture et santé&#8239;:</p>
+
+<p class="titre-rubrique"><strong>Droits liberté et justice&#8239;: les déclarations du gouvernement Barnie</strong>r</p>
+<p align=center><a href="https://www.ldh-france.org/droits-libertes-et-justice-les-declarations-du-gouvernement-barnier/">Le podcast de la LDH</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>«&#8239;Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a>&#8239;»</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+    );
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

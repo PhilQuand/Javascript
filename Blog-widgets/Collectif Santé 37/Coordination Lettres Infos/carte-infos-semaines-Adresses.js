@@ -419,4 +419,6 @@ var inpAddress = [
   lat: 48.11788, lng: -1.68141},
 { inpText: "EHPAD ÎLE DE RE",
   lat: 46.20442, lng: -1.52881},
+{ inpText: "HÔPITAL DE BEAUJON",
+  lat: 48.9371, lng: 2.34745},
 ];

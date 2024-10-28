@@ -387,6 +387,8 @@ var inpAddress = [
   lat: 43.11356, lng:  1.612530	},
 { inpText: "EPERNAY",
   lat: 49.04518, lng:  3.9548	},
+{ inpText: "HÔPITAL DE BEAUJON",
+  lat: 48.9371, lng: 2.34745},
 { inpText: "BEAUJON",
   lat: 45.26654, lng:  4.57645	},
 { inpText: "SEINE-SAINT-DENIS",
@@ -419,6 +421,4 @@ var inpAddress = [
   lat: 48.11788, lng: -1.68141},
 { inpText: "EHPAD ÎLE DE RE",
   lat: 46.20442, lng: -1.52881},
-{ inpText: "HÔPITAL DE BEAUJON",
-  lat: 48.9371, lng: 2.34745},
 ];

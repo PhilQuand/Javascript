@@ -828,7 +828,7 @@ $(document).ready(function() {
     //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
     //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
 
@@ -840,13 +840,14 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYtZ5UoiNnMvqvoCDorcT6p8n89nGnkc1UVxB_o-JudBjMtNPxcj8e5Zly0fQiHoBwE1marThTNwZJy9TpZmmztdvXfzUtoaxtTs3QWLLiXSrvNMjcx29Hy_wfYjVoAUqT8S7uRJd3giYqA6s5dq3CZDMucd3Ml6rrIvTcWUvkuMNYar38iosE8c7VyKE/s1600/2024-06-14-Communique%CC%81-0.png",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN4If1sMQiLXfkB-Bf0zsIjaNXd0kIvWxPaFrfxdZsc5knoCzdWac_1nrNOjD2j043qnS6qQSj_87FH5_yT1ntdCjyY46T-cJCwelrJ-x4z7srGfSdP-6tE73Lul-4t861XBbhpYZlesFfIuy2lTZ9Lib5M6osrooAiHBQxFchFxDU4JRRh5sRz0nppy4/s1600/Tract%20TdF%20Plfss%202025%20p1.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
         },
         //fancyClass: "defaultInline",
         href: [
+          /*
           {
                     dataType: "inline",
                     dataSrc: '<div style="font-size: 24px; line-height: 150%; margin-top: 2em;"> \
@@ -856,14 +857,14 @@ $(document).ready(function() {
           </ul> \
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
-                  },
+                  },*/
           {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigwTAVlzr8lLyqRKAT-Q4_qYI1vZMxiSl18dOnyk3kqTO9ViBwkbw9qmYr99is8e9DJwyGlPxQF7mnOHN3sVGLRqWnic4mCAN5ne4tEqmnXbnuCPL8bvnjK8Jf7c6nIbRNZJSiwUWK_V9nYKh9zUGbngQBe5Lb6g71wl1XIkkLcO8eGImFRisJ_jGQUjM/s1600/2024-06-14-Communique%CC%81-1.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN4If1sMQiLXfkB-Bf0zsIjaNXd0kIvWxPaFrfxdZsc5knoCzdWac_1nrNOjD2j043qnS6qQSj_87FH5_yT1ntdCjyY46T-cJCwelrJ-x4z7srGfSdP-6tE73Lul-4t861XBbhpYZlesFfIuy2lTZ9Lib5M6osrooAiHBQxFchFxDU4JRRh5sRz0nppy4/s1600/Tract%20TdF%20Plfss%202025%20p1.jpg"
           },
           {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxfIK-lzv4UGo1s_Vym0Uqjt_oL-MHlCQV4ilzEw9Vzq1VLhTzlOJX2EY8AESsT49l6CRXgCky34kqETwr3JhMuCUQWsqLBs9QErBX1s_X8Y76mCV64RYU5hTFFPDZlha13eH6UFEZQxqg6kEhGAzGPP2_rKHc08Y9jYESD3HZeyoviu_6Ma0tbGg5G50/s1600/2024-06-06-communique%20Les%20arre%CC%82ts%20maladie%20dans%20le%20viseur%20du%20gouvernement%20et%20de%20la%20Cour%20des%20comptes%20%2000002.jpg",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAjltUm6f_kvkwJ0ClSRinGsdPNapad1PhV9bmGHGpre0JQkcZbzkQFPifgZ5S6OUnc7TP8RejNPJb15l4hUBpcz7SznVmTWnVhbpO7og6R1P9W4hmufgLxcYTHEZToqemVq2wJPLVucGaBvUHga0SSA-ANio4SLci3MJhPQ3njsKJV5nr4anlBMOgnto/s1600/Tract%20TdF%20Plfss%202025%20p2.VD.jpgg",
           },
           /*
           {

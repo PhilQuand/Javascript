@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2024 semaines 20</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Le débat sur le projet de loi de financement de la sécurité sociale (<strong>PLFSS</strong>) vient de commencer.</p>
+<p>La coordination des comités, exprime sa très grande inquiétude concernant le PLFSS qui par manque de volonté de trouver des recettes ne permet pas de financer les besoins de protection sociale</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 44</li>
+<li>Dates: Du 28 octobre au 04 novembre 2024</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2024/11/Infos-semaine-44-du-28octobre-au-3-novembre-2024.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer !</p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito&#8239;: </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Le débat sur le projet de loi de financement de la sécurité sociale (<strong>PLFSS</strong>) vient de commencer.</p>
+<p>La coordination des comités, exprime sa très grande inquiétude concernant le PLFSS qui par manque de volonté de trouver des recettes ne permet pas de financer les besoins de protection sociale.</p>
+<p>Alors que la santé est une préoccupation primordiale de la population, plusieurs mesures vont particulièrement mettre à mal le pacte social.</p>
+<p>Le report de la revalorisation des pensions touchera de plein fouet les 2 millions de retraité.e.s qui vivent sous le seuil de pauvreté. </p>
+<p>Avec la hausse annoncée du ticket modérateur, les restes à charges (ce que doivent payer les assurés une fois les remboursements effectués) vont encore augmenter, entraînant de fait des hausses de cotisations des complémentaires santé. </p>
+<p>Pour les personnes malades, en situation de handicap, de perte d'autonomie, ces restes à charge ont un lourd impact. S'ajoutent à cela les coûts cachés de la santé, les restes à charge invisibles : petit matériel de soin, aides techniques, frais alimentaires ...</p>
+<p>Ces surcoûts génèrent des retards ou même des renoncements à l'accès aux soins !</p>
+<p>S’il faut souhaiter que la mobilisation contribue à faire bouger les lignes, c’est aussi l’occasion d’une réflexion sur la dérive des non-remboursements sécu, le fonctionnement de cet organisme. Autant de questions à résoudre pour réussir le 100 % sécu.</p>
+<p>Les manœuvres du gouvernement pour imposer la poursuite de sa politique placent les populations dans une désespérance absolue et parfois la colère face à un accès aux soins de plus en plus difficile. Mais la dogmatisme libéral poursuit là aussi avec obstination.</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Henri (Sud Aveyron)</p>
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes.</p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne.</p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole.</p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux.</p>
+<p>Nous nous réjouissons de vous retrouver prochainement,</p>
+<p>Pour le comité de Dole,</p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 600px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/01/voeuxCoordination-2024.jpg" />
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques&#8239;: </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+<p><strong>La Coordination Nationale fait la Fête&#8239;! </strong></p>
+<p><strong>Beaucoup de rencontres , d’échanges, de participation à des débats sur d’autres stands et de signatures de pétition contre les restes à charge </strong></p>
+<p><a href="https://coordination-defense-sante.org/2024/09/la-coordination-nationale-a-la-fete-de-lhumanite-2/"><strong>Le reportage</strong></a><br /></p>
+</div-->
+
+<div>
+<p>Sommaire&#8239;:</p>
+</div>
+
+<!--style>
+.CN-block {
+  display: block;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+.CN-block p {
+  margin: 0;
+}
+.leaflet-popup-content-wrapper img {
+  max-width: 240px !important;
+}
+</style-->
+
+<p class="rubrique écho_des_comités">L’écho des comités&#8239;:</p>
+
+
+<p style="background-color: #fc0000; color: #F7F7F7"><strong>DOLE</strong></p>
+<p>Agir contre les «&#8239;restes à charge&#8239;» / Non aux dépassements d’honoraires</p>
+<p>Le numéro 100 de notre bulletin invite à nous rejoindre dans l'action contre les restes à charge pour les patients, ce samedi 2 novembre de 10H à midi au centre-ville de Dole.</p>
+<p>A bientôt, pour défendre l'accès aux soins de toutes et de tous !</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/10/dole-rv-le-2-novembre/" target="_blank">https://coordination-defense-sante.org/2024/10/dole-rv-le-2-novembre/</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>St AFFRIQUE – SUD AVEYRON</strong></p>
+<p>Pendant que l’illusionniste agite un «&#8239;futur hôpital commun entre St Affrique et Millau&#8239;» les services ferment, après la réduction de 60 à 12 lits de médecine, des sabotages du Bloc, la rapide et régulière réduction de l’activité de la maternité, les urgences régulées à St Affrique, c’est l’EHPAD de St Affrique qui est menacé de fermeture pour Mars, quand la psychiatrie publique du Sud Aveyron, est mise sous la coupe du centre privé de Rodez, Les personnels soignants sont écrasés par un management dont le nombre de Directeurs est en croissance exponentielle.</p>
+<p align=center><a href="https://coordination-defense-sante.org/2024/11/st-affrique-le-c">https://coordination-defense-sante.org/2024/11/st-affrique-le-</a></p>
+
+<p style="background-color: #269933; color: #F7F7F7"><strong>CHARLEVILLE-MÉZIÈRES - ARDENNES</strong></p>
+<p>
+<div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/11/Image2.jpg" />
+</div>
+<div class="divText">
+<p>Comme chaque année, le parlement débat du projet de loi de financement de la Sécurité Sociale : des économies mettant en cause la santé de la population, et des mesures comme l'augmentation du ticket modérateur des consultations, mettant en cause les principes mêmes de la Sécurité Sociale de solidarité.</p>
+<p>Avec d'autres organisations, le comité de défense des hôpitaux de proximité des Ardennes organise une réunion publique sur la Sécurité Sociale le 20 novembre à 18h30 salle Nevers à Charleville-Mézières.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/11/maquette-tract-VDef.pdf">Le tract d’invitation</a></p>
+</div></div>
+
+<p style="background-color: #fc0000; color: #F7F7F7"><strong>CHATEAUDUN – CENTRE VAL DE LOIRE</strong></p>
+<div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" style="max-width: 200px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/11/chateaudun2.jpg" />
+</div>
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" style="max-width: 200px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/11/chateaudun1.jpg" />
+</div>
+<div class="divText">
+<p><strong>Le comité interpelle la directrice de L'ARS Centre Val de Loire concernant une voie de circulation très dégradée avec des places de parking insuffisantes au Centre Hospitalier de Châteaudun. </strong></p>
+<p><strong><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/11/Demande-daide-budgetaire-pour-la-voie-de-circulation-et-le-parking-de-lHopital.pdf"><u>La lettre</u></a></strong></p>
+</div></div>
+
+<p style="background-color: #fefb01"><strong>TARBES-LOURDES – Htes PYRENNÉES</strong></p>
+<div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/11/Image5-1.jpg" />
+</div>
+<div class="divText">
+<p><strong>Nous étions une centaine de manifestant-es devant les grilles de l'Agence Régionale de Santé des Hautes-Pyrénées ce mardi 29 octobre à Tarbes, avec drapeaux, pancartes et chasubles. Ce rassemblement avait lieu à l'appel de plusieurs syndicats nationaux (CGT, FO, SUD, UNSA) pour se dresser contre le projet de loi de financement de la sécurité sociale 2025, débattu en ce moment à l'Assemblée Nationale.</strong></p>
+<p><strong>«&#8239;"On nous parle de programmes d’austérité pour l’hôpital alors que tout va déjà mal par manque de moyens. L’après Covid nous a laissés espérer qu’il y aurait du mieux, c’est pire aujourd’hui", lance un soignant effrayé par la perspective de nouvelles coupes budgétaires&#8239;» (la suite sur <a href="https://www.ladepeche.fr/2024/10/29/on-nous-parle-dausterite-alors-que-tout-va-deja-mal-la-colere-des-soignants-gronde-dans-les-hautes-pyrenees-12291184.php" target="_blank"><u>https://www.ladepeche.fr/2024/10/29/on-nous-parle-dausterite-alors-que-tout-va-deja-mal-la-colere-des-soignants-gronde-dans-les-hautes-pyrenees-12291184.php</u></a> )</strong></p>
+</div></div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MANOSQUE- DIGNE - SISTERON – HAUT VAR</strong></p>
+<p><strong>Y A DU PAIN SUR LA PLANCHE</strong></p>
+<p>Lors de notre Réunion du 14 octobre dernier, nous avons pris la décision d'<strong>élargir les périmètres du "Collectif Santé Haute Provence" et de la "Convergence Urgence Santé Sud 04" à TOUT LE DEPARTEMENT DU 04 et aux 7 Communes du Haut-Var de la Communauté des Communes "Provence - Verdon"</strong> (Artigues - Esparron de Pallières - Ginasservis - La Verdière - Rians - St Julien le Montagnier - St Martin de Pallières) <strong>qui font partie du Bassin de Santé du CH Manosque.</strong></p>
+<p>En effet, <strong>il n'était pas question pour nous de nous contenter d'observer l'accélération exponentielle de la dégradation de la prise en charge de NOS PROBLÈMES DE SANTÉ sur TOUT LE 04 et le HAUT-VAR,</strong>avec l'inadmissible épisode estival des fermetures à répétition des Urgences de nos 3 CH du 04 (Manosque, Digne, Sisteron) dont leur fermeture TOTALE le 29 août dernier, <strong>sans rien faire.</strong></p>
+<p>Ceci nous a conduit à décider de:</p>
+<p>- <strong>adresser à tous les Maires &amp; Elu(e)s du 04 et du Haut-Var une lettre ouverte</strong> leur proposant de prendre des Arrêtés mettant en demeure l'Etat de prendre toute les décisions politiques, sanitaires et sociales courageuses permettant ENFIN UN RETOUR à:</p>
+<p>    * un "Accès Égalitaire à une Santé, des Soins et une Protection Sociale du Qualité et de Proximité" mettant un terme à la Mise en Danger de nos Populations,</p>
+<p>    * un respect de la Loi n° 2022-117 du 21 février 2022 (dite "3 DS" pour "Différenciation - Décentralisation - Déconcentration - Simplification"), du "Code de la Santé Publique" et du "Guide des Collectivités territoriales",</p>
+<p>- <strong>diffuser à TOUTE LA POPULATION une Alerte sur leur "Accès à la Santé et aux Soins qui se dégrade toujours plus"</strong></p>
+<p>- <strong>populariser "Nos 7 Revendications - Propositions</strong>" qui semblent trouver un écho chez les progressistes du 04 et du national,</p>
+<p>- <strong>relancer la signature de notre Pétition</strong></p>
+
+<p style="background-color: #269933; color: #F7F7F7"><strong>LUÇON</strong></p>
+<p><strong>VIGILANCE à l’hôpital de Luçon&#8239;!</strong></p>
+<p>Nous exigeons le <span style="color:#c00001">MAINTIEN des URGENCES et du SMUR 24H/24 et 7J/7</span></p>
+<p>Bien sûr on continue, bien sûr on ne lâche rien&#8239;!</p>
+<p>L’accès aux soins pour toutes et tous sur tout le territoire est un droit fondamental.</p>
+<p>Restons mobilisés&#8239;!</p>
+
+<p style="background-color: #fefb01"><strong>ESSONNE</strong></p>
+<p>Dans le contexte actuel, nous relançons le projet d'<strong>Assises de la santé </strong>à l'échelle du département, comme cela a été décidé lors de notre dernière réunion en septembre et annoncé lors de notre table ronde à la fête de l'Humanité.</p>
+<p><strong>Planning pour des Assises au printemps 2025 mis au point lors de la réunion du 16 octobre:</strong></p>
+<p> - <u>Un questionnaire commun</u> sera élaboré et proposé lors de la prochaine réunion. Il permettra une :</p>
+<p> -<u> Enquête de terrain</u> sur la situation dans chaque zone: nombre de médecins/habitants  répertoire des hôpitaux publics et privés: Distance des urgences: moins de 20mns, plus de 30mns etc., maisons/centres de santé etc.</p>
+
+<p style="background-color: #269933; color: #F7F7F7"><strong>CENTRE DE SANTE – SARLAT- Nelle AQUITAINE</strong></p>
+<p>Prochaine journée régionale des centres de santé de Nouvelle Aquitaine organisée en coopération avec l’ARS et les CPAM qui se tiendra à Soyaux le 17/12/2024.</p>
+<p> <strong>Une journée de rencontre et de débats entre la FNCS, les gestionnaires, les équipes et les institutions locales&#8239;: pour un partage constructif des modalités et enjeux du développement des centres de santé dans les territoires.</strong></p>
+<p>Notre région a démontré son dynamisme en termes de création de centres de santé. La 1ère rencontre en 2019 avait permis l’amorce d’un réseau centres de santé en Nouvelle-Aquitaine. Cette deuxième journée nous permettra de poursuivre cette synergie positive grâce à des informations et des échanges basés sur des questions essentielles pour la vie des structures. Construite dans un cadre partenarial, cette rencontre est dédiée à l’ensemble des acteurs locaux qui interviennent dans le champ de la santé publique grâce au développement des centres de santé.</p>
+<p>Avec ses délégués régionaux, la FNCS poursuit son action auprès des porteurs de projet et des jeunes équipes en centres de santé&#8239;:</p>
+<p align=center><a href="https://www.fncs.org/regions/nouvelle-aquitaine" target="_blank">https://www.fncs.org/regions/nouvelle-aquitaine</a></p>
+
+<p style="background-color: #fefb01"><strong>PÉRINATALITÉ – SARLAT – Nelle AQUITAINE</strong></p>
+<div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<a href="https://www.sudouest.fr/dordogne/sarlat-la-caneda/sante-face-a-la-penurie-de-personnel-une-maternite-de-dordogne-s-organise-21858720.php"><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/11/Image8.jpg" /></a>
+</div>
+<div class="divText">
+<p>Face aux fermetures récurrentes de son plateau obstétrical, la maternité de Sarlat a lancé un dispositif qui permet d’assurer le suivi des grossesses et, surtout, le suivi postnatal, aux domiciles des familles. Une façon de rassurer les parturientes et de montrer que le service reste dynamique</p>
+</div></div>
+
+<p style="background-color: #7fffd4"><strong>BERGERAC</strong></p>
+<p align=center><strong>Réactions à la situation des urgences</strong></p>
+<p align=center><a href="https://www.sudouest.fr/sante/situation-extremement-grave-des-reactions-a-bergerac-apres-la-crise-des-urgences-en-dordogne-21952383.php?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=MaNewsletterPerigueux&amp;utm_term=20241029">L’article du Sud Ouest du 29 octobre </a></p>
+
+<p class="rubrique">Autres infos locales&#8239;:</p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>ROYAN – CHARENTE MARITIME</strong></p>
+<div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/11/Image1-1.jpg" />
+</div>
+<div class="divText">
+<p>Elles avaient organisé une manifestation pour alerter sur l'état de leur hôpital : l'infirmière et l'aide-soignante échappent à la sanction</p>
+<p align=center><a href="http://france3-regions.francetvinfo.fr/nouvelle-aquitaine/charente-maritime/royan/elles-avaient-organise-une-manifestation-pour-alerter-sur-l-etat-de-leur-hopital-l-infirmiere-et-l-aide-soignante-echappent-a-la-sanction-3053815.html" target="_blank">http://france3-regions.francetvinfo.fr/nouvelle-aquitaine/charente-maritime/royan/elles-avaient-organise-une-manifestation-pour-alerter-sur-l-etat-de-leur-hopital-l-infirmiere-et-l-aide-soignante-echappent-a-la-sanction-3053815.html</a> </p>
+</div></div>
+
+<p style="background-color: #fefb01"><strong>LANGRES</strong></p>
+<p align=center><strong>Hospitalisé dans un garage&#8239;!</strong></p>
+<p align=center><a href="https://jhm.fr/hospitalise-dans-le-garage-un-patient-interpelle-le-ministere-de-la-sante/">L’article du Journal de la Haute Marne du 1<sup>er</sup> novembre</a></p>
+
+<p style="background-color: #fb1593; color: #F7F7F7"><strong>BOURGES </strong></p>
+<p align=center><strong>La pédiatrie en danger</strong></p>
+<p align=center><a href="https://www.leberry.fr/bourges-18000/actualites/situation-critique-dans-le-service-pediatrie-a-l-hopital-de-bourges-a-cause-du-manque-de-medecins_14584516/">L’article du Berry républicain du 28 octobre</a></p>
+
+<p class="rubrique"><span style="display:none">Dossiers</span>Documents Juridiques ou utiles</p>
+
+<p class="titre-rubrique"><strong>Baisse du nombre de lits dans nos hôpitaux – Rapport DREES oct 2024</strong></p>
+<p align=center><a href="https://drees.solidarites-sante.gouv.fr/sites/default/files/2024-10/ER1315.pdf">https://drees.solidarites-sante.gouv.fr/sites/default/files/2024-10/ER1315.pdf</a></p>
+<p class="titre-rubrique"><strong>À propos des jours de carence</strong></p>
+<div class="CN-block">
+<p>Intersyndicale CGT, CNI et FO</p>
+<p>Hôpital Nord Franche Comté</p>
+</div>
+<div class="CN-block">
+<p>M Michel BARNIER, premier ministre</p>
+<p>Mme Geneviève DARRIEUSSECQ, ministre de la santé et de l’accès aux soins</p>
+</div>
+<p>Monsieur</p>
+<p>Comment vous décrire la stupéfaction devant les annonces et le discours que vous avez tenu ce dimanche 27 octobre 2024 à l’encontre des agents de la fonction publique, concernant les mesures envisagées dans le projet de loi de financement de la sécurité sociale 2025.</p>
+<p>Par cette lettre nous venons vous répondre pour ce qui est de la fonction publique hospitalière.</p>
+<p>Un premier jour de carence a été réinstauré en 2018 au motif qu’il fallait prendre des mesures pour faire baisser l’absentéisme dans la fonction publique et s’aligner sur les pratiques du secteur privé.</p>
+<p>De votre propre aveu, cela n’a eu aucun impact, puisque depuis, l’augmentation constante des arrêts maladies a démontré la totale inefficacité du système et ce pour une raison simple : les agents de la fonction publique ne s’arrêtent pas pour prendre des vacances ou pour se faire plaisir, ils s’arrêtent parce qu’ils sont malades !</p>
+<p>Augmenter le nombre de jours de carence ne résoudra pas le problème mais au contraire aggravera encore la situation dans la fonction publique hospitalière.</p>
+<p>L’augmentation du nombre de jours de carence aurait des conséquences graves pour ces agents et bien au-delà.</p>
+<p>Les agents de la FPH déclarent déjà venir travailler alors qu’ils sont malades, les priver de 3 jours de salaire ne pourra que les inciter, davantage encore, à venir prendre leurs postes, risquant ainsi, la contamination de leurs collègues voire la propagation aux patients.</p>
+<p>C’est aussi prendre le risque que ces agents ne consultent pas leurs médecins et ne se soignent pas !</p>
+<p>C’est prendre le risque de voir la durée des arrêts augmenter car le recours au soin aura été trop tardif !</p>
+<p>Voulez- vous vraiment parler de ce qui est devenu « insoutenable » à l’hôpital M Kasbarian</p>
+<p class="titre-rubrique">Notre Santé en Danger interroge les Groupes politiques sur leurs positions dans le débat sur le PLFSS – Rencontre avec le NFP</p>
+<p style="font-size: larger" align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/11/Intro-Rencontre-Assemblee-nationale-22-octobre.pdf">https://coordination-defense-sante.org/wp-content/uploads/2024/11/Intro-Rencontre-Assemblee-nationale-22-octobre.pdf</a></p>
+<p class="titre-rubrique"><strong><a href="https://www.fncs.org/plfss-2025-la-hausse-du-ticket-moderateur-creuse-les-inegalites-en-sante" target="_blank">PLFSS 2025, la hausse du ticket modérateur creuse les inégalités en santé</a></strong></p>
+<p>Communiqué de presse</p>
+<p><em>La Fédération Nationale des Centres de Santé (FNCS) et l'Union Syndicale des Médecins de Centres de Santé (USMCS) alertent.</em></p>
+<p align=center><a href="https://www.fncs.org/plfss-2025-la-hausse-du-ticket-moderateur-creuse-les-inegalites-en-sante">https://www.fncs.org/plfss-2025-la-hausse-du-ticket-moderateur-creuse-les-inegalites-en-sante</a></p>
+
+<p class="rubrique">Culture&#8239;:</p>
+
+<p class="titre-rubrique"><strong>Déficit de la sécu, une histoire ancienne</strong></p>
+<p>court texte d'Etienne Antonelli fondateur de la première loi sur les assurances sociales obligatoires de 1928 pourrait vous intéresser.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/11/ANTONELLI-LASCURITSOCIALE-1966.pdf">Le texte</a></p>
+<p class="titre-rubrique"><strong>5 novembre 2024 - Première séance du Séminaire d'Histoire de la psychiatrie de Sainte-Anne. Clément Fromentin : La réforme de l'asile dans les années 1950. </strong></p>
+<p>Au sortir de la 2<sup>e</sup> guerre mondiale, une poignée de psychiatres tentent de réformer les soins psychiatriques. Au nom d'un «&#8239;plus jamais cela&#8239;», ils veulent rompre avec l'asile et son pouvoir aliénant et délétère. L'expérience conjuguée de la résistance au nazisme, du constat de l'hécatombe provoquée par la dénutrition (40 000 morts dans les asiles français) et de l'application de thérapeutiques innovantes concourent à une volonté de transformation de l'institution et de la conception du malade. L'expérience de Saint-Alban montre que si on intègre les patients à la vie sociale, s'ils sont impliqués dans leur prise en charge et dans la gestion de la vie quotidienne, ils guérissent plus rapidement. L'hôpital qui, pendant la guerre, a aggravé la vie des malades mentaux doit être réformé pour être un véritable outil de soin.</p>
+<p>Nous nous intéresserons en particulier aux initiatives de P. Sivadon au CTRS de Ville Evrard, à celles P. Paumelle dans le 13<sup>e</sup> arrondissement de Paris et enfin à J. Oury à La Borde pour montrer comment cette transformation de l'institution comporte richesse et diversité.  </p>
+<p>Conférence de Clément Fromentin dans le cadre du séminaire d'Histoire de la psychiatrie de Sainte-Anne. Le mardi 5 novembre à 20h, amphithéâtre Morel, GHU – Sainte-Anne, 1 rue Cabanis, 75014 Paris.</p>
+<p>Avec le concours de la Bibliothèque Henri Ey.</p>
+<p>En présentiel et en visio.</p>
+<p>Renseignements et lien de connexion&#8239;: <a href="https://levolutionpsychiatrique.wordpress.com/2024/10/26/5-novembre-2024-clement-fromentin-la-reforme-de-lasile-dans-les-annees-1950/" target="_blank">https://levolutionpsychiatrique.wordpress.com/2024/10/26/5-novembre-2024-clement-fromentin-la-reforme-de-lasile-dans-les-annees-1950/</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>«&#8239;Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a>&#8239;»</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante.org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http://coordination-defense-sante.org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https://www.facebook.com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact :<a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante.org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele.leflon@orange.fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo.fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc.landas@sfr.fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+    );
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

@@ -787,18 +787,18 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
 
 @keyframes stretch {
   0% {
-    transform: scale(.0);
+    transform: scale(0.0);
     //background-color: red;
     border-radius: 0%;
   }
   10% {
-    transform: scale(.2);
+    transform: scale(0.2);
     border-radius: 100%;
     //background-color: orange;
   }
   100% {
-    transform: scale(.5);
-    //transform: scale(0.8);
+    //transform: scale(0.5);
+    transform: scale(0.8);
     //background-color: yellow;
   }
 }
@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN4If1sMQiLXfkB-Bf0zsIjaNXd0kIvWxPaFrfxdZsc5knoCzdWac_1nrNOjD2j043qnS6qQSj_87FH5_yT1ntdCjyY46T-cJCwelrJ-x4z7srGfSdP-6tE73Lul-4t861XBbhpYZlesFfIuy2lTZ9Lib5M6osrooAiHBQxFchFxDU4JRRh5sRz0nppy4/s1600/Tract%20TdF%20Plfss%202025%20p1.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVSlfe2r_CsXt-1Do7kWOeo0ojGi-EvXwIKOdM9VH9FUxU6815dSFRk3joftbcrGMHDjs_xlM160ZIdQmOebZgP2YmxsKGD30BTAqDLuJ3d_PGE-Uvlq-QKT5zITqip0XMZFlNCjwRPXun5ldhefvuH5x4lXY_DHWXmSgQFMn7tzZ80HqMoLKe5cy79hA/s1600/communiqu%3F%20pour%20le%2029%20_%20VD.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -857,7 +857,7 @@ $(document).ready(function() {
           </ul> \
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
-                  },*/
+                  },
           {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN4If1sMQiLXfkB-Bf0zsIjaNXd0kIvWxPaFrfxdZsc5knoCzdWac_1nrNOjD2j043qnS6qQSj_87FH5_yT1ntdCjyY46T-cJCwelrJ-x4z7srGfSdP-6tE73Lul-4t861XBbhpYZlesFfIuy2lTZ9Lib5M6osrooAiHBQxFchFxDU4JRRh5sRz0nppy4/s1600/Tract%20TdF%20Plfss%202025%20p1.jpg"
@@ -865,19 +865,23 @@ $(document).ready(function() {
           {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAjltUm6f_kvkwJ0ClSRinGsdPNapad1PhV9bmGHGpre0JQkcZbzkQFPifgZ5S6OUnc7TP8RejNPJb15l4hUBpcz7SznVmTWnVhbpO7og6R1P9W4hmufgLxcYTHEZToqemVq2wJPLVucGaBvUHga0SSA-ANio4SLci3MJhPQ3njsKJV5nr4anlBMOgnto/s1600/Tract%20TdF%20Plfss%202025%20p2.VD.jpgg",
-          },
-          /*
+          },*/
           {
             dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/2023-06-22-Tour%20de%20France%20pour%20la%20Sant%3F%3F-VF-3.pdf"
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjs8THA083uYeR7olqYGWJZnJa8B4r8nWI9vqL5v210Ape-SJRv58OQigAVP8xj49CaqMExch-PGDvTK8kcj1_0Pjc78pMbvNKRpgN8dpvav97HqOVv38FYkXryKJgTYSPZb6rCi351qHDRz_AA4yzxX8CRy8LlmXYWFreCrG9zDM_wClmmekGrw8BxALQ/s1600/Tract%20TdF%20Plfss%202025.VS.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/Tract TdF Plfss 2025.VS.pdf"
           },
           {
             dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOC5a6pHJi0OSaDmkKhsUm7gbrXW2r7Lg1NoPFbuWV-b5Cm58IATRSfKSHgVoXWlV4oV_WApmNo6R_7gECh1mHuQADWD3o0ByTZvMkiAkC1qjv5RAsCtktrpKQIci_nDIBx5NhUxjhZqEOumDu7vQdfmra7tPU6AxRvazR_qg5XvJGN3HKPufQD_pQr3w/s1600/Pe%CC%81tition-09-15.jpg",
-            dataSrc: "https://www.convergence-sp.fr/wp-content/uploads/2023/09/PLFSS-2024-Petition-Papier-2023-09-02.pdf"
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVSlfe2r_CsXt-1Do7kWOeo0ojGi-EvXwIKOdM9VH9FUxU6815dSFRk3joftbcrGMHDjs_xlM160ZIdQmOebZgP2YmxsKGD30BTAqDLuJ3d_PGE-Uvlq-QKT5zITqip0XMZFlNCjwRPXun5ldhefvuH5x4lXY_DHWXmSgQFMn7tzZ80HqMoLKe5cy79hA/s1600/communiqu%3F%20pour%20le%2029%20_%20VD.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/communiqu%3F%20pour%20le%2029%20_%20VD.pdf"
           },
           {
+            dataType: "iframe",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibB_JGYyiVdOxRkEb1G6mnNIla88JgCb0eZFMaj_JyHGBdu851k3zrkMuBQvgOxPxPjiBSQ9217yxMDfKVGv4L98XabPS7HAPzdTKYVBcOq_nv62LE3zl-wQEkC-J5NDDooD-lfkT4CljsSus4xJiown-PwcvDVL3zFalUMaW2rVCzmK3Pij3RejOi_KY/s1600/2024-10-29%20Tract%2037%20Mobilisation%20PLFSS-V3.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/2024-10-29 Tract 37 Mobilisation PLFSS-V3.pdf"
+          },
+          /*{
             dataType: "images",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"

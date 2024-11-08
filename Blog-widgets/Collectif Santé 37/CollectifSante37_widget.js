@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVSlfe2r_CsXt-1Do7kWOeo0ojGi-EvXwIKOdM9VH9FUxU6815dSFRk3joftbcrGMHDjs_xlM160ZIdQmOebZgP2YmxsKGD30BTAqDLuJ3d_PGE-Uvlq-QKT5zITqip0XMZFlNCjwRPXun5ldhefvuH5x4lXY_DHWXmSgQFMn7tzZ80HqMoLKe5cy79hA/s1600/communiqu%3F%20pour%20le%2029%20_%20VD.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcEWQg4weTSmx4OWrtw3OluP0IIOLrtc1cP_V1eHm5LyMfOX2ZUuzfQjZ4M8Topjai5DXdtyw8Zwq66h9GCEiiTmcAABuHpZZcybM3DIpk7vXZMCr8Hxf3X1jFWrcukpAzthQR4faSyb6HMytstBM8FVDEc2tImwm5KPVWCVlWRN8pfo83Aft51lNLIj0/s1600/Affiche-20-Novembre-2024.png",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -859,19 +859,20 @@ $(document).ready(function() {
           </div>'
                   },
           {
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN4If1sMQiLXfkB-Bf0zsIjaNXd0kIvWxPaFrfxdZsc5knoCzdWac_1nrNOjD2j043qnS6qQSj_87FH5_yT1ntdCjyY46T-cJCwelrJ-x4z7srGfSdP-6tE73Lul-4t861XBbhpYZlesFfIuy2lTZ9Lib5M6osrooAiHBQxFchFxDU4JRRh5sRz0nppy4/s1600/Tract%20TdF%20Plfss%202025%20p1.jpg"
-          },
-          {
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAjltUm6f_kvkwJ0ClSRinGsdPNapad1PhV9bmGHGpre0JQkcZbzkQFPifgZ5S6OUnc7TP8RejNPJb15l4hUBpcz7SznVmTWnVhbpO7og6R1P9W4hmufgLxcYTHEZToqemVq2wJPLVucGaBvUHga0SSA-ANio4SLci3MJhPQ3njsKJV5nr4anlBMOgnto/s1600/Tract%20TdF%20Plfss%202025%20p2.VD.jpgg",
+            dataType: "iframe",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcEWQg4weTSmx4OWrtw3OluP0IIOLrtc1cP_V1eHm5LyMfOX2ZUuzfQjZ4M8Topjai5DXdtyw8Zwq66h9GCEiiTmcAABuHpZZcybM3DIpk7vXZMCr8Hxf3X1jFWrcukpAzthQR4faSyb6HMytstBM8FVDEc2tImwm5KPVWCVlWRN8pfo83Aft51lNLIj0/s1600/Affiche-20-Novembre-2024.png",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/Tract TdF Plfss 2025.VS.pdf"
           },*/
           {
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjs8THA083uYeR7olqYGWJZnJa8B4r8nWI9vqL5v210Ape-SJRv58OQigAVP8xj49CaqMExch-PGDvTK8kcj1_0Pjc78pMbvNKRpgN8dpvav97HqOVv38FYkXryKJgTYSPZb6rCi351qHDRz_AA4yzxX8CRy8LlmXYWFreCrG9zDM_wClmmekGrw8BxALQ/s1600/Tract%20TdF%20Plfss%202025.VS.jpg",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/Tract TdF Plfss 2025.VS.pdf"
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/20-novembre-2024.pdf",
           },
           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1DsODr4vqaffF6Tm8G6S1d4ne8aIhjB9j1bw_vAbrQoKUVWEfsHNCml-uOfeNV3NBK1hYkV9HB_FAjO_eGOA90VN_A5dOmyO2HkG15bbXqEXgRZ2KpImXFXUC7GMen1iqA4ngUMu5Cr6xpgXB7jSi9e5XNuBSX_OQZWCpriibpSTf6C-FhsPyjaj44y4/s1600/affiche%2020%20nov%20Paris%20Tour%20de%20france%20pour%20la%20sante%CC%81.jpg"
+          },
+          /*{
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVSlfe2r_CsXt-1Do7kWOeo0ojGi-EvXwIKOdM9VH9FUxU6815dSFRk3joftbcrGMHDjs_xlM160ZIdQmOebZgP2YmxsKGD30BTAqDLuJ3d_PGE-Uvlq-QKT5zITqip0XMZFlNCjwRPXun5ldhefvuH5x4lXY_DHWXmSgQFMn7tzZ80HqMoLKe5cy79hA/s1600/communiqu%3F%20pour%20le%2029%20_%20VD.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/communiqu%3F%20pour%20le%2029%20_%20VD.pdf"
@@ -881,12 +882,12 @@ $(document).ready(function() {
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibB_JGYyiVdOxRkEb1G6mnNIla88JgCb0eZFMaj_JyHGBdu851k3zrkMuBQvgOxPxPjiBSQ9217yxMDfKVGv4L98XabPS7HAPzdTKYVBcOq_nv62LE3zl-wQEkC-J5NDDooD-lfkT4CljsSus4xJiown-PwcvDVL3zFalUMaW2rVCzmK3Pij3RejOi_KY/s1600/2024-10-29%20Tract%2037%20Mobilisation%20PLFSS-V3.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/2024-10-29 Tract 37 Mobilisation PLFSS-V3.pdf"
           },
-          /*{
+          {
             dataType: "images",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"
           },
-          /*{
+         {
             dataType: "video",
             //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
             dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"

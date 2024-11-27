@@ -828,7 +828,7 @@ $(document).ready(function() {
     //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
     //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
 
@@ -872,6 +872,11 @@ $(document).ready(function() {
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjs8THA083uYeR7olqYGWJZnJa8B4r8nWI9vqL5v210Ape-SJRv58OQigAVP8xj49CaqMExch-PGDvTK8kcj1_0Pjc78pMbvNKRpgN8dpvav97HqOVv38FYkXryKJgTYSPZb6rCi351qHDRz_AA4yzxX8CRy8LlmXYWFreCrG9zDM_wClmmekGrw8BxALQ/s1600/Tract%20TdF%20Plfss%202025.VS.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/20-novembre-2024.pdf",
           },
+          {
+            dataType: "images",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBwmXKVvHVMv8cml4AwsTviwctLiMWF0vG_FVhd2a2WhWbp5n-zA5syGRtDZL53jevjeSu8GTQQ_itnwIBfkrBn_7bmIWrhzz7BGmYjpmHwDhgYIeqTAOXAiqMY6_9jUKPHO4Q4E0xpItHtITG1TkYFAu8FiVs1Iyzhi_ZyucboU0Ls-KOF2WPLEIjMrc/s1600/Visuel%20Proc%3Fs%20des%20politiques%20de%20l%27enfance.jpg",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBwmXKVvHVMv8cml4AwsTviwctLiMWF0vG_FVhd2a2WhWbp5n-zA5syGRtDZL53jevjeSu8GTQQ_itnwIBfkrBn_7bmIWrhzz7BGmYjpmHwDhgYIeqTAOXAiqMY6_9jUKPHO4Q4E0xpItHtITG1TkYFAu8FiVs1Iyzhi_ZyucboU0Ls-KOF2WPLEIjMrc/s1600/Visuel%20Proc%3Fs%20des%20politiques%20de%20l%27enfance.jpg"
+          },
            /*{
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVSlfe2r_CsXt-1Do7kWOeo0ojGi-EvXwIKOdM9VH9FUxU6815dSFRk3joftbcrGMHDjs_xlM160ZIdQmOebZgP2YmxsKGD30BTAqDLuJ3d_PGE-Uvlq-QKT5zITqip0XMZFlNCjwRPXun5ldhefvuH5x4lXY_DHWXmSgQFMn7tzZ80HqMoLKe5cy79hA/s1600/communiqu%3F%20pour%20le%2029%20_%20VD.jpg",
@@ -881,11 +886,6 @@ $(document).ready(function() {
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibB_JGYyiVdOxRkEb1G6mnNIla88JgCb0eZFMaj_JyHGBdu851k3zrkMuBQvgOxPxPjiBSQ9217yxMDfKVGv4L98XabPS7HAPzdTKYVBcOq_nv62LE3zl-wQEkC-J5NDDooD-lfkT4CljsSus4xJiown-PwcvDVL3zFalUMaW2rVCzmK3Pij3RejOi_KY/s1600/2024-10-29%20Tract%2037%20Mobilisation%20PLFSS-V3.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/2024-10-29 Tract 37 Mobilisation PLFSS-V3.pdf"
-          },
-          {
-            dataType: "images",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJjWo3Y3GV1x37yQgjm6I9MklVz_ODp_ADj8GZ4v356Odc_a_nfboK69NSbZYmWJpxyuFNnRpQcD_JlsFqhn9TnFLzDlzjKHFECaCRWasNqfrdt8XtXb1UPv3xC_mF4xQvXaCgHYKymL0xLH4dC-_u3rCcBUP7KQdU7b-rpjrYARzVhOgC-Cypg3rycUk/s1600/verso%20def.%20corrige%CC%81.jpg"
           },
          {
             dataType: "video",

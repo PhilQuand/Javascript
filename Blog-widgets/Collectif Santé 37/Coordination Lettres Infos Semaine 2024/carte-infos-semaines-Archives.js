@@ -2,7 +2,6 @@
               {
           svgInfos: ['Semaine 49', 'du 02 nov.', 'au 08 dec.', '2024'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/Semaine 49.html',
-          idGlinkID: 'PreviousLetters'
         }, 
               {
           svgInfos: ['Semaine 48', 'du 24 nov.', 'au 1er dec.', '2024'],

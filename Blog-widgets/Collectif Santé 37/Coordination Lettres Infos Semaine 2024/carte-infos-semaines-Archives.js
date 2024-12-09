@@ -4,6 +4,11 @@
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/Semaine 49.html',
           idGlinkID: 'PreviousLetters'
         }, 
+              {
+          svgInfos: ['Semaine 48', 'du 24 nov.', 'au 1er dec.', '2024'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/Semaine 48.html',
+          idGlinkID: 'PreviousLetters'
+        }, 
                {
           svgInfos: ['Semaine 47', 'du 18 nov.', 'au 24 nov.', '2024'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/Semaine 47.html',

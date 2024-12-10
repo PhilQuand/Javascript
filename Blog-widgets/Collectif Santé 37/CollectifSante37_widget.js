@@ -828,7 +828,7 @@ $(document).ready(function() {
     //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
     //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
 
@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPcLXwUZJhBuATsbUhlkuRUogSc4W6OrTX5Wd0AL_wSwonPIxIHby5XYSCydFn5-RfOtauV4G5CG7r-3MHKarSot7HdS06BwhAcYm_z_ily97K11XC74cmThmAkgSVL9JlXfbMnyRNn9WF8hLpyfAJQVbSjBz6V8bu5cNLeUG0ZoBubWBgFRGbojUAE3A/s1600/affiche%20avec%20dernie%CC%80res%20signatures.png",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRuT3sDi_1b9QDYoE7lGczkXhCqssE-50ps3xWnmnRD9u_xmYLkp8RmLgTBH2WqcTWsS9uDxcXl14gmMJQIBPlMYfuUdOAW0JFkl1xNyiToOt_8H04_LRrIsbCC9SeJtCI2cwxN1sJ2xxn_1uVqiyICI1FxkGoL8fGgNMLJFI6sNI5vnvcJ0F-lO_vsr8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -865,17 +865,11 @@ $(document).ready(function() {
           },*/
          {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPcLXwUZJhBuATsbUhlkuRUogSc4W6OrTX5Wd0AL_wSwonPIxIHby5XYSCydFn5-RfOtauV4G5CG7r-3MHKarSot7HdS06BwhAcYm_z_ily97K11XC74cmThmAkgSVL9JlXfbMnyRNn9WF8hLpyfAJQVbSjBz6V8bu5cNLeUG0ZoBubWBgFRGbojUAE3A/s1600/affiche%20avec%20dernie%CC%80res%20signatures.png"
-          },
-          {
-            dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjs8THA083uYeR7olqYGWJZnJa8B4r8nWI9vqL5v210Ape-SJRv58OQigAVP8xj49CaqMExch-PGDvTK8kcj1_0Pjc78pMbvNKRpgN8dpvav97HqOVv38FYkXryKJgTYSPZb6rCi351qHDRz_AA4yzxX8CRy8LlmXYWFreCrG9zDM_wClmmekGrw8BxALQ/s1600/Tract%20TdF%20Plfss%202025.VS.jpg",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/20-novembre-2024.pdf",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRuT3sDi_1b9QDYoE7lGczkXhCqssE-50ps3xWnmnRD9u_xmYLkp8RmLgTBH2WqcTWsS9uDxcXl14gmMJQIBPlMYfuUdOAW0JFkl1xNyiToOt_8H04_LRrIsbCC9SeJtCI2cwxN1sJ2xxn_1uVqiyICI1FxkGoL8fGgNMLJFI6sNI5vnvcJ0F-lO_vsr8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg"
           },
           {
             dataType: "images",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBwmXKVvHVMv8cml4AwsTviwctLiMWF0vG_FVhd2a2WhWbp5n-zA5syGRtDZL53jevjeSu8GTQQ_itnwIBfkrBn_7bmIWrhzz7BGmYjpmHwDhgYIeqTAOXAiqMY6_9jUKPHO4Q4E0xpItHtITG1TkYFAu8FiVs1Iyzhi_ZyucboU0Ls-KOF2WPLEIjMrc/s1600/Visuel%20Proc%3Fs%20des%20politiques%20de%20l%27enfance.jpg",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBwmXKVvHVMv8cml4AwsTviwctLiMWF0vG_FVhd2a2WhWbp5n-zA5syGRtDZL53jevjeSu8GTQQ_itnwIBfkrBn_7bmIWrhzz7BGmYjpmHwDhgYIeqTAOXAiqMY6_9jUKPHO4Q4E0xpItHtITG1TkYFAu8FiVs1Iyzhi_ZyucboU0Ls-KOF2WPLEIjMrc/s1600/Visuel%20Proc%3Fs%20des%20politiques%20de%20l%27enfance.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz5mBnpiFYdjHu_xSz4skSTOVfhu1UP1AUCLWzOfCA7vIHR8IkM1QW8cFp18CzoRVw2MOOvjmWXhveUeWgF_a2feFrAp6JePAs9kuWA1xtdJzfCi7Efr1Z3bUJCKGTFctFXMi9zTo5air3YYEvsuYj8Q7PJ4GEbTOwqW35bDKzKSukm9l_MOYsywhw1J4/s1600/communique_intersyndical_fp_-5-de%CC%81cembre-2024.jpg"
           },
            /*{
             dataType: "iframe",

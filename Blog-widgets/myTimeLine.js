@@ -15,6 +15,21 @@
 
     for (var i = 0; i < options.href.length; i++) addHrefToTimeLine(_this, options.href[i]);
 
+    for (var i = 0; i < options.href.length; i++) {
+      fetch(options.href[i]).then(function(response) {
+        if (!response.ok) {
+          console.log("Error for :" + options.href[i]);
+          throw new Error("Not 2xx response", {
+            cause: response
+          });
+        }
+        else {
+          console.log("OK for :" + options.href[i]);
+        }
+      }).catch(function(err) {
+          console.log("Error for :" + options.href[i]);
+      });
+    }    
     /*if ($(this).find('#divActivityReport').length == 0) {
       var divReports = addActivityReports('divActivityReport');
       $(this).append(divReports);

@@ -16,19 +16,18 @@
     for (var i = 0; i < options.href.length; i++) addHrefToTimeLine(_this, options.href[i]);
 
     for (var i = 0; i < options.href.length; i++) {
-      fetch(options.href[i]).then(function(response) {
+      if (fetch(options.href[i]).then(function(response) {
         if (!response.ok) {
-          console.log("Error for :" + options.href[i]);
+          return 0;
           throw new Error("Not 2xx response", {
             cause: response
           });
         }
         else {
-          console.log("OK for :" + options.href[i]);
+          return 1;
         }
-      }).catch(function(err) {
-          console.log("Error for :" + options.href[i]);
-      });
+      }).catch(function(err) {return 0;})) console.log("OK for : " + options.href[i])
+      else console.log("Error for : " + options.href[i])
     }    
     /*if ($(this).find('#divActivityReport').length == 0) {
       var divReports = addActivityReports('divActivityReport');

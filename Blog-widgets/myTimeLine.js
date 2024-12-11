@@ -15,7 +15,7 @@
 
     for (var i = 0; i < options.href.length; i++) addHrefToTimeLine(_this, options.href[i]);
 
-    for (var i = 0; i < options.href.length; i++) {
+    /*for (var i = 0; i < options.href.length; i++) {
       if (fetch(options.href[i]).then(function(response) {
         if (!response.ok) {
           return 0;
@@ -28,7 +28,7 @@
         }
       }).catch(function(err) {return 0;})) console.log("OK for : " + options.href[i])
       else console.log("Error for : " + options.href[i])
-    }    
+    } */   
     /*if ($(this).find('#divActivityReport').length == 0) {
       var divReports = addActivityReports('divActivityReport');
       $(this).append(divReports);

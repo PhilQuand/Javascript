@@ -23,7 +23,7 @@ $.fn.mapAllBlogs = function(optUdate) {
         if (!isNaN(iData[iVar])) lieux += ', France';*/
         return lieux;
       },
-      carteMAJ: "16/12/2024",
+      carteMAJ: "23/12/2024",
       //tableAccess: false,
       //INSEE_KEY: "INSEE_COM",
       //checkIfStoreNeedsUpdate: true,

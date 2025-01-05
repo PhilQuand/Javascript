@@ -4,11 +4,19 @@
 .leaflet-popup-content-wrapper img {
   max-width: 240px !important;
 }
-.infoComité img { 
-   /*max-width: 200px;*/
+.infoComité p a, .coordCN p a {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+.infoComité img, .coordCN img { 
    width: 400px;
-   //width: auto;
-   max-width: 600px;
+   max-width: 80%;
+   text-align: center;
+   display: block;
+   margin-left: auto;
+   margin-right: auto
 }
 .infoComité .western { 
   width: 700px;
@@ -26,10 +34,6 @@
 }
 .infoDoc img { 
    max-width: 400px;
-}
-.coordCN img { 
-   width: 800px;
-   max-width: 80%;
 }
 .styled {
     float: right;

@@ -828,7 +828,7 @@ $(document).ready(function() {
     //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
     //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
 
@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRuT3sDi_1b9QDYoE7lGczkXhCqssE-50ps3xWnmnRD9u_xmYLkp8RmLgTBH2WqcTWsS9uDxcXl14gmMJQIBPlMYfuUdOAW0JFkl1xNyiToOt_8H04_LRrIsbCC9SeJtCI2cwxN1sJ2xxn_1uVqiyICI1FxkGoL8fGgNMLJFI6sNI5vnvcJ0F-lO_vsr8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8mNTcxT6lwiPFAk0F2ec1XpkNiu6ycyUBXg7EcroC6f3Ajwdljjh0k5bC-exovsAJcE40Qb3d_F0ansg9_uVZ3swLB25-EwpVNc08ttLC9GPawaAW7K_lQqaEnum0rcCZkixhURjtV7KmbJAVLNJgA0M1z3_aXG5EKYC_f9H3xaX1XDr-4S1n_0hgXX8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -857,13 +857,13 @@ $(document).ready(function() {
           </ul> \
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
-                  },
+                  },*/
           {
             dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcEWQg4weTSmx4OWrtw3OluP0IIOLrtc1cP_V1eHm5LyMfOX2ZUuzfQjZ4M8Topjai5DXdtyw8Zwq66h9GCEiiTmcAABuHpZZcybM3DIpk7vXZMCr8Hxf3X1jFWrcukpAzthQR4faSyb6HMytstBM8FVDEc2tImwm5KPVWCVlWRN8pfo83Aft51lNLIj0/s1600/Affiche-20-Novembre-2024.png",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/Tract TdF Plfss 2025.VS.pdf"
-          },*/
-         {
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8mNTcxT6lwiPFAk0F2ec1XpkNiu6ycyUBXg7EcroC6f3Ajwdljjh0k5bC-exovsAJcE40Qb3d_F0ansg9_uVZ3swLB25-EwpVNc08ttLC9GPawaAW7K_lQqaEnum0rcCZkixhURjtV7KmbJAVLNJgA0M1z3_aXG5EKYC_f9H3xaX1XDr-4S1n_0hgXX8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/TractTDFS.pdf"
+          },
+         /*{
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRuT3sDi_1b9QDYoE7lGczkXhCqssE-50ps3xWnmnRD9u_xmYLkp8RmLgTBH2WqcTWsS9uDxcXl14gmMJQIBPlMYfuUdOAW0JFkl1xNyiToOt_8H04_LRrIsbCC9SeJtCI2cwxN1sJ2xxn_1uVqiyICI1FxkGoL8fGgNMLJFI6sNI5vnvcJ0F-lO_vsr8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg"
           },
@@ -871,7 +871,7 @@ $(document).ready(function() {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz5mBnpiFYdjHu_xSz4skSTOVfhu1UP1AUCLWzOfCA7vIHR8IkM1QW8cFp18CzoRVw2MOOvjmWXhveUeWgF_a2feFrAp6JePAs9kuWA1xtdJzfCi7Efr1Z3bUJCKGTFctFXMi9zTo5air3YYEvsuYj8Q7PJ4GEbTOwqW35bDKzKSukm9l_MOYsywhw1J4/s1600/communique_intersyndical_fp_-5-de%CC%81cembre-2024.jpg"
           },
-           /*{
+           {
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVSlfe2r_CsXt-1Do7kWOeo0ojGi-EvXwIKOdM9VH9FUxU6815dSFRk3joftbcrGMHDjs_xlM160ZIdQmOebZgP2YmxsKGD30BTAqDLuJ3d_PGE-Uvlq-QKT5zITqip0XMZFlNCjwRPXun5ldhefvuH5x4lXY_DHWXmSgQFMn7tzZ80HqMoLKe5cy79hA/s1600/communiqu%3F%20pour%20le%2029%20_%20VD.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/communiqu%3F%20pour%20le%2029%20_%20VD.pdf"

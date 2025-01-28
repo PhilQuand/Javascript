@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFPu12a-Gnwv9JHIbNTNbA0btx1ADfwWDeUpTor6ulQnola3UXtB6yNJM-V_0XjX_S_oSR5xhzdt4dwkynEMwYRDDxz40zziXpyJZhNPu64OSosoK6NUMnyQGcWPLsieiQirRfZg6PVTGPGOOZwI_d1oUu6ok9EZdKNe-7cHxl9HEttU36gn5iVvsb5cU/s1600/TractTDFS.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqAA-7u2NTSTWwmn94YmdHE0dBTg7sKom838czCHcexXoLspDjwEnhmxFWEUI1VYYPG6Iod5UdVgFGNmN-65xDeJ5dsFFxO3wqym0lXzPfO7mRIbsG5gPreLvpa-uGnYHZ8T0v-n3uaDkqZdtARd3ZXpSnKkf0HHW468uZ74SxV4Ejf7e1UGHEAgmlQPg/s1600/SCR-20250128-iqox.png",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -860,10 +860,15 @@ $(document).ready(function() {
                   },*/
           {
             dataType: "iframe",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqAA-7u2NTSTWwmn94YmdHE0dBTg7sKom838czCHcexXoLspDjwEnhmxFWEUI1VYYPG6Iod5UdVgFGNmN-65xDeJ5dsFFxO3wqym0lXzPfO7mRIbsG5gPreLvpa-uGnYHZ8T0v-n3uaDkqZdtARd3ZXpSnKkf0HHW468uZ74SxV4Ejf7e1UGHEAgmlQPg/s1600/SCR-20250128-iqox.png",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/2025-01-20-GAZA.pdf"
+          },
+           {
+            dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8mNTcxT6lwiPFAk0F2ec1XpkNiu6ycyUBXg7EcroC6f3Ajwdljjh0k5bC-exovsAJcE40Qb3d_F0ansg9_uVZ3swLB25-EwpVNc08ttLC9GPawaAW7K_lQqaEnum0rcCZkixhURjtV7KmbJAVLNJgA0M1z3_aXG5EKYC_f9H3xaX1XDr-4S1n_0hgXX8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/TractTDFS.pdf"
           },
-         /*{
+        /*{
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRuT3sDi_1b9QDYoE7lGczkXhCqssE-50ps3xWnmnRD9u_xmYLkp8RmLgTBH2WqcTWsS9uDxcXl14gmMJQIBPlMYfuUdOAW0JFkl1xNyiToOt_8H04_LRrIsbCC9SeJtCI2cwxN1sJ2xxn_1uVqiyICI1FxkGoL8fGgNMLJFI6sNI5vnvcJ0F-lO_vsr8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg"
           },

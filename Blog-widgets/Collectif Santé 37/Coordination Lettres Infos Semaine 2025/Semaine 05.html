@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 010</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Agir, réfléchir pour proposer, tout cela était au programme du 1<sup>er</sup> février</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 05</li>
+<li>Dates: Du 27 janvier au 02 février 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Infos-semaine-5-du-27-janvier-au-2-février-2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Agir, réfléchir pour proposer, tout cela était au programme du 1<sup>er</sup> février : </p>
+<p>- Une mobilisation monstre à Guingamp, où iels étaient venus de toute la Bretagne pour exiger la réouverture des services d’urgence, de chirurgie, de maternités. </p>
+<p>- Une journée de débat à Montreuil sur la Sécurité Sociale, à l’initiative de Convergence des Services Publics (enregistrements au chapitre culture de ce bulletin).</p>
+<p>Si la mobilisation bretonne a été particulièrement spectaculaire, préparée de longue date avec de très nombreux soutiens, ce n’est pas la seule mobilisation de la semaine et ce bulletin fait état d’actions multiples, en particulier à Ganges. A Montreuil, en introduction, Barbara Filhol a relaté les nombreuses mobilisations des personnels de santé dans le Val de Marne avec la lutte victorieuse des personnels de Villeneuve St Georges et la nécessité de la convergence avec les usagers. </p>
+<p>L’unanimité s’est faite à Montreuil dans la table ronde du matin sur la nécessité d’améliorer la prise en charge financière par la Sécurité Sociale pour aller vers le 100% à travers un débat contradictoire, passionné. En résumant à trop grands traits il y a trois manières de voir : une complémentaire obligatoire gérée par la Sécurité Sociale remplaçant les mutuelles, l’amélioration progressive des remboursements de la sécu, la possibilité d’un 100 % tout de suite. Avec un accord unanime sur la nécessité de combattre les charges indues, comme les dépassements d’honoraire ou les dividendes des labos pharmaceutiques et la nécessité de recettes nouvelles pour la Sécurité Sociale. A travers la question de la perte d’autonomie et surtout des retraites, l’après midi a été consacrée à cette question essentielle du financement.</p>
+<p>Bien loin des préoccupations populaires, le gouvernement s’apprête à faire adopter un PLFSS à coup de 49. 3 en ayant repris d’une main ce qu’il a donné de l’autre, par exemple en compensant son recul sur l’augmentation du ticket modérateur par une augmentation des taxes payées par les mutuelles, c’est à dire par un prélèvement sur nos cotisations ! </p>
+<p style="margin: 1em; text-align: right; font-style: italic">Michèle Leflon</p>
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CHATEAUDUN - 28</strong></p>
+<p class="titre-rubrique"><strong>La campagne du comité pour le parking de l’hôpital marque des points</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/01/chateaudun2.jpg"ﬁﬁﬁﬁ /></p>
+<p>Dans un communiqué, le comité revient sur l’évolution des possibilités de se garer à proximité de l’hôpital et demande des moyens pour que le budget de la Sécurité Sociale réponde aux besoins</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/01/chateaudun-parking-et-budget-de-la-sante/">Le communiqué sur le site de la Coordination</a></p>
+
+<p style="background-color: #f5deb3"><strong>TARBES - 65</strong></p>
+<p class="titre-rubrique"><strong>Soirée débat le 31 janvier</strong></p>
+<p>Soirée réussie ce 31 janvier avec Christophe Prudhomme, qui a étrillé le projet de Lanne : payé par les emprunts (au moins 400 millions d'€), ce projet entraînera une baisse du nombre de lits ainsi qu'une baisse de soignants, lesquels subiront une intensification du travail. </p>
+<p>Avant la réunion débat du 31 janvier, le comité avait fait le point</p>
+<p align=center><a href="https://www.tarbes-infos.com/spip.php?article40064&amp;fbclid=IwY2xjawIF23pleHRuA2FlbQIxMQABHT2bRKPPcZa4sNuZW7YW7q3H5RyguBcRHjX4Wf76-9S9OFI-kn2wV6QO4Q_aem_U8CxXwzDxH5ujh1kIlARvA">L’article de Tarbes Info</a></p>
+<p>Nouvel hôpital à Lanne : l’Association de Défense de la Santé et de l’Hôpital Public prête à déposer des recours</p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/nouvel-hopital-a-lanne-lassociation-de-defense-de-la-sante-et-de-lhopital-public-prete-a-deposer-des-recours/?fbclid=IwY2xjawIF26lleHRuA2FlbQIxMQABHQCZTeOWtDJz2zVJ8P1kdUCLveD551JznckzGtuNii0k5LyvulEFcVvC7g_aem_agZKHDTPk_jC0bpSomJhQg">L’article de la semaine des Pyrénées du 23 janvier </a></p>
+<p>la CGT interpelle élus et autorités</p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/tarbes-centre-hospitalier-de-bigorre-la-cgt-interpelle-elus-et-autorites/?fbclid=IwY2xjawIDdBdleHRuA2FlbQIxMQABHd4UE_RoSRd2WLvd2ZILFfnumkXgtk0BW3PB94QEOBIm61_EV8I5z09apQ_aem_uOrWnTxYWWwjOPy1Aikk8g">L’article de la semaine des Pyrénées du 20 janvier </a></p>
+
+<p style="background-color: #f5deb3"><strong>BERGERAC - 24</strong></p>
+<p class="titre-rubrique"><strong>Le comité de défense du service public de santé et du médico-social invité par l'association « Canal Pourpre » dans le cadre des « Samedis à Canal » </strong></p>
+<p align=center><a href="https://youtu.be/YJMEv-srEj8?feature=shared">L’émission</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CHARLEVILLE-MÉZIÈRES - 08</strong></p>
+<p class="titre-rubrique"><strong>L’hôpital fait appel à la générosité </strong></p>
+<p>Faute de moyens, l'hôpital fait appel à la générosité pour financer le futur oncopole ! </p>
+<p>Au moment où se débat au parlement le projet de loi de financement de la Sécurité Sociale pour 2025, fait d'économies, cet appel montre le dénuement de nos hôpitaux ! </p>
+<p>Ce serait bien que la clarté soit faite sur le fonctionnement ultérieur de cet oncopole : sera-t-il public ou avec des partenariats public privé dont on sait qu'ils génèrent des dépenses supplémentaires pour la Sécurité Sociale ? </p>
+<p align=center><a href="https://www.lardennais.fr/id683880/article/2025-01-28/lhopital-ardennais-fait-appel-la-generosite-des-entreprises-ardennaises-pour-son?fbclid=IwZXh0bgNhZW0CMTEAAR2soug2qGY-Zr_KnizMpkWqQecITGH76eaSQb2fRvZi_9KwiZKKbQKVGYQ_aem_FLBaHApShdiYa5rD8wmk0w&amp;sfnsn=scwspmo">L’article de l’Ardennais du 28 janvier</a></p>
+
+<p style="background-color: #f5deb3"><strong>DOUBS - 25</strong></p>
+<p class="titre-rubrique"><strong>Le comité de défense de la santé du Doubs demande l’instauration d’un « 100% Sécu » </strong></p>
+<p align=center><a href="https://www.macommune.info/le-comite-de-defense-de-la-sante-du-doubs-demande-linstauration-dun-100-secu/">L’article dans maCommune. info</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GANGES - 34</strong></p>
+<p class="titre-rubrique"><strong>Rassemblement à l’occasion de la venue du ministre de la santé</strong></p>
+<p>Y. Neuder est venu inaugurer l’IRM de la clinique de Ganges ce vendredi 31 janvier. Avec l’Union Locale CGT, la collectif « Maternité à Défendre » avait appelé à un rassemblement, lequel a été interdit pour que les manifestants restent à distance ! Une délégation a été reçue. Les informations sont contradictoires : Une aide financière importante de l’ARS est prévue pour reconstruire une clinique avec une maternité, tandis que le propriétaire, Lamine Garbi n’envisage pas de réouverture de la maternité ! Une réunion publique est prévue le 18 février. </p>
+<p align=center><a href="https://www.objectifgard.com/actualites/linterview-lamine-gharbi-proprietaire-de-la-clinique-de-ganges-sil-y-avait-2-000-accouchements-par-an-je-naurais-pas-de-probleme-141240.php?utm_term=Autofeed&amp;utm_medium=Social&amp;utm_source=Facebook&amp;fbclid=IwY2xjawIIeYpleHRuA2FlbQIxMQABHa7sFKo2cTOYJEJNvFdROZAW0VMsqIG5QrpqKdOiEUfw-mPHv_N3hMGPsA_aem_CxCg2t-JnTg2SaI1IDGvyA#Echobox=1738220592">L’interview de Lamine Garbi dans Objectif Gard du 30 janvier</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/01/Communique-ministre-sante-a-Ganges-31012025-modifie.pdf">Le communiqué de la CGT d’appel au rassemblement</a></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/01/ganges.jpg" /></p>
+
+<p style="background-color: #f5deb3"><strong>CONCARNEAU - 29</strong></p>
+<p class="titre-rubrique"><strong>Appel à mobilisation pour le 1<sup>er</sup> février</strong></p>
+<p><em><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Image8.jpeg" />Rassemblement à Concarneau</em></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/01/ConcarneauCP-pour-le-1er-fevrier.pdf">Le communiqué du comité</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GUINGAMP - 22</strong></p>
+<p class="titre-rubrique"><strong>Plus de 2000 personnes dans la rue pour l’hôpital public</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Image5.jpg" />Iels sont venus de Concarneau, de Douarnenez, de Carhaix, de Lannion (où 300 personnes s’étaient rassemblées le matin), de Landerneau... </p>
+<p align=center><a href="https://www.lepoher.fr/manifestation-sante-hopital-guingamp-carhaix-bretagne-cuba-doleances/?fbclid=IwY2xjawIMPENleHRuA2FlbQIxMQABHfeukn_fwPOi5zeq-T-BLigxTAUiAeIyYJ5km5Ml3ZhcPS3e63cBLdqHZg_aem_az-2KmPYl17B3anerKkxTA">L’article du Poher</a></p>
+
+<p style="background-color: #f5deb3"><strong>MARMANDE - 47 </strong></p>
+<p class="titre-rubrique"><strong>L’actualité du comité</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Image6.jpg" /></p>
+<p>Ce 31 janvier, comme chaque vendredi, l’association était mobilisée devant l’hôpital avant une réunion dans la salle mis à disposition gracieusement par par les resto du cœur. </p>
+<p>Plusieurs décisions ont été prises notamment celle d’interpeller le conseil régional de nouvelle Aquitaine pour ne pas réduire le recrutement de 75 à 52 infirmières en formations alors que les besoins sont immenses</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LUÇON</strong></p>
+<p class="titre-rubrique"><strong>Les rassemblements se poursuivent tous les vendredis</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Image7.jpg" /></p>
+<p align=center><a href="https://vendeegazette.fr/urgences-a-lucon-la-bataille-pour-leur-maintien-continue/?fbclid=IwY2xjawIMQXZleHRuA2FlbQIxMQABHXPeKQTTG9OezLNgjlxRJUQ_Q9Kmw-FsB4H4KPbGlN1eynnYuwcYu7RMPw_aem_n7FCS9VcEpONBasf9Nk0EQ">L’article de Vendée Gazette du 1<sup>er</sup> février</a></p>
+
+<p class="rubrique">Autres infos locales&#8239;:</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>VERDUN - </strong><strong>55</strong></p>
+<p class="titre-rubrique"><strong>Le personnel se mobilise</strong></p>
+<p><u><a href="https://www.estrepublicain.fr/sante/2025/01/24/manifestation-devant-l-hopital-de-bar-le-duc-pour-fo-et-la-cgt-pas-touche-aux-rtt">L'article de l'Est Républicain du 24 janvier</a></u></p>
+
+<p style="background-color: #f5deb3"><strong>TOULOUSE - 31</strong></p>
+<p class="titre-rubrique"><strong>Une grève improbable à l'hôpital publication</strong></p>
+<p><u><a href="https://blogs.mediapart.fr/christelle-avril/blog/270125/suppression-d-un-poste-administratif-une-greve-improbable-l-hopital-public?at_medium=rs-cm&amp;at_campaign=mastodon&amp;at_account=mediapartblogs">Un billet de blog sur Mediapart</a></u></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>ORLEANS 45</strong></p>
+<p class="titre-rubrique"><strong>Préavis de grève reconductible à l'hôpital</strong></p>
+<p><u><a href="https://www.larep.fr/orleans-45000/actualites/un-preavis-de-greve-reconductible-depose-a-l-hopital-d-orleans-a-compter-du-4-fevrier_14634306/">L'article de la République du Centre du 30 janvier</a></u></p>
+
+<p style="background-color: #f5deb3"><strong>LYON - 69</strong></p>
+<p class="titre-rubrique"><strong>Grève et réquisitions à l'hôpital privé Jean Mermoz</strong></p>
+<p><u><a href="https://www.leprogres.fr/sante/2025/01/30/hopital-prive-jean-mermoz-la-greve-et-les-requisitions-se-poursuivent">L'article du Progrès du 30 janvier</a></u></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINTES - 17</strong></p>
+<p class="titre-rubrique"><strong>Grève aux urgences de l'hôpital</strong></p>
+<p><u><a href="https://www.francebleu.fr/infos/rendez-vous/greve-aux-urgences-de-l-hopital-de-saintes-jusqu-a-10-heures-d-attente-pour-etre-soigne-5789795">L'article de Ici du 29 janvier</a></u></p>
+
+<p style="background-color: #f5deb3"><strong>PARIS - 75</strong></p>
+<p class="titre-rubrique"><strong>Les habitants du 19e arrondissement veulent sauver leur centre de santé</strong></p>
+<p><u><a href="https://www.bfmtv.com/paris/replay-emissions/bonjour-paris/paris-les-habitants-du-19e-arrondissement-veulent-sauver-leur-centre-de-sante_VN-202501290133.html">L'article de BFM du 29/01</a></u></p>
+<p><u><a href="https://france3-regions.francetvinfo.fr/paris-ile-de-france/paris/kinesitherapie-ou-ophtalmologie-un-grand-centre-de-sante-parisien-menace-de-perdre-plusieurs-specialites-medicales-3098689.html">L'article de France 3 du 28/01</a></u></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SISTERON</strong></p>
+<p class="titre-rubrique"><strong>Les urgences de l'hôpital fermées depuis le début de la semaine</strong></p>
+<p><u><a href="https://www.bfmtv.com/bfm-dici/sisteron-l-accueil-des-urgences-ferme-depuis-le-debut-de-la-semaine_AN-202501310216.html">L'émission de BFM DICI</a></u></p>
+
+<p style="background-color: #f5deb3"><strong>HAUTS DE FRANCE</strong></p>
+<p class="titre-rubrique"><strong>Les élu. e. s communistes lancent une campagne pour >pouvoir enfin mettre l’État devant ses responsabilités face à la dégradation de la situation de la santé. </strong></p>
+<p><u><a href="https://santeendangerhdf.fr/">Le site de la campagne</a></u></p>
+
+<p class="rubrique">Dossiers&#8239;:</p>
+
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p class="titre-rubrique"><strong>Un avis du Comité Consultatif National d’Éthique </strong></p>
+<p align=center><a href="https://cabinetpm.hosting.augure.com/Augure_CCNE/r/ContenuEnLigne/Download?id=91C3A46E-6745-433B-AFD1-AE2231B9945B&amp;filename=A147-Psychiatrie_CP-%2020250127_site.pdf">Le communiqué de presse</a></p>
+<p align=center><a href="https://www.ccne-ethique.fr/sites/default/files/2025-01/Avis%20147.pdf">Le rapport</a></p>
+<p class="titre-dossiers"><strong>FORMATION</strong></p>
+<p class="titre-rubrique"><strong>Le CEFIEC alerte sur la problématique des quotas de formation en soins infirmiers</strong></p>
+<p>Dans un long communiqué, le CEFIEC (Comité d’Entente des Formations Infirmières et Cadres, association regroupant tous les Instituts de Formation en Soins Infirmiers (IFSI) de France, ainsi que les Instituts de formation de cadres de santé, d’aide-soignant, d’auxiliaires de puériculture et quelques écoles de spécialités infirmières) s’inquiète du financement par l’État de l’augmentation du nombre d’étudiants alors que la région PACA a déjà fait savoir qu’elle ne souhaite pas financer les augmentations de quotas. </p>
+<p align=center><a href="https://toute-la.veille-acteurs-sante.fr/228917/le-cefiec-alerte-sur-la-problematique-des-quotas-de-formation-en-soins-infirmiers-communique/">Le communiqué</a></p>
+<p class="titre-dossiers"><strong>SÉCURITÉ SOCIALE</strong></p>
+<p class="titre-rubrique"><strong>Le groupe des neufs des organisations de retraités refuse la suppression de l’abattement de 10% sur les retraites </strong></p>
+<p align=center><a href="https://union-confederale-retraites.cgt.fr/sites/union-confederale-retraites.cgt.fr/files/2025-01/474790611_9317026048359929_5784674776087954875_n_0.pdf">Le communiqué</a></p>
+<p class="titre-rubrique"><strong>L’UFC Que Choisir appelle à une « grande sécu »</strong></p>
+<p align=center><a href="https://www.francetvinfo.fr/sante/l-ufc-que-choisir-appelle-a-la-creation-d-une-grande-secu-et-denonce-la-part-croissante-prise-par-les-complementaires-sante_7040066.html">L’article de France Info du 28 janvier</a></p>
+<p align=center><a href="https://www.quechoisir.org/action-ufc-que-choisir-inegalites-d-acces-aux-soins-essentiels-exigeons-une-prise-en-charge-publique-a-100-n148924/">Le communiqué</a></p>
+<p class="titre-rubrique"><strong>Les assurés sociaux ne sont ni des idiots, ni des « vaches à lait » ! ! ! </strong></p>
+<p align=center><a href="https://www.datapressepremium.com/rmdiff/2006732/CP.2025.01.28.Complementaire-sante.pdf">Le communiqué de la FNATH</a></p>
+<p class="titre-rubrique"><strong>Proposition de loi « cancer du sein » : la commission des affaires sociales se félicite de l’adoption définitive du texte issu du Sénat</strong></p>
+<p>L’Assemblée nationale a adopté, le 28 janvier et sans modification, le texte issu des travaux du Sénat sur la proposition de loi visant à améliorer la prise en charge des soins et dispositifs spécifiques au traitement du cancer du sein par l’assurance maladie, déposée par l’ancien député Fabien Roussel. </p>
+<p align=center><a href="https://www.senat.fr/salle-de-presse/communiques-de-presse/presse/29-01-2025/proposition-de-loi-cancer-du-sein-la-commission-des-affaires-sociales-se-felicite-de-ladoption-definitive-du-texte-issu-du-senat.html">Le communiqué du Sénat</a></p>
+<p class="titre-rubrique"><strong>Faut-il nationaliser la Sécu ? </strong></p>
+<p align=center><a href="https://www.arte.tv/fr/videos/119476-111-A/28-minutes/">L’émission sur ARTE</a> (à 15’)</p>
+<p class="titre-dossiers"><strong>CENTRES DE SANTÉ</strong></p>
+<p class="titre-rubrique"><strong>Les médecins en centres de santé</strong></p>
+<p align=center><a href="http://www.revue-salariat.fr/index.php/2024/11/10/les-medecins-en-centre-de-sante-des-salariees-non-subordonnees/">Un article de la revue Salariat</a></p>
+
+<p class="rubrique">Culture et santé&#8239;:</p>
+
+<p class="titre-rubrique"><strong>Convergeons pour la Sécurité Sociale</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/02/convergeons-pour-la-securite-sociale/">Les enregistrements de la journée débat du 1<sup>er</sup> février</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante. org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

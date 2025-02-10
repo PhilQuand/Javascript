@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 010</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Les organisations les plus diverses tirent la sonnette d’alarme</p>
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 06</li>
+<li>Dates: Du 03 au 09 février 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Infos-semaine-6-du-4-au-9-février-2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Les organisations les plus diverses tirent la sonnette d’alarme. C’est la Ligue contre le cancer qui déplore les inégalités face à la maladie et s’exclame : il faut agir ! C’est aussi la Fédération hospitalière de France qui s’alarme en raison de l’augmentation des cotisations non compensée par l’ ONDAM. Ce sont les professionnels qui s’inquiètent de la possible disparition des centres de Protection Maternelle et Infantile dans de nombreux départements. C’est encore la Fédération des Centres de Santé qui proteste de son exclusion de la formation des médecins juniors. </p>
+<p>Les citoyennes et les citoyens, en colère, répondent massivement aux appels à mobilisation des comités de défense des hôpitaux publics comme le 1<sup>er</sup> février : 400 à Lannion et 2500 à Guingamp, ces comités s’unissent pour publier un communiqué commun (voir plus bas) .</p>
+<p>Poursuivons, amplifions les actions pour que soit garanti l’accès aux soins pour toutes et tous partout sur le territoire. </p>
+<p style="margin: 1em; text-align: right; font-style: italic">Jean-Luc Landas</p>
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+<p class="titre-dossiers"><strong>Communiqué suite à la mobilisation régionale du 01/02/2025</strong></p>
+<p><em>Les comités bretons réunis le 1</em><sup><em>er</em></sup><em> février 2025 à Guingamp se félicitent du succès de la mobilisation de ce jour qui a rassemblé élus, personnels et comités de toute la Région. </em></p>
+<p>Ils exigent <strong>un plan d’urgence de recrutement médical</strong>, tant en Ville qu’à l’hôpital en commençant par le recensement des besoins sur chaque territoire. Cela implique : </p>
+<ul>
+<li>
+<p>d’<strong>augmenter massivement le nombre de professionnels formés</strong> en supprimant la notion de quotas, en donnant plus de moyens aux facultés et en multipliant les lieux de stages ; </p>
+</li>
+<li>
+<p>de <strong>redonner l’envie aux jeunes médecins de venir travailler à l’hôpital</strong> et aux médecins en poste d’y rester en redonnant du sens à leur métier, en augmentant leur salaire, en intégrant et en reconnaissant les praticiens à diplôme hors union Européenne (PADHUE) dont les contrats sont aujourd’hui menacés ; </p>
+</li>
+<li>
+<p>d’<strong>explorer toutes les possibilités éthiques de renforcer les équipes médicales</strong>, notamment sur les services d’urgences en grandes difficultés (exemple : partenariat avec Cuba) ;</p>
+</li>
+<li>
+<p>de <strong>mieux répartir les professionnels de santé</strong> : toutes les professions de santé sont réglementées sauf la médecine : la liberté d’installation doit s’arrêter là où commence l’intérêt général.</p>
+</li>
+</ul>
+<p><em>Au-delà du recrutement médical, il est urgent de revoir l’organisation des soins en Ville et dans les établissements publics de santé pour apporter une réponse satisfaisante aux besoins de la population sur l’ensemble du territoire breton et mettre fin aux difficultés actuelles de prise en charge. </em></p>
+<p><strong>Pour cela, il est demandé l’organisation d’une table ronde régionale avec des représentants du Ministère, des élus, des soignants et des représentants de tous les comités. </strong></p>
+<p>Les signataires : </p>
+<p><em>Comité de défense de l’hôpital public et de l’offre de soins du Pays de Guingamp</em></p>
+<p><em>Comité de défense de l’hôpital de Concarneau</em></p>
+<p><em>Comité de défense et de promotion du CH de Lannion-Trestel</em></p>
+<p><em>Comité de défense de l’hôpital de Pontivy</em></p>
+<p><em>Coordination Le Monde d’Après du Pays de St Malo</em></p>
+<p><em>Comité de défense de l’hôpital de Landerneau</em></p>
+<p><em>Comité de défense de l’hôpital public en Pays de Morlaix</em></p>
+<p><em>Comité pour la défense de l’hôpital et le droit à la santé de Douarnenez</em></p>
+<p><em>Comité de soutien à l'hôpital de Paimpol</em></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Image2.jpeg" /></p>
+<div style="text-align:center">
+<p style="color: #00acff"><strong>la Coordination Nationale était présente le 1er février à Guingamp avec les comités de Concarneau, Douarnenez, Guingamp, Lannion-Trestel, Morlaix, Paimpol, Saint Malo-Dinan auxquels se sont associés ceux de Carhaix et Pontivy</strong></p>
+<p><strong>Net changement de ton dans les Côtes-d’Armor, un dialogue s’engage pour l’accès aux soins entre les maires, l’ARS et l’État</strong></p>
+<p><a href="https://www.letelegramme.fr/bretagne/le-changement-de-ton-est-net-dans-les-cotes-darmor-un-dialogue-sengage-pour-lacces-aux-soins-entre-les-maires-lars-et-letat-6755706.php?fbclid=IwY2xjawIS1rJleHRuA2FlbQIxMQABHVtCnhHsXUUVB4DGaDmSq3nWfS2XtHSzN9BrdDca0pWtIfd0_ey4aOqLEw_aem_-KgkEaiuHyedM-cJ40Zh4Q" target="_blank"><strong>l'article</strong></a></p>
+<p><strong>Mais quel dialogue, sans les comités de défense des hôpitaux ? ? ? </strong></p>
+<p><em><strong>Le préfet et l'ARS jouent-ils la montre ? </strong></em></p>
+</div>
+<p>Un certain nombre d'élus des Côtes D'Armor ont été enfin reçu par le préfet du département pour évoquer les problématiques d'accès aux soins. Au-delà du changement de ton on peut noter que le nouveau représentant de l'état contrairement à son prédécesseur ne peut plus nier les difficultés d'accès aux soins particulièrement aigus sur l'ouest du département. S'il change de ton et doit reconnaître la dure réalité devant des élus qu'il reçoit, c'est uniquement grâce au processus revendicatif qu'Initiative Urgence Armor Santé a initié, à la collecte de près de 2000 témoignages documentant l'état lamentable de l'accès aux soins et bien sûr la journée de manifestation qui a vu plus de 2500 personnes dans les rues de Guingamp et Lannion samedi 1er février porter ces problématiques. </p>
+<p>Mais à quoi sert cette nouvelle posture préfectorale si par ailleurs l'ARS continue de verser de l'argent public à la Clinique privée de Plérin pour subventionner son activité de maternité après avoir suspendu la possibilité d'accoucher à l'hôpital public à Guingamp ? </p>
+<p>A quoi bon une nouvelle communication préfectorale s'il n'y a pas de réouverture des urgences H24 à Lannion et la réouverture du service de Gastro-Entérologie de ce même hôpital, la réouverture des Urgences de Carhaix qui sera aussi bénéfique à des costarmoricains ? </p>
+<p>Enfin à quoi bon discuter avec la Préfecture de St Brieuc s'il n'y a pas un dialogue sur la base des propositions contenues dans les arrêtés municipaux qui portaient sur les moyens humains, le recours à la main d'œuvre hospitalière étrangère payée dignement, le partenariat avec la République de Cuba, et les moyens techniques pour le SMUR et le SDIS ? </p>
+<p>Ne pas répondre positivement à ces propositions pragmatiques c'est mettre la tête sous l'eau à une population particulièrement paupérisée et dépourvue d'accès à des soins basiques et dont la dignité est chaque jour éprouvée. En recevant la délégation, le préfet et l'ARS « ont ouvert la porte » mais n'ont pas répondu à l'urgence des questions posées ni même proposé de calendrier de rencontres. Cette posture d'attente qu'ils imposent à la population est indigne. </p>
+<p>Mais faut-il s'en étonner ? Le préfet du département, représentant de l'état, lui-même géré par un gouvernement qui mène ouvertement une politique d'austérité brutale qui impacte négativement les politiques de santé et la sécurité sociale. </p>
+<p>Nous proposons d'accentuer les mobilisations impliquant la population et les personnels hospitaliers. C'est aux ministres de la Ruralité et de la Santé que nous voulons parler tous ensemble. </p>
+<p><em><strong>Initiative Urgence Armor Santé Yec'hed mat ! </strong></em></p>
+<p class="titre-dossiers"><strong>LES INITIATIVES HEBDOMADAIRES DEVANT L’HÔPITAL </strong></p>
+<div style="text-align:center">
+<p><strong>jeudi 16H00 : Sarlat</strong></p>
+<p><strong>vendredi 17h00 : Marmande</strong></p>
+<p><strong>vendredi 18h00 : Luçon</strong></p>
+</div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LANNION</strong></p>
+<div style="text-align:center">
+<p><strong>la manifestation du 1<sup>er</sup> février rassemble 400 personnes </strong></p>
+<p><strong>l’intervention d’ Anne Le Loarer</strong></p>
+<p align=center><a href="https://www.youtube.com/watch?v=yNL-Oq32ois" target="_blank">la video</a></p>
+</div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MANOSQUE</strong></p>
+<p>êtes vous favorables ou non à l’emploi de médecins cubains dans les hôpitaux publics métropolitains ? </p>
+<p>le collectif santé Haute Provence et Convergence Urgence Santé 04 interroge les organisations syndicales, les partis politiques </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Lettre-aux-OS-Partis-CUS-04-Medecins-Cubains.pdf">Lettre-aux-OS-Partis-CUS-04-Medecins-Cubains</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>AUBENAS</strong></p>
+<p>le jeudi 13 Février le comité d'Aubenas organise son assemblée générale</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/02/Aubenas-convocation-AG-2025.pdf">convocation AG 2025</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BAGNÈRES DE BIGORRE</strong></p>
+<p><strong>L'association « SAUVONS L'HÔPITAL B2B » se félicite de l'arrivée tant attendue d'un directeur à l'hôpital de Bagnères-de-Bigorre depuis le 1er juillet 2024</strong>.</p>
+<p>Toutefois, si cette nomination constitue une avancée majeure, d'importantes interrogations demeurent sur l'avenir du service des urgences et l'installation d'un scanner. Face à ces incertitudes, l'association appelle à une mobilisation citoyenne pour garantir un accès aux soins de proximité. </p>
+<p>Depuis plusieurs années, l'absence d'une direction solide avait freiné le développement de l'établissement de Bagnères-de-Bigorre. Aujourd'hui, la réouverture de tous les lits de rééducation fonctionnelle est une victoire pour l'association et l'ensemble des acteurs mobilisés, notamment la population locale et certains élus. Cette avancée montre qu'une gestion efficace et un dialogue avec les instances décisionnaires peuvent aboutir à des améliorations concrètes. Cependant, la mise en place de nouveaux services rencontre des obstacles majeurs, qui mettent en lumière les difficultés structurelles du système de santé public. </p>
+<p>L'Agence Régionale de Santé (ARS) Occitanie avait pris des engagements clairs, par écrit, le 4 octobre 2023, concernant le <strong>recrutement de six médecins urgentistes</strong> au début de l'année 2025. Bien que des discussions aient eu lieu avec des candidats, <strong>des retards inquiètent fortement l'association</strong>. « Nous avons demandé à trois reprises une rencontre avec le directeur pour discuter de ces sujets, mais nous sommes restés sans réponse. De même, la sous-préfète de Bagnères a refusé de nous recevoir, ce qui est une rupture avec les pratiques du passé », dénonce l'association. </p>
+<p>L'absence de réponse des autorités inquiète les professionnels de santé et les usagers de l'hôpital, qui redoutent un enlisement de la situation. En effet, le manque de personnel aux urgences entraîne une dégradation des conditions de travail et une augmentation des délais de prise en charge, ce qui pèse sur la qualité des soins et la sécurité des patients. </p>
+<p><strong>L'acquisition et le fonctionnement d'un scanner restent également en suspens</strong>. Selon le nouveau directeur, la rentabilité de cet équipement pose problème. Une position que l'association réfute : « L'ARS et le préfet doivent respecter leurs engagements financiers. L'hôpital de Bagnères ne peut pas assumer seul le coût du scanner. »</p>
+<p>L'absence d'un scanner à l'hôpital de Bagnères oblige actuellement les patients à se rendre dans d'autres établissements pour passer des examens, engendrant des délais parfois incompatibles avec des situations d'urgence. Ce manque d'équipement fragilise l'offre de soins locale. </p>
+<p>Autre sujet de préoccupation : l'ouverture récente d'un centre d'imagerie médicale privé à Pouzac, appartenant à un grand groupe financier. Ce nouvel établissement pourrait fragiliser le service de radiologie et d'échographie de l'hôpital public, en drainant une partie de la patientèle et en impactant les mutuelles, qui ont déjà vu leurs cotisations augmenter de 40% en cinq ans. L'association appelle à la vigilance et à la mobilisation de tous pour protéger l'accès à un service public de santé de qualité. </p>
+<p>En plus de menacer l'équilibre financier de l'hôpital, cette concurrence privée pose la question de l'égalité d'accès aux soins. Les structures à but lucratif pratiquent souvent des tarifs plus élevés, ce qui pénalise les patients les plus modestes et contribue à une médicalisation à deux vitesses. </p>
+<p>Si des avancées notables ont été réalisées, <strong> la bataille pour un hôpital de Bagnères pleinement fonctionnel est loin d'être gagnée. L'association « SAUVONS L'HÔPITAL B2B » appelle à rester vigilants et à répondre massivement aux prochaines initiatives d'action en faveur du service public hospitalier. </strong></p>
+<p>Dans un contexte national de tension sur les budgets hospitaliers et de difficultés de recrutement du personnel médical, il est essentiel que la volonté politique se traduise en actes concrets. L'hôpital de Bagnères est un acteur indispensable de l'offre de soins de proximité, et son avenir ne doit pas être laissé au hasard. La population et les professionnels de santé vont continuer à se mobiliser pour obtenir les moyens nécessaires au bon fonctionnement de cet établissement. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DOURDAN</strong></p>
+<p align=center><strong>la réponse aux vœux du maire </strong></p>
+<p>L'hôpital de Dourdan aurait pu accueillir une IRM publique dans son service de radiologie voté en 2022 en conseil de surveillance. Mais le maire de Dourdan a décidé de faire installer cet appareil de pointe chez Olympe-Ramsay Santé en centre ville. Depuis des délibérations ont eu lieu en conseil municipal pour qu'un mammographe vienne concurrencer celui de l'hôpital et peut-être prochainement un scaner arrivera. </p>
+<p><img class="skip-lazy" src="https://webmail.coordination-defense-sante.org/cpsess9345237857/3rdparty/roundcube/program/resources/blocked.gif" alt="" width="16" height="16" name="Image3" border="0" /> L'agrandissement des urgences de l'hôpital de Dourdan a été décidé par le chef avec le personnel du service et la direction en conseil de surveillance dans le cadre du projet médical 2021-2025 du CHSE. Le maire de Dourdan a simplement donner une autorisation à la demande de travaux.</p>
+<p><img class="skip-lazy" src="https://webmail.coordination-defense-sante.org/cpsess9345237857/3rdparty/roundcube/program/resources/blocked.gif" alt="" width="16" height="16" name="Image4" border="0" /> Le Centre Périnatal de Proximité a été déplacé au 2ème de l'hôpital de Dourdan pour laisser la place à l'installation d'un service de gynécologie privé sur demande de l'adjointe à la santé de la mairie. PointGyn a fait de gros travaux et a donc complètement transformé l'espace spécialement aménagé pour le CPP après la fermeture de la maternité en 2015.</p>
+<p><img class="skip-lazy" src="https://webmail.coordination-defense-sante.org/cpsess9345237857/3rdparty/roundcube/program/resources/blocked.gif" alt="" width="16" height="16" name="Image5" border="0" /> Une clinique privé de soins de suite et réadaptation et de longue durée pourrait venir s'installer au bâtiment du potelet, actuel service de l'hôpital. Clinaillance entraînera la suppression de lits publics.</p>
+<p>Le comité de défense de l'hôpital de Dourdan reste mobilisé afin que les patient-es puissent bénéficier de la meilleure offre de soins accessible à toutes et tous et veiller à ce que la vérité soit dite. </p>
+<p>N'hésitez pas à consulter notre page facebook : <u><a href="https://www.facebook.com/Comit%C3%A9-de-D%C3%A9fense-de-lH%C3%B4pital-de-Dourdan-105058494938972/" target="_blank">https : //www. facebook. com/Comité-de-Défense-de-lHôpital-de-Dourdan-105058494938972/</a></u></p>
+<p align=right><strong>Les co-président-es</strong></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>REMIREMONT </strong></p>
+<p align=center><strong>Hommage à  Jean Louis Courtier </strong></p>
+<p align=center><strong>rendu par Jean Pierrel, Président de l’ l’ ADEMAT-H</strong></p>
+<p>Jean Louis, </p>
+<p>Tout est allé trop vite ! </p>
+<p>C'était la dernière semaine d'août 2024, il n'y a pas 6 mois</p>
+<p>On t'avait sollicité pour tenir notre stand quelques heures au forum des associations à Remiremont le 31 août ou au marché de Pouxeux la veille. </p>
+<p> « Oui, je pense pouvoir assurer quelques heures de présence, sauf si ça ne va pas mais pour l'instant, ça va » nous écrivais-tu.</p>
+<p>On te savait gêné par ta prothèse de hanche D'ailleurs, fin juin, nous en avions plaisanté ensemble, en évoquant les plaintes contre l'hôpital. C'était la dernière fois que je t'ai rencontré. </p>
+<p>Seulement, deux interlignes plus bas, dans ton courriel, tu nous informais que tu étais soigné par chimiothérapie pour un cancer de la vessie et que tu fatiguais vite. </p>
+<p>Malgré la gravité du diagnostic, le ton lucide n'est pas au renoncement </p>
+<p>Seulement, la veille de ces manifestations, c'est Frédérique qui nous informe qu'à ton grand regret, tu ne pourras venir nous aider. </p>
+<p>Nous apprenons alors que la maladie est très agressive, les traitements peu efficaces, leurs effets secondaires délétères... </p>
+<p> Puis c'est le passage aux soins palliatifs. Et puis nous tous ici pour cet hommage.</p>
+<p>Tu as partagé les 9 ans de notre combat. Dès la création du Comité de défense de la maternité en 2016, tu fus des nôtres – Comité qui deviendra l'Ademat-H. </p>
+<p> Parce que très engagé par ailleurs, tu n'as jamais accepté d'entrer au CA, mais tu étais notre relais, notre porte-parole local, sûr et fidèle</p>
+<p> Lecteur de l'Humanité, militant aguerri, formé à l'école de la lutte des classes, tu avais le sens de l'organisation. Enseignant, au fond de toi brillait la flamme de l'émancipation.   </p>
+<p>Tu savais aussi te préserver. C'est une leçon à se rappeler. </p>
+<p> Nous n'oublierons pas ton humanisme.</p>
+<p>Ton départ nous attriste, mais nous sommes heureux de t'avoir rencontré                        </p>
+<p>Nous te disons merci pour ce que tu as fait avec nous</p>
+
+<p class="rubrique">Autres infos locales&#8239;:</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>HÔPITAUX SAINT MAURICE ET LES MURETS </strong></p>
+<p>Prochaine réunion du collectif pour l'avenir des hôpitaux Saint Maurice et les Murets</p>
+<p>le jeudi 13 février 17h30 19h30 à l'hôpital Saint Maurice 12 rue du val d'Osnes salle de l'école de kiné </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MAYENNE</strong></p>
+<p align=center><em><strong>le personnel en arrêt maladie pour état de souffrance : </strong></em></p>
+<p align=center><em><strong>les urgences de l’ hôpital de Mayenne fermées du 5 au 11 février inclus</strong></em></p>
+<p align=center><a href="https://www.francebleu.fr/infos/sante-sciences/les-urgences-de-l-hopital-de-mayenne-fermees-jusqu-au-11-fevrier-le-personnel-en-etat-de-souffrance-inedit-selon-fo-6957289?fbclid=IwZXh0bgNhZW0CMTEAAR2AhX68cBCOUmPJD9z3f6bjEoUWoiUGF4oBDIJj6fxkRr9EoH6ayb4elRE_aem_vy1Vc5ZM3MwUzUVuZ3ilDQ" target="_blank"><strong>l’article</strong></a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>ROUEN</strong></p>
+<p align=center><strong>quand le public délègue au privé ! ! </strong></p>
+<p align=center><strong>"200 euros de parking par mois au CHU" : le coup de gueule du père d'un enfant malade</strong></p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/normandie/seine-maritime/rouen/temoignage-200-euros-de-parking-par-mois-au-chu-le-coup-de-gueule-du-pere-d-un-enfant-malade-3102814.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=normandie&amp;at_offre=4&amp;at_variant=V2&amp;at_send_date=20250205&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1062661&amp;at_highlight=Vendee-Globe-24"><strong>l'article</strong></a></p>
+
+<p class="rubrique">Dossiers&#8239;:</p>
+
+<p class="titre-dossiers"><strong>UN MAUVAIS COUP POUR L’HOSPITALISATION PUBLIQUE </strong></p>
+<p><strong>la hausse massive des cotisations retraite est une menace grave pour les établissements publics sanitaires et médico-sociaux</strong></p>
+<p align=center><a href="https://www.fhf.fr/actualites/communiques-de-presse/la-hausse-massive-des-cotisations-cnracl-constitue-une-menace-grave-pour-loffre-publique-sanitaire">communique-de-presse</a></p>
+<div class="CN-block">
+<p class="titre-dossiers"><strong>LES CENTRES DE SANTÉ EXCLUS DE LA FORMATION </strong></p>
+<p class="titre-dossiers"><strong>DES MÉDECINS GÉNÉRALISTES JUNIORS</strong></p>
+</div>
+<p align=center><a href="https://www.fncs.org/lettre-ouverte-au-ministre-de-la-sante-et-de-l-acces-aux-soins"><strong>lettre-ouverte</strong></a></p>
+<p align=center><a href="http://snmpmi.org/">SYNDICAT NATIONAL DES MÉDECINS DE PROTECTION MATERNELLE ET INFANTILE</a></p>
+<p>Entre 1995 et 2019 : -49% de consultations PMI pour les enfants avant 6 ans (de 2, 7 millions à 1, 38 millions d’examens). Entre 2004 et 2019 : -36% de visites à domicile de sages-femmes PMI auprès des femmes enceintes (de 275 000 à 188 000). Entre 2010 et 2022 : -38% de médecins et -20% de psychologues en PMI, et seulement + 7% de puéricultrices et infirmières. « Au fil de l’eau, et sans un sursaut des pouvoirs publics, la poursuite des évolutions observées pourrait aboutir à une extinction de la PMI dans la majorité des départements d’ici une décennie ». (Michèle Peyron, rapport sur la PMI, 2019).Le 7 février 2025, date anniversaire de la loi de 2022 sur la protection des enfants, les professionnels de PMI écriront massivement au ministre de la Santé pour rappeler leurs revendications, rappelées dans une <u><a href="https://www.assureravenirpmi.org/PETITION-NATIONALEAppel-d-urgence-aux-assises-de-pediatrie-et-de-sante-de-l.html" target="_blank">pétition nationale signée par 4500 d’entre eux</a></u>.</p>
+<p class="titre-dossiers"><strong>CANCER</strong></p>
+<p><em><strong>Les 10 recommandations de la Ligue contre le cancer au Président de la République pour un sursaut collectif contre les inégalités face à la maladie</strong></em></p>
+<p><strong>Philippe Bergerot, Président de la Ligue contre le cancer : </strong></p>
+<p>Si, en France, les avancées médicales font reculer la mortalité par cancer, <em><strong>il existe encore trop d’inégalités face à la maladie</strong></em>. Elles sont criantes et mènent à de véritables pertes de chance pour les personnes malades. Le temps des discussions est passé, il faut désormais agir ! </p>
+<p><em>Il est de notre mission et de notre devoir de porter la voix des personnes malades et des proches aidants pour aboutir à des évolutions majeures comme l’ont été la loi Kouchner et le premier Plan cancer. </em> <em>Notre système de santé actuel n’a pas pris en compte les avancées nécessaires pour faire face au recul des droits des personnes malades pourtant </em><em>demandées depuis de longues années par la Ligue contre le cancer et supposément acquis. Nos recommandations doivent bien évidemment rester de paires avec une démarche proactive de prévention et un financement conséquent de la recherche pour un accès équitable à une médecine personnalisée. </em> </p>
+<p><strong><em><strong>Les recommandations de la Ligue contre la cancer </strong></em></strong></p>
+<p>#1 Rendre le dépistage des cancers accessible à toutes et à tous sur l’ensemble du territoire</p>
+<p>#2 Garantir que chaque personne malade puisse bénéficier d’une consultation d’annonce spécifique, empathique et accompagnée</p>
+<p>#3 Améliorer la qualité de prise en charge des personnes malades en supprimant leurs restes à charge</p>
+<p>#4 Améliorer la qualité de prise en charge des personnes malades en facilitant la coordination des soins jusque dans les territoires les plus isolés</p>
+<p>#5 Assurer l’accès aux traitements en luttant efficacement contre les pénuries de médicaments et en favorisant l’accès à l’innovation</p>
+<p>#6 Soutenir la recherche et l’innovation pour un meilleur accès à la médecine personnalisée</p>
+<p>#7 Permettre à toutes et à tous de bénéficier de soins de support sur l’ensemble du territoire</p>
+<p>#8 Favoriser le maintien et le retour à l’emploi pendant et après la maladie</p>
+<p>#9 Valoriser et reconnaître l’engagement des proches aidants auprès des personnes malades</p>
+<p>#10 Rendre les soins palliatifs et l’accompagnement de fin de vie accessibles pour toutes et tous sur l’ensemble du territoire</p>
+<div class="CN-block">
+<p class="titre-dossiers"><strong>REMBOURSEMENT DES FAUTEUILS ROULANTS </strong></p>
+<p class="titre-dossiers"><strong>LES POINTS SUR LES « I » DU DÉPUTÉ SÉBASTIEN PEYTAVIE </strong></p>
+</div>
+<p><a href="https://www.facebook.com/speytavie/videos/3996438164012640?locale=fr_FR" target="_blank"><strong>l'interview</strong></a></p>
+<p><strong>"Déconstruire le discours des autoritésface à la criminalisation des manifestations"</strong></p>
+<p>Le samedi 15 février à partir de 10h, au siège de la LDH et <u><a href="https://go.ldh-france.org/lnk/AMcAAGEh2OQAAc4IbloAAJrYZw8AAVQQeZ0AHnIRAAi26gBnphRMR8CpfUCmT5Gcz129ax7I2QAIRKs/4/suAJECG986LnLBnM3Rv5ig/aHR0cHM6Ly91czA2d2ViLnpvb20udXMvai84NzYwMjcyMDkzNz9wd2Q9azM0ZVd2Y0M1a1ZuZ2FkU1pHQzI0RkJJTDVHaXZKLjE" target="_blank">en visioconférence</a></u> (ID de réunion : 876 0272 0937 ; Code secret : 542788). Inscription obligatoire auprès de <a href="mailto:reservation@ldh-france.org">reservation@ldh-france. org</a> en précisant si vous souhaitez participer en présentiel ou en distanciel. </p>
+<p>Qu'il s'agisse de luttes sociales ou environnementales, la liberté de manifester est aujourd'hui confrontée à de multiples entraves. Cette journée d'étude, organisée par la LDH dans le cadre du programme Net4Defenders, vise à déconstruire ces discours et ces pratiques. <u><a href="https://go.ldh-france.org/lnk/AMcAAGEh2OQAAc4IbloAAJrYZw8AAVQQeZ0AHnIRAAi26gBnphRMR8CpfUCmT5Gcz129ax7I2QAIRKs/5/J8yd_lGBhpgD6UzZYDuLEA/aHR0cHM6Ly93d3cubGRoLWZyYW5jZS5vcmcvd3AtY29udGVudC91cGxvYWRzLzIwMjUvMDEvUHJvZ3JhbW1lLWpvdXJuZWUtbGliZXJ0ZS1kZS1tYW5pZmVzdGVyLnBkZg" target="_blank">Lire le programme complet</a></u></p>
+
+<p class="rubrique">Culture et santé&#8239;:</p>
+
+<p align=center><em><strong>Que devient le soin psychique dans une société qui rend fou ? </strong></em></p>
+<p align=center><strong>Une conférence de Roland Gori le 11 février à 18h30 à Ville Évrard</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/02/conference-Roland-Gori.pdf"><strong>l’annonce </strong></a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante. org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleRedIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Actions à venir des comités',
+       }, {
+          class: "marker-3",
+          icon: simpleBlueIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-3 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

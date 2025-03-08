@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqAA-7u2NTSTWwmn94YmdHE0dBTg7sKom838czCHcexXoLspDjwEnhmxFWEUI1VYYPG6Iod5UdVgFGNmN-65xDeJ5dsFFxO3wqym0lXzPfO7mRIbsG5gPreLvpa-uGnYHZ8T0v-n3uaDkqZdtARd3ZXpSnKkf0HHW468uZ74SxV4Ejf7e1UGHEAgmlQPg/s1600/SCR-20250128-iqox.png",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7xrMVn8Lu76taGhO3Ebdv29X64_4spiXRelXVMmKhzcAWd1gyMm73NH9yRODr5sEvLasdNTAG2dsdDeluM1EuaPScJpXeWvLDv90ZaWk5M7iCPPJ0l61KKiRXB_ZcSlPZzgG7ox4ZPFcJwktv5mvxU6ljmUAIJUy6tcDBt8kvzqgr9aHC3Bx3DfxlXSc/s1600/0803.png",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -859,27 +859,27 @@ $(document).ready(function() {
           </div>'
                   },*/
           {
-            dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqAA-7u2NTSTWwmn94YmdHE0dBTg7sKom838czCHcexXoLspDjwEnhmxFWEUI1VYYPG6Iod5UdVgFGNmN-65xDeJ5dsFFxO3wqym0lXzPfO7mRIbsG5gPreLvpa-uGnYHZ8T0v-n3uaDkqZdtARd3ZXpSnKkf0HHW468uZ74SxV4Ejf7e1UGHEAgmlQPg/s1600/SCR-20250128-iqox.png",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/2025-01-20-GAZA.pdf"
-          },
-           {
-            dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8mNTcxT6lwiPFAk0F2ec1XpkNiu6ycyUBXg7EcroC6f3Ajwdljjh0k5bC-exovsAJcE40Qb3d_F0ansg9_uVZ3swLB25-EwpVNc08ttLC9GPawaAW7K_lQqaEnum0rcCZkixhURjtV7KmbJAVLNJgA0M1z3_aXG5EKYC_f9H3xaX1XDr-4S1n_0hgXX8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/TractTDFS.pdf"
-          },
-        /*{
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRuT3sDi_1b9QDYoE7lGczkXhCqssE-50ps3xWnmnRD9u_xmYLkp8RmLgTBH2WqcTWsS9uDxcXl14gmMJQIBPlMYfuUdOAW0JFkl1xNyiToOt_8H04_LRrIsbCC9SeJtCI2cwxN1sJ2xxn_1uVqiyICI1FxkGoL8fGgNMLJFI6sNI5vnvcJ0F-lO_vsr8/s1600/Tract-des-9-sur-les-pensions-modifie%CC%81.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7xrMVn8Lu76taGhO3Ebdv29X64_4spiXRelXVMmKhzcAWd1gyMm73NH9yRODr5sEvLasdNTAG2dsdDeluM1EuaPScJpXeWvLDv90ZaWk5M7iCPPJ0l61KKiRXB_ZcSlPZzgG7ox4ZPFcJwktv5mvxU6ljmUAIJUy6tcDBt8kvzqgr9aHC3Bx3DfxlXSc/s1600/0803.png"
           },
           {
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz5mBnpiFYdjHu_xSz4skSTOVfhu1UP1AUCLWzOfCA7vIHR8IkM1QW8cFp18CzoRVw2MOOvjmWXhveUeWgF_a2feFrAp6JePAs9kuWA1xtdJzfCi7Efr1Z3bUJCKGTFctFXMi9zTo5air3YYEvsuYj8Q7PJ4GEbTOwqW35bDKzKSukm9l_MOYsywhw1J4/s1600/communique_intersyndical_fp_-5-de%CC%81cembre-2024.jpg"
+            dataType: "iframe",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3JaTmCKbV3MLqZfzVKSypvB0dUzZdKU1vks7w6Vj_2kisKav1wc-2Ry5Q81v0aj4CZUxgF_g3-YrC_vLJZE-9EOkv_Tln5L8NjM4L_wUGmd2_e34JMvvrQt8dBEfSN41uEzCdwlP392QYz4UEtz2NAlVyT3i6AbbSgPoA5HsDq83RAqpfToWt6NMdbmU/s1600/8_mars_2025_Tours_signe.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/8_mars_2025_Tours_signe.pdf"
           },
            {
             dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVSlfe2r_CsXt-1Do7kWOeo0ojGi-EvXwIKOdM9VH9FUxU6815dSFRk3joftbcrGMHDjs_xlM160ZIdQmOebZgP2YmxsKGD30BTAqDLuJ3d_PGE-Uvlq-QKT5zITqip0XMZFlNCjwRPXun5ldhefvuH5x4lXY_DHWXmSgQFMn7tzZ80HqMoLKe5cy79hA/s1600/communiqu%3F%20pour%20le%2029%20_%20VD.jpg",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/communiqu%3F%20pour%20le%2029%20_%20VD.pdf"
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjGchAcT9VtFGCKBfiXZMFWxYzf-UZK5tIANU8OjXFV046IhHLQKedjVZjHNTDaQW1y-1FFPGFRoXRDKdpN7hpInKyq8UHbmu-E5xHTkehXfDLWyl7qv2hhIiGK3EXXCZk3BQ8jgKCGrlDhNN8iPKtlRbfVDNzjc4idwQsnM0NdNMB_gIbEPMd3KOXoCg/s1600/communique%CC%81%208%20mars.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/communiqu%C3%A9%208%20mars.pdf"
+          },
+          {
+            dataType: "iframe",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9W02RdA_jijHARcHZxs8fZP5LhtJzO6Zlh3rZWi_o2M1iPp9XnNx-wRhfWCA8UCKvcX_jsSrHxuraY2sCBymxM-xyL7y2f62PPOJaeuySlJZSotSNNzhaJe7mqJm6RG-YrqeqqgiDD2knle-JC3Ek4r3ELkzO9HirbZtevxFTzuIagSWcxE5vOFz35-A/s1600/communique%CC%81%20scouarnec.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/communiqu%C3%A9%20scouarnec.pdf"
+          },
+         /*{
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRuT3sDi_1b9QDYoE7lGczkXhCqssE-50ps3xWnmnRD9u_xmYLkp8RmLgTBH2WqcTWsS9uDxcXl14gmMJQIBPlMYfuUdOAW0JFkl1xNyiToOt_8H04_LRrIsbCC9SeJtCI2cwxN1sJ2xxn_1uVqiyICI1FxkGoL8fGgNMLJFI6sNI5vnvcJ0F-lO_vsr8/s1600/communique%CC%81%208%20mars.jpg"
           },
           {
             dataType: "iframe",

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 010</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Une augmentation des taux de mortalité infantile place la France à la 23ème place en Europe. Notre pays est passé de 3,70% en 2021 à 4,10% en 2024</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 13</li>
+<li>Dates: Du 24 mars au 30 mars 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/03/Infos-semaine-12-du-17-au-23-mars-2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p><strong>Déserts médicaux, l’intérêt général sera-t-il une nouvelle fois sacrifié ?</strong></p>
+<p>L’ordre des médecins et ses alliés tentent de bloquer des mesures contre la désertification médicale (voir ci dessous) et s’inquiète de voir la pénurie de médecins disparaître en 2040 et ses capacités de chantage se réduire (cf P.8) </p>
+<p>Ce Projet de Loi, n’est pas la révolution, simplement la limitation de l’installation des médecins dans les zones les mieux dotées, 12 % du territoire seulement, avec dans chaque département des zones sous dotées. Cédant à la sirène des syndicats médicaux corporatistes, les députés de la majorité présidentielle, de la droite et du rassemblement national, ont voté pour la suppression de cet article lors de la réunion de la commission des affaires sociales de l’Assemblée Nationale.</p>
+<p><strong>La Coordination Nationale des Comités de Défense des Hôpitaux et Maternités de proximité rappelle ses propositions</strong> : il est impératif de former plus de médecins, sinon dans dix ans, la situation sera pire et il faut démocratiser les études en salariant les étudiants en échange d’un engagement de service public. Évidemment, la liberté d’installation ne peut s’opposer à l’intérêt général. Les médecins sont d’ailleurs la seule profession de santé pour laquelle il n’existe pas encore de régulation de l’installation. Enfin, il faut en finir avec la mise en concurrence du privé et du public en allant vers l’égalisation des revenus et des conditions de travail des médecins quelque soit leur statut libéral ou salarié et leur spécialité.</p>
+<p>Nous appelons les députés récalcitrants à se ressaisir pour rétablir les articles supprimés lors du débat en séance publique le 1er avril.</p>
+<p><strong>D’autres réagissent aussi :</strong></p>
+<p>L’Association des Petites Villes de France (APVF), (…) <em>Ce texte, travaillé de longue date par un groupe transpartisan rassemblant plus de 200 députés de toutes sensibilités, représente une opportunité historique de faire consensus autour d’un objectif partagé : garantir un égal accès aux soins pour tous les Français, quel que soit leur lieu de résidence. Toutefois, l’APVF regrette le rejet de l’article 1er, qui vise à encadrer l’installation des médecins afin de mieux orienter les nouvelles installations vers les zones sous-dotées, où les besoins sont les plus urgents. (...)Les petites villes, en première ligne face à la désertification médicale, ne peuvent plus se contenter de bonnes intentions : elles ont besoin de décisions courageuses, concrètes et équitables.</em></p>
+<p><strong>Et pendant ce temps là la mobilisation des habitant.e.s augmente comme en témoignent les nombreuses initiatives des comités</strong>.</p>
+
+<p style="margin: 1em; text-align: right; font-style: italic">Henri (Sud Aveyron)</p>
+
+<!--div style="text-align: center">
+<p align=center><a href="https://www.insee.fr/fr/statistiques/7627069">https : //www. insee. fr/fr/statistiques/7627069</a></p>
+<p align=center><a href="https://theconversation.com/risques-caches-de-laccouchement-en-france-les-defis-des-naissances-inopinees-hors-maternite-248947" target="_blank">https : //theconversation. com/risques-caches-de-laccouchement-en-france-les-defis-des-naissances-inopinees-hors-maternite-248947</a></p>
+<p><strong>Le témoignage d'une sage-femme</strong></p>
+<p> <a href="https://coordination-defense-sante.org/espace-dexpression-libre/sf-final/">https : //coordination-defense-sante. org/espace-dexpression-libre/sf-final/</a>
+</div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MARMANDE</strong></p>
+<p><strong>La lutte a été payante ! La réduction annoncée de 75 à 52 infirmière en formation a été repoussée pour 2025 ! Le comité se félicite de ce résultat de leurs multiples interventions.</strong> Il appelle a un véritable engagement sur la durée pour que l’hôpital et le système de santé sorte véritablement du marasme et puisse répondre aux besoins des habitant. e. s. L’exigence de remise en place d’un Directeur de l’hôpital de proximité est toujours portée par le comité et les élus. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GISORS</strong></p>
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText" style="font-weight: bold;">
+<p>Belle réunion le 25 mars : 70 présents</p>
+<p>Le directeur et le président de la CME étaient là ainsi que la presse hebdomadaire(l’Impartial)</p>
+<p>Victor Duchesne a fait un tabac ! Beaucoup d’échanges avec le public</p>
+<p>le comité a élu  avons élu quinze représentants au comité directeur</p>
+</div></div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BERGERAC</strong></p>
+<p>Le 11 Avril le Comité de Défense du Service Public de Santé et du Médico-social du Bergeracois tiendra son assemblée générale. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>ALÈS</strong></p>
+<p><strong>Cuba forme énormément de médecins" : les déserts médicaux cherchent des solutions rapides pour assurer les soins des habitants et maintenir les hôpitaux ouverts</strong></p>
+<p>Face à la désertification médicale dans les Cévennes, de nombreux habitants, élus et spécialistes se sont réunis pour tenter de sauver le secteur dans la région. Objectifs, trouver des solutions pour remplacer les médecins généralistes partant en retraite et attirer des soignants à l'hôpital. </p>
+<p>Les urgences de l’hôpital d’Alès, dans le Gard, ont encore fermé la nuit, le week-end dernier. Ce n’est pas la première fois. Le manque de médecins complique la situation depuis des années. Et dans les Cévennes, 15 000 personnes n’ont plus de médecin traitant. </p>
+<p align=center><a title="" href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeFuBmOhhtnNowCKMVP3o/pML-52JI01os" target="_blank">L'article de France 3 du 24 mars</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>OLORON-SAINTE-MARIE</strong></p>
+<p><strong>L’hôpital passe une convention pour employer des médecins d’Espagne.</strong></p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeG13EXWf4xXJ21d6The4/Sm5sEKjZRi7a" target="_blank">L’article de France 3 du 28 mars</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LURE</strong></p>
+<p><strong>Le CV70, co-organise une manifestation sur la défense de la desserte ferroviaire BELFORT-LURE-EPINAL le 12 Avril (déplacement en train et manifestations diverses, en musique et avec restauration).</strong> Plus de détails sur le lien Youtube suivant</p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeG7uggLcG7gn7qvqS0EK/rsp7qxAGhALI" target="_blank">https : //youtu. be/b-i9--tg1tY</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LUÇON</strong></p>
+<div class="VignetteBR float right" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p><strong>Pour un territoire avec son hôpital, sa gare et ses services publix au plus près de la population</strong></p>
+<p>Notre « idéefixe » : « besoin de services publix aux villages des irréductibles gaulois »</p>
+<p>Initiative proposée par l’ADSP en partenariat avec la Ville de Luçon et la Communauté de communes Sud-Vendée Littoral</p>
+</div></div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>AUBENAS</strong></p>
+<p>Le comité d'Aubenas a pris plusieurs initiatives ces dernières semaines ; </p>
+<p>Il a participé à l'initiative du comité d'Alès du 21 mars dernier pour présenter avec André Chassaigne la proposition de loi sur les déserts médicaux et la promotion de la venue de médecins cubains pour palier aux déserts médicaux sur les territoires. </p>
+<p>Nous avons écrit une lettre aux élus locaux et nationaux de notre secteur pour demander qu'ils interviennent auprès du gouvernement pour appuyer cette proposition : <a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeGEm8pAZRHqHDgEaQIoa/XY2MU5Hn22a2" target="_blank">la lettre</a></p>
+<p>Nous avons également rédigé et publié un communiqué de presse sur la question de la proposition de loi sur les déserts médicaux : <a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeGLdaxzWcRzlJVXKObOq/WyjD-wpwqbF3" target="_blank"> le communiqué</a></p>
+<p>Une pétition sera proposée à la signature devant l'hôpital le 4 avril à partir de 14H pour soutenir ce projet. </p>
+<p>Enfin, nous organisons le 10 Avril prochain une initiative publique avec une conférence gesticulée sur le sujet des difficultés de prise en charge de la population. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DOLE</strong></p>
+<div class="VignetteBR float right" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://fms2i.img.ag.d.sendibm3.com/im/sh/wilGWHoWq5sd.jpg?u=7xwQLFBtniwQnLwVCOemT7Je2Unr6rY" />
+</div>
+<div class="divText">
+<p><strong>samedi 29 Mars à Dole</strong></p>
+<p>- <strong>pour la réouverture de la chirurgie d'urgence</strong> et d'hospitalisation. Ce sont environ 2000 patients par an qui sont transférés au CHU de Besançon qui peine à   gérer ces opérations, avec des retards de prise en charge parfois très graves;</p>
+<p>- pour une amélioration des transports sanitaires après la suspension en janvier 2025 de la convention financée par l'ARS avec une société d'ambulance qui assurait les transports 24h/24 ;</p>
+<p>- pour la formation et le recrutement de médecins et personnels soignants en nombre suffisant, ce qui implique des moyens supplémentaires pour les universités et les IFSI ;</p>
+<p>- pour la rénovation sans tarder de l'isolation thermique des façades du bâtiment qui a 50 ans passés et subit de nombreuses infiltrations ;</p>
+<p>- pour des financements à la hauteur des besoins de l'hôpital et de tous les services publics. </p>
+</div></div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BAGNÈRES de BIGORRE</strong></p>
+<div class="VignetteBR float right" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://fms2i.img.ag.d.sendibm3.com/im/sh/9NHH7JlNiHip.jpg?u=7xwQLFBtniwQnSnxLDbxdGnjrnXpPRo" />
+</div>
+<div class="divText">
+<p><strong>9 Avril manifestation à Bagnères pour sauver les urgences dans le haut Adour</strong></p>
+<p>Inquiétudes sur les Urgences et le Scanner</p>
+<p>Si l’Association et la population de B2B peuvent se réjouir de la nomination d’un nouveau directeur dédié au seul hôpital de B2B ainsi que de la réouverture de lits en service de rééducation, de sérieuses inquiétudes persistent ! </p>
+<p>Les promesses et les engagements de l’ARS : </p>
+<p>Le 21 octobre 2024, par le biais d’un communiqué de presse, l’ARS (Agence Régionale de Santé) affirme que l’Hôpital de B2B doit faire fonctionner sans délai, le service des urgences mais aussi qu’elle donne l’autorisation au nouveau directeur, de procéder sans délai au recrutement d’urgentistes dédiés au seul site de B2B pour un fonctionnement concret en début d'année 2025. </p>
+<p>Dans son relevé de décision en 2023, le préfet 65 l'avait aussi annoncé. </p>
+<p>Dans ce même communiqué, l'ARS annonce la mise en fonctionnement de 3 nouveaux scanners d’ici la fin de l’année sur le département des Hautes-Pyrénées, dont 1 à Bagnères. </p>
+</div></div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>RUFFEC</strong></p>
+<div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://fms2i.img.ag.d.sendibm3.com/im/sh/0fhawj6q_1hf.jpg?u=7xwQLFBtniwQnZfPU2Z8nQHph6Hni24" />
+</div>
+<div class="divText">
+<p><strong>Le vendredi 14 Mars 2025, notre association a tenu son AG suivie d'une réunion publique</strong> animée par Victor Duchesne : docteur en économie, spécialiste de la santé et de la protection sociale. Une soixantaine de personnes étaient présentes. </p>
+<p>Thème ciblé pour la réunion publique : </p>
+<p>« Privatisation et financiarisation de la santé. </p>
+<p>Conséquences sur les usagers que nous sommes et sur les soignants. </p>
+<p>Peut-on en sortir et comment ? »</p>
+<p>La présentation de Victor a été appréciée de toutes et tous et un débat riche s'en est suivi. </p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeGSV36oTnc9FPKq4Mtz6/JxII5Ixy9YeI" target="_blank">Plus de détails sur le site</a>.</p>
+</div></div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>FEURS - EHPAD</strong></p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeGZMVFdQymIjVA8oLCZM/qIvJ7gHNk3Qp" target="_blank">Compte rendu de la réunion publique du 10 Mars</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DOURDAN</strong></p>
+<p><strong>15 Mars, la rencontre fût une réussite</strong> et une belle convergence avec les usagers, les professionnels, les associations de défense, les syndicats et les élu·es.</p>
+<p>Nous avons échangé sur de nombreux sujets, partager nos expériences, recueilli des témoignages, des besoins, des manques. </p>
+<p>Nous sommes motivés à poursuivre la défense de l'hôpital et de l'offre de soins en ville car c'est VITALE. (Le E est voulu pour faire le lien avec la carte Vitale) </p>
+<p>Nous nous retrouverons pour formaliser toutes les discussions afin de préparer des assises de la santé départementale avec le comité du Nord-Essonne à l'initiative. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT MAURICE LES MURETS</strong></p>
+<p>La psychiatrie va mal</p>
+<p>Le collectif qui vient d’adhérer à la Coordination co-organise deux réunions publiques, le 2 avril à Fontenay sous Bois et le 9 avril dans le 12ème arrondissement de Paris</p>
+<p> <a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeGgDxOSO9wSDazRYJV9c/sAkyqjR9cwHi" target="_blank">https : //coordination9-defense-sante. org/soiree-12eme/</a></p>
+<p> <a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeGn5PXHLL6bhgokIHnjs/yKjOfIu-2Zk7" target="_blank">https : //coordination-defense-sante. org/invit-2-avril-psy/</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BERNAY</strong></p>
+<p>L'association Liberté Égalité Proximité de Bernay a organisé samedi 29 mars une manifestation conjointement avec le syndicat du centre hospitalier de Bernay pour combattre la fermeture annoncée du service de chirurgie H24 7J/7dont le démantèlement est engagé en supprimant totalement l'offre de soins en orthopédie sur un territoire rural... ! ! ! </p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/SMK1E8tHeGtwrg6IWGlBme32G6K8/xNjG4420mYG-" target="_blank">L'article de L'éveil Normand du 28 mars</a></p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsDhYHcZXVbnHvkomEe4CW/6-o23Rqf_Ot8" target="_blank">Le reportage de la manifestation</a></p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsE9szozvrhiSBoeA3cnua/NZZlZld_pylX" target="_blank">Le texte lu à la manifestation </a></p>
+
+<p class="rubrique">Autres infos locales : </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>VITRY LE FRANÇOIS</strong></p>
+<p><strong>Vitry Le François mobilise contre la fermeture des urgences</strong></p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsEcDi1QKDndcRsTXsbXce/4Sujc-8KnErv" target="_blank">La pétition</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT LOUIS - ALSACE</strong></p>
+<p><strong>RÉUNION PUBLIQUE LUNDI 31 MARS (19H30 Blotsheim)</strong></p>
+<p>Rien ne bouge au niveau de la reprise de la chimiothérapie à l’Hôpital de Saint-Louis. </p>
+<p>La situation de l’Hôpital de Saint-Louis, depuis sa reprise en janvier 2023 par le Groupement Hospitalier Mulhouse Sud Alsace, est catastrophique. </p>
+<p>Les 27 mois de gestion de notre hôpital par le GHRMSA sont un échec flagrant. </p>
+<p><strong>Il est grand temps de réagir et de nous réunir pour faire avancer..</strong></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>AMIENS</strong></p>
+<p>L’ARS Hauts de France organise une réunion (sur inscription) sur LE DROIT DES USAGERS le 24 Avril</p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsF4YQDqiZtYmhwIvhaHKi/YoaQwyrmsqjO" target="_blank">www. hauts-de-france. ars. sante. fr</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DORDOGNE</strong></p>
+<p class="titre-rubrique">Le département de la Dordogne va créer un quatrième centre départemental de santé.</p>
+<p><strong>Il ouvrira ses portes en septembre.</strong> Un cinquième est déjà dans les cartons. </p>
+<p>Après les centres d'Excideuil (ouvert en 2018), de Saint-Médard-de-Mussidan (ouvert à la fin de l'année 2021) et de Ribérac (ouvert fin 2018), le département de la Dordogne ouvrira en septembre 2025 un quatrième centre départemental de santé à Saint-Léon-sur-l'Isle près de Saint-Astier. </p>
+<p><strong>Une décision qui ne fait pas l'unanimité</strong></p>
+<p>Lors du vote du budget primitif ce mardi 25 mars, le débat a divisé les élus départementaux. La majorité a voté pour, le groupe les Républicains s'est abstenu, et le groupe Renouveau a voté contre. Pour Thierry Cipierre son porte-parole, ces dispositifs coûtent cher à une époque où les départements doivent faire des économies, sont peu efficaces avec une dizaine de consultations seulement par médecin, et font de la concurrence aux médecins libéraux. (...) </p>
+<p>Moi, ce qui m'intéresse en tant que président de département, c'est de trouver des solutions. Ce n'est pas de se battre en permanence, s'affronter pour s'affronter. On ne remplace pas tout, mais avec les trois antennes que l'on a créées à Excideuil, à Saint-Médard de Mussidan et à Ribérac, et bientôt avec celle que l'on va faire à Saint-Léon-sur-l'Isle et à Nontron, on répond à un besoin de la population. Il y a des gens qui n'avaient pas de médecin qui ont enfin trouvé un médecin". </p>
+
+<p class="rubrique"><span style="display:none">Dossiers :</span>Initiatives : </p>
+
+<p class="titre-rubrique"><strong>Danger sur les PSYCHOLOGUES</strong></p>
+<p>Les syndicats et associations de psychologues dénoncent des projets gouvernementaux imminents</p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsFWt8QH6vzTwy08JWZ12m/sDi7Sre1pQ0O">article sur Facebook</a></p>
+<p class="titre-rubrique"><strong>MEDECINS CUBAINS RENCONTRE ET APPEL AUX ELUS</strong></p>
+<p>Un projet de courrier aux élus proposé par le <strong>comité d’Aubenas.</strong><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsFzDqchVI5P7E3xhLXkkq/V4ZGLfI5d7kQ">voir le site</a></p>
+<p><strong>Une délégation du Comité de Montargis.</strong></p>
+<p>Extraits (voir intégrale sur le <a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsGRYYp7teBKHU7n5AWUSu/KUsfybriCQF-">site</a></p>
+<p>Solidarité avec les soignants et le peuple cubain</p>
+<p>Des membres du Collectif montargois « Notre santé, notre hôpital on y tient » et de l'Association pour la Défense, le maintien et  l'Amélioration de la Maternité et  l'Hôpital de Remiremont (ADEMAT) faisaient partie du groupe de voyage solidaire Cuba Linda en visite à l'Institut cubain d'Amitié avec les Peuples, le 19 mars dernier, à Santiago de Cuba.</p>
+<p>Ce fût l'occasion de remettre près d'une trentaine de kilos de médicaments et matériels médicaux collectés. Les 11 millions de Cubains en manquent terriblement du fait du blocus imposé par les Etats-Unis, aggravé par 242 nouvelles sanctions décidées par Donald Trump dès sa prise de fonction. </p>
+<p>Nous avons été accueillis par des responsables du ministère de la Santé Publique (..) Chacune des 15 provinces  dispose d'un hôpital, et d'un maillage territorial composé de polycliniques. Il existe un  cabinet médical dans presque toutes les communes, y compris dans les bourgs agricoles les plus reculés. Cuba compte un médecin de famille pour 259 habitants. (...)</p>
+<p>Les brigades médicales cubaines interviennent dans plus de 70 pays (...)</p>
+<p>Nous avons transmis l'amitié de notre Coordination et de nos comités dont les luttes convergent dans une même volonté de faire de la santé un bien commun, en dehors du système néolibéral et financiarisé. </p>
+<p>Le Docteur Sucel Vaillant Orozco et ses collègues  nous ont chaleureusement remerciés pour notre collecte. Nous leur avons répondu que c'était nous en réalité qui les remercions pour développer un modèle unique de soins auquel aspirent les populations du monde entier. Leur solidarité internationale est exemplaire.(...)</p>
+<p><strong>Ce 1er avril 2025, 6 secteurs appellent à la grève contre les coupes budgétaires et la précarité mais dénoncent aussi la militarisation en cours. </strong></p>
+<p>Ainsi des appels séparés dans le social et médico-social, l'audiovisuel public, l'INRAP (archéologie préventive publique), à France Travail et les AEDs dans l'éducation, proposent la grève et des rassemblements ou manifestations. D'autres secteurs suivront dans la semaine. </p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsGttH1YI0HFRkBcSzVEAy/f3A5gl2pKVal" target="_blank">https : //solidaires93. org/un-1er-avril-de-resistance-non-aux-coupes-budgetaires-et-a-la-precarisation-a-nous-de-construire-une-autre-societe/</a></p>
+<p class="titre-rubrique"><strong>Pour le 5 avril, à République à Paris</strong></p>
+<p>Le 5 avril, Place à la Santé avec barnums et infos, chamboule tout Santé, cordels du collectif des outils du soin, cartons rouges et verts, possibilité de faire signer des pétitions, intermèdes musicaux... Liste des intervenant. e. s confirmé. e. s : </p>
+<p>Nombreux ses intervenant. e. s </p>
+<p>Les interventions seront filmées et diffusées en live. La vidéo devrait être séquencée pour réaliser des posts pour les réseaux sociaux par la suite. </p>
+<p>Pour les intermèdes musicaux toutes les 4 à 5 interventions, contacts en cours.</p>
+<p>Sous le barnum, table pour écrire les cartons rouges et verts, table pour enquête participative sur le bien soigné, présence planning familial, présence de Médecins du Monde (sous réserve), prise de tension artérielle. </p>
+<p>Des initiatives se tiendront aussi  à Metz, Longwy, Tours...</p>
+<p class="titre-rubrique"><strong>PADHUES</strong></p>
+<p><em>Aujourd'hui, j'ai refusé de signer un document qui pourrait me coûter mon poste et m'obliger à quitter l'hôpital pour faire autre chose. Mais je suis prêt à le faire, car il s'agit d'une véritable injustice. </em></p>
+<p><em>Je l'ai appelé « le document de l'humiliation », un aveu d'échec imposé aux candidats des EVC 2024, accompagné d'un engagement à repasser l'examen en 2025. Comment peut-on parler d'échec alors que les candidats que je défends ont obtenu des moyennes comprises entre 11 et 14, et qu'il restait des postes disponibles ? </em></p>
+<p><em>Comment peut-on dire à un urologue qu'il a échoué alors qu'il a obtenu 14, 16 de moyenne et que des postes ont été supprimés par le jury ? </em></p>
+<p><em>Comment peut-on dire à une généraliste qu'elle a échoué avec 11, 99 de moyenne, alors que 263 postes ont été supprimés par le jury ? </em></p>
+<p><em>La France veut-elle, en 2025, continuer à être le pays des droits de l'Homme ou bien celui des injustices ? </em></p>
+<p>Un des soignants en grève de la faim </p>
+<p class="titre-dossiers">Documents Juridiques ou utiles</p>
+<p class="titre-rubrique"><strong>DÉSIGNATION DES REPRÉSENTANT. E. S des USAGERS</strong></p>
+<p>Les ARS relancent en ce moment les appels à candidatures pour les Représentants des Usagers, à l’instar de l’ARS Occitanie et Grand Est. Ne rêvez pas il n’y a pas d’élections prévues. Les ARS désigneront elles mèmes leurs interlocuteurs… mais la coordination peut vous mandater</p>
+<p>Dans le prolongement du webinaire organisé par l’Agence Régionale de Santé et France Assos Santé Occitanie ci-après, le formulaire dématérialisé permettant de déposer vos candidatures : <a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsHMDzDygMNAc0FRqoTxt2/2RGdGw9L1-JX">https : //solen2. enquetes. social. gouv. fr/cgi-bin/HE/SF ? P=1930z187z3z-1z-1zC8B1A52077. </a></p>
+<p>Grand Est recherche représentants des usagers manquant</p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsHoYhQP4iT5mGJHEdShb6/Nr9sI4ncplBl">https : //www. grand-est. ars. sante. fr/representants-des-usagers-renouvellement-des-postes-vacants-dans-les-commissions-des-usagers-des-0</a></p>
+<p class="titre-rubrique"><strong>DÉMOGRAPHIE MÉDICALE</strong></p>
+<p>L’ordre des médecins vient de publier son édition 2025 de l’atlas de la démographie médicale</p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsDhf94iMSmxRPqe4ycMmm/pMQArGfaI39w" target="_blank">L’article de France Info</a></p>
+<p>L’Ordre des médecins alerte sur un potentiel excès de médecins formés à l’horizon 2 040. Selon leurs projections, le nombre de médecins pourrait croître de 2% chaque année, ce qui représenterait environ 70 000 médecins supplémentaires en 15 ans. « Ne sommes-nous pas en train de former trop de médecins ? », s’interroge le Dr Jean-Marcel Mourgues, vice-président de l’Ordre chargé de la démographie médicale. </p>
+<p class="titre-rubrique"><strong>SANOFI</strong></p>
+<p>Aides publiques aux entreprises : les représentants de Sanofi mis sous pression lors d'une audition tendue au Sénat </p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsE9zrH8kossbfuTSnb6Uq/imnRlCB9zMb2" target="_blank">L’article de France Info</a></p>
+<p class="titre-rubrique"><strong>URGENCES </strong></p>
+<p>La moitié des patients attendent 45 minutes de plus qu'il y a 10 ans</p>
+<p>Rapport de la DREES avec des évaluations sur l’accès et la prise en charge des urgences à trouver sur le site. A lire avec un regard lucide, des chiffres contradictoires figurant dans cette étude. </p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsEcKZTZ9AynlvyIqcZqCu/ZdjUdKorzCEH" target="_blank">La publication</a></p>
+<p class="titre-rubrique"><strong>HÔPITAL </strong></p>
+<p>les Français restent inquiets malgré quelques mieux</p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsF4fHfzXX4iwC28ERYZuy/6rtITiLIJ1fL" target="_blank">L’article de France Info</a></p>
+
+<p class="rubrique">Culture&#8239;:</p>
+
+<p>Journaliste phare de France Inter Nicolas Demorand dénonce l’ostracisme visant les maladies mentales</p>
+<p align=center><a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsFWzzsPvtAe6S5xcGXJd2/gPHpyhsAj4Rb">https : //www. radiofrance. fr/franceinter/podcasts/les-80/les-80-de-nicolas-demorand-du-mercredi-26-mars-2025-8563874</a></p>
+<p><strong>SAUVE QUI PEUT</strong> (film)</p>
+<p>À l'hôpital, soignants et soignantes interrogent leur pratique lors d'ateliers de simulation avec des comédiens. Pour annoncer un cancer ou accompagner ses proches, l'empathie avec le patient se travaille. Mais l'idéal relationnel prôné en formation est-il applicable dans un système hospitalier de plus en plus à bout de force ? Peu à peu, la simulation devient un exutoire aux malaises qui rongent l'institution... </p>
+<p>   • Bande-annonce : <a href="https://fms2i.r.ag.d.sendibm3.com/mk/cl/f/sh/1t6Af4OiGsFzKi4qKFGZGi9n05W3L6/t76hcon17A0A">https : //www. youtube. com/watch ? v=dljHhJv_8Gs</a></p>
+<p>Pour contacter la diffusion : Laure Bioulès : 06 31 17 89 97</p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante. org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

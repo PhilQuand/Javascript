@@ -1,12 +1,16 @@
     var archi = [
                {
+          svgInfos: ['Semaine 13', 'du 24 mar.', 'au 30 mar.', '2025'],
+          idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/Semaine 13.html',
+        }, 
+               {
           svgInfos: ['Semaine 12', 'du 17 mar.', 'au 23 mar.', '2025'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/Semaine 12.html',
+          idGlinkID: 'PreviousLetters'
         }, 
                {
           svgInfos: ['Semaine 11', 'du 10 mar.', 'au 16 mar.', '2025'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/Semaine 11.html',
-          idGlinkID: 'PreviousLetters'
         }, 
                {
           svgInfos: ['Semaine 10', 'du 03 mar.', 'au 09 mar.', '2025'],

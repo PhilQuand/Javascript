@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 010</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Saluons la manifestation du 9 avril à Bagnères de Bigorre ! La Coordination est totalement solidaire de la lutte de la population avec son comité. pour ses urgences et son scanner.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 15</li>
+<li>Dates: Du 7 au 13 avril 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/Infossemaine15du7au13avril2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Saluons la manifestation du 9 avril à Bagnères de Bigorre ! La Coordination est totalement solidaire de la lutte de la population avec son comité. pour ses urgences et son scanner. </p>
+<p>De Lodève à Mont-Saint-Martin, en passant par Sarlat, Ruffec, Concarneau, Tours..., la journée mondiale de la Santé a été l’occasion d’initiatives pour exiger que l’accès aux soins de toutes et tous soit une réalité, pour partager avec la population explications et propositions. Dans les territoires ruraux, comme dans les grandes villes, la question est cruciale. A Paris le Tour de France pour la Santé avait organisé une initiative le 5 avril, mais il y a eu aussi Bruxelles, Madrid, Venise... car le manque de professionnels de santé et la pression exercée pour diminuer les dépenses publiques de santé dépassent nos frontières ! </p>
+<p>Mention spéciale dans ces diverses initiatives pour Amilly, dans l’agglomération montargoise. Le comité a été soutenir les salariés de Sanofi, qui veut se débarrasser de son site dans cette commune. C’est là que sont produits des médicaments aussi connus que l’Aspégic et le Kardégic, pas assez rentables pour Sanofi car trop vieux sans doute ! A l’heure où les pénuries médicamenteuses se multiplient, il est urgent de ne plus laisser les laboratoires pharmaceutiques gérer uniquement en fonction des profits attendus et de créer un pôle public du médicament. </p>
+
+<p style="margin: 1em; text-align: right; font-style: italic">Michèle Leflon</p>
+
+<!--div style="text-align: center">
+<p align=center><a href="https://www.insee.fr/fr/statistiques/7627069">https : //www. insee. fr/fr/statistiques/7627069</a></p>
+<p align=center><a href="https://theconversation.com/risques-caches-de-laccouchement-en-france-les-defis-des-naissances-inopinees-hors-maternite-248947" target="_blank">https : //theconversation. com/risques-caches-de-laccouchement-en-france-les-defis-des-naissances-inopinees-hors-maternite-248947</a></p>
+<p><strong>Le témoignage d'une sage-femme</strong></p>
+<p> <a href="https://coordination-defense-sante.org/espace-dexpression-libre/sf-final/">https : //coordination-defense-sante. org/espace-dexpression-libre/sf-final/</a>
+</div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SARLAT - 24</strong></p>
+<p align=center><strong>Le comité sur le marché</strong></p>
+<p><img class="skip-lazy"  src="https://coordination-defense-sante.org/wp-content/uploads/2025/04/25-04-05-21.jpg" /></p>
+<p>Le 5 avril, le comité de Sarlat était sur le marché, a distribué 200 tracts et fait signer une pétition</p>
+<p align=center><strong>Le député victime de menaces de mort</strong></p>
+<p>Le député de Sarlat, Sébastien Peytavie, en situation de handicap, a été menacé par un site d’extrême droite faisant référence à une campagne d’extermination des personnes handicapées menée par le régime nazi entre 1939 et 1941. </p>
+<p>Le Comté de défense de l’hôpital et de la maternité de Sarlat lui a apporté un soutien indéfectible. Qu’il soit assuré également du soutien de la Coordination. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BAGNÈRES DE BIGORRE - 65</strong></p>
+<p align=center><strong>Manifestation le 9 avril </strong></p>
+<p>500 à 800 manifestants dans les rues pour réclamer des urgences 24/24 et 7jours/7</p>
+<p><img class="skip-lazy"  src="https://coordination-defense-sante.org/wp-content/uploads/2025/04/marche-04-04-25.jpg" /></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/tract-manif-0325-.pdf">Le tract d’appel</a></p>
+<p align=center><a href="https://www.francebleu.fr/infos/sante-sciences/environ-500-manifestants-a-bagneres-de-bigorre-pour-defendre-l-hopital-5581900">L’article de France Bleu du 10 avril </a></p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/occitanie/hautes-pyrenees/tarbes/en-dernier-recours-c-est-tarbes-qui-est-surbooke-ils-manifestent-pour-reclamer-la-reouverture-complete-des-urgences-de-leur-hopital-3136402.html">L’article de France 3</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GANGES - 34</strong></p>
+<p align=center><strong>Mobilisation du 10 avril </strong></p>
+<p>A l’occasion de la réunion du comité de suivi avec l'ARS un appel à mobilisation a été lancé. Une <a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/lettre-type-aux-elus-DEF-2.pdf">lettre type</a>a été proposée aux élus. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CONCARNEAU - 29</strong></p>
+<p align=center><strong>Les actions du comité</strong></p>
+<p><img class="skip-lazy"  src="https://coordination-defense-sante.org/wp-content/uploads/2025/04/Infos-semaine-15-du-7-au-13-avril-2025_htm_b2e9af651aec5948.jpg" /></p>
+<p>Le 3 avril, une délégation de 5 membres du comité a répondu à l’appel de la CGT des hospitaliers dans le cadre de la journée d’action des services publics sous une pluie battante</p>
+<p>Le 4 avril, le comité a tenu un stand sur la marché de Concarneau dans le cadre du 7 avril contre la marchandisation de la santé : de très bonnes discussions et 18 adhésions au comité</p>
+<p>D’autres initiatives sont prévues dans le cadre des 80 ans de la Sécu : le 21 mai, conférence gesticulée « TAGADA soin soin », le 23 mai, débat avec Pierre Caillaud Croizat et le 30 mai, nous jouerons enfin notre spectacle à Concarneau, à la brasserie Tri Martolod qui a ouvert il y a quelque temps un lieu culturel.</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/04/concarneau-les-actions-du-comite/">Sur le site de la Coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MANOSQUE - 04</strong></p>
+<p align=center><strong>Convergence urgence santé 04 sur Fréquence Mistral</strong></p>
+<p align=center><a href="https://www.frequencemistral.com/Ca-se-comprend-Convergence-Urgence-Sante-04_a15790.html">L’émission</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TOURS - 37</strong></p>
+<p align=center><strong>Mobilisation pour le 7 avril </strong></p>
+<p align=center><a href="https://collectifsante37.blogspot.com/2025/04/place-la-sante-tours-le-7-avril-une.html">L’article sur le blog du collectif 37</a></p>
+<p align=center><strong>Autres informations</strong></p>
+<p align=center><a href="https://collectifsante37.blogspot.com/2025/04/a-blois-le-1er-avril-le-proces-de-la.html">A Blois, le 1er avril le procès de la direction de l'ADMR 41</a></p>
+<p align=center><a href="https://collectifsante37.blogspot.com/2025/04/grande-mobilisation-du-social-et-du.html">Grande mobilisation du social et du médicosocial à Tours le 1er avril</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>AUBENAS - 07</strong></p>
+<p align=center><strong>Conférence gesticulée le 10 avril </strong></p>
+<p align=center><a href="https://www.frequence7.net/emissions.php?nom=replay%2Fson%2FPOD00001.xml&amp;fbclid=IwY2xjawJmLXFleHRuA2FlbQIxMQABHtqgjWwSUu075RW2-W1Qg293rGFe40655Q5wx8bx1PXUXrgPH1RdB00udDec_aem_mEk9_HX7rcvPZeGbTzQ9tw">L’annonce sur Fréquence 7</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT-MAURICE LES MURETS - 94</strong></p>
+<p align=center><strong>Soirée du 2 avril </strong></p>
+<p>Le collectif co-organisait une soirée de lutte à Fontenay sous bois notamment contre la vente bradée de terrains pour une opération immobilière. </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/25-04-03-S-KLOPP-PSY-Intervention-debat-Esquirol-Fontenay-2-4-25.pdf">L'intervention de Serge Klopp au nom du Printemps de la Psychiatrie</a></p>
+<p align=center><strong>Soirée du 9 avril </strong></p>
+<p><img class="skip-lazy"  src="https://coordination-defense-sante.org/wp-content/uploads/2025/04/Infos-semaine-15-du-7-au-13-avril-2025_htm_85513e828041c8a9.jpg" /></p>
+<p>Très bonne soirée au café la commune organisée par Douzenlutte avec le collectif pour l'avenir de l'hôpital psychiatrique de saint Maurice</p>
+<p>Les Hôpitaux de Saint-Maurice (HSM) font l'objet d'un projet immobilier soutenu par la Direction des HSM, l'Agence régionale de santé (ARS) et la Mairie de Saint-Maurice, visant à louer en bail emphytéotique 24 000 m² de bâtiments (toute la partie basse Esquirol) à des promoteurs immobiliers privés. Ces derniers y développeront des activités lucratives telles que le logement, une pépinière d'entreprise et un centre de formation haut standing. La location est prévue pour une durée de 50 ans au prix de 13,5 millions d'euros, soit 0,86 euro/m²/mois.</p>
+<p>Pour reloger les services de soins actuellement présents dans les bâtiments concernés, la Direction prévoit de construire un nouveau bâtiment sur un Espace Boisé Classé (EBC) du parc de l'établissement avec un impact écologique fort et une concentration des soins, avec 110 patients dans 6 500 m², et la perte des patios par services.</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>RUFFEC - 16</strong></p>
+<p align=center><strong>Affichage pour la journée mondiale de la santé</strong></p>
+<p><img class="skip-lazy"  src="https://coordination-defense-sante.org/wp-content/uploads/2025/04/IMG_20250404_111503705_MFNR1-N°2.jpg"" /></p>
+<p>Du 4 au 7 Avril, banderoles et messages ont été affichés face à l'entrée de l'hôpital. </p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/04/ruffec-journee-mondiale-de-la-sante/">Plus sur le site de la Coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MONT-SAINT-MARTIN – 54</strong></p>
+<p align=center><strong>Santé Pays-Haut est allée à la rencontre des usagers pour le 7 avril </strong></p>
+<p><img class="skip-lazy"  src="https://coordination-defense-sante.org/wp-content/uploads/2025/04/Infos-semaine-15-du-7-au-13-avril-2025_htm_b077e684ccab6491.jpg" /></p>
+<p>C’est dans la galerie marchande d’Auchan (merci à sa direction et ses équipes pour l’accueil) que Santé Pays-Haut est allée à la rencontre des usagers, dont elle est représentante à l'hôpital de MONT ST MARTIN et à la Région Grand Est, afin de les informer sur le Plan de Financement de la Sécurité Sociale en cours, sur leurs droits, et de recueillir leurs remarques, questions, propositions... </p>
+<p>Malgré quelques expressions de découragement concernant la difficulté de concurrencer les conditions de travail des professionnels de santé au Luxembourg, de lutter contre le désert médical local, d'influer sur les choix nationaux en matière de politique de santé..., nous avons également reçu de nombreux encouragements et soutiens à notre action (et de nouvelles adhésions ! ), au cours d'échanges enrichissants et très divers. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MOISSAC - 82</strong></p>
+<p align=center><strong>2022 des annonces réjouissantes ! 2024 on déchante ! </strong></p>
+<p>En 2022 le premier ministre de l’époque Jean Castex annonçait que l’état s’engageait à financer la rénovation de l’hôpital de Moissac et la reconstruction de celui de Montauban. </p>
+<p>Forts de ces perspectives les deux établissements ont élaboré leurs projets. Aujourd’hui le constat est là : les deux projets doivent être revus à la baisse. <br />Moissac devra renoncer à une partie importante des rénovations et seule une partie de l’hôpital de Montauban pourra être reconstruite</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/250326-renovations-hopitaux.pdf">La suite des informations du comité</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MONTARGIS - 45</strong></p>
+<p align=center><strong>Sanofi spécule sur la santé ! </strong></p>
+<p><img class="skip-lazy"  src="https://coordination-defense-sante.org/wp-content/uploads/2025/04/Infos-semaine-15-du-7-au-13-avril-2025_htm_6340ba768f3ede8c.png" /></p>
+<p>À l'occasion de la journée mondiale de la santé du 7 avril, le Collectif montargois « Notre santé, notre hôpital on y tient » était aux côtés des salarié-es de Sanofi en lutte, pour dénoncer la cession du site d'Amilly au profit du groupe ASTRÉA Pharma, sous-traitant industriel pharmaceutique, et la vente de ses brevets de médicaments à Substipharm. Deux groupes internationaux dont l'un appartient à une holding luxembourgeoise géré par des fonds d'investissements et le second à un distributeur commercial. Substipharm est un laboratoire pharmaceutique sans usine ni savoir-faire ! </p>
+<p>Le site Sanofi d'Amilly est le seul en France qui produit et conditionne trois marques d'aspirine (Aspegic, Kardegic et Cardirene) reconnus comme médicaments d'intérêt thérapeutique majeur (MITM). </p>
+<p>L'Aspégic est le deuxième médicament le plus prescrit en France. </p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/04/montargis-soutien-aux-salaries-de-sanofi/">La suite du communiqué</a></p>
+
+<p class="rubrique">Autres infos locales : </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>VAL DE MARNE</strong></p>
+<p align=center><strong>Lancement de la Caravane des luttes de la santé le 29 avril</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/04/val-de-marne-lancement-de-la-caravane-des-luttes-de-la-sante-le-29-avril/">A lire sur le site de la Coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BENY-BOCAGE - 14</strong></p>
+<p align=center><strong>Mobilisation les 24 et 25 mai</strong></p>
+<p>Avec Convergence des Services Publics et le comité de Vire, sauvons nos bureaux de poste, et tous nos services publics ! </p>
+<p align=center><a href="https://www.convergence-sp.fr/mobilisation-au-beny-bocage/">Sur le site de Convergence</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/Programme-des-journees-des-samedi-24-et-dimanche-25-mai.pdf">Le programme</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MANTES LA JOLIE - 78</strong></p>
+<p align=center><strong>Un tract intersyndical relate les difficultés</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/CH-F-Quesnay-tract-inter-avril-2025.pdf">Le tract</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GIEN - 45</strong></p>
+<p align=center><strong>Plan blanc et fermeture de lits</strong></p>
+<p align=center><a href="https://www.larep.fr/gien-45500/actualites/c-est-un-cap-difficile-mais-on-va-le-passer-l-hopital-de-gien-reste-positif-malgre-le-plan-blanc-declenche-et-la-fermeture-de-26-lits_14669336/">L’article de la République du Centre du 9 avril</a></p>
+
+<p class="rubrique">Dossiers : </p>
+
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p align=center><strong>Le fil conducteurpsy</strong></p>
+<p>Le Fil conducteur psy, association participant au Printemps de la Psychiatrie informe qu’elle tient un blog sur Médiapart sur lequel elle diffuse des articles regroupés sous l'intitulé « Santé mentale, grande cause nationale », une sorte de série à épisodes entre actualités et faits autour de la psychiatrie. Les 2 premiers billets sont donc disponibles : </p>
+<p align=center><a href="https://blogs.mediapart.fr/le-fil-conducteur-psy/blog/250225/la-sante-mentale-grande-cause-nationale" target="_blank">https : //blogs. mediapart. fr/le-fil-conducteur-psy/blog/250225/la-sante-mentale-grande-cause-nationale</a></p>
+<p align=center><a href="https://blogs.mediapart.fr/le-fil-conducteur-psy/blog/060425/la-sante-mentale-grande-cause-nationale-episode-2" target="_blank">https : //blogs. mediapart. fr/le-fil-conducteur-psy/blog/060425/la-sante-mentale-grande-cause-nationale-episode-2</a></p>
+<p align=center><strong>Communiqué du Printemps de la Psychiatrie</strong></p>
+<p>Frank Bellivier, délégué ministériel à la santé mentale et à la psychiatrie, s’est fendu le 27 mars 2025 d’une interview dans l’Express au sujet de l’avenir des psychologues. Il y vante un projet gouvernemental de remise aux ordres des psychologues, au prétexte notamment du déploiement d’une version élargie du dispositif MonSoutienPsy. </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/UberPsy-la-suite.pdf">Le communiqué</a></p>
+<p align=center><strong>« Le secteur de la psychiatrie vacille et la “Grande cause nationale” n’est pas à la hauteur »</strong></p>
+<p>Une interview de Delphine Glachant membre du Printemps de la Psychiatrie</p>
+<p align=center><a href="https://www.vivamagazine.fr/le-secteur-de-la-psychiatrie-vacille-et-la-grande-cause-nationale-nest-pas-a-la-hauteur-delphine-glachant-collectif-du-printemps-de-la-psychi/?fbclid=IwY2xjawJkKr9leHRuA2FlbQIxMQABHpjAY_EZXJG37sRueEBsYLYXnR0PY9OcXlE5xw8GVM8cfXi9owcoAjMhOHa3_aem_5YsAxH324_IwJotLKum_Kg">L’article de Viva</a></p>
+<p class="titre-dossiers"><strong>CENTRES DE SANTÉ </strong></p>
+<p align=center><strong>La Sécurité Sociale déconventionne des centres lucratifs ! </strong></p>
+<p align=center><a href="https://france3-regions.francetvinfo.fr/bretagne/ille-et-vilaine/rennes/lutte-contre-la-fraude-l-assurance-maladie-deconventionne-des-centres-de-sante-3134698.html">L’article de France 3 du 7 avril</a></p>
+<p class="titre-dossiers"><strong>HOSPITALISATION PRIVÉE </strong></p>
+<p align=center><strong>Les patients mal informés sur les tarifs dans près de 3 établissements sur 4</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/2025-04-10-CP-DGCCRF-Facturations-dans-les-etablissements-de-sante-prives.pdf">Un communiqué de la Direction générale de la concurrence, de la consommation et de la répression des fraudes</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante. org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

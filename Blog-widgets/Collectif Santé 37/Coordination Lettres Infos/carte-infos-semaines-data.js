@@ -1,3 +1,3 @@
 "use strict";
-import users from './FermeturesHopitaux-Etab.json' assert {type: 'json'};
+import users from './FermeturesHopitaux-Etab.json' with {type: 'json'};
 console.log(users);

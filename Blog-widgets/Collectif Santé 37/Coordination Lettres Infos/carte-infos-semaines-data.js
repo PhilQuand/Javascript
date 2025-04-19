@@ -1,3 +1,3 @@
 "use strict";
-import users from './FermeturesHopitaux-Etab.geojson' assert {type: 'json'};
-console. log(users);
+import users from './FermeturesHopitaux-Etab.json' assert {type: 'json'};
+console.log(users);

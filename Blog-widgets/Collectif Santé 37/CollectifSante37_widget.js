@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu587RcCHp47X_GJQzmXF8mR61IXmOCVHLQ_5oLnEMUZj0bT-AXucvJNKsrHl0aP_I0B7yQjJYU-1nU7PmvoN0xHEyHdCBHTGuI0iF2I4Nnc0nS-kS6K4iDnyM96laa0EhF_ppaODT7xzJWC24x8_gsW1y0rew6M0FpO9_AnmxQ8roXX2McpuHaEBphzQ/s1600/Marche%20des%20solidarites.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmLsCD9pSI7J7AQAsOHfWu9vcZsO9Nm4PQoHKb7qVDnxWiI1l7h6yl5hOljkK14mna57nHkTWfoS2agnTAjmPk-AJ5L-rKL6BWhEzq2_MDsO1RPequoCJfRqngKt-Mntirm_PNdaI-1kc4YPK0ukm7ZMXbvvfn9DW8kM6XxdmWazxS4g9TVd-ZQ2k6oBg/s1600/Flyer%20CNP%20recto.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -860,10 +860,9 @@ $(document).ready(function() {
                   },*/
           {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMpKjMquZtZUqcp1gpEOeEk8hShDM8-kzyz_0luBmvHFYe7PbYpJTc22B-gy-qczMF27gl0BJs8Db48ahyDZgAD6bG4jfRJJHMDVM1POHoCxZiacYzjQZix60VeGDCauLsXekWAOxqkkSMnXiCtWwZNcMVQwHA1g8VmulHtU6Uz8TyGO3gs6Jk8XVsITM/s1600/tract%2022%20mars%2025.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmLsCD9pSI7J7AQAsOHfWu9vcZsO9Nm4PQoHKb7qVDnxWiI1l7h6yl5hOljkK14mna57nHkTWfoS2agnTAjmPk-AJ5L-rKL6BWhEzq2_MDsO1RPequoCJfRqngKt-Mntirm_PNdaI-1kc4YPK0ukm7ZMXbvvfn9DW8kM6XxdmWazxS4g9TVd-ZQ2k6oBg/s1600/Flyer%20CNP%20recto.jpg"
           },
-
-          {
+           /*{
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOO1rX_pnrXTdrJxSxFtE-kQyldxSiYQyaeM5NVZb-q-h6lM7UmU2iGbbOhK1HY4gB01_kd_zzhGh2fVOAhvK6-T7l3ugRXENz515RLM6zIv42yzspBSLLMX9L99ite6xcsKpTrIRc9n1qe8VfvmBqZEPfW5Jus950fXVgFhN_8UXB9AhuRjZ86UYxs9M/s1600/IMG-20250311-WA0009.jpg"
           },
@@ -872,7 +871,7 @@ $(document).ready(function() {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu587RcCHp47X_GJQzmXF8mR61IXmOCVHLQ_5oLnEMUZj0bT-AXucvJNKsrHl0aP_I0B7yQjJYU-1nU7PmvoN0xHEyHdCBHTGuI0iF2I4Nnc0nS-kS6K4iDnyM96laa0EhF_ppaODT7xzJWC24x8_gsW1y0rew6M0FpO9_AnmxQ8roXX2McpuHaEBphzQ/s1600/Marche%20des%20solidarites.jpg"
           },
-          /*{
+         {
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3JaTmCKbV3MLqZfzVKSypvB0dUzZdKU1vks7w6Vj_2kisKav1wc-2Ry5Q81v0aj4CZUxgF_g3-YrC_vLJZE-9EOkv_Tln5L8NjM4L_wUGmd2_e34JMvvrQt8dBEfSN41uEzCdwlP392QYz4UEtz2NAlVyT3i6AbbSgPoA5HsDq83RAqpfToWt6NMdbmU/s1600/8_mars_2025_Tours_signe.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/8_mars_2025_Tours_signe.pdf"

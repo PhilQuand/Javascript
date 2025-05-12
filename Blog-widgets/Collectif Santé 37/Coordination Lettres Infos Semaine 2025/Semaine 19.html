@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 010</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>1er mai à Vire, une jeune femme m'interroge à propos du gilet que je porte : « vous défendez l'hôpital ? »</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 19</li>
+<li>Dates: Du 5 au 11 mai 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Infos-semaine-19-du-5-au-11-mai-2025.odt">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>La proposition de loi sur les déserts médicaux a suscité des réactions démesurées de la part des organisations professionnelles de médecins ; quelques collectifs de médecins ont réagi en appelant à la décence.</p>
+<p>La proposition de loi a été votée contre l'avis du gouvernement.</p>
+<p>Les ministres sont « en mission » dans les territoires pour montrer qu'il agit pour l'intérêt des Français.</p>
+<p>Mais la réalité est tout autre.</p>
+<p>Nos compatriotes sont toujours désarmés pour se soigner. Les services d'urgences continuent de fermer.</p>
+<p>Heureusement que les comités continuent d'agir et de se mobiliser.</p>
+
+<p style="margin: 1em; text-align: right; font-style: italic"Joseph MAATOUK</p>
+
+<p align=center><strong>La Coordination nationale des Comités de défense des hôpitaux et maternités de proximité sur Radio Plurielle</strong></p>
+<p align=center><a href="https://fms2i.r.sp1-brevo.net/mk/cl/f/sh/SMK1E8tHeFuBmOhhtnNowCKMVP3o/o9tsmJl0Cakr">Emission</a></p>
+
+<!--div style="text-align: center">
+<p align=center><a href="https://www.insee.fr/fr/statistiques/7627069">https : //www. insee. fr/fr/statistiques/7627069</a></p>
+<p align=center><a href="https://theconversation.com/risques-caches-de-laccouchement-en-france-les-defis-des-naissances-inopinees-hors-maternite-248947" target="_blank">https : //theconversation. com/risques-caches-de-laccouchement-en-france-les-defis-des-naissances-inopinees-hors-maternite-248947</a></p>
+<p><strong>Le témoignage d'une sage-femme</strong></p>
+<p> <a href="https://coordination-defense-sante.org/espace-dexpression-libre/sf-final/">https : //coordination-defense-sante. org/espace-dexpression-libre/sf-final/</a>
+</div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SARLAT</strong></p>
+<p><strong>Huit élus de Dordogne réclament une régulation de l'installation des médecins.</strong></p>
+<p align=center><a href="https://www.francebleu.fr/infos/sante-sciences/huit-elus-de-dordogne-signent-une-tribune-reclamant-la-regulation-de-l-installation-des-medecins-6362359">Article</a></p>
+
+<p style="background-color: #77A101; color: #F7F7F7"><strong>MANOSQUE</strong></p>
+<p><strong>Crise des urgences dans les Alpes de Hautes Provence</strong></p>
+<p align=center><a href="https://alpesdusud.alpes1.com/news/alpes-de-haute-provence/107722/qu-en-est-il-de-la-crise-des-urgences-dans-les-alpes-de-haute-provence?fbclid=IwY2xjawKG2oVleHRuA2FlbQIxMQBicmlkETBBVzNVQXBPcTB4eHVjZ0w5AR7KZ6jSgRbIUOSHqpqubswaGUepNJ1T_F4yyf1hu3P1mwEBtJkfgrvuOH9_vA_aem_Oq7oLuM2v3gtpBiuD6GlcA">Article</a></p>
+<p align=center><a href="https://www.ledauphine.com/sante/2025/05/07/acces-restreint-aux-urgences-la-cgt-appelle-a-la-mobilisation?fbclid=IwY2xjawKIdtxleHRuA2FlbQIxMQBicmlkETBBVzNVQXBPcTB4eHVjZ0w5AR6JpzWNmk1FmZVDP5RJEW_x9sf0wxx4LFHPXAsb8alm93j6r9q3GaPLiX95Lg_aem_YMMKrdp_ffqujpr--dKChA">article</a></p>
+
+<p style="background-color: #55FEA1"><strong>VOSGES</strong></p>
+<p><strong>Participation à la fête à Gerardmer le 1<sup>er</sup> mai</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/05/remiremont.jpg" /></p>
+<p>Le 1 mai 2025, l'ADEMAT H a participé  à la fête de la solidarité à Gerardmer.</p>
+<p>27 adhésions et distribution du Communiqué ainsi que les propositions de la Coord Nat pour un service public territorial de soins de premier recours</p>
+<p>Action pour la santé mentale des jeunes</p>
+<p><strong>L’ ADEMAT H a été soutenir la mobilisation à Bruyère pour le CMP</strong></p>
+<p align=center><a href="https://www.youtube.com/watch?v=I9bDDKE6Wmw">Vidéo</a></p>
+
+<p style="background-color: #D7FD9F"><strong>ARDENNES</strong></p>
+<h5><strong>L’hôpital ne veut pas recruter ?</strong></h5>
+<p align=center><a href="https://coordination-defense-sante.org/2025/05/ardennes-le-china-ne-veut-pas-recruter/">Communiqué</a></p>
+
+<p style="background-color: #FD4402; color: #F7F7F7"><strong>JUVISY</strong></p>
+<p><strong>Un questionnaire</strong></p>
+<p>Dans le cadre des Assises de la santé, le Comité de Défense des Hôpitaux du Nord-Essonne, avec le soutien du Comité local Attac Val d'orge, propose un questionnaire afin de faire un état des lieux de l'accès à la santé sur Juvisy et ses environs.</p>
+<p>Les premiers résultats de ce questionnaire seront présentés lors d'une réunion publique qui aura lieu :</p>
+<p>Le samedi 17 mai à partir de 14h sur la péniche Alternat (4 quai JP Timbaud – Juvisy)</p>
+<p>Merci pour votre participation à ce questionnaire:  <a href="https://framaforms.org/la-sante-a-juvisy-et-dans-ses-environs-etat-des-lieux-1745846251">https://framaforms.org/la-sante-a-juvisy-et-dans-ses-environs-etat-des-lieux-1745846251</a> </p>
+
+<p style="background-color: #7CCF00"><strong>AUBENAS</strong></p>
+<p><strong>Le ministre de la santé à Aubenas</strong></p>
+<p>Le Ministre de la Santé était en visite à l'Hôpital d'Aubenas vendredi 9 Mai après midi.</p>
+<p>L'Association des Usagers a été reçue par un représentant du ministre.</p>
+<p>Elle a fait part des inquiétudes de la population au sujet des difficultés de prise en charge médicale.</p>
+<p>La situation de l'hôpital fait que des services de spécialité sont fermés et que cela oblige les patients à aller de plus en plus loin pour se soigner.</p>
+<p>L'association a rappelé l’importance d'avoir de services hospitaliers de proximité pour se soigner.</p>
+<p>En effet, 20 % de la population n'a pas de médecin traitant et les rendez vous chez un spécialiste même à l'hôpital souffrent de délais très longs.</p>
+<p>Elle a rappelé son soutien à la Proposition de loi sur les déserts médicaux et lui a remis les pétitions de soutien signées par la population.Elle a évoqué dans le même temps la proposition de la Coordination Nationale sur un service public territorial de soins de premier recours comme une des solutions permettant d'améliorer la démographie médicale sur le territoire.</p>
+
+<p style="background-color: #FAA7FF"><strong>FÉCAMP</strong></p>
+<p><strong>Une pétition pour l’accès au centre intercommunal de santé</strong></p>
+<p>Les communes de l'Agglomération Fécamp Caux Littoral sont confrontées à une pénurie de médecins généralistes. A cette pénurie, s'ajoutent les prochains départs en retraite de plusieurs médecins. Plusieurs centaines de patients de l'Agglomération vont se retrouver SANS MÉDECIN TRAITANT, ce qui pourrait engendrer des retards de soins conséquents.</p>
+<p>L'Association « Un Médecin pour Chacun » lance une pétition pour alerter et obliger le Président de l'Agglomération de Fécamp Caux Littoral d'intervenir afin de permettre à TOUS LES HABITANTS DE L'AGGLOMÉRATION d'accéder sans restriction au Centre Intercommunal de Santé, situé à Fécamp.</p>
+<p>Il est inacceptable que certains habitants soient privés de médecins généralistes et de soins médicaux simplement à cause de leur lieu de résidence. La santé est un droit fondamental et chacun devrait avoir la possibilité de consulter un médecin quand il en a besoin.</p>
+<p>En restreignant l'accès au Centre Intercommunal de Santé et en cautionnant le discours actuel du Centre de Santé (« On ne prend plus de nouveaux patients »), le Président de l'Agglomération de Fécamp met en danger la santé de ses concitoyens. Il est de notre devoir de nous mobiliser et de faire entendre notre voix pour que cette injustice cesse.</p>
+<p>En signant cette pétition, nous demandons donc au Président de l'Agglomération de Fécamp de prendre les mesures nécessaires pour garantir à tous les habitants de l'Agglomération un accès au Centre Intercommunal de Santé. Nous demandons également un médecin de garde provenant du centre de santé les week-ends et jours fériés. Notre santé ne peut pas attendre, nous demandons des actions concrètes dès maintenant.</p>
+<p>Lien vers la pétition : <a href="https://www.unmedecinpourchacun.org/petition.html">https://www.unmedecinpourchacun.org/petition.html</a></p>
+
+<p style="background-color: #D5FED1"><strong>LAVAL</strong></p>
+<p><strong>Une médecin urgentiste de Laval écrit un livre .</strong></p>
+<p align=center><a href="https://www.ouest-france.fr/sante/rencontre-cette-medecin-urgentiste-en-lutte-pour-lhopital-public-ecrit-un-livre-2381395c-16a4-11f0-a8b3-a2145a0def9b?utm_source=mailjet_of_newsletter-matinale-">Article</a></p>
+
+<p style="background-color: #FDBEC8"><strong>SAINT-MAURICE</strong></p>
+<p><strong>Participation à la caravane des luttes </strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/05/stmaurice.jpg" /></p>
+<p>Notre collectif a participé à la caravane des luttes en Val de marne qui reliait 10 points de lutte en santé dans le val de marne, mobilisation très réussie, une présence unie de la gauche, des syndicats et des citoyens.</p>
+<p>Nous poursuivrons les actions aux côtés de la coordination de vigilance du val de marne.</p>
+<p>Notre collectif prévoit prochainement une assemblée générale pour faire le bilan de ses deux ans d'actions, accueillir les nouveaux et imaginer la suite.</p>
+<p align=center><a href="https://collectif-avenir-hsm-murets.blogspot.com/">Le blog</a></span><span lang="zxx"> avec texte et actualités du collectif. On y trouve aussi notre cagnotte de soutien et pétition.</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #7CCF00"><strong>EPS VILLE EVRARD</strong></p>
+<p><strong>Une initiative dans le cadre des 80 ans de la Sécurité Sociale à Ville Evrard</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/1000005357.png">Flyer</a></p>
+
+<p style="background-color: #FD6E6E; color: #F7F7F7"><strong>BRIEY</strong></p>
+<p><strong>Avenir des urgences ?</strong></p>
+<p>Les membres du collectif citoyen de Briey sont préoccupés par l'avenir de l'hôpital et particulièrement du service des Urgences.</p>
+<p align=center><a href="https://www.republicain-lorrain.fr/sante/2025/05/08/hopital-maillot-le-collectif-citoyen-reste-mobilise?at_content=link&amp;at_term=RepublicainLorrainBrieyJarny&amp;at_campaign=Facebook&amp;at_medium=Social&amp;at_source=nonli">Article</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>SAGE-FEMMES</strong></p>
+<p style="text-align:center"><strong>Lors de la journée internationale des sage-femmes, l'ONSSF a publié un commun</strong></span><strong>i</strong><span lang="zxx"><strong>qué alertant et appelant à une refondation urgente de la politique périnatale.</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/20250505_JourneeinternationaledesSages-Femmes_CDPONSSF.pdf">Communiqué</a></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p style="text-align:center"><strong>Les résultats de l’étude plaid care seront présentés le jeudi 5 juin à Saint Cyr du Mont d'Or.</strong></p>
+<p>Colloque : "Etat des Limites, Limites de l'Etat"</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/ProgrammeIsadora20252x2.pdf">Flyer</a></p>
+<p style="text-align:center"><strong>Santé mentale : le mal du siècle</strong></p>
+<p align=center><a href="https://www.radiofrance.fr/franceculture/podcasts/france-culture-va-plus-loin-l-invite-e-des-matins/sante-mentale-le-mal-du-siecle-2498480">Une émission de France Culture</a></p>
+<p class="titre-dossiers"><strong>INFIRMIÈRE</strong></p>
+<p style="text-align:center"><strong>Une infirmière poursuivie après un mouvement de grève.</strong></p>
+<p align=center><a href="https://actualitedesluttes.info/emission/relaxe-judiciaire-pour-siham-touzi-ex-infirmiere-en-ephad-pas-dextradition-pour-gino">Emission radio</a></p>
+<p class="titre-dossiers"><strong>SÉCURITÉ SOCIALE</strong></p>
+<p style="text-align:center"><strong>Colloque sur la Sécurité Sociale le 13 Mai</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Programme-colloque-secu-.jpeg">Affiche</a></p>
+<p class="titre-dossiers"><strong>DÉFENSEURE DES DROITS</strong></p>
+<p style="text-align:center"><strong>Dans un rapport, la Défenseure des droits dénonce les discriminations dans l'accès aux soins.</strong></p>
+<p align=center><a href="https://www.santementale.fr/2025/05/le-rapport-de-la-defenseure-des-droits-qui-denonce-les-discriminations-dans-lacces-aux-soins/">Article</a></p>
+<p class="titre-dossiers"><strong>DÉSERTS MÉDICAUX</strong></p>
+<p style="text-align:center"><strong>Une tribune de deux médecins qui trouvent choquant la position des organisations professionnelles de médecins sur la proposition de loi Garot</strong></p>
+<p align=center><a href="https://environnementsantepolitique.fr/2025/05/07/la-colere-du-corps-medical-est-deplacee-voire-choquante/?">Article</a></p>
+<p style="text-align:center"><strong>Près de 150 médecins signent une tribune pour demander la régulation de leur installation </strong></p>
+<p align=center><a href="https://www.francetvinfo.fr/sante/deserts-medicaux/deserts-medicaux-pres-de-150-medecins-signent-une-tribune-pour-demander-la-regulation-de-leur-installation_7237719.html?at_campaign_group=1&amp;at_campaign=sante&amp;at_offre=3&amp;at_variant=V3#at_medium=5&amp;at_send_date=20250510&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1099766">article</a></p>
+<p style="text-align:center"><strong>Le CLCV se prononce en faveur de la loi Garot</strong></p>
+<p align=center><a href="https://www.clcv.org/articles/ppl-garot-le-temps-des-invectives-est-termine-place-laction">Communiqué</a></p>
+<p class="titre-dossiers"><strong>APPEL POUR LE 15 MAI</strong></p>
+<p style="text-align:center"><strong>Le syndicat Sud Santé lance un appel pour le 15 Mai</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/tract-psy-15-mai-2025.pdf">Appel</a></p>
+<p class="titre-dossiers"><strong>DE NOS PARTENAIRES </strong></p>
+<p style="text-align:center"><strong>Convergence des Services Publics</strong></p>
+<p>Manif Nationale les 24 et 25 mai à Beny Bocage pour sauver les services publics</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Bulletin-CDSP-n%C2%B03.pdf">Bulletin</a></p>
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante. org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

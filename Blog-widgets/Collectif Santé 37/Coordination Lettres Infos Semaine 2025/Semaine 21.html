@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 010</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Le corporatisme médical a perdu la bataille de l’opinion ! En défendant la liberté d’installation à tout prix, la médecine libérale et en dénigrant la médecine salariée et le service public, les organisations des médecins libéraux ont donné l’image de professionnels indifférents à l’intérêt général</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines : 21</li>
+<li>Dates : Du 20 au 25 mai 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Infossemaine21du19au25mai2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Le corporatisme médical a perdu la bataille de l’opinion ! En défendant la liberté d’installation à tout prix, la médecine libérale et en dénigrant la médecine salariée et le service public, les organisations des médecins libéraux ont donné l’image de professionnels indifférents à l’intérêt général. Toute notre solidarité à toutes celles et ceux qui se sont engagés dans ces métiers, précisément dans l’idée de servir la collectivité, d’autant plus leurs conditions de travail sont particulièrement dures.</p>
+<p>Limitation des installations dans les zones sur-dotées, moratoire sur les fermetures de maternités : les députés ont entendu l’aspiration populaire à l’égalité républicaine de l’accès aux soins dans chacun de nos territoires. La Coordination est fière d’y avoir contribué avec ses comités et leurs actions de proximité.</p>
+<p>Plus que jamais, la mobilisation doit continuer et s’amplifier !</p>
+<p>Ces textes n’ont été votés qu’à l’Assemblée Nationale et doivent maintenant faire l’objet d’un débat au Sénat où une proposition de loi concurrente sur l’installation des médecins libéraux a été votée avec le soutien du gouvernement, faisant l’impasse sur les restrictions à l’installation en zones sur-dotées.</p>
+<p>Surtout leur portée sera minime sans s’accompagner des moyens nécessaires : la formation de médecins en nombre, pour que la situation ne soit pas pire dans dix ans, la mise en place par le gouvernement d’un cadre national pour développer les centres de santé dans tous les territoires et des moyens financiers pour les hôpitaux : dans la partie dossier de ce bulletin, vous trouverez le lien vers l’inquiétant constat de la DREES, celui de l’aggravation de la situation budgétaire des hôpitaux et vers une récente circulaire du Premier ministre aux ARS recommandant la rigueur budgétaire.</p>
+<p>Rappelons que la tarification à l’activité est conçue comme un outil de restriction budgétaire et que les maternités de niveau I sont obligatoirement déficitaires ! Il est si simple de ne pas recruter pour dire ensuite que les conditions de sécurité ne sont pas remplies et aller vers une fermeture en fait à but économique.</p>
+<p>Plus que jamais, la Coordination et ses comités se mobilisent pour l’accès aux soins de toutes et tous dans la proximité !</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Michèle Leflon</p>
+
+<!--div style="text-align: center">
+<p align=center><a href="https://www.insee.fr/fr/statistiques/7627069">https : //www. insee. fr/fr/statistiques/7627069</a></p>
+<p align=center><a href="https://theconversation.com/risques-caches-de-laccouchement-en-france-les-defis-des-naissances-inopinees-hors-maternite-248947" target="_blank">https : //theconversation. com/risques-caches-de-laccouchement-en-france-les-defis-des-naissances-inopinees-hors-maternite-248947</a></p>
+<p><strong>Le témoignage d'une sage-femme</strong></p>
+<p> <a href="https://coordination-defense-sante.org/espace-dexpression-libre/sf-final/">https : //coordination-defense-sante. org/espace-dexpression-libre/sf-final/</a>
+</div-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MANOSQUE – 04</strong></p>
+<p align=center><strong>Quatre temps forts de mobilisation dans les Alpes de Haute-Provence</strong></p>
+<p>Le Collectif santé Haute Provence et la Convergence Urgence Santé 04 s'associent aux initiatives lancées par la CGT et appellent populations, élu.e.s et toutes les organisations progressistes à se joindre massivement à ses quatre temps forts.</p>
+<p>- Mardi 27 mai à 17h00 à l’entrée de l’Hôpital de Digne<br />- Mardi 3 juin à 17h00 entrée de l’Hôpital de Manosque<br />- Mardi 10 juin à 17h00 devant l’Hôpital de Sisteron<br />- Mardi 17 juin à 17h00 devant la Préfecture à Digne</p>
+<p>Le Collectif santé Haute Provence et la Convergence Urgence Santé 04 ont également prévu des tables rondes courant juin sur tout le 04 et le haut Var.</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/05/manosque-et-les-alpes-de-haute-provence-4-temps-de-mobilisation-prevus/">Plus d’informations sur le site de la Coordination</a></p>
+
+<p style="background-color: #F8EAD9"><strong>RAMBOUILLET – 78</strong></p>
+<p align=center><strong>Le comité publie son Flash Infos et annonce une réunion publique le 12 juin</strong></p>
+<p><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2025/05/rambouillet.jpg" /></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Flash-Infos-24.pdf">Le flash Infos</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TARBES - 65</strong></p>
+<p align=center><strong>La maison médicale de garde accessible seulement après appel au 116.117</strong></p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/sante-a-tarbes-la-maison-medicale-de-garde-accessible-uniquement-apres-appel-au-116-117-des-le-21-mai/">L’article de la semaine des Pyrénées du 21 mai</a></p>
+
+<p style="background-color: #F8EAD9"><strong>OLORON-STE-MARIE - 64</strong></p>
+<p align=center><strong>Rassemblement mardi 27 mai</strong></p>
+<p>SOS Proximité Santé appelle à participer au rassemblement devant l’hôpital le 27 mai à 18 h</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/05/oloron-sainte-marie-rassemblement-mardi-27-juin/">Plus d’infos sur le site de la Coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>DOURDAN - 91</strong></p>
+<p align=center><strong>Le comité a participé au printemps des services publics en Essonne</strong></p>
+<p><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Image_2-1.jpg" /></p>
+<p>Le comité de défense de l'hôpital de Dourdan participait samedi au printemps des services publics en Essonne organisé par le collectif "Alliance Écologique et Sociale" comprenant de nombreuses organisations syndicales et associatives.</p>
+<p>Notre stand à la bourse du travail d'Evry était aux couleurs de la Coordination Nationale des Comités et recueillait des signatures pour la pétition afin d'en finir avec les restes à charge et pour conserver des prises en charge des Affections de Longue Durée.</p>
+<p>Nous étions partie prenant dans la table ronde "quand le privé s'occupe des services publics" dont l'intervenante était Corinne Aubin, secrétaire départementale de la CGT du CHSE.</p>
+
+<p style="background-color: #F8EAD9"><strong>MARMANDE – 47</strong></p>
+<p align=center><strong>Le comité toujours en action</strong></p>
+<p><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Image_3.jpg" /></p>
+<p>Ce vendredi, l’association s’est réunie au local des restos du cœur prêtés gracieusement merci à eux. L’action se poursuit pour la décision de la nomination d’un directeur qui conditionne ou non l’avenir de l’hôpital qui doit resté hôpital de plein exercice autonome et non avalé par le GHT à Agen. Il faut des moyens financiers à l’hôpital. L’action pétition se poursuit sur le territoire devant les marchés et événements. Les collectivités sont invitées à poursuivre le vote des motions dans ce sens .</p>
+<p>Mais aussi pour demander à la région de financer les 10 postes d’aide soignant(e)s manquants. Un courrier a été adressé au président de Région et aux élus du Territoire. Une rencontre aura lieu à l’ARS le 27 juin.</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT-MAURICE/LES MURETS - 94</strong></p>
+<p align=center><strong>AG du collectif le 27 mai</strong></p>
+<p align=center><a href="https://collectif-avenir-hsm-murets.blogspot.com/">Le blog du collectif</a></p>
+
+<p style="background-color: #F8EAD9"><strong>LUÇON - 85</strong></p>
+<p align=center><strong>Vide grenier organisé par l’ADSP sous le soleil</strong></p>
+<p><img class="skip-lazy" style="max-width: 400px;" src="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Image_4.jpg" /></p>
+<p>Les rassemblements se poursuivent tous les vendredis à 18 h devant l’hôpital</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>AUCH - 32</strong></p>
+<p align=center><strong>Les urgences régulées</strong></p>
+<p>Confronté à une pénurie critique de médecins dans le service des urgences, les patients obligés d’appeler le 15 en amont.</p>
+<p>La CGT appelle à une manifestation lundi 26 mai : départ à 13 h 30 de l’hôpital</p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/acces-aux-urgences-du-centre-hospitalier-dauch-pourquoi-il-faut-appeler-le-15-avant-de-sy-rendre/">L’article de la Semaine des Pyrénées</a></p>
+<p align=center><a href="https://france3-regions.franceinfo.fr/occitanie/gers/auch/rien-qu-en-occitanie-il-en-manque-204-avec-seize-medecins-absents-les-urgences-en-detresse-ferment-certaines-nuits-3154907.html">L’article de France 3 Occitanie</a></p>
+
+<p style="background-color: #F8EAD9"><strong>TOULOUSE</strong></p>
+<p align=center><strong>Le service de réanimation pédiatrique annonce sa grève sur les réseaux sociaux</strong></p>
+<p align=center><a href="https://france3-regions.franceinfo.fr/occitanie/haute-garonne/toulouse/video-un-systeme-qui-s-effondre-un-service-de-reanimation-pediatrique-annonce-sa-greve-sur-les-reseaux-sociaux-3155132.html?utm_term=Autofeed&amp;utm_medium=Social&amp;utm_source=Facebook&amp;fbclid=IwY2xjawKf_rNleHRuA2FlbQIxMQBicmlkETBBVzNVQXBPcTB4eHVjZ0w5AR5rOfh2mS4ICJxvXKPPIHwlEWL0ILLPadEszGen6sDcVHgDx9fPLkjGmj-Plg_aem_j0Cw31GEyPbKvlVZW7-2aA#Echobox=1747628144">L’article de France 3 du 19 mai</a></p>
+<p align=center><a href="https://actu.fr/occitanie/toulouse_31555/video-le-sentiment-du-travail-mal-fait-nous-ronge-a-toulouse-des-soignants-en-rea-pediatrique-alertent_62636108.html?fbclid=IwY2xjawKfk1xleHRuA2FlbQIxMQBicmlkETBBVzNVQXBPcTB4eHVjZ0w5AR7FkgHxMQ0fqBwmcgKZ8ldwmmlfRmonLhlVB6fhrYt-kHXmELy2D73ga4s2ig_aem_Fp6cdqHle1btRP8UfbUdvQ">L’article de actu.fr du 16 mai</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BENY-BOCAGE - 14</strong></p>
+<p align=center><strong>Manifestation pour les services publics.</strong></p>
+<p align=center><a href="https://www.ouest-france.fr/economie/faible-mobilisation-pour-les-assises-nationales-des-services-publics-au-beny-bocage-b821d87a-38b2-11f0-9fac-ce5100d22487">L’article d’Ouest-France</a></p>
+<p align=center><a href="https://www.bfmtv.com/normandie/calvados-pres-de-200-personnes-se-mobilisent-contre-la-fermeture-du-bureau-de-poste-de-soulevre-en-bocage_AN-202505240317.html">L’article de BFM TV</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-rubrique"><strong>MÉDICAMENTS</strong></p>
+<p align=center><strong>Les professionnels de la psychiatrie alertent sur la pénurie croissante de psychotropes</strong></p>
+<p align=center><a href="https://www.francebleu.fr/infos/sante-sciences/penurie-de-sertraline-un-collectif-alerte-sur-une-situation-intenable-1310976">Un article de France bleu du 15 mai</a></p>
+<p align=center><strong>Pénurie de médicaments : radiographie d’une crise systémique</strong></p>
+<p align=center><a href="https://www.vivamagazine.fr/penurie-de-medicaments-radiographie-dune-crise-systemique/">L’article de Viva Magazine</a></p>
+<p class="titre-rubrique"><strong>MATERNITÉS</strong></p>
+<p align=center><strong>L’Assemblée Nationale vote un moratoire sur les fermetures de maternités</strong></p>
+<p>L'Assemblée nationale a adopté en première lecture, le jeudi 15 mai un moratoire de trois ans sur les fermetures des maternités.</p>
+<p align=center><a href="https://www.franceinfo.fr/sante/deserts-medicaux/moratoire-sur-les-fermetures-de-maternites-defendre-la-proximite-n-est-pas-incompatible-avec-la-securite-explique-france-asso-sante_7252431.html">L’article de France Inter</a></p>
+<p align=center><a href="https://www.franceinfo.fr/sante/deserts-medicaux/moratoire-sur-les-fermetures-de-maternites-defendre-la-proximite-n-est-pas-incompatible-avec-la-securite-explique-france-asso-sante_7252431.html">La réaction de France Asso Santé sur France Info</a></p>
+<p>Les réactions hostiles ne se sont pas fait attendre : la pénurie due au numerus clausus sert à justifier l’aggravation de la pénurie !</p>
+<p align=center><a href="https://img.hosting-min-int.tech/data_user/yzaLwZAX/pdf/2025%2005%2019%20CP%20SFMP_Moratoire%20maternit%C3%A9.pdf?utm_source=etarget&amp;utm_medium=email&amp;utm_campaign=CP_SFMP_Moratoire_2025_05_19_spe">Le communiqué de la Société Française de Médecine Périnatale</a></p>
+<p align=center><a href="https://www.midilibre.fr/2025/05/17/moratoire-sur-les-fermetures-de-maternites-ce-nest-ni-grave-ni-pas-grave-cest-delirant-12702571.php">La réaction du président de la Société française de néonatalogie</a></p>
+<p align=center><strong>Des maternités publiques encore menacées ?</strong></p>
+<p>Dans un article du journal Le Monde (réservé aux abonnés) daté du 23 mai, la situation de la maternité de Saint Amand Montrond (Cher) est prise en exemple des maternités menacées. Interviewée par la journaliste, la directrice de l’ARS explique : <em>« Nous ne fermerons pas Saint-Amand sauf s’il y a un problème de sécurité. Nous sommes très vigilants et préoccupés par cette maternité car nous savons combien elle est vulnérable tant son personnel est peu nombreux. » </em></p>
+<p>Le maire se dit totalement soulagé par le moratoire voté à l’Assemblée Nationale.</p>
+<p align=center><a href="https://www.echoduberry.fr/actualite-27149-saint-amand-montrond-emmanuel-riotte-maire-la-maternite-est-sauvee">L’article du Berry Républicain du 16 mai</a></p>
+<p align=center><strong>Statistiques</strong></p>
+<p align=center><a href="https://www.insee.fr/fr/statistiques/8547061">Les données de l’INSEE sur la mortalité infantile</a></p>
+<p class="titre-rubrique"><strong>DÉPASSEMENTS D’HONORAIRES</strong></p>
+<p align=center><strong>Une mission d’évaluation</strong></p>
+<p>Le Premier ministre vient de confier aux députés Jean-François Rousset et Yannick Monnet une mission d’évaluation sur les dépassements d’honoraires. Leur rapport est attendu d’ici au mois de septembre.</p>
+<p class="titre-rubrique"><strong>ASSISES DE LA SANTÉ SCOLAIRE</strong></p>
+<p align=center><strong>Une occasion manquée qui passe à côté des enjeux</strong></p>
+<p align=center><a href="https://www.snes.edu/article/communiques/sante-a-lecole-mesures-etriquees-reponses-inadaptees/">Le communiqué de la FSU</a></p>
+<p align=center><a href="https://snuasfp.fsu.fr/assises-de-la-sante-scolaire-un-rendez-vous-manque-pour-les-eleves-et-les-professionnel%C2%B7les/">Communiqué de presse intersyndical</a></p>
+<p class="titre-rubrique"><strong>ÉTABLISSEMENTS DE SANTÉ</strong></p>
+<p align=center><strong>La Fédération Hospitalière de France publie ses propositions</strong></p>
+<p>La FHF vient de rédiger un cadre de loi de programmation pluriannuelle en santé. On appréciera la critique de l’ONDAM incarnant une logique court-termiste et comptable, la volonté de partir des besoins. On ne peut que s’inquiéter par contre de la conclusion : « <em>une loi de programmation pour soigner mieux sans dépenser plus</em> »</p>
+<p align=center><a href="https://www.fhf.fr/actualites/communiques-de-presse/mieux-depenser-pour-mieux-soigner-letat-doit-assumer-la-programmation-en-sante">Le communiqué de la FHF</a></p>
+<p>(On y trouve le lien vers le document complet)</p>
+<p align=center><strong>Des économies en perspective !</strong></p>
+<p>Le Premier ministre vient d’adresser une circulaire aux directeurs d’ARS au sujet de l'objectif de maîtrise et de réduction de la dette et du déficit public</p>
+<p align=center><a href="https://www.legifrance.gouv.fr/download/pdf/circ?id=45602">La circulaire</a></p>
+<p align=center><strong>La dégradation des comptes financiers des hôpitaux en 2023 est sans précédent</strong></p>
+<p>La DREES vient de publier les premières fiches de son panorama 2023 des hôpitaux. Elle note que la situation financière des hôpitaux publics se dégrade à nouveau très fortement avec un déficit de 2,4 milliards d’euros, alors que celle des cliniques privées à but lucratif reste bénéficiaire, avec un résultat net positif de 362 millions d’euros.</p>
+<p align=center><a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-documents-de-reference/panoramas-de-la-drees/250522_Panorama_etablissements-de-sante2025">Le document de la DREES</a></p>
+<p align=center><a href="https://www.franceinfo.fr/sante/hopital/les-hopitaux-ont-connu-une-degradation-sans-precedent-de-leurs-finances-en-2023_7265832.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=sante&amp;at_offre=3&amp;at_variant=V3&amp;at_send_date=20250523&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1104634">L’article de France Info</a></p>
+<p class="titre-rubrique"><strong>PRIVATISATION</strong></p>
+<p align=center><strong>Le privé se recentre sur les activités les plus rentables !</strong></p>
+<p>Après la fermeture d’une maternité à Versailles, c’est à Boulogne sur Mer que la maternité privée ferme (clinique appartenant au groupe Vivalto Santé)</p>
+<p>La psychiatrie, c’est particulièrement rentable ! Alors tous les moyens sont bons pour prendre des parts de marché. Le journal Médiapart vient de publier une série sur le nouvel eldorado pour le groupe Korian devenu Clariane (réservé aux abonnés) au détriment des salariés et du soin.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2017/03/Communique-non-a-l-OPA-du-lucratif-sur-les-lits.pdf">Le communiqué du PCF</a></p>
+<p class="titre-rubrique"><strong>COMMISSION D’ENQUÊTE PARLEMENTAIRE SUR L’ACCÈS AUX SOINS</strong></p>
+<p align=center><strong>La Coordination a été auditionnée</strong></p>
+<p>La Coordination a été auditionnée par la commission d'enquête parlementaire sur l'organisation du système de santé et les difficultés d'accès aux soins le 14 mai</p>
+<p align=center><a href="https://www.assemblee-nationale.fr/dyn/videos/CRVANR5L17S2025IDV16818210?timeCode=717">La vidéo de la séance du 14 mai</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/auditionVD.pdf">La déclaration prévue</a></p>
+<p>(le temps imparti a été plus court qu'annoncé pour laisser la place au débat)</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/05/Reponse-au-Questionnaire-a-lattention-de-Madame-Michele-LeflonV2.pdf">La réponse au questionnaire de la commission d'enquête</a></p>
+<p align=center><a href="http://ww.assemblee-nationale.fr/dyn/17/organes/autres-commissions/commissions-enquete/acces-aux-soins">Tous les documents de la commission d'enquête sur le site de l'Assemblée Nationale</a></p>
+<p>La loi transpartisane fait des remous !</p>
+<p align=center><a href="https://www.lequotidiendumedecin.fr/jeunes-medecins/installation/pourquoi-faire-peser-les-erreurs-du-passe-sur-les-etudiants-bouscules-par-les-deputes-les-juniors-se?xtor=EPR-1-%5BNL_editionnumerique%5D-%5B20250523%5D&amp;utm_content=20250523&amp;utm_campaign=NL_editionnumerique&amp;utm_medium=newsletter&amp;utm_source=qdm">Sur l’audition des syndicats d’étudiants et de jeunes médecins</a></p>
+
+<p class="rubrique">Culture et santé :</p>
+
+<p align=center><a href="https://www.youtube.com/watch?v=wqVULLqDauQ">Mais où passe vraiment notre argent ?</a></p>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong><span style="font-size: 13pt; font-family: Arial, sans-serif;">cda12550@coordination-defense-sante. org</span></strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

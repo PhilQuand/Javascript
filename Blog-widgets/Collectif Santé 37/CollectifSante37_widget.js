@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmLsCD9pSI7J7AQAsOHfWu9vcZsO9Nm4PQoHKb7qVDnxWiI1l7h6yl5hOljkK14mna57nHkTWfoS2agnTAjmPk-AJ5L-rKL6BWhEzq2_MDsO1RPequoCJfRqngKt-Mntirm_PNdaI-1kc4YPK0ukm7ZMXbvvfn9DW8kM6XxdmWazxS4g9TVd-ZQ2k6oBg/s1600/Flyer%20CNP%20recto.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzykU8M_rcNAxXI0KAKe5GXBmkWNB2QliRy647BpJjeQlj0pgupk7B-0MI61QpvNw0hz4Wq7gSfHGCoZ6gONVFPBIBNi0VCZRjWxKi0amOzYdyib9d4Ai2jAclmJj7OoCJe5GBB8UtPHyZ5dJveCo7-yJ_2v_KpKiRXTmduH27FHH7VHxwz1u1K0ksxz8/s1600/image.png",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -857,26 +857,17 @@ $(document).ready(function() {
           </ul> \
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
-                  },*/
-          {
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmLsCD9pSI7J7AQAsOHfWu9vcZsO9Nm4PQoHKb7qVDnxWiI1l7h6yl5hOljkK14mna57nHkTWfoS2agnTAjmPk-AJ5L-rKL6BWhEzq2_MDsO1RPequoCJfRqngKt-Mntirm_PNdaI-1kc4YPK0ukm7ZMXbvvfn9DW8kM6XxdmWazxS4g9TVd-ZQ2k6oBg/s1600/Flyer%20CNP%20recto.jpg"
-          },
-           /*{
+                  },
+           {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOO1rX_pnrXTdrJxSxFtE-kQyldxSiYQyaeM5NVZb-q-h6lM7UmU2iGbbOhK1HY4gB01_kd_zzhGh2fVOAhvK6-T7l3ugRXENz515RLM6zIv42yzspBSLLMX9L99ite6xcsKpTrIRc9n1qe8VfvmBqZEPfW5Jus950fXVgFhN_8UXB9AhuRjZ86UYxs9M/s1600/IMG-20250311-WA0009.jpg"
-          },
-
-          {
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu587RcCHp47X_GJQzmXF8mR61IXmOCVHLQ_5oLnEMUZj0bT-AXucvJNKsrHl0aP_I0B7yQjJYU-1nU7PmvoN0xHEyHdCBHTGuI0iF2I4Nnc0nS-kS6K4iDnyM96laa0EhF_ppaODT7xzJWC24x8_gsW1y0rew6M0FpO9_AnmxQ8roXX2McpuHaEBphzQ/s1600/Marche%20des%20solidarites.jpg"
-          },
+          },*/
          {
             dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3JaTmCKbV3MLqZfzVKSypvB0dUzZdKU1vks7w6Vj_2kisKav1wc-2Ry5Q81v0aj4CZUxgF_g3-YrC_vLJZE-9EOkv_Tln5L8NjM4L_wUGmd2_e34JMvvrQt8dBEfSN41uEzCdwlP392QYz4UEtz2NAlVyT3i6AbbSgPoA5HsDq83RAqpfToWt6NMdbmU/s1600/8_mars_2025_Tours_signe.jpg",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/8_mars_2025_Tours_signe.pdf"
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzykU8M_rcNAxXI0KAKe5GXBmkWNB2QliRy647BpJjeQlj0pgupk7B-0MI61QpvNw0hz4Wq7gSfHGCoZ6gONVFPBIBNi0VCZRjWxKi0amOzYdyib9d4Ai2jAclmJj7OoCJe5GBB8UtPHyZ5dJveCo7-yJ_2v_KpKiRXTmduH27FHH7VHxwz1u1K0ksxz8/s1600/image.png",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/DOSSIER_DE_PRESSE_SAUVE_QUI_PEUT_SINGULARIS_FILMS.pdf"
           },
-          {
+          /*{
             dataType: "video",
             //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
             dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"

@@ -1,4 +1,6 @@
 var inpAddress = [
+{ inpText: "SAINT GENIS LAVAL",
+  lat: 45.703, lng: 4.807},
 { inpText: "BRETAGNE",
   lat: 48.117, lng: -1.680},
 { inpText: "NORMANDIE",

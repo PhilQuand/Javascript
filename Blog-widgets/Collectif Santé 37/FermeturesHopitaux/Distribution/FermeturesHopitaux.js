@@ -968,7 +968,7 @@ $.fn.mapAllBlogs = function(optUdate) {
       for (var i = 0; i < options['data']['base']['features'].length; i++) {
         var id_hopital = options['data']['base']['features'][i]['id'];
         if (typeof id_hopital === 'string') id_hopital = parseInt(id_hopital.substring(id_hopital.indexOf('.') + 1));
-        else if (typeof id_hopital === 'undefined') id_hopital = options['data']['base']['features'][i]['properties']['id'];
+        else id_hopital = options['data']['base']['features'][i]['properties']['id'];
         options['tableDataSearch']['baseSearch']['features'].push({
           "geometry": null,
           "id": "service." + i.toString(),

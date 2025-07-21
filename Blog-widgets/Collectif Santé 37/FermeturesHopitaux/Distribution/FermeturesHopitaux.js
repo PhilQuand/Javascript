@@ -3159,7 +3159,7 @@ $.fn.mapAllBlogs = function(optUdate) {
                 };
                 break;
               default:
-                var layer = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                var layer = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                   attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
                 })
                 layer.addTo(map);

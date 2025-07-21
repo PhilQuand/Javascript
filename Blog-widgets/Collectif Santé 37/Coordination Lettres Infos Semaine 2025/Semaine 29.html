@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 25</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Une semaine marquée par le plan Bayrou pour le budget 2026.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 29</li>
+<li>Dates: Du 14 juin au 20 juillet 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/Infossemaine29du14au20juillet2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Une semaine marquée par le plan Bayrou pour le budget 2026.</p>
+<p>Plan qui suscite de toute part une réprobation , voire un appel à développer la mobilisation à la rentrée.</p>
+<p>Pendant ce temps les visites de ministres se succèdent dans différentes régions de France pour défendre la politique macroniste et les services d’Urgences et de maternité continuent de fermer.</p>
+<p>Il n’y a pas que l’été qui soit chaud, la température sociale et les luttes aussi.</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Joseph MAATOUK</p>
+
+<p class="titre-rubrique">La Sécu, c’est vital !</p>
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/07/SecuVital.jpg" />
+</div>
+<div class="divText">
+<p>Avec Convergence des Services Publics et de nombreuses organisations (</strong><a href="https://www.convergence-sp.fr/signataires-de-lappel-a-mobilisation-pour-la-securite-sociale-2025/">liste provisoire sur le site de Convergence</a><strong>), la Coordination lance une pétition : « la Sécu, c’est vital ».</strong></p>
+<p>A l’opposé de la rupture avec les principes fondateurs de la Sécurité Sociale de solidarité, d’universalité, de démocratie à laquelle nos gouvernants veulent nous mener, nous voulons un nouvel élan pour la Sécurité Sociale</p>
+<p>et cela passe par un accroissement de ses recettes par les cotisations et la contribution les revenus financiers des entreprises.</p>
+</div></div>
+<div style="clear:both;text-align:center">
+<p><strong>La pétition est sur </strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">Change.org</a></p>
+<p><strong>Elle se veut aussi un outil militant pour contrer le discours médiatique destructeur.</strong></p>
+<p>Un <a href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/TVAsocialeA5V1.pdf">premier tract</a> dénonçant la TVA sociale est à disposition rédigé par le comité de Concarneau. D’autres suivront pendant l’été.</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/07/la-secu-cest-vital/">Tous les renseignements sur le site de la Coordination</a></p>
+</div>
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p style="background-color: #BFFB17"><strong>MANOSQUE - 04</strong></p>
+<div class="CN-block">
+<p>Après le succès de la « Conférence – Débat » du 27 mars dernier à Manosque et une dizaine de tables-rondes décentralisées sur le Territoire des Alpes de Haute Provence le « CSHP » et la « CUS 04 » ont tenu une conférence de presse en présentant le bilan et les perspectives</p>
+<p align=center><a href="https://www.laprovence.com/article/sante/5128116117273314/un-collectif-continue-sa-lutte-pour-un-acces-egalitaire-a-la-sante-et-aux-soins-dans-les-alpes-de-haute-provence">L’article de La Provence du 10 juillet</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/Communique-de-Presse-25-07-13-Suite-Conference-de-Presse-08-07.pdf">Le communiqué des collectifs</a></p>
+</div>
+
+<p style="background-color: #EAE2D5"><strong>LUÇON - 85</strong></p>
+<p align=center><strong>Les rassemblements du vendredi se poursuivent </strong></p>
+<div class="CN-block">
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/07/Image_2.jpg" /></p>
+<p align=center>(Photo du rassemblement du 11 juillet)</p>
+<p>Bien sûr l’ADSP continue, bien sûr elle ne lâche rien !</p>
+<p>L’accès aux soins pour toutes et tous sur tout le territoire est un droit fondamental.</p>
+<p>Prochain rendez-vous : VENDREDI 24 JUILLET 2025 18H devant les Urgences</p>
+</div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MAYENNE - 53</strong></p>
+<p align=center><strong>Fermeture de la maternité jusqu’au 30 juillet</strong></p>
+<div class="CN-block">
+<p>Une nouvelle fois, la maternité du CHNM est fermée jusqu'au 30 juillet, faute de médecin anesthésiste. Le médecin qui devait assurer la garde s'est blessé et est donc en arrêt maladie.</p>
+<p>Comme pour les Urgences, nous sommes continuellement sur le fil. Quand le service fonctionne, c'est parce qu'il y a JUSTE de quoi le faire tourner. Au moindre problème de personnel, on est dans le rouge.</p>
+<p>Comme pour les Urgences et le SMUR, la visite expresse du ministre n'aura apporté AUCUNE solution au problème récurrent du recrutement médical.</p>
+<p>C'est pourtant à lui qu'il revient de garantir la sécurité des citoyens.</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/07/mayenne-deux-communiques-daudace-53/">La suite du communiqué sur le site de la Coordination</a></p>
+<p>Vous y trouverez aussi le communiqué d’AUDACE 53 à la suite des annonces de F. Bayrou</p>
+</div>
+
+<p style="background-color: #E99D31"><strong>SAINT-CLAUDE – 39</strong></p>
+<p align=center><strong>Une visite ministérielle</strong></p>
+<div class="CN-block">
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/07/saintclaude.jpeg" /></p>
+<p>La Ministre chargée de l’Égalité entre les femmes et les hommes était en visite dans le Jura, ce jeudi 17 juillet. A cette occasion André JANNET, Président du comité de défense et de soutien de l'hôpital de Saint-Claude, a rencontré cette dernière à la Préfecture de Lons-le-Saunier, et lui a rappelé en présence de M. Le Préfet du Jura que « la première des violences faite aux femmes et la fermeture d'une maternité ». Réponse classique : quand un obstétricien ne pratique pas beaucoup, la maternité devient dangereuse en dessous de 300 accouchements par an !</p>
+<p align=center>Alors pourquoi avoir fermé Creil avec 1000 accouchements !</p>
+<p align=center>Et là plus de réponse ! »</p>
+</div>
+
+<p style="background-color: #E8BECE"><strong>MONTCEAU LES MINES </strong></p>
+<p align=center><strong>Non au plan mortifère de François Bayrou</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/NON-au-plan-mortife%CC%80re.pdf">Le communiqué du CODEF</a></p>
+
+<p style="background-color: #82CEBF"><strong>MARMANDE</strong></p>
+<p align=center><strong>Toujours les rassemblements du vendredi !</strong></p>
+<div class="CN-block">
+<p>L’asso présente tous l’été les vendredis à 17 h devant l‘’hopital à Marmande.</p>
+<p>Vigilant pour assurer les moyens financiers et humain assurant l’hôpital de plein exercice. La qualité des prestations depuis 3 ans s’est améliorée. Il n’est pas question de laisser amputer les moyens financiers indispensables destinés l’accès aux soins pour tous. Le changement de directeur n’est toujours pas assuré par l’ARS concrètement ainsi que le manque des 10 postes de formation d’aides soignantes à l’ifsi ifps</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/07/marmande-le-rassemblement-du-18-juillet/">Plus d’infos sur le site de la Coordination</a></p>
+</div>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p style="background-color: #DAA79B"><strong>PARIS - 75</strong></p>
+<p align=center><strong>Le centre d’Accueil et de Crise AMADO est menacé </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/CAC-Amado-doit-vivre-11.07.25-V2.pdf">Le tract de la CGT</a></p>
+
+<p style="background-color: #B4DCE7"><strong>LAVAUR - 81</strong></p>
+<p align=center><strong>Non à la maltraitance psychique de la population du Tarn !</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/CommuniquePrintempsPsyLavaur.pdf">Le communiqué du Printemps de la psychiatrie</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p class="titre-rubrique"><strong>La Convergence des Psychologues en Lutte, le Manifeste psy et le Syndicat National des Psychologues ont échangé avec Frank Bellivier, délégué ministériel à la santé mentale et à la psychiatrie.</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/Une-heure-et-demie-avec-Franck-Bellivier.pdf">Le communiqué</a></p>
+<p class="titre-dossiers"><strong>LES RÉACTIONS AUX ANNONCES DU PREMIER MINISTRE</strong></p>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Convergence des Services Publics</strong></p>
+<p>Urgence pour les services publics et la Sécurité sociale</p>
+<p>La Convergence nationale de défense et de développement des services publics dénonce le plan Bayrou qui sous couvert de lutter contre "la malédiction du surendettement" programme la destruction des fondements mêmes de nos services publics et de la sécurité sociale. Ce plan, d'une ampleur inédite de 43,8 milliards euros en 2026 est destiné à être reconduit d'année en année jusqu'à 2030.</p>
+<p>Éducation nationale, santé, culture, écologie, tous ces secteurs sont visés alors qu'ils devraient faire partie de priorités nationales.</p>
+<p>Il en est de même pour la Sécurité sociale, sur fond de culpabilisation des assurés sociaux avec de plus l'annonce d'un changement de son mode de financement.</p>
+<p>Les effets de l'ensemble des mesures annoncées tant pour les prestations sociales que fiscales seront insoutenables pour l'ensemble de la population.</p>
+<p>Les moyens financiers existent pour répondre aux besoins sociaux, seule issue pour sortir de l'ornière de l'endettement créé par les politiques ultralibérales.</p>
+<p>La Convergence appelle d'ores et déjà à participer à toutes les mobilisations.</p>
+<p>Avec de nombreuses organisations Elle lance une pétition nationale pour défendre et promouvoir la sécurité sociale dont nous avons besoin aujourd'hui et dans le futur.</p>
+<p>Ils appellent à développer des initiatives dans les territoires. Un grand rassemblement est dès à présent prévu le samedi 4 octobre, date anniversaire de l'ordonnance créant la Sécurité sociale.</p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Le Premier ministre annonce une année noire pour le monde du travail et de nouveaux cadeaux pour les entreprises</strong></p>
+<p align=center><a href="https://www.cgt.fr/comm-de-presse/le-premier-ministre-annonce-une-annee-noire-pour-le-monde-du-travail-et-de-nouveaux-cadeaux-pour-les">Le communiqué de la CGT</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Donnant-donnant : pas pour tous !</strong></p>
+<p align=center><a href="https://www.force-ouvriere.fr/donnant-donnant-pas-pour-tous">Le communiqué de FO</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Allocution du Premier Ministre: l'heure de vérité, les efforts ne seront pas partagés !</strong></p>
+<p align=center><a href="https://www.cfdt.fr/sinformer/communiques-de-presse/allocution-du-premier-ministre-lheure-de-verite-les-efforts-ne-seront-pas-partages">Le communiqué de la CFDT</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Budget 2026 : Pas d’économies sur nos vies !</strong></p>
+<p align=center><a href="https://solidaires.org/sinformer-et-agir/actualites-et-mobilisations/communiques/budget-2026-pas-deconomies-sur-nos-vies/">Le communiqué de Solidaires</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Un moment de vérité pour un budget d’injustices</strong></p>
+<p align=center><a href="https://www.unsa.org/Un-moment-de-verite-pour-un-budget-d-injustices.html">Le communiqué de l’UNSA</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Budget : François Bayrou sort la tronçonneuse</strong></p>
+<p align=center><a href="https://fsu.fr/communique-budget-francois-bayrou-sort-la-tronconneuse/">Le communiqué de la FSU</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Malades et précaires : cibles prioritaires du plan d’économie Bayrou</strong></p>
+<p align=center><a href="https://syndicat-infirmier.com/Malades-et-precaires-cibles-prioritaires-du-plan-d-economies-Bayrou.html">Le communiqué du SNPI CFE/CGC</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Pour une Sécurité sociale solidaire et une psychiatrie publique à la hauteur des besoins</strong></p>
+<p align=center><a href="https://www.uspsy.fr/?p=27237">Le communiqué de l’USP</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Budget Bayrou : diagnostic erroné, remède aggravant le maladies</strong></p>
+<p align=center><a href="https://www.resistancesociale.fr/spip.php?article3586">Le communique de Résistance Sociale</a></p>
+</div>
+<div class="CN-block">
+<p class="titre-dossiers"><strong>POLITIQUE DU MÉDICAMENT</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/Medecins-du-Monde-POLITIQUE-DU-MEDICAMENT-ET-POUVOIR-DE-LETAT.pdf">Une étude de Médecins du Monde</a></p>
+</div>
+
+<p class="rubrique">Culture et santé :</p>
+
+<div class="CN-block">
+<p class="titre-rubrique"><strong>Neurosciences et idées reçues</strong></p>
+<p align=center><a href="https://www.radiofrance.fr/franceculture/podcasts/la-conversation-scientifique/comment-se-fabriquent-les-idees-recues-a-propos-du-cerveau-8995552">un podcast de France Culture</a></p>
+</div>
+
+<hr />
+
+<p style="background-color: #FFFB08;" align="center"><strong>« Toutes les infos sur le <a href="http://coordination-defense-sante.org/">site de la Coordination Nationale</a> »</strong></p>
+<p style="margin-bottom: 0;" align="center"><strong>Ce message n'est pas un spam, mais une information militante</strong></p>
+<p style="margin-bottom: 0; margin-top: 0;" align="center"><strong>Pour vous désabonner, envoyer un mail à </strong></p>
+<p style="margin-top: 0;" align="center"><a href="mailto:cda12550@coordination-defense-sante.org"><strong>cda12550@coordination-defense-sante. org</strong></a></p>
+
+<div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

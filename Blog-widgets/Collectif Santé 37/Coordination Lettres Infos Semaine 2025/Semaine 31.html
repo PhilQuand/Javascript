@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 25</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Euréka ! Madame la Ministre a trouvé la solution pour équilibrer les comptes de la Sécurité Sociale...</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 31</li>
+<li>Dates: Du 28 juillet au 03 août 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Infossemaine31du28juilletau3aout2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Euréka ! Madame la Ministre a trouvé la solution pour équilibrer les comptes de la Sécurité Sociale : il faut faire la chasse aux fraudeurs ! Mais la Caisse Nationale d’ Assurance Maladie le fait déjà et a fait ses comptes : 80 % des fraudes sont réalisées par les professionnels de santé mais c’est aux soi-disant profiteurs d’arrêt de travail injustifiés qu’il faut faire la chasse. Ce n’est au cœur de l’ été que diversion politicienne. La Sécurité Sociale souffre d’un manque chronique de recettes qui ne lui permet pas de répondre aux besoins de soins d’une population vieillissante. L'<a style="display:inline" href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/Appel-Secu-2025-v1.pdf">Appel</a> initié par la Convergence des Services Publics vient à point nommé : la mobilisation est nécessaire pour contrer toutes ces attaques qui mettent en cause l’accès aux soins.</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Jean-Luc Landas</p>
+
+<p class="titre-rubrique">La Sécu, c’est vital !</p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p>
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/07/SecuVital.jpg" />
+</div>
+<div class="divText">
+<p><strong>Signez et faites signer la pétition lancée par Convergence des Services Publics avec de nombreuses organisations dont la Coordination.</strong></p>
+<p><strong>La pétition est sur </strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">Change.org</a></p>
+<p><strong>Elle se veut aussi un outil militant pour contrer le discours médiatique destructeur.</strong></p>
+<p>Renseignements sur le <a href="https://coordination-defense-sante.org/2025/07/la-secu-cest-vital/">site de la Coordination</a>.</p>
+<p>On nous signale aussi l’<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/FLYER-EXPO-80-ANS-SECU_compressed-1.pdf">exposition</a> réalisée par l’Institut d’histoire sociale de la CGT et la Fondation Gabriel Péri</p>
+</div-->
+
+
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+</div>
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p class="titre-dossiers"><strong>LES INITIATIVES HEBDOMADAIRES DEVANT L’HÔPITAL </strong></p>
+<div class="CN-block" style="text-align:center; font-size:large">
+<p><strong>jeudi 16H00 : Sarlat</strong></p>
+<p><strong>vendredi 17h00 : Marmande</strong></p>
+<p><strong>vendredi 18h00 : Luçon et Apt </strong></p>
+</div>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>APT</strong></p>
+<p>Un collectif «  Non à la casse de l’hôpital du Pays d’Apt (collectifaptchirurgie@gmail.com) s’est constitué le 20 juin dernier pour s’opposer à la décision de l’ ARS de fermer le bloc chirurgical de l’hôpital public</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Communique-du-collectif-Non-a-la-casse-de-lhopital-dApt.pdf">Communique-du-collectif-Non-a-la-casse-de-lhopital-dApt</a></p>
+<p align=center style="margin-top:1em">soyez solidaires en signant : </p>
+<p><a href="https://www.change.org/p/non-%C3%A0-la-fermeture-du-bloc-chirurgical-de-l-h%C3%B4pital-d-apt">la pétition</a></p>
+<p>date à retenir : le 13 septembre à 18h30 au cinéma le César d’Apt (Cinémovida)</p>
+<p>projection-débat de « La Sociale « en présence de Gilles Perret, son réalisateur, et de nombreuses personnalités de la santé et de l’équité sociale en matière d’accès aux soins </p>
+<p align=center style="margin-top:1em">pour être au courant des actions et des publications : </p>
+<p><a href="https://chat.whatsapp.com/FzUu3MaHqKjHaHDk7PYe4p" target="_blank">https://chat.whatsapp.com/FzUu3MaHqKjHaHDk7PYe4p</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LONGWY</strong></p>
+<p class="info-title" style="margin:1em 0 1em 0">Contrat Local de Santé : un outil méconnu mais essentiel pour la santé de tous</p>
+<p>Connaissez-vous le Contrat Local de Santé (CLS) ? Probablement pas et pourtant, c'est un outil déterminant pour améliorer concrètement la santé dans notre territoire.</p>
+<p style="margin:1em 0 1em 0">Le CLS est un dispositif de coordination entre les élus locaux, l'Agence Régionale de Santé (ARS), les professionnels de santé, les associations et les citoyens. Il permet de définir collectivement les priorités de santé sur un territoire donné en lien avec les besoins réels de la population et de mettre en œuvre des actions concrètes dans tous les domaines qui influencent la santé : accès aux soins, prévention, logement, environnement, santé mentale, alimentation, mobilité...</p>
+<p style="margin:1em 0 1em 0">Autrement dit, le CLS agit sur les déterminants sociaux, économiques et environnementaux de la santé, bien au-delà de la seule question médicale.</p>
+<p>🔁Où en est-on dans le Pays-Haut ?</p>
+<p>Un premier CLS avait été lancé mais n'a pas été poursuivi à la suite d'un changement de majorité politique. En 2024, des réunions ont été relancées entre acteurs du territoire (associations, professionnels, collectivités) et l'ARS, ainsi que des représentants de la communauté d'agglomération du Grand Longwy, afin de co-construire les fiches actions du nouveau CLS. Depuis, des départs au sein de l'ARS ont interrompu la dynamique, et à ce jour, nous ne savons pas ce qu'il en est de la suite du projet.</p>
+<p style="margin:1em 0 0 0">📣Et si la démocratie en santé reprenait le relais ?</p>
+<p>Pour Santé Pays-Haut, il est crucial que ce travail ne reste pas lettre morte. Car la santé des habitants ne peut attendre les calendriers politiques : elle dépend de choix collectifs, de continuité, de volonté partagée.</p>
+<p style="margin:1em 0 1em 0">C'est pourquoi l'association a pris sa part, lorsqu'elle a été sollicitée, pour informer les citoyens, les professionnels de santé et les élus. À la demande du groupe de travail CLS, Santé Pays-Haut a organisé deux réunions publiques à la médiathèque de Longwy sur les centres de santé, un sujet souvent mal compris et pourtant central pour renforcer l'accès aux soins.</p>
+<p>🤝Un appel à mobilisation citoyenne et politique</p>
+<p>Nous croyons qu'un Contrat Local de Santé ne peut réussir que s'il repose sur une vraie participation citoyenne, au-delà des clivages partisans. Parce que la santé ne se joue pas seulement dans les hôpitaux ou les cabinets médicaux, mais aussi dans nos logements, nos assiettes, nos rues, nos écoles, nos emplois.</p>
+<p>Et surtout parce qu'aucune politique de santé territoriale ne peut se construire sans les habitants, leurs savoirs d'usage, leurs priorités vécues, leurs aspirations.</p>
+<p style="margin:1em 0 0 0">📌Et maintenant ?</p>
+<p>➡️Que vous soyez citoyen, professionnel de santé, élu, acteur associatif ou simplement concerné par la santé dans le Pays-Haut : le CLS a besoin de vous</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CONCARNEAU</strong></p>
+<p style="margin:1em 0 1em 0">Permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la Sécu et distribution du tract sur la TVA sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p style="margin:1em 0 1em 0">Prochaine permanence mercredi 6 août sur le marché de Trégunc.</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MAYENNE</strong></p>
+<p class="info-title" style="margin:1em 0 1em 0">On aurait pu penser que la venue du ministre Neuder en Mayenne le 4 juillet dernier aurait amélioré la situation des hôpitaux dans notre département.</p>
+<p>Hélas, les 24 millions qui sont venus abonder des budgets largement en déficit ont été rapidement absorbés et n'ont résolu aucun des problèmes qui rendent l'accès aux soins de plus en plus précaire pour les Mayennais. </p>
+<p style="margin:1em 0 0 0">Entendons-nous bien : il ne s'agit pas ici de nier ou de minorer ni l'investissement des élus locaux, ni un important apport financier qui donne une bouffée d'oxygène à des établissements en grande difficulté. Qui pourrait se plaindre de recevoir 8 millions d'Euros ! (10 pour le CH Laval, 6 pour le CH Château-Gontier).</p>
+<p style="margin:1em 0 0 0">Mais si ces sommes semblent astronomiques pour le commun des mortels, elles ne sont in fine que peu de choses pour le budget d'un hôpital.</p>
+<p style="margin:1em 0 0 0">Et force est de constater que la situation CONCRETE, c'est à dire celle que vivent les usagers au jour le jour, ne s'est pas améliorée cet été, loin de là.</p>
+<p>Plusieurs journées entières sans AUCUN SMUR sur tout le département, des Urgences régulièrement fermées, des lits supprimés en médecine ainsi que tout le service de SMR (ex SSR) à Mayenne, la maternité et la chirurgie du CHNM ( Centre Hospitalier du Nord Mayenne) closes du 17 au 27 juillet (et des craintes pour certaines périodes d'août) ... Et pour une bonne raison : la <strong>cause des difficultés </strong>que rencontrent TOUS les hôpitaux n''est pas conjoncturelle, mais bien <strong>structurelle</strong>.</p>
+<p style="margin:1em 0 0 0">Mais y a-t-il réelle volonté de résoudre les problèmes structurels de l'hôpital public ? On est en droit de s'interroger quand on fait la liste des réformes successives depuis plus de 50 ans. </p>
+<p>Chaque nouvelle réforme censée sauver l'hôpital et le système de santé les ont enfoncés un peu plus : Numerus Clausus en 1971, plafonnement des budgets des hôpitaux en 1983, ONDAM ( Objectif National des Dépenses de l’ Assurance maladie votée par l’ Assemblée Nationale ) en 1996, T2A ( Tarification À l’ Activité ) en 2003, ARS( Agence Régionale de Santé ) en 2009, GHT ( Groupement Hospitalier de Territoire)en 2016, "Ségur" en 2021.</p>
+<p>Et ce ne sont pas les annonces faites par le premier ministre le 15 juillet dernier qui vont arranger les choses : 5 milliards d'économies en 2026 sur le budget de la Sécurité Sociale après le 1,1 milliards gelé en 2025 sur le budget des hôpitaux !</p>
+<p>Loin de s'améliorer, la situation va encore se dégrader si des mesures positives déterminantes ne sont pas prises au plus vite.</p>
+<p>L'évolution des dépenses de santé est légitime compte tenu du vieillissement de la population et du coût des nouvelles techniques de soin. Et elle est tout à fait absorbable <strong>à condition que chacun, citoyen comme entreprise, paie réellement à hauteur de ses revenus.</strong></p>
+<p style="margin:1em 0 0 0"><strong>"De chacun selon ses possibilités, à chacun selon ses besoins". </strong>C'est sur cette base que s'est construite <strong>notre</strong> Sécurité Sociale. Le forfait journalier hospitalier, le forfait d'accès aux Urgences, les franchises sur les consultations médicales et sur les boîtes de médicaments, pour ne parler que de cela, sont par exemple autant de mesures qui nous éloignent du principe fondateur. Quant aux "mutuelles", elles se sont transformées de par l'exigence de l'Europe de généraliser la "libre concurrence", en assurances complémentaires privées qui font payer aux assurés les champs abandonnés par la Sécurité Sociale.</p>
+<p style="margin:1em 0 0 0">Les problèmes que traverse l'hôpital de Mayenne ne peuvent trouver de solution durable à Mayenne. Même si, par au moins 3 fois depuis 9 ans, nous avons fait reculer ceux qui voulaient la fin du CHNM, même si, à Laval tout récemment, la mobilisation du personnel et de la population a empêché un plan d'économies drastiques et le licenciement de 50 agents, les problèmes ne sont réglés que pour quelques mois, parfois même quelques semaines. Si ces mobilisations locales sont absolument <strong>indispensables</strong>, elles ne peuvent en aucun cas être suffisantes.</p>
+<p style="margin:1em 0 0 0"><em><strong>C'est pourquoi <span style="color:red">AUDACE53</span> a décidé de répondre positivement aux soignants et à leurs organisations professionnelles CGT et FO à leur proposition de rassemblement régional à Nantes le 16 septembre prochain devant l'ARS.</strong></em></p>
+<p style="margin:1em 0 0 0">Avec chacun des 5 départements des Pays de Loire, soignants et usagers, ensemble, nous devons faire entendre notre voix, en exigeant non seulement <strong>des moyens et des bras pour l'hôpital public</strong>, mais également un <strong>changement total de paradigme</strong> en matière d'organisation de notre système de santé.</p>
+<p style="margin:1em 0 0 0; text-align:right">Le bureau d'AUDACE53</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CHATEAUROUX</strong></p>
+<p>Signez la pétition pour la défense de l'hôpital de Châteauroux et refuser le regroupement avec la clinique du groupe ELSAN qui n'a que pour seul but de la sauver de la faillite en utilisant les moyens du public.</p>
+<p style="margin:1em 0 0 0">Scandaleux quand on sait qu'un des actionnaires du groupe ELSAN est la famille Bettencourt</p>
+<p style="margin:1em 0 0 0"><a href="https://www.change.org/p/soutenons-l-h%C3%B4pital-public-non-%C3%A0-sa-privatisation-d%C3%A9guis%C3%A9e-oui-%C3%A0-sa-d%C3%A9fense-541b253f-cd3a-4f79-87d8-357e7de2abd6">La pétition</a></p>À
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>PARIS HÔTEL DIEU</strong></p>
+<p><strong>À l'occasion du Conseil de surveillance du Mardi 5 août qui traitera de l'enquête publique concernant l'Hôtel Dieu, l'USAP appelle tous les syndicats à se rassembler à 9h30 devant le siège de l'APHP à l'hôpital Saint Antoine (entrée rue Crozatier) en soutien et pour le maintien de l'hôtel Dieu en tant qu'hôpital public et de l'offre de soins au centre de Paris.</strong></p>
+<p style="margin:1em 0 0 0">Il est question de s'opposer fermement à la mise en compatibilité du Plan Local d’Urbanisme visant à transformer les surfaces dédiées aux soins en surfaces commerciales et de bureaux.</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>VITRY LE FRANÇOIS </strong></p>
+<p><strong>à l’appel de la CGT, le personnel en grève pour réclamer des moyens pour prendre en soins correctement les résident.e.s de l’ EHPAD</strong></p>
+<p style="margin:1em 0 0 0"><a href="https://france3-regions.franceinfo.fr/grand-est/marne/vitry-le-francois/cet-ehpad-ou-les-douches-se-font-attendre-jusqu-a-trois-semaines-et-les-arrets-maladie-se-multiplient-c-est-de-la-maltraitance-institutionnelle-3196476.html#Echobox=1754086144">L’article</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>PLANNING FAMILIAL </strong></p>
+<p class="titre-rubrique"><strong>NON À LA DESTRUCTION DES CONTRACEPTIFS !</strong></p>
+<p><strong><em><strong>Le Département d'État américain demande la destruction des contraceptifs de l'USAID  et le gouvernement français reste silencieux </strong></em></strong></p>
+<p align=center><strong>Signez et faites signer la pétition : </strong></p>
+<p><strong><a href="https://www.change.org/p/emp%C3%AAchons-la-destruction-des-contraceptifs-pay%C3%A9s-par-usaid?recruiter=1162548145&amp;recruited_by_id=5a891e40-21cd-11eb-810e-e9f92aa82a52">La pétition</a></strong></p>
+<p class="rubrique">Humour noir et santé :</p>
+<p align=center><a href="https://www.youtube.com/shorts/2c2IM3HQcJ0">la vidéo</a></p>
+
+<hr />
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

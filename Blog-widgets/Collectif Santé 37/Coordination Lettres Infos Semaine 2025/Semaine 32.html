@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 25</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>La santé, ne vous faites pas de soucis, ils s’en occupent !</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<!--style>
+.inlineMargin p {
+    margin: inherit;
+}
+</style-->
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 32</li>
+<li>Dates: Du 04 août au 10 août 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Infossemaine32du4au10aout2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>La santé, ne vous faites pas de soucis, ils s’en occupent !</p>
+<p>C’est comme pour le dérèglement climatique, la Paix dans le monde, la justice sociale. Les dirigeants de cette belle mondialisation mettent toutes leurs compétences au service de l’humanité.</p>
+<p>Ne croyez pas celles et ceux qui vous disent qu’il y a des habitant.e.s en manque de prise en charge qui abandonnent les soins ou sont pris en charge trop tard, des incendies, des canicules, des milliers de malheureux noyés en se cherchant un avenir, ce sont des mensonges de « populistes ».</p>
+<p>Ce sont les vacances ne vous les faites pas gâcher par des rabat-joies.</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Henri (Sud Aveyron)</p>
+
+<!--p class="titre-rubrique">La Sécu, c’est vital !</p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/07/SecuVital.jpg" />
+</div>
+<div class="divText">
+<p><strong>Signez et faites signer la pétition lancée par Convergence des Services Publics avec de nombreuses organisations dont la Coordination.</strong></p>
+<p><strong>La pétition est sur </strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">Change.org</a></p>
+<p><strong>Elle se veut aussi un outil militant pour contrer le discours médiatique destructeur.</strong></p>
+<p>Renseignements sur le <a href="https://coordination-defense-sante.org/2025/07/la-secu-cest-vital/">site de la Coordination</a>.</p>
+<p>On nous signale aussi l’<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/FLYER-EXPO-80-ANS-SECU_compressed-1.pdf">exposition</a> réalisée par l’Institut d’histoire sociale de la CGT et la Fondation Gabriel Péri</p>
+</div-->
+
+
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p>
+
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center"><strong>Rencontres Nationales de la Coordination du 17, 18 et 19 novembre</strong></p>
+<p align="center"><strong>Le message du comité de Dole</strong></p>
+<p>Les rencontres nationales de notre Coordination constituent un moment unique pour nos comités pour s'informer, se former, échanger nos expériences, prendre des décisions communes. </p>
+<p>Notre comité, créé il y a 4 ans, a eu la chance d'y participer à St Vallier, Sarlat et Mayenne. </p>
+<p>Nous en sommes sortis grandis - au niveau personnel et dans la capacité de réflexion et d'action de notre comité de défense des hôpitaux publics de Dole. </p>
+<p>En vous accueillant, cette année, dans notre beau Jura, nous espérons que vous ferez une expérience qui nous permettra à tous de peser avec plus de force pour l'accès aux soins de toute la population. Car nous avons besoin de nous faire davantage entendre alors que la situation se dégrade dans nos hôpitaux, dans les déserts médicaux. </p>
+<p>Nous nous réjouissons de vous retrouver prochainement, </p>
+<p>Pour le comité de Dole, </p>
+<p>Axel Fricke et Laurence Bernier</p>
+<p align="center"><a href="https://coordination-defense-sante.org/2023/08/les-35emes-rencontres-nationales-dole-les-17-18-et-19-novembre-2023/">Renseignements, inscriptions</a></p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+</div>
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LAVAL</strong></p>
+<p class="info-title"><strong>Les urgences de Laval départementalisées</strong></p>
+<p>Le 4 Juillet le Ministre de la Santé annonçait une réorganisation des urgences de l’Hôpital.</p>
+<p>Concrètement, « la régulation médicale des appels du SAMU 53 sera assurée dès Octobre, par les médecins d’Angers. Ceci en lien avec une réorganisation des urgences avec une dimension départementale et la structuration d’un SMUR départemental ».</p>
+<p>Pour la com ministérielle, les urgences de Laval sont « accompagnées » par les urgences voisines...</p>
+
+<p style="background-color: #3BA965; color: #F7F7F7"><strong>TOURS</strong></p>
+<p class="info-title"><strong>Lors de la semaine de printemps des services publics de Tours du 22 au 27 avril 2025,</strong></p>
+<p>nous avons organisé des ateliers sur les différents sujets services publics.</p>
+<p style="margin-top:1em">Chaque atelier a fait l'objet de comptes rendus  qui sont sur le site de la Convergence nationale.</p>
+<p>Sur le débat général de l'après-midi du samedi 26 avril. Le choix retenu a été de reprendre l'essentiel des interventions.</p>
+<p>Comme Arnaud Bontemps le dit, nous n'aurions pas eu le même débat 2 ou 3 ans en arrière. Le contexte ainsi que le développe Christophe Delecourt est celui des enjeux internationaux, avec la poussée de forces fascistes ou dites illibérales, mais les mots manquent pour exprimer les nouvelles formes de pouvoir qui s'installent, en Argentine, aux usa, en Europe...(1). Ces nouveaux pouvoirs autocratiques s'attaquent aux services publics  dans leur fondement.</p>
+<p>Cela est illustré par le propos de la représentante de la LDH pour le service public de justice, ou dans l'éducation nationale, comme l'exprime  Emmanuel Mercier, avec le lycée de Nouan le Fuzelier par exemple.</p>
+<p>Au plan politique, les grandes décisions sont prises au 49-3. Le député de Tours, Charles Fournier  dit avoir compris très vite qu'il allait assez peu faire la loi... Des propositions de loi ne sont pas débattues , d'autres, ainsi celle sur l'ouverture des accueils de services publics proposée par Danielle Obono et votée à l'assemblée nationale,  sont bloquées aux portes du Sénat.</p>
+<p>Face à cela, Gilbert Albert de France-handicap, appelle, face à des enjeux plus complexes qu'à d'autres époques, à coconstruire ensemble. C'est aussi le propos de Christophe Delecourt qui invite à la mise en mouvement des forces associatives, syndicales et politiques pour porter des alternatives aux défis du 21è siècle.</p>
+<p>Ces quelques lignes ne résument évidemment pas toute la richesse des interventions .</p>
+
+<p style="background-color: #E72C37; color: #F7F7F7"><strong>St AFFRIQUE – SUD AVEYRON</strong></p>
+<p class="info-title"><strong>Le Directeur prépare le terrain pour une annonce de fermetures hospitalières.</strong></p>
+<p>Après les nombreux départs de médecins et d’infirmières, la Direction a pris d’énergiques mesures et embauché ...10 Directeurs ! Avec une gestion qui a provoqué une augmentation de 500 % du déficit en cinq ans, le Directeur déclare cet été <em>« </em><em>le CH pourrait se trouver dans l’incapacité de payer les salaires dans les prochains mois »</em> . Mais aussi que <em>« le ministère trouve que le projet d’hôpital commun (qu’il a approuvé à plusieurs reprises NDC) est trop développé et trop cher »</em>. De quoi pouvoir dire à la rentrée que des services vont fermer dans les hôpitaux actuels ...et que le projet de nouvel hôpital commun est remis en cause, dans un silence impressionnant des élu.e.s.</p>
+<p>Le Comité prévoit quelques réunions publiques à la rentrée.</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+
+<p style="background-color: #3BA965; color: #F7F7F7"><strong>CHATEAUROUX- LE BLANC</strong></p>
+<p>Un nouveau collectif a officiellement vu le jour à <a style="display:inline" href="https://www.lanouvellerepublique.fr/chateauroux" target="_blank">Châteauroux</a> pour défendre l'hôpital public face au projet de partenariat avec la clinique privée Saint-François. Il a été présenté ce lundi 4 août 2025 lors d'une conférence de presse organisée à la maison des syndicats en présence de représentants syndicaux, de partis politiques de gauche et de citoyens engagés. </p>
+<p>Baptisé Collectif de défense et de développement du centre hospitalier Châteauroux-Le Blanc, il réunit des soignants, patients, usagers, syndicats (CGT, FO), élus et partis politiques (La France insoumise, PS, Écologistes, Debout ! ou encore PCF). Objectif : alerter l'opinion publique et mobiliser largement contre un projet jugé <em>« opaque »</em>, et surtout <em>« délétère »</em> pour l'avenir du service public hospitalier .</p>
+<p>(La Nouvelle République)</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LAVAUR</strong></p>
+<p>La Commission Nationale Psychiatrique CGT apporte son soutien aux professionnel·le·s, et aux patient·e·s, de psychiatrie de l’hôpital de Lavaur mobilisé·e·s contre le démantèlement de leurs services de soin, contre les suppressions de postes et pour la défense d’une psychiatrie qui permet « la circulation de la parole et du désir au sein de l’hôpital ».</p>
+
+<p class="rubrique"><span style="display:none">Dossiers :</span>Initiatives :</p>
+
+<p class="titre-dossiers"><strong>LOI DUPLOMB - SUITES</strong></p>
+<p class="titre-rubrique"><strong>LE MONDE</strong></p>
+<p>Loi Duplomb : le Conseil constitutionnel censure les dispositions autorisant la réintroduction de l'acétamipride L'Elysée a fait savoir qu'Emmanuel Macron « a pris bonne note de la décision du Conseil constitutionnel » et « promulguera » le texte « tel [qu'il] résulte de cette décision », c'est-à-dire sans ce pesticide contenant des néonicotinoïdes. </p>
+<p align=center><a href="https://www.lemonde.fr/planete/article/2025/08/07/loi-duplomb-le-conseil-constitutionnel-censure-les-dispositions-autorisant-la-reintroduction-de-l-acetamipride_6627330_3244.html" target="_blank">https://www.lemonde.fr/planete/article/2025/08/07/loi-duplomb-le-conseil-constitutionnel-censure-les-dispositions-autorisant-la-reintroduction-de-l-acetamipride_6627330_3244.html</a></p>
+<p class="titre-rubrique"><strong>LES SOULÈVEMENTS DE LA TERRE :</strong></p>
+<p>« La ré-autorisation de l'acétamipride - insecticide  foudroyant pour les pollinisateurs et dont la sévère neurotoxicité a été démontrée - a été censurée jeudi par le Conseil constitutionnel. Cette décision juridique - qui laisse intacte la majeure partie de la loi Duplomb - n'aurait jamais été possible sans une mobilisation populaire aux formes multiples qui a permis aux partisan-nes d'une agriculture paysanne nourricière et réparatrice pour des milieux de vie dégradés de reprendre partiellement la main.<br />Il nous faut maintenant enfoncer cette porte entrouverte en mettant la pression sur les firmes de l'agrochimie et en approfondissant la remise en cause du modèle agro-industriel qui scelle l'emprise des pesticides sur les campagnes.</p>
+<p>Au menu de cette lettre d'infos : des explications sur l'impact de la décision du Conseil constitutionnel et sur ce la séquence de lutte en cours qu'il convient de prolonger dans les mois à venir »</p>
+<p><strong>« </strong>"La décision du Conseil constitutionnel s'appuie sur la Charte de l'environnement, intégrée depuis plus de 20 ans à la Constitution et qui n'a jamais réussi à empêcher la fuite en avant mortifère du complexe agro-industriel. La reculade très partielle de l'État est la conséquence directe d'une colère populaire montante."</p>
+<p>"La version du texte soumise au Conseil prévoyait également d'inscrire dans la loi que tout projet de méga-bassines devrait être considéré comme étant d'intérêt général. S'il n'a pas censuré cet article, le Conseil a toutefois préventivement vidée la loi de son sens : l'intérêt général est présumé, mais un tribunal peut l'invalider."</p>
+<p class="titre-rubrique"><strong>Regards !</strong></p>
+<p>Nous avons dépassé les 300 signatures et il commence à être partagé dans de nombreux réseaux. Demain il paraîtra en ligne dans le magazine Regards. </p>
+<p align=center><a href="https://dq2xd.r.a.d.sendibm1.com/mk/cl/f/sh/SMK1E8tHeFuBopJNEhdjFMpN3x5T/jtjw0v1k8dVi" target="_blank">https://regards.fr</a><br />L'appel sera bien entendu signable jusqu'au 10 septembre afin de donner le plus d'élan possible à la mobilisation, n'hésitez pas à le partager et demain à diffuser sa publication.</p>
+<p align=center><a href="https://dq2xd.r.a.d.sendibm1.com/mk/cl/f/sh/SMK1E8tHeG13Gy8KPrnDLC872Ffj/Lf-bYEP55lWe" target="_blank">https://framaforms.org/appel-a-soutenir-amplifier-et-prolonger-la-mobilisation-du-10-septembre-</a></p>
+<table width="100%" cellspacing="0" cellpadding="0"><colgroup><col width="256*" /></colgroup>
+<tbody>
+<tr>
+<td width="100%" height="7">
+</td>
+</tr>
+<tr>
+<td width="100%">
+</td>
+</tr>
+</tbody>
+</table>
+<p class="titre-dossiers"><strong>PALESTINE – MOBILISATION MÉDICALE</strong></p>
+<p>La pétition pour Gaza signée par plus de 400 médecins est en ligne sur le site de Ouest France:<a href="https://www.ouest-france.fr/reflexion/point-de-vue/point-de-vue-gaza-nous-medecins-lancons-un-cri-dalarme-et-de-colere-f2be72ec-72a8-11f0-992a-f96a4802076a" target="_blank">https://www.ouest-france.fr/reflexion/point-de-vue/point-de-vue-gaza-nous-medecins-lancons-un-cri-dalarme-et-de-colere-f2be72ec-72a8-11f0-992a-f96a4802076a</a></p>
+<p>Une pétition "grand public" à proposer largement à la signature <a href="https://chng.it/YsXgfXmTFd" target="_blank">https://chng.it/YsXgfXmTFd</a></p>
+
+<p class="rubrique"><strong>Documents utiles</strong></p>
+
+<p class="titre-rubrique"><strong>LA FRAUDE SOCIALE ; CONFUSION VOLONTAIRE DU MINISTÈRE</strong></p>
+<p>« Enième plan pour lutter contre la « fraude sociale », présentée en mettant dans le même sac abus mineurs effectués par des personnes démunies et véritables escroqueries commises par des délinquants. Confusion politique mettant l'accent sur les premières afin de minimiser les secondes.</p>
+<p>YVES FAUCOUP »</p>
+<p align=center><a href="https://blogs.mediapart.fr/yves-faucoup/blog/040825/confusion-volontaire-sur-la-fraude-sociale" target="_blank">https://blogs.mediapart.fr/yves-faucoup/blog/040825/confusion-volontaire-sur-la-fraude-sociale</a></p>
+<p class="titre-rubrique"><strong>ARRÊTS MALADIE INJUSTIFIÉS, LA CNAM RECTIFIE</strong></p>
+<p>PARIS, 31 juillet 2025 (APMnews) - La Caisse nationale d'assurance maladie (Cnam), sollicitée jeudi par APMnews, a clarifié les propos tenus par plusieurs ministres ces dernières semaines, selon lesquels la moitié des arrêts maladie de longue durée ne seraient "plus justifiés".</p>
+<p>Le premier ministre, François Bayrou, avait avancé le 16 juillet à l'occasion de la présentation d'un plan d'économies sur les finances publiques pour 2026, que plus de 50% des arrêts de plus de 18 mois n'étaient "plus justifiés" (...)</p>
+<p>Enfin, le ministre de la santé et de l'accès aux soins, Yannick Neuder, assurait mardi sur le réseau social X (ex-Twitter) "+28% d'IJ entre 2019-23, 20 Mds€ versés, 50% d'arrêts 18 mois injustifiés. En 2026, nous combattons les abus, réformons les indemnités, simplifions la reprise, responsabilisons chacun. Protégeons le système qui nous protège".</p>
+<p>Ces propos ont notamment suscité la colère du syndicat de médecins généralistes MG France, dénonçant mercredi une "manipulation des chiffres relayée par les ministres".</p>
+<p>"Ce chiffre, repris sans nuance, est tiré du rapport charges et produits de l'assurance maladie. Il ne concerne qu'un échantillon ciblé d'arrêts, sélectionnés pour leur contexte particulier, et non l'ensemble des arrêts longs", affirme le syndicat.</p>
+<p>Sollicitée par APMnews, la Cnam a précisé jeudi qu’ (…) En définitive sur "54% d'arrêts considérés comme injustifiés au moment du contrôle par le service médical", seuls 12% ont donné lieu à une "reprise de travail pour aptitude" par le médecin conseil de la caisse.</p>
+<p>Pour les 41% restants, "la personne ne relevait plus de l'arrêt de travail mais d'une pension d'invalidité (correspondant à un état de santé stable)", précise la Cnam.</p>
+<p>Dans son communiqué visant le gouvernement, MG France expliquait refuser "que des déclarations aussi approximatives et trompeuses jettent le discrédit sur les médecins généralistes et leurs patients. Elles alimentent une défiance injustifiée à l'égard des malades, qui subissent désormais une double peine: celle de la souffrance et celle du soupçon".</p>
+<p class="titre-rubrique"><strong>MANQUES DE MÉDICAMENTS : LA LOI DES TRUSTS</strong></p>
+<p>« On parle de risques de rechute psychotique ou délirante » : le syndicat des psychiatres sonne l’alarme face à la pénurie de psychotropes</p>
+<p align=center><a href="https://www.humanite.fr/societe/ansm/on-parle-de-risques-de-rechute-psychotique-ou-delirante-le-syndicat-des-psychiatres-sonne-lalarme-face-a-la-penurie-de-psychotropes" target="_blank">https://www.humanite.fr/societe/ansm/on-parle-de-risques-de-rechute-psychotique-ou-delirante-le-syndicat-des-psychiatres-sonne-lalarme-face-a-la-penurie-de-psychotropes</a></p>
+
+<hr />
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

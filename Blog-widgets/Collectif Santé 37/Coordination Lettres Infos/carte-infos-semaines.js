@@ -741,7 +741,7 @@
                     map.flyTo({
                       lat: -12.817,
                       lng: 45.150
-                    }, 12);
+                    }, 11);
                     for (var j = 0; j < btn.options.states.length; j++) {
                       if (btn._currentState.stateName == btn.options.states[j].stateName) {
                         btn.state(btn.options.states[j].nextStateName); // change state on click!

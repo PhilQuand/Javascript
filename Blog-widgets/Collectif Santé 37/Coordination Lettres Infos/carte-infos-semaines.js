@@ -526,7 +526,20 @@
                     },*/
                 hasevents: false
               },
-              {
+               {
+                name: 'Mayote',
+                bounds: L.latLngBounds([
+                  [-12.6278, 44.9993],
+                  [-13.0048, 45.3310]
+                ]),
+                /*title: 'vol vers Mayote',
+                flyTo: {
+                      lat: -20.887,
+                      lng: 55.455
+                    },*/
+                hasevents: false
+              },
+             {
                 name: 'Hexagone',
                 bounds: L.latLngBounds([
                   [51.10, 2.47],
@@ -713,6 +726,21 @@
                     map.flyTo({
                       lat: -20.887,
                       lng: 55.455
+                    }, 6);
+                    for (var j = 0; j < btn.options.states.length; j++) {
+                      if (btn._currentState.stateName == btn.options.states[j].stateName) {
+                        btn.state(btn.options.states[j].nextStateName); // change state on click!
+                        break;
+                      }
+                    }
+                  };
+                  break;
+                case 'Mayote':
+                  localState.title = 'vol vers Mayote'; // like its title
+                  localState.onClick = function(btn, map) { // and its callback
+                    map.flyTo({
+                      lat: -12.817,
+                      lng: 45.150
                     }, 6);
                     for (var j = 0; j < btn.options.states.length; j++) {
                       if (btn._currentState.stateName == btn.options.states[j].stateName) {

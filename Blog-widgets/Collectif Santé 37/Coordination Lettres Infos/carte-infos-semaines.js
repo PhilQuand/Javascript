@@ -529,8 +529,8 @@
                {
                 name: 'Mayote',
                 bounds: L.latLngBounds([
-                  [-12.6278, 44.9993],
-                  [-13.0048, 45.3310]
+                  [-12.6383, 45.0049],
+                  [-12.9798, 45.3081]
                 ]),
                 /*title: 'vol vers Mayote',
                 flyTo: {

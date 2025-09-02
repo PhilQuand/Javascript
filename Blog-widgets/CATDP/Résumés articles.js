@@ -871,7 +871,7 @@ $(document).ready(function() {
 
   if (window.location.pathname == '/') {
     $('.header-widget').html("<h1 style='z-index: 10'>C’est au Tour(s) du Peuple !<br/></h1>");
-    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
   }
 
 Promise.all([
@@ -882,7 +882,7 @@ Promise.all([
     //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
     $('.subscribe-button.pill-button').addClass('styled')
     $('#ACCEUIL-AlaUne').AlaUneFB4({
-      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png",
+      src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgO2tFU1wZc0LqvQbqqB6ANQdy-8MY1979Wec3FhNSJ5osG7Z2x7DrmOwb6-IdzEGR2VZW6AuXJ3f4OuOiJ57hOKE0aVorlezpKYErDeDTqxoUhhVC8I1kz0rJSAkO8dOeneJHLfWK5keiEQrHVueur_Xs932vBBhY9y6OY4Qpq0lGyRpPI6iWdGX4xyZPP/s1600/Tract%20municipales%20mai%202025.jpg",
       fancyClass: {
         //baseClass: 'demain20200923AlaUneBaseClass',
         baseClass: 'articleFancyClass',
@@ -901,17 +901,17 @@ Promise.all([
 <p style="color: red; text-align: center; font-size: 24px; line-height: 120%;">(Agence Régionale de Santé)<br />Champs Girault, Rue Edouard Vaillant, à Tours.</p> \
 <p style="text-align: center;">À 13h, une AG de la psychiatrie aura lieu devant l&#39;ARS.</p> \
 </div>'
-        },*/
+        },
         {
           dataType: "images",
-          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoxy5HfyIvyiDVF9w5jXQCCcwDvGv13PlHd39a7Xknu5MULgzRNwBIqCPyCX0XGDqpb85624fLe-MpzcA6gqwnX0GW1RuQpaN8-zjfr7AD6ttH4UEqWjGOyNiYGAf8bz1dNFBPpeaAx8CBOlLMNRaDWNtPu6udB3sf-Rnik9k0taCd6XIXSSX5drI619Y/s1600/tract-image-loi%20immigration.png"
+          dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi265Pos0_4xo3Kvarc0g3YS2pJF8C_zdGciYlkD4Vx8N2dH0RjkzbnN41hk8-FreHIlOt-XRVZfPqYbQI3bD3wtv3QNAv_DIZAvDZLmi11yi5sbxKiiIUf34csYECiTGX4QqVZrdp3-3qIRUQnmWsfU7pErMznYz-KRGSepg9SQrxNFWz2SkFaK6U6S6lI/s1600/On%20bloque%20tout%20re%CC%81duit.jpg.jpeg"
+        },*/
+        {
+          dataType: "iframe",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgO2tFU1wZc0LqvQbqqB6ANQdy-8MY1979Wec3FhNSJ5osG7Z2x7DrmOwb6-IdzEGR2VZW6AuXJ3f4OuOiJ57hOKE0aVorlezpKYErDeDTqxoUhhVC8I1kz0rJSAkO8dOeneJHLfWK5keiEQrHVueur_Xs932vBBhY9y6OY4Qpq0lGyRpPI6iWdGX4xyZPP/s1600/Tract%20municipales%20mai%202025.jpg",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/CATDP/Tracts/Tract_municipales_mai_2025.pdf"
         },
         /*{
-          dataType: "iframe",
-          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXW6u39vwpYVRChSyYAIw_oXfM6k54kac6I2WFiwytgmEyrVA-zGvfdyVQmD50vsjij4dtSKRSr82YQBHY1iZcrgP0MrCYzogI0nFUdnuT_sOubwYrkbvlTPVgkRCF0HR9ngYrRWvxqJI6gYSh1rTNLYrEIdkEUgKKzpMHxcZQFjRr4Ke9NC4VCUpG/s1600/thumb-pdf.jpg",
-          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/articles%20pdf/appel%20unitaire%20national%20semaine%207%20avril.pdf"
-        },
-        {
           dataType: "video",
           //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
           dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"

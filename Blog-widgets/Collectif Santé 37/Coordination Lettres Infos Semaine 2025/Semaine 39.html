@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 39</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Toujours pas de gouvernement est-ce grave docteur ?</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 39</li>
+<li>Dates: Du 22 sept. au 28 sept. 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/09/Infossemaine39du22au28septembre2025.pdf">Pdf correspondant</a></div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Samedi prochain sera le 80ème anniversaire de la première ordonnance créant la Sécurité Sociale. Sa mise en place a été rapide, grâce à l’implication des militants de la CGT, comme le montre le film La Sociale et sous l’impulsion du ministre du travail Ambroise Croizat. Lors des <a href="https://coordination-defense-sante.org/2025/07/les-37emes-rencontres-de-la-coordination-de-la-coordination/">37<sup>èmes</sup> Rencontres Nationales de la Coordination</a>, les 14, 15 et 16 novembre à Marmande, nous accueillerons son petit-fils, Pierre Caillaud Croizat. </p>
+<p>Samedi prochain, Convergence des Services Publics organise avec tous ses partenaires une <a href="https://www.convergence-sp.fr/initiative-du-4-octobre-2025/">initiative</a> à Paris. Dans les départements, nos comités initient également rassemblements, débats, projection de films comme à Sarlat, Aubenas, Bergerac, Ruffec… , des évènements dont vous pouvez retrouver l’annonce à la <a href="https://coordination-defense-sante.org/">Une du site</a> de la Coordination. Ils multiplient aussi les séances de signatures de la pétition <a href="https://coordination-defense-sante.org/2025/07/la-secu-cest-vital/">La Sécu c’est vital</a>, comme en témoigne ce bulletin. Il nous faut amplifier cette campagne à l’heure où, si la Sécurité Sociale est plébiscitée par la population, ses principes de solidarité sont remis en cause et la cure d’austérité, voulue par le Premier ministre, dans la suite de ses prédécesseurs, la menace. </p>
+<p>L’évolution au cours des dernières décennies de réduction de la part des cotisations dans les ressources de la Sécurité Sociale, en particulier par les exonérations, compensées non intégralement par le budget de l’État, la fragilise. La cotisation, c’est une part des richesses produites mise en commun pour les aléas de la vie. Réduire cette part, c’est réduire la solidarité, ce qui fait le ciment de notre société, et c’est soumettre la Sécurité Sociale aux aléas politiques, ce que ses créateurs avaient précisément voulu éviter. </p>
+<p>En réduisant les remboursements de l’Assurance Maladie, en laissant se développer les restes à charge, avec les dépassements d’honoraires, nos gouvernants favorisent une évolution d’une protection sociale solidaire vers les complémentaires inégalitaires. Dans le même temps, nos hôpitaux ne répondent plus aux besoins et les déserts médicaux s’étendent sans que la nécessité d’un <a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/PLAQUETTE_SERVICE-PUBLIC-TERRITORIAL-SOINS-PREMIER-RECOURS_BATfinal.pdf">service public territorial de soins de premier recours</a> ne soit entendue. </p>
+<p>La Coordination Nationale des Comités de Défense des Hôpitaux et Maternités de Proximité s’associera à toutes les actions pour que le prochain budget de financement de la Sécurité Sociale réponde aux besoins et en particulier soutient la mobilisation intersyndicale du 2 octobre et la manifestation nationale à Paris du 9 octobre devant le ministère de la santé à l’initiative de syndicats de la santé et de l’action sociale. </p>
+<p style="margin: 1em; text-align: right; font-style: italic">Michèle Leflon</p>
+
+<!--p class="titre-rubrique">La Sécu, c’est vital ! </p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/07/SecuVital.jpg" />
+</div>
+<div class="divText">
+<p><strong>Signez et faites signer la pétition lancée par Convergence des Services Publics avec de nombreuses organisations dont la Coordination. </strong></p>
+<p><strong>La pétition est sur </strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">Change. org</a></p>
+<p><strong>Elle se veut aussi un outil militant pour contrer le discours médiatique destructeur. </strong></p>
+<p>Renseignements sur le <a href="https://coordination-defense-sante.org/2025/07/la-secu-cest-vital/">site de la Coordination</a>.</p>
+<p>On nous signale aussi l’<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/FLYER-EXPO-80-ANS-SECU_compressed-1.pdf">exposition</a> réalisée par l’Institut d’histoire sociale de la CGT et la Fondation Gabriel Péri</p>
+</div-->
+
+
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p!-->
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center" style="font-size: xxx-large; color: #6B9E51">La campagne « la Sécu c’est vital ! » </p>
+<p align="center"><strong>L’appel à mobilisation de la Convergence des services publics</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/Appel-Secu-2025-v1.pdf">Appel-Secu-2025</a></p>
+<p align="center"><strong>Des nouvelles de la</strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?utm_medium=custom_url&amp;utm_source=share_petition&amp;recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">pétition</a></p>
+<p>167 signatures recueillies par l’ADEMAT-H à Remiremont, 70 par l’ ADSP lors de la journée des associations de Luçon, des dizaines sur le marché de Concarneau, 4000 lors des permanences du comité de Sarlat devant l’ hôpital ! ! ! </p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p><em><strong>à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </strong></em></p>
+<p><strong>pour en finir avec les restes à charge pour les malades </strong></p>
+<p><strong>agir en signant et en faisant signer massivement </strong></p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p><strong>pour toutes vos initiatives publiques : </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+</div>
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>FEURS - 42</strong></p>
+<p class="info-title"><strong>Inquiétude pour le futur EHPAD</strong></p>
+<p>Le Comité de défense et de soutien du centre hospitalier du Forez se fait le relais des membres du Conseil de Vie Sociale de l'Ehpad de Feurs, </p>
+<p>Nous, membres du CVS, faisons suite à l'article de presse du Progrès paru le 18 septembre 2025 en vous transmettant en PJ l'intégralité des informations et des remarques sur lesquelles nous voulions communiquer, concernant le choix du repreneur de la gestion du nouvel Ehpad de Feurs et son projet, voté en Conseil de Surveillance du 8 juillet 2025. </p>
+<p>Membres du Conseil de la Vie Sociale, (CVS), nous restons vigilants sur l'avenir du futur Ehpad, afin que ce projet réponde et apporte une prise en charge et une qualité de vie satisfaisante à nos résidents, assurant la pérennité de l'établissement futur et ses missions, avec les moyens matériels et humains que cela nécessite. </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/09/COMMUNIQUEDEPRESSECVS.pdf">L'intégralité des informations et remarques</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>GANGES - 34</strong></p>
+<p class="info-title"><strong>Journée de mobilisation festive le 5 octobre pour la réouverture de la maternité</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/09/toutes-sur-le-pont.jpg" /></p>
+<p>L'idée est de se retrouver sur le pont, d'installer tables et chaises et de partager les spécialités ce que chacune et chacun amène à manger. </p>
+<p>Une occasion de rappeler que nous sommes toujours là. </p>
+<p>Une occasion d'échanger soit pendant des petits ateliers soit en mangeant. </p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/09/ganges-journee-de-mobilisation-festive-le-5-octobre-pour-la-reouverture-de-la-maternite/">Plus d’informations sur le site de la coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>TOURS - 37</strong></p>
+<p class="info-title"><strong>Le collectif santé 37 a participé à la mobilisation du 18 septembre</strong></p>
+<p align=center><a href="https://collectifsante37.blogspot.com/2025/09/la-manifestation-contre-le-budget.html">L’article sur le blog du collectif</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>RAMBOUILLET - 78</strong></p>
+<p class="info-title"><strong>Un médecin menacé d’expulsion</strong></p>
+<p>Le collectif de Rambouillet s’était élevé en son temps contre la réforme des PADHUE plaçant ces médecins dans des situations très incertaines. On en a la triste confirmation aujourd’hui. Ce médecin exerce à l’hôpital de Rambouillet pour la plus grande satisfaction des ses collègues et des patients. Le collectif le soutient dans ces démarches pour régulariser sa situation afin de continuer à exercer. </p>
+<p align=center><a href="https://www.whatsupdoc-lemag.fr/article/un-medecin-tunisien-de-lhopital-de-rambouillet-menace-dexpulsion-sur-fond-de-reforme-des?utm_source=&amp;utm_medium=&amp;utm_campaign=&amp;utm_content=&amp;utm_term=">L’article sur What’s up doc ? </a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT-CLAUDE – 39</strong></p>
+<p class="info-title"><strong>Naissance sur le parking de la maternité d’Oyonnax</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/09/Image_2.jpg" /></p>
+<p align=center><a href="https://france3-regions.franceinfo.fr/bourgogne-franche-comte/jura/haut-jura/j-etais-dans-une-bulle-il-fallait-que-ca-aille-la-maternite-a-45-minutes-de-route-elle-accouche-en-pleine-nuit-sur-un-parking-3219929.html">L’article de France 3</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>FAUCOGNEY - 70</strong></p>
+<p class="info-title"><strong>Signature de la pétition « La Sécu c'est vital » </strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/09/CV70-BioJours2025002-scaled.jpg" /></p>
+<p>Le comité de Vigilance 70  <strong>(CV 70)</strong> était présent aux BIO'Jours de Faucogney les 13 et 14 septembre 2025. L'équipe a été renforcée pendant un moment du dimanche par les voisin.e.s et ami.e.s d'ADEMAT-H de Remiremont. </p>
+<p>En plus de présenter nos activités, actions et mobilisations qui occupent notre comité depuis longtemps (l'accès à la santé, l'éducation, les services postaux, les transports ferroviaires et autres mobilités... ) nous avons fait signer la pétition <strong>La Sécu c'est vital ! </strong>402 signatures recueillies</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/09/le-cv-70-et-lademat-h-presents-aux-biojours-de-faucogney/">L’article sur le site de la Coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SEDAN - 08</strong></p>
+<p class="info-title"><strong>Signature de la pétition « La sécu c’est vital ! »</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/09/IMG_20250927_090124.jpg" /></p>
+<p>Le comité de défense des hôpitaux des Ardennes était ce samedi 27 septembre sur le marché de Sedan pour faire signer la pétition la <a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">Sécurité Sociale c'est vital</a> et distribuer un <a href="https://coordination-defense-sante.org/wp-content/uploads/2025/09/202509TRACT-1.pdf">tract. </a>127 signatures recueillies. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT-MAURICE - 94</strong></p>
+<p class="info-title"><strong>Le collectif en mouvement ! </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/09/saint-maurice-les-nouvelles-du-comite/">Toutes les nouvelles sur le site de la Coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LANDERNEAU - 29</strong></p>
+<p class="info-title"><strong>Oui à un SMUR, mais pas au détriment du service d'urgence</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/09/communique-SMUR-26-09-25.pdf">Le communiqué du comité</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>MARMANDE - 47</strong></p>
+<p class="info-title"><strong>Action, préparation des rencontres nationales… </strong></p>
+<p>L’association ne laissera pas faire ce fameux plan de retour à l’équilibre des comptes dans l’hôpital. le seul équilibre à trouver est celui de l’égalité d’accès aux soins pour tous ! </p>
+<p>L’association appelle également à soutenir l’action impulsée par l’intersyndicale au niveau national le jeudi 2 octobre à 14 h à Marmande place de l’esplanade. </p>
+<p>L’association prépare également l’événement national de la coordination nationale des comités de défense des hôpitaux et maternités de proximité contre les déserts médicaux les 14/15 et 16 novembre</p>
+<p>Le conseil d’administration de l’association réunie ce vendredi 26 septembre a défini et précisé tous ces actes. </p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>REMIREMONT - 88</strong></p>
+<p>Rassemblement le 1<sup>er</sup> octobre à l’occasion de la prise de fonction du directeur du GHT</p>
+<p align=center><a href="https://www.ademat.org/2025/09/rassemblons-nous-devant-lhopital-le-1er-octobre-2025-a-14h/">Les infos sur le blog de l’ADEMAT-H</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/09/remiremont-mobilisation-le-1er-octobre/">Sur le site de la Coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SARLAT - 24</strong></p>
+<p class="info-title"><strong>Le comité sur le marché</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/09/25-09-27-02.jpg" /></p>
+<p>Encore 53 signatures de la pétition La Sécu c’est vital, et l’annonce des prochaines initiatives</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/09/sarlat-presence-sur-le-marche/">Sur le site de la Coordination</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>Hôpital Henry Gabrielle - HCL - 69</strong></p>
+<p class="info-title"><strong>Cure de jouvence pour l’hôpital Henry Gabrielle</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/09/Image_6.jpg" /></p>
+<p>L'association de sauvegarde de l'Hôpital Henry Gabrielle vous invite à venir nombreux le samedi 11 octobre à 10H devant l'entrée de l'hôpital pour une opération de rénovation. </p>
+<p>Les HCL ont décidé de laisser l'hôpital se détériorer et bien, nous appelons les citoyens qui tiennent à ce bien public à venir nous aider pour la première phase des travaux. </p>
+<p>Venez en tenue de chantier, avec pinceaux, peinture etc... </p>
+<p>"Ouvert en 1969 sur la commune de Saint-Genis-Laval, l’hôpital Henry Gabrielle est spécialisé dans la médecine physique et de réadaptation. Reconnu au niveau national, il est un établissement de pointe dans la rééducation des affections neurologiques, les prises en charge des blessures médullaires, traumatismes crâniens, suivis post-AVC, pathologies tumorales et dégénératives "</p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>VOUZIERS – 08</strong></p>
+<p class="info-title"><strong>Rassemblement le 2 octobre contre la réduction des heures d’ouverture du service d’urgences</strong></p>
+<p>Les infirmières du service de soins non programmés de l'hôpital de Vouziers ont informé de la réduction prévue des heures d'ouverture. </p>
+<p>Avec la LDH, des militants syndicalistes, le comité de défense des Ardennes organise un rassemblement devant l'hôpital jeudi 2 octobre à 10 h. </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/09/tract-CSNP-4.pdf">Le tract</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>BAGNÈRES DE BIGORRE - 65</strong></p>
+<p class="info-title"><strong>Le point entre l’association Sauvons l’hôpital B2B et le directeur de l’hôpital. </strong></p>
+<p>A l’issue d’une année de présence du nouveau directeur (obtenu grâce à l’action de l’association) une rencontre a permis de faire le point : situation inquiétante aux urgences, lits fermés dans le service de rééducation, installation de l’IRM soumise à un Partenariat Public Privé</p>
+<p align=center><a href="https://www.lasemainedespyrenees.fr/hopital-de-bagneres-de-bigorre-un-an-apres-des-besoins-toujours-pressants-pour-lassociation-sauvons-lhopital-b2b/">L’article de la Semaine des Pyrénées du 28 septembre</a></p>
+
+<p class="rubrique">Autres infos locales : </p>
+
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>LA TOUR DU PIN - 38</strong></p>
+<p class="info-title"><strong>Les locaux ne font pas tout ! </strong></p>
+<p align=center><a href="https://www.francebleu.fr/emissions/l-info-d-ici-de-6h30-et-8h30-ici-isere/on-n-attend-plus-que-les-medecins-la-difficile-quete-du-nouveau-centre-de-sante-de-la-tour-du-pin-9830340">L’article d’ICI du 22 septembre</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>CHÂTEAUROUX - 36</strong></p>
+<p class="info-title"><strong>Le partenariat public privé contesté</strong></p>
+<p align=center><a href="https://www.lanouvellerepublique.fr/chateauroux/partenariat-hopital-clinique-dans-l-indre-dominique-boue-plaide-pour-la-transparence-des-informations-1758907653">L’article de la Nouvelle République du 26 septembre</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT MAURE DE TOURAINE - 37</strong></p>
+<p class="info-title"><strong>Mobilisation contre la fermeture de 67 lits à l’EHPAD</strong></p>
+<p align=center><a href="https://www.francebleu.fr/infos/societe/sainte-maure-pres-d-une-centaine-de-salaries-de-l-hopital-mobilises-contre-la-fermeture-de-67-lits-a-l-ehpad-3806776">L’article d’ICI du 26 septembre</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT MALO - 35</strong></p>
+<p class="info-title"><strong>Quid du futur hôpital ? </strong></p>
+<p align=center><a href="https://www.ouest-france.fr/bretagne/saint-malo-35400/a-saint-malo-des-elus-tres-inquiets-face-au-projet-de-grand-hopital-toujours-en-attente-6b6d00a6-9ae4-11f0-ba76-fc23b95d5062">L’article d’Ouest France du 26 septembre</a></p>
+
+<p style="background-color: #729FCF; color: #F7F7F7"><strong>EVREUX - 27</strong></p>
+<p class="info-title"><strong>Un emprunt citoyen pour financer l’hôpital</strong></p>
+<p align=center><a href="https://www.francebleu.fr/emissions/l-info-d-ici-ici-normandie-seine-maritime-eure/preter-de-l-argent-a-l-hopital-a-evreux-un-emprunt-citoyen-pour-permettre-la-reouverture-de-lits-9633558">L’article d’ICI du 26 septembre</a></p>
+
+<p class="rubrique">Dossiers : </p>
+
+<p><strong>DE NOS PARTENAIRES</strong></p>
+<p><strong>Convergence des Services Publics</strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/09/Flyer-4-octobre-programme-recto.jpg" /></p>
+<h5><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/09/Flyer4octobre-programme-compress.pdf">Le programme complet</a><br /><a href="https://framaforms.org/4-octobre-2025-la-secu-a-80-ans-et-est-toujours-vitale-1758643354">Inscription obligatoire pour le repas avant le 2 octobre</a></h5>
+<p><strong>PSYCHIATRIE</strong></p>
+<p><strong>FondaMental - sans filtre ni analyse sur FranceInter ? </strong></p>
+<p align=center><a href="https://blogs.mediapart.fr/printemps-de-la-psychiatrie/blog/230925/fondamental-sans-filtre-ni-analyse-sur-franceinter">L’expression du Printemps de la Psychiatrie sur son blog</a></p>
+<p><strong>PHARMACIES</strong></p>
+<p><strong>Trois mois de sursis après la mobilisation</strong></p>
+<p align=center><a href="https://uspo.fr/rendez-vous-a-matignon-vers-un-accord-gagnant-gagnant/">communiqué : vers un accord gagnant/gagnant</a></p>
+<p><strong>HANDICAP</strong></p>
+<p><strong>La région Île de France supprime les subventions aux MDPH</strong></p>
+<p align=center><a href="https://actu.fr/ile-de-france/saint-ouen-sur-seine_93070/handicap-l-ile-de-france-supprime-les-subventions-aux-mdph-inacceptable-et-incomprehensible_63198062.html">L’article de actu. fr du 23 septembre</a></p>
+<p><strong>AME</strong></p>
+<p><strong>De nouvelles craintes après la remise d’un rapport au Premier ministre</strong></p>
+<p align=center><a href="https://www.fncs.org/sites/default/files/Communique_de_Presse_AME_24.09.25_3.pdf">Le communiqué de la Fédération Nationale des Centres de Santé</a></p>
+<p><strong>SERVICE PUBLIC TERRITORIAL DE SANTÉ DE PROXIMITÉ </strong></p>
+<p><strong>La FNCS et l'USPCS appellent à construire collectivement le service public territorial de santé de proximité</strong></p>
+<p align=center><a href="https://www.fncs.org/sites/default/files/Communique_de_presse_Maisons_france_sante_25.09.25_3.pdf">Le communiqué</a></p>
+<p><strong>HÔPITAUX</strong></p>
+<p><strong>Destruction programmée des hôpitaux et concurrence avec les cliniques privées</strong></p>
+<p align=center><a href="https://splann.org/enquete/hopital-destruction-programmee/concurrence-cliniques-privees/">Une enquête sur le site de splann</a></p>
+
+<p class="rubrique">Culture et santé : </p>
+
+<p align=center><a href="https://youtu.be/9u-J8X7iFnQ?si=RIZzB-oC0Thyb6TM">Ceci n’est pas un trou</a></p>
+
+<hr />
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

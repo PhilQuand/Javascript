@@ -10,6 +10,9 @@
     margin-left: auto;
     margin-right: auto 
 }
+.infoComité p, .coordCN p {
+  font-size: large;
+}
 .infoComité p a.noSplit, .coordCN p a.noSplit {
    display: inline;
 }
@@ -26,9 +29,6 @@
   padding: 10px;
   margin-top: 1em;
   margin-bottom: 1em;
-}
-.infoComité p {
-  margin: 0;
 }
 .AutresInfosLocales .western {
   width: fit-content;
@@ -311,7 +311,7 @@ p.info-title {
   margin: 10px;
   font-weight: bold;
 }
-.rubrique {
+p.rubrique {
 text-align: center; 
 color: #0070c0; 
 font-size: xx-large; 
@@ -319,7 +319,7 @@ font-weight: bold;
 font-family: Arial, serif;
 font-weight: bold;
 }
-.titre-rubrique {
+p.titre-rubrique {
 text-align: center; 
 font-size: large; 
 font-weight: bold; 
@@ -328,7 +328,7 @@ font-style: italic;
 text-transform: uppercase;
 font-weight: bold;
 }
-.titre-dossiers {
+p.titre-dossiers {
   font-weight: bold;
   font-family: Arial, serif; font-size: x-large; 
   color: red;

@@ -797,8 +797,8 @@ les personnels dans les hôpitaux, les EHPAD et les services à domicile ont pri
     //background-color: orange;
   }
   100% {
-    //transform: scale(0.5);
     transform: scale(0.8);
+    //transform: scale(1.2);
     //background-color: yellow;
   }
 }
@@ -828,7 +828,7 @@ $(document).ready(function() {
     //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
     //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
 
@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzykU8M_rcNAxXI0KAKe5GXBmkWNB2QliRy647BpJjeQlj0pgupk7B-0MI61QpvNw0hz4Wq7gSfHGCoZ6gONVFPBIBNi0VCZRjWxKi0amOzYdyib9d4Ai2jAclmJj7OoCJe5GBB8UtPHyZ5dJveCo7-yJ_2v_KpKiRXTmduH27FHH7VHxwz1u1K0ksxz8/s1600/image.png",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt1ew-Z9oSbRfoSi58ox7m6ID0h6YIaDAnjoAR8VM1ph2LH4z8p3Mw0cMWjquxGERgm3nFEuG97-2csOx6trPN3FYnnQHcWd2KCOcRGQqMydn7n5HrbpOF80SErOUwwcnhUwr9ud9MYguvGwJENN1Pi2yoCVwUT0aLAsjVuVM1kqbFPKHMEE8AHuQ_RSI/s1600/FB_IMG_1759405146663.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -857,17 +857,21 @@ $(document).ready(function() {
           </ul> \
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
-                  },
+                  },*/
            {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOO1rX_pnrXTdrJxSxFtE-kQyldxSiYQyaeM5NVZb-q-h6lM7UmU2iGbbOhK1HY4gB01_kd_zzhGh2fVOAhvK6-T7l3ugRXENz515RLM6zIv42yzspBSLLMX9L99ite6xcsKpTrIRc9n1qe8VfvmBqZEPfW5Jus950fXVgFhN_8UXB9AhuRjZ86UYxs9M/s1600/IMG-20250311-WA0009.jpg"
-          },*/
-         {
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgE0O0qrI_VbWXtwiIY3JeOBYabYnAuymVE67X87p31-uQ7WCa-5x5c2bqs-z8AzQhF_bZy-THrVBh7Ws_zWlxQxVr02QfJXWzSVW6pTSP6ArLOxy8EtmtV6FOC4iwmjAfhqtu3fBpM65NMTtolFP39K40RqrZ51g_iQHA17z_q72Cv_IZrioUPr0j3Liw/s1600/FB_IMG_1759405213861.jpg"
+          },
+            {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt1ew-Z9oSbRfoSi58ox7m6ID0h6YIaDAnjoAR8VM1ph2LH4z8p3Mw0cMWjquxGERgm3nFEuG97-2csOx6trPN3FYnnQHcWd2KCOcRGQqMydn7n5HrbpOF80SErOUwwcnhUwr9ud9MYguvGwJENN1Pi2yoCVwUT0aLAsjVuVM1kqbFPKHMEE8AHuQ_RSI/s1600/FB_IMG_1759405146663.jpg"
+          },
+        /*{
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzykU8M_rcNAxXI0KAKe5GXBmkWNB2QliRy647BpJjeQlj0pgupk7B-0MI61QpvNw0hz4Wq7gSfHGCoZ6gONVFPBIBNi0VCZRjWxKi0amOzYdyib9d4Ai2jAclmJj7OoCJe5GBB8UtPHyZ5dJveCo7-yJ_2v_KpKiRXTmduH27FHH7VHxwz1u1K0ksxz8/s1600/image.png",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/DOSSIER_DE_PRESSE_SAUVE_QUI_PEUT_SINGULARIS_FILMS.pdf"
           },
-          /*{
+          {
             dataType: "video",
             //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
             dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"

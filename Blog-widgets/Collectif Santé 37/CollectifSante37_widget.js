@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt1ew-Z9oSbRfoSi58ox7m6ID0h6YIaDAnjoAR8VM1ph2LH4z8p3Mw0cMWjquxGERgm3nFEuG97-2csOx6trPN3FYnnQHcWd2KCOcRGQqMydn7n5HrbpOF80SErOUwwcnhUwr9ud9MYguvGwJENN1Pi2yoCVwUT0aLAsjVuVM1kqbFPKHMEE8AHuQ_RSI/s1600/FB_IMG_1759405146663.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcnyTqwkLUoJ30O92sbmsTP-hOAlFuzOQIYFn_Ujrjtyggq0dm6LIm8kojXX9V9APVz6o7pT2lp6KRXr7eHnkiCXx1Q9CWIkH9PN6kLz6peQpJEGdDvizHHg8UuZOZ7CWuKwXcNToa0tIDKmKqAfnaUq8ul8QLnvEf-o1LjofJQ6l6DNAN2mXPyeuW_t8/s1600/pe%CC%81tition-flyer-c.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -858,6 +858,10 @@ $(document).ready(function() {
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
                   },*/
+           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcnyTqwkLUoJ30O92sbmsTP-hOAlFuzOQIYFn_Ujrjtyggq0dm6LIm8kojXX9V9APVz6o7pT2lp6KRXr7eHnkiCXx1Q9CWIkH9PN6kLz6peQpJEGdDvizHHg8UuZOZ7CWuKwXcNToa0tIDKmKqAfnaUq8ul8QLnvEf-o1LjofJQ6l6DNAN2mXPyeuW_t8/s1600/pe%CC%81tition-flyer-c.jpg"
+          },
            {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgE0O0qrI_VbWXtwiIY3JeOBYabYnAuymVE67X87p31-uQ7WCa-5x5c2bqs-z8AzQhF_bZy-THrVBh7Ws_zWlxQxVr02QfJXWzSVW6pTSP6ArLOxy8EtmtV6FOC4iwmjAfhqtu3fBpM65NMTtolFP39K40RqrZ51g_iQHA17z_q72Cv_IZrioUPr0j3Liw/s1600/FB_IMG_1759405213861.jpg"

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2025 semaines 39</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2025/carte-infos-semaines-Archives.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Rassemblement à Apt, Lannion, réunion publique à Montreuil, St Affrique, Mayenne, chaîne humaine et journée de débat à Dole, sans compter les habituels rassemblements du vendredi à Luçon et Marmande, les initiatives des comités de la Coordination pour l’hôpital et/ou pour la Sécurité Sociale ont encore été bien nombreuses cette semaine ! Après Remiremont, Vesoul … la semaine dernière !</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 45</li>
+<li>Dates: Du 03 nov. au 09 nov. 2025</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/11/Infossemaine45du3au9novembre2025.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<div class="inlineMargin" style="font-family: Arial, serif; margin: 5px;">
+<p>Rassemblement à Apt, Lannion, réunion publique à Montreuil, St Affrique, Mayenne, chaîne humaine et journée de débat à Dole, sans compter les habituels rassemblements du vendredi à Luçon et Marmande, les initiatives des comités de la Coordination pour l’hôpital et/ou pour la Sécurité Sociale ont encore été bien nombreuses cette semaine ! Après Remiremont, Vesoul … la semaine dernière !</p>
+<p>Avec le doublement des franchises médicales, les mises en cause sur les Affections de Longue Durée, la Sécurité Sociale file un mauvais coton : ne plus jouer son rôle de solidarité universelle et il ne s’agit là que de quelques unes des mesures du projet de loi de financement de la Sécurité Sociale, actuellement en débat au Parlement, un PLFSS qui a été traité assez justement de musée des horreurs ! Alors que les plans de redressement se multiplient dans les hôpitaux ce sont de nouvelles économies qu’on leur demanderait pour l’an prochain. Insensé ! Alors, bien sur, on continue à faire signer <a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?utm_medium=custom_url&amp;utm_source=share_petition&amp;recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">la pétition de Convergence des Services Publics</a>.</p>
+<p>Face à un accès aux soins de plus en plus compliqué, financièrement et du fait de l’absence de professionnels de santé en nombre, la mobilisation populaire doit s’accentuer. Cela passe par faire reculer le fatalisme ou les mauvaises solutions de la préférence nationale qui ne règlent rien. Cela nécessite de faire connaître les victoires, aussi petites soient-elles : elles montrent l’intérêt de la mobilisation. Et n’oublions pas par exemple que la maternité de Vierzon, très menacée il y a quelques années, fonctionne toujours. Cela passe aussi par des propositions concrètes, comme la plaquette que la Coordination a récemment rédigée sur le <a href="https://coordination-defense-sante.org/wp-content/uploads/2025/04/PLAQUETTE_SERVICE-PUBLIC-TERRITORIAL-SOINS-PREMIER-RECOURS_BATfinal.pdf">service public territorial de soins de premier recours</a> ou le <a href="https://coordination-defense-sante.org/wp-content/uploads/2025/10/PLAN-DURGENCE2025_VD.pdf">plan d’urgence</a> qui vient d’être mis à jour.</p>
+<p>Pour coordonner l’action des comités – c’est le sens même du nom de notre association – pour réfléchir ensemble et proposer, la Coordination tient le week-end prochain du 14, 15 et 16 novembre ses <strong>37èmes Rencontres Nationales à Marmande</strong>. C’est toujours un grand moment de remue-méninges et d’amitiés partagées. Le programme actualisé est <a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/programme-2-11-25-1.pdf">là</a>. Merci à l’association « urgences : accès aux soins pour tous » de Marmande de nous accueillir !</p>
+<p style="margin: 1em; text-align: right; font-style: italic">Michèle Leflon</p>
+
+<!--p class="titre-rubrique">La Sécu, c’est vital ! </p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/07/SecuVital.jpg" />
+</div>
+<div class="divText">
+<p class="info-title">Signez et faites signer la pétition lancée par Convergence des Services Publics avec de nombreuses organisations dont la Coordination. </p>
+<p><strong>La pétition est sur </strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">Change. org</a></p>
+<p class="info-title">Elle se veut aussi un outil militant pour contrer le discours médiatique destructeur. </p>
+<p>Renseignements sur le <a href="https://coordination-defense-sante.org/2025/07/la-secu-cest-vital/">site de la Coordination</a>.</p>
+<p>On nous signale aussi l’<a href="https://coordination-defense-sante.org/wp-content/uploads/2025/07/FLYER-EXPO-80-ANS-SECU_compressed-1.pdf">exposition</a> réalisée par l’Institut d’histoire sociale de la CGT et la Fondation Gabriel Péri</p>
+</div-->
+
+
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p!-->
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center" style="font-size: xxx-large; color: #6B9E51">La campagne « la Sécu c’est vital ! » </p>
+<p align="center"><strong>L’appel à mobilisation de la Convergence des services publics</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/Appel-Secu-2025-v1.pdf">Appel-Secu-2025</a></p>
+<p align="center"><strong>Des nouvelles de la</strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?utm_medium=custom_url&amp;utm_source=share_petition&amp;recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">pétition</a></p>
+<p>167 signatures recueillies par l’ADEMAT-H à Remiremont, 70 par l’ ADSP lors de la journée des associations de Luçon, des dizaines sur le marché de Concarneau, 4000 lors des permanences du comité de Sarlat devant l’ hôpital ! ! ! </p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p class="info-title">à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </p>
+<p class="info-title">pour en finir avec les restes à charge pour les malades </p>
+<p class="info-title">agir en signant et en faisant signer massivement </p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p class="info-title">pour toutes vos initiatives publiques : </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+</div>
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p style="background-color: #FEC0CA"><strong>MAYENNE -53</strong></p>
+<p class="info-title">Les urgences fermées la nuit</p>
+<p>Les urgences de Laval ouvrent … au détriment des autres urgences du département L’ARS voudrait que Mayenne ait seulement une Antenne Médicale d'Urgence ouverte 12h/24 !</p>
+<p align=center><a href="https://www.francebleu.fr/emissions/l-invite-ici-mayenne/fermeture-urgences-de-l-hopital-de-mayenne-une-patiente-est-decedee-suite-a-une-non-prise-en-charge-selon-audace-53-2816915?fbclid=IwT01FWAN1z1FleHRuA2FlbQIxMAABHn3w6uw-XSbCrVQj0LzvjsFRxGMm6IMDCL4hsEQg-mFChKPtjxdmF8KRcPWM_aem_0Ermra1Z3Pz13LQI8F33Rw">L’interview d’Audace 53 à France bleu</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/11/mayenne-la-lettre-daudace-53/">La lettre d’Audace 53</a></p>
+<p align=center><a href="https://france3-regions.franceinfo.fr/pays-de-la-loire/loire-atlantique/nantes/j-ai-peur-que-les-toubibs-petent-un-cable-assez-rapidement-la-fermeture-des-urgences-de-nuit-a-l-hopital-de-mayenne-risque-de-saturer-celles-de-laval-3243769.html">L’article de France 3 du 5 novembre</a></p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/11/mayenne-rencontre-entre-audace-53-et-la-prefete/">Rencontre avec la préfète le 7 novembre</a></p>
+<p class="info-title">Deux mois après, l'ARS s'émeut du décès d'une patiente à Mayenne et lance une "analyse"<p>
+<p align=center><a href="https://www.lecourrierdelamayenne.fr/actualite-36335-crises-des-urgences-deux-mois-apres-l-ars-s-emeut-du-deces-d-une-patiente-a-mayenne-et-lance-une-analyse">L’article du Courrier de la Mayenne du 5 novembre</a></p>
+<p align=center>Et on parle même de Mayenne dans la <a class="noSplit" href="https://www.ladepeche.fr/2025/11/04/si-on-est-malade-pendant-la-nuit-comment-on-fait-angoisse-face-a-la-potentielle-fermeture-dun-service-durgences-13032539.php">Dépêche du Midi</a> !</p>
+
+<p style="background-color: #A8D0E3; color: #F7F7F7"><strong>VOIRON – 38</strong></p>
+<p class="info-title">Le Collectif Santé Voironnais a fêté les 80 ans de la Sécurité Sociale comme il se doit</p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/11/voiron1.jpg" /></p>
+<p>Le Collectif Santé Voironnais a saisi l'occasion de l'anniversaire des 80 ans de la création de la Sécurité Sociale pour organiser une soirée festive et d'information, le 21 octobre 2025. Cette soirée festive d'anniversaire était riche avec de nombreux stands : vidéos sur comprendre la sécurité sociale et les cotisations, chamboule tout sur où on peut trouver de l'argent, "démontage" de 5 idées reçues sur la Sécu, expression libre, des réalisations positives – les centres de santé -, une librairie-documentation où on trouvait le plan d'urgence de la coordination et bien sûr un buffet d'anniversaire !</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/11/voiron-le-collectif-sante-voironnais-a-fete-les-80-ans-de-la-securite-sociale-comme-il-se-doit/">Tout l’article sur le site de la Coordination</a></p>
+
+<p style="background-color: #F07F80; color: #F7F7F7"><strong>DOLE - 39</strong></p>
+<p class="info-title">Chaîne humaine pour la Sécurité Sociale</p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/11/1000031568.jpg" /</p>
+<p>Mardi 4 novembre, la chaîne humaine est partie de l'hôpital Pasteur à Dole pour rejoindre la Sécu (CPAM du Jura) au moment où s'engageait le débat à l'assemblée nationale sur le PLFSS 2026 qui prévoit des coupes dramatiques dans le domaine de la santé publique et des prestations sociales.</p>
+<p>Rendez-vous est donné Samedi 8 nov. de 10h à 19h au Manège de Barack pour la grande journée d'échanges et de débats autour des 80 ans de la sécu.</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/11/dole-chaine-humaine-pour-la-securite-sociale/">Plus de photos sur le site de la Coordination</a></p>
+
+<p style="background-color: #B0E0E6"><strong>SAINT-AFFRIQUE – 12</strong></p>
+<p class="info-title">Deux réunions publiques à Millau et à St-Affrique</p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/11/saint-affrique-lactualite-du-manifeste/">Annonce et compte-rendu</a></p>
+
+<p style="background-color: #98FB99"><strong>APT</strong></p>
+<p class="info-title">Rassemblement devant l’ARS le jeudi 6 novembre</p>
+<p align=center><a href="https://www.francebleu.fr/infos/sante-sciences/fermeture-du-service-chirurgie-de-l-hopital-d-apt-une-centaine-de-personnes-rassemblees-devant-l-ars-3387537">L’article de France Bleu du 6 novembre</a></p>
+<p align=center><a href="https://www.ledauphine.com/sante/2025/11/06/un-dernier-espoir-pour-tenter-de-sauver-le-service-chirurgie-de-l-hopital-d-apt">L’article du Dauphine du 6 novembre</a></p>
+
+<p style="background-color: #FFF0F5"><strong>LANNION – 22</strong></p>
+<p class="info-title">Le comité s’invite à la réunion du conseil communautaire</p>
+<p>Une cinquantaine de personnes avait répondu présent à l’appel du comité de défense pour venir sensibiliser les élus aux graves difficultés de l’hôpital :</p>
+
+<p style="background-color: #98FB99"><strong>GUINGAMP - 22</strong></p>
+<p class="info-title">Naissance à domicile après la fermeture de la maternité.</p>
+<p>Les pompiers ont emmené la mère et l’enfant à la maternité de St Brieuc … en faisant un détour pour prendre une couveuse !</p>
+<p align=center><a href="https://www.ouest-france.fr/bretagne/cotes-d-armor/cetait-flippant-wyatt-est-ne-a-la-maison-a-cinq-minutes-dune-maternite-ou-les-accouchements-sont-suspendus-28177822-ba56-11f0-a456-5b350733c580">L’article d’Ouest France</a></p>
+
+<p style="background-color: #DEB887"><strong>NANTES - 44</strong></p>
+<p class="info-title">Signature de la pétition « La écu c’est vital ! »</p>
+<p>Nouvelle petite moisson de signatures ( 203 ) de la pétition la Sécu c'est vital! lors de la projection débat de la Sociale à l'initiative de la Mutuelle des Cheminots de la Région Nantaise, de la manifestation intersyndicale des retraités, du congrès du syndicat CGT du CHU de Nantes et sur le petit marché du Douet à Saint Sébastien sur Loire..</p>
+
+<p style="background-color: #FFFB06"><strong>LUÇON - 85</strong></p>
+<p class="info-title">La mobilisation hebdomadaire continue</p>
+<p align=center><a href="https://www.tlsv.fr/toutes-les-videos/cadre-de-vie/entry-3796-a-lucon-la-bataille-des-urgences-dure-depuis-plus-de-quatre-ans.html?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQKNjYyODU2ODM3OQABHqhmhaXlOpSHemm98P8SdW0VcgAQK9u8dqswPcYgodqdh7IQ3YmCOTycNB4N_aem_DGibkiq97SFcjlZ0_HD1Lw#">Le reportage de Télé Luçon Sud Vendée du 7 novembre</a></p>
+
+<p style="background-color: #98FB99"><strong>MARMANDE - 47</strong></p>
+<p class="info-title">Marmande prépare les rencontres nationales de la Coordination</p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/11/marmande.jpg" /></p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/11/marmande-prepare-les-rencontres-nationales/">L’article sur le site de la Coordination</a></p>
+
+<p style="background-color: #FEC0CA"><strong>MONTCEAU LES MINES – 71</strong></p>
+<p class="info-title">À propos du débat à l’Assemblée Nationale sur le PLFSS</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/11/tout-comprendre-au-trou-de-la-Se%CC%81cu-.pdf">Communiqué du CODEF</a></p>
+
+<p style="background-color: #B0E0E6"><strong>SAULNES - 54</strong></p>
+<p class="info-title">Rencontre organisée par Santé Pays Haut</p>
+<p>avec la participation de la présidente de la Coordination</p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/11/Saulnes.jpg" /></p>
+<p align=center><a href="https://coordination-defense-sante.org/2025/11/sante-pays-haut-organisation-dune-rencontre-publique-le-18-novembre/">L’invitation sur le site de la Coordination</a></p>
+
+<p style="background-color: #98FB99"><strong>CHÂTEAU-THIERRY – 2</strong></p>
+<p class="info-title">L’association « Ma santé j'y tiens, mon hôpital, mon bassin de vie je soutiens » était présente à la brocante d’automne</p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/11/Image_25-11-5.jpg" /><br /></p>
+<p>Beaucoup de discussions, des explications et des adhésions à l’association ! L’hôpital se vide petit à petit pour regrouper les activités sur Soissons, alors même que l’accès à cette ville est particulièrement difficile pour celles et ceux qui n’ont pas de voiture. La récente rencontre entre une délégation de l’association et l’ARS n’a pas levé les craintes, tout au contraire. La néonatalogie ferme le 1<sup>er</sup> décembre. L’association envisage d’ailleurs une action à cette occasion. L’augmentation du prix de la maison de retraite a largement été soulignée dans les échanges La présidente de la Coordination était venue en voisine rencontrer les militants présents.</p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+
+<p style="background-color: #ADFC30"><strong>CAEN – 14</strong></p>
+<p class="info-title">Les médias continuent à publier sur la situation des urgences</p>
+<p align=center><a href="https://www.franceinfo.fr/france/normandie/calvados/caen/caen-30-internes-quittent-les-urgences-face-au-manque-d-encadrement_7594478.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=sante&amp;at_offre=3&amp;at_variant=V3&amp;at_send_date=20251105&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1178545">L’article de France Info du 4 novembre</a></p>
+<p align=center><a href="https://francais.medscape.com/viewarticle/crise-au-chu-caen-internes-nont-pas-eu-peur-communiquer-2025a1000ub8?ecd=WNL_mdplsfeat_251105_mscpedit_fr_etid7851752&amp;amp;uac=221908CY&amp;amp;impID=7851752">L’article de Medscape du 5 novembre</a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers">GRATUITÉ DES PARKINGS DES HÔPITAUX </p>
+<p align=center><a href="https://petitions.assemblee-nationale.fr/initiatives/i-4513">Une pétition sur le site de l’Assemblée Nationale</a></p>
+<p class="titre-dossiers">AME</p>
+<p class="info-title">Le gouvernement ressort un projet de décret abandonné par F. Bayrou</p>
+<p>Le projet de décret imposant aux bénéficiaires de présenter un document avec photo pour prouver leur identité a été présenté au conseil d’administration de la CNAM qui a voté contre : l’avis est obligatoire, mais le gouvernement peut ne pas en tenir compte !</p>
+<p align=center><a href="https://www.infirmiers.com/profession-ide/interprofessionnalite/le-conseil-de-lassurance-maladie-contre-un-projet-de-decret-sur-lame">L’article de Infirmiers.com</a></p>
+<p class="titre-dossiers">PROJET DE LOI DE FINANCEMENT DE LA SECURITE SOCIALE 2026</p>
+<p class="info-title">Une pétition sur le site de l’Assemblée nationale</p>
+<p>Une pétition sur le site de l’Assemblée Nationale s’oppose aux franchises médicales et participations forfaitaires</p>
+<p align=center><a href="https://petitions.assemblee-nationale.fr/initiatives/i-4594">La pétition </a></p>
+<p class="info-title">Un projet d’austérité qui aggrave les inégalités</p>
+<p align=center><a href="https://www.federationdesdiabetiques.org/federation/espace-presse/communiques-de-presse/plfss-2026-un-projet-dausterite-qui-aggrave-les-inegalites-dacces-aux-soins-pour-les-malades-chroniques">Le communiqué de la Fédération Française des Diabétiques </a></p>
+<p class="info-title">Un projet de budget à l’encontre de l’intérêt général</p>
+<p align=center><a href="https://sudsantesociaux.org/actualites/securite-sociale-un-projet-de-budget-contre-l-interet-general">Le communiqué de Sud Santé Sociaux</a></p>
+<p class="titre-dossiers">PSYCHIATRIE</p>
+<p class="info-title">Communiqué de l’Association Convergence des Psychologues en Lutte</p>
+<p>La CPL alerte contre l’annonce du président de la Haute Autorité de Santé(HAS) de l’intention de rendre « opposables » certaines recommandations et affirme avec force son attachement à la liberté de pensée, de recherche et de pratique des soignants, conditions indispensables à un soin psychique humaniste et véritablement respectueux des patients comme des professionnels.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/11/Communique-CPL-contre-les-annonces-de-la-HAS.pdf">Le communiqué</a></p>
+<p class="titre-dossiers">SYSTÈME DE SANTÉ</p>
+<p class="info-title">Débat avec Wargon, G. Garrot ….</p>
+<p align=center><a href="https://www.rtl.fr/programmes/on-refait-le-monde/7900562343-hopital-en-crise-deserts-medicaux-comment-peut-on-se-faire-soigner-en-france-en-2025">L’émission d’RTL du 4 novembre</a></p>
+<p class="info-title">Les CPTS seraient transformées en Communauté France Santé</p>
+<p align=center><a href="https://www.mgfrance.org/actualites/publication/communiques/transformation-des-cpts-en-communautes-france-sante-mg-france-proteste">Le communiqué de MG France</a></p>
+<p class="info-title">Protection Maternelle et Infantile</p>
+<p>La plateforme pour assurer l’avenir de la PMI, regroupant associations et syndicats de professionnels s’est mobilisée</p>
+<p align=center><a href="https://assureravenirpmi.org/Pour-redonner-une-nouvelle-jeunesse-a-la-PMI-continuons-le-mouvement-Communique.html">Le communiqué du 7 novembre</a></p>
+
+<hr />
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

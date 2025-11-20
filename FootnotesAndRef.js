@@ -91,7 +91,7 @@ function theReference(e, s) {
           document.createElement("div");
           for (var i = s.getElementsByTagName("li"), l = 0; l < i.length; l++) {
             var a = i[l];
-            a.setAttribute("style", "list-style:none; margin: .5em 0;"), c(a), a.parentNode.setAttribute("id", n + o + (l + 1) + r), (a.parentNode.className = t);
+            a.setAttribute("style", "list-style:none; margin:0;"), c(a), a.parentNode.setAttribute("id", n + o + (l + 1) + r), (a.parentNode.className = t);
           }
         }
       }

@@ -911,6 +911,16 @@ Promise.all([
           dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgO2tFU1wZc0LqvQbqqB6ANQdy-8MY1979Wec3FhNSJ5osG7Z2x7DrmOwb6-IdzEGR2VZW6AuXJ3f4OuOiJ57hOKE0aVorlezpKYErDeDTqxoUhhVC8I1kz0rJSAkO8dOeneJHLfWK5keiEQrHVueur_Xs932vBBhY9y6OY4Qpq0lGyRpPI6iWdGX4xyZPP/s1600/Tract%20municipales%20mai%202025.jpg",
           dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/CATDP/Tracts/Tract_municipales_mai_2025.pdf"
         },
+        {
+          dataType: "iframe",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0Ltq3cmI1y4KwvAPz8fmuzw3Yx6Deppl6NHCx35FgrPegNMtwiy78juNoh5M5jF_uvV1bmzgJ1frihPyd0MXHxvHOPBVs-WnbhspprRxWOT6SXSiB-NatGOzsXfHHx6I282DzWsrNkD2n5kSPtukB0Wd7SW7J2tCKV4r3scJWdC6y0AaTGNSJaJANXnD-/s1600/ProjetTractAntiDroiteSurRECTO.jpg",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/CATDP/Tracts/ProjetTractAntiDroiteSurRECTO.pdf"
+        },
+        {
+          dataType: "iframe",
+          dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRrzzz3b4PJp2gowmhSu-qpHb6j7J28OFltoW2ntJBYtLvFStQtI2-1WL3tq_j0CfWVc3h5cRuKLwDPJd3dBQ1x9NArs6jbxMHTqIQdwFCIqOU1JdL0Tf81MhQb4xH8fKWbmX0ixldJjJa1qfcD95tIVbBesVuDS2K5mmf-vMtnqvC9B7v7jwyIKmpAfOO/s1600/TractMunicipales8%20decembre.jpg",
+          dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/CATDP/Tracts/TractMunicipales8 decembre.pdf"
+        },
         /*{
           dataType: "video",
           //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"

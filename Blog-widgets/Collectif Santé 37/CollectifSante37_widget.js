@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgo3erTdl_lSMjsOz5PVt2XnrBgjcI_Tm_7XIRHt_XcRNEClxY3UBqpuEPHVhDhqsQG5Gna7npIIbifxCNX9ZcDmowSwsuCNODrSXH2AoU_cGZUGgLuC6mdFxMjgfFEBU4guGbzrSsaSw7m6llpNs6uZspJuDDPUFFXw3dP2id9WpZ-xvmAvyUL0DsE5CM/s1600/visuel%20pe%CC%81tition%20franchise.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuEAGj-l6BalbtabMgOY3EBdjTGFQ3kW4ef-elN6Jwve45z8jXTfdyAO2tf0De9KNurgDaYiTzLfsjAt-fiGqxY22kDHTRe1PyoADT46proGOL-1Gewnt9dfygy5GZX6-rDrKIqNXvCS6A8ZXRvTXdR6QlEfeJ7yoP1KYUzCAuJZs3y3Z1zNGx0Ms75WY/s1600/affiche%20format%20paysage.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -860,14 +860,14 @@ $(document).ready(function() {
                   },*/
            {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgo3erTdl_lSMjsOz5PVt2XnrBgjcI_Tm_7XIRHt_XcRNEClxY3UBqpuEPHVhDhqsQG5Gna7npIIbifxCNX9ZcDmowSwsuCNODrSXH2AoU_cGZUGgLuC6mdFxMjgfFEBU4guGbzrSsaSw7m6llpNs6uZspJuDDPUFFXw3dP2id9WpZ-xvmAvyUL0DsE5CM/s1600/visuel%20pe%CC%81tition%20franchise.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuEAGj-l6BalbtabMgOY3EBdjTGFQ3kW4ef-elN6Jwve45z8jXTfdyAO2tf0De9KNurgDaYiTzLfsjAt-fiGqxY22kDHTRe1PyoADT46proGOL-1Gewnt9dfygy5GZX6-rDrKIqNXvCS6A8ZXRvTXdR6QlEfeJ7yoP1KYUzCAuJZs3y3Z1zNGx0Ms75WY/s1600/affiche%20format%20paysage.jpg"
           },
-          {
+          /*{
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii3t1gq8dPaVPjPP33mX6SLaO1P2PevAnx1AUKXpDPoirbivNYsjBy8V8bbEKNVIDZ4GkDuoRX9yqKZh3RGdO_qx8Aqej-7-0v8wmca1oS5ONrtRjmOz3ImNkouQXjy6Fx8giixQFdurZ1he_n24gr5tJsDuRtlP0pYLHhMN5paHs084pvdr_c8YKUVAw/s1600/TdfSAppelPlfss-26-1.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/TdfSAppelPlfss-26-1.pdf"
           },
-          /*{
+          {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgE0O0qrI_VbWXtwiIY3JeOBYabYnAuymVE67X87p31-uQ7WCa-5x5c2bqs-z8AzQhF_bZy-THrVBh7Ws_zWlxQxVr02QfJXWzSVW6pTSP6ArLOxy8EtmtV6FOC4iwmjAfhqtu3fBpM65NMTtolFP39K40RqrZ51g_iQHA17z_q72Cv_IZrioUPr0j3Liw/s1600/FB_IMG_1759405213861.jpg"
           },

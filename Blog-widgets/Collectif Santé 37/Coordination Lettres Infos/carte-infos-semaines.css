@@ -1,10 +1,6 @@
 .inlineMargin p {
   margin: inherit;
 }
-.infoComité p {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
 .leaflet-popup-content-wrapper img {
    max-width: 240px !important;
 }
@@ -15,7 +11,9 @@
     margin-right: auto 
 }
 .infoComité p, .coordCN p {
-  font-size: large;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: large;
 }
 .infoComité p a.noSplit, .coordCN p a.noSplit {
    display: inline;

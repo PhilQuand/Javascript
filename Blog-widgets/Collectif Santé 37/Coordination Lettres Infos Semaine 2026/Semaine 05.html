@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Plans de redressements financiers dans les hôpitaux suscite des manifestations, la campagne  électorale  amène  des  comités  à  interroger  les  candidats  sur  leurs positionnements face à la santé.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 05</li>
+<li>Dates: Du 26 jan. au 01 fev. 2026</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/02/Infossemaine5du28janvierau1février2026.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : </strong></p>
+<p>Plans de redressements financiers dans les hôpitaux suscite des manifestations, la campagne  électorale  amène  des  comités  à  interroger  les  candidats  sur  leurs positionnements face à la santé.</p>
+<p>L’exclusion des représentants de plusieurs des comités de la coordination illustre des attitudes de blocage de Directions et ARS.</p>
+<p>La vie quoi...</p>
+<p style="text-align: right">Henri Sud Aveyron)</p>
+<!--div style="max-width: 600px; margin-left:auto; margin-right: auto; border: 0.5rem groove blue;">
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/01/Image_26_01_19_1.jpg" />
+</div>
+<div class="divText">
+<p style="font-size: larger; font-weight: bold">Depuis 2005 la Coordination rassemble, grâce au travail de Michel Antony, les données sur toutes les réductions d’activité des hôpitaux publics.</p> 
+</div></div>
+<p style="max-width:50%; margin-left:auto; margin-right:auto; font-size: larger; font-weight: bold"><a href="https://coordination-defense-sante.org/carte-des-fermetures/">Le lien vers les cartes et documents</a></p>
+</div-->
+<!--p style="clear:both"> </p>
+<p class="titre-rubrique">La Sécu, c’est vital ! </p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p!-->
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center" style="font-size: xxx-large; color: #6B9E51">La campagne « la Sécu c’est vital ! » </p>
+<p align="center"><strong>L’appel à mobilisation de la Convergence des services publics</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/Appel-Secu-2025-v1.pdf">Appel-Secu-2025</a></p>
+<p align="center"><strong>Des nouvelles de la</strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?utm_medium=custom_url&amp;utm_source=share_petition&amp;recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">pétition</a></p>
+<p>167 signatures recueillies par l’ADEMAT-H à Remiremont, 70 par l’ ADSP lors de la journée des associations de Luçon, des dizaines sur le marché de Concarneau, 4000 lors des permanences du comité de Sarlat devant l’ hôpital ! ! ! </p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p class="info-title">à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </p>
+<p class="info-title">pour en finir avec les restes à charge pour les malades </p>
+<p class="info-title">agir en signant et en faisant signer massivement </p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p class="info-title">pour toutes vos initiatives publiques : </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+
+<p class="ville" style="background-color: #7#FC0100; color: #F7F7F7"><strong>MONTARGIS </strong></p>
+<p class="info-title"><strong>Le "Collectif montargois Notre santé, notre hôpital, on y tient" devient "Collectif Santé Est- Loiret".</strong></p>
+<p>L'assemblée générale du comité réunie le 29 janvier à la Maison des associations de Chalette-sur-Loing, a décidé d'un changement de nom, son action étant étendue à une bonne partie du Loiret. Les mobilisations se poursuivent en 2026, avec plusieurs grandes initiatives inscrites dans notre feuille de route. Parmi elles :</p>
+<ol>
+<li>Une journée d'actions et de conférences débats autour de la Sécurité sociale, nouvelle amorce d'un travail de terrain pour expliquer et convaincre de l'utilité d'une protection sociale universelle, pleine et solidaire.</li>
+<li>Une campagne pour la défense et la promotion des Ehpad publics et associatifs du Loiret, face à la pénurie et aux coûts des places d'hébergement.</li>
+<li>Notre soutien aux luttes locales, aux établissements de santé, maternités et services médico-sociaux aujourd'hui en grande difficulté dans les bassins de vie du Montargois, du Dordivois et du Pithiverais.</li>
+</ol>
+<p>Le Collectif reste aussi mobilisé, avec ses 13 organisations adhérentes, pour garantir les droits à la santé des personnes étrangères dans un contexte inquiétant de progression et diffusion des idées d'extrême-droite.</p>
+<p>Merci aux 144 adhérents qui nous soutiennent et partagent nos valeurs !</p>
+<p><strong>Population en danger, sauvons notre hôpital public ! Le 6 décembre</strong>, nous étions présents devant l’hôpital de Pithiviers, aux côtés des personnels et des organisations syndicales, pour réclamer le maintien des services d’urgences et de la ligne de SMUR, ainsi que la réintégration du Docteur Nzeukeng, médecin urgentiste depuis 16 ans évincé brutalement de son poste. Depuis la fermeture de la maternité en 2016, le démantèlement progressif de du groupe hospitalier Pithiviers-Neuville- aux-Bois est organisé par les autorités de santé : fermeture de lits et de services, baisse de personnels (46 postes supprimés en un an), mise sous tutelle administrative. Seuls subsistent 20 lits de médecine</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/01/Breves-de-Sante-n%C2%B0-7.pdf">Brèves de Santé n° 7</a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>ARDENNES </strong></p>
+<p class="info-title"><strong>Le comité de défense des hôpitaux de proximité des Ardennes invite celles et ceux qui le peuvent devant les urgences de Manchester le mardi 3 février à partir de 13 h.</strong></p>
+<p>Le comité continue sa campagne pour l'humanisation des urgences de Manchester : une salle d'attente pour les familles, un protocole public et respecté pour l'accompagnement dans le service dans les situations particulières, comme cela se passe à Sedan.</p>
+<p>Un rendez-vous a été demandé au nouveau directeur de l'hôpital, sans réponse à ce jour. Une délégation rencontre le président du conseil de surveillance ce lundi : elle en fera le compte-rendu mardi.</p>
+<p>Le comité a décidé de sa présence un mardi sur deux devant les urgences jusqu'à satisfaction des demandes ! L'heure changera sans doute avec les beaux jours par contre.</p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>MARMANDE </strong></p>
+<p class="info-title"><strong>« L’hôpital public n’est pas une entreprise » : l’association d’usagers pressent citoyens et élus à défendre le centre hospitalier de Marmande</strong></p>
+<p>À la suite de l’annonce de la mise sous administration provisoire de l’hôpital, l’association Urgences accès aux soins organise une conférence-débat le mardi 3 février, à la salle de quartier de Beyssac </p>
+<p><a href="https://www.sudouest.fr/sante/l-hopital-public-n-est-pas-une-entreprise-l-association-d-usagers-pressent-citoyens-et-elus-a-defendre-le-centre-hospitalier-de-marmande-27528036.php">https://www.sudouest.fr/sante/l-hopital-public-n-est-pas-une-entreprise-l-association-d-usagers-pressent-citoyens-et-elus-a-defendre-le-centre-hospitalier-de-marmande-27528036.php</a></p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>LUÇON</strong></p>
+<p>Nous <strong>vous invitons à assister à l’Assemblée Générale</strong> ordinaire de l’Association des usagers pour la Défense du Service Public du Pays de Luçon le :</p>
+<p>Samedi 14 Février 2026 Salle 8 Le Grand Séminaire</p>
+<p>Route des Sables Luçon</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/01/Invitation-AG-2026.pdf">Invitation AG 2026</a></p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>LANNION - TRESTEL </strong></p>
+<p class="info-title"><strong>Après que l'ARS ait décidé de ne pas renommer un membre de notre comité à la Commission Des Usagers de l'hôpital de Lannion Trestel, nous sommes, maintenant, méprisés, humiliés,...</strong></p>
+<p>Lettre ouverte (extraits)</p>
+<p>à la cérémonie des vœux de la directrice du GH Armor lundi 19 janvier 2026, à laquelle assistaient des élus et représentants institutionnels. Ce moment, censé être un temps d’écoute, de respect et de dialogue, a malheureusement été marqué par des actes d’irrespect et mépris incontestables.</p>
+<p>Lors de cette cérémonie, le comité de défense de l’hôpital a dû faire face publiquement au dédain, il a été ignoré et traité avec une condescendance indigne d’un établissement de santé public. Mais plus grave encore, une personne âgée dont l’épouse est hébergée à l’EHPAD Kergomar , venu faire part, avec dignité et douleur de la souffrance vécue dans l’accompagnement de son épouse au sein de cet établissement et de ses craintes face à la diminution annoncée de personnel dans la structure, a été traité avec la plus grande indifférence, s’est vu opposer une attitude de froideur et d’ignorance de la part de la direction de l’établissement et des élus présents. Sa parole, pourtant digne laissait largement transparaître sa détresse. L’ignorer, c’est nier non seulement sa souffrance, mais aussi la mission fondamentale de l’hôpital : l’humanité »</p>
+<p>Nous ne voulons pas tirer de conclusions hâtives mais nous posons des questions sur le fait que nous avons découvert, cette semaine, notre messagerie Gmail totalement vidée de ces mails.</p>
+<p>À suivre l'évolution de la situation.</p>
+
+<p class="ville" style="background-color: #269933; color: #F7F7F7"><strong>ST VALLIER - Bourgogne </strong></p>
+<p class="info-title"><strong>« TOUTES ET TOUS ON VA SE FAIRE AVOIR ! »</strong></p>
+<p>La presse, lors des vœux de l’Hôpital Jean Bouveri, a repris les éléments fournis par la direction et les</p>
+<p>élu·es et construit un récit très positif, autocentré, qui tranche avec le quotidien des patients et des</p>
+<p>soignant·es ainsi qu’avec le constat que nous faisons sur le terrain.</p>
+<p>1. Une « année 2025 brillante »… pour qui ?</p>
+<p>Les discours officiels martèlent l’idée d’une « année de réussites », « brillante », sans fermeture de lits ni</p>
+<p>du SMUR, comme si cela suffisait à prouver la bonne santé de l’hôpital. Ce vernis euphorique efface les</p>
+<p>effets bien réels des sous-dotations, des restructurations et d’un fonctionnement de gare de triage, où les</p>
+<p>patients sont envoyés ailleurs dès que la prise en charge devient un peu lourde.</p>
+<p>2. Le nouvel « hôpital », promesse toujours repoussée</p>
+<p>Tous les intervenants fixent l’horizon sur le « nouvel hôpital », présenté comme « fondamental », «</p>
+<p>structurant », « digne de ce nom », désormais attendu pour 2029 alors qu’il était d’abord annoncé pour</p>
+<p>2028. Ce projet sert de paravent aux difficultés actuelles : ni le contenu précis du projet de soins, ni les</p>
+<p>moyens humains et financiers ne sont clairement expliqués, alors même que le coût annoncé d’un peu</p>
+<p>plus de 69 millions d’euros est, probablement, comme toujours, sous-évalué et pourrait dépasser les 80</p>
+<p>millions au final. Ça se passe toujours comme ça !</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/01/communique-CODEF-Il-est-temps-dexiger-1-1.pdf">Lire la suite sur le site de la coordination</a></p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>SARLAT </strong></p>
+<p class="info-title"><strong>MUNICIPALES : Notre questionnaire face à l’Accès aux soins pour tous.</strong></p>
+<p>Les Élus face à la question de l’accès aux soins pour tous en Sarladais</p>
+<p>1-Notre territoire, essentiellement rural, manque de médecins et de spécialistes. Que comptez-vous faire pour améliorer l’accès aux soins pour tous ?</p>
+<p>2-Comment entendez-vous défendre et promouvoir notre hôpital public, y compris son secteur psychiatrique et sa maternité, au sein du GHT ?</p>
+<p>3-Notre territoire manque cruellement de structures de prise en charge de l’enfance. Que comptez-vous faire pour améliorer la prévention et le développement harmonieux des enfants de notre territoire (accès à la cantine scolaire, présence d’une médecine scolaire efficiente, accès à des psychologues, etc… ?</p>
+<p>4-Face aux addictions (drogues, alcoolisme, malbouffe, écrans, etc.), quelles politiques de prévention entendez-vous développer ?</p>
+<p>5-Quelles dispositions entendez-vous prendre pour faciliter l’accès à tous les espaces publics pour handicapés ?</p>
+<p>6-Nous sommes un territoire où la population est globalement très âgée, quelles sont les mesures que vous comptez prendre pour rompre l’isolement, la précarité et favoriser le lien social et l’accompagnement de ces personnes ?</p>
+
+<p class="ville" style="background-color: #269933; color: #F7F7F7"><strong>TOURS </strong></p>
+<p class="info-title"><strong>GRÉVE A L’HÔPITAL DE TOURS</strong></p>
+<p>Suite aux heures d'info syndicales sur les droits aux congés où plusieurs collègues et services ont participé, il a été décidé de déposer un préavis de grève intersyndical à partir du mardi 27 janvier.</p>
+<p>Voici en pièce jointe et ci-dessous le tract d'appel. À faire circuler sans modération. Nous devons être nombreuses et nombreux en grève et mobilisé-es le mardi 27 janvier.</p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>REMIREMONT </strong></p>
+<p class="info-title"><strong>ASSEMBLÉE GÉNÉRALE DU COMITÉ</strong></p>
+<p><a href="https://www.ademat.org/">https://www.ademat.org/</a></p>
+<p><a href="https://www.facebook.com/Ademat.H.Remiremont.Officiel">https://www.facebook.com/Ademat.H.Remiremont.Officiel</a></p>
+<p><a href="https://www.instagram.com/ademath.remiremont?igsh=NWVrYXJjMDV4ZDc4">https://www.instagram.com/ademath.remiremont?igsh=NWVrYXJjMDV4ZDc4</a></p>
+
+<p class="ville" style="background-color: #269933; color: #F7F7F7"><strong>LAVAL </strong></p>
+<p class="info-title"><strong>ASSEMBLÉE GÉNÉRALE</strong></p>
+<p>VENDREDI 27 FÉVRIER 2026 à 19h (accueil 18h30)</p>
+<p>SALLE DES COLLONGES, 12 PLACE DES COLLONGES (RUE DES COLLONGES) LAVAL SAINT GENIS</p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>St AFFRIQUE - MILLAU </strong></p>
+<p class="info-title"><strong>Face aux volontés d’exclusion des représentants du Manifeste des instances hospitalières notre association remercie les nombreux soutiens qui se sont exprimés</strong></p>
+<p>- la totalité des médecins de l’hôpital de St Affrique (Hospitaliers, GCS, imagerie)</p>
+<p>- les personnels CGT et SUD santé</p>
+<p>- les élus et médecins du Conseil de Surveillance</p>
+<p>- la quasi totalité des Représentants des Usagers de St Affrique et Millau</p>
+<p>- les Maires des communes de Belmont, Brusque, Camares, Le Truel, St Affrique, St Félix de Sorgues, St</p>
+<p>Izaire, St Jean d’Alcapies, St Juery, St Rome de Cernon, Sylvanes, Tauriac de Camares, Versols</p>
+<p>- les unions CGT, SUD-SOLIDAIRES, FSU, CNT, la Conf Paysanne</p>
+<p>- le PCF, Le Rougier Insoumis (LFI)</p>
+<p>- Alternabio, la LDH, Le Planning Familial</p>
+<p>L’ARS est saisie et devra dire si elle cautionne. C’est un moment où chacune, chacun peut s’exprimer.</p>
+<p><strong>Au delà de notre association, la démarche d’exclusion est l’illustration de l’absence de démocratie en santé.</strong></p>
+
+<p class="ville" style="background-color: #269933; color: #F7F7F7"><strong>MANOSQUE </strong></p>
+<p class="info-title"><strong>Manifestation face à un plan de redressement financier de l’hôpital</strong></p>
+<p><a href="https://www.bfmtv.com/bfm-dici/replay-emissions/bonjour-dici/video-manosque-hopital-syndicats-et-collectifs-mobilises_VN-202601260219.html">https://www.bfmtv.com/bfm-dici/replay-emissions/bonjour-dici/video-manosque-hopital-syndicats-et-collectifs-mobilises_VN-202601260219.html</a></p>
+
+<p class="ville" style="background-color: #269933; color: #F7F7F7"><strong>BESANÇON</strong></p>
+<p class="info-title">Au CHU de Besançon, les syndicats fustigent « des réorganisations qui ne sont pas dans l’intérêt des agents ni des patients »</p>
+<p>Le CHU de Besançon présente ses voeux pour l&#39;année entamée ce mercredi 28 janvier. De son côté, l&#39;intersyndicale FO, Sud et CGT s&#39;est rassemblée le même jour pour des « contre-voeux ». Elle refuse notamment « la mise en place de la nouvelle gestion du temps de travail ».</p>
+<p>Plus tôt dans la journée, quelque 80 agents sont venus assister dans le hall d’accueil du CHU aux</p>
+<p>« contre-vœux » de l’intersyndicale FO, Sud, CGT, mobilisée pour « refuser la mise en place de la nouvelle gestion du temps de travail » qui fait passer la journée de travail de 7 h 36 à 7 h 30 en instaurant un temps d’habillage et de déshabillage pour les personnels nécessitant le port d’une tenue professionnelle. Ce qui, pour l’intersyndicale, pénalise les quelque 1 000 agents ne portant pas de tenue professionnelle qui perdent ainsi trois jours de RTT.</p>
+<p class="info-title">Le CODES25 INTERROGE LES CANDIDATS</p>
+<p>Comment vous positionnez-vous concernant les sujets suivants ?</p>
+<p style="font-weight:bold">1-Offre de soins : Centres de Santé / Maison de Santé / autres</p>
+<p>Que projet de création de lieux de Santé de proximité et de soins primaires envisagez-vous ? Avez-vous ciblé des quartiers prioritaires ?</p>
+<p style="font-weight:bold">2-Accès <i>&quot;de la Ville&quot; </i>aux personnes à mobilité réduite</p>
+<p>Quelles améliorations envisagez vous? <i>(centre ville, Citadelle, CHU de Besançon, ...) </i></p>
+<p style="font-weight:bold">3-SDF et capacité et qualité d&#39;accueil</p>
+<p>Quelle politique d&#39;accueil et de prise en charge prévoyez-vous pour les personnes Sans Domicile Fixe ?</p>
+<p style="font-weight:bold">4-Violences faites aux femmes</p>
+<p>Comment comptez-vous améliorer la prévention, le dépistage et l&#39;accompagnement de ces violences ?</p>
+<p style="font-weight:bold">5-Accès des usagers au CHU</p>
+<p>Avez-vous des intentions quant à la gratuité des parkings pour les usagers du CHU ?</p>
+<p style="font-weight:bold">6-Vieillissement de la population</p>
+<p>Quelles sont les mesures de votre programme pour accompagner, lutter contre la solitude et adapter la ville au vieillissement de sa population ?</p>
+<p style="font-weight:bold">7-Prévention et prise en charge des addictions</p>
+<p>La lutte contre les addictions devient une priorité de santé publique. Quelles sont vos réflexions et projets sur ce sujet ?</p>
+<p style="font-weight:bold">8-Publicité et nuisances</p>
+<p>La publicité continue de remplir nos murs, nos boîtes aux lettres et nos esprits.</p>
+<p>Avez-vous des projets de restriction ou de développement de la publicité dans notre Ville ?</p>
+<p>Avez-vous des &quot;limitations&quot; ou prévoyez-vous des interdictions concernant d&#39;éventuelles publicités ou démarches nuisibles à la Santé ?</p>
+<p style="font-weight:bold">9-Lutte contre les pollutions</p>
+<p>Quelle est votre définition de &quot;la pollution&quot; ?</p>
+<p>Quelle seront vos mesures phares concernant la préservation de la qualité de l&#39;air, de l&#39;eau, du bruit, de la pollution lumineuse ?</p>
+<p style="font-weight:bold">10-Santé mentale</p>
+<p>Quel projet de votre programme concerne la santé mentale, véritable fléau des temps modernes et qui touche notamment la jeunesse</p>
+
+
+<p class="rubrique">Autres infos locales :</p>
+
+
+<p class="ville" style="background-color: #269933; color: #F7F7F7"><strong>ANGERS</strong></p>
+<p class="info-title"><strong>URGENCES ADULTES - CHU ANGERS - Grève FO - SUD</strong></p>
+<p>Des moyens pour le nettoyage des toilettes et pour la gestion des poubelles, des repas froids pour les patients : les propositions indécentes de la direction ! Les grévistes répondent par l'envahissement de la direction générale. Après 10 jours de grève, la direction a proposé ce matin un protocole de sortie de grève qui n'apporte aucune avancée concrète et pérenne pour les 2 revendications principales des soignants.</p>
+<p>Pire, la direction propose dans ce protocole « la livraison de collations froides et prêtes à l'emploi » pour les patients qui attendent des jours dans les couloirs. Elle propose également « un renfort logistique pour la collecte des déchets et du linge sale du lundi au dimanche ». Ou encore, la mise en place d'un « renfort pour le nettoyage des sanitaires » !</p>
+<p>(..)</p>
+<p>Une assemblée générale s'est tenue à 13 h 45, les grévistes dénoncent à l'unanimité le contenu de ce protocole qui ne répond en rien aux besoins des patients, en rien à la situation qui perdure depuis des mois.</p>
+<p>30 collègues sont montés à la direction générale pour exiger d'être reçus. Un échange a fini par avoir lieu avec la direction générale. Nos collègues ont à nouveau exprimé leur profonde colère et leur détermination à ne rien lâcher pour la sécurité des prises en charge des patients, pour leurs conditions de travail.</p>
+<p>Nos collègues ont décidé de la poursuite de la grève. Ce protocole au rabais a renforcé leur détermination.</p>
+<p>Un nouveau préavis de grève vient d'être déposé par nos deux organisations syndicales.</p>
+<p>- Créations de lits pérennes toute l'année et en nombre</p>
+<p>- La Création d'un poste aide-soignant 24h/7 jours</p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>MONTEUX - Provence</strong></p>
+<p class="info-title"><strong>Des médecins retraités reprennent du service</strong></p>
+<p>Un centre médical municipal transitoire (CMMT) ouvrira ses portes ce lundi 2 février au rez-de-chaussée du bâtiment Le Saphir, 9, avenue de la Libération. Conçu pour répondre à la situation de crise médicale que connaît Monteux depuis plusieurs années, l’établissement accueillera en priorité des patients sans médecin traitant, résidant dans la commune et âgés de plus de 65 ans ou reconnus en aection de longue durée.</p>
+<p>Les médecins qui interviendront sont d’anciens généralistes et spécialistes, désormais retraités, ayant choisi de poursuivre une activité à temps partiel. Tous salariés par la mairie, ils seront entre sept et dix et se relaieront en binôme par vacation d’une demi-journée du lundi au vendredi.</p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>GUADELOUPE</strong></p>
+<p class="info-title"><strong>La prise en charge psychiatrique sans consentement en Guadeloupe inquiète par ses dérives</strong></p>
+<p>Le constat de la contrôleuse générale des lieux de privation de liberté est lapidaire : les patients psychiatriques suivis pour des soins sans consentement en Guadeloupe subissent des pratiques indignes.</p>
+<p>Le ministère s'engage à corriger le tir.</p>
+
+<p class="rubrique"><span style="display:none">Dossiers :</span>Initiatives :</p>
+
+<p class="titre-dossiers"><strong>PLFSS</strong></p>
+<p class="titre-rubrique"><strong>Communiqué TOUR DE FRANCE de la SANTÉ 19 01 2026 (extraits)</strong></p>
+<p>Le gouvernement Lecornu a fait voter une augmentation des dépenses de santé de 3% pour 2026, présentée comme une avancée.</p>
+<p>La réalité est que cet objectif est une nouvelle fois très en-deçà des besoins minimums indispensables !</p>
+<p>En effet,</p>
+<p>- Les dépenses d’assurance maladie augmentent de 4 à 4,5 % par an simplement du fait du vieillissement de la population, de l’augmentation des maladies chroniques</p>
+<p>- Des dépenses supplémentaires nécessaires, comme l’augmentation des cotisations retraite, s’imposent aux établissements publics de santé et du médico-social mais ne sont pas financées par ce budget</p>
+<p>- Les prix des nouveaux médicaments restent soumis à l’appétit de l’industrie pharmaceutique</p>
+<p>- La pénurie de professionnel.le.s contraint les établissements à recourir à l’interim pour des surcoûts invraisemblables, tandis que les médecins étrangers sont maintenus dans la précarité.Prochaine réunion le mercredi 18 février 2026 à 18H30 en visio</p>
+<p style="color:blue">Prochaine réunion le mercredi 18 février 2026 à 18H30 en visio</p>
+<p class="titre-dossiers"><strong>MUNICIPALES</strong></p>
+<p class="titre-rubrique"><strong>Communiqué de L’USP du 27 janvier 2026</strong></p>
+<p><strong>L’Union Syndicale de la Psychiatrie rappelle les promesses du Nouveau Front Populaire</strong></p>
+<p>Lors des législatives de juin-juillet 2024, faisant suite à la dissolution de l’Assemblée nationale, les</p>
+<p>différentes forces politiques de gauche se sont alliées au sein du Nouveau Front Populaire, face au danger de l'extrême-droite, face au danger représenté par le RN. À cette occasion, elles ont fait appel à toutes les organisations citoyennes sympathisantes, afin de soutenir un programme commun, seul capable de rivaliser avec la montée du Rassemblement national et de ses idées xénophobes, racistes et antirépublicaines. (...)</p>
+<p><em>Infos : </em><a class="noSplit" href="https//www.uspsy.fr">www.uspsy.fr</a></p>
+<p class="titre-dossiers"><strong>PSYCHIATRIE</strong></p>
+<p class="titre-rubrique"><strong>QUAND L’ÉTAT ORCHESTRE LA MAINMISE DES GROUPES PRIVÉS LUCRATIFS SUR LA PSYCHIATRIE</strong></p>
+<p>Depuis 2021, la Commission nationale de psychiatrie CGT alerte sur les conséquences de la mise en œuvre des décrets suivants :</p>
+<p>Décret 2021-1255 sur le financement,</p>
+<p>Décrets 2022-1263 et 2022-1264 sur l’installation et les conditions de fonctionnement.</p>
+<p>DES DÉCRETS TAILLÉS POUR LE PRIVÉ LUCRATIF</p>
+<p>Les décrets d’installation imposent aux services de psychiatrie publique une modernisation architecturale rapide, après des années d’abandon financier de la puissance publique, ouvrant ainsi la porte aux grands bâtisseurs des groupes privés lucratifs Pendant ce temps, les groupes privés lucratifs eux ne sont pas soumis au Code des marchés publics, ils construisent vite, sans contraintes, et raflent les autorisations d’installation</p>
+<p>(...)</p>
+<p class="titre-dossiers"><strong>PRINTEMPS DE LA PSYCHIATRIE</strong></p>
+<p><strong>Meeting le 28 Mars 2026 Paris – Bourse du travail</strong></p>
+<p><strong>"Expertiser" n'est pas soigner - Quelle(s) psychiatrie(s) pour demain ?</strong></p>
+<p><a href="https://printempsdelapsychiatrie.org/2026/01/27/invitation-meeting-le-28-mars-2026/">https://printempsdelapsychiatrie.org/2026/01/27/invitation-meeting-le-28-mars-2026/</a></p>
+<p class="titre-dossiers"><strong>SERVICES PUBLICS – LIMOGES - TRAINS</strong></p>
+<p>Le début de l’année 2026 s’annonce rude pour la défense de notre ligne, et nous comptons évidemment sur vous pour continuer à nous aider et à nous mobiliser.</p>
+<p>La fin de l’année 2025 a été marquée par une mobilisation importante. Celle-ci a bénéficié d’un éclairage médiatique et du soutien de plusieurs élus locaux, mais n’a malheureusement permis aucune avancée concrète, ni suscité la moindre réponse de la Région, autorité organisatrice des transports, à nos revendications.</p>
+
+
+<p class="rubrique">Documents Juridiques ou utiles :</p>
+
+<p class="titre-dossiers"><strong>Labellisation « France Santé »</strong></p>
+<p><strong>Un communiqué du Syndicat de la Médecine Générale</strong></p>
+<p>Extrait : (…) Le cadre du dispositif reste incertain, ces modalités n’étant pas détaillées, tout comme son financement. Il a été évoqué 50 000 €/an pour les structures qui obtiendraient ce label, mais sans garantie aucune de pérennité, la loi de financement de la Sécurité sociale (LFSS) 2026 étant imprécise sur le sujet.</p>
+<p>De plus, les contreparties liées à ces financements ne sont pas non plus développées. Se pose aussi la question de l’efficacité d’un financement aussi massif d’un système libéral qui a fait la preuve de ses limites pour organiser le service de première nécessité que représentent les soins primaires. Par exemple, en mars 2023, « plus de 700 000 personnes en affection longue durée (ALD), c’est-à-dire porteuses d’une maladie grave et/ou chronique nécessitant un suivi régulier, n’[avaient] pas de médecin traitant. » [2]</p>
+<p>Pourquoi donc autant de bruit autour d’annonces aussi incertaines ? (...)</p>
+<p><a href="https://syndicat-smg.fr/dispositif-france-sante-de-la-poudre-aux-yeux-pour-masquer-la-carence-de"</a>https://syndicat-smg.fr/dispositif-france-sante-de-la-poudre-aux-yeux-pour-masquer-la-carence-de</a></p>
+
+<hr />
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

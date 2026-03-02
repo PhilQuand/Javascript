@@ -317,13 +317,15 @@
 .VignetteBR .relief img {
     box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 25px;
 }
-p.info-title {
+p.info-title, li.info-title {
   width: 100%; 
-  text-align: center;
   font-size: larger;
   /*font-style: italic;*/
   margin: 10px;
   font-weight: bold;
+}
+p.info-title {
+  text-align: center;
 }
 p.rubrique {
 text-align: center; 

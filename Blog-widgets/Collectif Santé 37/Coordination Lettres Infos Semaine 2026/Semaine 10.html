@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>la Sécu a un budget mais les patient.e.s, culpabilsé.e.s, passent à la caisse</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+.titre-dossiers { 
+   margin-top: 10em;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 10</li>
+<li>Dates: Du 02 mars au 08 mars 2026</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/03/Infossemaine10du2au8mars2026.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito : ON NOUS ÉCOUTE</strong></p>
+<div class="CN-Edito">
+<p>Vous trouvez que la démocratie en santé ne fonctionne pas ! Que les ARS ne font qu’appliquer les orientations austéritaires pour la santé d’un budget qui priorise l’aide aux fortunés, à l’armement, au nucléaire. </p>
+<p>Vous dénoncez le manque de moyens des services de santé publics et les conséquences sur l’accès aux soins égal .</p>
+<p>Nous avons compris, nous prévoyons d’exclure les timides aspects démocratiques dans les ARS en supprimant les représentations des usagers et les élections internes. Nous excluons des instances hospitalières les associations qui questionnent et mobilisent trop.</p>
+<p>A défaut d’ouvrir la santé aux débats démocratiques, aux contrôle par les habitant.e.s, à l’écoute des soignants, nos modernes gouvernants, musellent les critiques, étouffent les questions.</p>
+<p>Vous voyez bien qu’ils-elles réforment pour résoudre les problèmes !</p>
+</div>
+<p style="text-align:right">Henri (Sud Aveyron)</p>
+<!--div style="max-width: 600px; margin-left:auto; margin-right: auto; border: 0.5rem groove blue;">
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/01/Image_26_01_19_1.jpg" />
+</div>
+<div class="divText">
+<p style="font-size: larger; font-weight: bold">Depuis 2005 la Coordination rassemble, grâce au travail de Michel Antony, les données sur toutes les réductions d’activité des hôpitaux publics. </p> 
+</div></div>
+<p style="max-width:50%; margin-left:auto; margin-right:auto; font-size: larger; font-weight: bold"><a href="https://coordination-defense-sante.org/carte-des-fermetures/">Le lien vers les cartes et documents</a></p>
+</div-->
+<!--p style="clear:both"> </p>
+<p class="titre-rubrique">La Sécu, c’est vital ! </p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p!-->
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center" style="font-size: xxx-large; color: #6B9E51">La campagne « la Sécu c’est vital ! » </p>
+<p align="center"><strong>L’appel à mobilisation de la Convergence des services publics</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/Appel-Secu-2025-v1.pdf">Appel-Secu-2025</a></p>
+<p align="center"><strong>Des nouvelles de la</strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?utm_medium=custom_url&amp;utm_source=share_petition&amp;recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">pétition</a></p>
+<p>167 signatures recueillies par l’ADEMAT-H à Remiremont, 70 par l’ ADSP lors de la journée des associations de Luçon, des dizaines sur le marché de Concarneau, 4000 lors des permanences du comité de Sarlat devant l’ hôpital ! ! ! </p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p class="info-title">à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </p>
+<p class="info-title">pour en finir avec les restes à charge pour les malades </p>
+<p class="info-title">agir en signant et en faisant signer massivement </p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p class="info-title">pour toutes vos initiatives publiques : </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+<!--p class="rubrique">LES INITIATIVES À VENIR</p>
+<ul>
+<li class="info-title">3 mars rassemblement à partir de 13 heures devant les urgences de Charleville Mézières</li>
+<li class="info-title">7 mars au marché de Bergerac  </li>
+<li class="info-title">signature de pétition contre l’augmentation des franchises </li>
+<li class="info-title">7 mars manifestation à 10h00 à Ancenis pour le maintien de l’ hôpital public de plein exercice avec médecine, chirurgie, maternité, urgences à l’appel de l’intersyndicale CFDT- CGT- FO et du collectif de soignants</li>
+<p class="rubrique">LES INITIATIVES HEBDOMADAIRES DEVANT L’HÔPITAL</li>
+</ul>
+<p class="info-title" style="margin:0">jeudi 14H00 : Sarlat</span></p>
+<p class="info-title" style="margin:0">vendredi 17h00 : Marmande</p>
+<p class="info-title" style="margin:0">vendredi 18h00 : Luçon</p-->
+
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>SARLAT</strong></p>
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/03/Image_26_03_09_1.jpg" />
+</div>
+<div class="divText">
+<p class="info-title">Permanence devant l’hôpital de 13h à 17h, nous diffusions le tract « franchises médicales »</strong></p>
+<p>Extraits :</p>
+<p>« FRANCHISES MÉDICALES</p>
+<p>La Sécurité sociale pourrait économiser 400 millions d’euros grâce à une augmentation des forfaits hospitaliers (…)</p>
+<p>Quel impact pour les personnes sans mutuelle ?</p>
+<p>Ces montants non remboursés par l'Assurance maladie sont généralement pris en charge par les complémentaires santé.</p>
+<p>Mais environ 4 % des Français, soit 2,5 millions de personnes, ne disposent pas de complémentaire selon la direction statistique des ministères sociaux (Drees), et doivent s'en acquitter eux-mêmes.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/03/26-02-25-franchises-medicales.pdf">Le tract</a></p>
+</div></div>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>AUDACE 53</strong></p>
+<p class="info-title"><strong>Le Comité vient de tenir son AG (Extraits du rapport d’activités)</strong></p>
+<p>L'année 2025 aura été foisonnante en événements.</p>
+<p>La crise des Urgences qui secoue notre département depuis maintenant 4 ans, partie de Laval, a mis à genoux les 2 autres Centres Hospitaliers du nord et du sud. Il a fallu attendre le printemps 2024 pour qu'un Comité Départemental, sous la double présidence de la préfète et du directeur général de l'Agence Régionale de Santé, se mette en place pour suivre l'évolution de la situation et tenter d'y apporter des solutions.</p>
+<p>(…)</p>
+<p>Le nouvel EHPAD du CHNM que la direction de l'établissement s'apprêtait ni plus ni moins, à livrer au privé par le biais d'un Groupement de Coopération Sociale et Médico-Sociale (GCSMS – partenariat public/privé) dans lequel un groupe privé à la réputation sulfureuse entendait prendre le contrôle. Le GCSMS a été abandonné et l'EHPAD est bâti sur une collaboration public/public</p>
+<p>(…)</p>
+<p>La rénovation de bâtiments de l'ex-CHS à destination de l'internat des jeunes médecins. Le bâtiment devait être vendu à un promoteur qui aurait fait les travaux, puis fait payer un loyer au CHNM. Sauf qu'au bout de 10 ans, le coût des travaux était couvert et le CHNM aurait continuer à payer un loyer à perte puisqu'il n'était plus propriétaire ! Le projet se fera grâce à un partenariat avec Mayenne Communauté.</p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>St AFFRIQUE - MILLAU</strong></p>
+<p class="info-title"><strong>La Psychiatrie du Sud Aveyron menacée</strong></p>
+<p>L’intervention des soignants permet, le plus souvent aux personnes touchées de guérir, de dépasser, de gérer les douleurs, les comportements. Ils apportent un soutien essentiels aux proches.</p>
+<p>Comme pour tous les soins, la proximité est essentielle.</p>
+<p>La création en 1985, d’un secteur psychiatrique public sur le Sud Aveyron a été une avancée majeure. Aujourd’hui près de 2000 familles y sont aidées.</p>
+<p>La crise de la psychiatrie, comme pour la médecine n’est pas locale, elle vient d’un choix de gestion industriel et financier de concentration. S’y ajoute un basculement de la volonté de soigner vers celle promue par les groupes pharmaceutiques de se limiter à gérer les symptômes.</p>
+<p> </p>
+<div class="VignetteBR flex right" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/03/Image_26_03_09_2.jpg" />
+</div>
+<div class="divText">
+<p>Une pénurie utilisée pour restructurer en Aveyron</p>
+<p>Le remplacement de la retraite du médecin chapeautant le secteur est incontournable pour le maintien de ce service.</p>
+<p>La Direction des hôpitaux, veut donner l’image d’une recherche sincère de relève. En fait, elle a délibérément choisi de chercher à rattacher le Sud Aveyron au service psychiatrique privé de Rodez. En témoigne l’absence de ce secteur dans le Projet Médical du Sud Aveyron (PMSA) dénoncée en son temps par le Manifeste</p>
+<p><strong>L’objectif premier est d’obtenir la nomination pour Mai à Octobre d’un médecin faisant le lien avec la titularisation d’un PADHUE. La mobilisation importante va se poursuivre.</strong></p>
+</div></div>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>ANCENIS - NANTES</strong></p>
+<p class="info-title"><strong>1100 personnes pour le maintien d’un hôpital de plein exercice</strong></p>
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/03/Image_26_03_09_3.jpg" />
+</div>
+<div class="divText">
+<p>(élus municipaux, régionaux, Jean-Claude Raux député de la circonscription), aide-soignante, secrétaires, infirmières, sage, pharmaciennes, médecins et habitants) ont participé à la manifestation avec chaîne humaine pour le maintien d'un hôpital de plein exercice avec maternité, service de chirurgie, service d'urgence 24/24 et 7/7 à l'appel du collectif de soignants et de l'intersyndicale CFDT, CGT, FO. </p>
+<p>Le collectif nantais pour le droit à la santé et à la protection sociale pour toutes et tous était de la partie. </p>
+</div></div>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>MONTCEAU LES MINES</strong></p>
+<p class="info-title"><strong>Réforme des ARS : Le CODEF, devance le projet de loi !</strong></p>
+<p>Alors que le gouvernement prépare une réforme des agences régionales de santé et annonce vouloir renforcer le rôle des élu·es locaux dans l’organisation de l’accès aux soins, le Codef n’a pas attendu les textes pour agir.</p>
+<p>Dès février 2026, le CODEF, a interpellé les candidat·es aux municipales des bassins de vie Creusot–Montceau pour leur demander de s’engager en faveur d’une conférence Santé des 34 maires de la CUCM, spécifiquement consacrée à la situation de l’hôpital et de l’offre de soins.</p>
+<p>Dans cet avant‑projet de loi, le gouvernement annonce que les élu·es seraient associés, au niveau départemental, à l’élaboration de schémas d’accès aux soins fondés sur un diagnostic partagé des besoins de la population, de l’offre existante et de ses évolutions, ainsi que sur la définition des réponses à apporter, y compris en matière de zonage et d’aides à l’installation. Un gros bémol toutefois, les usager·ères, qui n’avaient pas beaucoup de place jusqu’à présent disparaissent complètement dans ce projet de loi. La lutte continue !</p>
+<p>(…)</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/03/Le-CODEF-devance-le-projet-de-loi.pdf">Texte complet sur notre site</a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>DOLE</strong></p>
+<p class="info-title"><strong>UNE COMMUNICATION BIEN RODÉE, MAIS LA DÉGRADATION SE POURSUIT À L’HÔPITAL !</strong></p>
+<p>L’hôpital Pasteur s’est doté d’un service communication performant, assurant que tout va toujours pour le mieux. Après la fermeture de la réanimation, des soins intensifs de cardiologie, de la chirurgie conventionnelle, du service de rééducation... Le service communication sera-t’il bientôt le seul à fonctionner à 100 % ?</p>
+<p><em>La totalité du bulletin du comité sur <a class="noSplit" href="http://www.defense-hopitaux-dole.fr/">www.defense-hopitaux-dole.fr</a> et notre <a class="noSplit" href="https://coordination-defense-sante.org/wp-content/uploads/2026/03/Infos-Flash-117.pdf">site national</a></em></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>BERGERAC</strong></p>
+<p class="info-title"><strong>Une bonne dizaine d'adhérents de notre association ont diffusé ce matin lors du marché de Bergerac le compte rendu des réponses reçues (ou pas ) suite au questionnaire "santé" que nous avions envoyé aux candidats.</strong></p>
+<p> Il y avait du monde ce matin sur le marché ! on y a vu tous les candidats (pas que du beau monde )</p>
+<p> Notons que le maire sortant n'a pas daigné venir nous voir bien qu'il nous avait menacé de ses foudres , il s'est tenu à dix mètres, évitant ainsi un débat en place publique. Aucun huissier en vue ( après il est toujours possible de recevoir par la suite une convocation par cette voie) </p>
+<p>Nous allons continuer à défendre le service public de santé face aux attaques répétées de ce gouvernement, et reviendrons , les élections passées, faire signer notre pétition contre les tous les restes à charge et l'augmentation des forfaits hospitaliers.</p>
+<p>Extraits « SANTÉ PUBLIQUE : QUE DISENT LES CANDIDATS ?</p>
+<p>DEUX LISTES ONT RÉPONDU : : Le candidat du RN, Christian Gérard, Le candidat de « Bergerac au quotidien » Fabien RUET (Gauche unie),</p>
+<p>DEUX LISTES N’ONT PAS RÉPONDU : : Le maire sortant, Jonathan Prioleaud (LR), Le candidat « Société civile », Thierry Roux (ancien Modem) n’a pas répondu.</p>
+<p><em>Quelle que soit la liste élue, le CDSPSMS continuera sans relâche à lutter pour un véritable service public de santé donnant accès aux soins pour toutes et tous. </em></p>
+<p><em>Pour que la Sécurité Sociale dispose d’un budget nécessaire pour remplir ses missions, avec l’arrêt des exonérations de cotisations sociales patronales.</em></p>
+<p><em>Pour que les hôpitaux et tout le service public de santé aient les ressources nécessaires, budgétaires et en personnels pour répondre à leurs missions de service public.</em></p>
+<p><em>Pour que la loi « Garot » soit votée par le Sénat et permette, à minima, d’améliorer l’installation de médecins généralistes et spécialistes en zone sous dotées. »</em></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/03/SYNTHESE-QUESTIONNAIRE-SANTE-28-02-2026-2.pdf">La synthèse des questionnaires</a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>CHÂTEAU-THIERRY</strong></p>
+<p class="info-title"><strong>Lettre ouverte aux candidats à l’élection municipale</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2026/03/chateau-thierry-lettre-ouverte-aux-candidats-a-lelection-municipale/">La lettre</a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>MANTES LA JOLIE</strong></p>
+<p>Répondant à la liste de la France Insoumise et la liste de gauche Mantes en commun, le maire Raphaël Cognet (Horizons), président du conseil de surveillance du centre hospitalier a tenu à apporter « un <strong>démenti formel » aux allégations de son adversaire aux Municipales. Non, « l’activité de mammographie n’est pas interrompue ».</strong></p>
+<p>Pourtant</p>
+<p>Parmi les réactions, on retrouve quelques <strong>témoignages de femmes</strong> signalant qu’elles n’ont pas pu obtenir de rendez-vous pour une mammographie au CHFQ. Comme celui-ci : « Mon gynécologue de l’hôpital de Mantes m’a prescrit une mammographie. Je lui ai bien demandé si je pouvais prendre rendez-vous sur place. Il m’a dit que oui. »</p>
+<p><em>« Eh bien non ! Quand j’ai voulu prendre rendez-vous, le secrétariat m’a répondu qu’on ne pouvait plus en prendre […] sauf si j’avais un cancer du sein. »</em></p>
+<p><em>« Il n’y a pas de sujet, assure une source proche des organisations syndicales jointe par « 78actu ». Essayez donc de prendre un rendez-vous en gynécologie, en dermatologie, en tout d’ailleurs. <strong>C’est saturé ! </strong>C’est le lot de l’hôpital public en France. »</em></p>
+<p><em><strong>L’argument laisse pantois</strong></em></p>
+<p><strong><em>Décidément la santé est au coeur de la campagne municipale avec cette autre information</em> :</strong></p>
+<p>La maison médicale de garde de Mantes la Jolie ferme ( 4500 actes par an) : un différend avec le forfait de 200 euros accordé aux médecins de garde par l'ARS/Cpam . les urgences de l'hôpital déjà surchargées ne pourront accepter de nouveaux patients .</p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>CLERMONT FERRAND</strong></p>
+<p class="info-title"><strong>La fermeture possible d’un service clé des urgences met le personnel sous tension au CHU de Clermont-Ferrand</strong></p>
+<p align=center><a href="https://france3-regions.franceinfo.fr/auvergne-rhone-alpes/puy-de-dome/clermont-ferrand/la-fermeture-brutale-d-un-service-cle-des-urgences-met-le-personnel-sous-tension-au-chu-de-clermont-ferrand-3311301.html?utm_term=Autofeed&amp;utm_medium=Social&amp;utm_source=Facebook&amp;fbclid=IwdGRjcAQZIOlleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEey8WDRJHvHZq_oF385jAGwbBTlllI24yVQTM4ncvpXXeCARonkrPod5Yxl3Q_aem_n_GBOBaMFzRJNajCvbndVg#Echobox=1772877376">L’article de France 3</a></p>
+
+<p class="rubrique"><span style="display:none">Dossiers :</span>Initiatives</p>
+
+<p class="titre-dossiers" style="margin-top: 1em;"><strong>La SÉCU – 100 % et COMPLÉMENTAIRE – un débat</strong></p>
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/03/Image_26_03_09_4.png" />
+</div>
+<div class="divText">
+<p>Une la pétition a été lancée par un collectif (dont le Professeur Grimaldi) appelant à créer pour toutes et pour tous la Mutuelle complémentaire gérée par la Sécu, respectant les principes fondateurs de la Sécurité sociale (double solidarité, égalité, démocratie)</p>
+<p>(une mutuelle gérée par la Sécu existe déjà en Alsace Mo selle et pour les ayant droit à la C2S). La fin du doublon inutile Sécu / Complémentaires santé permettrait d'économiser au moins 8 Milliards d'euros pour améliorer l'accès soins </p>
+<p>Plusieurs réactions trouvent l’initiative confuse et affirment que le 100 % Sécu est plus clair.</p>
+<p>Des partisants de cette pétition affirment leur accord avec l’objectif du 100 % sécu et présentent leur pétition comme un moyen pour « avancer du système actuel à un remboursement à 100% par la Sécu pour les assurés »</p>
+<p><em>Débat à suivre sur Le Tour de France de la santé.</em></p>
+</div></div>
+<p class="titre-dossiers" style="margin-top: 1em;"><strong>DROIT DES FEMMES</strong></p>
+<p>Une émission de Radio France sur les Droits des femmes, les questions de santé y sont évoquées, notamment à 5mn42 par Anne LOARER co-présidente du Comité de LANNION</p>
+<p align=center><a href="https://www.radiofrance.fr/franceinter/podcasts/interception/interception-du-dimanche-01-mars-2026-6005607">L’émission</a></p>
+<p class="titre-dossiers" style="margin-top: 1em;"><strong>LOI FIN DE VIE</strong></p>
+<p class="titre-rubrique"><strong>Fin de vie : l’offensive orchestrée des cercles conservateurs (UFAL)</strong></p>
+<p>Le débat sur <a href="https://www.ufal.org/tag/fin-de-vie/">la fin de vie</a> a repris ses droits à l’Assemblée nationale. Si l’enjeu est celui de la liberté ultime et de la dignité humaine, les forces conservatrices déploient un arsenal d’influence sans précédent pour entraver l’accès à une aide active à mourir. Sous couvert de nouveaux collectifs, c’est une stratégie de lobbying qui tente d’imposer une morale religieuse à l’ensemble de la société.</p>
+<p><em>Union des familles laïques (voir le site)</em></p>
+<p class="titre-dossiers" style="margin-top: 1em;"><em><strong>PSYCHIATRIE</strong></em></p>
+<p class="titre-rubrique"><strong>Dis leur que l’on soigne (Printemps de la Psy) Chant Choral</strong></p>
+<p><strong><a href="https://www.youtube.com/watch?v=TR-5ZGUoZtI" target="_blank">https://www.youtube.com/watch?v=TR-5ZGUoZtI</a></strong></p>
+<p class="titre-dossiers" style="margin-top: 1em;"><strong>DÉFENSE DE LA DÉMOCRATIE</strong></p>
+<p>28 février 2026 -Tribune collective « Ne laissons pas l'extrême droite décider de l'avenir de nos territoires », publiée sur la Tribune dimanche - LDH </p>
+<p><strong>(...)</strong></p>
+<p><strong>L’extrême droite ne sort pas de nulle part. Elle se nourrit du déclassement, <a href="https://www.latribune.fr/opinions/tribunes/les-territoires-oublies-de-l-election-presidentielle-902214.html" target="_blank">des territoires abandonnés</a>, du travail qui ne paie plus, des services publics qui ferment. Elle grandit aussi lorsque le débat public se laisse enfermer dans ses thèmes, lorsque la stigmatisation, souvent traversée par le racisme, l’emporte sur la recherche de solutions. (…)</strong></p>
+<p class="titre-dossiers" style="margin-top: 1em;"><strong>CONVERGENCE SERVICES PUBLICS</strong></p>
+<p><strong><a href="https://www.convergence-sp.fr/wp-content/uploads/2026/03/CSP-LI-SanSecSoc-9-2026-02.pdf">La lettre d’info du groupe santé/sécu</a></strong></p>
+
+<p class="rubrique">DOCUMENTS JURIDIQUES OU UTILES :</p>
+
+<p class="titre-dossiers"><em><strong>UN SITE RECOMMANDÉ PAR UNE ADHÉRENTE</strong></em></p>
+<p align=center><a href="https://lafabriquedessoignants.org/podcast/a-notre-sante-x-loin-des-yeux-loin-du-care/" target="_blank">https://lafabriquedessoignants.org/podcast/a-notre-sante-x-loin-des-yeux-loin-du-care/</a>‌</p>
+<p class="titre-dossiers"><strong>DROIT DES PATIENTS EN PSYCHIATRIE</strong></p>
+<p><a href="https://www.humanite.fr/vie-quotidienne/droit/soins-psychiatriques-quels-sont-les-droits-des-patients-internes-sans-consentement" target="_blank">https://www.humanite.fr/vie-quotidienne/droit/soins-psychiatriques-quels-sont-les-droits-des-patients-internes-sans-consentement</a></p>
+
+<hr />
+
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr9PhSE8MjaJFptsyfyvuBzELB2So57aO11PuW2e8j4MntCaCS8YEsmKyLC1e888TG2ulrkbX4Gr2EWOTjKSBo-WgGxIX0B6sYTxYGxQBaDBuwvy7MvL9i7ips-Iw27JZK0PoPFHjQ2Ge-WpWrpHA7qXhJxDUaTFZmXerD5Eo_gPYbVxeBY5IacNTPArk/s841/Communique%CC%81%20TDFS%20janvier%202026.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrGXaJgGB-kQBxCb43FJtqriph3LSMA25wI115wOwJc9vrcZ5cjR9Q7VlsTQ_C9skiCNt64yjh3TMWCyzPIRqorlrpToXBa62q3m3FCCOMuaj5JMtgWYsZwd5JdjmU4u7RoleJ0bqtP8D1hR1U_NSysn-92ApZY0XWYHXlPzKI7FqGU4a1T6pup7YaBpA/s1600/visuel%2014%20mars%20tours.png",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -857,11 +857,11 @@ $(document).ready(function() {
           </ul> \
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
-                  },
+                  },*/
            {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuEAGj-l6BalbtabMgOY3EBdjTGFQ3kW4ef-elN6Jwve45z8jXTfdyAO2tf0De9KNurgDaYiTzLfsjAt-fiGqxY22kDHTRe1PyoADT46proGOL-1Gewnt9dfygy5GZX6-rDrKIqNXvCS6A8ZXRvTXdR6QlEfeJ7yoP1KYUzCAuJZs3y3Z1zNGx0Ms75WY/s1600/affiche%20format%20paysage.jpg"
-          },*/
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyV-LD9z2QHMKXkXPWjEQ93diG7ygOmK9tyAECwgAwUytqfkj72B42ufljnAJXG_h65pOb59A6ciLy7RmfEaeeNAVemOxrTU_xkkt5sd1ETYCWEOQi94pl1jz9_4kmPiflaIvjX3HG7yi0PCgywtk_xCQf6NJwlrj95VX3mQADYia5SMWm-BAvDEt_NXU/s1600/NON%20au%20RACISME%20appel%2014%20mars%20tours.jpg"
+          },
           {
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr9PhSE8MjaJFptsyfyvuBzELB2So57aO11PuW2e8j4MntCaCS8YEsmKyLC1e888TG2ulrkbX4Gr2EWOTjKSBo-WgGxIX0B6sYTxYGxQBaDBuwvy7MvL9i7ips-Iw27JZK0PoPFHjQ2Ge-WpWrpHA7qXhJxDUaTFZmXerD5Eo_gPYbVxeBY5IacNTPArk/s841/Communique%CC%81%20TDFS%20janvier%202026.jpg",

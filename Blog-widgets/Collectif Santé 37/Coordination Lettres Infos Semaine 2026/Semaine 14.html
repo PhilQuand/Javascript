@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Les élections ne remplacent ni n’arrêtent les luttes revendicatives. S’il fallait le démontrer la lecture de ce nouveau Bulletin en fournirait la preuve.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+.titre-dossiers { 
+   margin-top: 10em;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 14</li>
+<li>Dates: Du 30 mars au 06 avril 2026</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/bulletin-hebdomadaire-30-mars-au-6-avril-—-Google-Philippe-Tous-les-messages.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito :</strong></p>
+<div class="CN-Edito">
+<p>Les élections ne remplacent ni n’arrêtent les luttes revendicatives. S’il fallait le démontrer la lecture de ce nouveau Bulletin en fournirait la preuve. Les élu.e.s peuvent être des points d’appui- malheureusement pas toujours- mais les leviers principaux sont les mobilisations citoyennes, syndicales : au Clos Toreau à Nantes, à Ancenis et à Marmande la lutte paie ! Pas de victoire sans combat tranquille, tenace, rassembleur, et sans suivi exigeant le respect des engagements promis, pour cela les comités, les collectifs organisés sont un atout précieux. Rejoignez les !</p>
+<p>Tenu le 28 mars dernier dans la salle, archi pleine, Ambroise Croizat de la Bourse du travail de Paris, nul doute que le formidable et enthousiasmant meeting du Printemps de la Psychiatrie aura des lendemains : à nous de les faire chanter !</p>
+</div>
+<p style="text-align:right">Jean-Luc Landas</p>
+<!--div style="max-width: 600px; margin-left:auto; margin-right: auto; border: 0.5rem groove blue;">
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/01/Image_26_01_19_1.jpg" />
+</div>
+<div class="divText">
+<p style="font-size: larger; font-weight: bold">Depuis 2005 la Coordination rassemble, grâce au travail de Michel Antony, les données sur toutes les réductions d’activité des hôpitaux publics. </p> 
+</div></div>
+<p style="max-width:50%; margin-left:auto; margin-right:auto; font-size: larger; font-weight: bold"><a href="https://coordination-defense-sante.org/carte-des-fermetures/">Le lien vers les cartes et documents</a></p>
+</div-->
+<!--p style="clear:both"> </p>
+<p class="titre-rubrique">La Sécu, c’est vital ! </p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p!-->
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center" style="font-size: xxx-large; color: #6B9E51">La campagne « la Sécu c’est vital ! » </p>
+<p align="center"><strong>L’appel à mobilisation de la Convergence des services publics</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/Appel-Secu-2025-v1.pdf">Appel-Secu-2025</a></p>
+<p align="center"><strong>Des nouvelles de la</strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?utm_medium=custom_url&amp;utm_source=share_petition&amp;recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">pétition</a></p>
+<p>167 signatures recueillies par l’ADEMAT-H à Remiremont, 70 par l’ ADSP lors de la journée des associations de Luçon, des dizaines sur le marché de Concarneau, 4000 lors des permanences du comité de Sarlat devant l’ hôpital ! ! ! </p>
+</div-->
+
+<!--div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2024/09/Rolland-1.jpg" />
+</div>
+<div class="divText">
+<p>Présent depuis le début de la CN, le décès de Rolland Vachon est une immense perte pour notre association ; Rolland était très précieux dans nos réflexions.
+Il apportait son avis très argumenté et sans imposer son point de vue sans couper le dialogue et à l'écoute de ses interlocuteurs.
+Condoléances à sa femme et sa famille.</p>
+</div></div-->
+
+</div>
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p class="info-title">à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </p>
+<p class="info-title">pour en finir avec les restes à charge pour les malades </p>
+<p class="info-title">agir en signant et en faisant signer massivement </p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p class="info-title">pour toutes vos initiatives publiques : </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+<!--p class="rubrique">LES INITIATIVES À VENIR</p>
+<ul>
+<li class="info-title">3 mars rassemblement à partir de 13 heures devant les urgences de Charleville Mézières</li>
+<li class="info-title">7 mars au marché de Bergerac  </li>
+<li class="info-title">signature de pétition contre l’augmentation des franchises </li>
+<li class="info-title">7 mars manifestation à 10h00 à Ancenis pour le maintien de l’ hôpital public de plein exercice avec médecine, chirurgie, maternité, urgences à l’appel de l’intersyndicale CFDT- CGT- FO et du collectif de soignants</li>
+<p class="rubrique">LES INITIATIVES HEBDOMADAIRES DEVANT L’HÔPITAL</li>
+</ul>
+<p class="info-title" style="margin:0">jeudi 14H00 : Sarlat</span></p>
+<p class="info-title" style="margin:0">vendredi 17h00 : Marmande</p>
+<p class="info-title" style="margin:0">vendredi 18h00 : Luçon</p-->
+
+
+<p class="rubrique">LES INITIATIVES À VENIR</p>
+<div class="CN-block">
+<p><em><strong>Tours 7 avril </strong></em><em>:</em></p>
+<p><em><strong>stand d’information, journée mondiale de la santé de 12 à 14 h00 place Jean Jaurès </strong></em>budget de la Sécu, la Santé toujours maltraitée ! Un budget encore une fois bien inférieur aux besoins ! </p>
+</div>
+<div class="CN-block">
+<p><em><strong>Voiron 7 avril : </strong></em></p>
+<p><em><strong>rassemblement à 17h00 sur le parvis du nouvel hôpital </strong></em></p>
+<p>pour le recrutement de médecins, pour la réouverture des urgences 24h/24 et 7j/7</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/2026-04-07_TractVoiron-7-avril-2026.pdf"><strong>Tract</strong></a></p>
+</div>
+<div class="CN-block">
+<p><em><strong>Concarneau 10 avril : </strong></em></p>
+<p><em><strong>stand sur le marché à partir de 10h30, recueil de témoignages sur la difficulté d’accès aux soins </strong></em></p>
+<p><em>risque de privatisation de la santé et de la protection sociale : la Sécu si tu veux la garder, il faut la défendr</em>e</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/Concarneau-tract-10-avril.pdf"><em><strong>Tract</strong></em></a></p>
+</div>
+<div class="CN-block">
+<p><em><strong>Lannion 17 avril : </strong></em></p>
+<p><em><strong>débat public : les centres de santé pourquoi ? Pour qui ? Comment ? </strong></em>Avec Dr Jean-Loup Théry, délégué régional Bretagne de la FNCS. </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/Lannion.jpg"><em><strong>L’affiche</strong></em></a></p>
+</div>
+<div class="CN-block">
+<p><em><strong>Ruffec 21 avril 18h00:</strong></em></p>
+<p><em><strong>AG et débat public </strong></em> avec la participation de Valérie-Sophie Bertrand, responsable du développement des centres de santé à la FNCS et représentante régionale de la FNCS en Nouvelle Aquitaine.</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/Ruffec-Invitation-AG-21-Avril-2026.pdf"><em><strong>Invitation-AG-21-Avril-2026. </strong></em></a></p>
+</div>
+<div class="CN-block">
+<p><em><strong>Marmande  22 avril : </strong></em></p>
+<p><em><strong>rassemblement à partir de 14 heures </strong></em><strong>:</strong></p>
+<p>mode vigilance pendant la tenue du Conseil de Surveillance. La population et les hospitaliers sont invités à être présents pour protéger notre hôpital de plein exercice Marmande Tonneins avec sa direction autonome dans la coopération mutuellement avantageuse. </p>
+</div>
+
+<p class="rubrique">LES INITIATIVES HEBDOMADAIRES DEVANT L’HÔPITAL</p>
+<p class="info-title" style="margin:0"><strong>jeudi 14H00 : Sarlat</strong></p>
+<p class="info-title" style="margin:0"><strong>vendredi 17h00 : Marmande</strong></p>
+<p class="info-title" style="margin:0"><strong>vendredi 18h00 : Luçon</strong></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>MANTES LA JOLIE </strong></p>
+<p>Le rassemblement de ce matin, dans le cadre de la journée d'action de l’ intersyndicale des retraité. e. s du 2 avril 2026, devant la mairie de Mantes (environ 40 personnes) a eu la visite du nouveau maire Adama Gaye, une première pour cette ville. Les problèmes de l'hôpital et la désertification médicale dans le Mantois ont été évoqués. M. A Gaye propose d'organiser une réunion sur ces deux points. Une ouverture de la part de la nouvelle municipalité ce qui est appréciable</p>
+<p>La commission de sécurité a refusé l'ouverture des nouvelles urgences prévues le... 1er avril. Sept réserves ont été émises, dont une jugée particulièrement problématique : la non‑conformité des trappes de désenfumage, qui empêcherait une bonne évacuation des fumées en cas d’incendie. L'ouverture est repoussée de 3 mois. la délégation reçue en ensuite par le sous préfet a confirmé que les urgences seraient ouvertes dans 3 mois, le problème plus sérieux est la solidité du bâti de l'ensemble de l 'hôpital (inauguré en janvier 1998 par J Chirac) . Autre souci les urgentistes les cartes de séjour arrivent à expiration. Le sous préfet a indiqué que des mesures seront prises afin de conserver les médecins étrangers. </p>
+<p>Les urgences actuelles, ouvertes en 1997, sont saturées : 36 000 passages annuels pour une capacité de 23 000, dans un territoire marqué par la désertification médicale. Le nouveau service permettra d’accueillir jusqu’à 48 000 patients par an et regroupera urgences adultes, Smur et chambre mortuaire. </p>
+<p style="text-align:right">B Aubry</p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>MARMANDE</strong></p>
+<p><strong>L'espace des usagers</strong> au sein de l'entrée de l'hôpital est <strong>enfin installé</strong> .</p>
+<p>D'autre part, notre demande de rencontre pour la réflexion avec la direction de l'hôpital et M Perrin administrateur provisoire est enfin entendue : nous sommes invités à une <strong>rencontre avant le conseil de surveillance le lundi 13 avril à 14 heures </strong>salle Petrowitch </p>
+<p>Objectif : modifier la trajectoire des dépenses sans amputer  l'offre de soins ???? </p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>GUINGAMP</strong></p>
+<p class="info-title"><strong>les avantages d’un centre de santé</strong></p>
+<p align=center>50 personnes au débat organisé par le comité avec la participation du Dr Cohen, secrétaire de la Fabrique de santé</p>
+<p align=center><em><strong>l’article du Télégramme </strong></em></p>
+<p><a href="https://www.letelegramme.fr/cotes-d-armor/guingamp-22200/maisons-de-sante-et-centres-de-sante-a-graces-un-expert-decrypte-ces-structures-de-sante-7017690.php"><strong>un-expert-decrypte-ces-structures-de-sante</strong></a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>CHATEAU-THIERRY</strong></p>
+<p class="info-title"><strong>Après les élections, les vraies annonces tombent : 9 suppressions de postes à la maison de retraite de Bellevue, combien à l’hôpital ? </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/tract-Chateau-Thierry-mars-2026.pdf">tract</a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>NANTES</strong></p>
+<p class="info-title"><strong>le collectif nantais pour le droit à la santé et à la protection sociale pour toutes et tous a participé et pris la parole le 2 avril à la manifestation organisée par l’intersyndicale des retraité. e. s </strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/04/Image_26_04_07_1.jpg" /></p>
+<p>L'hôpital public est malade, l'accès à un généraliste ou à un spécialiste devient de plus en plus compliqué. Les dépassements d'honoraires se généralisent. Les renoncements aux soins notamment pour raison financière augmentent. Dans la métropole nantaise, les généralistes sont deux fois moins nombreux dans les quartiers prioritaires de la ville, les spécialistes en sont absents.<br /><em><strong>Au Clos Toreau : </strong></em>décembre 2023départ de la dernière généraliste, avec la CLCV, information, mobilisation des habitants (tracts, réunions publiques, interpellation des élues de la commune, de la députée, de la CPAM, de l" ARS. L'URPS et le Conseil de l'ordre aux abonnés absents. Clip vidéo dans les cinémas associatifs des alentours, conférences de presse. <strong>ET SURTOUT BOUCHE À OREILLE ! </strong><br />La bataille avance sur deux rails. 1er rail immédiat aider les habitants à retrouver un médecin traitant en dehors du quartier mais à proximité, deuxième rail à long terme : exiger la création d' un centre de santé, avec des intervenants salariés, alliant accès aux soins et accompagnement social. La municipalité a proposé la venue d'un médiateur en santé dès l'automne <br /><strong>ET NOUS AVONS GAGNÉ ! Le centre de santé associatif avec une équipe de salarié. e. s ouvrira ses portes dans quelques mois dans des locaux transformés et adaptés au milieu du quartier. </strong><br />Il nous reste à suivre de près la réalisation des travaux afin qu'ils ne prennent pas de retard : l'ouverture du centre serait un magnifique cadeau d'automne car nous l'espérons avant Noël<br /><strong>LA LUTTE PAIE ! </strong><br />Et voilà que nous apprenons qu'<em><strong>au Sillon de Bretagne</strong></em>, le cabinet médical historique est en danger : bientôt plus que 2 médecins au lieu de 5. Ce quartier de Saint Herblain est similaire au Clos Toreau. Et si la solution était la création d'un centre de santé ? Nous vous invitons à rejoindre la mobilisation prévue le 6 mai à l'initiative du comité de soutien. <br /><em><strong>Ensemble, agissons pour l'accès aux soins pour toutes et tous et partout ! </strong></em></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>SAINT GENIS LAVAL</strong></p>
+<p class="info-title"><strong>Nos actions après les élections</strong></p>
+<p>Présent-e-s et très visibles à l'ouverture du Conseil de la Métropole et du Conseil Municipal de Lyon, en fin de semaine dernièr, . nous voulions montrer aux élu-e-s que nous étions plus déterminés que jamais à sauver Henry Gabrielle. Grâce à une couverture médiatique importante (France 3, BFM, Le Progrès, Scoop, et les réseaux sociaux), nous pouvons dire que notre objectif est largement atteint. </p>
+<p>Un très grand merci à celles et ceux qui se sont mobilisés, souvent à la dernière minute, parfois les 2 jours, malgré le vent et le froid. </p>
+<p>Mention spéciale pour Claude (et ses camarades) qui avait proposé ces rassemblements lors de notre dernière assemblée générale. </p>
+<p><em><strong>Mais n'oublions pas, quel que soit le résultat des élections, </strong></em></p>
+<p><em><strong>c'est notre mobilisation, qui est déterminante. </strong></em></p>
+<p><em><strong>Jeudi 26 mars, dès 8h, </strong></em> nous étions devant la salle du conseil de la Métropole, pour distribuer tracts, rappelant le vote massif d'un vœu demandant le maintien et la rénovation d'H. Gab, lors du conseil métropolitain de juin 2022, mais aussi interpellés les élu-e-s. Nous avons aussi été aidés, par Martine Hardy (élue PC de Lyon 3), et Bertrand Artigny (Les Verts), ex-vice -président aux finances de la Métropole (qui nous suit depuis le projet Desgenettes). À quelques rares exceptions, nos tracts sont bien partis, et nous avons échangé quelques mots pour préparer l'avenir de futures rencontres : </p>
+<p>Pour Les Verts : Bruno Bernard, Marie Charlotte Garin (qui est venue à H. Gab), Eric Perez, Cecile De Laurens (qui en tant que conseillère à la Santé à la mairie de Lyon, avait évoqué notre supposée « stigmatisation de la psychiatrie » ), Fabien Bagnon. </p>
+<p>Pour Grand Coeur Lyonnais, Jérôme Moroge, Fouziya Bouzerda, Marylène Millet (ex maire de St Genis Laval).</p>
+<p>Laurence Boffet (qui était présente à notre dernière assemblée générale), et pour LFI Fatiha Didaoui, Gabriel Amard (qui est intervenu durant la séance du conseil pour notre hôpital).</p>
+<p>Nous avons terminé par 4 longues minutes au mégaphone pour rappeler le texte du vote et pour citer les noms des élu-e-s qui avaient voté le maintien d'H. Gab, dont : Véronique Sarselli, la nouvelle présidente de la Métropole. </p>
+<p><em><strong>Vendredi 27 mars, dès 13h30</strong></em>, nous étions <em><strong>devant la Mairie de Lyon</strong></em>, avec les mêmes objectifs : distribuer nos arguments, et interpeller pour préparer de futurs rendez- vous. Là aussi nos tracts sont bien partis, et à travers la foule de journalistes nous avons pu dire quelques mots à : </p>
+<p>Grégory Doucet (qui nous a reconnu), Jean Pierre Aulas (Coeur Lyonnais, qui nous a dit connaître le sujet), Augustin Pesche (PCF, qui est déjà intervenu auprès du maire de Lyon), Florestan Groult (LFI, qui est venu à H. Gabrielle en 2025) Et <em><strong>à 18h30</strong></em>, on a terminé dans le froid (et après 2 contrôles de la gendarmerie), <em><strong>devant</strong></em> la réunion du nouveau <em><strong>conseil municipal de St Genis Laval</strong></em>, pour rappeler aux ex-candidats et nouveaux élus leur promesse de soutenir le maintien de l'Hôpital sur Saint Genis à : </p>
+<p> Thierry Monnet et Annick Carroué de Terre Commune (soutiens très anciens) et bien sûr à Jules Guillemot qui allait être désigné maire de St Genis Laval. Échanges aussi avec Christophe Guilloteau, Président du conseil du Rhône, à qui nous avons rappelé que nombreux patients et soignants de l'hôpital habitaient dans le Rhône, hors de la métropole, et aussi Sophie Cruz (élue LR à la Région).</p>
+<p><strong>Forts de ces journées : on continue ! Parce qu'Henry Gabrielle, c'est à Saint Genis Laval </strong></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>MONTCEAU- LES MINES</strong></p>
+<p class="info-title"><strong>Rencontre constructive avec la maire </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/Rencontre_Maire_MLM_02042026.pages.pdf"><strong>compte-rendu</strong></a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>OLORON SAINTE MARIE </strong></p>
+<p class="info-title"><strong>Fermeture confirmée de la chirurgie et du bloc opératoire durant tous les week-end de l'année à  partir de la deuxième quinzaine d'août.</strong> </p>
+<p><strong>"La solution la moins pire"</strong> selon la direction de l'hôpital ! </p>
+<p>Quelles conséquences concrètes à cette fermeture ? ? </p>
+<p>- la fermeture impacte directement l'engagement quotidien des personnels soignants, </p>
+<p>- les patients  qui auront besoin d'une opération urgente seront dirigés vers l'hôpital de Pau le week-end avec toutes les contraintes que cela implique en terme de délai de transport et continuité de soins. Rappelons que Oloron est un territoire de montagne et que l'hôpital de Pau se trouve à plus de 45 minutes de notre hôpital de proximité. Si un accident arrive à l'autre extrémité de la vallée, nous sommes à plus d'1h30 !</p>
+<p>Lors du conseil municipal du 03 avril 2026, il est acté qu'un groupe de travail sera créé avec les élu-es, les personnel-les soignant. es, et qu'une réunion publique avant l'été aura lieu à Oloron en présence du directeur de l'ARS, afin de répondre aux questions des citoyen-nes. </p>
+<p><em><strong>L'association SOS Proximité santé offre de soins de proximité, fera tout son possible pour intégrer ce groupe de travail et participer à la réunion publique. </strong></em></p>
+
+<p class="rubrique">Autres infos locales : </p>
+
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>ANCENIS</strong></p>
+<p class="info-title">Mardi 31 mars 2026, les représentants du Collectif Soignants Quel Avenir pour le CHEL ont été reçu par Mr Jérôme JUMEL, Directeur Général de l'ARS, Mr Etienne LE MAIGAT, Directeur de l'offre de soins, et M. David ERRARD, Directeur de la DT 44. </p>
+<p>Au cours de cet échange, M. le Directeur Général de l'Agence régionale de Santé Pays de la Loire a affirmé avec insistance qu'il n'est actuellement pas envisagé de fermer la maternité, qu'aucune évolution vers un centre de chirurgie ambulatoire exclusif n'est planifié, et qu'il n'a jamais été question d'obtenir une labellisation ARS d'hôpital de proximité pour le CHEL. </p>
+<p>Le CENTRE HOSPITALIER ERDRE ET LOIRE a aujourd'hui et pour l'avenir toute sa place dans l'offre de soins du maillage territorial. </p>
+<p>Pour répondre aux problématiques soulevées, Mr JUMEL s'est engagé, devant les membres du Collectif, dans les trois prochains mois : </p>
+<p>✔️A avancer sur les problématiques RH et leurs conséquences sur la permanence des soins et l'attractivité médicale et globale du CHEL, en insistant tout particulièrement sur le recrutement de praticiens spécialistes gynécologues-obstétriciens et orthopédistes, en mobilisant le CHU de Nantes dans le cadre de la collaboration inter-établissement et du GHT 44 - Groupement Hospitalier de Territoire Loire-Atlantique (rendez-vous avec M. El Sair et la gouvernance du GHT44).</p>
+<p>✔️A organiser sans délai, dès avril, une réunion de travail pour avancer et prendre des décisions concernant la rénovation des salles du bloc opératoire, sans fermeture de l'activité de chirurgie. </p>
+<p>✔️A décliner un projet global, avec une feuille de route et un pilotage par l'ARS, concernant l'avenir à moyen et long terme du CHEL, afin que l'établissement soit intégré dans une organisation territoriale globale répondant aux besoins de la population des départements 44 et 49. </p>
+<p>Les représentants du Collectif présents lors de la rencontre et ses membres saluent les avancées et les prises de positions claires de M. le Directeur Général, qui ont clôturé cet échange. </p>
+<p>💥<strong>POUR LE MOMENT IL NE S'AGIT QUE DE MOTS... </strong></p>
+<p><strong>L' IMPORTANT SERONT LES FAITS ET LES ACTES QUI EN DECOULERONT DANS LA REALITE ❗ </strong></p>
+<p><em><strong>Le Collectif restera très attentif à la poursuite des échanges et à la mise en œuvre des actions évoquées, et s'engagera à informer la population du bassin d'Ancenis, et des communes du 49 concernées sur l'avancée des projets, en lien avec la Communauté de communes du Pays d'Ancenis et tous les élus concernés par l'avenir du CENTRE HOSPITALIER ERDRE ET LOIRE. </strong></em></p>
+<p><strong>les soignant. e. s, organisées en collectif, s’inquiètent de l’avenir du Centre Hospitalier Erdre et Loire appellent les habitant. e. s, les élue. e. s à l’action </strong></p>
+
+<p class="rubrique">Dossiers : </p>
+
+<p class="titre-dossiers"><strong>HÔPITAL PUBLIC : LA LENTE AGONIE </strong></p>
+<p class="titre-rubrique"><strong>par Francine Baraban, psychothérapeute</strong></p>
+<p style="margin-bottom: 1em">Aujourd'hui, dans mon cabinet, j'accompagne de nombreux soignants, infirmiers et infirmières notamment et je mesure l'intensité de ce qu'ils vivent : une fatigue profonde, une pression constante, la confrontation quotidienne à la souffrance et à la mort, des horaires éprouvants - nuits, week-ends, horaires irréguliers - et surtout ce sentiment, de plus en plus présent, de ne plus pouvoir exercer dignement leur métier. </p>
+<p>Et ce que j'entends résonne d'autant plus en moi que j'ai moi-même été infirmière. </p>
+<p>À l'hôpital, puis en libéral, j'ai tant donné. </p>
+<p>Je sais ce que c'est que tenir debout alors que le corps dit stop. </p>
+<p>Continuer malgré la fatigue. </p>
+<p>Je sais ce que c'est que d'être là, au plus près de l'humain, là où la vie est en suspend. Là où les défenses tombent, où les corps parlent, où les regards disent plus que les mots. </p>
+<p>Entrer dans l'intimité des vies, pas seulement des corps. </p>
+<p>Rassurer. Écouter. Accueillir la peur, l'angoisse. </p>
+<p>Et accompagner, jusqu'au bout. </p>
+<p>Dans la douleur, dans le silence, dans ces moments où seul l'essentiel est là. </p>
+<p>Je sais ce que c'est que d'être là, au plus près de l'humain et de sa souffrance. </p>
+<p>Et puis rentrer chez soi avec ce poids. </p>
+<p>Faire semblant d'être légère pour ne pas faire porter à ses enfants le poids de cette souffrance. </p>
+<p>Sans pouvoir dire. </p>
+<p>J'ai connu cette forme d'engagement total, où l'on donne sans compter, où l'on tient par conscience, par responsabilité, par humanité. </p>
+<p style="margin-bottom: 1em">Jusqu'au moment où quelque chose en soi s'épuise. Se fissure. Se retire. </p>
+<p>Côtoyer la souffrance et la mort, ce n'est pas anodin. </p>
+<p style="margin-bottom: 1em">Cela laisse des traces. </p>
+<p>C'est pourquoi, aujourd'hui, lorsque j'écoute ces soignants, je n'entends pas seulement leurs mots. </p>
+<p>Je reconnais aussi ce qu'ils ne disent pas. </p>
+<p style="margin-bottom: 1em">Et je mesure, de l'intérieur, ce que cela leur coûte. </p>
+<p><em><strong>Ce que traverse l'hôpital public ne se résume pas à des chiffres. </strong></em></p>
+<p style="margin-bottom: 1em"><em><strong>C'est une réalité humaine, profonde, qui se vit au quotidien. </strong></em></p>
+<p>Des soignants épuisés. </p>
+<p>Des infirmières qui tiennent debout par conscience. </p>
+<p>Des médecins qui partent, faute de pouvoir continuer à exercer dignement. </p>
+<p>Des patients qui attendent. </p>
+<p>Des urgences saturées. </p>
+<p style="margin-bottom: 1em">Des soins qui se dégradent. </p>
+<p>La crise de l'hôpital public ne fait que s'aggraver. </p>
+<p>En 2023, on estimait déjà à 7 000 à 8 000 postes médicaux vacants. </p>
+<p style="margin-bottom: 1em">Aujourd'hui, ce sont plus de 30 000 postes hospitaliers qui ne sont pas pourvus en France. </p>
+<p><em><strong>Ce n'est pas seulement une question de statistiques. </strong></em></p>
+<p style="margin-bottom: 1em"><em><strong>C'est une question de fatigue, de découragement, de perte de sens. </strong></em></p>
+<p>Un système de santé qui s'érode, lentement. En silence. </p>
+<p>Ce n'est pas une crise. </p>
+<p style="margin-bottom: 1em">C'est un abandon. </p>
+<p style="margin-bottom: 1em">Et derrière cet abandon, il y a des professionnels qui tiennent et continuent malgré tout. </p>
+<p><em><strong>Alors une question demeure : combien de temps encore un système peut-il tenir lorsque ceux qui le font vivre sont à bout ? </strong></em></p>
+<p class="titre-dossiers"><strong>PARCOURS DE SOINS DES FEMMES : </strong></p>
+<p class="titre-rubrique"><strong>une vision restrictive et dépassée </strong></p>
+<p align=center><em><strong>la prise de position de l’ ONSSF</strong></em></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/CP_ONSSF__03_04_2026-.pdf"><strong>CP_ONSSF</strong></a></p>
+<p class="titre-dossiers"><strong>HAUTE AUTORITÉ DE SANTÉ</strong></p>
+<p class="titre-rubrique"><em><strong>alerte du déontologue sur la possibilité de conflits intellectuels pouvant être des conflits d’intérêts dans l’établissement des recommandations de bonnes pratiques </strong></em></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/rapport-du-deontologue-de-l-HAS.pdf"><strong>rapport-du-deontologue-de-l-HAS</strong></a></p>
+<p class="titre-dossiers"><strong>PRINTEMPS DE LA PSYCHIATRIE </strong></p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/04/satue-fleurie-Meeting-PP-28-mars-26.jpg" /></p>
+<p class="titre-rubrique"><strong>Meeting « Expertiser » n'est pas soigner : les 35 interventions</strong></p>
+<p>Le meeting organisé par le <em><strong>Printemps de la psychiatrie</strong></em>samedi 28 mars a réuni <em><strong>35 intervenant·es d'horizons pluriels devant plus de 500 personnes,</strong></em> et suscité de nombreuses et riches prises de parole de la salle, émanant d'abord de personnes concernées par les troubles psychiques, de professionnel·les du soin psychique, de travailleur·ses sociales, de journalistes, d'élu·es. </p>
+<p><em><strong>L'intention du meeting était double : démontrer que les « expertises » proposées par les centres experts de la Fondation FondaMental ne constituent pas des soins, mais aussi penser collectivement les psychiatries de demain (1)</strong></em></p>
+<p>Voici ci-dessous les<strong> liens vers interventions des 4 tables rondes</strong>.</p>
+<p><strong>À lire : </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/intervention-meeting-financement-Julia-Duplessy.pdf">intervention-meeting-financement-Julia-Duplessy. </a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/04/de-limpossibilite-du-soin-a-lillusion-du-soin-Meeting-PP-28-mars-2026-1-1.pdf">De-limpossibilite-du-soin-a-lillusion-du-soin-jluc landas</a></p>
+<p><strong>À voir et écouter : </strong></p>
+<p>Introduction et table ronde 1️⃣ : 𝘀𝗰𝗶𝗲𝗻𝘁𝗶𝗳𝗶𝗰𝗶𝘁𝗲́ </p>
+<p><a href="https://www.youtube.com/watch?v=00tVe_exM0k">https : //www. youtube. com/watch ? v=00tVe_exM0k</a></p>
+<p>Table ronde 2️⃣ : 𝘀𝗼𝗶𝗻𝘀</p>
+<p><a href="https://www.youtube.com/watch?v=AhLg1S_T_xY">https : //www. youtube. com/watch ? v=AhLg1S_T_xY</a></p>
+<p>Table ronde 3️⃣ : 𝗳𝗶𝗻𝗮𝗻𝗰𝗲𝗺𝗲𝗻𝘁𝘀</p>
+<p><a href="https://www.youtube.com/watch?v=Xo5cBHoVLaw">https : //www. youtube. com/watch ? v=Xo5cBHoVLaw</a></p>
+<p>Table ronde 4️⃣ : 𝗱𝗲́𝗺𝗼𝗰𝗿𝗮𝘁𝗶𝗲</p>
+<p><a href="https://www.youtube.com/watch?v=l5FW3IkZyms">https : //www. youtube. com/watch ? v=l5FW3IkZyms</a></p>
+<p>(1)<a href="https://eurojournalist.eu/en-psychiatrie-expertiser-ce-nest-pas-soigner/">https : //eurojournalist. eu/en-psychiatrie-expertiser-ce-nest-pas-soigner/</a></p>
+<p><strong>rejoignez les plus de 23900 personnes qui ont signé la pétition exigeant le maintien de la pluralité des soins en pédopsychiatrie</strong></p>
+<p><strong><a href="https://www.change.org/p/enfance-et-familles-p%C3%A9ril-imminent-pour-la-pluralit%C3%A9-des-soins-en-p%C3%A9dopsychiatrie">la pétition </a></strong></p>
+<p><strong>et amplifiez en signant et faisant signer la pétition pour </strong></p>
+<p><a href="https://www.change.org/p/sauver-le-centre-d-accueil-et-de-crise-ginette-amado"><strong>sauver-le-centre-d-accueil-et-de-crise-ginette-amado</strong></a></p>
+
+<p class="rubrique">Culture et santé : </p>
+
+<p align=center>FOU RIRE : le seul podcast qui parle de la fondation fondame(n)tal, raconte l'e-santé mentale, chante le passeport bipolaire, musicalise la collecte de data, électronise la psychiatrie qui attache, partitionne la surdité médicale, mélodise la contention chimique, martèle la domination, lancine l'enfermement, pulse la lobotomie, sarkozyse l'hôpital psychiatrique sécuritaire - scande d'ironiques et glaçants interludes - tout en décochant en rythme les items du DSM. </p>
+<p>Mais FOU RIRE fredonne aussi les alliances et clame la solidarité qui se trouve là où on ne l'attend pas... </p>
+<p>❝Comme tu l'as peut-être compris, Fondamétal se loge là où d'autres tombent ❞</p>
+<p>🔗C'est à écouter, partager, (s')offrir, juste là : <a href="https://fondametal.bandcamp.com/album/fou-rire">https : //fondametal. bandcamp. com/album/fou-rire</a></p>
+<p align=center>Moi, je me le réécoute la tête réchauffée au soleil du Printemps ! </p>
+<p>« 𝘍𝘰𝘶 𝘙𝘪𝘳𝘦 𝘦𝘴𝘵 𝘭𝘢 𝘮𝘢𝘪𝘨𝘳𝘦 𝘤𝘰𝘯𝘵𝘳𝘪𝘣𝘶𝘵𝘪𝘰𝘯 𝘥𝘦 𝘴𝘦𝘴 𝘢𝘶𝘵𝘦𝘶𝘳·𝘪𝘤𝘦𝘴 𝘢𝘶 𝘷𝘢𝘴𝘵𝘦 𝘦𝘵 𝘱𝘢𝘳𝘧𝘰𝘪𝘴 𝘣𝘪𝘦𝘯 𝘱𝘢𝘶𝘷𝘳𝘦 𝘥𝘦́𝘣𝘢𝘵 𝘴𝘶𝘳 𝘭𝘢 𝘱𝘴𝘺𝘤𝘩𝘪𝘢𝘵𝘳𝘪𝘦 𝘤𝘰𝘯𝘵𝘦𝘮𝘱𝘰𝘳𝘢𝘪𝘯𝘦. 𝘌𝘯𝘵𝘳𝘦 𝘭ʼ𝘪𝘭𝘭𝘶𝘴𝘪𝘰𝘯 𝘴𝘦́𝘥𝘶𝘤𝘵𝘳𝘪𝘤𝘦 𝘥𝘦 𝘭ʼ𝘪𝘯𝘯𝘰𝘷𝘢𝘵𝘪𝘰𝘯 𝘴𝘤𝘪𝘦𝘯𝘵𝘪𝘴𝘵𝘦 𝘯𝘦́𝘰𝘭𝘪𝘣𝘦́𝘳𝘢𝘭𝘦 𝘦𝘵 𝘭𝘢 𝘯𝘰𝘴𝘵𝘢𝘭𝘨𝘪𝘦 𝘥'𝘶𝘯 𝘢̂𝘨𝘦 𝘥ʼ𝘰𝘳 𝘱𝘦𝘳𝘥𝘶 𝘥ʼ𝘶𝘯𝘦 𝘱𝘴𝘺𝘤𝘩𝘪𝘢𝘵𝘳𝘪𝘦 𝘧𝘢𝘯𝘵𝘢𝘴𝘮𝘦́𝘦, 𝘭𝘢 𝘱𝘰𝘴𝘪𝘵𝘪𝘰𝘯 𝘮𝘦́𝘥𝘪𝘤𝘢𝘭𝘰-𝘤𝘦𝘯𝘵𝘳𝘦́𝘦 𝘦𝘴𝘵 𝘵𝘰𝘶𝘫𝘰𝘶𝘳𝘴 𝘭𝘢 𝘮𝘦̂𝘮𝘦. 𝘓ʼ𝘪𝘯𝘧𝘢𝘯𝘵𝘪𝘭𝘪𝘴𝘢𝘵𝘪𝘰𝘯 𝘢̀ 𝘵𝘰𝘶𝘴 𝘭𝘦𝘴 𝘦́𝘵𝘢𝘨𝘦𝘴. 𝘐𝘦𝘭𝘴 𝘱𝘳𝘦́𝘧𝘦̀𝘳𝘦𝘯𝘵 𝘦𝘯 𝘳𝘪𝘳𝘦 𝘦𝘵 𝘴𝘦 𝘵𝘰𝘶𝘳𝘯𝘦𝘳 𝘷𝘦𝘳𝘴 𝘭𝘦𝘴 𝘮𝘰𝘶𝘷𝘦𝘮𝘦𝘯𝘵𝘴 𝘢𝘶𝘵𝘳𝘦𝘮𝘦𝘯𝘵 𝘱𝘭𝘶𝘴 𝘷𝘪𝘷𝘢𝘯𝘵𝘴, 𝘩𝘢𝘣𝘪𝘵𝘦́𝘴 𝘱𝘢𝘳 𝘭𝘦𝘴 𝘱𝘳𝘦𝘮𝘪𝘦𝘳·𝘦𝘴 𝘤𝘰𝘯𝘤𝘦𝘳𝘯𝘦́·𝘦𝘴. » </p>
+
+<hr />
+
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

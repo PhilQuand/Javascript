@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrGXaJgGB-kQBxCb43FJtqriph3LSMA25wI115wOwJc9vrcZ5cjR9Q7VlsTQ_C9skiCNt64yjh3TMWCyzPIRqorlrpToXBa62q3m3FCCOMuaj5JMtgWYsZwd5JdjmU4u7RoleJ0bqtP8D1hR1U_NSysn-92ApZY0XWYHXlPzKI7FqGU4a1T6pup7YaBpA/s1600/visuel%2014%20mars%20tours.png",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj67ajbXIDGExG1CwjymZ97bPmLqFDto6GL_8Krx47BZ1Olsekq0J4r4kY7sWehrDbBz-szvEWq-Gh8HdWsZS7uatRVFtn2s_PytTYOxvo8xU-cQq2wZvW6WGFk9eMQfB6PwpjW7EALrA_Msn5XlupA6swUhppxkH7lE6u6VNsj0oF5OUWUvUmi7mengBI/s1600/affiche%207%20avril%20tours.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -860,26 +860,28 @@ $(document).ready(function() {
                   },*/
            {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyV-LD9z2QHMKXkXPWjEQ93diG7ygOmK9tyAECwgAwUytqfkj72B42ufljnAJXG_h65pOb59A6ciLy7RmfEaeeNAVemOxrTU_xkkt5sd1ETYCWEOQi94pl1jz9_4kmPiflaIvjX3HG7yi0PCgywtk_xCQf6NJwlrj95VX3mQADYia5SMWm-BAvDEt_NXU/s1600/NON%20au%20RACISME%20appel%2014%20mars%20tours.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj67ajbXIDGExG1CwjymZ97bPmLqFDto6GL_8Krx47BZ1Olsekq0J4r4kY7sWehrDbBz-szvEWq-Gh8HdWsZS7uatRVFtn2s_PytTYOxvo8xU-cQq2wZvW6WGFk9eMQfB6PwpjW7EALrA_Msn5XlupA6swUhppxkH7lE6u6VNsj0oF5OUWUvUmi7mengBI/s1600/affiche%207%20avril%20tours.jpg"
           },
+           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjqO2uIEtODdpIOb9qkmZwFlmeIzfQO54mqTRKD-RgeRaaCCCHdU6oZt7ZrMWVKw7hvuY0CyEV4pP0X_qXYr_PXU3YvOJaQ3flB5AXbCvscBqsfExGo3I07VSVeUXLOiNn-htx39q_gMWymCxKgalA8nEoYl-lbvPoLK1d4Naw9fnxHkz35rk9DOISqUc/s1600/tract%207%20avril%20recto.jpg"
+          },
+           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgi-O4eLulzf6PBN2VR1yOH6Oj8u-ttkfHIkz8GW8a5Ou9VeI2dw_VWSojIkBwz2KkkYRT5s7jGF951BhMvAwdmEGjw5SWwxJDF_HzxB-d9Jpg8fWN95vmdJtaTvAWucXNnzpshzS5DpZVYVhUpjRkRamMaXKsM6JFcFYiRfb_TMCe7M1a-wgLl0xLQUs0/s1600/tract%207%20avril%20verso.jpg"
+          },
+          /*
           {
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr9PhSE8MjaJFptsyfyvuBzELB2So57aO11PuW2e8j4MntCaCS8YEsmKyLC1e888TG2ulrkbX4Gr2EWOTjKSBo-WgGxIX0B6sYTxYGxQBaDBuwvy7MvL9i7ips-Iw27JZK0PoPFHjQ2Ge-WpWrpHA7qXhJxDUaTFZmXerD5Eo_gPYbVxeBY5IacNTPArk/s841/Communique%CC%81%20TDFS%20janvier%202026.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/CommuniqueTDFSJanvier2026.pdf"
           },
-          /*{
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgE0O0qrI_VbWXtwiIY3JeOBYabYnAuymVE67X87p31-uQ7WCa-5x5c2bqs-z8AzQhF_bZy-THrVBh7Ws_zWlxQxVr02QfJXWzSVW6pTSP6ArLOxy8EtmtV6FOC4iwmjAfhqtu3fBpM65NMTtolFP39K40RqrZ51g_iQHA17z_q72Cv_IZrioUPr0j3Liw/s1600/FB_IMG_1759405213861.jpg"
-          },
-            {
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt1ew-Z9oSbRfoSi58ox7m6ID0h6YIaDAnjoAR8VM1ph2LH4z8p3Mw0cMWjquxGERgm3nFEuG97-2csOx6trPN3FYnnQHcWd2KCOcRGQqMydn7n5HrbpOF80SErOUwwcnhUwr9ud9MYguvGwJENN1Pi2yoCVwUT0aLAsjVuVM1kqbFPKHMEE8AHuQ_RSI/s1600/FB_IMG_1759405146663.jpg"
-          },
           {
             dataType: "video",
             //dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0"
             dataSrc: "https://www.youtube.com/watch?v=MfMWY6AgJ0I&amp;rel=0&amp;controls=0&amp;showinfo=0"
-          },*/
+          },
+          */
         ]
       });
     }).catch(function() {

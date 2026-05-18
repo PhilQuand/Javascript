@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Selon le baromètre 2026 de France Assos Santé quatre Français.e.s sur 10 ont un des difficultés pour obtenir un rendez-vous médical au cours des douze derniers mois écoulés. C’est encore moins bien que les années précédentes. Et quand un rendez-vous est obtenu, le délai en est trop long, ou encore il n’est obtenu qu’avec un praticien libéral pratiquant des dépassements d’ honoraires, de plus en plus fréquents y compris pour 50 % des malades en affection longue durée ( ALD ) dont le suivi et le traitement sont indispensables.</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+.titre-dossiers { 
+   margin-top: 10em;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 20</li>
+<li>Dates: Du 11 mai au 17 mai 2026</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/05/Infossemaine20du11au17mai2026.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito :</strong></p>
+<!--div class="CN-Edito">
+<p>Selon le baromètre 2026 de France Assos Santé quatre Français.e.s sur 10 ont un des difficultés pour obtenir un rendez-vous médical au cours des douze derniers mois écoulés. C’est encore moins bien que les années précédentes. Et quand un rendez-vous est obtenu, le délai en est trop long, ou encore il n’est obtenu qu’avec un praticien libéral pratiquant des dépassements d’ honoraires, de plus en plus fréquents y compris pour 50 % des malades en affection longue durée ( ALD ) dont le suivi et le traitement sont indispensables.</p>
+<p>De plus plusieurs millions d’entre nous ne trouvent pas de médecin traitant.</p>
+<p>D’après ce même baromètre, plus d’un quart des malades ont été confrontés à une pénurie de médicaments ( anticancéreux, les traitements du système cardio-vasculaire, les antibiotiques ou encore les psychotropes d’après l’ ANSM), taux qui atteint les 43 % pour les malades en ALD et 33 % pour les femme.</p>
+<p>Ce sont toujours les personnes les moins aisées, les plus malades qui sont le plus exposées à ces pénuries et pâtissent d’un moindre accès aux soins et à la santé dont les déterminants sociaux sont principaux.</p>
+<p>Agissons pour faire connaître, débattre et rassembler sous des formes diverses mais convergentes autour de nos propositions.</p>
+</div-->
+<p style="text-align:right">Henri (Sud Aveyron)</p>
+<!--div style="max-width: 600px; margin-left:auto; margin-right: auto; border: 0.5rem groove blue;">
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/01/Image_26_01_19_1.jpg" />
+</div>
+<div class="divText">
+<p style="font-size: larger; font-weight: bold">Depuis 2005 la Coordination rassemble, grâce au travail de Michel Antony, les données sur toutes les réductions d’activité des hôpitaux publics. </p> 
+</div></div>
+<p style="max-width:50%; margin-left:auto; margin-right:auto; font-size: larger; font-weight: bold"><a href="https://coordination-defense-sante.org/carte-des-fermetures/">Le lien vers les cartes et documents</a></p>
+</div-->
+<!--p style="clear:both"> </p>
+<p class="titre-rubrique">La Sécu, c’est vital ! </p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p!-->
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center" style="font-size: xxx-large; color: #6B9E51">La campagne « la Sécu c’est vital ! » </p>
+<p align="center"><strong>L’appel à mobilisation de la Convergence des services publics</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/Appel-Secu-2025-v1.pdf">Appel-Secu-2025</a></p>
+<p align="center"><strong>Des nouvelles de la</strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?utm_medium=custom_url&amp;utm_source=share_petition&amp;recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">pétition</a></p>
+<p>167 signatures recueillies par l’ADEMAT-H à Remiremont, 70 par l’ ADSP lors de la journée des associations de Luçon, des dizaines sur le marché de Concarneau, 4000 lors des permanences du comité de Sarlat devant l’ hôpital ! ! ! </p>
+</div-->
+
+<!--div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2026/05/Image_26_05_11_1.png" />
+</div>
+<div class="divText">
+<div class="CN-block">
+<p class="info-title">À la mémoire d’Yves JARDIN</p>
+<p>Yves Jardin nous a quitté à l’âge de 83 ans, ses obsèques auront lieu le mardi 12 mai à 10h30 à l’église Saint Herlé à Ploaré. Yves, membre fondateur et Président du Comité pour la Défense de l’Hôpital et le Droit à la Santé de Douarnenez, fut dès le début de l’aventure de la création de notre Coordination Nationale des Comités de Défense des Hôpitaux et Maternités de Proximité et toujours membre de son Conseil d’ Administration. <br /> Nous avons bénéficié de son humanisme chaleureux, de sa très grande culture et de son ouverture d’ esprit. Nous avons apprécié sa droiture, son exigence d’une opinion précisément argumentée, de sa très grande bienveillance. Nous partageons sa volonté de l’effectivité de l’accès aux soins et du droit à la santé. <br /> Beaucoup d’entre nous connaissent ses autres combats au sein du Secours Populaire, pour la paix, pour la Palestine, son engagement pour la langue et la culture bretonne, la création cinématographique. <br /> Yves a été un être humain à la fois humble et rayonnant, tenace dans ses engagements. Nous aimions l’entendre entonner des chants de lutte, d’espoir, en breton ou en français. <br /> Nous sommes à la fois tristes de ta disparition et heureux d’avoir milité à tes côtés. <br /> Merci Yves ! </p>
+<p class="info-title">hommage-a-Yves-Jardin de la part de ses amis</p>
+<p class="info-title">et les nombreux témoignages de reconnaissance de son œuvre militante</p>
+<p align=center><a href="https://quimper.maville.com/actu/actudet_-a-douarnenez-le-monde-du-cinema-rend-hommage-a-yves-jardin-decede-a-l-age-de-83-ans-_-7310081_actu.Htm">https://quimper.maville.com/actu/actudet_-a-douarnenez-le-monde-du-cinema-rend-hommage-a-yves-jardin-decede-a-l-age-de-83-ans-_-7310081_actu.Htm</a><p>
+<p align=center><a href="https://www.le-chiffon-rouge-morlaix.fr/2026/05/une-bien-triste-nouvelle-deces-d-yves-jardin-grand-militant-pour-l-hopital-public-et-de-la-solidarite-avec-la-palestine.html">https://www.le-chiffon-rouge-morlaix.fr/2026/05/une-bien-triste-nouvelle-deces-d-yves-jardin-grand-militant-pour-l-hopital-public-et-de-la-solidarite-avec-la-palestine.html</a></p>
+<p align=center><a href="https://www.ouest-france.fr/bretagne/quimper-29000/un-homme-profondement-humaniste-avec-des-convictions-ancrees-a-gauche-a-quimper-lhommage-a-yves-jardin-73dfedac-4b92-11f1-aaad-3dc0b7ad690d">https://www.ouest-france.fr/bretagne/quimper-29000/un-homme-profondement-humaniste-avec-des-convictions-ancrees-a-gauche-a-quimper-lhommage-a-yves-jardin-73dfedac-4b92-11f1-aaad-3dc0b7ad690d</a></p>
+</div>
+</div></div-->
+
+</div>
+
+<!--div class="VignetteBR flex right" style="max-width: 700px; margin-left:auto; margin-right: auto; align-items: center;">
+<div class="divImg" style="max-width: 250px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/04/Image-26-04-13-1.jpg" />
+</div>
+<div class="divText" style="padding: 1em">
+<p class="info-title" style="text-align: center; margin-bottom: 0">Jean Pierre PONTON, du comité d’Aubenas</p>
+<p class="info-title" style="text-align: center; margin-top: 0">vient de nous quitter</p>
+</div></div-->
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p class="info-title">à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </p>
+<p class="info-title">pour en finir avec les restes à charge pour les malades </p>
+<p class="info-title">agir en signant et en faisant signer massivement </p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p class="info-title">pour toutes vos initiatives publiques : </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+<!--p class="rubrique">LES INITIATIVES À VENIR</p>
+<div class="VignetteBR flex right" style="max-width: 700px; margin-left:auto; margin-right: auto; align-items: center;">
+<div class="divImg" style="max-width: 250px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/05/Image_26_05_11_2.png" />
+</div>
+<div class="divText" style="padding: 1em">
+<p class="info-title" style="font-size: xx-large;"><em><strong>FRÉQUENCE PARIS PLURIEL</strong></em></p>
+<p class="info-title"><strong>UN NOUVEAU MEDIA À DISPOSITION DES COMITÉS DE LA COORDINATION </strong></p>
+</div></div>
+<p>La Coordination nationale des comités de défense des hôpitaux et maternités de proximité s'est associée à la radio Fréquence Paris Plurielle (FPP) pour réaliser une émission sur les mobilisations engagées par ses comités adhérents et leurs soutiens aux personnels, familles et résidents d'Ehpad. </p>
+<p>Ce secteur est aujourd'hui en grande difficulté. Les actions se multiplient  jour après jour dans toute la France pour revendiquer de meilleures conditions de travail et de prises en soin des personnes âgées,  mais aussi pour permettre leur admission et maintien dans des établissements de proximité à des tarifs abordables.</p>
+<p>La Coordination a donné la parole à des agents hospitaliers, militants syndicaux et associatifs, élus, parents d'usagers dans les département du Loiret, de l'Aine et de Mayenne.</p>
+<p>Le  podcast sera diffusé le <em><strong>vendredi 15 mai à 12h30 </strong></em> sur les antennes de Radio Fréquence Paris Plurielle  <em><strong>106. 3 FM. </strong></em><strong> </strong></p>
+<p>Vous pourrez également l'écouter en direct sur <a href="http://rfpp.net/" target="_blank"><strong>rfpp. net</strong></a> ou retrouver l'émission après sa diffusion sur le site de la radio dans la rubrique actualités des luttes.</p>
+<p>Nous espérons poursuivre cette collaboration avec radio Fréquence Paris Plurielle et sa journaliste Nadia Menen à qui nous adressons nos chaleureux remerciements pour cette première diffusion. </p>
+<p>Nous remercions également la radio chalettoise C2L (Loiret) et Patrice Avezard qui ont assuré le montage de l'émission coordonnée par le Collectif Santé Est Loiret. </p>
+<p class="info-title"><strong>SARLAT</strong></p>
+<p class="info-title"><em><strong>conférence débat avec Gaëlle Krikorian autrice de Big Bad Pharma </strong></em></p>
+<p class="info-title"><em><strong>27 mai 20h30 Cinéma Rex </strong></em></p>
+<p>Les médicaments, un enjeu mondial de santé</p>
+<p>Et si les médicaments étaient considérés comme un bien commun ? les enjeux de l'industrie pharmaceutique et du droit à la santé. Une rencontre pour mieux comprendre les mécanismes qui influencent l'accès aux traitements dans le monde et échanger autour de solutions. </p>
+<p class="info-title">En collaboration avec Médecins du Monde</p>
+<p class="rubrique">LES INITIATIVES HEBDOMADAIRES DEVANT L’HÔPITAL</p>
+<p class="info-title" style="margin:0">jeudi 16H00 : Sarlat</p>
+<p class="info-title" style="margin:0">vendredi 17h00 : Marmande</p>
+<p class="info-title" style="margin:0">vendredi 18h00 : Luçon</p-->
+
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>OLORON</strong></p>
+<p class="info-title"><strong>"catastrophique", le service gériatrie de l'hôpital d'Oloron risque de fermer cet été</strong></p>
+<p>À partir du 26 juillet prochain, aucun médecin remplaçant n'a pour l'instant été trouvé pour assurer le maintien du service gériatrie à l'hôpital d'Oloron. La CGT s'inquiète d'une baisse de l'offre de soins générale sur le territoire. La direction se veut rassurante.</p>
+<p>Alors qu'un <a href="https://www.ici.fr/nouvelle-aquitaine/pyrenees-atlantiques-64/pau/pau-la-clinique-marzet-et-la-maternite-navarre-vont-fermer-plus-de-160-emplois-menaces-1431304">plan social menace plusieurs services de la Polyclinique à Pau</a>et que l'accès aux soins est au cœur de l'actualité, la CGT de l'hôpital d'Oloron alerte également sur leur situation. Le <strong>service gériatrie risque de fermer à partir du 26 juillet</strong>. Date à partir de laquelle aucun médecin remplaçant n'a été trouvé pour l'instant pour remplacer le départ de l'actuel praticien et assurer la pérennité du service.</p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>VOIRON</strong></p>
+<p class="info-title"><strong>Après les urgences adultes, les urgences pédiatriques menacées</strong></p>
+<p>depuis 2021, soit quelques mois après l'ouverture du Nouvel Hôpital de Voiron, les urgences adultes ont subi des "fonctionnements adaptés", comprendre des fermetures de nuit à partir de 18h.</p>
+<p>La mobilisation des syndicats, des soignants et des citoyens avec le Collectif Santé Voironnais a permis des investissements annoncés par l'ancien Ministre délégué Y.Neuder en mars 2025.</p>
+<p>Malheureusement, alors que les annonces du ministre ne sont pas encore toutes réalisées, la direction du CHUGA (CHU Grenoble-Alpes auquel est rattaché le CH de Voiron) annonce la fermeture des urgences pédiatriques toutes les nuits à partir du 4 mai.</p>
+<p>La cause en est le manque d'interne, conséquence de l'allongement de l'internat de 3 à 4 ans décidé en 2024).<br />Ce que la direction du CHUGA ne dit pas, c'est qu'il y a des candidats qui ne sont pas recrutés.</p>
+<p>Cette nouvelle dégradation du service risque d'en entraîner d'autres et de transformer à terme un hôpital de plein exercice en centre de consultation et de soins gériatriques.</p>
+<p>Le Collectif Santé Voironnais n'a pas été vraiment associé par les syndicats mais l'unité syndicale avance à l'occasion de cette mobilisation.</p>
+<p>Il a été décidé de se rassembler devant la direction du CHUGA ce mardi 19 mai à 14h avec demande de RdV.</p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>DECAZEVILLE (Aveyron)</strong></p>
+<p class="info-title"><strong>URGENCE POUR LES URGENCES</strong></p>
+<p>TOUS ENSEMBLE POUR L’HÔPITAL ET LE LE BASSIN DECAZEVILLOIS RELAIE L’APPEL DE L’INTERSYNDICALE DU PERSONNEL DU CENTRE HOSPITALIER DE DECAZEVILLE</p>
+<p>A SE MOBILISER MASSIVEMENT afin d’exiger des solutions immédiates et durables.</p>
+<p>RASSEMBLEMENT</p>
+<p>MARDI 19 MAI à 17h30 DEVANT L’HÔPITAL DE DECAZEVILLE:</p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>RAMBOUILLET</strong></p>
+<p class="info-title"><strong>Le Comité rencontre la Directrice du cabinet du Préfet</strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/2026/05/sud-yvelines-le-collectif-a-rencontre-la-directrice-du-cabinet-du-prefet/" target="_blank">Le communiqué</a></p>
+
+<p class="ville" style="background-color: #269932; color: #F7F7F7"><strong>St AFFRIQUE (Aveyron)</strong></p>
+<p class="info-title"><strong>Contre l’asphyxie du planning familial </strong>de l’Aveyron, rendez vous le jeudi 28 mai au petit carré d'art à 20h pour une réunion publique</p>
+<div class="VignetteBR flex right" style="max-width: 700px; margin-left:auto; margin-right: auto; align-items: center;">
+<div class="divImg" style="max-width: 250px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/05/Image_26_05_18_1.png" />
+</div>
+<div class="divText" style="padding: 1em">
+<strong>Devant l’hôpital de St Affrique a l’écoute des usagers et pour les informer, les représentants des usagers exclus des instances sont là ...on est là, on est là...</strong>
+</div></div>
+
+<p class="rubrique">Autres infos locales :</p>
+
+<p class="ville" style="background-color: #269932; color: #F7F7F7"><strong>St Etienne Conférence Interdite par le CHU</strong></p>
+<p class="info-title">L'association ALPACE, organise depuis 2025 un cycle de conférences à Saint-Étienne.</p>
+<p>Il s'agit de conférences ouvertes à tous les praticiens. Celles-ci avaient lieu dans les locaux du CHU de Saint-Étienne, avec qui une convention était signée, et qui louait un amphi à l'association. Parmi les participants, tout comme les intervenants, nombreux sont des professionnels du CHU.</p>
+<p>Le principe de ces conférences respecte l'état d'esprit de l'association, qui s'oppose à toute approche dogmatique et idéologique, et qui prône l'ouverture inter ou transdisciplinaire. Les conférences consistent, chaque fois, en un débat entre un intervenant et un discutant d'une autre discipline ou d'une autre pratique professionnelle.</p>
+<p>Après l'annonce de la dernière conférence, intitulée « Approches cliniques psychanalytiques des autismes : controverses et enjeux », et qui proposait un dialogue entre psychanalyse et neuropsychologie par des chercheurs et praticiens ouverts à l'altérité, la Direction du CHU a interdit cette conférence, ainsi que tout le cycle qui avait été programmé en 2026, sur des thématiques tout à fait autre.</p>
+<p>(…)</p>
+
+<p class="ville" style="background-color: #FC0100; color: #F7F7F7"><strong>Défense de la FONDATION VALLEE</strong></p>
+<p>Le personnel de la Fondation Vallée, mobilisé avant-hier avec un fort soutien de collègues de la pédopsychiatrie, de représentant·es des familles et d'élu·es, a voulu encore une fois faire entendre la réalité de ses pratiques et une toute autre histoire que celle racontée par les détracteurs de la Fondation.</p>
+<p>La mise en cause de la Fondation Vallée c'est la « suspension » de 60 lits d'hospitalisation en pédopsychiatrie (un quart des lits de la région Île de France), le dispatching de 75 membres du personnel et l'interruption des prises en charge de soins, éducatives et d'enseignement, réalisées jusqu'alors.</p>
+<p>Première impression, le nombre d'écharpes tricolores signalant la présence d'élus, des municipalités et du département du Val de Marne, du Maire de Gentilly, d'une députée et d'un sénateur... Signe que l'affaire prend un tour politique et devient « une affaire nationale » selon les termes ce dernier. Ce que confirme la présence de nombreux représentants de la CGT, locale (Fondation Vallée, Paul Guiraud), départementale, nationale. </p>
+<p>Un constat, alors que toute l'affaire a pour justification la protection des enfants, une membre de l'UNAFAM, connue et estimée pour sa liberté de parole, a tenu à dèfendre fortement et publiquement la qualité des soins apportés aux enfants pris en charge à la Fondation Vallèe. Elle explique même qu'il lui aurait été répondu que cette façon d'associer soins, pratiques éducatives et enseignement était trop coûteuse pour être jamais généralisée ! </p>
+<p>Et quand vous interrogez des soignants vous apprenez que certains enfants ont encore des couches à 7 ans, que des enfants de 8 ans n'arrivent pas à manger seuls et ne peuvent donc aller à la cantine, que les passages en IME sont une gageure et encore quand les jeunes patients ne sont tout bonnement pas écartés pour des troubles du comportement qui pourtant étaient gérés par les équipes en hospitalisation. A qui veut-on faire croire que ces prises en charge ne connaissent pas des moments de crise au cours desquels il faut bien protéger le patient lui même, de ses actes et de leurs conséquences et protéger les autres patients et les membres du personnel ?</p>
+<p>Quant au nœud de l'affaire, les soignants l'affirment haut et fort, ce que même le rapport de l'ARS est bien obligé de finir par reconnaître, « il n'y a pas de mesure de contention mécanique (ni sangles ni camisole) dans les services de la Fondation Vallée » ! N'en déplaise à certaines publication choisissant d'illustrer leur propos avec des images chocs de procédés de ce genre. La seule « contention » est celle des bras, tout simplement pour ramener le calme. </p>
+<p>Soit, mais ces lieux d'isolement ne sont ni aux normes ni satisfaisants avance l'ARS. Qui omet de dire que les équipes ne s'en sont jamais satisfait et ont sans succès sollicité des mises à jour des équipements et de même se sont toujours montrées favorables à des évolutions dans leurs façons de procéder. </p>
+<p>Alors certains commencent à soulever des questions. Si la situation était si dégradée qu'il ai fallut d'un coup « suspendre l'activité » de quatre unités d'hospitalisation, comment se fait-il qu'il n'y ai pas eu de signes avant-coureurs type mesures disciplinaires, déplacements, changement d'affectation, conseil de discipline... Est-ce que l'intégration de la petite Fondation Vallée dans le grand hôpital Paul Guiraud ne serait pas l'amorce d'un déplacement de la première sur le territoire du second ? libérant ainsi un espace très proche de la toute nouvelle station de la ligne 14 ? Interrogations formulées allusivement mais assez clairement pour être comprises et occupant visiblement l'esprit de nombre de responsables. Ce qui ajouterait un volet aménagement du territoire au volet sanitaire. </p>
+<p>Cri du cœur d'une responsable syndicale de la CGT évoquant l'affaire en général et le sort des familles en particulier, « c'est une catastrophe sanitaire ». Faisant ainsi écho à un représentant syndical rapportant que les équipes d'un service de l'hôpital de Saint Maurice, dans le Val de Marne, disaient subir des pressions pour recevoir un adolescent de 14 ans en service adulte, alors même que la limite de tolérance fixée par les autorités sanitaires elles même est de 15 ans. Tout ça après avoir taxé les professionnels de la Fondation Vallée d'avoir été dans l'illégalité ! </p>
+<p>Oui c'est une catastrophe sanitaire affectant les patients, leurs familles, les professionnels, les équilibres territoriaux... Mais dans la mesure où cette affaire implique des pratiques et des manœuvres de l'administration, le terme de « scandale sanitaire » serait plus approprié.</p>
+<p>A lire pour les abonné·es 👉 https://www.humanite.fr/societe/agence-regionale-de-sante/pedopsychiatrie-le-personnel-de-la-fondation-vallee-conteste-les-accusations-de-maltraitance</p>
+
+<p class="ville" style="background-color: #269932; color: #F7F7F7"><strong>NEUF CHATEAU (Vosges)</strong></p>
+<p class="info-title"><strong>Près de la moitié des lits de médecine fermée provisoirement à l'hôpital de Neufchâteau</strong>, faute de médecins remplaçants</p>
+<p>La direction de l'hôpital de Neufchâteau annonce qu'elle est contrainte de fermer provisoirement 17 des 38 lits de médecine de l'établissement faute de remplaçants. La fermeture va durer deux semaines à partir du lundi 18 mai.</p>
+<p>Malgré les recherches, la direction de l'hôpital de Neufchâteau, dans les Vosges, n'a pas trouvé les deux médecins remplaçants qu'elle espérait. Conséquence : <strong>17 des 38 lits de l'établissement seront provisoirement fermés du lundi 18 au dimanche 31 mai</strong>. Une décision prise <em>"dans un souci constant de garantir la qualité et la sécurité des prises en charge",</em> explique la direction dans un communiqué.</p>
+
+<p class="rubrique"><span style="display:none">Dossiers :</span>Initiatives :</p>
+
+<p class="titre-dossiers"><strong>Convergence Services Publics Ile de France</strong></p>
+<p class="info-title"><strong>Le 22 mai 1946 est la date de la loi de généralisation de la sécurité sociale. </strong></p>
+<p>Nous fêtons donc son 80 è anniversaire. La sécurité sociale existe toujours malgré tous les mauvais coups portés. Il demeure la coalition qui se dessine pour mettre à bas le système de financement par les cotisations, les appels répétés en faveur de la capitalisation pour les retraites ou des mutuelles/assurances pour la maladie, la ritournelle des discours nous expliquant que notre système de protection sociale n'est plus soutenable, etc...</p>
+<p>Nous appelons à un rassemblement le vendredi 22 mai à Paris, à côté de la Bourse du travail au 42-46 boulevard du temple, pour rappeler l'historique bien sûr mais surtout pour porter la nécessité de défendre et développer cet acquis social fondamental. Il constitue avec les l'ensemble des services publics, le socle d'une société solidaire.</p>
+<p><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/05/Image_26_05_18_2.jpg" /></p>
+<p class="titre-dossiers"><strong>EHPAD Pod Cast émission Coordination</strong></p>
+<p><strong>Pour celles et ceux qui n'ont pu écouter en direct l'émission faite par la Coordination diffusée sur la radio Fréquence Paris Pluriel, le podcast est maintenant accessible sur le site de la Coordination : </strong><em><strong><a href="https://coordination-defense-sante.org/2026/05/le-podcast-de-la-coordination-sur-les-ehpad-sur-radio-frequence-paris-pluriel/" target="_blank">https://coordination-defense-sante.org/2026/05/le-podcast-de-la-coordination-sur-les-ehpad-sur-radio-frequence-paris-pluriel/</a></strong></em></p>
+<p>Et en complément</p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/05/Webinaire-exceptionnel-du-comite-ethique-FHF-Avis-2025-2026-Pour-une-ethique-de-laccompagnement-des-personnes-vieillissantes-07-mai-2026.pdf">https://coordination-defense-sante.org/wp-content/uploads/2026/05/Webinaire-exceptionnel-du-comite-ethique-FHF-Avis-2025-2026-Pour-une-ethique-de-laccompagnement-des-personnes-vieillissantes-07-mai-2026.pdf</a></p>
+<p class="titre-dossiers"><strong>Violences dans le soin</strong></p>
+<p>" Vous me faites mal " La violence dans le soin</p>
+<p>Journées d'étude organisées par le collectif <em>A Contrepied </em>de la SERHEP </p>
+<p>mercredi 10 et jeudi 11 juin 2026</p>
+<p class="titre-dossiers"><strong>Tour de France de la santé</strong></p>
+<p>Prochaine réunion du Tour de France pour la Santé en visio le lundi 8 juin à 18H30</p>
+<p class="titre-dossiers"><strong>MUSEM 1<sup>er</sup> Juillet</strong></p>
+<p class="info-title"><strong>journée d'étude consacrée aux pratiques collectives en santé comme possible source de transformation sociale</strong>.</p>
+<p>Interviendront différents lieux de soins psychiques, primaires, palliatifs. Cette journée d'étude aura lieu le 1<sup>er</sup> juillet au MucemLab à Marseille. Elle est organisée dans un contexte de mobilisation des centres et maisons de santé communautaire contre la remise en cause de l'expérimentation SECPA (structures d'exercice coordonné participatives – article 51) et pour sa transposition dans le droit commun. <br />Tout est détaillé ici : <br /><a href="http://www.ateliersrefondationhopitalpublic.org/journee-detude-au-mucem-le-1er-juillet-les-pratiques-collectives-en-sante-sont-elles-une-source-de-transformation-sociale/" target="_blank">http://www.ateliersrefondationhopitalpublic.org/journee-detude-au-mucem-le-1er-juillet-les-pratiques-collectives-en-sante-sont-elles-une-source-de-transformation-sociale/</a>‌<br /><br />Attention, l'entrée est gratuite mais les inscriptions sont vivement conseillées en raison des places limitées. Pour s'inscrire, écrire à mucemlab@mucem.org‌</strong></p>
+
+<p class="rubrique"><strong>DOCUMENTS JURIDIQUES OU UTILES</strong></p>
+
+<p class="titre-dossiers"><em><strong>RN et MEDEF front commun contre la sécu</strong></em></p>
+<p><em>« Indexé sur le SMIC, le coût de l'allègement des charges patronales a augmenté de 30 milliards d'euros en 6 ans »</em></p>
+<p>« Le RN et Renaissance font front commun contre un probable coup de rabot du gouvernement sur les allégements de charges. Il s'agit pourtant d'éviter un effet d'aubaine. »</p>
+<p>(BFM-Business)</p>
+<p>Remarques :</p>
+<ul type="disc">
+<li>
+<p>On voit avec ces 30 milliards annuels pourquoi il y a des déficits de la Sécu et de l’Etat, d’autant que ce n’est qu’une partie de l’iceberg. Et ça n’empêche nullement les plans sociaux de s’accumuler.</p>
+</li>
+<li>
+<p>Le SMIC augmente avec l’inflation, largement consécutive aux guerres. Nous en sommes victimes. Les salaires sont loin de suivre (il faut regagner l’indexation des salaires sur les prix, et des retraites sur le salaire moyen)</p>
+</li>
+<li>
+<p>Augmenter le SMIC entraîne de façon automatique l’augmentation des allègements de cotisations sociales jusqu’à près de 3 fois le SMIC</p>
+</li>
+<li>
+<p>Avec la relance actuelle de l’inflation, le SMIC devrait augmenter en juin, ce qui entraînerait un nouvel effet d’aubaine que signale BFM B.</p>
+</li>
+<li>
+<p>Il y a débat s’il faudrait raboter cet effet d’aubaine au détriment de la Sécu, les finances publiques étant déjà suffisamment mal en point et Lecornu venant déjà de décider de geler 6 Md sur 2026, dont 1 Md sur la Sécu. Ça devient explosif.</p>
+</li>
+<li>
+<p>Le MEDEF, le RN, Renaissance, tous d’accord : il n’ y a jamais assez de cadeaux aux actionnaires, jamais assez de coupes budgétaires sur la protection sociale et les services publics</p>
+</li>
+</ul>
+
+<p class="rubrique"><strong>CULTURE</strong></p>
+
+<p class="titre-dossiers"><strong>PODCAST SUR LA SANTÉ MENTALE</strong></p>
+<p align=center><a href="https://www.radiofrance.fr/franceinter/podcasts/dans-l-oeil-de/dans-l-oeil-de-du-jeudi-14-mai-2026-8639851" target="_blank">https://www.radiofrance.fr/franceinter/podcasts/dans-l-oeil-de/dans-l-oeil-de-du-jeudi-14-mai-2026-8639851</a></p>
+<p>Il y est question de la lutte contre le narcotrafic et de l’initiative collective, d’un restaurant au quartier des Izarts à Toulouse pour éviter que les enfants ne soient embarqués dans la filière des narcotrafiquants. En préambule, vite dit en passant, mine de rien, ils disent, " le CMp ayant disparu" les enfants sont à l'abandon..<br />Voilà la solution de remplacement. On valorise cette initiative, sûrement bonne au demeurant, en laissant de côté la question en amont qui est celui de la fermeture des CMP.</p>
+
+<hr />
+
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

@@ -828,7 +828,7 @@ $(document).ready(function() {
     //$('.page_body').append('<a href="https://drive.google.com/file/d/1Ila5unZsOJhbzhpHHcVFs1eYc6Jt15TE/view?usp=sharing"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmZnl7IYrXUrbq4He9pTgmMsFoPkNMd0fdQDNsZp3Tl012Ev8mfQUAgXsccUZWhl0DgdpmwY2vqMzCvAybP7-xes7gH9Wr7LO6ehkOULdo8-G_krEwTjX64OoPhL9e8FUBHJ560M_lOeC2NdqKpC-Q_h7xP870HMnw4qKHKcefO1bQDnr4wpwfEFiHv8Q/s1600/TFS_2.jpg"/></a>');
     //$('.page_body').append('<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"><img class="img-foreground" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWEdxubYbXp7bsUA8EQi2CXR9YawEH2x1wDHtvCF8JkuBanbVpNtnrlBB7tPUN87tyYazkW5ljRcx-ELWzLglRPutt2W1W8ezxuG7H6KTuNoIUCcSc_p5gVHTWFuO-3YwWddw9j1NIKpWHFBl60cwL22jsQM2Oxt28PH_EkEGYY8dppruZza7ETSIR/s1600/SOIGNER%20AVEC%20LA%20PSYCHOTHE%3FRAPIE%20INSTITUTIONNELLE%202023.jpg"/></a>');
 
-    $('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
+    //$('.page_body').append('<div class="img-foreground"><div id="ACCEUIL-AlaUne"></div></div>');
 
   }
 

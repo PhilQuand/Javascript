@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>Au siècle dernier, quand un gouvernement voulait enterrer un problème, il créait une commission. Aujourd’hui faut être moderne alors on fait un audit, externe de préférence, ça permet d’arroser les amis ou alors on communique. Une très intéressante étude vient de sortir, pas du chapeau, non, de la très officielle DRESS - Direction de la recherche, des études, de l’évaluation et des statistiques , service interministériel ( <a class="noSplit" href="https://drees.solidarites-sante.gouv.fr/communique-de-presse/communique-de-presse/2600601_urgences-evolution-duree-de-passage-et-etapes">urgences-evolution-duree-de-passage-et-etapes</a>).</p>
+
+</div>
+<!--more-->
+<style>
+.banInfos {
+    visibility: hidden;
+}
+.corpsLettre { 
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<style>
+.Edito img {
+    width: 50%;
+    //max-width: 200px;
+}
+.infoComité img { 
+   width: auto;
+   max-width: 350px;
+}
+.titre-dossiers { 
+   margin-top: 10em;
+}
+</style>
+
+<div class="corpsLettreWeek">
+<ul>
+<li>Semaines: 24</li>
+<li>Dates: Du 08 au 14 juin 2026</li>
+</ul>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/Bulletin248au14juin2026.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<p style="font-size: xx-large;"><strong>Édito :</strong></p>
+<div class="CN-Edito">
+<p style="font-size: larger; font-weight: bold">Com, com, com !</p>
+<p>Au siècle dernier, quand un gouvernement voulait enterrer un problème, il créait une commission. Aujourd’hui faut être moderne alors on fait un audit, externe de préférence, ça permet d’arroser les amis ou alors on communique. Une très intéressante étude vient de sortir, pas du chapeau, non, de la très officielle DRESS - Direction de la recherche, des études, de l’évaluation et des statistiques , service interministériel ( <a class="noSplit" href="https://drees.solidarites-sante.gouv.fr/communique-de-presse/communique-de-presse/2600601_urgences-evolution-duree-de-passage-et-etapes">urgences-evolution-duree-de-passage-et-etapes</a>).</p>
+<p>Quels sont les enseignements principaux de cette étude , réalisée tous les 10 ans : </p>
+<ol>
+<li>En dix ans, la durée passée aux urgences s’est allongée pour tous les types de parcours de soin</li>
+<li>La moitié des patients admis en UHCD ( unité d’hospitalisation de courte durée ) passent plus de 17 h 30 aux urgences (+2 h 40 par rapport à 2013). Les passages sont plus longs dans les points d’accueil de plus forte affluence, quel que soit le type de parcours de soins. Les patients hospitalisés dans un autre service à la sortie des urgences (un patient sur six) ont des durées de passages plus longues que ceux qui rentrent à domicile à l’issue de leur passage. Elle est supérieure à 6 h 30 pour la moitié d’entre eux (+1 h 45 par rapport à 2013). </li>
+<li>Plus d’attente avant la prise en charge pour les personnes arrivées en début d’après-midi et dans les points d’accueil à forte affluence</li>
+<li>Obtenir un lit à la sortie des urgences est plus long pour les personnes âgées et dans les points d’accueil à forte affluence. Pour un patient sur dix concerné, plus de 6 h 10 sont nécessaires pour trouver un lit (+2 h 20 par rapport à 2013).</li>
+<li>enfin,4% des patients partent sans attendre, parfois contre avis médical, et 3 % ont été réorientés vers une autre offre de soin.</li>
+</ol>
+<p>Eh bien,que fait la Ministre ? Elle communique :</p>
+<p><a href="https://toute-la.veille-acteurs-sante.fr/243742/reduire-les-passages-evitables-et-desengorger-durablement-les-services-durgence-communique/">reduire-les-passages-evitables-et-desengorger-durablement-les-services-durgence-communique/</a></p>
+<p>il faut désengorger les urgences proclame-t-elle ! Alors que seuls 3 % des patients ont été réorientés vers d’autres professionnel.le.s du soin, elle proclame que 30 à 40 % des patients doivent aller ailleurs qu’ aux Urgences hospitalières ! De qui se moque-t-elle ? Les chiffres sont têtus : nous avons raison de dire et de répéter depuis des années que les urgences sont saturées, non pas parce que des malades ou blessés n’ont rien à y faire, mais parce que leurs capacités d’accueil est trop faible, que les lits d’aval ( d’hospitalisation ) sont trop peu nombreux. Et la situation s’aggrave. Communiquer n’arrangera rien, ce sont des moyens humains et matériels qu’il faut ! </p>
+<p>Il ne lui reste plus qu’à interdire aux malades et blessé.e.s de vivre en France . Alors les statistiques seront bonnes : la DMS ( durée moyenne de séjour) Graal des administrateurs, sera très courte ! Et les urgences désengorgées ! </p>
+<p align=right><p style="text-align:right">Jean-Luc Landas</p>
+</div>
+<!--div style="max-width: 600px; margin-left:auto; margin-right: auto; border: 0.5rem groove blue;">
+<div class="VignetteBR flex left" style="align-items: center;">
+<div class="divImg" style="max-width: 200px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/01/Image_26_01_19_1.jpg" />
+</div>
+<div class="divText">
+<p style="font-size: larger; font-weight: bold">Depuis 2005 la Coordination rassemble, grâce au travail de Michel Antony, les données sur toutes les réductions d’activité des hôpitaux publics. </p> 
+</div></div>
+<p style="max-width:50%; margin-left:auto; margin-right:auto; font-size: larger; font-weight: bold"><a href="https://coordination-defense-sante.org/carte-des-fermetures/">Le lien vers les cartes et documents</a></p>
+</div-->
+<!--p style="clear:both"> </p>
+<p class="titre-rubrique">La Sécu, c’est vital ! </p>
+<p align=center>l’appel à mobilisation de la Convergence des services publics</p> 
+<p align=center>Appel-Secu-2025</p>
+<p align=center>signez et faites signer la pétition</p>
+<div class="VignetteBR center">
+<div class="divImg" style="max-width: 600px;" align="center">
+<p style="color:blue">les initiatives des comités</p>
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2025/08/Image_1.jpg" />
+</div></div>
+<p><strong>Concarneau</strong> : permanence sur le marché de Concarneau lundi matin. Signature de la pétition sur la et distribution du tract-tva-sociale. Comme d'habitude, des discussions intéressantes et des adhésions pour le comité.</p>
+<p><strong>Sarlat</strong> : permanence hebdomadaire du jeudi devant l’hôpital, des centaines de signatures recueillies</p-->
+
+<!--div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2024/12/visuel1er-fevrier-.jpg" />
+</div></div>
+<p align=center><a href="https://coordination-defense-sante.org/2024/12/la-coordination-participe-a-la-journee-de-debat-sur-la-securite-sociale-organisee-par-convergence-des-services-publics/">Toutes les informations sur le site de Convergence des services publics</a></p-->
+
+<!--p><a href="https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https://www.vie-publique.fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale">https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale#https : //www. vie-publique. fr/loi/291211-plfss-2024-projet-de-loi-de-financement-de-la-securite-sociale</a></p>
+<p style="margin: 0 1em 0 1em; font-size: large; font-weight: bold; font-style: italic;" align="center"><a href="https://www.convergence-sp.fr/petition-plfss-2024/">Signez la pétition</a></p>
+<p align="center"> <a href="https://coordination-defense-sante.org/calendrier-des-initiatives-du-tour-de-france-pour-la-sante-28-10-23/">Le calendrier des initiatives du tour de France santé au 28/10/23</a></p!-->
+
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove red;"  align="justify">
+<p align="center" style="font-size: xxx-large; color: #6B9E51">La campagne « la Sécu c’est vital ! » </p>
+<p align="center"><strong>L’appel à mobilisation de la Convergence des services publics</strong></p>
+<p align="center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2025/06/Appel-Secu-2025-v1.pdf">Appel-Secu-2025</a></p>
+<p align="center"><strong>Des nouvelles de la</strong><a href="https://www.change.org/p/la-s%C3%A9cu-c-est-vital?utm_medium=custom_url&amp;utm_source=share_petition&amp;recruited_by_id=4c634230-62ed-11f0-824e-43f8cd0c8053">pétition</a></p>
+<p>167 signatures recueillies par l’ADEMAT-H à Remiremont, 70 par l’ ADSP lors de la journée des associations de Luçon, des dizaines sur le marché de Concarneau, 4000 lors des permanences du comité de Sarlat devant l’ hôpital ! ! ! </p>
+</div-->
+
+<!--div class="VignetteBR float left" style="align-items: center;">
+<div class="divImg" style="max-width: 300px;" align="center">
+<img class="skip-lazy" style="max-width: 300px;" src="https://coordination-defense-sante.org/wp-content/uploads/2026/05/Image_26_05_11_1.png" />
+</div>
+<div class="divText">
+<div class="CN-block">
+<p class="info-title">À la mémoire d’Yves JARDIN</p>
+<p>Yves Jardin nous a quitté à l’âge de 83 ans, ses obsèques auront lieu le mardi 12 mai à 10h30 à l’église Saint Herlé à Ploaré. Yves, membre fondateur et Président du Comité pour la Défense de l’Hôpital et le Droit à la Santé de Douarnenez, fut dès le début de l’aventure de la création de notre Coordination Nationale des Comités de Défense des Hôpitaux et Maternités de Proximité et toujours membre de son Conseil d’ Administration. <br /> Nous avons bénéficié de son humanisme chaleureux, de sa très grande culture et de son ouverture d’ esprit. Nous avons apprécié sa droiture, son exigence d’une opinion précisément argumentée, de sa très grande bienveillance. Nous partageons sa volonté de l’effectivité de l’accès aux soins et du droit à la santé. <br /> Beaucoup d’entre nous connaissent ses autres combats au sein du Secours Populaire, pour la paix, pour la Palestine, son engagement pour la langue et la culture bretonne, la création cinématographique. <br /> Yves a été un être humain à la fois humble et rayonnant, tenace dans ses engagements. Nous aimions l’entendre entonner des chants de lutte, d’espoir, en breton ou en français. <br /> Nous sommes à la fois tristes de ta disparition et heureux d’avoir milité à tes côtés. <br /> Merci Yves ! </p>
+<p class="info-title">hommage-a-Yves-Jardin de la part de ses amis</p>
+<p class="info-title">et les nombreux témoignages de reconnaissance de son œuvre militante</p>
+<p align=center><a href="https://quimper.maville.com/actu/actudet_-a-douarnenez-le-monde-du-cinema-rend-hommage-a-yves-jardin-decede-a-l-age-de-83-ans-_-7310081_actu.Htm">https://quimper.maville.com/actu/actudet_-a-douarnenez-le-monde-du-cinema-rend-hommage-a-yves-jardin-decede-a-l-age-de-83-ans-_-7310081_actu.Htm</a><p>
+<p align=center><a href="https://www.le-chiffon-rouge-morlaix.fr/2026/05/une-bien-triste-nouvelle-deces-d-yves-jardin-grand-militant-pour-l-hopital-public-et-de-la-solidarite-avec-la-palestine.html">https://www.le-chiffon-rouge-morlaix.fr/2026/05/une-bien-triste-nouvelle-deces-d-yves-jardin-grand-militant-pour-l-hopital-public-et-de-la-solidarite-avec-la-palestine.html</a></p>
+<p align=center><a href="https://www.ouest-france.fr/bretagne/quimper-29000/un-homme-profondement-humaniste-avec-des-convictions-ancrees-a-gauche-a-quimper-lhommage-a-yves-jardin-73dfedac-4b92-11f1-aaad-3dc0b7ad690d">https://www.ouest-france.fr/bretagne/quimper-29000/un-homme-profondement-humaniste-avec-des-convictions-ancrees-a-gauche-a-quimper-lhommage-a-yves-jardin-73dfedac-4b92-11f1-aaad-3dc0b7ad690d</a></p>
+</div>
+</div></div-->
+
+</div>
+
+<!--div class="VignetteBR flex right" style="max-width: 700px; margin-left:auto; margin-right: auto; align-items: center;">
+<div class="divImg" style="max-width: 250px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/04/Image-26-04-13-1.jpg" />
+</div>
+<div class="divText" style="padding: 1em">
+<p class="info-title" style="text-align: center; margin-bottom: 0">Jean Pierre PONTON, du comité d’Aubenas</p>
+<p class="info-title" style="text-align: center; margin-top: 0">vient de nous quitter</p>
+</div></div-->
+<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; border: 0.5rem groove #2e85cb; text-align: center"  align="justify">
+<div class="CN-block">
+<p class="info-title">à l’initiative de la Convergence nationale des collectifs de défense et de développement des services publics </p>
+<p class="info-title">pour en finir avec les restes à charge pour les malades </p>
+<p class="info-title">agir en signant et en faisant signer massivement </p>
+<p><strong>la </strong><a href="https://www.leslignesbougent.org/petitions/en-finir-avec-les-restes-a-charge-pour-les-malades-17430/"><strong>pétition</strong></a></p>
+</div>
+<p class="info-title">pour toutes vos initiatives publiques : </p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2024/05/la-petition-papier.pdf"><strong>la-pétition-papier</strong></a></p>
+</div-->
+
+<div>
+<p>Sommaire : </p>
+</div>
+
+<p class="rubrique écho_des_comités">L’écho des comités : </p>
+
+<p class="rubrique">LES INITIATIVES À VENIR</p>
+<p class="titre-rubrique"><em><strong>FRÉQUENCE PARIS PLURIEL ( 106,3 FM )</strong></em></p>
+<p class="info-title"><em><strong>un nouveau media à disposition des comités </strong></em></p>
+<p align=center><a href="https://coordination-defense-sante.org/2026/05/le-podcast-de-la-coordination-sur-les-ehpad-sur-radio-frequence-paris-pluriel/">le-podcast-de-la-coordination-sur-les-ehpad-sur-radio-frequence-paris-pluriel/</a></p>
+<p class="info-title"><em><strong>Tours : 16 juin appel intersyndical à un rassemblement avec les citoyen.ne.s dans la cour de l’ hôpital de Clochevile </strong></em></p>
+<div class="CN-block">
+<p>Parce que trop c'est trop... Définitivement !</p>
+<p>Parce que faire plus avec toujours moins, cela n'a JAMAIS été la solution... </p>
+<p>Parce que tous, les uns après les autres, les soignants de Clocheville s'épuisent à se battre contre les moulins à vent  et les mensonges de la direction et du gouvernement... </p>
+<p>Et surtout, parce que nous voulons soigner vos enfants, dans de bonnes conditions, avec "seulement"  les bâtiments adéquats et les moyens nécessaires. </p>
+<p>Nous ne demandons pas le luxe, nous demandons le juste et l'humain ! </p>
+<p>Nous avons besoin de TOUS, soignants, famille de soignants, patients et parents, habitants de la région, le 16 juin dans la cour de Clocheville  </p>
+<p>On compte sur vous..</p>
+</div>
+<p class="info-title"><em><strong>Quelle pédopsychiatrie pour demain ? 17 juin Mairie de Gentilly </strong></em></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/initiative-17-juin-fondation-Vallee-.pdf">initiative-17-juin-fondation-Vallee</a></p>
+<p  class="info-title"><strong>Luçon : 21 juin le village des irréductibles </strong></p>
+<p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/05/706219587_122179263992631437_8595242303796648874_n.jpg">l’affiche</a></p>
+<p class="rubrique">LES INITIATIVES HEBDOMADAIRES DEVANT L’HÔPITAL</p>
+<p class="info-title" style="margin:0">jeudi 16H00 : Sarlat</p>
+<p class="info-title" style="margin:0">vendredi 17h00 : Marmande</p>
+<p class="info-title" style="margin:0">vendredi 18h00 : Luçon</p>
+
+
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>LAVAL</strong></p>
+<p>Encore un médecin chef des urgences démis de ses fonctions ! Dites moi le nom du virus !</p>
+<p><a href="https://www.ici.fr/pays-de-la-loire/mayenne-53/laval/une-attaque-personnelle-des-praticiens-le-changement-de-chef-des-urgences-critique-a-l-hopital-de-laval-5386932"><strong>le-changement-de-chef-des-urgences-critique-a-l-hopital-de-laval</strong></a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/Exsasperation-d-AUDACE-53.pdf"><strong>Exasperation-d-AUDACE-53.</strong></a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>MONTCEAU LES MINES </strong></p>
+<p class="info-title">hôpital public : les exigences du CODEF </p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/Communique-CODEF-juin-26.pdf"><strong>Communique</strong></a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>NORD ESSONNE </strong></p>
+<p class="info-title">le comité répond au rapport de la Cour des Comptes Régionale </p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/HOPITAL-CRC-Ile-de-France-reponse.pdf">la reponse.</a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>CHALETTE SUR LOING </strong></p>
+<p class="info-title">les nouvelles de l’activité du comité </p>
+<p>Le <strong>festival Music 'O 'Loing </strong>au lac de Chalette : Une belle fête populaire attendue impatiemment chaque année. <strong>Beaucoup de passages sur notre stand</strong> pour signer la pétition sur les dépassements d'honoraires et souscrire une adhésion.</p>
+<p>Lors du concert hier soir, l'un des musiciens nantais à lu au public la plaquette de notre Collectif, invitant le public à nous rejoindre dans les luttes en santé. Merci l'artiste !</p>
+<p class="info-title"><em><strong>projection-débat de «  Au bord du monde » :</strong></em><strong> une séance réussie</strong>.</p>
+<p>Une soixantaine de personnes sont venues assister à la projection du très beau film de Guérin Van de Vorst. Le long débat qui a suivi nous a permis d'échanger sur le travail des soignants et les protocoles de soins. Beaucoup de questions concernant la contention et les traitements des patients en situation de crise. Plusieurs infirmiers et aides-soignants exerçant dans des services de psychiatrie ont témoigné de leur efficacité, malgré le sentiment de violence qu'ils suscitent. Protéger, soigner mais aussi accompagner les personnes dans leurs projets de vie à l'extérieur de l'hôpital. Le constat est ici unanime : manque de moyens et de personnels pour agir hors les murs et trouver  des services et structures adaptées.</p>
+<p>Il fut aussi question des droits des patients, des rapports d'autorité et du poids de l'institution dans le fonctionnement des équipes.</p>
+<p>Merci Guérin, ce fut une belle rencontre et réflexion collective ! </p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>DIGNE LES BAINS </strong></p>
+<p class="info-title">dès le mois prochain, le centre hospitalier de Digne-les-Bains ne comptera plus qu'un seul et unique pédopsychiatre hospitalier pour couvrir l'ensemble des Alpes-de-Haute-Provence</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/lettre-ouverte-dun-simple-citoyen-des-Alpes-de-Haute-Provence.pdf"><strong>lettre-ouverte-dun-simple-citoyen-des-Alpes-de-Haute-Provence</strong></a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>CHÂTEAUDUN</strong></p>
+<p align=center>Le comité reçu par le Maire de la commune :</p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/CHATEAUDUN-CR-entrevue-avec-Maire-1er-juin-26.pdf"><strong>CR-entrevue-avec-Maire-1er-juin-26.pdf</strong></a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>NANTES</strong></p>
+<p><strong>Mardi 9 juin</strong>, le collectif a participé à l’initiative du syndicat CGT du CHU de Nantes , place Royale : témoignages , scénettes, chansons ont illustré l’exigence d’obtenir des moyens pour la Sécu, la santé, l’hôpital , le social , l’exigence de faire le choix de l’ humain.</p>
+<p><strong>Mercredi 10 juin</strong> : soutien du rassemblement organisé à la guinguette d’ Ancenis, sur les bords de Loire, au collectif de soignant.e.s du Centre Hospitalier Erdre et Loire qui réclame des moyens pour réaliser les promesses de l’ ARS : maintien d’un hôpital territorial de plein exercice. Les médecins continuent leur non participation aux instances de l’ établissement.</p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>CHARLEVILLE MÉZIÈRES</strong></p>
+<p class="info-title">le comité comité d’agir pour l’amélioration et l’humanisation de l’ accueil aux urgences </p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/tract-juin-Charleville.pdf"><strong>tract-juin</strong></a></p>
+
+<p class="rubrique">Autres infos locales :</p>
+
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>TRAPPES</strong></p>
+<p class="info-title">Ramsay veut faire passer la maternité à la Trappe, la colère s’est exprimée le 12 juin </p>
+<p><a href="https://france3-regions.franceinfo.fr/paris-ile-de-france/yvelines/c-est-une-creation-de-desert-medical-la-fermeture-d-une-maternite-provoque-la-colere-dans-les-yvelines-3368155.html"><strong>c-est-une-creation-de-desert-medical-la-fermeture-d-une-maternite-provoque-la-colere-dans-les-yvelines</strong></a></p>
+<p><a href="https://actu.fr/ile-de-france/trappes_78621/il-y-en-a-besoin-cest-vital-mobilisation-contre-la-fermeture-de-la-maternite-de-trappes_64395258.html"><strong>il-y-en-a-besoin-cest-vital-mobilisation-contre-la-fermeture-de-la-maternite-de-trappes</strong></a></p>
+<p class="info-title">le rassemblement en image </p>
+<p><a href="https://collectifhopitalrambouilletblog.wordpress.com/"><strong>https://collectifhopitalrambouilletblog.wordpress.com/</strong></a></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/Declaration-du-collectif-Hopital-Sante-publique-sud-Yvelines-1.pdf"><strong>Declaration-du-collectif-Hopital-Sante-publique-sud-Yvelines-1.pdf</strong></a></p>
+
+<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>TARBES</strong></p>
+<p class="info-title">fermeture du site de l’Ayguerote : temporaire ? </p>
+<p><a href="https://www.ici.fr/emissions/l-info-d-ici-ici-bearn-bigorre/tarbes-les-salaries-du-site-de-l-ayguerote-inquiets-apres-l-annonce-de-la-fermeture-temporaire-du-service-5653239"><strong>les-salaries-du-site-de-l-ayguerote-inquiets</strong></a></p>
+
+<p class="rubrique">Dossiers :</p>
+
+<p class="titre-dossiers"><strong>CENTRE DE SANTÉ</strong></p>
+<p class="titre-rubrique"><strong>une étape dans la reconnaissance du rôle des centres de sant é dans la transformation du système de santé </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/CP_Signature_de_lavenant_1_a_laccord_national_des_centres_de_sante-1.pdf"><strong>le communiqué </strong></a></p>
+<p class="titre-rubrique"><strong>et à Agen, la municipalité engage une réflexion sur la création d’ un centre de santé </strong></p>
+<p><a href="https://www.sudouest.fr/economie/social/une-alternative-au-liberal-la-ville-d-agen-reflechit-a-construire-un-centre-de-sante-municipal-29428506.php"><strong>l'article</strong></a></p>
+<p class="titre-dossiers"><strong>SANTÉ MENTALE , PSYCHIATRIE </strong></p>
+<p class="titre-rubrique"><strong>un plan ce n’est pas que de la com ! </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/Communique-intersyndical-080626.pdf"><strong>Communique-intersyndical</strong></a></p>
+<p>Pendant ce temps-là, dans la vraie vie, loin des discours et de la com' gouvernementale se félicitant de la reconduction de la « Grande cause nationale santé mentale » en 2026, regardons ce qu'il se passe 𝗿𝗲́𝗲𝗹𝗹𝗲𝗺𝗲𝗻𝘁 pour les concerné·es, patient·es, familles et soignant·es.</p>
+<p>Deux jours seulement après que la Ministre de la Santé ait annoncé que tout jeune "repéré" par l'Éducation nationale" comme "ayant un trouble éventuel de santé mentale" serait reçu par un pédopsychiatre, psychiatre ou psychologue dans les 24 à 48h, un énième lieu de soins pour adolescent·es ferment. C'est <strong>en Charente, hôpital Camille Claudel</strong>. </p>
+<p>❌ 10 lits d'hospitalisation complète</p>
+<p>❌ pénurie médicale : 2,2 équivalents temps plein (ETP) en pédopsychiatrie</p>
+<p>❌ 3 médecins pour une file active de 3 000 enfants</p>
+<p>En conséquence, celles et ceux qui restent s'épuisent </p>
+<p>❌ Tentative de diviser le nombre de lits par deux </p>
+<p>❌ Mais finalement c'est une fermeture complète ce 5 juin</p>
+<p>Il faudra donc maintenant compter sur la "solidarité" des établissements hors-département pour hospitalier les adolescent·es... loin de leur famille.</p>
+<p>▪️ Source : <a href="https://lnkd.in/eTezvKEb">https://lnkd.in/eTezvKEb</a></p>
+<p><strong>Et à Pau,</strong> 24 lits de psychiatrie sont fermés.</p>
+<p>🔴 [🆂🅴🆁🅸🅴]Dans les épisodes précédents... on a parlé de structures d'accueil, d'accompagnement et de soins du sanitaire, du médicosocial, de l'associatif, du scolaire... on a traversé la France de part en part : Bruyère, Lyon, Saint-Denis, Laval, Loire-Atlantique, Perpignan, Guadeloupe, Sarthe, Paris, Redon, Aveyron, Yonne, La Seyne-sur-Mer, Melun, Vienne, Cholet, Nantes, Digne-les-Bains, Saône-et-Loire... </p>
+<p>Tous les épisodes sont à retrouver ici 👉 https://lnkd.in/eTuwhHEi</p>
+<p class="titre-rubrique"><strong>À Marseille aussi , expertiser n’est pas soigner ! </strong></p>
+<p>La Fondation Fondamental, qui organisait ce vendredi 12 la première journée d'une tournée des CHU pour vanter les modèles des centres experts et de la médecine de précision, s'est fait accueillir en beauté par un trentaine de militants (usager.e.s et professionnel.le.s) venus dénoncer leurs désinformation scientifique et politique. Deux actions au programme à l'appel du collectif SoinSoin : tractage et rassemblement devant la faculté de médecine et infiltration de la conférence pour imposer des questions, non prévues dans le programme. Marion Leboyer, confrontée et excédée, s'est contentée de botter en touche sur la plupart des questions ; les psychiatres marseillais présents dans la salle ont appelé au dialogue ; le directeur de l'APHM François Crémieux, présent pour ouvrir la journée est très sollicité par nos questions, s'est engagé à monter en étude en sciences sociales sur le fonctionnement des centres experts à Marseille... Mission accomplie côté Marseillais.</p>
+<p><a href="https://www.laprovence.com/article/societe/9196724071160614/expertiser-nest-pas-soigner-a-marseille-soignants-et-patients-denoncent-une-uberisation-de-la-psychiatrie"><strong>soignants-et-patients-denoncent-une-uberisation-de-la-psychiatrie</strong></a></p>
+<p class="titre-rubrique"><strong>Où en est le soin psychique en France ? </strong></p>
+<p class="info-title"><strong>Le point de vue du Syndicat National des Psychologues </strong></p>
+<p><a href="https://vimeo.com/1200362050?&amp;login=true"><strong>https://vimeo.com/1200362050</strong></a></p>
+<p class="info-title"><strong>la Convergence des psychologues en lutte dénoncent la pression gestionnaire </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/Psychologues-et-structures-publiques-sous-pression-gestionnaire-1.pdf"><strong>le communiqué </strong></a></p>
+<p class="titre-dossiers"><strong>COLLOQUE AU SÉNAT, POUR DÉFENDRE LA DIMENSION PSYCHIQUE </strong></p>
+<p><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/06/CR-colloque-6-juin-Senat-pdf.pdf"><strong>Compte-rendu</strong></a></p>
+<p align=center>santé psychique des étudiant.e.s en santé</p>
+<p><a href="https://france3-regions.franceinfo.fr/normandie/eure/evreux/on-n-est-pas-des-super-heros-une-exposition-brise-le-tabou-de-la-souffrance-des-soignants-3366958.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=normandie&amp;at_offre=4&amp;at_variant=V2&amp;at_send_date=20260612&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1317440&amp;at_highlight"><strong>on-n-est-pas-des-super-heros-une-exposition-brise-le-tabou-de-la-souffrance-des-soignants</strong></a></p>
+<p class="info-title" style="margin-bottom:0"><strong>Dépassements d’honoraires :</strong></p>
+<p class="info-title" style="margin-top:0"><strong>une raison de plus de renforcer les comités et de s’y opposer </strong></p>
+<p><a href="https://www.franceinfo.fr/sante/sante-si-rien-ne-change-en-2040-90-des-specialistes-feront-des-depassements-d-honoraires-previent-le-hcaam_8051570.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=sante&amp;at_offre=3&amp;at_variant=V3&amp;at_send_date=20260609&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1315457" target="_blank"><strong>si-rien-ne-change-en-2040-90 %-des-specialistes-feront-des-depassements-d-honoraires-previent-le-hcaam_</strong></a></p>
+
+<p class="rubrique">Culture et Santé</p>
+
+<p class="info-title"><strong>D’après le dernier rapport du Défenseur de droits, Claire Hédon, le 9 avril dernier il apparaît que le lien entre les citoyens et les services publics se dégrade de manière préoccupante. Le document révèle une érosion profonde de l’accès aux droits en France, un pilier fondamental du pacte républicain qui semble aujourd’hui vaciller sous le poids de réformes mal maîtrisées.Quelles sont ces réformes ? En quoi l’accès aux droits est-il menacé ? Qui sont les plus vulnérables ? Les plus exclus ? Et quelles sont les solutions ?</strong></p>
+<p class="info-title"><strong>Pour saisir le Défenseur des droits, vous pouvez appeler le 3928, la plateforme antidiscrimination ou faire une saisine sur la site <a class="noSplit" href="https://www.defenseurdesdroits.fr/" target="_blank">Défenseur des Droits</a></strong></p>
+<p><a href="https://www.radiofrance.fr/franceculture/podcasts/carnets-de-sante/pour-la-defenseure-des-droits-claire-hedon-la-promesse-republicaine-est-de-faire-respecter-les-droits-de-tous-5773310"><strong>carnets-de-sante/pour-la-defenseure-des-droits-claire-hedon-la-promesse-republicaine-est-de-faire-respecter-les-droits-de-tous</strong></a></p>
+
+<hr />
+
+<!--div style="max-width: 950px; font-size: medium; line-height: 1.5; background-color: #E3FCFF; border: solid #77AFDB; margin-left: auto; margin-right: auto" align="center">
+<div class="VignetteBR flex left">
+<div class="divImg" style="max-width: 150px;">
+<img class="skip-lazy" src="https://3.bp.blogspot.com/-ijVJGBnshy0/XZWmmCajqoI/AAAAAAAAkGQ/qASlC4Dug1UGhkmAwvW6edL4TEatgnkpQCK4BGAYYCw/s1600/Banni%25C3%25A8re%2BCoordination.jpg" /></div>
+<div class="divText">
+<p style="margin: 0; font-weight: bold;">COORDINATION NATIONALE des Comités de Défense des Hôpitaux et Maternités de Proximité</p>
+<p style="margin: 0; font-style: italic;">(Fondée à Saint Affrique en avril 2004)</p>
+<p style="margin: 0" >Siège social : 1 rue Jean Moulin 70200 LURE</p>
+<p style="margin: 0; font-weight: bold;">Adresse postale : Chez JL Landas - 26 rue Gambetta - Avenue Mich - 44000 Nantes</p>
+<p style="margin: 0" >SIREN : 503 711 988 - SIRET : 503 711 988 00025</p>
+<p style="margin: 0; font-weight: bold;">Association agréée - Arrêté du 06/06/2018 - N2017RN0146</p>
+<p style="margin: 0">Site : <a href="http://coordination-defense-sante.org/">http : //coordination-defense-sante. org/</a> Facebook <a href="https://www.facebook.com/Coordinationdefensesante">https : //www. facebook. com/Coordinationdefensesante</a></p>
+<p style="margin: 0">Contact : <a href="mailto:cda12550@coordination-defense-sante.org">cda12550@coordination-defense-sante. org</a></p>
+<p style="margin: 0"><b>Présidente</b> : Michèle LEFLON <a href="mailto:michele.leflon@orange.fr">michele. leflon@orange. fr</a></p>
+<p style="margin: 0">Adresse : 34 Rue de la Porte de Bourgogne - 08000 Charleville-Mézières - Tél 06 08 93 84 93</p>
+<p style="margin: 0"><b>Secrétaire</b> : Rosine LEVERRIER <a href="mailto:boudchoum@wanadoo.fr">boudchoum@wanadoo. fr</a></p>
+<p style="margin: 0">Adresse : 5 Rue Barbey d'Aurévilly - 14500 VIRE - Tél 02 31 67 07 54 - 06 41 29 08 02</p>
+<p style="margin: 0"><b>Trésorier</b> : Jean-Luc LANDAS <a href="mailto:jeanluc.landas@sfr.fr">jeanluc. landas@sfr. fr</a></p>
+<p style="margin: 0">Adresse : 26 rue Gambetta - Avenue Mich - 44000 Nantes - Tél : 07 50 45 06 87</p>
+</div>
+</div>
+</div-->
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        /*[{
+          class: "marker-1",
+          icon: simpleBlueIcon,
+          title: 'Échos',
+        }, {
+          class: "marker-2",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir',
+       }, {
+           class: "marker-3",
+          icon: simpleRedIcon,
+          title: "Les actions hebdomadaires devant l'hôpital",
+       }, {
+         class: "marker-4",
+          icon: simpleGreenIcon,
+          title: 'Autres infos locales'
+       }]*/
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

@@ -5,7 +5,7 @@
         }, 
           svgInfos: ['Semaine 26', 'du 22 juin', 'au 28 juin', '2026'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2026/Semaine 26.html',
-          idGlinkID: 'PreviousLetters'
+          idGlinkID: 'PreviousLetters',
         }, 
                   {
           svgInfos: ['Semaine 25', 'du 15 juin', 'au 21 juin', '2026'],

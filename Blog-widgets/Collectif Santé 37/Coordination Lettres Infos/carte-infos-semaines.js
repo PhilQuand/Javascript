@@ -1389,7 +1389,8 @@
 
     //$(document).ready(function() {
     if ($("#idInfosComités").length) {
-      var mapTitle = '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>'
+      //var mapTitle = '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>'
+      var mapTitle = ''
       if (typeof InfosComitésCom !== 'undefined') mapTitle += InfosComitésCom
       $('#idInfosComités').InfosComités({
         iconMarkers: iconMarkers,

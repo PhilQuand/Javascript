@@ -92,29 +92,44 @@
   font-size: xx-large; 
   background-color: #0936FF; 
   color: #ffffff; 
-  width: 3em
+  width: 3em;
+  padding: 5px;
 }
 .rubrique-new {
-margin-top: 1em;
 color: #ffffff; 
 font-family: Impact, sans-serif;
 font-weight: bold;
 }
 .echo {
 font-size: 300%; 
-background-color: #9F41CF;
+background-color: #0936FF;
 padding: 5px;
 }
-.echo-1 {
+.echo-titre {
 text-align: left; 
 font-size: xx-large;
-font-style: italic;
 background-color: #9F41CF;
+font-style: italic;
 padding: 5px;
+}
+.echo-sous-titre {
+font-family: 'Arial Nova Cond', sans-serif; 
+text-align: left; 
+font-size: x-large;
 }
 .autres {
 font-size: 300%; 
-background-color: #37B72F;;
+background-color: #2C83CB;
+padding: 5px;
+}
+.reçu {
+font-size: 300%; 
+background-color: #1F8000;
+padding: 5px;
+}
+.culture {
+font-size: 300%; 
+background-color: #F82DFF;
 padding: 5px;
 }
 
@@ -133,7 +148,7 @@ padding: 5px;
 </div>
 <div class="corpsLettre">
 <p style="display: none;">Ne pas supprimer ! </p>
-<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto; background-color: #dbe5f1;" align="justify">
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto;" align="justify">
 <p class="CN-Edito-title">Édito</p>
 <div class="CN-Edito">
 <!--p style="font-size: larger; font-weight: bold">Com, com, com !</p-->
@@ -229,9 +244,9 @@ padding: 5px;
 <p>Sommaire : </p>
 </div>
 
-<p class="rubrique-new" style="text-align:center"><span class="echo">L’écho des comités</span></p>
+<p class="rubrique-new" style="text-align:center"><span class="echo">L’ÉCHO DES COMITÉS</span></p>
 
-<p class="markerGroupDeb rubrique-new"><span class="echo-title">Les initiatives à venir ...</span></p>
+<p class="markerGroupDeb rubrique-new"><span class="echo-titre" style="background-color: #9F41CF">Les initiatives à venir ...</span></p>
 
 <p class="ville" style="background-color: #9F41CF; color: #F7F7F7"><strong>RAMBOUILLET</strong></p>
 <p class="info-title">Soirée du collectif le 29 juin réussie !</p>
@@ -246,9 +261,9 @@ padding: 5px;
 <p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/07/Intervention-consil-de-surveillance-3-juillet.pdf">L’intervention</a></p>
 <p align=center><a href="https://www.youtube.com/watch?v=mrkarTki0UY&amp;authuser=0">Vidéo</a></p>
 
-<p class="markerGroupDeb rubrique-new"><span class="echo-title">Les initiatives tenues ...</span></p>
+<p class="markerGroupDeb rubrique-new"><span class="echo-titre" style="background-color: #37B72F">Les initiatives tenues ...</span></p>
 
-<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>BERGERAC</strong></p>
+<p class="ville" style="background-color: #2981CA; color: #F7F7F7"><strong>BERGERAC</strong></p>
 <p class="info-title">Un futur pôle chirurgical privilégiant l'activité privée lucrative dans un hôpital public.</p>
 <p>L’accord de coopération public/privé sur la création du pôle chirurgical du Bergeracois donne lieu à des commentaires facilement élogieux de la part d’un certain nombre de responsables politiques et publics du Bergeracois.</p>
 <p>Au-delà de cette autosatisfaction de façade ne convient-il pas de se poser des questions plus profondes qui touchent aux besoins de santé publique de nos concitoyens ? Cet accord associe en effet deux partenaires très inégaux</p>
@@ -286,17 +301,17 @@ padding: 5px;
 <p>Rendez-vous à la rentrée !</p>
 <p>3 CH, 3 SAU, 3 SMUR, voilà la "norme" pour notre département</p>
 
-<p class="ville" style="background-color: #729FCF; color: #F7F7F7"><strong>SARLAT</strong></p>
+<p class="ville" style="background-color: #CA273B; color: #F7F7F7"><strong>SARLAT</strong></p>
 <p class="info-title">La canicule dans les hôpitaux.</p>
 <p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/07/ESSOR-du-9-juillet-2026-sante-extrait.pdf">L’article de l’Essor Sarladais</a> en les remerciant d’accepter le partage</p>
 
-<p class="markerGroupDeb rubrique-new"><span class="echo-title">Communiqués, prises de position ...</span></p>
+<p class="markerGroupDeb rubrique-new"><span class="echo-titre" style="background-color: #C92235">Communiqués, prises de position ...</span></p>
 
 <p class="ville" style="background-color: #37B72F; color: #F7F7F7"><strong>Tours</strong></p>
 <p class="info-title">CAC Amado</p>
 <p align=center><a href="https://www.humanite.fr/societe/paris/psychiatrie-pourquoi-il-faut-sauver-le-centre-daccueil-et-de-crise-ginette-amado">Une tribune dans l'Humanité</a></p>
 
-<p class="markerGroupDeb rubrique-new" style="text-align:center"><span class="autres">Autres infos locales</span></p>
+<p class="markerGroupDeb rubrique-new" style="text-align:center"><span class="autres">AUTRES INFOS LOCALES</span></p>
 
 <p class="ville" style="background-color: #37B72F; color: #F7F7F7"><strong>Paris</strong></p>
 <p class="info-title">CAC Amado</p>
@@ -322,8 +337,12 @@ padding: 5px;
 <p class="info-title">Le projet du nouvel hôpital de Saint-Malo abandonné par l'État </p>
 <p align=center><a href="https://share.google/EXSybtvLRhvgvbeMf%20">Article</a></p>
 
-<p style="display:none">Dossiers :</p>
-<p class="rubrique">Documents juridiques ou utiles :</p>
+<p style="color: #F7F7F7">Dossiers :</p>
+
+<p class="rubrique-new" style="text-align:center"><span class="reçu">NOUS AVONS REÇU ... </span></p>
+<p class="rubrique-new"><span class="echo-titre" style="background-color: #1F8000">Documents juridiques</span></p>
+<p class="rubrique-new" style="text-align:center"><span class="echo-sous-titre" style="color: #1F8000">Documents juridiques</span></p>
+<p class="rubrique-new echo-sous-titre">Documents juridiques</p>
 <p class="titre-rubrique">Le comité d'orientation des retraites a publié un rapport.</p>
 <p>En voici une lecture analytique par Jean Claude Chailley</p>
 <p align=center><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/07/26-06-30-LES-NON-DITS-RAPPORT-du-COR.pdf">Texte</a></p>
@@ -339,7 +358,7 @@ padding: 5px;
 <p class="titre-rubrique">Des professionnels de santé interpellent le gouvernement sur le suicide</p>
 <p align=center><a href="https://www.franceinfo.fr/sante/alors-qu-une-personne-met-fin-a-ses-jours-chaque-heure-en-france-des-professionnels-de-sante-interpellent-le-gouvernement-dans-une-lettre-ouverte_8100980.html#at_medium=5&amp;at_campaign_group=1&amp;at_campaign=sante&amp;at_offre=3&amp;at_variant=V3&amp;at_send_date=20260710&amp;at_recipient_id=726375-1437732574-2a072072&amp;at_adid=DM1336726">Article</a></p>
 
-<p class="rubrique">Culture</p>
+<p class="rubrique-new" style="text-align:center;"><span class="culture">CULTURE</span></p>
 
 <p align=center>“Loup y es tu ?”(Clara Bouffartigue) Documentaire Complet </p>
 <p align=center><a href="https://www.youtube.com/watch?v=zBuvmgNgE1k">https://www.youtube.com/watch?v=zBuvmgNgE1k</a></p>
@@ -376,19 +395,19 @@ $(document).ready(function() {
 $('.corpsLettre').CNLetter(
         [{
           class: "marker-1",
-          icon: simpleGoldIcon,
+          icon: simpleVioletIcon,
           title: 'Les initiatives à venir ...',
         }, {
           class: "marker-2",
-          icon: simpleBlueIcon,
+          icon: simpleGreenIcon,
           title: 'Les initiatives tenues ...',
         }, {
-         class: "marker-3",
+          class: "marker-3",
           icon: simpleRedIcon,
           title: 'Communiqués, prises de position ...'
         }, {
-           class: "marker-4",
-          icon: simpleGreenIcon,
+          class: "marker-4",
+          icon: simpleBlueIcon,
           title: "Autres infos locales",
        }]
 );

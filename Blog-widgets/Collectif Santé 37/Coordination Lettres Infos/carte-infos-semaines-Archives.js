@@ -528,7 +528,7 @@
           svgInfos: ['Semaine 01', 'du 01 jan.', 'au 07 jan.', '2024'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2024/Semaine 01.html',
         }, 
-           /*{
+           {
         imgID: 'svgBlue',
         svgInfos: ["Année", '2023'],
           svgInfosCarte: ['Semaine 52', 'du 25 dec.', 'au 31 dec.', '2023'],
@@ -1476,11 +1476,11 @@
        {
         svgInfosCarte: ['Semaine 23', 'du 03 juin', 'au 07 juin', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 23 bis.html'
-      },*/
-      {
+      },
+      /*{
         imgID: 'svgGreen',
         svgInfos: ['Autres'],
         idG: '#autre'/*,
         idGExt: 'http://coordination-defense-sante.org/bulletin-hebdomadaire/'*/
-      }
+      }*/
      ]

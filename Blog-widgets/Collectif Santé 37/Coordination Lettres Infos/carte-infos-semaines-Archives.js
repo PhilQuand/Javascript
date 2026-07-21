@@ -1481,6 +1481,6 @@
         imgID: 'svgGreen',
         svgInfos: ['Autres'],
         idG: '#autre',
-        idGExt: 'http://coordination-defense-sante.org/bulletin-hebdomadaire/'*/
-      }
+        idGExt: 'http://coordination-defense-sante.org/bulletin-hebdomadaire/'
+      }*/
      ]

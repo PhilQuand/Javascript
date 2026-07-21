@@ -1476,11 +1476,11 @@
        {
         svgInfosCarte: ['Semaine 23', 'du 03 juin', 'au 07 juin', '2019'],
         idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine/Semaine 23 bis.html'
-      },
-      /*{
+      }/*,
+      {
         imgID: 'svgGreen',
         svgInfos: ['Autres'],
-        idG: '#autre'/*,
+        idG: '#autre',
         idGExt: 'http://coordination-defense-sante.org/bulletin-hebdomadaire/'*/
-      }*/
+      }
      ]

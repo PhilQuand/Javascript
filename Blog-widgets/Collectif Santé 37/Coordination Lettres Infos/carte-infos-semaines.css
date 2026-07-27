@@ -392,6 +392,27 @@ text-decoration: underline;
   width: 3em;
   padding: 5px;
 }
+.Citation { 
+border:solid;
+padding: 1em;
+}
+.Citation p { 
+font-family: Arial, sans-serif;
+font-style: italic;
+margin:0;
+}
+.Citation .Titre { 
+font-weight: bold;
+font-size: x-large;
+}
+.Citation .Texte { 
+color: #0070C0; 
+font-size: medium;
+}
+.Citation .Auteur {
+font-size: medium;
+text-align: right;
+}
 .rubrique-new, .rubrique-new-1 {
 color: #ffffff; 
 font-family: Impact, sans-serif;
@@ -401,23 +422,23 @@ font-weight: bold;
 text-align:center;
 padding: 5px;
 }
-.echo span {
+.echo strong {
 font-size: 300%; 
 background-color: #0936FF;
 }
-.autres span {
+.autres strong {
 font-size: 300%; 
 background-color: #2C83CB;
 }
-.reçu span {
+.reçu strong {
 background-color: #1F8000;
 font-size: 300%; 
 }
-.culture span {
+.culture strong {
 font-size: 300%; 
 background-color: #F82DFF;
 }
-.echo-titre-1 span, .echo-titre-2 span,.echo-titre-3 span,.echo-titre-4 span, .sous-titre-1 span {
+.echo-titre-1 strong, .echo-titre-2 strong,.echo-titre-3 strong,.echo-titre-4 strong, .sous-titre-1 strong {
 /*text-align: left;*/ 
 font-size: xx-large;
 font-style: italic;
@@ -426,43 +447,43 @@ padding: 5px;
 .sous-titre-1 {
 text-align: left; 
 }
-.echo-titre-1 span {
+.echo-titre-1 strong {
 background-color: #9F41CF;
 }
-.echo-titre-2 span {
+.echo-titre-2 strong {
 background-color: #37B72F;
 }
-.echo-titre-3 span {
+.echo-titre-3 strong {
 background-color: #C92235;
 }
-.echo-titre-4 span {
+.echo-titre-4 strong {
 background-color: #2C83CB;
 }
-.marker-1 p > span > b, .marker-1 strong {
+.marker-1 p > strong > b, .marker-1 strong {
 display: block;
 background-color: #9F41CF;
 color: #F7F7F7;
 width: 100%;
 }
-.marker-2 p > span > b, .marker-2 strong {
+.marker-2 p > strong > b, .marker-2 strong {
 display: block;
 background-color: #37B72F;
 color: #F7F7F7;
 width: 100%;
 }
-.marker-3 p > span > b, .marker-1 strong {
+.marker-3 p > strong > b, .marker-1 strong {
 display: block;
 background-color: #C92235;
 color: #F7F7F7;
 width: 100%;
 }
-.marker-4 p > span > b, .marker-1 strong {
+.marker-4 p > strong > b, .marker-1 strong {
 display: block;
 background-color: #2C83CB;
 color: #F7F7F7;
 width: 100%;
 }
-.echo-sous-titre, .reçu-sous-titre-2 span {
+.echo-sous-titre, .reçu-sous-titre-2 strong {
 font-family: 'Arial Nova Cond', sans-serif; 
 font-size: x-large;
 }
@@ -472,7 +493,7 @@ text-align: left;
 .reçu-sous-titre-2 {
 text-align: center; 
 }
-.reçu-sous-titre-2 span{
+.reçu-sous-titre-2 strong{
 color: #1F8000;
 }
 .divIcon {
@@ -488,4 +509,5 @@ float:left;
 .VignetteBR.right.left .divIcon {
 float:right;
 }
+
 

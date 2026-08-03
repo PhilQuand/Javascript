@@ -1298,9 +1298,9 @@
       curNextAll.each(function() {
         if (isCurCity($(this))) {
           //console.log($(this).find('b').html());
-          //if ($(this).find('.isCity').length == 0) $(this).find('b').wrap('<span />');
-          //curCity = $(this).wrap('<div class="' + curClass + '" />').parent();
-          curCity = $(this).find('b').wrap('<span />').wrap('<div class="' + curClass + '" />').parent();
+          if ($(this).find('.isCity').length == 0) $(this).find('b').wrap('<span />');
+          curCity = $(this).wrap('<div class="' + curClass + '" />').parent();
+          //curCity = $(this).find('b').wrap('<span />').wrap('<div class="' + curClass + '" />').parent();
           formCurCity(curCity);
         }
         else if (curCity !== '') $(this).appendTo(curCity);
@@ -1308,8 +1308,9 @@
       });
 
       function isCurCity(curTest) {
-        if (curTest.find('.isNotCity').length > 0) return false;
-        if (curTest.find('.isCity').length > 0) return true;
+        if (curTest.hasClass('isNotCity')) return false;
+        var testIsCity = curTest.hasClass('isCity');
+        if (curTest.hasClass('isCity')) return true;
         var htmlTest = curTest.html();
         var attrTest = curTest.attr("style");
         var attrTestBg = curTest.attr("bgcolor");
@@ -1418,10 +1419,10 @@
         title: 'Autres Infos'
       }];
       if (typeof iconMarkersOptions !== 'undefined') {
-        j = 2;
+        j = 0;
         for (i = 0; i < iconMarkersOptions.length; i++) {
           if (typeof iconMarkersOptions[i].class !== 'undefined') {
-            switch (iconMarkersOptions[i].class) {
+            /*switch (iconMarkersOptions[i].class) {
               case "marker-1":
                 iconMarkers[1] = iconMarkersOptions[i];
                 break;
@@ -1430,7 +1431,8 @@
                 break;
               default:
                 iconMarkers[++j] = iconMarkersOptions[i];
-            }
+            }*/
+            iconMarkers[++j] = iconMarkersOptions[i];
           }
         }
       }

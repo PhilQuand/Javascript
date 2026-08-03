@@ -1298,8 +1298,9 @@
       curNextAll.each(function() {
         if (isCurCity($(this))) {
           //console.log($(this).find('b').html());
-          if ($(this).find('.isCity').length == 0) $(this).find('b').wrap('<span />');
-          curCity = $(this).wrap('<div class="' + curClass + '" />').parent();
+          //if ($(this).find('.isCity').length == 0) $(this).find('b').wrap('<span />');
+          //curCity = $(this).wrap('<div class="' + curClass + '" />').parent();
+          curCity = $(this).find('b').wrap('<span />').wrap('<div class="' + curClass + '" />').parent();
           formCurCity(curCity);
         }
         else if (curCity !== '') $(this).appendTo(curCity);

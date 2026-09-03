@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Infos semaine 35 du 24 au 30 août 2026</title><meta name="author" content="Laurence Bernier"/>
+<style type="text/css"> * {margin:0; padding:0; text-indent:0; }
+ .s1 { color: #CC2B20; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 26pt; }
+ .s2 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 13pt; }
+ .s3 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 20pt; }
+ .s4 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 18pt; }
+ .s5 { color: #0070C0; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ .s6 { color: black; text-align: right !important; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 12pt; }
+ .p, p { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; margin:0pt; }
+ .s7 { color: #00F; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: underline; font-size: 12pt; }
+ .a, a { color: #00F; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 12pt; }
+ .s9 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ .s10 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8pt; vertical-align: 4pt; }
+ .s11 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
+ .s12 { color: #00F; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 12pt; }
+ .s13 { color: #00F; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ .s14 { color: #00F; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: underline; font-size: 12pt; }
+ .s15 { color: #00F; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
+ .s17 { color: #280036; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ .s18 { color: #00F; font-family:"Arial Narrow", sans-serif; font-style: italic; font-weight: normal; text-decoration: underline; font-size: 12pt; }
+ li {display: block; }
+ #l1 {padding-left: 0pt; }
+ #l1> li>*:first-child:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 13pt; }
+ li {display: block; }
+ #l2 {padding-left: 0pt; }
+ #l2> li>*:first-child:before {content: " "; color: black; font-family:Symbol; font-style: normal; font-weight: normal; text-decoration: none; }
+ li {display: block; }
+ #l3 {padding-left: 0pt; }
+ #l3> li>*:first-child:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ h1 { color: black; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 36pt; }
+ h2 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 26pt; }
+ h3 { color: black; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 25pt; }
+ h4 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 16pt; }
+ h5 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ h6 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
+</style>
+
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+<p>L’été n’aura pas seulement vu canicules, sécheresse et incendies confirmer que nous sommes entrés dans une nouvelle ère de catastrophiques bouleversements environnementaux de ce modèle économique.</p>
+
+</div>
+<!--more-->
+
+<div style="display:none">
+<p><a href="https://www.base64-image.de/">conversions images en base64 et code d'intégration</a></p>
+<img class="skip-lazy urgences" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/image_p7_14.png"/>
+<img class="skip-lazy les-pieds" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/pieds.webp"/>
+<img class="skip-lazy étoile" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p4_3.png"/>
+<img class="skip-lazy carte-vitale" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p7_7.png"/>
+</div>
+<div class="corpsLettreWeek-new">
+<div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 100%;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/bannière.webp" />
+</div></div>
+<p>L'INFO de la semaine 35
+<br/>du 24 au 30 août 2026</p>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/08/Infossemaine35du24au30août2026.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto;" align="justify">
+<p class="CN-Edito-title">Édito</p>
+<div class="CN-Edito"><p class="s2" style="padding-top: 14pt;padding-left: 19pt;text-indent: 0pt;line-height: 115%;text-align: justify;">L’été n’aura pas seulement vu canicules, sécheresse et incendies confirmer que nous sommes entrés dans une nouvelle ère de catastrophiques bouleversements environnementaux de ce modèle économique.</p>
+<p class="s2" style="padding-left: 19pt;text-indent: 0pt;line-height: 115%;text-align: justify;">Il aura, plus traditionnellement, été le moment de quelques décisions gouvernementales.</p>
+<ul id="l1"><li data-list-text="-">
+<p class="s2" style="padding-left: 19pt;text-indent: 0pt;line-height: 115%;text-align: justify;">Décrets et annonces d’une augmentation du paiement de leurs soins par les malades à travers des « franchises »</p>
+</li><li data-list-text="-">
+<p class="s2" style="padding-left: 19pt;text-indent: 0pt;line-height: 115%;text-align: justify;">Circulaire ministérielle enjoignant les ARS d’activer les restructurations hospitalières autour des GHT, à fin de réductions des dépenses présentées sous le couvert de « l’efficacité »</p>
+</li><li data-list-text="-">
+<p class="s2" style="padding-left: 19pt;text-indent: 0pt;line-height: 115%;text-align: justify;">Publication d’une enquête de l’IGAS qui confirme la dégradation des maternités en France avec une mortalité infantile en forte progression. Le rapport  évitant  de  faire  le  lien  avec  l’éloignement  grandissant  des parturientes du aux fermetures de nombreuses maternités, doit concéder qu’aucun  lien  ne  peut  être  établi  entre  sécurité  et  nombre  des accouchements  pratiqués,  mettant  à  mal  le  principal  argument  des fermetures.</p>
+</li><li data-list-text="-">
+<p class="s2" style="padding-left: 19pt;text-indent: 0pt;line-height: 115%;text-align: justify;">Autorisation  redonnée  aux  empoisonneurs  pour  répandre  les cancérogènes afin de leur permettre de payer les emprunts bancaires.</p>
+</li></ul>
+<p class="s2" style="padding-left: 19pt;text-indent: 0pt;line-height: 115%;text-align: justify;">Autant de sujets qui portent les mobilisations des comités et vont donner lieu à mobilisation les 26 septembre, 3 octobre et au moment des débats sur les financements de la sécu (le PLFSS) et, espérons le, vont permettre de donner une visibilité aux enjeux santé dans les prochaines échéances politiques.</p>
+<p class="s2" style="padding-left: 19pt;text-indent: 0pt;line-height: 15pt;text-align: justify;">A tout bientôt</p>
+<p class="s2" style="padding-top: 1pt;padding-left: 19pt;text-indent: 0pt;text-align: justify;">Henri (St Affrique-Sud Aveyron)</p>
+
+<div class="Citation">
+<p class="s4" style="padding-top: 3pt;padding-left: 7pt;text-indent: 0pt;text-align: left;">LA CITATION DE LA SEMAINE</p>
+<p class="s5" style="padding-left: 7pt;text-indent: 0pt;text-align: justify;">« Après 10 ans et malgré une forte mobilisation des communautés hospitalières pour les installer et les faire fonctionner, le bilan des GHT reste contrasté. » Ainsi dans leur rapport « Face à la gravité de la situation financière des hôpitaux publics, renforcer l’efficience par une intégration territoriale » publié en septembre 2025, l’IGF et l’lGAS identifient des GHT très intégrés dont le positionnement a été renforcé, alors que certains restent en retrait »</p>
+<ul id="l3"><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">chaque GHT doit identifier les « marges de progrès »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« limiter les hospitalisations évitables »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« taille critique suffisante »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« soutenabilité des contraintes »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« fédérations médicales interhospitalières ou pôles inter-établissements »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« lors de toute vacance de poste, la mise en place d’une direction commune »</p>
+</li></ul>
+<p class="s5" style="padding-top: 13pt;padding-left: 7pt;text-indent: 0pt;text-align: justify;">Circulaire du 29 juillet visant à un auto-diagnostic des GHT et hôpitaux « dans les meilleurs délais »</p>
+<p class="s6" style="padding-top: 11pt;padding-left: 7pt;text-indent: 0pt;text-align: justify;">Un chant du signe des GHT ou une politique de terre brûlée ?</p>
+</div>
+
+</div>
+</div>
+<p>SOMMAIRE</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<ul id="l2"><li data-list-text="•">
+<p class="s3" style="padding-left: 37pt;text-indent: -17pt;text-align: left;">L’écho des comités : pages 3 à 5</p>
+</li><li data-list-text="•">
+<p class="s3" style="padding-top: 12pt;padding-left: 37pt;text-indent: -17pt;text-align: left;">Autres infos locales : page 6</p>
+</li><li data-list-text="•">
+<p class="s3" style="padding-top: 13pt;padding-left: 37pt;text-indent: -17pt;text-align: left;">Communiqués page 7</p>
+</li><li data-list-text="•">
+<p class="s3" style="padding-top: 13pt;padding-left: 37pt;text-indent: -17pt;text-align: left;">Culture page 8</p>
+</li></ul>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<div class="textbox" style="display:none">
+<p class="s4" style="padding-top: 3pt;padding-left: 7pt;text-indent: 0pt;text-align: left;">LA CITATION DE LA SEMAINE</p>
+<p class="s5" style="padding-left: 7pt;text-indent: 0pt;text-align: justify;">« Après 10 ans et malgré une forte mobilisation des communautés hospitalières pour les installer et les faire fonctionner, le bilan des GHT reste contrasté. » Ainsi dans leur rapport « Face à la gravité de la situation financière des hôpitaux publics, renforcer l’efficience par une intégration territoriale » publié en septembre 2025, l’IGF et l’lGAS identifient des GHT très intégrés dont le positionnement a été renforcé, alors que certains restent en retrait »</p>
+<ul id="l3"><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">chaque GHT doit identifier les « marges de progrès »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« limiter les hospitalisations évitables »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« taille critique suffisante »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« soutenabilité des contraintes »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« fédérations médicales interhospitalières ou pôles inter-établissements »</p>
+</li><li data-list-text="-">
+<p class="s5" style="padding-left: 14pt;text-indent: -7pt;text-align: justify;">« lors de toute vacance de poste, la mise en place d’une direction commune »</p>
+</li></ul>
+<p class="s5" style="padding-top: 13pt;padding-left: 7pt;text-indent: 0pt;text-align: justify;">Circulaire du 29 juillet visant à un auto-diagnostic des GHT et hôpitaux « dans les meilleurs délais »</p>
+<p class="s6" style="padding-top: 11pt;padding-left: 7pt;text-indent: 0pt;text-align: justify;">Un chant du signe des GHT ou une politique de terre brûlée ?</p>
+</div>
+<p style="padding-left: 25pt;text-indent: 0pt;text-align: left;"/>
+<p class="rubrique-new echo" ><strong>L’ÉCHO DES COMITÉS</strong></p>
+<p class="markerGroupDeb rubrique-new echo-titre-1" />
+<p class="markerGroupDebTitle" ><strong>* Les initiatives à venir...</strong></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">ESSONNE </p>
+<p class="info-title">Fête de l’Humanité</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">Comme les années précédentes plusieurs comités de la coordination tiendront un stand à la fête de l’huma qui se tiendra les 11, 12, 13 septembre dans l’Essonne (base 217 du Plessis Paté)</p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">MONTARGIS (45)</p>
+<p class="info-title">Rendez vous aux rencontres de Montargis les 2-3-4 octobre : les services publics ou la loi de la jungle ?</p>
+<p style="padding-left: 19pt;text-indent: 0pt;line-height: 14pt;text-align: justify;">Les services publics sont ce qui fait société, ce qui créent les solidarités et le vivre ensemble.</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">C’est ce que nous mettrons en avant lors des journées de Montargis des 2-3 et 4 octobre prochain avec déjà le vendredi 2 octobre à 18H un grand rassemblement pour défendre et promouvoir la sécurité sociale, celle dont nous avons tous besoin aujourd’hui pour faire face aux aléas de la vie.</p>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://coordination-defense-sante.org/2026/06/montargis-manifestation-regionale-les-2-3-et-4-octobre-2026/#Pour%20plus%20d%E2%80%99informations%20et%20inscriptions%20voir%20le%20site" class="s7">Pour plus d’informations et inscriptions voir le site.</a></p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">CREIL (60)</p>
+<p class="info-title">Rassemblement devant l’hôpital le 3 septembre à 18 h 30</p>
+<p style="padding-left: 19pt;text-indent: 0pt;line-height: 14pt;text-align: justify;">Le service de pneumologie de l’hôpital de Creil est ré ouvert !</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">Nous pouvons nous réjouir de cette victoire, obtenue grâce à la mobilisation des citoyens, des personnels, des syndicats et des associations. Mais cette réouverture ne doit pas nous faire baisser la garde.</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">Restons mobilisés le 3 septembre à 18h30 devant l’hôpital de Creil pour demander l’arrêt du démantèlement de notre hôpital et défendre une offre de soins de proximité digne de notre territoire.</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">En effet, il ne s’agit que d’une réouverture provisoire, en attente de réorganisation ! Dans une interview au Quotidien du Médecin, la Dr Cécile de Hautecloque, chef du service de pneumologie, dénonce le projet de fusion de son service avec le service de médecine polyvalente, avec pour but de supprimer une dizaine de lits.</p>
+<p style="padding-top: 9pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">CHARLEVILLE -MÉZIÈRES (08)</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="info-title">Encore un effort pour l’humanisation des urgences</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p style="padding-left: 161pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/urgences1septembre.jpg" /></span></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">LUÇON (85) </p>
+<p class="info-title">L’ADSP présente à la journée découverte des assos le 5 septembre</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p style="padding-left: 193pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/Image_003-1.jpg" /></span></p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">L’ADSP, association d’usagers pour la défense du service public qui se mobilise pour tous les Services Publics et tout particulièrement depuis 5 ans pour l’hôpital de Luçon sera présente à la journée découverte des assos le 5 septembre</p>
+
+<p class="markerGroupDeb rubrique-new echo-titre-2" />
+<p class="markerGroupDebTitle" style="display:none"><strong>* Les initiatives tenues...</strong></p>
+
+<p class="markerGroupDeb rubrique-new echo-titre-3" />
+<p class="markerGroupDebTitle" ><strong>* Communiqués, prises de position...</strong></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">MAYENNE (53) </p>
+<p class="info-title">Un service qui se dégrade : la situation des urgences de nouveau dénoncée en Mayenne durant cet été 2026</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">Une nouvelle organisation des urgences est effective depuis novembre 2025 en Mayenne. Dix mois plus tard, la situation reste complexe dans le département, selon plusieurs témoignages. Le service des urgences de Laval a notamment fermé à plusieurs reprises depuis début juillet 2026.</p>
+<p style="padding-left: 204pt;text-indent: 0pt;line-height: 14pt;text-align: justify;"><a href="https://www.ici.fr/pays-de-la-loire/mayenne-53/un-service-qui-se-degrade-la-situation-des-urgences-de-nouveau-denoncee-en-mayenne-durant-cet-ete-2026-8224086">L’article de ICI du 24 août</a></p>
+<p style="padding-top: 5pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">VOIRON (38)</p>
+<p class="info-title">Première victoire obtenue à Voiron grâce à l’unité d’action</p>
+<p style="padding-left: 19pt;text-indent: 0pt;line-height: 14pt;text-align: justify;">Les urgences pédiatriques de Voiron devraient rouvrir toutes les nuits à partir du 31 août.</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">Le communiqué de presse commun diffusé le 11 août par les syndicats CGT, FO et SNMH-FO ajoute toutefois une précision importante : « Nous considérons cette réouverture comme une victoire de l’unité de tous les personnels médicaux et non médicaux. Avec l’appui des organisations syndicales et de la population, la pression exercée notamment avec la manifestation du 13 juin a clairement favorisé la mise en œuvre des recrutements nécessaires. ».</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">Un hommage indirect à l’implication du Collectif Santé Voironnais dont la banderole a été remarquée lors de la manifestation du. Quant aux urgences adultes du CHV, toujours fermées le soir et la nuit cinq jours par semaine, la question n’est toujours pas résolue. Une bonne nouvelle ne saurait faire oublier le reste… même si, après avoir accompli cent pas en arrière, le moindre pas dans le bon sens donne l’impression d’avancer.</p>
+<p style="padding-left: 137pt;text-indent: -92pt;text-align: justify;"><a href="https://coordination-defense-sante.org/2026/08/voiron-une-premiere-victoire-obtenue-grace-a-lunite-daction/" class="a noSplit" target="_blank">Toutes les infos sur le site de la Coordination</a> qui reprend en grande partie un article de Rue Haute <a href="https://www.ruehaute.info/" class="s9 noSplit" target="_blank">https ://www.ruehaute.info</a> avec son aimable autorisation.</p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">AUBENAS (07)</p>
+<p class="info-title">Service d’urgences dégradé en période de canicule</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: left;">Ce long témoignage décrit une prise en charge déficiente ainsi que ce que le patient et sa famille ont constaté lors de l’hospitalisation</p>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/08/Resume-de-mon-temoignage.pdf">Le témoignage</a></p>
+<p style="padding-top: 5pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">MONTCEAU LES MINES (71) </p>
+<p class="info-title">Changer le nom de l’hôpital, c’est éteindre un patrimoine</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: left;">Le Codef continuera, seul s’il le faut, à porter cette exigence : que l’hôpital du bassin minier reste, dans les faits comme dans les mots, l’hôpital Jean Bouveri.</p>
+<p style="padding-left: 225pt;text-indent: 0pt;line-height: 14pt;text-align: left;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/08/ne-mabandonnez-pas.pdf">Le communiqué</a></p>
+<p class="markerGroupDeb rubrique-new autres" ><strong>AUTRES INFOS LOCALES</strong></p>
+<p style="padding-top: 5pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">NEMOURS (77)</p>
+<p class="info-title">Psychiatrie : l’unité va rouvrir au 1</span><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; vertical-align: 4pt;">er</span><span class="s11"> septembre</p>
+<p style="padding-left: 19pt;text-indent: 0pt;text-align: justify;">Les personnels de nuit apprennent que l’unité de psychiatrie, fermée au mois d’août va rester fermée un mois de plus. Avec la CGT, ils lancent une pétition. Le lendemain, la cadre, sur appel du directeur de l’établissement informe que le service réouvrira bien au 1<span class="s10">er</span> septembre.</p>
+<p style="padding-top: 12pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p style="text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/Image_004.jpg" /></span></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">PARIS (75 )</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="info-title">Patients et soignants du CAC Amado dans la détresse</p>
+<p style="padding-left: 19pt; text-indent: 0pt; text-align: left">Près d’un mois et demi après la fermeture du Centre d’accueil et de crise (CAC) Ginette Amado, le modèle ambulatoire qui a été choisi à Paris au détriment d’un suivi régulier laisse patients et soignants dans la détresse.</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">MODANE (73) </p>
+<p style="padding-top: 4pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="info-title">230 personnes ont manifesté pour demander l’engagement que le service des soins de suite rouvrira</p>
+<p style="padding-top: 10pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p style="padding-left: 161pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/Image_005.jpg" /></span></p>
+<p class="s13" style="padding-left: 193pt;text-indent: 16pt;text-align: left;"><a href="https://www.ici.fr/emissions/l-info-d-ici-ici-pays-de-savoie/hopital-de-modane-230-personnes-ont-manifeste-pour-demander-l-engagement-que-le-smr-rouvrira-5390355" class="s12" target="_blank">L’article d’ICI du 25 août</a> <a href="https://www.ici.fr/emissions/l-invite-d-ici-matin-ici-pays-de-savoie/il-y-a-des-difficultes-de-recrutement-pierre-kempf-directeur-delegue-du-centre-hospitalier-vallee-de-la-maurienne-2890797" class="s12" target="_blank">L’interview du directeur sur ICI</a></p>
+<p style="color: #F7F7F7">Dossiers :</p>
+<h1 style="padding-top: 4pt;text-indent: 0pt;text-align: center;"><span style=" color: #FFF; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 36pt;  background-color: #007F00;">NOUS AVONS REÇU... </span></h1>
+<p style="padding-top: 16pt;text-indent: 0pt;text-align: left;"><br/></p>
+<h3 style="padding-left: 19pt;text-indent: 0pt;text-align: left;"><span style=" color: #FFF; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 25pt;  background-color: #007F00;">* Communiqué – déclaration...</span></h3>
+<h4 style="padding-top: 18pt;text-indent: 0pt;text-align: center;"><span style=" color: #218A21; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 16pt;">Inégalités d’accès aux soins (rapport parlementaire)</span></h4>
+<p style="padding-top: 16pt;padding-left: 28pt;text-indent: 2pt;text-align: left;">C’est une singularité française. Tandis que l’espérance de vie de nos compatriotes se situe parmi les plus élevées de l’Union européenne, les inégalités d’accès à la santé sont parmi les plus marquées des pays de l’OCDE. Le récent <a href="https://www.assemblee-nationale.fr/dyn/17/organes/autres-commissions/commissions-enquete/acces-aux-soins" class="s14" target="_blank">rapport de la commission d’enquête</a>sur l’organisation du système de santé et les difficultés d’accès aux soins dresse un constat « <i>alarmant </i>» sur l’état de notre système de santé. Il soulève un problème d’« <i>inégalités sociales, territoriales, statutaires et financières insupportables </i>» <a href="https://elucid.media/analyse-graphique/le-grand-fosse-de-l-acces-aux-soins-en-france-quand-la-sante-devient-un-privilege?mc_ts=crises" class="a" target="_blank">https ://elucid.media/analyse-graphique/le-grand-fosse-de-l-acces-aux-soins-en-france-quand-la-sante-</a><a href="https://elucid.media/analyse-graphique/le-grand-fosse-de-l-acces-aux-soins-en-france-quand-la-sante-devient-un-privilege?mc_ts=crises" target="_blank">devient-un-privilege ?mc_ts=crises</a></p>
+<h4 style="padding-top: 13pt;padding-left: 2pt;text-indent: 0pt;text-align: center;"><span style=" color: #218A21; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 16pt;">Santé mentale des jeunes, grande cause nationale, austérité nationale</span></h4>
+<p style="padding-left: 5pt;text-indent: 0pt;text-align: center;"><a href="https://www.pcf.fr/sante_mentale_austerite_nationale">Communiqué du PCF</a></p>
+<p style="padding-top: 4pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p style="text-indent: 0pt;text-align: left;"><span><img class="skip-lazy carte-vitale" style="float:right; max-width:200px" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p7_7.png"/></span></p>
+<h4 style="text-indent: 0pt;text-align: center;"><span style=" color: #218A21; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 16pt;">Stop à la privatisation des soins</span></h4>
+<p style="padding-left: 2pt;text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/08/SMG.html">Communiqué du Syndicat de la Médecine Générale (SMG)</a></p>
+<h1 style="padding-top: 4pt;text-indent: 0pt;text-align: center;"><span style=" color: #FFF; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 36pt;  background-color: #CC2B20;">CULTURE </span></h1>
+<h5 style="padding-top: 18pt;padding-left: 31pt;text-indent: 0pt;text-align: left;"><span style=" color: #280036; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">CINÉMA</span></h5>
+<p style="text-indent: 0pt;text-align: left;"><span><img class="skip-lazy étoile" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p4_3.png"/></span></p>
+<p class="s17" style="padding-left: 33pt;text-indent: 0pt;text-align: left;">Liliane de Kermadec signe la biographie d’une artiste unique, Aloïse Corbaz, qui découvrit sa vocation après plus de quarante ans d’enfermement dans un hôpital psychiatrique. Une trajectoire lumineuse éclairée par les petites touches délicates d’une cinéaste rare, incarnée par la toujours gracieuse Delphine Seyrig. <a href="https://www.humanite.fr/culture-et-savoir/cinema/aloise-de-liliane-de-kermadec-la-naissance-dune-artiste-apres-quatre-decennies-enfermee-dans-un-asile-psychiatrique" class="s18" target="_blank">https ://www.humanite.fr/culture-et-savoir/cinema/aloise-de-liliane-de-kermadec-la-naissance-dune-artiste-apres-quatre-decennies-enfermee-dans-un-asile-psychiatrique</a></p>
+<p style="padding-top: 4pt;text-indent: 0pt;text-align: left;"><br/></p>
+<h5 style="padding-left: 33pt;text-indent: 0pt;text-align: left;"><span style=" color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">PODCAST</span></h5>
+<p style="padding-left: 33pt;text-indent: 0pt;text-align: left;">Une video d’« histoires crépues » un média antiraciste sur le thème de la santé : témoignages de patientes, soignantes et les deux</p>
+<p style="padding-left: 36pt;text-indent: 0pt;line-height: 14pt;text-align: left;"><a href="https://youtu.be/hcjnuyRDafI?si=Q4WX3ULeksSVwEuX&https%3A//youtu.be/hcjnuyRDafI%3Fsi=Q4WX3ULeksSVwEuX" class="s19">https ://youtu.be/hcjnuyRDafI ?si=Q4WX3ULeksSVwEuX</a></p>
+<p style="padding-top: 13pt;padding-left: 33pt;text-indent: 0pt;text-align: left;">Une vidéo qui revient sur l’analyse des chiffres de la surmortalité liée aux canicules (supervisée par des médecins)</p>
+<p style="padding-left: 33pt;text-indent: 0pt;line-height: 14pt;text-align: left;"><a href="https://youtu.be/WDsu7_YwgQY?si=xTG40Sz5o0jW_3Uy&https%3A//youtu.be/WDsu7_YwgQY%3Fsi=xTG40Sz5o0jW_3Uy" class="s19">https ://youtu.be/WDsu7_YwgQY ?si=xTG40Sz5o0jW_3Uy</a></p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        [{
+          class: "marker-0",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir ...',
+        },{
+          class: "marker-1",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir ...',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Les initiatives tenues ...',
+        }, {
+          class: "marker-3",
+          icon: simpleRedIcon,
+          title: 'Communiqués, prises de position ...'
+        }, {
+          class: "marker-4",
+          icon: simpleBlueIcon,
+          title: "Autres infos locales",
+       }]
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

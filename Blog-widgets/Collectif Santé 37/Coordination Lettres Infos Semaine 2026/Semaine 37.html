@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+<style type="text/css"> * {margin:0; padding:0; text-indent:0; }
+ .s1 { color: #CC2B20; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 26pt; }
+ .s2 { color: black; font-family:"Arial Narrow", sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 12pt; }
+ .s3 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ .s4 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 20pt; }
+ .s5 { color: #FFF; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 14pt; }
+ .s6 { color: #FFF; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ p { color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; margin:0pt; }
+ .a, a { color: #00F; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 12pt; }
+ .s7 { color: #FFF; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ .s8 { color: #FFF; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 14pt; }
+ .s9 { color: #FFF; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ .s10 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ li {display: block; }
+ #l1 {padding-left: 0pt; }
+ #l1> li>*:first-child:before {content: "• "; color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; }
+ li {display: block; }
+ #l2 {padding-left: 0pt; }
+ #l2> li>*:first-child:before {content: "* "; color: #FFF; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 25pt; }
+ li {display: block; }
+ #l3 {padding-left: 0pt; }
+ #l3> li>*:first-child:before {content: "* "; color: #FFF; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 25pt; }
+ h1 { color: black; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 38pt; }
+ h2 { color: black; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 36pt; }
+ h3 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 26pt; }
+ h4 { color: black; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 25pt; }
+ h5 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ h6 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
+</style>
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+La rentrée politique est là, mais on parle peu de la situation des hôpitaux de proximité et de la santé...
+
+</div>
+<!--more-->
+
+<div style="display:none">
+<p><a href="https://www.base64-image.de/">conversions images en base64 et code d'intégration</a></p>
+<img class="skip-lazy urgences" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/image_p7_14.png"/>
+<img class="skip-lazy les-pieds" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/pieds.webp"/>
+<img class="skip-lazy étoile" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p4_3.png"/>
+<img class="skip-lazy carte-vitale" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p7_7.png"/>
+
+<div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_002.jpg" />
+
+<div class="VignetteBR flex right" style="align-items: center;">
+<div class="divIcon" style="padding-right:100px">
+<img class="skip-lazy urgences" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/image_p7_14.png"/>
+</div>
+<div class="divText">
+<p style="padding-left: 17pt;text-indent: 0pt;line-height: 14pt;text-align: center;">Le Maire de Senlis appelle à une mobilisation le 12 septembre dans sa ville.</p>
+<p class="s8" style="padding-left: 158pt;text-indent: 0pt;text-align: center;"><a href="https://www.oisehebdo.fr/2026/08/31/creil-une-manifestation-dampleur-attendue-devant-lhopital-de-creil-jeudi-3-septembre/" class="a" target="_blank">L’article de l’Oise Hebdo du 31 annonçant la manifestation</a> <a href="https://www.oisehebdo.fr/2026/09/03/creil-hopital-les-elus-exigent-de-stopper-lhemorragie/" target="_blank">L’article de l’Oise Hebdo du 3 septembre après la manifestation</a></p>
+</div></div>
+
+</div></div>
+
+</div>
+<div class="corpsLettreWeek-new">
+<div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 100%;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/bannière.webp" />
+</div></div>
+<p>L'INFO de la semaine 37
+<br/>du 07 août au 13 sept. 2026</p>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Infossemaine37du7au13septembre2026.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<p class="CN-Edito-title">Édito</p>
+<p class="s2" style="text-indent: 0pt;line-height: 14pt;text-align: left;">La rentrée politique est là, mais on parle peu de la situation des hôpitaux de proximité et de la santé.</p>
+<p class="s2" style="text-indent: 0pt;text-align: left;">Les premières « fuites » sur les projets de budget 2027 laissent plutôt entrevoir des coupes sur les budgets sociaux et notamment sur les retraites.</p>
+<p class="s2" style="text-indent: 0pt;line-height: 14pt;text-align: left;">La rentrée politique c’est aussi le début des mobilisations contre ces projets.</p>
+<p class="s3" style="text-indent: 0pt;text-align: left;">15 septembre, journée de grève des hospitaliers, action des retraité(e)s pour une revalorisation des retraites complémentaires, action nationale le 19 novembre des retraité(e)s contre la désindexation des retraites et pour le pouvoir d’achat des retraité(e)s.</p>
+<p class="s3" style="text-indent: 0pt;text-align: justify;">La Coordination Nationale lance également sa campagne pour un Projet de loi de Finances de la Sécurité Sociale 2027 à la hauteur des besoins de la population et contre les dépassements d’honoraires.</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="s2" style="text-indent: 0pt;text-align: right;">Joseph</p>
+<p style="padding-top: 8pt;text-indent: 0pt;text-align: left;"><br/></p>
+
+<p class="isCity" style="background-color: #2CAB23; color: #F7F7F7">SOMMAIRE</p><ul id="l1"><li data-list-text="•">
+<p class="s4" style="padding-top: 13pt;padding-left: 33pt;text-indent: -28pt;text-align: left;">L’écho des comités : pages 2 et 4</p>
+</li><li data-list-text="•">
+<p class="s4" style="padding-top: 5pt;padding-left: 33pt;text-indent: -28pt;text-align: left;">Autres infos locales : page 5</p>
+</li><li data-list-text="•">
+<p class="s4" style="padding-top: 5pt;padding-left: 33pt;text-indent: -28pt;text-align: left;">Nous avons reçu : pages 6 et 7</p>
+</li></ul>
+<p class="rubrique-new echo" ><strong>L’ÉCHO DES COMITÉS</strong></p>
+<p class="markerGroupDeb rubrique-new echo-titre-1" />
+<p class="markerGroupDebTitle" ><strong>* Les initiatives à venir...</strong></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">LURE (70)</p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><span style=" color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Le CV 70 tient la prochaine réunion de son CA à Héricourt et l’ouvre au public</span></h6>
+<p style="padding-top: 12pt;padding-left: 48pt;text-indent: 0pt;text-align: justify;">Le Comité de Vigilance 70 (CV 70) a décidé d’une nouvelle action d’affichage de banderoles en faveur de la défense, du maintien et de l’amélioration des services publics de proximité. Héricourt que nous remercions, a répondu favorablement à la demande du CV 70.</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: justify;">À l’occasion de la réponse positive de la municipalité d’Héricourt, le CV 70 propose de faire son conseil d’administration mensuel de septembre dans cette localité. Cela sera une opportunité pour présenter nos actions et mobilisations en faveur des biens communs que sont les services publics mais surtout d’échanger et de partager les expériences, les souhaits et les perspectives en la matière.</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: justify;">Vous êtes toutes et tous invité·es, élu·es, citoyens, citoyennes, organisations, associations, presse, le 16 septembre 2026 à 18h à la salle de l’école de musique d’Héricourt, 2 rue du 47° RA <a href="https://coordination-defense-sante.org/2026/09/hericourt-le-cv-70-tiendra-son-prochain-ca-a-hericourt-et-louvre-au-public/" class="a" target="_blank">Plus d’informations sur le site de la Coordination</a></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">CHARLEVILLE-MÉZIÈRES (08)</p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><span style=" color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Encore un effort pour l’humanisation des urgences de Manchester</span></h6>
+<p style="padding-top: 4pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p style="padding-left: 163pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_002-1.jpg"/></span></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">MONTCEAU LES MINES (71)</p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><span style=" color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Le CODEF appelle à soutenir le mouvement des hospitaliers le 15 Septembre</span></h6>
+<p style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/appel-national-du-15-septembre.pages.pdf">Communiqué</a></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">SAINT MAURICE (94)</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: left;"/>
+<h6 style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><span style=" color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Semaines de la Folie Ordinaire</span></h6>
+<p style="padding-top: 1pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p style="padding-left: 161pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_003-1.jpg"/></span></p>
+<p style="padding-top: 13pt;padding-left: 48pt;text-indent: 0pt;text-align: left;">Le collectif de Saint Maurice participera lors des Semaines de la Folie Ordinaire à la table ronde du samedi 3 octobre à la parole errante de Montreuil ( 9 rue François Debergue) de 15h à 17h Table ronde ouverte et radiodiffusée</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: left;">En direct et en public, avec des acteurs des luttes actuelles en psychiatrie (CAC et CPOA de Sainte Anne, Fondation Vallée, Hôpital Saint Maurice ou encore la clinique de la Borde...)</p>
+<p style="padding-left: 48pt;text-indent: 0pt;line-height: 14pt;text-align: left;">Sur place ou en ligne en direct sur p-node.org, en DAB+ ou sur TTnode canal 9.</p>
+<p style="padding-top: 9pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="markerGroupDeb rubrique-new echo-titre-2" />
+<p class="markerGroupDebTitle" ><strong>* Les initiatives tenues...</strong></p>
+<p class="isCity" style="background-color: #2CAB23; color: #F7F7F7">BERGERAC (24)</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: left;"/>
+<h6 style="padding-top: 12pt;padding-left: 58pt;text-indent: 0pt;text-align: center;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Le comité de Bergerac est intervenu lors de la Conférence organisée par le journal Sud Ouest et l’ ARS à Périgueux</span></h6>
+<p style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/inter-debat-sante-prgx-sept-26.pdf">Intervention</a></p>
+<p class="markerGroupDeb rubrique-new echo-titre-3" />
+<p class="markerGroupDebTitle" ><strong>* Communiqués, prises de position...</strong></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">DOLE (39)</p>
+<h5 style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><span style=" color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">Mobilisations pour l’hôpital et contre les dépassements d’honoraires</span></h5>
+<p style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Infos-Flash-125.pdf">Flash info du comité</a></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">MARMANDE (47)</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: left;"/>
+<h6 style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Il est question de transférer les analyses biologiques à Agen</span></h6>
+<p style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><a href="https://actu.fr/nouvelle-aquitaine/marmande_47157/hopital-de-marmande-les-medecins-redoutent-le-transfert-de-certaines-analyses-medicales-vers-agen_64754124.html?at_content=photo&at_term=LeRepublicainMarmande&at_source=nonli%20%3Chttps%3A//actu.fr/nouvelle-aquitaine/marmande_47157/hopital-de-marmande-les-medecins-redoutent-le-transfert-de-certaines-analyses-medicales-vers-agen_64754124.html%3Fat_content%3Dphoto&at_term=LeRepublicainMarmande&at_source=nonli%3E">Article</a></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">MONTCEAU LES MINES (71)</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: left;"/>
+<h6 style="padding-top: 12pt;padding-left: 58pt;text-indent: 0pt;text-align: center;"><span style=" color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Hôpital Jean Bouveri : l’administration elle-même continue de reconnaître ce nom, sur au moins deux registres officiels distincts</span></h6>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/deux-registres-officiels.pdf">Le communiqué du CODEF</a></p>
+<p style="padding-top: 1pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">MAYENNE (53)</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: left;"/>
+<h6 style="padding-top: 11pt;text-indent: 0pt;text-align: center;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Après la réunion du comité de suivi des Urgences, un communiqué d’AUDACE 53</span></h6>
+<p style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/2026/09/mayenne-communique-daudace-53-2/">Communiqué</a></p>
+<p style="padding-top: 1pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">RETHEL (08)</p>
+<p style="padding-left: 48pt;text-indent: 0pt;text-align: left;"/>
+<h6 style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><span style=" color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Toujours pas de chirurgie en hospitalisation complète à Rethel</span></h6>
+<p style="padding-top: 12pt;padding-left: 48pt;text-indent: 0pt;text-align: justify;">Le comité de défense des hôpitaux de proximité des Ardennes s’émeut dans un communiqué de la volonté de l’ARS de prolonger la suspension de l’activité de chirurgie en hospitalisation complète encore un an.</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/2026/09/rethel-toujours-pas-de-chirurgie-en-hospitalisation-complete-a-rethel/">Le communiqué</a></p>
+<p class="markerGroupDeb rubrique-new autres" ><strong>AUTRES INFOS LOCALES</strong></p>
+<p style="padding-top: 10pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">LONS LE SAUNIER (39)</p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><span style=" color: #2B363A; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Une réunion publique pour la création d’un comité</span></h6>
+<p style="padding-top: 12pt;padding-left: 48pt;text-indent: 0pt;text-align: justify;">Une soirée débat sur la santé à l’occasion de la création du Comité de Lons aura lieu le 30 octobre prochain au Carcom avec la participation de Christophe Prudhomme (médecin urgentiste) et Michel Antony (Coordination Nationale et CV70)</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">GUEBWILLER (68)</p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;line-height: 14pt;text-align: center;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">On cherche un dermatologue</span></h6>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://france3-regions.franceinfo.fr/grand-est/haut-rhin/mes-patients-sont-paniques-une-medecin-dermatologue-cherche-desesperement-son-successeur-avant-de-partir-a-la-retraite-3413075.html">Article</a></p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">ANCENIS (44)</p>
+<h6 style="padding-top: 13pt;padding-left: 52pt;text-indent: 0pt;text-align: center;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Le Collectif des soignants du CHEL alerte sur l’absence d’avancées concrètes depuis cet été malgré un calendrier clair et réaffirme ses positions qui sont restées invariées</span></h6>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://collectif-chel.arhub.fr/lavenir-du-chel-un-acte-manque-ou-une-arlesienne-qui-ne-dit-pas-son-nom/">Plus d’informations sur leur site</a></p>
+<p class="s10" style="padding-left: 48pt;text-indent: 0pt;text-align: left;">Le collectif nantais pour le droit à la santé et à la protection sociale pour toutes et tous soutient ses revendications et les actions de ce collectif.</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">MODANE (73)</p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Le CHVM lance son nouveau programme de fidélité avec TotalEnergies</span></h6>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p style="padding-left: 164pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_004.jpg"/></span></p>
+<p style="color: #F7F7F7">Dossiers :</p>
+<h2 style="padding-top: 3pt;text-indent: 0pt;text-align: center;"><span style=" color: #FFF; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 36pt;  background-color: #007F00;">NOUS AVONS REÇU...</span></h2>
+<h4 style="padding-top: 11pt;padding-left: 5pt;text-indent: 0pt;line-height: 30pt;text-align: left;"><span style=" color: #FFF; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 25pt;  background-color: #007F00;">* Invitations</span></h4>
+<h5 style="text-indent: 0pt;text-align: center;"><span style=" color: #007F00; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">Psychiatrie</span></h5>
+<h6 style="padding-top: 13pt;text-indent: 0pt;line-height: 14pt;text-align: center;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Et si la santé mentale avait aussi droit à son festival de films ?</span></h6>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://r.info.fhf.fr/mk/mr/sh/7nVTPdZCTJDXPIQSCtxbujhhytuD4IE/REIp0YxuDdFZ">Festival cinéma à la folie</a></p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Réunion de rentrée du Printemps de la psychiatrie</span></h6>
+<p style="padding-top: 4pt;text-indent: 0pt;text-align: left;"><br/></p>
+<p style="padding-left: 193pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_005-1.jpg"/></span></p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<p class="s10" style="padding-left: 48pt;text-indent: 0pt;text-align: left;">La Coordination sera représentée.</p>
+<p style="text-indent: 0pt;text-align: left;"><br/></p>
+<h4 style="padding-left: 5pt;text-indent: 0pt;text-align: left;"><span style=" color: #FFF; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 25pt;  background-color: #007F00;">* Communiqué – déclaration...</span></h4>
+<h5 style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><span style=" color: #007F00; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">Psychiatrie</span></h5>
+<h6 style="padding-top: 13pt;padding-left: 99pt;text-indent: 0pt;line-height: 14pt;text-align: left;"><span style=" color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt;">Un rapport dénonce les conditions d’accueil des patients psy à Paris</span></h6>
+<p class="s10" style="padding-left: 48pt;text-indent: 0pt;text-align: left;">La contrôleuse générale des lieux de privation de liberté dénonce les conditions « indignes » de prise en charge dans les services d’urgence généraux et psychiatriques en Ile-de-France</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://www.franceinfo.fr/sante/hopital/la-controleuse-generale-des-lieux-de-privation-de-liberte-denonce-les-conditions-indignes-de-prise-en-charge-des-patients-dans-les-services-d-urgence-generaux-et-psychiatriques-en-ile-de-france_8185424.html#at_medium%3D5%26at_campaign_group%3D1%26at_campaign%3Dsante%26at_offre%3D3%26at_variant%3DV3%26at_send_date%3D20260910%26at_recipient_id%3D726375-1437732574-2a072072%26at_adid%3DDM1375728">L’article de France Info du 10 septembre</a></p>
+<h5 style="padding-top: 12pt;text-indent: 0pt;text-align: center;"><span style=" color: #007F00; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">Protection sociale</span></h5>
+<p class="s10" style="padding-top: 12pt;padding-left: 48pt;text-indent: 28pt;text-align: left;">Face à la multiplication des assurances complémentaires, un collectif propose de créer la création d’un complémentaire par la Sécurité Sociale.</p>
+<p class="s10" style="padding-left: 76pt;text-indent: 0pt;line-height: 14pt;text-align: left;">Un premier pas vers le 100 Sécu ?</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://blogs.mediapart.fr/les-invite-es-de-mediapart/blog/080926/sante-pour-la-creation-d-une-mutuelle-complementaire-geree-par-la-securite-sociale">Une tribune sur le site de Médiapart</a></p>
+<h5 style="padding-top: 13pt;text-indent: 0pt;text-align: center;"><span style=" color: #007F00; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">Hôpitaux</span></h5>
+<p class="s10" style="padding-top: 12pt;padding-left: 76pt;text-indent: 0pt;text-align: left;">À l’occasion de sa conférence de presse de rentrée, la Fédération hospitalière de France dresse le bilan d’un été marqué par 52 jours de canicule intense, des incendies d’une ampleur exceptionnelle et plus de 7 300 décès en excès et demande la création, dans le PLF 2027, d’un fonds vert doté d’un milliard d’euros par an, hors ONDAM, ouvert aux établissements publics sanitaires et médico-sociaux ainsi qu’aux facultés de santé et mobilisable dès le début de l’année prochaine.</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://www.fhf.fr/actualites/communiques-de-presse/au-sortir-dun-ete-extreme-donnons-lhopital-public-les-moyens-de-continuer-repondre-present">Le communiqué de la FHF</a></p>
+<p style="padding-top: 11pt;text-indent: 0pt;text-align: left;"><br/></p>
+<h5 style="text-indent: 0pt;text-align: center;"><span style=" color: #007F00; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">Arrêts de travail</span></h5>
+<p class="s10" style="padding-top: 12pt;padding-left: 76pt;text-indent: 0pt;line-height: 14pt;text-align: left;">La FNATH dénonce une nouvelle attaque contre les assurés malades.</p>
+<p class="s10" style="padding-left: 48pt;text-indent: 28pt;text-align: left;">À partir du premier octobre, des personnes en arrêt de maladie longue durée pourront perdre brutalement leurs indemnités journalières.</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://www.fnath.org/communique-presse/indemnites-journalieres-arrets-maladie-plutot-que-de-lutter-contre-les-vraies-causes-le-gouvernement-fait-payer-les-malades/">Le communiqué</a></p>
+<h5 style="text-indent: 0pt;text-align: center;"><span style=" color: #007F00; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt;">Sages-femmes</span></h5>
+<p class="s10" style="padding-top: 12pt;padding-left: 48pt;text-indent: 28pt;text-align: left;">L’ONSSF dénonce une indemnité pédagogique qui reproduit la sous-valorisation économique de la profession.</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/CP_ONSSF_MSU_2026_09_10.pdf">Le communiqué</a></p>
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        [{
+          class: "marker-0",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir ...',
+        },{
+          class: "marker-1",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir ...',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Les initiatives tenues ...',
+        }, {
+          class: "marker-3",
+          icon: simpleRedIcon,
+          title: 'Communiqués, prises de position ...'
+        }, {
+          class: "marker-4",
+          icon: simpleBlueIcon,
+          title: "Autres infos locales",
+       }]
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

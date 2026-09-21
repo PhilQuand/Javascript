@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+<style type="text/css"> * {margin:0; padding:0; text-indent:0; }
+ .s1 { color: #CC2B20; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 26pt; }
+ p { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; margin:0pt; }
+ .a, a { color: #00F; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 12pt; }
+ .s2 { color: #00F; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ .s3 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8pt; vertical-align: 4pt; }
+ .s4 { color: #00F; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ .s5 { color: black; font-family:"Arial Narrow", sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ .s6 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ .s7 { color: #CC2B20; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 16pt; }
+ .s8 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 12pt; }
+ .s9 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 20pt; }
+ .s10 { color: #FFF; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 14pt; }
+ .s11 { color: #FFF; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ .s12 { color: #FFF; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ .s13 { color: #FFF; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 14pt; }
+ .s14 { color: #FFF; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ .s15 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
+ .s16 { color: black; font-family:Geneva, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ li {display: block; }
+ #l1 {padding-left: 0pt; }
+ #l1> li>*:first-child:before {content: "• "; color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 20pt; }
+ li {display: block; }
+ #l2 {padding-left: 0pt; }
+ #l2> li>*:first-child:before {content: "- "; color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ li {display: block; }
+ #l3 {padding-left: 0pt; }
+ #l3> li>*:first-child:before {content: "• "; color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ #l4 {padding-left: 0pt; }
+ #l4> li>*:first-child:before {content: "• "; color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 12pt; }
+ h1 { color: black; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 38pt; }
+ h2 { color: black; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 36pt; }
+ h3 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 26pt; }
+ h4 { color: black; font-family:Impact, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 25pt; }
+ h5 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+ h6 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
+</style>
+</head>
+<body>
+<img class="skip-lazy" style="display: none;" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+La canicule de l’été a traduit l’urgence de s’emparer de la question climatique ! Elle a renforcé les inégalités sociales, confirmé l’inadaptation des hôpitaux et EHPAD ! La Coordination soutient l’<a href="https://26septembre.org/appel/" class="a" target="_blank">appel à marcher le 26 septembre</a> pour le climat, le vivant, la paix et la justice sociale.
+
+</div>
+<!--more-->
+
+<div style="display:none">
+<p><a href="https://www.base64-image.de/">conversions images en base64 et code d'intégration</a></p>
+<img class="skip-lazy urgences" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/image_p7_14.png"/>
+<img class="skip-lazy les-pieds" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/pieds.webp"/>
+<img class="skip-lazy étoile" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p4_3.png"/>
+<img class="skip-lazy carte-vitale" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p7_7.png"/>
+
+<div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_002.jpg" />
+
+<div class="VignetteBR flex right" style="align-items: center;">
+<div class="divIcon" style="padding-right:100px">
+<img class="skip-lazy urgences" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/image_p7_14.png"/>
+</div>
+<div class="divText">
+<p style="padding-left: 17pt;text-indent: 0pt;line-height: 14pt;text-align: center;">Le Maire de Senlis appelle à une mobilisation le 12 septembre dans sa ville.</p>
+<p class="s8" style="padding-left: 158pt;text-indent: 0pt;text-align: center;"><a href="https://www.oisehebdo.fr/2026/08/31/creil-une-manifestation-dampleur-attendue-devant-lhopital-de-creil-jeudi-3-septembre/" class="a" target="_blank">L’article de l’Oise Hebdo du 31 annonçant la manifestation</a> <a href="https://www.oisehebdo.fr/2026/09/03/creil-hopital-les-elus-exigent-de-stopper-lhemorragie/" target="_blank">L’article de l’Oise Hebdo du 3 septembre après la manifestation</a></p>
+</div>
+
+<p class="rubrique-new reçu">NOUS AVONS REÇU ...</p>
+
+<p class="rubrique-new reçu sous-titre-1">Initiatives</p>
+<p class="rubrique-new reçu sous-titre-1">Communiqué – déclaration...</p>
+<p class="rubrique-new reçu-sous-titre-2">Soins palliatifs</p>
+
+<p class="rubrique-new culture">CULTURE</p>
+</div>
+
+</div></div>
+
+</div>
+<div class="corpsLettreWeek-new">
+<div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 100%;" align="center">
+<img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/bannière.webp" />
+</div></div>
+<p>L'INFO de la semaine 38
+<br/>du 14 août au 20 sept. 2026</p>
+</div>
+<div class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Infossemaine38du14au20septembre2026.pdf">Pdf correspondant</a>
+</div>
+<div class="corpsLettre">
+<p style="display: none;">Ne pas supprimer ! </p>
+<div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto;" align="justify">
+<p class="CN-Edito-title">Édito</p>
+<div class="CN-Edito"><p style="padding-left: 4pt;text-indent: 0pt;line-height: 14pt;text-align: left;">La canicule de l’été a traduit l’urgence de s’emparer de la question climatique ! Elle a renforcé les inégalités sociales, confirmé l’inadaptation des hôpitaux et EHPAD ! La Coordination soutient l’<a href="https://26septembre.org/appel/" class="a" target="_blank">appel à marcher le 26 septembre</a> pour le climat, le vivant, la paix et la justice sociale.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">La rentrée va être chaude ! Le 29 la fonction publique se mobilise avec toutes ses organisations syndicales. Le service public, c’est essentiel pour la santé, alors bien sûr la Coordination soutient ! Mais ce sont aussi des manifestations qui sont appelées pour défendre des hôpitaux, le 24 à Meulan dans les Yvelines, le 25 à Remiremont dans les Vosges, la semaine suivante à Marmande dans le Lot et Garonne le 2 octobre …</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Notre Coordination va faire un temps fort de campagne sur le PFLSS (Projet de loi de financement de la Sécurité Sociale) dès qu’il sera connu. Lancement de la campagne à <a href="https://coordination-defense-sante.org/2026/06/montargis-manifestation-regionale-les-2-3-et-4-octobre-2026/" class="a" target="_blank">Montargis</a> les 2, 3 et 4 octobre. Nos hôpitaux n’ont pas besoin de restructurations/suppressions d’activité et de lits, mais de personnels et de lits supplémentaires et donc de financement ! Des mesures fortes sont nécessaires contre la désertification médicale et il faut en finir avec les restes à charge que doivent payer les malades ! Nos comités vont s’emparer de toutes ces questions dans leur diversité. Dés à présent une pétition est lancée contre les dépassements d’honoraires et les franchises médicales. Elle a connu un franc succès à la fête de l’Humanité, où de multiples contacts ont été pris. Pétition et modèles de tracts sont à disposition sur <a href="https://coordination-defense-sante.org/2026/09/campagne-pour-un-plfss-a-la-hauteur-des-besoins/" class="a" target="_blank">notre site</a>.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Au programme également de la période à venir, les 38<span class="s3">èmes</span> rencontres nationales de la Coordination à St-Etienne les Remiremont les 6, 7 et 6 novembre. Au programme, santé environnementale le vendredi soir, nos propositions pour la santé, l’autonomie et l’assurance maladie le samedi et une conférence sur le médicament, avant l’assemblée générale. C’est public, mais prévenez pour des questions logistiques. Renseignements <a href="https://coordination-defense-sante.org/2026/07/la-38eme-rencontre-nationale-de-la-coordination/" class="a" target="_blank">ic</a><a href="https://coordination-defense-sante.org/2026/07/la-38eme-rencontre-nationale-de-la-coordination/" class="s4" target="_blank">i</a>.</p>
+<p class="s5" style="text-indent: 0pt;text-align: right;">Michèle Leflon</p>
+<div class="Citation">
+<p class="s6" style="padding-top: 3pt;padding-left: 7pt;text-indent: 0pt;text-align: left;">LA CITATION DE LA SEMAINE</p>
+<p class="s7" style="padding-left: 7pt;text-indent: 0pt;text-align: left;">« Pour l’État, le budget 2027 sera le plus rigoureux depuis très longtemps »</p>
+<p class="s8" style="padding-left: 7pt;text-indent: 0pt;text-align: left;">Sébastien Lecornu, Premier ministre.</p>
+<p class="s8" style="padding-left: 7pt;text-indent: 0pt;text-align: left;">On a compris à quoi s’attendre !</p>
+</div>
+</div>
+</div>
+<p>SOMMAIRE</p><div class="textbox" style="display:none">
+<p class="s6" style="padding-top: 3pt;padding-left: 7pt;text-indent: 0pt;text-align: left;">LA CITATION DE LA SEMAINE</p>
+<p class="s7" style="padding-left: 7pt;text-indent: 0pt;text-align: left;">« Pour l’État, le budget 2027 sera le plus rigoureux depuis très longtemps »</p>
+<p class="s8" style="padding-left: 7pt;text-indent: 0pt;text-align: left;">Sébastien Lecornu, Premier ministre.</p>
+<p class="s8" style="padding-left: 7pt;text-indent: 0pt;text-align: left;">On a compris à quoi s’attendre !</p>
+</div>
+<p style="text-indent: 0pt;text-align: left;"/><ul id="l1"><li data-list-text="•">
+<p class="s9" style="padding-top: 13pt;padding-left: 33pt;text-indent: -28pt;text-align: left;">L’écho des comités : pages 2 à 5</p>
+</li><li data-list-text="•">
+<p class="s9" style="padding-top: 5pt;padding-left: 33pt;text-indent: -28pt;text-align: left;">Autres infos locales : pages 6 et 7</p>
+</li><li data-list-text="•">
+<p class="s9" style="padding-top: 5pt;padding-left: 33pt;text-indent: -28pt;text-align: left;">Nous avons reçu : pages 8 et 9</p>
+</li><li data-list-text="•">
+<p class="s9" style="padding-top: 5pt;padding-left: 33pt;text-indent: -28pt;text-align: left;">Culture : page 9</p>
+</li></ul>
+<p class="rubrique-new echo" ><strong>L’ÉCHO DES COMITÉS</strong></p>
+<p class="markerGroupDeb rubrique-new echo-titre-1" />
+<p class="markerGroupDebTitle" ><strong>* Les initiatives à venir...</strong></p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">MAYENNE (53)</p>
+<p class="info-title">Soirée de discussion sur le passé et surtout sur l’avenir de la santé en Mayenne</p>
+<p style="padding-left: 175pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_002-2.jpg"/></span></p>
+<p style="padding-left: 76pt;text-indent: 0pt;text-align: left;">16 septembre 2016 - 16 septembre 2026 AUDACE53 a 10 ans ce 16 septembre !</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: left;">Pour marquer ce 10ème anniversaire, les Urgences du CHNM seront à nouveau fermées de mercredi 16 20h30 à vendredi 18 8h30. Ras-le-bol !</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: left;">Pour commémorer (peut-on dire « fêter », vu la situation !) cet anniversaire, AUDACE53 invite à une soirée de discussion sur le passé et surtout sur l’avenir de la santé en Mayenne</p>
+<p style="padding-left: 76pt;text-indent: 0pt;text-align: left;">Jeudi 15 OCTOBRE 2026 à partir de 20h au Grimaldi, à Mayenne. Au programme :</p>
+<ul id="l2"><li data-list-text="-">
+<p style="padding-left: 82pt;text-indent: -5pt;line-height: 14pt;text-align: left;">débat ouvert sur la situation du CHNM et de l’accès à la médecine de ville,</p>
+</li><li data-list-text="-">
+<p style="padding-left: 82pt;text-indent: -5pt;line-height: 14pt;text-align: left;">Visite des locaux de l’association (sur place)</p>
+</li><li data-list-text="-">
+<p style="padding-left: 82pt;text-indent: -5pt;text-align: left;">Pot de l’amitié</p>
+</li></ul>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">PUSSAY (91)</p>
+<p class="info-title">Convergence Hôpital Santé Publique Sud-Essonne au festival à la ferme</p>
+<p style="padding-left: 200pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_003-2.jpg"/></span></p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Convergence Hôpital Santé Publique Sud-Essonne sera présent au festival à la ferme à Pussay avec un stand pour rencontrer et mobiliser autour des questions d’accès aux soins et de défense d’un grand service public de santé. Le comité fera notamment signé la pétition contre les dépassements d’honoraires et franchises médicales</p>
+<p class="isCity" style="background-color: #9F41CF; color: #F7F7F7">REMIREMONT (88)</p>
+<p class="info-title">L’ADEMAT H appelle à un rassemblement le 25 septembre</p>
+<p style="padding-left: 190pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_004-1.jpg"/></span></p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/1000-J-URGENCES-FERMEES-LA-NUIT.pdf">Le tract d’appel au rassemblement</a></p>
+<p class="markerGroupDeb rubrique-new echo-titre-2" />
+<p class="markerGroupDebTitle" ><strong>* Les initiatives tenues...</strong></p>
+<p class="isCity" style="background-color: #2CAB23; color: #F7F7F7">NORD ESSONNE (91)</p>
+<p class="info-title">Débat à la fête de l’Humanité</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Le Comité de défense des hôpitaux du nord Essonne organisait un débat lors de la fête de l’Humanité. Sa présidente a rappelé tout l’historique conduisant au démantèlement de l’hospitalisation publique dans ce territoire avec le transfert des activités sur l’hôpital de Saclay.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">On en retiendra que la lutte paie ! La Cour régionale des Comptes reconnaît dans son rapport sur le groupe hospitalier Nord Essonne que la stratégie initiale a du être modifié du fait de la mobilisation.</p>
+<p style="padding-left: 76pt;text-indent: 0pt;line-height: 14pt;text-align: justify;">Le comité citoyen, associé aux luttes syndicales, appuyé par certains élus a donc permis :</p>
+<ul id="l3"><li data-list-text="•">
+<p style="padding-left: 96pt;text-indent: -8pt;line-height: 14pt;text-align: justify;">- l’augmentation du nombre de lits initialement prévu à l’hôpital Paris/Saclay ;</p>
+</li><li data-list-text="•">
+<p style="padding-left: 48pt;text-indent: 42pt;text-align: justify;">- de débloquer 50 millions de plus pour la construction de Paris-Saclay sans vendre Longjumeau.</p>
+</li><li data-list-text="•">
+<p style="padding-left: 48pt;text-indent: 39pt;text-align: justify;">- le maintien d’accueil d’urgence et le retour d’un certain nombre de services à l’hôpital de Longjumeau.</p>
+<ul id="l4"><li data-list-text="•">
+<p style="padding-left: 48pt;text-indent: 43pt;text-align: justify;">Le comité a donc infléchi sensiblement la stratégie initiale de l’ARS et du GH mais continue à dénoncer une offre de soins totalement déséquilibrée et inadaptée aux besoins des habitants de ce territoire.</p>
+</li></ul></li></ul>
+<p style="padding-left: 153pt;text-indent: 0pt;line-height: 14pt;text-align: justify;"><a href="https://coordination-defense-sante.org/2026/09/nord-essonne-debat-a-la-fete-de-lhumanite/">Tous les documents sur le site de la Coordination</a></p>
+<p class="isCity" style="background-color: #2CAB23; color: #F7F7F7">SAINT PIERRE DES CORPS (37)</p>
+<p class="info-title">Le collectif santé 37 au forum des associations de St Pierre des Corps</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Le collectif santé était présent comme les autres années au forum des associations de St Pierre des Corps. Notre stand a eu de la visite, l’occasion de participer au quizz sur la Sécurité Sociale et vérifier ses connaissances, mesurer l’importance de cette institution pour les femmes, tout au long de leur vie, et donner envie de se battre pour garder nos droits.</p>
+<p style="padding-left: 194pt;text-indent: 0pt;line-height: 14pt;text-align: justify;"><a href="https://collectifsante37.blogspot.com/2026/09/le-collectif-sante-au-forum-des.html#more">La suite sur le blog du collectif</a></p>
+<p class="isCity" style="background-color: #2CAB23; color: #F7F7F7">FAUCOGNEY (70)</p>
+<p class="info-title">Le CV 70 et l’ADEMAT H présents aux Bio Jours 2026</p>
+<p style="padding-left: 163pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_005-2.jpg"/></span></p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/2026/09/faucogney-le-cv-70-et-lademat-h-presents-aux-bio-jours-2026/">Plus de photos sur le site de la Coordination</a></p>
+<p class="isCity" style="background-color: #2CAB23; color: #F7F7F7">MONTCEAU LES MINES (71)</p>
+<p class="info-title">Le CODEF salue le rassemblement de l’Hôpital Jean Bouveri</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/la-sante%CC%81-publique-a-fait-entendre-sa-voix.pdf">Le communiqué</a></p>
+<p class="isCity" style="background-color: #2CAB23; color: #F7F7F7">SARLAT (24)</p>
+<p class="info-title">Comme tous les jeudis, le comité était présent devant l’hôpital ce 17 septembre</p>
+<p style="padding-left: 161pt;text-indent: 0pt;text-align: left;"><span><img class="skip-lazy" src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_006-1.jpg"/></span></p>
+<p class="markerGroupDeb rubrique-new echo-titre-3" />
+<p class="markerGroupDebTitle" ><strong>* Communiqués, prises de position...</strong></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">SAINT-AFFRIQUE (12)</p>
+<p class="info-title">Le bloc doit réouvrir et permettre les prises en charge de proximité</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Une nouvelle fermeture du Bloc de l’hôpital de St Affrique entraîne l’arrêt de plusieurs services. Une nouvelle fois ce sont les habitant.e.s qui paient les conséquences de l’incurie de cette Direction.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Depuis plusieurs années Le Manifeste et l’ancien Président de la Commission Des Usagers, ont alerté sur l’urgence qu’il y avait à rénover les deux salles du Bloc Chirurgie de St Affrique.</p>
+<p style="padding-top: 3pt;padding-left: 76pt;text-indent: 0pt;line-height: 14pt;text-align: justify;">Depuis 2024, quatre plans de rénovation sont prêts.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Lors d’une audience du Manifeste le 4 Septembre, la Direction de l’ARS Aveyron a reconnu que cette situation était anormale et s’est engagée sur la rénovation rapide.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Le Manifeste insiste pour que le plan de rénovation indique clairement les possibilités médicales et recettes qu’il permettra en face des coûts.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">La nomination d’un nouveau Directeur est prévue pour la mi-novembre, plusieurs médecins envisagent de revenir sur l’hôpital.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Le Manifeste sera invité aux Conseils de Surveillance de l’hôpital de St Affrique et au COPIL du Sud Aveyron. Le retour restant bloqué par le maintien des deux représentants associatifs de Millau choisis par la Direction pour siéger à St Affrique.</p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">SARLAT (24)</p>
+<p class="info-title">Psychiatrie en grand danger</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Il faut absolument trouver des psychiatres. Mais c’est sans doute la fermeture de l’hôpital psychiatrique qui est prévue vu le renoncement par la direction de l’hôpital la veille même de son embauche d’une aide-soignante à l’EHPAD de Sarlat sous le prétexte de… la fermeture de l’hôpital psychiatrique.</p>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/hopital-psychiatrique-13sept-2026-URGENCE.pdf">L’appel au secours du comité</a></p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/26-09-19-lettre-ARS-18-SEPT-2026.docx-n2-jean-1.pdf">Le courrier à l’ARS mis à la signature</a></p>
+<p class="isCity" style="background-color: #C92235; color: #F7F7F7">TARBES (65)</p>
+<p class="info-title">Des avis très négatifs pour le futur hôpital à Lanne</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">A quelques jours de la fin de l’enquête publique sur le futur hôpital médian entre Tarbes et Lourdes, l’association de sauvegarde des hôpitaux et de la santé dans les Hautes Pyrénées s’exprime avec d’autres associations et collectifs pour donner un avis très négatif sur ce projet.</p>
+<p style="padding-left: 141pt;text-indent: 0pt;line-height: 14pt;text-align: justify;"><a href="https://www.lasemainedespyrenees.fr/nouvel-hopital-a-lanne-les-opposants-demandent-des-reponses-avant-la-fin-de-lenquete-publique/">L’article de la Semaine des Pyrénées du 15 septembre</a></p>
+<p class="markerGroupDeb rubrique-new autres" ><strong>AUTRES INFOS LOCALES</strong></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">CONDOM (32 )</p>
+<p class="info-title">Fermeture du service de médecine générale</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://france3-regions.franceinfo.fr/occitanie/gers/auch/il-ne-faut-pas-jouer-avec-les-patients-et-le-personnel-faute-de-trouver-un-medecin-titulaire-un-hopital-contraint-de-suspendre-une-partie-de-ses-soins-3413771.html#Echobox%3D1788991602">L’article de France 3 du 9 septembre</a></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">PAU (64 )</p>
+<p class="info-title">Les conséquences sur l’hôpital de la fermeture de la maternité privée</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://www.ici.fr/emissions/ici-bearn-bigorre-c-est-vous-et-cynthia-lafontaine/fermeture-de-la-maternite-navarre-l-hopital-de-pau-victime-de-cette-situation-pour-le-directeur-1147205">L’article d’ICI du 14 septembre</a></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">SIGEAN (11 )</p>
+<p class="info-title">Débat public sur les centres de santé</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Le comité citoyen de Sigean et alentours pour l’accès aux soins organise un débat sur la nécessité de développer des centres de santé publics avec Éric May, Secrétaire général de la Fédération Nationale des Centres de Santé et Directeur du centre de santé de Malakoff le Samedi 26 septembre à 15H00, salle de l’Étang Boye à SIGEAN</p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">LONS LE SAUNIER (71)</p>
+<p class="info-title">Conférence le 30 octobre</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">L’Association Action Santé Solidarité organise  une conférence sur le thème de quel hôpital nous faut il à Lons le Saunier ? D’ici là elle diffuse un questionnaire.</p>
+<p class="s2" style="padding-left: 215pt;text-indent: 0pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Tract-conference.pub_.pdf" class="a" target="_blank">Le tract d’invitation</a> <a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/questionnaire-lons-revu.pub_.pdf" target="_blank">Le questionnaire</a></p>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/09/LETTRE-2026-23.pub_.pdf">La lettre d’info de l’association Action Santé Solidarité</a></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">ALPES DE HAUTE PROVENCE (04 )</p>
+<p class="info-title">Accès aux soins</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Dans cette émission de K.T.B Radio, Cédric Volait, personnel hospitalier et responsable syndical de la CGT Santé 04 et PACA revient sur la situation dans les Alpes-de-Haute-Provence, les conséquences de ces fermetures pour les patients et les soignants, mais aussi sur les revendications portées par les personnels pour défendre l’hôpital public et l’accès aux soins pour toutes et tous.</p>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://www.youtube.com/watch?v=gdOUJ2PNKwQ">L’émission</a></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">METZ (57 )</p>
+<p class="info-title">Fermeture annoncée des urgences de l’hôpital militaire</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: left;">Le service de santé des armées a décidé de fermer les urgences de l’hôpital militaire Legouest qui tient un véritable rôle de proximité dans le centre de Metz.</p>
+<p class="s2" style="padding-left: 238pt;text-indent: -65pt;text-align: left;"><a href="https://france3-regions.franceinfo.fr/grand-est/moselle/metz/la-fermeture-du-service-d-urgence-de-l-hopital-militaire-de-metz-suscite-l-inquietude-des-syndicats-3417179.html" class="a" target="_blank">L’article de France info du 15 septembre</a> <a href="https://c.org/qntVCQVcZd" target="_blank">La pétition</a></p>
+<p class="isCity" style="background-color: #2C83CB; color: #F7F7F7">MEULAN (78 )</p>
+<p class="info-title">Rassemblement jeudi 24 septembre à 9 h 30 devant l’hôpital de Meulan</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">L’ARS a annoncé au début de l’été son intention de fermer à court terme la maternité, la réanimation et la chirurgie de l’hôpital intercommunal de Meulan-Les Mureaux. Syndicats, partis politiques et associations viennent de créer un comité de défense et appellent à un rassemblement le jeudi 24 septembre.</p>
+<p style="color: #F7F7F7">Dossiers :</p>
+<p class="rubrique-new reçu"><strong>NOUS AVONS REÇU...</strong></p>
+<p class="rubrique-new reçu sous-titre-1"><strong>* Communiqué – déclaration...</strong></p>
+<p class="rubrique-new reçu sous-titre-2"><strong>Hospitalisation privée</strong></p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Selon une dépêche de Hospimedia la ministre de la Santé, des Familles, de l’Autonomie et des Personnes handicapées Stéphanie Rist a confié une mission à l’Inspection générale des affaires sociales. Dans la lettre de mission, S. Rist laisse entrevoir une plus grande structuration de l’aide publique aux cliniques et hôpitaux privés.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Le rapport devra répondre à trois questions principales, « la réalité et l’ampleur des difficultés financières du secteur », les déterminants de ces difficultés et enfin les conditions et modalités d’intervention publique. Il doit être rendu en novembre.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Espérons que l’IGAS travaille sur la transparence des comptes de l’hospitalisation privée où l’imbrication de sociétés multiples, comme les sociétés immobilières, pourrait permettre de créer des déficits artificiels !</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Et si l’activité est effectivement déficitaire, sans doute faut il se poser la question de la tarification de ces mêmes activités dans le secteur public ! Pour les maternités par exemple !</p>
+<p class="rubrique-new reçu sous-titre-2"><strong>Psychiatrie</strong></p>
+<h6 style="padding-top: 13pt;padding-left: 65pt;text-indent: 0pt;text-align: center;"><span class="s15">Les recommandations du contrôleur des lieux de privation de liberté concernant les malades à présentation psychiatrique dans les services d’urgence d’Île de France</span><a href="https://www.cglpl.fr/publications/recommandations-en-urgence-relatives-a-laccueil-lattente-et-lorientation-des-patients-a-presentation-psychiatrique-dans-les-services-daccueil-des-urgences-des-hopi">Le rapport</a></h6>
+<p class="s15" style="padding-top: 13pt;text-indent: 0pt;line-height: 14pt;text-align: center;">L’USP a rencontré la ministre : Si j’avais de l’argent, je vous en donnerais…</p>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://www.uspsy.fr/?p=27377">Le communiqué de l’Union Syndicale de la Psychiatrie</a></p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;line-height: 14pt;text-align: center;"><span class="s15">La psychiatrie n’est pas une discipline médicale comme les autres</span></h6>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://stm.cairn.info/revue-sante-publique-2026-3-page-229">Un article de François Gonon</a></p>
+<h6 style="padding-top: 13pt;padding-left: 53pt;text-indent: 0pt;text-align: center;"><span class="s15">La conception strictement biologique des troubles mentaux n’a pas permis d’améliorer le soin</span></h6>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://stm.cairn.info/revue-sante-publique-2026-3-page-252?lang=fr">Un article de Vikram Patel</a></p>
+<p class="rubrique-new reçu sous-titre-2"><strong>Dépassements d’honoraires</strong></p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Pour mesurer concrètement l’ampleur qu’ils peuvent représenter lors d’un événement fréquent tel que l’accouchement, L’IRDES a réalisé une étude évaluant l’ensemble des dépassements facturés autour de l’épisode de soins : des quatre derniers mois de grossesse jusqu’aux douze jours suivant la sortie de maternité.</p>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">En 2021, plus d’une patiente sur deux a été confrontée à au moins un dépassement lors de son épisode d’accouchement. Lorsqu’ils existent, ces dépassements atteignent en moyenne 300 €, mais sont supérieurs à 755 € pour les 10 % de patientes les plus exposées.</p>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://www.irdes.fr/recherche/2026/qes-310-le-cumul-des-depassements-d-honoraires-au-cours-d-un-episode-de-soins-accouchement.html?utm_source=brevo&utm_medium=email&utm_campaign=Lettre%20dinformation%20n276%20du%2018022026">L’étude de l’IRDES</a></p>
+<p class="rubrique-new reçu sous-titre-2"><strong>La mobilisation du 15 septembre</strong></p>
+<p style="padding-left: 214pt;text-indent: 2pt;text-align: center;">En Bourgogne <a href="https://france3-regions.franceinfo.fr/bourgogne-franche-comte/cote-d-or/dijon/l-hopital-public-est-en-train-de-mourir-en-bourgogne-le-personnel-soignant-manifeste-pour-proteger-le-systeme-de-sante-et-de-protection-sociale-3417392.html#Echobox%3D1789484106">L’article de France 3</a></p>
+<p class="rubrique-new reçu sous-titre-2"><strong>Services publics</strong></p>
+<h6 style="padding-left: 53pt;text-indent: 0pt;text-align: center;"><span class="s15">Le Collectif Nos Services Publics vient de publier les résultats de son enquête sur le vécu des agent·es public·ques.</span></h6>
+<p style="padding-left: 48pt;text-indent: 28pt;text-align: justify;">Il en dégage quatre messages. Le premier, c’est que les agent·es sont attaché·es à leurs missions de service public, mais empêché·es de bien faire leur travail. En particulier 41 % des répondant<span class="s16">‧</span>es de la fonction publique hospitalière (FPH) déclarent sacrifier souvent ou très fréquemment la qualité de leur travail.</p>
+<p style="padding-left: 204pt;text-indent: 0pt;text-align: justify;"><a href="https://nosservicespublics.fr/rapport-hierarchie-management">Les résultats de l’enquête</a></p>
+<h6 style="padding-top: 13pt;text-indent: 0pt;line-height: 14pt;text-align: center;"><span class="s15">Convergence des Services publics appelle à soutenir les mobilisations du 29 septembre</span></h6>
+<p style="text-indent: 0pt;text-align: center;"><a href="https://www.convergence-sp.fr/avec-les-fonctionnaires-le-29-septembre/">Le communiqué</a></p>
+<p class="rubrique-new reçu sous-titre-2"><strong>Médecine générale</strong></p>
+<p style="padding-left: 120pt;text-indent: 0pt;text-align: center;">Les propositions de MG France pour les élections présidentielles <a href="https://www.mgfrance.org/images/telechargements/presidentielles/2027-propositions-presidentielles-mgfrance.pdf">Le document</a></p>
+<p class="rubrique-new culture"><strong>CULTURE</strong></p>
+<img class="skip-lazy étoile" src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p4_3.png"/>
+<p style="padding-top: 13pt;padding-left: 53pt;text-indent: 0pt;text-align: center;">Les enfermé.e.s, le podcast du CGLPL (Contrôleur général des lieux de privation de liberté) a été primé à New York</p>
+<p style="text-indent: 0pt;line-height: 14pt;text-align: center;"><a href="https://www.cglpl.fr/publications/les-enferme%C2%B7es-le-podcast-du-cglpl-recompense-a-new-york">La présentation et les différents épisodes</a></p>
+
+</div>
+
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        [{
+          class: "marker-0",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir ...',
+        },{
+          class: "marker-1",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir ...',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Les initiatives tenues ...',
+        }, {
+          class: "marker-3",
+          icon: simpleRedIcon,
+          title: 'Communiqués, prises de position ...'
+        }, {
+          class: "marker-4",
+          icon: simpleBlueIcon,
+          title: "Autres infos locales",
+       }]
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

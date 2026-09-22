@@ -1,4 +1,4 @@
-ndande de <!--jQuery for FancyBox 3 -->
+<!--jQuery for FancyBox 3 -->
 <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
 <!--Add fancyBox 3 see documentation at : http://fancyapps.com/fancybox/3/docs/#options -->
@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXe8_DimxPSPA7esmOWGNXJ-Y5cbPg4Ix1WnYm1JfRIsNGyU7GUb7vo7bANtZI4L6EwDBgPx2D9npVawyFKbGJIbzTuZAmLJTuN-UfdIZra3nzIqiG2QAGjz01wvd7U1ftQYBNI-mQMwTqAdXAmlCgs6CZoZqD6p0L9FHJgvqOaletfT7O9svHTLBAkmE/s1600/image.png",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5ALViYounoobtQe9v4Ka3eUkGRG48X9UjBhvM32QbWPeafykmM1NWye9TNHo1GexHebwV6XvHwC-dkw_R16ARaPoaLLRLLkFfnYclqZ1G4OrotTEc733d_FKY8brK-fCtHFrNTyjeSPVP8R9QlGo5hSiyY_5cjAbr5y2LkwuVWdHWVX-xrlrOpq7lvhQ/s1600/APPEL%2028%20SEPTEMBRE%202026.-2.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -860,18 +860,21 @@ $(document).ready(function() {
                   },*/
            {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXe8_DimxPSPA7esmOWGNXJ-Y5cbPg4Ix1WnYm1JfRIsNGyU7GUb7vo7bANtZI4L6EwDBgPx2D9npVawyFKbGJIbzTuZAmLJTuN-UfdIZra3nzIqiG2QAGjz01wvd7U1ftQYBNI-mQMwTqAdXAmlCgs6CZoZqD6p0L9FHJgvqOaletfT7O9svHTLBAkmE/s1600/image.png"
-          },
-           /*{
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6OVz6g_BZg_iI0lR3As-S_5b651MeQj5Cv9tFqV7PeA6-g2BRx9NGQHVci4gdhyIDo2goHntM_kdCEdUhTykzS_2G0F9kJKzOhrrWzemWciqZe3wxF4NUCTZ8dQe9mS-VAaQbW5JHTwsSpX6ZtWtZxpSKTf1edfT7p8N05YZ3LrDWY15gxzCl3O5zhYo/s1600/Flyer%20-%20carnaval%20pour%20un%20monde%20sans%20loi%20duplomb%20-%2026%20avril%20-%202.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5ALViYounoobtQe9v4Ka3eUkGRG48X9UjBhvM32QbWPeafykmM1NWye9TNHo1GexHebwV6XvHwC-dkw_R16ARaPoaLLRLLkFfnYclqZ1G4OrotTEc733d_FKY8brK-fCtHFrNTyjeSPVP8R9QlGo5hSiyY_5cjAbr5y2LkwuVWdHWVX-xrlrOpq7lvhQ/s1600/APPEL%2028%20SEPTEMBRE%202026.-2.jpg"
           },
            {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1-BhAv5ueYHOxm-e6LZ6iRwzYxwlXUoHlhDyJpZtio2NWaMjYIENlkVnIdh8H0MQNdpZZdA5P8HuWYx4FaT_AYAVrS915pB_UyFZg6hDXhX8n_jN1AFeEr7BeWmS8L36_7lURZ1T1gAVOfqn1KkXfXWjSubVnmDO9aw7x-ucmfCgZJyZDhLqKC0zQU9c/s1600/CPPrintempsBruyantCaranaval26avrilTours.jpg"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYtmsxPKftvG4T08OVxGS_m3JKN1WPIwf9RPEoxR3GzD64OBSKbsVisBRX-QZEaqqW_i1IHJF2gkI2ZtLtlZXyTjvpXBmk0OTDYwdWow78QxXKhwR-GbBQTCTDro5NWFQVxkALafId8WHbtKbnbyP2clpFoTbSfLpPgZGjoqroK4VAJHuQ0HosSmUgGOg/s1600/TdfS%20tract%20sept%2026.jpg"
           },
-          
-          {
+           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO4P0q8XpDO2qw_lS8rgHVHxRtj5fcvt7ftCrRCp0WWUYBIdfrK1fAKUZx8Rh-AoKfwx9eZYQmgx16nTy5MpOrY_kxVoe2rDVS2Sx3PaEcegLizkQRBBtExTxOZCTKRjXfRBgZGNemoVZ1pkJPp7p3BesG49DEhftmt0WmxHX98m63gzOpw9fjOUN1fJ0/s1600/TdfS%20tract%20sept%2026%20P2.jpg"
+          },
+           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEif6oKwOF7gyjR0hH33Plmv6FJbq5LIYIe_3taF1MCSQzsY9af8RQODwHHMvlonOAki9jNUdRYrXNp1GxPXfWoOC3qOUrIBX_Fh1Rq-81DeQ1WZdJR2Cw_hKcHx5rxdYWJrXVJROWmHLjZyVI18M2euzJWe8TVX8mwFJ629uvwm4q4oqhMFXRvTFVIe7Uw/s1600/communique%CC%81SP.jpg"
+          },
+          /*{
             dataType: "iframe",
             dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr9PhSE8MjaJFptsyfyvuBzELB2So57aO11PuW2e8j4MntCaCS8YEsmKyLC1e888TG2ulrkbX4Gr2EWOTjKSBo-WgGxIX0B6sYTxYGxQBaDBuwvy7MvL9i7ips-Iw27JZK0PoPFHjQ2Ge-WpWrpHA7qXhJxDUaTFZmXerD5Eo_gPYbVxeBY5IacNTPArk/s841/Communique%CC%81%20TDFS%20janvier%202026.jpg",
             dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/CommuniqueTDFSJanvier2026.pdf"

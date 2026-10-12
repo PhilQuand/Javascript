@@ -1161,6 +1161,402 @@
       var contBody = corpsLettre.find('body').html();
       corpsLettre.html(contBody);
     }
+    
+    if (corpsLettre.hasClass('Brevo')) {
+      // 1. Sélectionner la table source et la div cible
+      //const tableSource = document.querySelector('#ma-table-source'); // Adaptez le sélecteur
+      //const divCible = document.querySelector('#ma-div-cible'); // Adaptez le sélecteur
+      // 1. Créer la nouvelle div et l'assigner à la cible
+      const divCible = document.createElement('div');
+      divCible.id = 'divBrevo';
+      // 2. Insérer la div juste AVANT la première table
+      //Array.from(document.querySelectorAll('table'))[0].before(divCible);
+      //const elements = document.querySelector('#filtreData');
+      //elements.after(divCible);
+      // 2. Insérer la div juste AVANT la première table
+      Array.from(document.querySelectorAll('table'))[0].before(divCible);
+      // 3. Assigner la source comme la première table
+      const tableSource = Array.from(document.querySelectorAll('table'))[0]
+
+      if (tableSource && divCible) {
+        // 2. Récupérer TOUTES les div à l'intérieur de la table (y compris celles des sous-tables)
+        const toutesLesDivs = tableSource.querySelectorAll('td, th');
+
+        // 3. Déplacer chaque div vers la div cible
+        toutesLesDivs.forEach(div => {
+          const estVide = div.textContent.trim() === '' && div.children.length === 0;
+          // 2. Déplacer chaque enfant un par un jusqu'à ce que la source soit vide
+          if (!estVide)
+            while (div.firstChild) {
+              divCible.appendChild(div.firstChild);
+            }
+        });
+        const divBrevo = document.querySelector('#divBrevo');
+        if (divBrevo) {
+          // 2. Récupérer toutes les tables situées à l'intérieur de cette div
+          const tablesInternes = divBrevo.querySelectorAll('table');
+          // 3. Les supprimer une par une
+          tablesInternes.forEach(table => {
+            table.remove();
+          });
+          console.log(`${tablesInternes.length} table(s) supprimée(s) de la div avec succès !`);
+          // 2. Récupérer toutes les div situées à l'intérieur de cette div
+          const divsInternes = divBrevo.querySelectorAll('div');
+          // 3. Les supprimer une par une
+          divsInternes.forEach(div => {
+            while (div.firstChild) {
+              div.before(div.firstChild);
+            }
+            div.remove();
+          });
+          console.log(`${toutesLesDivs.length} div(s) déplacée(s) avec succès !`);
+          tableSource.remove();
+          console.log(`${tablesInternes.length} table(s) supprimée(s) de la div avec succès !`);
+
+          prepCarte();
+
+        }
+      }
+
+      function prepCarte() {
+        contMotclef();
+        while (divCible.firstChild) {
+          divCible.before(divCible.firstChild);
+        }
+        divCible.remove();
+        netFinal();
+
+        function netFinal() {
+
+          /// 1. Récupérer tous les <p> de la page
+          const paragraphes = document.querySelectorAll('p');
+
+          // 2. Extraire les 6 derniers et les supprimer
+          Array.from(paragraphes).slice(-6).forEach(p => p.remove());
+
+          // Récupère toutes les images
+          const toutesLesImages = document.querySelectorAll('img');
+
+          // Vérifie qu'il y a au moins une image pour éviter une erreur
+          if (toutesLesImages.length > 0) {
+            // La dernière image se trouve à l'index (longueur - 1)
+            const derniereImg = toutesLesImages[toutesLesImages.length - 1];
+            derniereImg.remove();
+          }
+
+          // 1. Récupérer toutes les images de la page
+          const images = document.querySelectorAll('img');
+
+          // 2. Transformer en tableau et ignorer la première image (.slice(1) commence à l'index 1)
+          const imagesACibler = Array.from(images).slice(8);
+
+          // 3. Parcourir les images restantes pour les transformer
+          imagesACibler.forEach(img => {
+            // Récupérer l'attribut src de l'image actuelle
+            const srcOriginal = img.getAttribute('src');
+
+            // Créer le conteneur principal
+            const wrapper = document.createElement('div');
+            wrapper.className = 'VignetteBR center';
+            wrapper.style.alignItems = 'center';
+
+            // Injecter la structure HTML souhaitée à l'intérieur
+            wrapper.innerHTML = `
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="${srcOriginal}" />
+        </div>
+        <!--div class="divText">
+        </div>-->`;
+
+            // 4. Remplacer l'ancienne image par la nouvelle structure
+            img.replaceWith(wrapper);
+          });
+          corpsLettre.removeClass('Brevo')
+
+          const codeComplet = corpsLettre.prop('outerHTML');
+          const blob = new Blob([codeComplet], {
+            type: 'text/html;charset=utf-8'
+          });
+          const url = URL.createObjectURL(blob);
+
+          const lien = document.createElement('a');
+          lien.href = url;
+          lien.download = 'corpsLettre.html';
+          lien.click();
+
+          URL.revokeObjectURL(url);
+        };
+
+        function netContHTML(elCont) {
+          // textContent ignore les balises HTML, .trim() enlève les espaces/retours à la ligne superflus
+          return texteBrut = elCont.textContent ? elCont.textContent.trim() : '';
+        };
+
+        function isContVille(elCont) {
+          // Vérifie si le elCont est celui d'une ville
+          // Expression régulière (Regex) :
+          // ^.+  -> Commence par un ou plusieurs caractères
+          // \s+  -> Suivi d'un ou plusieurs espaces
+          // \(   -> Parenthèse ouvrante
+          // \d{2}   -> deux chiffres à l'intérieur des parenthèses
+          // \)   -> Parenthèse fermante (le $ indique la fin de la chaîne)
+          const regex = /^.+\s+\(\d{2}\)$/;
+          const filtelCont = netContHTML(elCont);
+          const isVille = regex.test(filtelCont);
+          return isVille;
+          //if (isVille) return true;
+          //else return false
+        };
+
+        function contMotclef() {
+          const typeCont = 'p'
+          //const colMotsClefs = ['ÉDITO', 'L’ÉCHO DES COMITÉS', '* Les initiatives à venir', '* Les initiatives tenues', '* Communiqués, prise de position ...', 'AUTRES INFOS LOCALES', 'NOUS AVONS REÇU...'];
+          // 2. Initialiser l'index pour la boucle while
+          let index = 0;
+
+          // 3. Parcourir la collection avec le while
+          //while (index < colMotsClefs.length) {
+          //const motClef = colMotsClefs[index];
+          // Trouver le conteneur de type typeCont contenant uniquement le mot clef motClef (malgré les balises HTML)
+          // 1. Sélectionner tous les éléments du DOM
+          //const tousLesElements = document.querySelectorAll('*');
+          const tousLesElements = document.querySelectorAll('p');
+          let trouve = null;
+
+          // 2. Parcourir les éléments pour trouver celui qui contient UNIQUEMENT un motclef recherché
+          let motTrouve = null;
+          for (let el of tousLesElements) {
+            const elCont = netContHTML(el)
+            const isVille = isContVille(el)
+
+            // 3. Remonter au conteneur parent de cet élément
+            const conteneur = el.closest(typeCont);
+
+            if (conteneur) {
+              trouve = conteneur;
+              // 3. Traitement conditionnel selon les mots-clés
+              if (elCont == 'ÉDITO') {
+                el.id = elCont;
+                index = 1;
+                // 1. Créer le nouvel Édito
+                const nouvelElement = document.createElement('p');
+                nouvelElement.textContent = "Édito";
+                //nouvelElement.id = "Édito";
+                nouvelElement.style.display = "none";
+                //el.before(nouvelElement);
+                // Le parent de l'élément cible insère le nouveau juste avant la cible
+                el.parentNode.insertBefore(nouvelElement, el);
+              }
+              else if (elCont == 'L’ÉCHO DES COMITÉS') {
+                el.id = elCont;
+                index = 2;
+                el.classList.add("rubrique-new", "echo", "isNotCity");
+
+                if (el) {
+                  // 1. Remplacer le contenu (texte ou HTML)
+                  el.textContent = "L’ÉCHO DES COMITÉS";
+                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
+
+                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
+                  el.classList.add("rubrique-new", "echo", "isNotCity");
+
+                  // 3. Redéfinir ou appliquer des styles en ligne
+                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
+                  // 1. Créer la balise STRONG
+                  const strongElement = document.createElement('strong');
+
+                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
+                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
+                  strongElement.innerHTML = el.innerHTML;
+
+                  // 3. Vider l'élément et y injecter le nouveau STRONG
+                  el.innerHTML = '';
+                  el.appendChild(strongElement);
+                }
+
+                // 1. Créer le nouvel Sommaire
+                const nouvelElement = document.createElement('p');
+                nouvelElement.textContent = "Sommaire";
+                nouvelElement.id = "Sommaire";
+                nouvelElement.style.display = "none";
+                // 3. L'insérer juste avant la cible L’ÉCHO DES COMITÉS
+
+                /*if (el) {
+                  // Tant qu'il y a un élément juste avant la cible, on le supprime
+                  while (el.previousElementSibling) {
+                    el.previousElementSibling.remove();
+                  }
+                }*/
+
+                //el.before(nouvelElement);
+                // Le parent de l'élément cible insère le nouveau juste avant la cible
+                el.parentNode.insertBefore(nouvelElement, el);
+              }
+              else if (elCont == '* Les initiatives à venir') {
+                el.id = elCont;
+                index = 3;
+                el.classList.add("markerGroupDebTitle", "isNotCity")
+
+                if (el) {
+                  // 1. Remplacer le contenu (texte ou HTML)
+                  el.textContent = "* Les initiatives à venir...";
+                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
+
+                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
+                  el.classList.add("markerGroupDebTitle", "isNotCity");
+
+                  // 3. Redéfinir ou appliquer des styles en ligne
+                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
+                  // 1. Créer la balise STRONG
+                  const strongElement = document.createElement('strong');
+
+                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
+                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
+                  strongElement.innerHTML = el.innerHTML;
+
+                  // 3. Vider l'élément et y injecter le nouveau STRONG
+                  el.innerHTML = '';
+                  el.appendChild(strongElement);
+                }
+
+                // 1. Créer le nouvel markerGroupDeb
+                const nouvelElement = document.createElement('p');
+                //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-1";
+                nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-1", "isNotCity");
+                nouvelElement.style.display = "none";
+                //el.before(nouvelElement);
+                // Le parent de l'élément cible insère le nouveau juste avant la cible
+                el.parentNode.insertBefore(nouvelElement, el);
+              }
+              else if (elCont == '* Les initiatives tenues') {
+                el.id = elCont;
+                index = 4;
+                el.classList.add("markerGroupDebTitle", "isNotCity")
+                if (el) {
+                  // 1. Remplacer le contenu (texte ou HTML)
+                  el.textContent = "* Les initiatives tenues...";
+                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
+
+                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
+                  el.classList.add("markerGroupDebTitle", "isNotCity");
+
+                  // 3. Redéfinir ou appliquer des styles en ligne
+                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
+                  // 1. Créer la balise STRONG
+                  const strongElement = document.createElement('strong');
+
+                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
+                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
+                  strongElement.innerHTML = el.innerHTML;
+
+                  // 3. Vider l'élément et y injecter le nouveau STRONG
+                  el.innerHTML = '';
+                  el.appendChild(strongElement);
+                }
+                // 1. Créer le nouvel markerGroupDeb
+                const nouvelElement = document.createElement('p');
+                //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-2";
+                nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-2", "isNotCity");
+                nouvelElement.style.display = "none";
+                //el.before(nouvelElement);
+                // Le parent de l'élément cible insère le nouveau juste avant la cible
+                el.parentNode.insertBefore(nouvelElement, el);
+              }
+              else if (elCont == '* Communiqués, prise de position ...') {
+                el.id = elCont;
+                index = 5;
+                el.classList.add("markerGroupDebTitle", "isNotCity")
+                if (el) {
+                  // 1. Remplacer le contenu (texte ou HTML)
+                  el.textContent = "* Communiqués, prise de position...";
+                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
+
+                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
+                  el.classList.add("markerGroupDebTitle", "isNotCity")
+
+                  // 3. Redéfinir ou appliquer des styles en ligne
+                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
+                  // 1. Créer la balise STRONG
+                  const strongElement = document.createElement('strong');
+
+                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
+                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
+                  strongElement.innerHTML = el.innerHTML;
+
+                  // 3. Vider l'élément et y injecter le nouveau STRONG
+                  el.innerHTML = '';
+                  el.appendChild(strongElement);
+                }
+
+                // 1. Créer le nouvel markerGroupDeb
+                const nouvelElement = document.createElement('p');
+                //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-3";
+                nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-3", "isNotCity");
+                nouvelElement.style.display = "none";
+                //el.before(nouvelElement);
+                // Le parent de l'élément cible insère le nouveau juste avant la cible
+                el.parentNode.insertBefore(nouvelElement, el);
+              }
+              else if (elCont == 'AUTRES INFOS LOCALES') {
+                el.id = elCont;
+                index = 6;
+                el.classList.add("markerGroupDeb", "rubrique-new", "autres", "isNotCity");
+              }
+              else if (elCont == 'NOUS AVONS REÇU...') {
+                el.id = elCont;
+                index = 7;
+                el.classList.add("rubrique-new", "reçu", "isNotCity");
+                const nouvelElement = document.createElement('p');
+                nouvelElement.textContent = "Dossier";
+                nouvelElement.id = "Dossier";
+                nouvelElement.style.display = "none";
+                //el.before(nouvelElement);
+                // Le parent de l'élément cible insère le nouveau juste avant la cible
+                el.parentNode.insertBefore(nouvelElement, el);
+              }
+              else if (elCont == '* Communiqué, déclaration ...') {
+                el.id = elCont;
+                index = 6;
+                el.classList.add("rubrique-new", "reçu", "sous-titre-1", "isNotCity")
+                if (el) {
+                  // 1. Remplacer le contenu (texte ou HTML)
+                  el.textContent = "* Communiqué, déclaration...";
+                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
+
+                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
+                  el.classList.add("rubrique-new", "reçu", "sous-titre-1", "isNotCity")
+
+                  // 3. Redéfinir ou appliquer des styles en ligne
+                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
+                  // 1. Créer la balise STRONG
+                  const strongElement = document.createElement('strong');
+
+                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
+                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
+                  strongElement.innerHTML = el.innerHTML;
+
+                  // 3. Vider l'élément et y injecter le nouveau STRONG
+                  el.innerHTML = '';
+                  el.appendChild(strongElement);
+                }
+              }
+              else if (isVille) {
+                const bgColor = el.parentElement.parentElement.parentElement.style.backgroundColor;
+                //el.parentElement.style.backgroundColor = bgColor;
+                //el.style.backgroundColor = bgColor;
+                el.id = elCont;
+                el.classList.add("isCity")
+              }
+              //index++;
+              //console.log("Aucun conteneur correspondant n'a été trouvé.");
+            }
+          }
+          //break; // On s'arrête au premier conteneur trouvé
+        };
+      }
+
+    };
+    //return;
 
     var curElem = corpsLettre.children().first();
 
@@ -1224,11 +1620,144 @@
         if (curLastIsMarker) break;
       };
     }
-
     // ajout des images
     fillPictures();
 
     $(this).find('sdfield').first().css('display', 'none')
+    
+    $(document).ready(function() {
+
+      // 1. Récupérer l'élément DOM natif (en extrayant l'élément de jQuery)
+      const elementDLink = $('#monBoutonPdf');
+
+        const options = {
+          margin: 10,
+          filename: 'mon-document.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.98
+          },
+          html2canvas: {
+            scale: 2,
+            useCORS: true
+          },
+          jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait'
+          }
+        };
+        /*const options = {
+    margin:       10,
+    filename:     'mon-document.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { 
+        scale: 2, 
+        useCORS: true,
+        scrollY: 0 // Évite les décalages de capture si la page a défilé
+    },
+    // On utilise un format personnalisé infini ou très haut, 
+    // ou on configure jsPDF pour ne pas couper les pages
+    jsPDF:        { 
+        unit: 'mm', 
+        format: 'a4', // ou une taille sur mesure, voir ci-dessous
+        orientation: 'portrait' 
+    },
+    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] } // Empêche les sauts de page automatiques
+};*/
+        /*const options = {
+          margin: 10, // Marge autour du document (en mm)
+          filename: 'mon-document-continu.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.98
+          },
+          html2canvas: {
+            scale: 2, // Qualité/Netteté
+            useCORS: true,
+            scrollY: 0
+          },
+          // Le secret pour une page continue : on passe jsPDF en mode 'auto' ou on laisse calculer, 
+          // mais la méthode la plus robuste avec html2pdf pour une seule page est d'utiliser 
+          // un format personnalisé ou de laisser jsPDF s'aligner sur les dimensions du canvas.
+          jsPDF: {
+            unit: 'mm',
+            format: [elementDiv.scrollWidth / 3.78, elementDiv.scrollHeight / 3.78], // Calcul dynamique approximatif en mm basé sur les pixels
+            orientation: 'portrait'
+          },
+          pagebreak: {
+            mode: 'avoid-all'
+          } // Empêche absolument toute pagination
+        };*/
+        // On récupère la largeur et la hauteur réelle, mais on retire un peu de sécurité sur la hauteur
+        //const largeurMm = elementDiv.scrollWidth / 3.78;
+        //const hauteurMm = (elementDiv.scrollHeight / 3.78) - 5; // On retire 5mm pour éviter le débordement sur la 2e page
+        /*const options = {
+          margin: 5,
+          filename: 'mon-document.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.98
+          },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            scrollY: 0
+          },
+          jsPDF: {
+            unit: 'mm',
+            format: [largeurMm, hauteurMm], // Format sur-mesure ajusté
+            orientation: 'portrait'
+          },
+          pagebreak: {
+            mode: 'avoid-all'
+          }
+        };*/
+        /*elementDLink.on('click', function(e) {
+          //const infoDisolay = $("#idInfosComités")[0]
+          //infoDisolay.css('display', 'none');
+          $('#btData').trigger("click");
+
+
+          // 1. Empêche le saut de page
+          e.preventDefault();
+
+          const elementDiv = $('#corpsLettre')[0];
+          const $lien = $(this);
+
+          if (!elementDiv) {
+            console.error("Erreur : #corpsLettre introuvable !");
+            return;
+          }
+
+          // Indication visuelle optionnelle (ex: changer l'opacité ou le texte)
+          $lien.css('opacity', '0.5');
+
+          html2pdf()
+            .from(elementDiv)
+            .set(options)
+            .output('blob')
+            .then(function(pdfBlob) {
+              const pdfUrl = URL.createObjectURL(pdfBlob);
+
+              // On modifie les attributs du lien cliqué pour qu'il devienne un vrai lien de téléchargement
+              $lien
+                .attr('href', pdfUrl)
+                .attr('download', 'mon-document.pdf')
+                .css('opacity', '1');
+
+              // Optionnel : déclencher le téléchargement automatiquement tout de suite après
+              window.location.href = pdfUrl;
+
+              // Ou simplement laisser l'utilisateur re-cliquer (le lien est maintenant fonctionnel)
+              console.log("Le lien est prêt à être téléchargé !");
+            })
+            .catch(function(error) {
+              console.error("Erreur :", error);
+              $lien.css('opacity', '1');
+            });
+        });*/
+    });
 
     function fillDiv(curDiv, curElem, strKey, _this) {
       if (strKey != '') strKeyElem = _this.find('.' + strKey.replace(/\s/g, '.'));
@@ -1278,7 +1807,7 @@
       }
 
       if ($('.corpsLettrePDF  a').length > 0) {
-        var curHTML = '<a href="' + $('.corpsLettrePDF  a').attr('href') + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';
+        var curHTML = '<a id="monBoutonPdf" href="' + $('.corpsLettrePDF  a').attr('href') + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';
       }
       else var curHTML = '';
       if (infoWeek.length == 3) curHTML += '<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;" data-summary="no"><img border="0" style="width: 400px; max-width: 40%;" id="banCoord" alt="banCoord.png" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" class="banInfos" width="400px"/><div><p style="text-align: center;"><span style="font-size: 24pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">L’INFO</span><br/><span style="font-size: 20pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">' + infoWeek[1] + '</span><br/><span style="font-size: 20pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">' + infoWeek[2] + '</span></p></div></div>';

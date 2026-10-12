@@ -19,6 +19,8 @@
   <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
     integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
     crossorigin=""></script>
+<!-- Le script d'inclusion CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <!--Load markerclusters -->
   <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
   <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
@@ -1301,13 +1303,25 @@
             <img class="skip-lazy" src="${srcOriginal}" />
         </div>
         <!--div class="divText">
-        </div>-->
-    `;
+        </div>-->`;
 
             // 4. Remplacer l'ancienne image par la nouvelle structure
             img.replaceWith(wrapper);
           });
+          corpsLettre.removeClass('Brevo')
 
+          const codeComplet = corpsLettre.prop('outerHTML');
+          const blob = new Blob([codeComplet], {
+            type: 'text/html;charset=utf-8'
+          });
+          const url = URL.createObjectURL(blob);
+
+          const lien = document.createElement('a');
+          lien.href = url;
+          lien.download = 'corpsLettre.html';
+          lien.click();
+
+          URL.revokeObjectURL(url);
         };
 
         function netContHTML(elCont) {
@@ -1579,7 +1593,6 @@
       }
 
     };
-    
     //return;
 
     var curElem = corpsLettre.children().first();
@@ -1644,11 +1657,144 @@
         if (curLastIsMarker) break;
       };
     }
-
     // ajout des images
     fillPictures();
 
     $(this).find('sdfield').first().css('display', 'none')
+    
+    $(document).ready(function() {
+
+      // 1. Récupérer l'élément DOM natif (en extrayant l'élément de jQuery)
+      const elementDLink = $('#monBoutonPdf');
+
+        const options = {
+          margin: 10,
+          filename: 'mon-document.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.98
+          },
+          html2canvas: {
+            scale: 2,
+            useCORS: true
+          },
+          jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait'
+          }
+        };
+        /*const options = {
+    margin:       10,
+    filename:     'mon-document.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { 
+        scale: 2, 
+        useCORS: true,
+        scrollY: 0 // Évite les décalages de capture si la page a défilé
+    },
+    // On utilise un format personnalisé infini ou très haut, 
+    // ou on configure jsPDF pour ne pas couper les pages
+    jsPDF:        { 
+        unit: 'mm', 
+        format: 'a4', // ou une taille sur mesure, voir ci-dessous
+        orientation: 'portrait' 
+    },
+    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] } // Empêche les sauts de page automatiques
+};*/
+        /*const options = {
+          margin: 10, // Marge autour du document (en mm)
+          filename: 'mon-document-continu.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.98
+          },
+          html2canvas: {
+            scale: 2, // Qualité/Netteté
+            useCORS: true,
+            scrollY: 0
+          },
+          // Le secret pour une page continue : on passe jsPDF en mode 'auto' ou on laisse calculer, 
+          // mais la méthode la plus robuste avec html2pdf pour une seule page est d'utiliser 
+          // un format personnalisé ou de laisser jsPDF s'aligner sur les dimensions du canvas.
+          jsPDF: {
+            unit: 'mm',
+            format: [elementDiv.scrollWidth / 3.78, elementDiv.scrollHeight / 3.78], // Calcul dynamique approximatif en mm basé sur les pixels
+            orientation: 'portrait'
+          },
+          pagebreak: {
+            mode: 'avoid-all'
+          } // Empêche absolument toute pagination
+        };*/
+        // On récupère la largeur et la hauteur réelle, mais on retire un peu de sécurité sur la hauteur
+        //const largeurMm = elementDiv.scrollWidth / 3.78;
+        //const hauteurMm = (elementDiv.scrollHeight / 3.78) - 5; // On retire 5mm pour éviter le débordement sur la 2e page
+        /*const options = {
+          margin: 5,
+          filename: 'mon-document.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.98
+          },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            scrollY: 0
+          },
+          jsPDF: {
+            unit: 'mm',
+            format: [largeurMm, hauteurMm], // Format sur-mesure ajusté
+            orientation: 'portrait'
+          },
+          pagebreak: {
+            mode: 'avoid-all'
+          }
+        };*/
+        /*elementDLink.on('click', function(e) {
+          //const infoDisolay = $("#idInfosComités")[0]
+          //infoDisolay.css('display', 'none');
+          $('#btData').trigger("click");
+
+
+          // 1. Empêche le saut de page
+          e.preventDefault();
+
+          const elementDiv = $('#corpsLettre')[0];
+          const $lien = $(this);
+
+          if (!elementDiv) {
+            console.error("Erreur : #corpsLettre introuvable !");
+            return;
+          }
+
+          // Indication visuelle optionnelle (ex: changer l'opacité ou le texte)
+          $lien.css('opacity', '0.5');
+
+          html2pdf()
+            .from(elementDiv)
+            .set(options)
+            .output('blob')
+            .then(function(pdfBlob) {
+              const pdfUrl = URL.createObjectURL(pdfBlob);
+
+              // On modifie les attributs du lien cliqué pour qu'il devienne un vrai lien de téléchargement
+              $lien
+                .attr('href', pdfUrl)
+                .attr('download', 'mon-document.pdf')
+                .css('opacity', '1');
+
+              // Optionnel : déclencher le téléchargement automatiquement tout de suite après
+              window.location.href = pdfUrl;
+
+              // Ou simplement laisser l'utilisateur re-cliquer (le lien est maintenant fonctionnel)
+              console.log("Le lien est prêt à être téléchargé !");
+            })
+            .catch(function(error) {
+              console.error("Erreur :", error);
+              $lien.css('opacity', '1');
+            });
+        });*/
+    });
 
     function fillDiv(curDiv, curElem, strKey, _this) {
       if (strKey != '') strKeyElem = _this.find('.' + strKey.replace(/\s/g, '.'));
@@ -1698,7 +1844,7 @@
       }
 
       if ($('.corpsLettrePDF  a').length > 0) {
-        var curHTML = '<a href="' + $('.corpsLettrePDF  a').attr('href') + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';
+        var curHTML = '<a id="monBoutonPdf" href="' + $('.corpsLettrePDF  a').attr('href') + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';
       }
       else var curHTML = '';
       if (infoWeek.length == 3) curHTML += '<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;" data-summary="no"><img border="0" style="width: 400px; max-width: 40%;" id="banCoord" alt="banCoord.png" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" class="banInfos" width="400px"/><div><p style="text-align: center;"><span style="font-size: 24pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">L’INFO</span><br/><span style="font-size: 20pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">' + infoWeek[1] + '</span><br/><span style="font-size: 20pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">' + infoWeek[2] + '</span></p></div></div>';
@@ -1963,29 +2109,484 @@ Nous sommes passés d’une journée de dénonciation de l’inaction climatique
 <br/>du 05 oct. au 11 oct. 2026</p>
 </div>
 <div class="corpsLettrePDF">
-<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Infossemaine40du28septembreau4octobre2026.pdf">Pdf correspondant</a>
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Infossemaine41du5au11octobre2026.pdf">Pdf correspondant</a>
 </div>
-<div class="corpsLettre Brevo">
-<!--p style="display: none;">Ne pas supprimer ! </p-->
-<!--div style="padding: 0.5em; max-width: 1000px; margin: 0 auto 1em auto;" align="justify">
-<p class="CN-Edito-title">Édito</p>
-<div class="CN-Edito">
-<p style="margin:0"><em><strong>Nous sommes passés d’une journée de dénonciation de l’inaction climatique et sociale à une mobilisation moyenne de la fonction publique, puis un mouvement lycéen très violemment réprimé et qui pourtant démontre l’angoisse, la colère et les demandes de jeunes qui se sentent trahis.</strong></em></p>
-<p style="margin:0"><em><strong>Les mobilisations locales autour des hôpitaux continuent et ont souvent permis des convergences au sein des manifestations de la fonction publique.</strong></em></p>
-<p style="margin:0"><em><strong>La perspective électorale de 2027 ne joue pas, pour le moment semble t il son rôle d’éteignoir des luttes,. Cela se traduira t il par un débat concret sur les questions soulevées ou les bruits de guerre et la panique financière organisée permettront-ils de continuer à foncer dans le mur ?</strong></em></p>
-<p style="margin:0"><em><strong>Nos mobilisations, notre capacité de dialogue, d’information, sont déterminantes. </strong></em></p>
-<p style="margin:0"><em><strong>Un autre avenir est possible !</strong></em></p>
-<p style="margin:0;text-align:right">Célié Henri (Sud Aveyron) </p>
-<div class="Citation">
-<p style="margin:0"><strong><span style="color: rgb(0, 0, 255);">LA CITATION </span></strong><span style="color: rgb(0, 0, 255);"><strong>DE LA SEMAINE</strong></span></p>
-<p style="margin:0"><span style="color:rgb(0, 0, 255)"><em>« La branche vieillesse, dont le déficit prévisionnel en l’absence de mesures s’établit à - 8,7 milliards d’euros bénéficiera quant à elle, outre le rendement des mesures de recettes partagées entre les branches, de l’effet du ralentissement de la hausse d’une partie des pensions d’assurance vieillesse, »</em> </span><span style="color: rgb(0, 0, 0);">(<span style="color: rgb(0, 0, 0);">site du PLF</span>)</span></p>
-<p style="margin:0"><span style="color: rgb(0, 0, 0);">Ou quand la perte du pouvoir d’achat des « bénéficiaires » disparaît derrière des considérations comptables « positives »</span></p>
+<div id="corpsLettre" class="corpsLettre">
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="format-detection" content="telephone=no"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Bulletin d'information de la Coordination Nationale des Comités de Défense des Hôpitaux et Maternités de Proximité</title><style type="text/css" emogrify="no">#outlook a { padding:0; } .ExternalClass { width:100%; } .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; } table td { border-collapse: collapse; mso-line-height-rule: exactly; } .editable.image { font-size: 0 !important; line-height: 0 !important; } .nl2go_preheader { display: none !important; mso-hide:all !important; mso-line-height-rule: exactly; visibility: hidden !important; line-height: 0px !important; font-size: 0px !important; } body { width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; } img { outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; } a img { border:none; } table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; } th { font-weight: normal; text-align: left; } *[class="gmail-fix"] { display: none !important; }</style><style type="text/css" emogrify="no"> @media (max-width: 600px) { .gmx-killpill { content: ' \03D1';} } </style><style type="text/css" emogrify="no">@media (max-width: 600px) { .gmx-killpill { content: ' \03D1';} .r0-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 100% !important } .r1-i { background-color: transparent !important } .r2-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 320px !important } .r3-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 320px !important } .r4-i { padding-bottom: 5px !important; padding-top: 5px !important } .r5-c { box-sizing: border-box !important; display: block !important; valign: top !important; width: 100% !important } .r6-o { border-style: solid !important; width: 100% !important } .r7-i { padding-left: 10px !important; padding-right: 10px !important; text-align: center !important } .r8-i { background-color: #ffffff !important } .r9-i { padding-bottom: 15px !important; padding-top: 15px !important } .r10-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 100% !important } .r11-i { padding-bottom: 20px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 20px !important } .r12-i { padding-left: 0px !important; padding-right: 0px !important } .r13-c { box-sizing: border-box !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: left !important; valign: top !important; width: 100% !important } .r14-c { box-sizing: border-box !important; text-align: left !important; valign: top !important; width: 100% !important } .r15-o { border-style: solid !important; margin: 0 auto 0 0 !important; width: 100% !important } .r16-i { padding-bottom: 15px !important; padding-top: 15px !important; text-align: justify !important } .r17-i { background-color: #cad9f1 !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: justify !important } .r18-c { box-sizing: border-box !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important; valign: top !important; width: 100% !important } .r19-i { padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important } .r20-i { padding-bottom: 0px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 0px !important } .r21-i { background-color: #eff2f7 !important; color: #3b3f44 !important; padding-bottom: 20px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 20px !important } .r22-i { color: #3b3f44 !important; padding-left: 0px !important; padding-right: 0px !important } .r23-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important; text-align: center !important } .r24-c { box-sizing: border-box !important; padding-bottom: 0px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important; text-align: left !important; valign: top !important; width: 100% !important } .r25-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-top: 15px !important; text-align: center !important } .r26-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-top: 0px !important; text-align: center !important } .r27-i { color: #3b3f44 !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important } .r28-c { box-sizing: border-box !important; text-align: center !important; width: 100% !important } .r29-i { color: #3b3f44 !important; padding-bottom: 15px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important } .r30-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 129px !important } .r31-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 129px !important } .r32-i { color: #3b3f44 !important } body { -webkit-text-size-adjust: none } .nl2go-responsive-hide { display: none } .nl2go-body-table { min-width: unset !important } .mobshow { height: auto !important; overflow: visible !important; max-height: unset !important; visibility: visible !important } .resp-table { display: inline-table !important } .magic-resp { display: table-cell !important } }</style><!--[if !mso]><!--><style type="text/css" emogrify="no">@import url("https://fonts.googleapis.com/css2?family=Arial black");</style><!--<![endif]--><style type="text/css">.nl2go-default-textstyle { color: #3b3f44; font-family: Arial; font-size: 16px; line-height: 1.5; word-break: break-word } .default-button { color: #ffffff; font-family: Arial; font-size: 16px; font-style: normal; font-weight: normal; line-height: 1.15; text-decoration: none; word-break: break-word } a, a:link { background-color: #ffffff; color: #037acc; text-decoration: underline } .default-heading1 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 36px; word-break: break-word } .default-heading2 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 32px; word-break: break-word } .default-heading3 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 24px; word-break: break-word } .default-heading4 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 18px; word-break: break-word } p, h1, h2, h3, h4, ol, ul, li { margin: 0; } a[x-apple-data-detectors] { color: inherit !important; text-decoration: inherit !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; } .no-show-for-you { border: none; display: none; float: none; font-size: 0; height: 0; line-height: 0; max-height: 0; mso-hide: all; overflow: hidden; table-layout: fixed; visibility: hidden; width: 0; }</style><style type="text/css">a:link { background-color: #fff; color: #037acc; text-decoration: underline }</style><!--[if mso]><xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml><![endif]-->
+<p style="margin:0">
+<a href="{{ mirror }}" style="background-color:#ffffff;color:#037acc;text-decoration:underline"><span style="font-family: arial,helvetica,sans-serif;color:#858588;font-size: 12px; text-decoration: underline;">
+                      Afficher dans le navigateur</span></a>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6a5e5c8662f042e7fe2f9e84.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
 </div>
+<p style="margin:0">
+<span style="font-family: Arial black, helvetica, sans-serif, arial; font-size: 28px; color: rgb(128, 0, 128); background-color: rgb(255, 255, 255);"><strong>Semaine&nbsp;</strong></span><strong><span style="font-family: Arial black, helvetica, sans-serif, arial; font-size: 28px; color: rgb(128, 0, 128); background-color: rgb(255, 255, 255)">41 du 5 au 11 octobre 2026</span></strong>
+</p>
+<p style="display: none;">Édito</p>
+<p style="margin:0" id="ÉDITO">
+<span style="font-size: 36px;font-family: Impact, fantasy, arial;"><strong><span style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 255);">É</span></strong><strong><span style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 255);">DITO</span></strong></span>
+</p>
+<p style="margin:0">
+<em>Lycées, hôpitaux, le même manque de professionnels, profs ou soignants, le même désamour de nos gouvernants pour le service public ! Totale solidarité avec le mouvement lycéen.</em>
+</p>
+<p style="margin:0">
+<em>Le PLFSS nouveau est arrivé ! Sans surprise, le projet de loi de financement de la Sécurité Sociale 2027 est mauvais ! Au mépris de la démocratie, le gouvernement n’a même pas attendu la discussion parlementaire pour s’en prendre cet été aux malades à travers ses différents décrets.</em>
+</p>
+<p style="margin:0">
+<em><em>Pas véritablement de recettes nouvelles : u</em><em>ne</em><em>&nbsp;très légère baisse des allègements généraux de cotisations (appellation officielle des exonérations),&nbsp;</em><em>mais les compensations par la TVA et autres ITAF (impôts et taxes affectés) en tiendront compte !</em></em>
+</p>
+<p style="margin:0">
+<em>L’ONDAM, ce chiffre qui commande les ressources financières est largement insuffisant : une augmentation de 2 %, 3 % pour les hôpitaux alors que la Fédération Hospitalière de France en demande 3,9.</em>
+</p>
+<p style="margin:0">
+<em>L’APA, les arrêts de travail sont dans le viseur du gouvernement, pour se limiter aux aspects maladie et autonomie de ce PLFSS.</em>
+</p>
+<p style="margin:0">
+<em>Les déserts médicaux sont traités par le gadget du réseau France Santé.</em>
+</p>
+<p style="margin:0">
+<em><em>A noter, comme quoi les mobilisations sont toujours utiles, un article consacré</em><em>&nbsp;</em><em>au&nbsp;</em><em>mode de rémunération de structures d’exercice coordonné pour renforcer l’accès aux soins des personnes vulnérables.</em><em>&nbsp;Rappelons nous la mobilisation des centres de santé communautaires. Mais comme dans beaucoup d’articles de ce PLFSS, le renvoi est fait vers des décrets et arrêtés.</em></em>
+</p>
+<p style="margin:0">
+<em><em>La mobilisation populaire est plus que jamais nécessaire. Soulignons les rassemblements de cette semaine à Mont-Saint-Martin, à Metz, aux Mureaux.&nbsp;</em><em>Pour contribuer à cette mobilisation, les militants de nos comités vont à la rencontre de la population avec la pétition contre les dépassements d’honoraires et les franchises médicales, pour expliquer pourquoi nous voulons une Assurance Maladie à 100 %, condition d’un système solidaire. Cette pétition, elle se diffuse, car nous recevons même des feuilles signées sur notre boite mail !&nbsp;<em>Pour la signer en ligne : <a href="https://framapetitions.org/petition/user/CoordNatDefenseSante/les-depassements-dhonoraires-et-les-franchises-medicales-ca-suffit" style="background-color:#ffffff;color:#037acc;text-decoration:underline">cliquez ici</a>.</em></em></em>
+</p>
+<p style="margin:0;text-align:right">
+<em><em>M</em><em>ichèle Leflon</em></em>
+</p>
+<p style="margin:0">
+<strong><span style="color: rgb(0, 0, 255);">LA CITATION </span></strong><span style="color: rgb(0, 0, 255);"><strong>DE LA SEMAINE</strong></span>
+</p>
+<p style="margin:0">
+<span style="color:rgb(0, 0, 255)"><em>« PLFSS 2027 : en l’état, il manque 1,3 milliard d’euros aux établissements de santé pour couvrir les besoins croissants de soins des Français, faire face à la hausse des charges et répondre aux enjeux d’accès aux soins. &nbsp;»&nbsp;</em>&nbsp;</span><span style="color: rgb(0, 0, 0);">(<span style="color: rgb(0, 0, 0);"><em>Communiqué&nbsp;</em><em>d</em><em>es fédérations représentant l’ensemble des établissements de santé</em></span>)</span>
+</p>
+<p id="Sommaire" style="display: none;">Sommaire</p>
+<p style="margin:0" id="L’ÉCHO DES COMITÉS" class="rubrique-new echo isNotCity">
+<strong>L’ÉCHO DES COMITÉS</strong>
+</p>
+<p class="markerGroupDeb rubrique-new echo-titre-1 isNotCity" style="display: none;">
+</p>
+<p style="margin:0;text-align:left" id="* Les initiatives à venir" class="markerGroupDebTitle isNotCity">
+<strong>* Les initiatives à venir...</strong>
+</p>
+<p style="margin:0;text-align:center" id="RUFFEC&nbsp;(16)" class="isCity">
+<strong><span style="font-size: 20px; color: rgb(255, 255, 255); background-color: rgb(128, 0, 128);">RUFFEC</span></strong><span style="font-size: 20px; color: rgb(255, 255, 255); background-color: rgb(128, 0, 128);"><strong>&nbsp;</strong><strong>(</strong><strong>16</strong></span><strong><span style="font-size: 20px; color: rgb(255, 255, 255); background-color: rgb(128, 0, 128);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Café de la solidarité</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca7ea15e37a6b9e04b4ee7.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
 </div>
-</div-->
-<!--p>SOMMAIRE</p-->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="format-detection" content="telephone=no"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Bulletin d&#39;information de la Coordination Nationale des Comités de Défense des Hôpitaux et Maternités de Proximité</title><style type="text/css" emogrify="no">#outlook a { padding:0; } .ExternalClass { width:100%; } .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; } table td { border-collapse: collapse; mso-line-height-rule: exactly; } .editable.image { font-size: 0 !important; line-height: 0 !important; } .nl2go_preheader { display: none !important; mso-hide:all !important; mso-line-height-rule: exactly; visibility: hidden !important; line-height: 0px !important; font-size: 0px !important; } body { width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; } img { outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; } a img { border:none; } table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; } th { font-weight: normal; text-align: left; } *[class="gmail-fix"] { display: none !important; }</style><style type="text/css" emogrify="no"> @media (max-width: 600px) { .gmx-killpill { content: ' \03D1';} } </style><style type="text/css" emogrify="no">@media (max-width: 600px) { .gmx-killpill { content: ' \03D1';} .r0-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 100% !important } .r1-i { background-color: transparent !important } .r2-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 320px !important } .r3-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 320px !important } .r4-i { padding-bottom: 5px !important; padding-top: 5px !important } .r5-c { box-sizing: border-box !important; display: block !important; valign: top !important; width: 100% !important } .r6-o { border-style: solid !important; width: 100% !important } .r7-i { padding-left: 10px !important; padding-right: 10px !important; text-align: center !important } .r8-i { background-color: #ffffff !important } .r9-i { padding-bottom: 15px !important; padding-top: 15px !important } .r10-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 100% !important } .r11-i { padding-bottom: 20px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 20px !important } .r12-i { padding-left: 0px !important; padding-right: 0px !important } .r13-c { box-sizing: border-box !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: left !important; valign: top !important; width: 100% !important } .r14-c { box-sizing: border-box !important; text-align: left !important; valign: top !important; width: 100% !important } .r15-o { border-style: solid !important; margin: 0 auto 0 0 !important; width: 100% !important } .r16-i { padding-bottom: 15px !important; padding-top: 15px !important; text-align: justify !important } .r17-i { background-color: #cad9f1 !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: justify !important } .r18-c { box-sizing: border-box !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important; valign: top !important; width: 100% !important } .r19-i { padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important } .r20-i { padding-bottom: 0px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 0px !important } .r21-i { background-color: #eff2f7 !important; color: #3b3f44 !important; padding-bottom: 20px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 20px !important } .r22-i { color: #3b3f44 !important; padding-left: 0px !important; padding-right: 0px !important } .r23-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important; text-align: center !important } .r24-c { box-sizing: border-box !important; padding-bottom: 0px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important; text-align: left !important; valign: top !important; width: 100% !important } .r25-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-top: 15px !important; text-align: center !important } .r26-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-top: 0px !important; text-align: center !important } .r27-i { color: #3b3f44 !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important } .r28-c { box-sizing: border-box !important; text-align: center !important; width: 100% !important } .r29-i { color: #3b3f44 !important; padding-bottom: 15px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important } .r30-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 129px !important } .r31-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 129px !important } .r32-i { color: #3b3f44 !important } body { -webkit-text-size-adjust: none } .nl2go-responsive-hide { display: none } .nl2go-body-table { min-width: unset !important } .mobshow { height: auto !important; overflow: visible !important; max-height: unset !important; visibility: visible !important } .resp-table { display: inline-table !important } .magic-resp { display: table-cell !important } }</style><!--[if !mso]><!--><style type="text/css" emogrify="no">@import url("https://fonts.googleapis.com/css2?family=Arial black");</style><!--<![endif]--><style type="text/css">.nl2go-default-textstyle { color: #3b3f44; font-family: Arial; font-size: 16px; line-height: 1.5; word-break: break-word } .default-button { color: #ffffff; font-family: Arial; font-size: 16px; font-style: normal; font-weight: normal; line-height: 1.15; text-decoration: none; word-break: break-word } a, a:link { background-color: #ffffff; color: #037acc; text-decoration: underline } .default-heading1 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 36px; word-break: break-word } .default-heading2 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 32px; word-break: break-word } .default-heading3 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 24px; word-break: break-word } .default-heading4 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 18px; word-break: break-word } p, h1, h2, h3, h4, ol, ul, li { margin: 0; } a[x-apple-data-detectors] { color: inherit !important; text-decoration: inherit !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; } .no-show-for-you { border: none; display: none; float: none; font-size: 0; height: 0; line-height: 0; max-height: 0; mso-hide: all; overflow: hidden; table-layout: fixed; visibility: hidden; width: 0; }</style><style type="text/css">a:link { background-color: #fff; color: #037acc; text-decoration: underline }</style><!--[if mso]><xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml><![endif]--></head><body bgcolor="#ffffff" link="#037acc" style="background-color: #ffffff" text="#3b3f44" yahoo="fix"><table cellspacing="0" cellpadding="0" border="0" role="presentation" class="nl2go-body-table" width="100%" style="background-color: #ffffff; width: 100%"><tbody><tr><td><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td valign="top" class="r1-i" style="background-color: transparent"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="600" align="center" class="r3-o" style="table-layout: fixed"><tbody><tr><td class="r4-i" style="padding-top: 5px; padding-bottom: 5px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><th width="100%" style="font-weight: normal" valign="top" class="r5-c"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;word-break:break-word;text-align:center;line-height:16px;padding-right:30px;padding-left:30px" align="center" class="r7-i nl2go-default-textstyle"><div><p style="margin:0"><a href="{{ mirror }}" style="background-color:#ffffff;color:#037acc;text-decoration:underline"><span style="font-family: arial,helvetica,sans-serif;color:#858588;font-size: 12px; text-decoration: underline;">
-                      Afficher dans le navigateur</span></a></p></div></td></tr></tbody></table></th></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="600" align="center" class="r3-o" style="table-layout: fixed; width: 600px"><tbody><tr><td valign="top" class="r8-i" style="background-color: #ffffff"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><th width="100%" style="font-weight: normal" valign="top" class="r5-c"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="600" align="center" class="r0-o" style="table-layout: fixed; width: 600px"><tbody><tr><td style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px" class="r9-i"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6a5e5c8662f042e7fe2f9e84.jpg" width="600" border="0" style="display: block; width: 100%;"/></td></tr></tbody></table></th></tr></tbody></table><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td class="r11-i" style="padding-top: 20px; padding-bottom: 20px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><th width="100%" style="font-weight: normal" valign="top" class="r5-c"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r6-o" style="table-layout: fixed; width: 100%"><tbody><tr><td valign="top" class="r12-i" style="padding-right: 15px; padding-left: 15px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0"><span style="font-family: Arial black, helvetica, sans-serif, arial; font-size: 28px; color: rgb(128, 0, 128); background-color: rgb(255, 255, 255);"><strong>Semaine </strong></span><strong><span style="font-family: Arial black, helvetica, sans-serif, arial; font-size: 28px; color: rgb(128, 0, 128); background-color: rgb(255, 255, 255)">41 du 5 au 11 octobre 2026</span></strong></p></div></td></tr></tbody></table></td></tr></tbody></table></th></tr></tbody></table></td></tr></tbody></table><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td class="r11-i" style="padding-top: 20px; padding-bottom: 20px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><th width="100%" style="font-weight: normal" valign="top" class="r5-c"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r6-o" style="table-layout: fixed; width: 100%"><tbody><tr><td valign="top" class="r12-i" style="padding-right: 15px; padding-left: 15px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0"><span style="font-size: 36px;font-family: Impact, fantasy, arial;"><strong><span style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 255);">É</span></strong><strong><span style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 255);">DITO</span></strong></span></p></div></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:justify;padding-top:15px;padding-bottom:15px" align="justify" valign="top" class="r16-i nl2go-default-textstyle"><div><p style="margin:0"><em>Lycées, hôpitaux, le même manque de professionnels, profs ou soignants, le même désamour de nos gouvernants pour le service public ! Totale solidarité avec le mouvement lycéen.</em></p><p style="margin:0"><em>Le PLFSS nouveau est arrivé ! Sans surprise, le projet de loi de financement de la Sécurité Sociale 2027 est mauvais ! Au mépris de la démocratie, le gouvernement n’a même pas attendu la discussion parlementaire pour s’en prendre cet été aux malades à travers ses différents décrets.</em></p><p style="margin:0"><em><em>Pas véritablement de recettes nouvelles : u</em><em>ne</em><em> très légère baisse des allègements généraux de cotisations (appellation officielle des exonérations), </em><em>mais les compensations par la TVA et autres ITAF (impôts et taxes affectés) en tiendront compte !</em></em></p><p style="margin:0"><em>L’ONDAM, ce chiffre qui commande les ressources financières est largement insuffisant : une augmentation de 2 %, 3 % pour les hôpitaux alors que la Fédération Hospitalière de France en demande 3,9.</em></p><p style="margin:0"><em>L’APA, les arrêts de travail sont dans le viseur du gouvernement, pour se limiter aux aspects maladie et autonomie de ce PLFSS.</em></p><p style="margin:0"><em>Les déserts médicaux sont traités par le gadget du réseau France Santé.</em></p><p style="margin:0"><em><em>A noter, comme quoi les mobilisations sont toujours utiles, un article consacré</em><em> </em><em>au </em><em>mode de rémunération de structures d’exercice coordonné pour renforcer l’accès aux soins des personnes vulnérables.</em><em> Rappelons nous la mobilisation des centres de santé communautaires. Mais comme dans beaucoup d’articles de ce PLFSS, le renvoi est fait vers des décrets et arrêtés.</em></em></p><p style="margin:0"><em><em>La mobilisation populaire est plus que jamais nécessaire. Soulignons les rassemblements de cette semaine à Mont-Saint-Martin, à Metz, aux Mureaux. </em><em>Pour contribuer à cette mobilisation, les militants de nos comités vont à la rencontre de la population avec la pétition contre les dépassements d’honoraires et les franchises médicales, pour expliquer pourquoi nous voulons une Assurance Maladie à 100 %, condition d’un système solidaire. Cette pétition, elle se diffuse, car nous recevons même des feuilles signées sur notre boite mail ! <em>Pour la signer en ligne : <a href="https://framapetitions.org/petition/user/CoordNatDefenseSante/les-depassements-dhonoraires-et-les-franchises-medicales-ca-suffit" style="background-color:#ffffff;color:#037acc;text-decoration:underline">cliquez ici</a>.</em></em></em></p><p style="margin:0;text-align:right"><em><em>M</em><em>ichèle Leflon</em></em></p></div></td></tr></tbody></table></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;background-color:#cad9f1;text-align:justify;padding-top:15px;padding-bottom:15px;word-wrap:break-word" align="justify" valign="top" class="r17-i nl2go-default-textstyle"><div><p style="margin:0"><strong><span style="color: rgb(0, 0, 255);">LA CITATION </span></strong><span style="color: rgb(0, 0, 255);"><strong>DE LA SEMAINE</strong></span></p><p style="margin:0"><span style="color:rgb(0, 0, 255)"><em>« PLFSS 2027 : en l’état, il manque 1,3 milliard d’euros aux établissements de santé pour couvrir les besoins croissants de soins des Français, faire face à la hausse des charges et répondre aux enjeux d’accès aux soins.  » </em> </span><span style="color: rgb(0, 0, 0);">(<span style="color: rgb(0, 0, 0);"><em>Communiqué </em><em>d</em><em>es fédérations représentant l’ensemble des établissements de santé</em></span>)</span></p></div></td></tr></tbody></table></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0"><span style="font-size: 36px;"><strong><span style="font-family: Impact, fantasy, arial; color: rgb(255, 255, 255); background-color: rgb(128, 0, 128);">L’ÉCHO DES C</span></strong><strong><span style="font-family: Impact, fantasy, arial; color: rgb(255, 255, 255); background-color: rgb(128, 0, 128);">OMIT<span style="font-size: 36px;">É</span>S</span></strong></span></p></div></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0;text-align:left"><span style="font-size:26px;color:rgb(255, 255, 255);font-family: Impact, fantasy, arial;background-color:rgb(128, 0, 128)"><strong><em>* Les initiatives à venir</em></strong></span></p></div></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:justify;padding-top:15px;padding-bottom:15px" align="justify" valign="top" class="r16-i nl2go-default-textstyle"><div><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; color: rgb(255, 255, 255); background-color: rgb(128, 0, 128);">RUFFEC</span></strong><span style="font-size: 20px; color: rgb(255, 255, 255); background-color: rgb(128, 0, 128);"><strong> </strong><strong>(</strong><strong>16</strong></span><strong><span style="font-size: 20px; color: rgb(255, 255, 255); background-color: rgb(128, 0, 128);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Café de la solidarité</strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca7ea15e37a6b9e04b4ee7.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:justify;padding-top:15px;padding-bottom:15px;word-wrap:break-word" align="justify" valign="top" class="r16-i nl2go-default-textstyle"><div><p style="margin:0">Le comité organise un café de la solidarité le 15 octobre.</p><p style="margin:0">Il a déjà organisé plusieurs points de signature de la pétition &#34;Les dépassements d&#39;honoraires et les franchises médicales, ça suffit ! &#34; avec un excellent accueil de la population.</p><p style="margin:0">-&gt; 130 signatures sur le marché de Ruffec le 3 Octobre</p><p style="margin:0">-&gt; 83 signatures sur le marché de Civray le 6 Octobre</p><p style="margin:0">Un 3e point de signatures est prévu sur le marché de Sauzé-Vaussais le 15 Octobre matin</p><p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Appel-15-Octobre-2026.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’appel pour le 15 octobre</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">CHARLEVILLE</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>MÉZIÈRES </strong><strong>(</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">08)</span></strong></p><p style="margin:0;text-align:center"><strong>RV devant l’hôpital Manchester mardi 13 octobre à 13 h</strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca7f2b6fd18237745e8938.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:justify;padding-top:15px;padding-bottom:15px" align="justify" valign="top" class="r16-i nl2go-default-textstyle"><div><p style="margin:0">Après les mobilisations du 29 septembre, le comité reprend ses présences un mardi sur deux devant l&#39;hôpital Manchester pour l&#39;humanisation de ses urgences : une salle d&#39;attente ouverte uniquement la nuit est une aberration et il y a toujours des difficultés pour l&#39;accompagnement dans le service dans les situations particulières. Venez nous rejoindre. Il fera aussi signer la pétition de la Coordination contre les dépassements d&#39;honoraires et les franchises.</p><p style="margin:0">Le comité remercie toutes celles et ceux qui ont participé au rassemblement devant l&#39;hôpital de Rethel le 29 septembre. La preuve que la mobilisation est utile ! L&#39;ARS est obligée de bouger en ce qui concerne la réouverture de la chirurgie en hospitalisation complète. Les projets, concernant une réouverture sous forme d&#39;hospitalisation de semaine sont cependant insuffisants et par ailleurs le mécanisme administratif envisagé nous inquiète : le transfert de l&#39;autorisation de chirurgie au CHU ne serait-il pas une formule discrète pour prévoir la fermeture de la chirurgie à Rethel après le départ des chirurgiens actuellement en poste ? Alors que la direction commune avec le CHU devrait être le signe d&#39;une responsabilité des équipes du CHU sur l&#39;ensemble du territoire et donc la venue de nouveaux spécialistes à Rethel et l&#39;accueil obligatoire au CHU des malades lorsque les médecins de Rethel le sollicitent.</p><p style="margin:0"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">LANNION</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>22</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Une soirée sur les EHPAD</strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca8bc5d8d6589265b69693.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">LUÇON</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>85</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Prochain RV devant l’hôpital le vendredi 16 octobre</strong></p><p style="margin:0">L’ADSP poursuit ses rassemblements hebdomadaires devant les urgences de l’hôpital pour le maintien 7 jours/7 et 24h/24 des urgences et du SMUR</p></div></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0"><span style="font-size:26px;color:rgb(255, 255, 255);background-color:rgb(128, 0, 128);font-family: Impact, fantasy, arial"><strong><em>* Les initiatives tenues</em></strong></span></p></div></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:center;padding-top:15px;padding-bottom:15px" align="center" valign="top" class="r19-i nl2go-default-textstyle"><div><p style="margin:0"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">MONTARGIS</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>45</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0"><strong>Rencontre régionale : Mes services publics, ma Sécu., j&#39;y tiens ! </strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca7fc55e37a6b9e04b4ef6.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:justify;padding-top:15px;padding-bottom:15px" align="justify" valign="top" class="r16-i nl2go-default-textstyle"><div><p style="margin:0">Durant ces trois journées, plus de 120 personnes, citoyens, élus, responsables associatifs, syndicaux et mutualistes se sont rassemblées, ont débattus et proposé des solutions pour mettre fin à la casse de nos services publics, revendiquer une Sécurité Sociale forte, démocratique et pleinement solidaire, le droit à la santé pour toutes et tous.</p><p style="margin:0">L&#39;Appel rédigé dimanche par les citoyens et les organisations présentes se conclue en ses termes : Nous appelons à la mise en mouvement de tous les acteurs avec les usagers-citoyens pour combattre les orientations antisociales du Projet de Loi de Financement de la Sécurité Sociale (PLFSS) , du Projet de Loi de Finances (PLF) pour 2027, et promouvoir d&#39;autres alternatives pour le respect des droits humains et le progrès social.</p><p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Appel-de-Montargis-Paucourt-des-2-3-et-4-octobre-2026.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’appel lancé</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">BERGERAC</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>24</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Le comité mobilisé contre le PLFSS</strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca7feaaf4ba891af39760c.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:justify;padding-top:15px;padding-bottom:15px" align="justify" valign="top" class="r16-i nl2go-default-textstyle"><div><p style="margin:0">Le comité était présent sur le marché de Bergerac ce samedi : 85 signatures de la pétition contre les dépassements d’honoraires et les franchises médicales et de beaux échanges pour défendre notre Sécu ! Il y avait déjà eu 68 signatures lors d&#39;une journée des retraités de la CGT.</p><p style="margin:0"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">MONT-SAINT-MARTIN</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>54</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Rassemblement pour la défense de la maternité</strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca8070d8d6589265b69608.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0;text-align:justify"><br>L’association santé pays haut a témoigné de la solidarité de la Coordination lors du rassemblement organisé vendredi 9 octobre à l’occasion d’un rendez-vous prévu avec le directeur général de la branche santé du groupe SOS propriétaire de l’hôpital de Mont-Saint-Martin.</p><p style="margin:0;text-align:center"><a href="https://www.ici.fr/emissions/l-info-d-ici-ici-lorraine-moselle-et-pays-haut/un-rassemblement-de-la-derniere-chance-pour-la-maternite-de-mont-saint-martin-menacee-de-fermeture-7978779" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article d’ICI</a></p><p style="margin:0;text-align:center"><a href="https://www.change.org/p/sauvons-la-maternit%C3%A9-de-mont-saint-martin?recruiter=1431663085&recruited_by_id=fd099360-c100-11f1-b05f-5d5cf1de6dde&utm_source=share_petition&utm_campaign=signed_petition_home_share&utm_term=petition_details&utm_medium=copylink&share_id=W5qTLQZvpG" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Une pétition est lancée</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">LE THILLOT</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>88</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Prés d’une centaine de personnes à la réunion publique pour défendre le SMR</strong></p><p style="margin:0;text-align:justify">La fermeture des 18 lits de SMR (service de médecine et rééducation) est largement refusée par la population, venue en nombre à la réunion organisée par l’ADEMAT-H ;</p><p style="margin:0;text-align:justify">Dans la motion adoptée, il est demandé au conseil de surveillance de suspendre ce projet pour organiser la concertation et de nouvelles actions sont envisagées en cas de persistance de cette décision de fermeture.</p><p style="margin:0;text-align:center"><a href="https://remiremontvallees.com/2026/10/10/le-thillot-le-projet-de-fermeture-des-18-lits-dhospitalisation-conteste-par-des-habitants/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de Remiremontvallees.com</a></p><p style="margin:0;text-align:center"><a href="https://vosgesinfo.fr/remiremontinfo/2026/10/la-population-dit-non-a-la-fermeture-des-18-lits-dhospitalisation-du-thillot/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de VosgesInfo</a></p><p style="margin:0;text-align:justify"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">MARMANDE</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>47</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Le comité encore mobilisé ce vendredi</strong></p></div></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca80e1af4ba891af39761f.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:justify;padding-top:15px;padding-bottom:15px" align="justify" valign="top" class="r16-i nl2go-default-textstyle"><div><p style="margin:0">Le nouveau rassemblement devant l’hôpital est l’occasion de faire le point : près de 500 signatures de la pétition du conseil municipal . Elle est reprise dans les communes du territoire, comme à Monségur où le Maire s’est mobilisé pour défendre l’avenir de l’hôpital de Marmande-Tonneins, présent aux côtés des bénévoles de l’association Marmande hôpital urgence, afin de faire signer la pétition sur le marché.</p><p style="margin:0">Une rencontre est prévue avec Mme la sous Préfète et la Mme directrice de l’ARS le Vendredi 16 octobre .</p><p style="margin:0">Le contrat d’une urgentiste a été renouvelé sous la pression donc poursuivre l’action pour stopper toutes les mesures régressives</p><p style="margin:0">Le conseil de surveillance de l’hôpital se réunit le 14 octobre. L’association exige un moratoire sur toutes les décisions régressives de réductions des ressources humaines médicales médecins infirmières hospitaliers … pour conserver un hôpital de plein exercice avec l’ensemble des personnels médicaux et para médicaux.</p><p style="margin:0"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">DOURDAN</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>91</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Le comité sur le marché</strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6acb632e9663d3e1b8f3b4df.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0;text-align:justify">Le comité de défense de l&#39;hôpital de Dourdan était sur le marché de Dourdan pour faire signer la pétition de la coordination nationale contre les dépassements d&#39;honoraires et l&#39;augmentation des franchises et pour un 100% sécu.</p><p style="margin:0;text-align:justify">Il reste mobilisé pour que le soin ne devienne pas une marchandise.</p><p style="margin:0;text-align:justify"><br></p><p class="default" style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">NANTES</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>44</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p class="default" style="margin:0;text-align:center"><strong>Signatures de la pétition devant les cliniques privées</strong></p><p class="default" style="margin:0;text-align:justify">Beaucoup de signatures très faciles de la pétition contre les dépassements d’honoraires et les franchises médicales : il suffit de prononcer le mot « dépassement »!</p><p style="margin:0"><br></p></div></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0;text-align:left"><span style="font-size:26px;color:rgb(255, 255, 255);background-color:rgb(128, 0, 128);font-family: Impact, fantasy, arial"><strong><em>* Communiqués, prise de position ...</em></strong></span></p></div></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:justify;padding-top:15px;padding-bottom:15px" align="justify" valign="top" class="r16-i nl2go-default-textstyle"><div><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">GRASSE</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>06</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Grève du service d’HAD</strong></p><p style="margin:0">Le Comité de défense de l’Hôpital public 06 appelle notre attention sur la grève depuis plusieurs semaines des personnels de l’HAD de Grasse. La direction ne veut pas entendre les revendications.</p><p style="margin:0"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">MONTCEAU LES MINES</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>71</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong></p><p style="margin:0;text-align:center"><strong>Un communiqué du CODEF à propos du conseil de surveillance</strong></p><p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/les-deux-perdants-dune-me%CC%82me-irre%CC%81gularite%CC%81.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a></p></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></th></tr></tbody></table></td></tr></tbody></table><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td class="r20-i"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><th width="100%" style="font-weight: normal" valign="top" class="r5-c"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r6-o" style="table-layout: fixed; width: 100%"><tbody><tr><td valign="top" class="r12-i" style="padding-right: 15px; padding-left: 15px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0"><span style="font-size:36px;font-family: Impact, fantasy, arial;color:rgb(255, 255, 255);background-color:rgb(0, 0, 255)"><strong>AUTRES INFOS LOCALES</strong></span></p></div></td></tr></tbody></table></td></tr></tbody></table></th></tr></tbody></table></td></tr></tbody></table><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td class="r11-i" style="padding-top: 20px; padding-bottom: 20px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><th width="100%" style="font-weight: normal" valign="top" class="r5-c"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r6-o" style="table-layout: fixed; width: 100%"><tbody><tr><td valign="top" class="r12-i" style="padding-right: 15px; padding-left: 15px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:center;padding-top:15px;padding-bottom:15px" align="center" valign="top" class="r19-i nl2go-default-textstyle"><div><p style="margin:0"><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">METZ</span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong> (</strong><strong>57</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong></p><p style="margin:0"><strong>Un nouveau rassemblement ce mardi 6 octobre </strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca81b25e37a6b9e04b4f23.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0;text-align:justify">Un nouveau rassemblement a eu lieu pour défendre les urgences de l’hôpital militaire, un service de proximité pour la population de Metz</p><p style="margin:0;text-align:justify"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">LYON </span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong>(</strong><strong>69</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong></p><p style="margin:0;text-align:center"><strong>Service de santé de l’université de Lyon 1</strong></p><p style="margin:0;text-align:justify">Les psychologues sont sommés de se conventionner. La Convergence des psychologues en lutte en explique le danger sur les soins aux étudiants.</p><p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Nouveau-scandale-SSE-Lyon-1.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">LES MUREAUX</span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong> (</strong><strong>78</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong></p><p style="margin:0;text-align:center"><strong>Un nouveau rassemblement pour défendre l’hôpital de Meulan Les Mureaux</strong></p></div></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca8261d8d6589265b69621.jpg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0;text-align:justify">Les mobilisations pour défendre l’hôpital de Meulan Les Mureaux se poursuivent et un nouveau rassemblement a eu lieu le 6 octobre. André Petit, représentant des usagers à l’hôpital de Mantes la Jolie au titre de la Coordination a fait part de la solidarité des usagers.</p><p style="margin:0;text-align:justify">Une prochaine marche de soutien est prévue le mardi 13 octobre à 18h sur la Place de la mairie.</p><p style="margin:0;text-align:justify"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">VILLENEUVE SUR LOT</span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong> </strong><strong>(</strong><strong>47</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong></p><p style="margin:0;text-align:center"><strong>Un rassemblement pour défendre les urgences</strong></p><p style="margin:0">Le syndicat CFDT santé sociaux 47 donne rendez-vous mardi 13 octobre, à partir de 14 heures sur le parvis du Pôle de santé du Villeneuvois</p><p style="margin:0;text-align:center"><a href="https://www.ladepeche.fr/2026/10/09/fermetures-et-regulation-des-urgences-de-lhopital-de-villeneuve-sur-lot-la-cfdt-appelle-a-la-mobilisation-ce-mardi-13-octobre-13592682.php" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de La dépêche du 9 septembre</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">AUBERVILLIERS</span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong> (</strong><strong>93</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong></p><p style="margin:0;text-align:center"><strong>Fin du conflit au CMPP</strong></p><p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/CMPP_SESSAD_Aubervilliers.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Récit synthétique de la lutte</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">MARTINIQUE</span></strong><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> </span></strong></p><p style="margin:0;text-align:center"><strong>Un rapport de la Cour Régionale des Comptes sur la prise en charge du grand âge</strong></p><p style="margin:0;text-align:justify">Il pointe un déficit majeur de places en EHPAD et une situation financière sous tension.</p><p style="margin:0;text-align:center"><a href="https://rci.fm/martinique/infos/Societe/La-Chambre-regionale-des-Comptes-pointe-un-manque-de-places-important-au-sein-des" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de RCI du 10 octobre</a></p></div></td></tr></tbody></table></td></tr></tbody></table></th></tr></tbody></table></td></tr></tbody></table><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td class="r20-i"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><th width="100%" style="font-weight: normal" valign="top" class="r5-c"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r6-o" style="table-layout: fixed; width: 100%"><tbody><tr><td valign="top" class="r12-i" style="padding-right: 15px; padding-left: 15px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0"><span style="font-family: Impact, fantasy, arial;font-size:36px;color:rgb(255, 255, 255);background-color:rgb(28, 153, 30)"><strong>NOUS AVONS REÇU...</strong></span></p></div></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0"><span style="font-size:26px;font-family: Impact, fantasy, arial;background-color:rgb(28, 153, 30);color:rgb(255, 255, 255)"><em>* Communiqué, déclaration ...</em></span></p></div></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:center;padding-top:15px;padding-bottom:15px" align="center" valign="top" class="r19-i nl2go-default-textstyle"><div><p style="margin:0"><strong><span style="font-size: 20px; color: rgb(28, 153, 30);">Mouvement des lycéens</span></strong></p><p style="margin:0"><a href="https://www.uspsy.fr/?p=27392" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué de l’USP (union syndicale de la psychiatrie)</a></p><p style="margin:0"><br><br></p><p style="margin:0"><strong><span style="font-size: 20px; color: rgb(28, 153, 30);">Procès du 14 novembre</span></strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r18-c" align="center" style="font-size: 0px; line-height: 0px; padding-top: 15px; padding-bottom: 15px; valign: top"><img src="https://img.mailinblue.com/8963076/images/content_library/original/6aca83426fd18237745e897f.jpeg" width="570" border="0" style="display: block; width: 100%;"/></td></tr><tr><td class="r13-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;line-height:1.5;word-break:break-word;text-align:left;padding-top:15px;padding-bottom:15px;valign:top"><div><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; color: rgb(28, 153, 30);">PLFSS 2027</span></strong></p><p style="margin:0">Les réactions se multiplient !</p><p style="margin:0;text-align:justify">Les fédérations représentant l’ensemble des établissements de santé publics, privés à but non lucratif, privés et d’hospitalisation à domicile alertent sur les conséquences de l’évolution de l’ONDAM 2027 pour les patients.</p><p style="margin:0;text-align:center"><a href="https://www.fhf.fr/actualites/communiques-de-presse/plfss-2027-en-letat-il-manque-13-milliard-deuros-aux-etablissements-de-sante-pour-couvrir-les" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a></p><p style="margin:0;text-align:center"><a href="https://www.fhf.fr/actualites/communiques-de-presse/plfss-2027-autonomie-des-moyens-insuffisants-une-reforme-essentielle-repoussee" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Et aussi un communiqué sur l’autonomie</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:justify">L’Uniopss s’inquiète de la fragilité des hypothèses financières retenues et du manque de réponses structurelles apportées aux enjeux de santé, d’autonomie, de soutien aux familles et de lutte contre la précarité.</p><p style="margin:0;text-align:center"><a href="https://toute-la.veille-acteurs-sante.fr/245945/le-plfss-2027-ne-permet-ni-de-repondre-aux-enjeux-du-present-ni-de-preparer-lavenir-communique/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center">250 Millions d’économies sur l’APA</p><p style="margin:0;text-align:center"><a href="https://www.fedesap.org/app/uploads/2026/10/20261006_CP_PLFSS_APA2.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué de la FEDESAP</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:justify">France Asso Santé s’exprime : 5,1 milliards d’euros d’économies, mais un coût toujours plus lourd pour les usagers de la santé</p><p style="margin:0;text-align:center"><a href="https://france-assos-sante.org/communique_presse/plfss-2027-51-milliards-deuros-deconomies-mais-un-cout-toujours-plus-lourd-pour-les-usagers-de-la-sante/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="color: rgb(28, 153, 30); font-size: 20px;">Retraites</span></strong></p><p style="margin:0;text-align:center"><strong>Mobilisation le 14 octobre à l’occasion du CA de l’AGIRC ARRCO</strong></p><p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/2026-09-14-Tract-G6-14-octobre-1.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le tract intersyndical</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; background-color: rgb(255, 255, 255); color: rgb(28, 153, 30);">Hôpitaux publics</span></strong></p><p style="margin:0;text-align:center"><strong>L’académie de chirurgie voudrait fermer plus de 200 services de chirurgie !</strong></p><p style="margin:0;text-align:justify">Le rapport de l’académie de chirurgie intitulé « la chirurgie en 2035, constats et propositions « a été publié il y a quelques jours, donnant lieu à des commentaires dans la presse.</p><p style="margin:0;text-align:justify">« Il y a du souci à se faire » résumait un ami à la lecture de ces commentaires ! De fait, ce rapport propose la suppression de quelques 200 services de chirurgie, venant ainsi au secours du gouvernement et de la circulaire de réorganisation des GHT !</p><p style="margin:0;text-align:justify">Mais en plus, ce rapport sort du cadre de l’expertise chirurgicale pour se prononcer sur la protection sociale et les relations entre la sécurité sociale et les complémentaires.</p><p style="margin:0;text-align:center"><a href="https://www.academie-chirurgie.fr/admin/uploads/media/photo/0001/08/d1d5f19cdb089305e10f8ae5170d0399fb21d1e7.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le rapport</a></p><p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/note-sur-le-rapport-de-lacademie-de-chirurgie.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Une note de commentaires</a></p><p style="margin:0;text-align:center"><br></p><p style="margin:0;text-align:center"><strong><span style="font-size: 20px; color: rgb(28, 153, 30);">Médicaments</span></strong></p><p style="margin:0;text-align:center"><strong>Un médicament déremboursé à la demande du laboratoire qui le fabrique !</strong></p><p style="margin:0;text-align:justify">Un décret dérembourse le Zoladex, un traitement contre le cancer du sein et de la prostate à la demande du laboratoire AstraZeneca.</p><p style="margin:0;text-align:justify">Pourtant, La HAS (Haute Autorité de Santé) confirmait dans un avis du 4 février 2026 ses conclusions de 2016, un avis indiquant un service médical important rendu pour ce médicament et proposant un remboursement à 100 % !</p><p style="margin:0;text-align:justify">La sénatrice PCF Cathy Apourceau-Poly vient de demander des explications à la ministre. Il ne s’agit en effet que d’une recherche de rentabilité supplémentaire pour le laboratoire.</p><p style="margin:0;text-align:center"><a href="https://www.has-sante.fr/upload/docs/evamed/CT-21636_ZOLADEX_PIS_RAD_AvisDef_CT21636.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’avis de la HAS de 2026</a></p><p style="margin:0;text-align:center"><a href="https://www.has-sante.fr/upload/docs/evamed/CT-14535_ZOLADEX_PIS_RI_Avis2_CT8595&14535.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’avis de la HAS de 2016</a></p></div></td></tr></tbody></table></td></tr></tbody></table></th></tr></tbody></table></td></tr></tbody></table><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td class="r21-i" style="background-color: #eff2f7; color: #3b3f44; font-family: Arial; font-size: 16px; padding-top: 20px; padding-bottom: 20px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><th width="100%" style="font-weight: normal" valign="top" class="r5-c"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r6-o" style="table-layout: fixed; width: 100%"><tbody><tr><td valign="top" class="r22-i" style="font-family: Arial; font-size: 16px; color: #3b3f44; padding-right: 15px; padding-left: 15px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="word-break:break-word;text-align:center;line-height:1;font-family:Arial;font-size:18px;color:#3b3f44" align="center" valign="top" class="r23-i nl2go-default-textstyle"><div><p style="margin:0"><strong>Coordination Nationale des Comités de Défense </strong></p><p style="margin:0"><strong>des Hôpitaux et Maternités de Proximité</strong></p></div></td></tr></tbody></table></td></tr><tr><td class="r24-c nl2go-default-textstyle" align="left" style="color:#3b3f44;font-family:Arial;font-size:16px;word-break:break-word;text-align:left;line-height:1;valign:top"><div><p style="margin:0;text-align:center"><span style="font-size:10px;"><strong>Site web</strong></span><br><a href="http://coordination-defense-sante.org/" style="background-color:#ffffff;color:#037acc;text-decoration:underline"><span style="font-size:10px;"><strong>https://coordination-defense-sante.org/</strong></span></a><br><span style="font-size:10px;"> <strong>Réseaux sociaux</strong></span><br><a href="https://www.facebook.com/Coordinationdefensesante" style="background-color:#ffffff;color:#037acc;text-decoration:underline"><span style="font-size:10px;"><strong>Facebook</strong></span></a><span style="font-size:10px;"><strong>  </strong></span><a href="https://piaille.fr/@CoordNatDefenseSante" style="background-color:#ffffff;color:#037acc;text-decoration:underline"><span style="font-size:10px;"><strong>Mastodon</strong></span></a><span style="font-size:10px;"><strong> </strong></span><a href="https://bsky.app/profile/coordnat.bsky.social" style="background-color:#ffffff;color:#037acc;text-decoration:underline"><span style="font-size:10px;"><strong>Bluesky</strong></span></a></p></div></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="word-break:break-word;text-align:center;line-height:1.5;font-family:Arial;font-size:18px;color:#3b3f44;padding-top:15px" align="center" valign="top" class="r25-i nl2go-default-textstyle"><div><p style="margin:0;font-size:14px">Cet email a été envoyé à {{ contact.EMAIL }}</p></div></td></tr></tbody></table></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="word-break:break-word;text-align:center;line-height:1.5;font-family:Arial;font-size:18px;color:#3b3f44" align="center" valign="top" class="r26-i nl2go-default-textstyle"><div><p style="margin:0;font-size:14px">Vous avez reçu cet email parce que vous vous êtes inscrit à notre newsletter.</p></div></td></tr></tbody></table></td></tr><tr><td class="r14-c" align="left"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" class="r15-o" style="table-layout: fixed; width: 100%"><tbody><tr><td style="word-break:break-word;text-align:center;line-height:1.5;font-family:Arial;font-size:18px;color:#3b3f44;padding-top:15px;padding-bottom:15px" align="center" valign="top" class="r27-i nl2go-default-textstyle"><div><p style="margin:0;font-size:14px"> <a href="{{ unsubscribe }}" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Se désinscrire</a></p></div></td></tr></tbody></table></td></tr><tr><td class="r28-c" align="center"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" align="center" class="r0-o" style="table-layout: fixed; width: 100%"><tbody><tr><td valign="top" class="r29-i" style="font-family: Arial; font-size: 16px; color: #3b3f44; padding-bottom: 15px"><table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation"><tbody><tr><td class="r30-c" align="center"><table cellspacing="0" cellpadding="0" border="0" role="presentation" width="129" class="r31-o" style="table-layout: fixed"><tbody><tr><td height="48" style="font-family: Arial; font-size: 16px; color: #3b3f44" class="r32-i"><img src="https://creative-assets.mailinblue.com/rnb-assets/fr.png" width="129" height="48" alt="Sent with Brevo" border="0" style="display: block; width: 100%;"/></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></th></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></body></html></div>
+<p style="margin:0">Le comité organise un café de la solidarité le 15 octobre.</p>
+<p style="margin:0">Il a déjà organisé plusieurs points de signature de la pétition "Les dépassements d'honoraires et les franchises médicales, ça suffit ! " avec un excellent accueil de la population.</p>
+<p style="margin:0">-&gt; 130 signatures sur le marché de Ruffec le 3 Octobre</p>
+<p style="margin:0">-&gt; 83 signatures sur le marché de Civray le 6 Octobre</p>
+<p style="margin:0">Un 3e point de signatures est prévu sur le marché de Sauzé-Vaussais le 15 Octobre matin</p>
+<p style="margin:0;text-align:center">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Appel-15-Octobre-2026.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’appel pour le 15 octobre</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center" id="CHARLEVILLE&nbsp;MÉZIÈRES&nbsp;(08)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">CHARLEVILLE</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>MÉZIÈRES&nbsp;</strong><strong>(</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">08)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>RV devant l’hôpital Manchester mardi 13 octobre à 13 h</strong>
+</p>
+<div class="VignetteBR float right" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca7f2b6fd18237745e8938.jpg">
+        </div>
+        <div class="divText">
+<p style="margin:0">Après les mobilisations du 29 septembre, le comité reprend ses présences un mardi sur deux devant l'hôpital Manchester pour l'humanisation de ses urgences : une salle d'attente ouverte uniquement la nuit est une aberration et il y a toujours des difficultés pour l'accompagnement dans le service dans les situations particulières. Venez nous rejoindre. Il fera aussi signer la pétition de la Coordination contre les dépassements d'honoraires et les franchises.</p>
+<p style="margin:0">Le comité remercie toutes celles et ceux qui ont participé au rassemblement devant l'hôpital de Rethel le 29 septembre. La preuve que la mobilisation est utile ! L'ARS est obligée de bouger en ce qui concerne la réouverture de la chirurgie en hospitalisation complète. Les projets, concernant une réouverture sous forme d'hospitalisation de semaine sont cependant insuffisants et par ailleurs le mécanisme administratif envisagé nous inquiète : le transfert de l'autorisation de chirurgie au CHU ne serait-il pas une formule discrète pour prévoir la fermeture de la chirurgie à Rethel après le départ des chirurgiens actuellement en poste ? Alors que la direction commune avec le CHU devrait être le signe d'une responsabilité des équipes du CHU sur l'ensemble du territoire et donc la venue de nouveaux spécialistes à Rethel et l'accueil obligatoire au CHU des malades lorsque les médecins de Rethel le sollicitent.</p>
+        </div>
+</div>
+<p style="margin:0">
+
+</p>
+<p style="margin:0;text-align:center" id="LANNION&nbsp;(22)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">LANNION</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>22</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Une soirée sur les EHPAD</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca8bc5d8d6589265b69693.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0;text-align:center" id="LUÇON&nbsp;(85)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">LUÇON</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>85</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Prochain RV devant l’hôpital le vendredi 16 octobre</strong>
+</p>
+<p style="margin:0">L’ADSP poursuit ses rassemblements hebdomadaires devant les urgences de l’hôpital pour le maintien 7 jours/7 et 24h/24 des urgences et du SMUR</p>
+<p class="markerGroupDeb rubrique-new echo-titre-2 isNotCity" style="display: none;">
+</p>
+<p style="margin:0" id="* Les initiatives tenues" class="markerGroupDebTitle isNotCity">
+<strong>* Les initiatives tenues...</strong>
+</p>
+<p style="margin:0" id="MONTARGIS&nbsp;(45)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">MONTARGIS</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>45</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0">
+<strong>Rencontre régionale : Mes services publics, ma Sécu., j'y tiens !&nbsp;</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca7fc55e37a6b9e04b4ef6.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0">Durant ces trois journées, plus de 120 personnes, citoyens, élus, responsables associatifs, syndicaux et mutualistes se sont rassemblées, ont débattus et proposé des solutions pour mettre fin à la casse de nos services publics, revendiquer une Sécurité Sociale forte, démocratique et pleinement solidaire, le droit à la santé pour toutes et tous.</p>
+<p style="margin:0">L'Appel rédigé dimanche par les citoyens et les organisations présentes se conclue en ses termes : Nous appelons à la mise en mouvement de tous les acteurs avec les usagers-citoyens pour combattre les orientations antisociales du Projet de Loi de Financement de la Sécurité Sociale (PLFSS) , du Projet de Loi de Finances (PLF) pour 2027, et promouvoir d'autres alternatives pour le respect des droits humains et le progrès social.</p>
+<p style="margin:0;text-align:center">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Appel-de-Montargis-Paucourt-des-2-3-et-4-octobre-2026.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’appel lancé</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center" id="BERGERAC&nbsp;(24)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">BERGERAC</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>24</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Le comité mobilisé contre le PLFSS</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca7feaaf4ba891af39760c.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0">Le comité était présent sur le marché de Bergerac ce samedi : 85 signatures de la pétition contre les dépassements d’honoraires et les franchises médicales et de beaux échanges pour défendre notre Sécu ! Il y avait déjà eu 68 signatures lors d'une journée des retraités de la CGT.</p>
+<p style="margin:0">
+
+</p>
+<p style="margin:0;text-align:center" id="MONT-SAINT-MARTIN&nbsp;(54)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">MONT-SAINT-MARTIN</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>54</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Rassemblement pour la défense de la maternité</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca8070d8d6589265b69608.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0;text-align:justify">
+L’association santé pays haut a témoigné de la solidarité de la Coordination lors du rassemblement organisé vendredi 9 octobre à l’occasion d’un rendez-vous prévu avec le directeur général de la branche santé du groupe SOS propriétaire de l’hôpital de Mont-Saint-Martin.</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.ici.fr/emissions/l-info-d-ici-ici-lorraine-moselle-et-pays-haut/un-rassemblement-de-la-derniere-chance-pour-la-maternite-de-mont-saint-martin-menacee-de-fermeture-7978779" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article d’ICI</a>
+</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.change.org/p/sauvons-la-maternit%C3%A9-de-mont-saint-martin?recruiter=1431663085&amp;recruited_by_id=fd099360-c100-11f1-b05f-5d5cf1de6dde&amp;utm_source=share_petition&amp;utm_campaign=signed_petition_home_share&amp;utm_term=petition_details&amp;utm_medium=copylink&amp;share_id=W5qTLQZvpG" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Une pétition est lancée</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center" id="LE THILLOT&nbsp;(88)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">LE THILLOT</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>88</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Prés d’une centaine de personnes à la réunion publique pour défendre le SMR</strong>
+</p>
+<p style="margin:0;text-align:justify">La fermeture des 18 lits de SMR (service de médecine et rééducation) est largement refusée par la population, venue en nombre à la réunion organisée par l’ADEMAT-H ;</p>
+<p style="margin:0;text-align:justify">Dans la motion adoptée, il est demandé au conseil de surveillance de suspendre ce projet pour organiser la concertation et de nouvelles actions sont envisagées en cas de persistance de cette décision de fermeture.</p>
+<p style="margin:0;text-align:center">
+<a href="https://remiremontvallees.com/2026/10/10/le-thillot-le-projet-de-fermeture-des-18-lits-dhospitalisation-conteste-par-des-habitants/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de Remiremontvallees.com</a>
+</p>
+<p style="margin:0;text-align:center">
+<a href="https://vosgesinfo.fr/remiremontinfo/2026/10/la-population-dit-non-a-la-fermeture-des-18-lits-dhospitalisation-du-thillot/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de VosgesInfo</a>
+</p>
+<p style="margin:0;text-align:justify">
+
+</p>
+<p style="margin:0;text-align:center" id="MARMANDE&nbsp;(47)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">MARMANDE</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>47</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Le comité encore mobilisé ce vendredi</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca80e1af4ba891af39761f.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0">Le nouveau rassemblement devant l’hôpital est l’occasion de faire le point : près de 500 signatures de la pétition du conseil municipal . Elle est reprise dans les communes du territoire, comme à Monségur où le Maire s’est mobilisé pour défendre l’avenir de l’hôpital de Marmande-Tonneins, présent aux côtés des bénévoles de l’association Marmande hôpital urgence, afin de faire signer la pétition sur le marché.</p>
+<p style="margin:0">Une rencontre est prévue avec Mme la sous Préfète et la Mme directrice de l’ARS le Vendredi 16 octobre .</p>
+<p style="margin:0">Le contrat d’une urgentiste a été renouvelé sous la pression donc poursuivre l’action pour stopper toutes les mesures régressives</p>
+<p style="margin:0">Le conseil de surveillance de l’hôpital se réunit le 14 octobre. L’association exige un moratoire sur toutes les décisions régressives de réductions des ressources humaines médicales médecins infirmières hospitaliers … pour conserver un hôpital de plein exercice avec l’ensemble des personnels médicaux et para médicaux.</p>
+<p style="margin:0">
+
+</p>
+<p style="margin:0;text-align:center" id="DOURDAN&nbsp;(91)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">DOURDAN</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>91</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Le comité sur le marché</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6acb632e9663d3e1b8f3b4df.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0;text-align:justify">Le comité de défense de l'hôpital de Dourdan était sur le marché de Dourdan pour faire signer la pétition de la coordination nationale contre les dépassements d'honoraires et l'augmentation des franchises et pour un 100% sécu.</p>
+<p style="margin:0;text-align:justify">Il reste mobilisé pour que le soin ne devienne pas une marchandise.</p>
+<p style="margin:0;text-align:justify">
+
+</p>
+<p class="default isCity" style="margin:0;text-align:center" id="NANTES&nbsp;(44)">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">NANTES</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>44</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p class="default" style="margin:0;text-align:center">
+<strong>Signatures de la pétition devant les cliniques privées</strong>
+</p>
+<p class="default" style="margin:0;text-align:justify">Beaucoup de signatures très faciles de la pétition contre les dépassements d’honoraires et les franchises médicales : il suffit de prononcer le mot « dépassement »!</p>
+<p style="margin:0">
+
+</p>
+<p class="markerGroupDeb rubrique-new echo-titre-3 isNotCity" style="display: none;">
+</p>
+<p style="margin:0;text-align:left" id="* Communiqués, prise de position ..." class="markerGroupDebTitle isNotCity">
+<strong>* Communiqués, prise de position...</strong>
+</p>
+<p style="margin:0;text-align:center" id="GRASSE&nbsp;(06)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">GRASSE</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>06</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Grève du service d’HAD</strong>
+</p>
+<p style="margin:0">Le Comité de défense de l’Hôpital public 06 appelle notre attention sur la grève depuis plusieurs semaines des personnels de l’HAD de Grasse. La direction ne veut pas entendre les revendications.</p>
+<p style="margin:0">
+
+</p>
+<p style="margin:0;text-align:center" id="MONTCEAU LES MINES&nbsp;(71)" class="isCity">
+<strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">MONTCEAU LES MINES</span></strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>71</strong></span><strong><span style="font-size: 20px; background-color: rgb(128, 0, 128); color: rgb(255, 255, 255);">)</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Un communiqué du CODEF à propos du conseil de surveillance</strong>
+</p>
+<p style="margin:0;text-align:center">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/les-deux-perdants-dune-me%CC%82me-irre%CC%81gularite%CC%81.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a>
+</p>
+<p style="margin:0" id="AUTRES INFOS LOCALES" class="markerGroupDeb rubrique-new autres isNotCity">
+<span style="font-size:36px;font-family: Impact, fantasy, arial;color:rgb(255, 255, 255);background-color:rgb(0, 0, 255)"><strong>AUTRES INFOS LOCALES</strong></span>
+</p>
+<p style="margin:0">
+<strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">METZ</span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong>&nbsp;(</strong><strong>57</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong>
+</p>
+<p style="margin:0">
+<strong>Un nouveau rassemblement ce mardi 6 octobre&nbsp;</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca81b25e37a6b9e04b4f23.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0;text-align:justify">Un nouveau rassemblement a eu lieu pour défendre les urgences de l’hôpital militaire, un service de proximité pour la population de Metz</p>
+<p style="margin:0;text-align:justify">
+
+</p>
+<p style="margin:0;text-align:center">
+<strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">LYON </span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong>(</strong><strong>69</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Service de santé de l’université de Lyon 1</strong>
+</p>
+<p style="margin:0;text-align:justify">Les psychologues sont sommés de se conventionner. La Convergence des psychologues en lutte en explique le danger sur les soins aux étudiants.</p>
+<p style="margin:0;text-align:center">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Nouveau-scandale-SSE-Lyon-1.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center">
+<strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">LES MUREAUX</span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong>&nbsp;(</strong><strong>78</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Un nouveau rassemblement pour défendre l’hôpital de Meulan Les Mureaux</strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca8261d8d6589265b69621.jpg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0;text-align:justify">Les mobilisations pour défendre l’hôpital de Meulan Les Mureaux se poursuivent et un nouveau rassemblement a eu lieu le 6 octobre. André Petit, représentant des usagers à l’hôpital de Mantes la Jolie au titre de la Coordination a fait part de la solidarité des usagers.</p>
+<p style="margin:0;text-align:justify">Une prochaine marche de soutien est prévue le mardi 13 octobre à 18h sur la Place de la mairie.</p>
+<p style="margin:0;text-align:justify">
+
+</p>
+<p style="margin:0;text-align:center">
+<strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">VILLENEUVE SUR LOT</span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong>&nbsp;</strong><strong>(</strong><strong>47</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Un rassemblement pour défendre les urgences</strong>
+</p>
+<p style="margin:0">Le syndicat CFDT santé sociaux 47 donne rendez-vous mardi 13 octobre, à partir de 14 heures sur le parvis du Pôle de santé du Villeneuvois</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.ladepeche.fr/2026/10/09/fermetures-et-regulation-des-urgences-de-lhopital-de-villeneuve-sur-lot-la-cfdt-appelle-a-la-mobilisation-ce-mardi-13-octobre-13592682.php" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de La dépêche du 9 septembre</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center">
+<strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">AUBERVILLIERS</span></strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><strong>&nbsp;(</strong><strong>93</strong></span><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> )</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Fin du conflit au CMPP</strong>
+</p>
+<p style="margin:0;text-align:center">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/CMPP_SESSAD_Aubervilliers.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Récit synthétique de la lutte</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center">
+<strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);">MARTINIQUE</span></strong><strong><span style="font-size: 20px; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"> </span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Un rapport de la Cour Régionale des Comptes sur la prise en charge du grand âge</strong>
+</p>
+<p style="margin:0;text-align:justify">Il pointe un déficit majeur de places en EHPAD et une situation financière sous tension.</p>
+<p style="margin:0;text-align:center">
+<a href="https://rci.fm/martinique/infos/Societe/La-Chambre-regionale-des-Comptes-pointe-un-manque-de-places-important-au-sein-des" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de RCI du 10 octobre</a>
+</p>
+<p id="Dossier" style="display: none;">Dossier</p>
+<p style="margin:0" id="NOUS AVONS REÇU..." class="rubrique-new reçu isNotCity">
+<span style="font-family: Impact, fantasy, arial;font-size:36px;color:rgb(255, 255, 255);background-color:rgb(28, 153, 30)"><strong>NOUS AVONS REÇU...</strong></span>
+</p>
+<p style="margin:0" id="* Communiqué, déclaration ..." class="rubrique-new reçu sous-titre-1 isNotCity">
+<strong>* Communiqué, déclaration...</strong>
+</p>
+<p style="margin:0">
+<strong><span style="font-size: 20px; color: rgb(28, 153, 30);">Mouvement des lycéens</span></strong>
+</p>
+<p style="margin:0">
+<a href="https://www.uspsy.fr/?p=27392" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué de l’USP (union syndicale de la psychiatrie)</a>
+</p>
+<p style="margin:0">
+
+</p>
+<p style="margin:0">
+<strong><span style="font-size: 20px; color: rgb(28, 153, 30);">Procès du 14 novembre</span></strong>
+</p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6aca83426fd18237745e897f.jpeg">
+        </div>
+        <!--div class="divText">
+        </div>-->
+</div>
+<p style="margin:0;text-align:center">
+<strong><span style="font-size: 20px; color: rgb(28, 153, 30);">PLFSS 2027</span></strong>
+</p>
+<p style="margin:0">Les réactions se multiplient !</p>
+<p style="margin:0;text-align:justify">Les fédérations représentant l’ensemble des établissements de santé publics, privés à but non lucratif, privés et d’hospitalisation à domicile alertent sur les conséquences de l’évolution de l’ONDAM 2027 pour les patients.</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.fhf.fr/actualites/communiques-de-presse/plfss-2027-en-letat-il-manque-13-milliard-deuros-aux-etablissements-de-sante-pour-couvrir-les" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a>
+</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.fhf.fr/actualites/communiques-de-presse/plfss-2027-autonomie-des-moyens-insuffisants-une-reforme-essentielle-repoussee" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Et aussi un communiqué sur l’autonomie</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:justify">L’Uniopss s’inquiète de la fragilité des hypothèses financières retenues et du manque de réponses structurelles apportées aux enjeux de santé, d’autonomie, de soutien aux familles et de lutte contre la précarité.</p>
+<p style="margin:0;text-align:center">
+<a href="https://toute-la.veille-acteurs-sante.fr/245945/le-plfss-2027-ne-permet-ni-de-repondre-aux-enjeux-du-present-ni-de-preparer-lavenir-communique/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center">250 Millions d’économies sur l’APA</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.fedesap.org/app/uploads/2026/10/20261006_CP_PLFSS_APA2.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué de la FEDESAP</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:justify">France Asso Santé s’exprime : 5,1 milliards d’euros d’économies, mais un coût toujours plus lourd pour les usagers de la santé</p>
+<p style="margin:0;text-align:center">
+<a href="https://france-assos-sante.org/communique_presse/plfss-2027-51-milliards-deuros-deconomies-mais-un-cout-toujours-plus-lourd-pour-les-usagers-de-la-sante/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center">
+<strong><span style="color: rgb(28, 153, 30); font-size: 20px;">Retraites</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Mobilisation le 14 octobre à l’occasion du CA de l’AGIRC ARRCO</strong>
+</p>
+<p style="margin:0;text-align:center">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/2026-09-14-Tract-G6-14-octobre-1.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le tract intersyndical</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center">
+<strong><span style="font-size: 20px; background-color: rgb(255, 255, 255); color: rgb(28, 153, 30);">Hôpitaux publics</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>L’académie de chirurgie voudrait fermer plus de 200 services de chirurgie !</strong>
+</p>
+<p style="margin:0;text-align:justify">Le rapport de l’académie de chirurgie intitulé « la chirurgie en 2035, constats et propositions « a été publié il y a quelques jours, donnant lieu à des commentaires dans la presse.</p>
+<p style="margin:0;text-align:justify">« Il y a du souci à se faire » résumait un ami à la lecture de ces commentaires ! De fait, ce rapport propose la suppression de quelques 200 services de chirurgie, venant ainsi au secours du gouvernement et de la circulaire de réorganisation des GHT !</p>
+<p style="margin:0;text-align:justify">Mais en plus, ce rapport sort du cadre de l’expertise chirurgicale pour se prononcer sur la protection sociale et les relations entre la sécurité sociale et les complémentaires.</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.academie-chirurgie.fr/admin/uploads/media/photo/0001/08/d1d5f19cdb089305e10f8ae5170d0399fb21d1e7.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le rapport</a>
+</p>
+<p style="margin:0;text-align:center">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/note-sur-le-rapport-de-lacademie-de-chirurgie.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Une note de commentaires</a>
+</p>
+<p style="margin:0;text-align:center">
+
+</p>
+<p style="margin:0;text-align:center">
+<strong><span style="font-size: 20px; color: rgb(28, 153, 30);">Médicaments</span></strong>
+</p>
+<p style="margin:0;text-align:center">
+<strong>Un médicament déremboursé à la demande du laboratoire qui le fabrique !</strong>
+</p>
+<p style="margin:0;text-align:justify">Un décret dérembourse le Zoladex, un traitement contre le cancer du sein et de la prostate à la demande du laboratoire AstraZeneca.</p>
+<p style="margin:0;text-align:justify">Pourtant, La HAS (Haute Autorité de Santé) confirmait dans un avis du 4 février 2026 ses conclusions de 2016, un avis indiquant un service médical important rendu pour ce médicament et proposant un remboursement à 100 % !</p>
+<p style="margin:0;text-align:justify">La sénatrice PCF Cathy Apourceau-Poly vient de demander des explications à la ministre. Il ne s’agit en effet que d’une recherche de rentabilité supplémentaire pour le laboratoire.</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.has-sante.fr/upload/docs/evamed/CT-21636_ZOLADEX_PIS_RAD_AvisDef_CT21636.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’avis de la HAS de 2026</a>
+</p>
+<p style="margin:0;text-align:center">
+<a href="https://www.has-sante.fr/upload/docs/evamed/CT-14535_ZOLADEX_PIS_RI_Avis2_CT8595&amp;14535.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’avis de la HAS de 2016</a>
+</p>
+
+</div>
 <script>
 $(document).ready(function() {
 $('.corpsLettre').CNLetter(

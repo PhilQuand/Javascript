@@ -1832,7 +1832,7 @@
       curDiv.html(curHTML);
 
       //if ($('.corpsLettreWeek').length > 0) $('.corpsLettreWeek').css('display', 'none');
-      //if ($('.corpsLettrePDF').length > 0) $('.corpsLettrePDF').css('display', 'none');
+      if ($('.corpsLettrePDF').length > 0) $('.corpsLettrePDF').css('display', 'none');
 
       return nextElem;
     };

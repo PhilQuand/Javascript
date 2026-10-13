@@ -5,7 +5,6 @@
         }, 
           svgInfos: ['Semaine 40', 'du 28 sept.', 'au 04 oct.', '2026'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2026/Semaine 40.html',
-          idGlinkID: 'PreviousLetters'
         }, 
                   {
           svgInfos: ['Semaine 39', 'du 21 sept.', 'au 27 sept.', '2026'],
@@ -22,6 +21,7 @@
                   {
           svgInfos: ['Semaine 36', 'du 31 août', 'au 06 sept.', '2026'],
           idG: 'https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos Semaine 2026/Semaine 36.html',
+          idGlinkID: 'PreviousLetters'
         }, 
                   {
           svgInfos: ['Semaine 35', 'du 24 août', 'au 30 août', '2026'],

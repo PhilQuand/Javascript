@@ -1,4 +1,4 @@
-(function($) {
+((function($) {
   $.fn.InfosComités = function(options) {
 
     //if (typeof options === 'undefined' || typeof options.href === 'undefined') return;
@@ -1686,12 +1686,6 @@
          //$('.corpsLettrePDF  a').attr('id', 'monBoutonPdf');
          $(document).ready(function() {
 
-             const btData = $('#btData');
-             const btDataHTML = btData.text();
-             /*if (btDataHTML == "Données") {
-                btData.trigger("click");
-             };*/
-             btData.trigger("click");
            // 1. Récupérer l'élément DOM natif (en extrayant l'élément de jQuery)
            const elementDLink = $('#monBoutonPdf');
 
@@ -1780,6 +1774,12 @@
            };*/
            elementDLink.on('click', function(e) {
 
+             const btData = $('#btData');
+             const btDataHTML = btData.text();
+             if (btDataHTML == "Données") {
+                btData.trigger("click");
+             };
+
              // 1. Empêche le saut de page
              e.preventDefault();
 
@@ -1809,7 +1809,7 @@
 
                  // Optionnel : déclencher le téléchargement automatiquement tout de suite après
                  window.location.href = pdfUrl;
-            //if (btDataHTML == "Carte") btData.trigger("click");
+                 if (btDataHTML == "Données") btData.trigger("click");
 
                  // Ou simplement laisser l'utilisateur re-cliquer (le lien est maintenant fonctionnel)
                  console.log("Le lien est prêt à être téléchargé !");

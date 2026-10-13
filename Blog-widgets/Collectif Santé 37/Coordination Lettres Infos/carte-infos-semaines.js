@@ -1,4 +1,4 @@
-((function($) {
+(function($) {
   $.fn.InfosComités = function(options) {
 
     //if (typeof options === 'undefined' || typeof options.href === 'undefined') return;
@@ -1783,7 +1783,8 @@
              // 1. Empêche le saut de page
              e.preventDefault();
 
-             const elementDiv = $('#corpsLettre')[0];
+             //const elementDiv = $('#corpsLettre')[0];
+             const elementDiv = $('#forPDF')[0];
              const $lien = $(this);
 
              if (!elementDiv) {
@@ -1830,8 +1831,8 @@
 
       curDiv.html(curHTML);
 
-      if ($('.corpsLettreWeek').length > 0) $('.corpsLettreWeek').css('display', 'none');
-      if ($('.corpsLettrePDF').length > 0) $('.corpsLettrePDF').css('display', 'none');
+      //if ($('.corpsLettreWeek').length > 0) $('.corpsLettreWeek').css('display', 'none');
+      //if ($('.corpsLettrePDF').length > 0) $('.corpsLettrePDF').css('display', 'none');
 
       return nextElem;
     };

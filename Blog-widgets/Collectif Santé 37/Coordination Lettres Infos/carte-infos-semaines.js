@@ -1775,16 +1775,23 @@
            elementDLink.on('click', function(e) {
 
              const btData = $('#btData');
+             $('#btData').addClass('no-pdf');
              const btDataHTML = btData.text();
              if (btDataHTML == "Données") {
                 btData.trigger("click");
              };
+            //const elementDiv = $('#corpsLettre')[0];
+            const elementDiv = $('#forPDF')[0];
+            
+            const elementToHide = $('.no-pdf');
+            // 2. Masquez l'élément temporairement
+            elementToHide.hide();
 
              // 1. Empêche le saut de page
              e.preventDefault();
 
              //const elementDiv = $('#corpsLettre')[0];
-             const elementDiv = $('#forPDF')[0];
+             //const elementDiv = $('#forPDF')[0];
              const $lien = $(this);
 
              if (!elementDiv) {
@@ -1809,11 +1816,19 @@
                    .css('opacity', '1');
 
                  // Optionnel : déclencher le téléchargement automatiquement tout de suite après
-                 window.location.href = pdfUrl;
-                 if (btDataHTML == "Données") btData.trigger("click");
+                 //window.location.href = pdfUrl;
+                 // 4. Réaffichez l'élément une fois le PDF généré
+                 elementToHide.show();
+                 //if (btDataHTML == "Données") btData.trigger("click");
 
                  // Ou simplement laisser l'utilisateur re-cliquer (le lien est maintenant fonctionnel)
                  console.log("Le lien est prêt à être téléchargé !");
+               })
+               .save().then(() => {
+                 if (btDataHTML == "Données") btData.trigger("click");
+                 // 4. Réaffichez l'élément une fois le PDF généré
+                 //elementToHide.show();
+
                })
                .catch(function(error) {
                  console.error("Erreur :", error);

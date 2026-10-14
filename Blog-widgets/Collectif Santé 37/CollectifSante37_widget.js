@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5ALViYounoobtQe9v4Ka3eUkGRG48X9UjBhvM32QbWPeafykmM1NWye9TNHo1GexHebwV6XvHwC-dkw_R16ARaPoaLLRLLkFfnYclqZ1G4OrotTEc733d_FKY8brK-fCtHFrNTyjeSPVP8R9QlGo5hSiyY_5cjAbr5y2LkwuVWdHWVX-xrlrOpq7lvhQ/s1600/APPEL%2028%20SEPTEMBRE%202026.-2.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYtmsxPKftvG4T08OVxGS_m3JKN1WPIwf9RPEoxR3GzD64OBSKbsVisBRX-QZEaqqW_i1IHJF2gkI2ZtLtlZXyTjvpXBmk0OTDYwdWow78QxXKhwR-GbBQTCTDro5NWFQVxkALafId8WHbtKbnbyP2clpFoTbSfLpPgZGjoqroK4VAJHuQ0HosSmUgGOg/s1600/TdfS%20tract%20sept%2026.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -860,19 +860,11 @@ $(document).ready(function() {
                   },*/
            {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5ALViYounoobtQe9v4Ka3eUkGRG48X9UjBhvM32QbWPeafykmM1NWye9TNHo1GexHebwV6XvHwC-dkw_R16ARaPoaLLRLLkFfnYclqZ1G4OrotTEc733d_FKY8brK-fCtHFrNTyjeSPVP8R9QlGo5hSiyY_5cjAbr5y2LkwuVWdHWVX-xrlrOpq7lvhQ/s1600/APPEL%2028%20SEPTEMBRE%202026.-2.jpg"
-          },
-           {
-            dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYtmsxPKftvG4T08OVxGS_m3JKN1WPIwf9RPEoxR3GzD64OBSKbsVisBRX-QZEaqqW_i1IHJF2gkI2ZtLtlZXyTjvpXBmk0OTDYwdWow78QxXKhwR-GbBQTCTDro5NWFQVxkALafId8WHbtKbnbyP2clpFoTbSfLpPgZGjoqroK4VAJHuQ0HosSmUgGOg/s1600/TdfS%20tract%20sept%2026.jpg"
           },
            {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO4P0q8XpDO2qw_lS8rgHVHxRtj5fcvt7ftCrRCp0WWUYBIdfrK1fAKUZx8Rh-AoKfwx9eZYQmgx16nTy5MpOrY_kxVoe2rDVS2Sx3PaEcegLizkQRBBtExTxOZCTKRjXfRBgZGNemoVZ1pkJPp7p3BesG49DEhftmt0WmxHX98m63gzOpw9fjOUN1fJ0/s1600/TdfS%20tract%20sept%2026%20P2.jpg"
-          },
-           {
-            dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEif6oKwOF7gyjR0hH33Plmv6FJbq5LIYIe_3taF1MCSQzsY9af8RQODwHHMvlonOAki9jNUdRYrXNp1GxPXfWoOC3qOUrIBX_Fh1Rq-81DeQ1WZdJR2Cw_hKcHx5rxdYWJrXVJROWmHLjZyVI18M2euzJWe8TVX8mwFJ629uvwm4q4oqhMFXRvTFVIe7Uw/s1600/communique%CC%81SP.jpg"
           },
           /*{
             dataType: "iframe",

@@ -62,10 +62,12 @@
           $('.dispInfoMap').css('display', 'block')
           map.invalidateSize();
           $('.infosComités').css('display', 'none')
+          //$('.infosComités').classList.add("no-pdf")
         }
         else {
           $('#btData').html('Carte');
           $('.dispInfoMap').css('display', 'none')
+          //$('.dispInfoMap').classList.add("no-pdf")
           $('.infosComités').css('display', 'block')
         }
       });
@@ -444,7 +446,10 @@
             }
           }
         }
-        if (divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
+        if (divLegend.innerHTML == '') {
+          $('.legend.leaflet-control').css('display', 'none');
+          //$('.legend.leaflet-control').classList.add("no-pdf")
+        }
         divBannerCoord.innerHTML = divBannerCoordHTML;
         $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
 
@@ -1017,6 +1022,7 @@
           }
         }
         if (divLegend.innerHTML == '') $('.legend.leaflet-control').css('display', 'none');
+        //if (divLegend.innerHTML == '') $('.legend.leaflet-control').classList.add("no-pdf");
         divBannerCoord.innerHTML = divBannerCoordHTML;
         $('.bannerCoord').addClass('bannerCoord-' + divBannerCoordImgCount)
         for (i = 0; i < hrefLength; i++) {
@@ -1157,6 +1163,7 @@
     $(this).addClass('corpsLettre');
     $(this).attr('id', 'corpsLettre');
     var corpsLettre = $(this);
+ 
 
     if (corpsLettre.find('html').length > 0) {
       var contBody = corpsLettre.find('body').html();
@@ -1233,45 +1240,40 @@
           const paragraphes = document.querySelectorAll('p');
 
           // 2. Extraire les 6 derniers et les supprimer
-          Array.from(paragraphes).slice(-6).forEach(p => p.remove());
+          //Array.from(paragraphes).slice(-6).forEach(p => p.remove());
 
           // Récupère toutes les images
-          const toutesLesImages = document.querySelectorAll('img');
+          //const toutesLesImages = corpsLettre.find('img');
 
           // Vérifie qu'il y a au moins une image pour éviter une erreur
-          if (toutesLesImages.length > 0) {
+          /*if (toutesLesImages.length > 0) {
             // La dernière image se trouve à l'index (longueur - 1)
             const derniereImg = toutesLesImages[toutesLesImages.length - 1];
             derniereImg.remove();
-          }
+          }*/
 
-          // 1. Récupérer toutes les images de la page
-          const images = document.querySelectorAll('img');
+          $('.corpsLettre img').each(function(index, element) {
+            const img = $(this); // Récupère l'attribut src
+            const srcOriginal = img.attr('src'); // Récupère l'attribut src
+            if (srcOriginal !== "https://img.mailinblue.com/8963076/images/content_library/original/6a5e5c8662f042e7fe2f9e84.jpg") {
+                console.log('Image ' + index + ' : ' + srcOriginal);
+                const wrapper = document.createElement('div');
+                wrapper.className = 'VignetteBR center';
+                wrapper.style.alignItems = 'center';
 
-          // 2. Transformer en tableau et ignorer la première image (.slice(1) commence à l'index 1)
-          const imagesACibler = Array.from(images).slice(8);
-
-          // 3. Parcourir les images restantes pour les transformer
-          imagesACibler.forEach(img => {
-            // Récupérer l'attribut src de l'image actuelle
-            const srcOriginal = img.getAttribute('src');
-
-            // Créer le conteneur principal
-            const wrapper = document.createElement('div');
-            wrapper.className = 'VignetteBR center';
-            wrapper.style.alignItems = 'center';
-
-            // Injecter la structure HTML souhaitée à l'intérieur
-            wrapper.innerHTML = `
+                // Injecter la structure HTML souhaitée à l'intérieur
+                wrapper.innerHTML = `
         <div class="divImg" style="max-width: 400px;" align="center">
             <img class="skip-lazy" src="${srcOriginal}" />
         </div>
         <!--div class="divText">
         </div>-->`;
 
-            // 4. Remplacer l'ancienne image par la nouvelle structure
-            img.replaceWith(wrapper);
+                // 4. Remplacer l'ancienne image par la nouvelle structure
+                img.replaceWith(wrapper);
+              };
           });
+
           corpsLettre.removeClass('Brevo')
 
           const codeComplet = corpsLettre.prop('outerHTML');
@@ -1344,6 +1346,7 @@
                 nouvelElement.textContent = "Édito";
                 //nouvelElement.id = "Édito";
                 nouvelElement.style.display = "none";
+                //nouvelElement.classList.add("no-pdf");
                 //el.before(nouvelElement);
                 // Le parent de l'élément cible insère le nouveau juste avant la cible
                 el.parentNode.insertBefore(nouvelElement, el);
@@ -1380,6 +1383,7 @@
                 nouvelElement.textContent = "Sommaire";
                 nouvelElement.id = "Sommaire";
                 nouvelElement.style.display = "none";
+                //nouvelElement.classList.add("no-pdf");
                 // 3. L'insérer juste avant la cible L’ÉCHO DES COMITÉS
 
                 /*if (el) {
@@ -1425,6 +1429,7 @@
                 //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-1";
                 nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-1", "isNotCity");
                 nouvelElement.style.display = "none";
+                //nouvelElement.classList.add("no-pdf");
                 //el.before(nouvelElement);
                 // Le parent de l'élément cible insère le nouveau juste avant la cible
                 el.parentNode.insertBefore(nouvelElement, el);
@@ -1459,6 +1464,7 @@
                 //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-2";
                 nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-2", "isNotCity");
                 nouvelElement.style.display = "none";
+                //nouvelElement.classList.add("no-pdf");
                 //el.before(nouvelElement);
                 // Le parent de l'élément cible insère le nouveau juste avant la cible
                 el.parentNode.insertBefore(nouvelElement, el);
@@ -1494,6 +1500,7 @@
                 //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-3";
                 nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-3", "isNotCity");
                 nouvelElement.style.display = "none";
+                //nouvelElement.classList.add("no-pdf");
                 //el.before(nouvelElement);
                 // Le parent de l'élément cible insère le nouveau juste avant la cible
                 el.parentNode.insertBefore(nouvelElement, el);
@@ -1511,6 +1518,7 @@
                 nouvelElement.textContent = "Dossier";
                 nouvelElement.id = "Dossier";
                 nouvelElement.style.display = "none";
+                //nouvelElement.classList.add("no-pdf");
                 //el.before(nouvelElement);
                 // Le parent de l'élément cible insère le nouveau juste avant la cible
                 el.parentNode.insertBefore(nouvelElement, el);
@@ -1624,8 +1632,11 @@
     // ajout des images
     fillPictures();
 
+    const sdfieldTest = $(this).find('sdfield').first().css('display', 'none')
     $(this).find('sdfield').first().css('display', 'none')
-    
+    //$(this).find('sdfield').first().classList.add("no-pdf")
+   
+
     function fillDiv(curDiv, curElem, strKey, _this) {
       if (strKey != '') strKeyElem = _this.find('.' + strKey.replace(/\s/g, '.'));
       var strKeyComp = strKey.replace(/[\n\r]+/g, '').replace(/\s/g, '').toLowerCase();
@@ -1689,7 +1700,23 @@
            // 1. Récupérer l'élément DOM natif (en extrayant l'élément de jQuery)
            const elementDLink = $('#monBoutonPdf');
 
-           const options = {
+var element = document.getElementById('element-to-print');
+
+var options = {
+    margin:       10, // Marge de sécurité en mm tout autour de la page
+    filename:     'mon-document.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { 
+        scale: 2,         // Améliore la netteté
+        useCORS: true,    // Évite les bugs liés aux images
+        logging: false 
+    },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    // Indique à html2pdf de s'appuyer en priorité sur le CSS pour éviter les coupes sauvages
+    pagebreak:    { mode: ['css', 'legacy'] } 
+};
+         // 3. Options de configuration pour html2pdf (facultatif mais recommandé)
+         /*const options = {
              margin: 10,
              filename: 'mon-document.pdf',
              image: {
@@ -1705,7 +1732,7 @@
                format: 'a4',
                orientation: 'portrait'
              }
-           };
+           };*/
            /*const options = {
     margin:       10,
     filename:     'mon-document.pdf',
@@ -1780,12 +1807,56 @@
              if (btDataHTML == "Données") {
                 btData.trigger("click");
              };
-            //const elementDiv = $('#corpsLettre')[0];
-            const elementDiv = $('#forPDF')[0];
-            
-            const elementToHide = $('.no-pdf');
+             
+             function html2pdfPrep() {
+               //const elementDiv = $('.corpsLettre')[0];
+               if ($('#html2pdfDIV').length == 0) {
+                 $("body").append("<div id='html2pdfDIV'></div>")
+                 // Clone l'élément source et l'ajoute à l'intérieur de l'élément cible
+                 $(".corpsLettre").clone().appendTo("#html2pdfDIV");
+                 //$('#html2pdfDIV').find('#btData').remove()
+                 /*$('#html2pdfDIV').find('.sumComité').addClass('no-pdf')
+                 $('#html2pdfDIV').find('#Sommaire').addClass('no-pdf')
+                 $('#html2pdfDIV').find('.markerGroupDeb').addClass('no-pdf')
+                 $('#html2pdfDIV').find('#Dossier').addClass('no-pdf')
+                 //$('#html2pdfDIV').find('.no-pdf').hide;*/
+               }
+               else $('#html2pdfDIV').show();  
+               return $('#html2pdfDIV')[0];
+             };
+             const elementDiv = html2pdfPrep();    
+             $('.sumComité').addClass('no-pdf')
+             $('#Sommaire').addClass('no-pdf')
+             $('.markerGroupDeb').addClass('no-pdf')
+             $('#Dossier').addClass('no-pdf')
+             
+             const elementToHide = $('.no-pdf');
             // 2. Masquez l'élément temporairement
             elementToHide.hide();
+
+             //elementsToHide.hide();
+
+            // 3. Assigner la source comme la première table
+            /*const elementsToHide = elementDivToHide.each(function(index, element) {
+              $(this).hide;
+            });*/
+
+            
+            //const pageBreaks = $(); // Pour garder une trace des sauts ajoutés
+            //const elementAvecSaut = $('.element-avec-saut');
+            
+    // 2. Parcourir TOUS les éléments devant forcer un saut de page
+    /*elementAvecSaut.each(function() {
+        // Créer un div avec la classe spécifique reconnue par html2pdf
+        const pageBreak = $('<div class="html2pdf__page-break"></div>');
+        
+        // Insérer le saut de page juste avant l'élément courant
+        $(this).before(pageBreak);
+        
+        // Ajouter à notre collection pour pouvoir le supprimer après
+        pageBreaks = pageBreaks.add(pageBreak);
+    });*/
+
 
              // 1. Empêche le saut de page
              e.preventDefault();
@@ -1802,38 +1873,26 @@
              // Indication visuelle optionnelle (ex: changer l'opacité ou le texte)
              $lien.css('opacity', '0.5');
 
-             html2pdf()
+    // Génération
+    /*html2pdf().from(element).set(options).save().then(function() {
+        // Restauration de l'affichage
+        //elementsToHide.show();
+    });*/
+                 html2pdf()
                .from(elementDiv)
                .set(options)
                .output('blob')
-               .then(function(pdfBlob) {
-                 const pdfUrl = URL.createObjectURL(pdfBlob);
-
-                 // On modifie les attributs du lien cliqué pour qu'il devienne un vrai lien de téléchargement
-                 $lien
-                   .attr('href', pdfUrl)
-                   .attr('download', 'mon-document.pdf')
-                   .css('opacity', '1');
-
-                 // Optionnel : déclencher le téléchargement automatiquement tout de suite après
-                 //window.location.href = pdfUrl;
-                 // 4. Réaffichez l'élément une fois le PDF généré
-                 elementToHide.show();
-                 //if (btDataHTML == "Données") btData.trigger("click");
-
-                 // Ou simplement laisser l'utilisateur re-cliquer (le lien est maintenant fonctionnel)
-                 console.log("Le lien est prêt à être téléchargé !");
-               })
                .save().then(() => {
                  if (btDataHTML == "Données") btData.trigger("click");
-                 // 4. Réaffichez l'élément une fois le PDF généré
-                 //elementToHide.show();
+                 // 5. NETTOYAGE : Réafficher les éléments masqués et supprimer les sauts dynamiques
+                 
+                 $('#html2pdfDIV').hide();
+                 elementToHide.show();
+                 $lien.css('opacity', '1');
+                 console.log("La génération du PDF terminée");
 
                })
-               .catch(function(error) {
-                 console.error("Erreur :", error);
-                 $lien.css('opacity', '1');
-               });
+               
 
 
            });
@@ -1848,6 +1907,7 @@
 
       //if ($('.corpsLettreWeek').length > 0) $('.corpsLettreWeek').css('display', 'none');
       if ($('.corpsLettrePDF').length > 0) $('.corpsLettrePDF').css('display', 'none');
+      //if ($('.corpsLettrePDF').length > 0) $('.corpsLettrePDF').classList.add("no-pdf");
 
       return nextElem;
     };
@@ -1938,6 +1998,7 @@
         lastIMG.after('<img src="' + hrefImg + '" style="width: 640px; max-width: 90%;" />');
         lastIMG.remove();*/
         $('.corpsLettrePictures').css('display', 'none');
+        //$('.corpsLettrePictures').classList.add("no-pdf");
       }
     }
 
@@ -1955,6 +2016,7 @@
       //var mapTitle = '<p align="center"><b><span style="font-size: 22pt; line-height: 30.799999237060547px; font-family: Arial, sans-serif; color: #0070c0;"><br/>L’écho des comités <br/>et autres informations locales</span></b></p>'
       var mapTitle = ''
       if (typeof InfosComitésCom !== 'undefined') mapTitle += InfosComitésCom
+      const idInfosComitésTEST = $('#idInfosComités')
       $('#idInfosComités').InfosComités({
         iconMarkers: iconMarkers,
         //iconMarkers: [{class: "infoComité", title: 'Échos'}],
@@ -1963,8 +2025,34 @@
       });
       //$('.corpsLettre > .infosComités').css('display', 'none');
       $('.sumComité').css('display', 'none');
-    }
+      //$('.sumComité').classList.add("no-pdf");
+   }
     //});
+    const corpsDon = '1000px'
+    
+    //$('.corpsLettre').css('margin-left','auto');
+    //$('.corpsLettre').css('margin-right','auto');
+    //$('.corpsLettre').css('max-width','100%');
+    
+    $('.Edito').css('margin-left','auto');
+    $('.Edito').css('margin-right','auto');
+    $('.Edito').css('padding-left','0');
+    $('.Edito').css('max-width',corpsDon);
+    
+    $('.coordCN').css('margin-left','auto');
+    $('.coordCN').css('margin-right','auto');
+    $('.coordCN').css('padding-left','0');
+    $('.coordCN').css('max-width',corpsDon);
+    
+    $('.infosComités').css('margin-left','auto');
+    $('.infosComités').css('margin-right','auto');
+    $('.infosComités').css('padding-left','0');
+    $('.infosComités').css('max-width',corpsDon);
+
+
+    $('#infoMap-wrapper').css('margin-left','auto');
+    $('#infoMap-wrapper').css('margin-right','auto');
+    $('#infoMap-wrapper').css('max-width','800px');
 
     function iconMarkersBuilder(iconMarkersOptions) {
       var iconMarkers = [{
@@ -2043,5 +2131,6 @@
       img: _load('img')
     }
   })();
+
 
 })(jQuery);

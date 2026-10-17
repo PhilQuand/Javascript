@@ -1175,63 +1175,51 @@
       //const tableSource = document.querySelector('#ma-table-source'); // Adaptez le sélecteur
       //const divCible = document.querySelector('#ma-div-cible'); // Adaptez le sélecteur
       // 1. Créer la nouvelle div et l'assigner à la cible
-      const divCible = document.createElement('div');
-      divCible.id = 'divBrevo';
       // 2. Insérer la div juste AVANT la première table
       //Array.from(document.querySelectorAll('table'))[0].before(divCible);
       //const elements = document.querySelector('#filtreData');
       //elements.after(divCible);
       // 2. Insérer la div juste AVANT la première table
-      Array.from(document.querySelectorAll('table'))[0].before(divCible);
-      // 3. Assigner la source comme la première table
-      const tableSource = Array.from(document.querySelectorAll('table'))[0]
+// 1. Assigner et insérer la div cible avant la première table
+const tableSource = $('table:first');
+const divCible = $('<div></div>').attr('id', 'divBrevo');
 
-      if (tableSource && divCible) {
-        // 2. Récupérer TOUTES les div à l'intérieur de la table (y compris celles des sous-tables)
-        const toutesLesDivs = tableSource.querySelectorAll('td, th');
+if (tableSource.length) {
+    tableSource.before(divCible);
 
-        // 3. Déplacer chaque div vers la div cible
-        toutesLesDivs.forEach(div => {
-          const estVide = div.textContent.trim() === '' && div.children.length === 0;
-          // 2. Déplacer chaque enfant un par un jusqu'à ce que la source soit vide
-          if (!estVide)
-            while (div.firstChild) {
-              divCible.appendChild(div.firstChild);
-            }
-        });
-        const divBrevo = document.querySelector('#divBrevo');
-        if (divBrevo) {
-          // 2. Récupérer toutes les tables situées à l'intérieur de cette div
-          const tablesInternes = divBrevo.querySelectorAll('table');
-          // 3. Les supprimer une par une
-          tablesInternes.forEach(table => {
-            table.remove();
-          });
-          console.log(`${tablesInternes.length} table(s) supprimée(s) de la div avec succès !`);
-          // 2. Récupérer toutes les div situées à l'intérieur de cette div
-          const divsInternes = divBrevo.querySelectorAll('div');
-          // 3. Les supprimer une par une
-          divsInternes.forEach(div => {
-            while (div.firstChild) {
-              div.before(div.firstChild);
-            }
-            div.remove();
-          });
-          console.log(`${toutesLesDivs.length} div(s) déplacée(s) avec succès !`);
-          tableSource.remove();
-          console.log(`${tablesInternes.length} table(s) supprimée(s) de la div avec succès !`);
-
-          prepCarte();
-
+    // 2 & 3. Parcourir les cellules (td, th) et déplacer leur contenu non vide
+    tableSource.find('td, th').each(function() {
+        const cellule = $(this);
+        const estVide = $.trim(cellule.text()) === '' && cellule.children().length === 0;
+        
+        if (!estVide) {
+            cellule.contents().appendTo(divCible);
         }
-      }
+    });
+
+    // 4. Nettoyage et traitement de #divBrevo
+    const divBrevo = $('#divBrevo');
+    if (divBrevo.length) {
+        // Supprime toutes les tables à l'intérieur de #divBrevo
+        divBrevo.find('table').remove();
+        console.log(`table(s) supprimée(s) de la div avec succès !`);
+
+        // Extrait le contenu de toutes les div internes et supprime les balises div parentes (unwrap)
+        divBrevo.find('div').contents().unwrap();
+        console.log(`div(s) déplacée(s) avec succès !`);
+
+        // Supprime la table source initiale
+        tableSource.remove();
+        console.log(`table(s) supprimée(s) de la div avec succès !`);
+
+        // Appels de vos fonctions de suite
+        prepCarte();
+    }
+}
 
       function prepCarte() {
         contMotclef();
-        while (divCible.firstChild) {
-          divCible.before(divCible.firstChild);
-        }
-        divCible.remove();
+        divCible.contents().unwrap();
         netFinal();
 
         function netFinal() {
@@ -1256,22 +1244,22 @@
             const img = $(this); // Récupère l'attribut src
             const srcOriginal = img.attr('src'); // Récupère l'attribut src
             if (srcOriginal !== "https://img.mailinblue.com/8963076/images/content_library/original/6a5e5c8662f042e7fe2f9e84.jpg") {
-                console.log('Image ' + index + ' : ' + srcOriginal);
-                const wrapper = document.createElement('div');
-                wrapper.className = 'VignetteBR center';
-                wrapper.style.alignItems = 'center';
+              console.log('Image ' + index + ' : ' + srcOriginal);
+              const wrapper = document.createElement('div');
+              wrapper.className = 'VignetteBR center';
+              wrapper.style.alignItems = 'center';
 
-                // Injecter la structure HTML souhaitée à l'intérieur
-                wrapper.innerHTML = `
+              // Injecter la structure HTML souhaitée à l'intérieur
+              wrapper.innerHTML = `
         <div class="divImg" style="max-width: 400px;" align="center">
             <img class="skip-lazy" src="${srcOriginal}" />
         </div>
         <!--div class="divText">
         </div>-->`;
 
-                // 4. Remplacer l'ancienne image par la nouvelle structure
-                img.replaceWith(wrapper);
-              };
+              // 4. Remplacer l'ancienne image par la nouvelle structure
+              img.replaceWith(wrapper);
+            };
           });
 
           corpsLettre.removeClass('Brevo')
@@ -1322,244 +1310,141 @@
           //const motClef = colMotsClefs[index];
           // Trouver le conteneur de type typeCont contenant uniquement le mot clef motClef (malgré les balises HTML)
           // 1. Sélectionner tous les éléments du DOM
-          //const tousLesElements = document.querySelectorAll('*');
-          const tousLesElements = document.querySelectorAll('p');
+          const $tousLesElements = divCible.find('p');
           let trouve = null;
-
-          // 2. Parcourir les éléments pour trouver celui qui contient UNIQUEMENT un motclef recherché
           let motTrouve = null;
-          for (let el of tousLesElements) {
-            const elCont = netContHTML(el)
-            const isVille = isContVille(el)
+
+          // 2. Parcourir les éléments avec jQuery .each()
+          $tousLesElements.each(function() {
+            const $el = $(this); // Convertit l'élément courant en objet jQuery
+            const elCont = netContHTML(this); // Conserve l'élément natif (this) si la fonction l'attend
+            const isVille = isContVille(this);
 
             // 3. Remonter au conteneur parent de cet élément
-            const conteneur = el.closest(typeCont);
+            const $conteneur = $el.closest(typeCont);
 
-            if (conteneur) {
-              trouve = conteneur;
+            if ($conteneur.length) {
+              trouve = $conteneur; // Vous pouvez stocker $conteneur ou le DOM natif $conteneur[0] selon vos besoins
+
               // 3. Traitement conditionnel selon les mots-clés
-              if (elCont == 'ÉDITO') {
-                el.id = elCont;
+              if (elCont === 'ÉDITO') {
+                $el.attr('id', elCont); // Assigne l'ID en jQuery
                 index = 1;
-                // 1. Créer le nouvel Édito
-                const nouvelElement = document.createElement('p');
-                nouvelElement.textContent = "Édito";
-                //nouvelElement.id = "Édito";
-                nouvelElement.style.display = "none";
-                //nouvelElement.classList.add("no-pdf");
-                //el.before(nouvelElement);
-                // Le parent de l'élément cible insère le nouveau juste avant la cible
-                el.parentNode.insertBefore(nouvelElement, el);
-              }
-              else if (elCont == 'L’ÉCHO DES COMITÉS') {
-                el.id = elCont;
-                index = 2;
-                el.classList.add("rubrique-new", "echo", "isNotCity");
 
-                if (el) {
-                  // 1. Remplacer le contenu (texte ou HTML)
-                  el.textContent = "L’ÉCHO DES COMITÉS";
-                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
-
-                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
-                  el.classList.add("rubrique-new", "echo", "isNotCity");
-
-                  // 3. Redéfinir ou appliquer des styles en ligne
-                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
-                  // 1. Créer la balise STRONG
-                  const strongElement = document.createElement('strong');
-
-                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
-                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
-                  strongElement.innerHTML = el.innerHTML;
-
-                  // 3. Vider l'élément et y injecter le nouveau STRONG
-                  el.innerHTML = '';
-                  el.appendChild(strongElement);
-                }
-
-                // 1. Créer le nouvel Sommaire
-                const nouvelElement = document.createElement('p');
-                nouvelElement.textContent = "Sommaire";
-                nouvelElement.id = "Sommaire";
-                nouvelElement.style.display = "none";
-                //nouvelElement.classList.add("no-pdf");
-                // 3. L'insérer juste avant la cible L’ÉCHO DES COMITÉS
-
-                /*if (el) {
-                  // Tant qu'il y a un élément juste avant la cible, on le supprime
-                  while (el.previousElementSibling) {
-                    el.previousElementSibling.remove();
+                // 1. Créer le nouvel Édito et l'insérer juste avant $el
+                $('<p>', {
+                  text: 'Édito',
+                  css: {
+                    display: 'none'
                   }
-                }*/
+                  // class: 'no-pdf' // Décommentez si besoin
+                }).insertBefore($el);
 
-                //el.before(nouvelElement);
-                // Le parent de l'élément cible insère le nouveau juste avant la cible
-                el.parentNode.insertBefore(nouvelElement, el);
+                // Si vous souhaitez arrêter la boucle après avoir trouvé l'ÉDITO :
+                // return false; 
               }
-              else if (elCont == '* Les initiatives à venir') {
-                el.id = elCont;
+              else if (elCont === 'L’ÉCHO DES COMITÉS') {
+                $el.attr('id', elCont);
+                index = 2;
+
+                // 1. Remplacer le contenu par le texte brut
+                // 2. Ajouter les classes d'un coup
+                // 3. Envelopper tout le contenu texte fraîchement injecté dans une balise <strong>
+                $el.text("L’ÉCHO DES COMITÉS")
+                  .addClass("rubrique-new echo isNotCity")
+                  .wrapInner('<strong></strong>');
+
+                // 1 & 3. Créer le nouvel élément Sommaire et l'insérer juste avant $el
+                $('<p>', {
+                  id: 'Sommaire',
+                  text: 'Sommaire',
+                  css: {
+                    display: 'none'
+                  }
+                  // class: 'no-pdf' // Décommentez si vous souhaitez réactiver la classe
+                }).insertBefore($el);
+              }
+              else if (elCont === '* Les initiatives à venir') {
+                $el.attr('id', elCont);
                 index = 3;
-                el.classList.add("markerGroupDebTitle", "isNotCity")
 
-                if (el) {
-                  // 1. Remplacer le contenu (texte ou HTML)
-                  el.textContent = "* Les initiatives à venir...";
-                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
+                // 1. Remplacer le contenu texte
+                // 2. Ajouter les classes d'un coup
+                // 3. Envelopper le texte inséré dans une balise <strong>
+                $el.text("* Les initiatives à venir...")
+                  .addClass("markerGroupDebTitle isNotCity")
+                  .wrapInner('<strong></strong>');
 
-                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
-                  el.classList.add("markerGroupDebTitle", "isNotCity");
-
-                  // 3. Redéfinir ou appliquer des styles en ligne
-                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
-                  // 1. Créer la balise STRONG
-                  const strongElement = document.createElement('strong');
-
-                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
-                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
-                  strongElement.innerHTML = el.innerHTML;
-
-                  // 3. Vider l'élément et y injecter le nouveau STRONG
-                  el.innerHTML = '';
-                  el.appendChild(strongElement);
-                }
-
-                // 1. Créer le nouvel markerGroupDeb
-                const nouvelElement = document.createElement('p');
-                //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-1";
-                nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-1", "isNotCity");
-                nouvelElement.style.display = "none";
-                //nouvelElement.classList.add("no-pdf");
-                //el.before(nouvelElement);
-                // Le parent de l'élément cible insère le nouveau juste avant la cible
-                el.parentNode.insertBefore(nouvelElement, el);
+                // 1 & 3. Créer le nouvel élément avec ses classes/styles et l'insérer juste avant $el
+                $('<p>')
+                  .addClass("markerGroupDeb rubrique-new echo-titre-1 isNotCity")
+                  .css('display', 'none')
+                  // .addClass("no-pdf") // Décommentez si besoin
+                  .insertBefore($el);
               }
-              else if (elCont == '* Les initiatives tenues') {
-                el.id = elCont;
+              else if (elCont === '* Les initiatives tenues') {
+                $el.attr('id', elCont);
                 index = 4;
-                el.classList.add("markerGroupDebTitle", "isNotCity")
-                if (el) {
-                  // 1. Remplacer le contenu (texte ou HTML)
-                  el.textContent = "* Les initiatives tenues...";
-                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
 
-                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
-                  el.classList.add("markerGroupDebTitle", "isNotCity");
+                $el.text("* Les initiatives tenues...")
+                  .addClass("markerGroupDebTitle isNotCity")
+                  .wrapInner('<strong></strong>');
 
-                  // 3. Redéfinir ou appliquer des styles en ligne
-                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
-                  // 1. Créer la balise STRONG
-                  const strongElement = document.createElement('strong');
-
-                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
-                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
-                  strongElement.innerHTML = el.innerHTML;
-
-                  // 3. Vider l'élément et y injecter le nouveau STRONG
-                  el.innerHTML = '';
-                  el.appendChild(strongElement);
-                }
-                // 1. Créer le nouvel markerGroupDeb
-                const nouvelElement = document.createElement('p');
-                //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-2";
-                nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-2", "isNotCity");
-                nouvelElement.style.display = "none";
-                //nouvelElement.classList.add("no-pdf");
-                //el.before(nouvelElement);
-                // Le parent de l'élément cible insère le nouveau juste avant la cible
-                el.parentNode.insertBefore(nouvelElement, el);
+                $('<p>')
+                  .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
               }
-              else if (elCont == '* Communiqués, prise de position ...') {
-                el.id = elCont;
+              else if (elCont === '* Communiqués, prise de position ...') {
+                $el.attr('id', elCont);
                 index = 5;
-                el.classList.add("markerGroupDebTitle", "isNotCity")
-                if (el) {
-                  // 1. Remplacer le contenu (texte ou HTML)
-                  el.textContent = "* Communiqués, prise de position...";
-                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
 
-                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
-                  el.classList.add("markerGroupDebTitle", "isNotCity")
+                $el.text("* Communiqués, prise de position...")
+                  .addClass("markerGroupDebTitle isNotCity")
+                  .wrapInner('<strong></strong>');
 
-                  // 3. Redéfinir ou appliquer des styles en ligne
-                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
-                  // 1. Créer la balise STRONG
-                  const strongElement = document.createElement('strong');
-
-                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
-                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
-                  strongElement.innerHTML = el.innerHTML;
-
-                  // 3. Vider l'élément et y injecter le nouveau STRONG
-                  el.innerHTML = '';
-                  el.appendChild(strongElement);
-                }
-
-                // 1. Créer le nouvel markerGroupDeb
-                const nouvelElement = document.createElement('p');
-                //nouvelElement.textContent = "markerGroupDeb rubrique-new echo-titre-3";
-                nouvelElement.classList.add("markerGroupDeb", "rubrique-new", "echo-titre-3", "isNotCity");
-                nouvelElement.style.display = "none";
-                //nouvelElement.classList.add("no-pdf");
-                //el.before(nouvelElement);
-                // Le parent de l'élément cible insère le nouveau juste avant la cible
-                el.parentNode.insertBefore(nouvelElement, el);
+                $('<p>')
+                  .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
               }
-              else if (elCont == 'AUTRES INFOS LOCALES') {
-                el.id = elCont;
+              else if (elCont === 'AUTRES INFOS LOCALES') {
+                $el.attr('id', elCont)
+                  .addClass("markerGroupDeb rubrique-new autres isNotCity");
                 index = 6;
-                el.classList.add("markerGroupDeb", "rubrique-new", "autres", "isNotCity");
               }
-              else if (elCont == 'NOUS AVONS REÇU...') {
-                el.id = elCont;
+              else if (elCont === 'NOUS AVONS REÇU...') {
+                $el.attr('id', elCont);
                 index = 7;
-                el.classList.add("rubrique-new", "reçu", "isNotCity");
-                const nouvelElement = document.createElement('p');
-                nouvelElement.textContent = "Dossier";
-                nouvelElement.id = "Dossier";
-                nouvelElement.style.display = "none";
-                //nouvelElement.classList.add("no-pdf");
-                //el.before(nouvelElement);
-                // Le parent de l'élément cible insère le nouveau juste avant la cible
-                el.parentNode.insertBefore(nouvelElement, el);
+                $el.addClass("rubrique-new reçu isNotCity");
+
+                $('<p>', {
+                  id: 'Dossier',
+                  text: 'Dossier',
+                  css: {
+                    display: 'none'
+                  }
+                }).insertBefore($el);
               }
-              else if (elCont == '* Communiqué, déclaration ...') {
-                el.id = elCont;
+              else if (elCont === '* Communiqué, déclaration ...') {
+                $el.attr('id', elCont);
                 index = 6;
-                el.classList.add("rubrique-new", "reçu", "sous-titre-1", "isNotCity")
-                if (el) {
-                  // 1. Remplacer le contenu (texte ou HTML)
-                  el.textContent = "* Communiqué, déclaration...";
-                  // OU si vous voulez injecter du HTML : monElement.innerHTML = "<span>Nouveau HTML</span>";
 
-                  // 2. Redéfinir totalement les classes (écrase les anciennes classes)
-                  el.classList.add("rubrique-new", "reçu", "sous-titre-1", "isNotCity")
-
-                  // 3. Redéfinir ou appliquer des styles en ligne
-                  //monElement.style.cssText = "color: red; font-weight: bold; margin-top: 10px;";
-                  // 1. Créer la balise STRONG
-                  const strongElement = document.createElement('strong');
-
-                  // 2. Déplacer tout le contenu actuel de l'élément à l'intérieur du STRONG
-                  // (innerHTML est pratique ici si le contenu contient déjà d'autres balises ou du texte)
-                  strongElement.innerHTML = el.innerHTML;
-
-                  // 3. Vider l'élément et y injecter le nouveau STRONG
-                  el.innerHTML = '';
-                  el.appendChild(strongElement);
-                }
+                $el.text("* Communiqué, déclaration...")
+                  .addClass("rubrique-new reçu sous-titre-1 isNotCity")
+                  .wrapInner('<strong></strong>');
               }
               else if (isVille) {
-                const bgColor = el.parentElement.parentElement.parentElement.style.backgroundColor;
-                //el.parentElement.style.backgroundColor = bgColor;
-                //el.style.backgroundColor = bgColor;
-                el.id = elCont;
-                el.classList.add("isCity")
+                // Remplace el.parentElement.parentElement.parentElement par un .closest() ou .parents() si la structure est fixe
+                const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
+
+                $el.attr('id', elCont)
+                  .addClass("isCity");
               }
               //index++;
               //console.log("Aucun conteneur correspondant n'a été trouvé.");
             }
-          }
+          })
           //break; // On s'arrête au premier conteneur trouvé
         };
       }
@@ -1700,39 +1585,48 @@
            // 1. Récupérer l'élément DOM natif (en extrayant l'élément de jQuery)
            const elementDLink = $('#monBoutonPdf');
 
-var element = document.getElementById('element-to-print');
+           var element = document.getElementById('element-to-print');
 
-var options = {
-    margin:       10, // Marge de sécurité en mm tout autour de la page
-    filename:     'mon-document.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { 
-        scale: 2,         // Améliore la netteté
-        useCORS: true,    // Évite les bugs liés aux images
-        logging: false 
-    },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    // Indique à html2pdf de s'appuyer en priorité sur le CSS pour éviter les coupes sauvages
-    pagebreak:    { mode: ['css', 'legacy'] } 
-};
-         // 3. Options de configuration pour html2pdf (facultatif mais recommandé)
-         /*const options = {
-             margin: 10,
+           var options = {
+             margin: 10, // Marge de sécurité en mm tout autour de la page
              filename: 'mon-document.pdf',
              image: {
                type: 'jpeg',
                quality: 0.98
              },
              html2canvas: {
-               scale: 2,
-               useCORS: true
+               scale: 2, // Améliore la netteté
+               useCORS: true, // Évite les bugs liés aux images
+               logging: false
              },
              jsPDF: {
                unit: 'mm',
                format: 'a4',
                orientation: 'portrait'
+             },
+             // Indique à html2pdf de s'appuyer en priorité sur le CSS pour éviter les coupes sauvages
+             pagebreak: {
+               mode: ['css', 'legacy']
              }
-           };*/
+           };
+           // 3. Options de configuration pour html2pdf (facultatif mais recommandé)
+           /*const options = {
+               margin: 10,
+               filename: 'mon-document.pdf',
+               image: {
+                 type: 'jpeg',
+                 quality: 0.98
+               },
+               html2canvas: {
+                 scale: 2,
+                 useCORS: true
+               },
+               jsPDF: {
+                 unit: 'mm',
+                 format: 'a4',
+                 orientation: 'portrait'
+               }
+             };*/
            /*const options = {
     margin:       10,
     filename:     'mon-document.pdf',
@@ -1805,9 +1699,9 @@ var options = {
              $('#btData').addClass('no-pdf');
              const btDataHTML = btData.text();
              if (btDataHTML == "Données") {
-                btData.trigger("click");
+               btData.trigger("click");
              };
-             
+
              function html2pdfPrep() {
                //const elementDiv = $('.corpsLettre')[0];
                if ($('#html2pdfDIV').length == 0) {
@@ -1821,41 +1715,41 @@ var options = {
                  $('#html2pdfDIV').find('#Dossier').addClass('no-pdf')
                  //$('#html2pdfDIV').find('.no-pdf').hide;*/
                }
-               else $('#html2pdfDIV').show();  
+               else $('#html2pdfDIV').show();
                return $('#html2pdfDIV')[0];
              };
-             const elementDiv = html2pdfPrep();    
+             const elementDiv = html2pdfPrep();
              $('.sumComité').addClass('no-pdf')
              $('#Sommaire').addClass('no-pdf')
              $('.markerGroupDeb').addClass('no-pdf')
              $('#Dossier').addClass('no-pdf')
-             
+
              const elementToHide = $('.no-pdf');
-            // 2. Masquez l'élément temporairement
-            elementToHide.hide();
+             // 2. Masquez l'élément temporairement
+             elementToHide.hide();
 
              //elementsToHide.hide();
 
-            // 3. Assigner la source comme la première table
-            /*const elementsToHide = elementDivToHide.each(function(index, element) {
-              $(this).hide;
-            });*/
+             // 3. Assigner la source comme la première table
+             /*const elementsToHide = elementDivToHide.each(function(index, element) {
+               $(this).hide;
+             });*/
 
-            
-            //const pageBreaks = $(); // Pour garder une trace des sauts ajoutés
-            //const elementAvecSaut = $('.element-avec-saut');
-            
-    // 2. Parcourir TOUS les éléments devant forcer un saut de page
-    /*elementAvecSaut.each(function() {
-        // Créer un div avec la classe spécifique reconnue par html2pdf
-        const pageBreak = $('<div class="html2pdf__page-break"></div>');
-        
-        // Insérer le saut de page juste avant l'élément courant
-        $(this).before(pageBreak);
-        
-        // Ajouter à notre collection pour pouvoir le supprimer après
-        pageBreaks = pageBreaks.add(pageBreak);
-    });*/
+
+             //const pageBreaks = $(); // Pour garder une trace des sauts ajoutés
+             //const elementAvecSaut = $('.element-avec-saut');
+
+             // 2. Parcourir TOUS les éléments devant forcer un saut de page
+             /*elementAvecSaut.each(function() {
+                 // Créer un div avec la classe spécifique reconnue par html2pdf
+                 const pageBreak = $('<div class="html2pdf__page-break"></div>');
+                 
+                 // Insérer le saut de page juste avant l'élément courant
+                 $(this).before(pageBreak);
+                 
+                 // Ajouter à notre collection pour pouvoir le supprimer après
+                 pageBreaks = pageBreaks.add(pageBreak);
+             });*/
 
 
              // 1. Empêche le saut de page
@@ -1873,26 +1767,26 @@ var options = {
              // Indication visuelle optionnelle (ex: changer l'opacité ou le texte)
              $lien.css('opacity', '0.5');
 
-    // Génération
-    /*html2pdf().from(element).set(options).save().then(function() {
-        // Restauration de l'affichage
-        //elementsToHide.show();
-    });*/
-                 html2pdf()
+             // Génération
+             /*html2pdf().from(element).set(options).save().then(function() {
+                 // Restauration de l'affichage
+                 //elementsToHide.show();
+             });*/
+             html2pdf()
                .from(elementDiv)
                .set(options)
                .output('blob')
                .save().then(() => {
                  if (btDataHTML == "Données") btData.trigger("click");
                  // 5. NETTOYAGE : Réafficher les éléments masqués et supprimer les sauts dynamiques
-                 
+
                  $('#html2pdfDIV').hide();
                  elementToHide.show();
                  $lien.css('opacity', '1');
                  console.log("La génération du PDF terminée");
 
                })
-               
+
 
 
            });

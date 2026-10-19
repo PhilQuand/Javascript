@@ -1185,6 +1185,7 @@ const tableSource = $('table:first');
 const divCible = $('<div></div>').attr('id', 'divBrevo');
 
 if (tableSource.length) {
+
     tableSource.before(divCible);
 
     // 2 & 3. Parcourir les cellules (td, th) et déplacer leur contenu non vide
@@ -1198,31 +1199,67 @@ if (tableSource.length) {
     });
 
     // 4. Nettoyage et traitement de #divBrevo
-    const divBrevo = $('#divBrevo');
-    if (divBrevo.length) {
+     if (divCible.length) {
+    
+        const trouve = contMotclef(divCible);
+
         // Supprime toutes les tables à l'intérieur de #divBrevo
-        divBrevo.find('table').remove();
-        console.log(`table(s) supprimée(s) de la div avec succès !`);
+        //divBrevo.find('table').remove();
+        /*$(document).ready(function() {
+          const cible = document.getElementById('corpsLettre');
+
+          if (cible) {
+            // 1. Crée l'observateur qui va surveiller les changements
+            const observateur = new MutationObserver(function(mutations, observer) {
+              // Cherche s'il y a des tables dans le conteneur
+              const tables = $('#corpsLettre table');
+
+              if (tables.length > 0) {
+                tables.remove(); // Supprime les tables dès qu'elles apparaissent
+                observer.disconnect(); // Arrête d'observer pour libérer la mémoire
+              }
+            });
+
+            // 2. Lance l'observation sur le conteneur
+            observateur.observe(cible, {
+              childList: true, // Surveille l'ajout/suppression d'enfants
+              subtree: true // Surveille aussi les enfants des enfants
+            });
+          }
+          console.log(`table(s) supprimée(s) de la #corpsLettre avec succès !`);
+
+        });*/
 
         // Extrait le contenu de toutes les div internes et supprime les balises div parentes (unwrap)
-        divBrevo.find('div').contents().unwrap();
+        divCible.find('table').contents().unwrap();
+        divCible.find('tbody').remove();
+        //autre alternative permettant un traitement individuel de chaque div
+        // Récupérer et boucler sur chaque div interne
+        divCible.find('div').each(function(index, element) {
+          // $(this).contents().unwrap() fait la même chose pour chaque élément
+// Le "!" au début signifie "SI NE CONTIENT PAS"
+if (!$(this).hasClass('LA-CITATION-DE-LA-SEMAINE')) {
+    $(this).replaceWith($(this).contents()); // Supprime la div
+    console.log("La div a été supprimée car elle n'avait pas la classe requise.");
+};
+        });
         console.log(`div(s) déplacée(s) avec succès !`);
-
+        // supprime la signature Brevo
+        divCible.children().slice(-7).remove()
         // Supprime la table source initiale
         tableSource.remove();
-        console.log(`table(s) supprimée(s) de la div avec succès !`);
-
+ 
         // Appels de vos fonctions de suite
-        prepCarte();
+        prepCarte(divCible);
     }
 }
 
-      function prepCarte() {
-        contMotclef();
+    function prepCarte(divCible) {
+        //const trouve = contMotclef(divCible);
         divCible.contents().unwrap();
-        netFinal();
+        netFinal(divCible);
 
-        function netFinal() {
+        function netFinal(divCible) {
 
           /// 1. Récupérer tous les <p> de la page
           const paragraphes = document.querySelectorAll('p');
@@ -1263,6 +1300,7 @@ if (tableSource.length) {
           });
 
           corpsLettre.removeClass('Brevo')
+          corpsLettre.removeAttr('id')
 
           const codeComplet = corpsLettre.prop('outerHTML');
           const blob = new Blob([codeComplet], {
@@ -1276,31 +1314,18 @@ if (tableSource.length) {
           lien.click();
 
           URL.revokeObjectURL(url);
+          $('.corpsLettre').append(divCible);
         };
+        
 
         function netContHTML(elCont) {
           // textContent ignore les balises HTML, .trim() enlève les espaces/retours à la ligne superflus
           return texteBrut = elCont.textContent ? elCont.textContent.trim() : '';
         };
 
-        function isContVille(elCont) {
-          // Vérifie si le elCont est celui d'une ville
-          // Expression régulière (Regex) :
-          // ^.+  -> Commence par un ou plusieurs caractères
-          // \s+  -> Suivi d'un ou plusieurs espaces
-          // \(   -> Parenthèse ouvrante
-          // \d{2}   -> deux chiffres à l'intérieur des parenthèses
-          // \)   -> Parenthèse fermante (le $ indique la fin de la chaîne)
-          const regex = /^.+\s+\(\d{2}\)$/;
-          const filtelCont = netContHTML(elCont);
-          const isVille = regex.test(filtelCont);
-          return isVille;
-          //if (isVille) return true;
-          //else return false
-        };
-
-        function contMotclef() {
-          const typeCont = 'p'
+       }
+      
+    function contMotclef(elemCible) {
           //const colMotsClefs = ['ÉDITO', 'L’ÉCHO DES COMITÉS', '* Les initiatives à venir', '* Les initiatives tenues', '* Communiqués, prise de position ...', 'AUTRES INFOS LOCALES', 'NOUS AVONS REÇU...'];
           // 2. Initialiser l'index pour la boucle while
           let index = 0;
@@ -1310,144 +1335,284 @@ if (tableSource.length) {
           //const motClef = colMotsClefs[index];
           // Trouver le conteneur de type typeCont contenant uniquement le mot clef motClef (malgré les balises HTML)
           // 1. Sélectionner tous les éléments du DOM
-          const $tousLesElements = divCible.find('p');
-          let trouve = null;
+          let trouve = []
+          const $tousLesElements = elemCible.find('p');
           let motTrouve = null;
 
           // 2. Parcourir les éléments avec jQuery .each()
           $tousLesElements.each(function() {
+
             const $el = $(this); // Convertit l'élément courant en objet jQuery
-            const elCont = netContHTML(this); // Conserve l'élément natif (this) si la fonction l'attend
-            const isVille = isContVille(this);
+            /*// 1. Cibler l'élément enfant / de départ
+            $($el).each(function() {
+              var $enfant = $(this);
 
-            // 3. Remonter au conteneur parent de cet élément
-            const $conteneur = $el.closest(typeCont);
+              // 2. Parcourir tous ses ancêtres qui sont des DIV
+              $enfant.parents('div').each(function(index) {
+                // index commence à 0 pour la DIV la plus proche (le parent direct)
+                var niveau = index + 1;
 
-            if ($conteneur.length) {
-              trouve = $conteneur; // Vous pouvez stocker $conteneur ou le DOM natif $conteneur[0] selon vos besoins
+                // 3. Ajouter la classe d'élévation (ex: elevation-1, elevation-2...)
+                $(this).addClass('elevation-' + niveau);
+              });
+            });*/
+            const elCont = $el.text().trim(); // Conserve l'élément natif (this) si la fonction l'attend
+            const isVille = isContVille($el);
 
-              // 3. Traitement conditionnel selon les mots-clés
-              if (elCont === 'ÉDITO') {
-                $el.attr('id', elCont); // Assigne l'ID en jQuery
-                index = 1;
+            // 3. Traitement conditionnel selon les mots-clés
+            if (elCont === 'ÉDITO') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('table').wrap('<div class=' + elTexteNettoye + '></div>');
+              index = 1;
 
-                // 1. Créer le nouvel Édito et l'insérer juste avant $el
-                $('<p>', {
-                  text: 'Édito',
-                  css: {
-                    display: 'none'
-                  }
-                  // class: 'no-pdf' // Décommentez si besoin
-                }).insertBefore($el);
+              // 1. Créer le nouvel Édito et l'insérer juste avant $el
+              $('<p>', {
+                text: 'Édito',
+                css: {
+                  display: 'none'
+                }
+                // class: 'no-pdf' // Décommentez si besoin
+              }).insertBefore($el);
 
-                // Si vous souhaitez arrêter la boucle après avoir trouvé l'ÉDITO :
-                // return false; 
+              // Si vous souhaitez arrêter la boucle après avoir trouvé l'ÉDITO :
+              // return false; 
+            }
+            else if (elCont === 'L’ÉCHO DES COMITÉS') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 2;
+
+              // 1. Remplacer le contenu par le texte brut
+              // 2. Ajouter les classes d'un coup
+              // 3. Envelopper tout le contenu texte fraîchement injecté dans une balise <strong>
+              $el.text("L’ÉCHO DES COMITÉS")
+                .addClass("rubrique-new echo isNotCity")
+                .wrapInner('<strong></strong>');
+              // Entoure l'élément avec une nouvelle DIV
+
+
+              // 1 & 3. Créer le nouvel élément Sommaire et l'insérer juste avant $el
+              $('<p>', {
+                id: 'Sommaire',
+                text: 'Sommaire',
+                css: {
+                  display: 'none'
+                }
+                // class: 'no-pdf' // Décommentez si vous souhaitez réactiver la classe
+              }).insertBefore($el);
+            }
+            else if (elCont === 'LA CITATION DE LA SEMAINE') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+ 
+              const $maTable = $el // 3. On remonte au parent direct TD (cellule qui contient le P)
+              /*.closest('td')
+              // 4. On remonte à la TABLE parente directe qui contient ce TD
+              .closest('table')
+              // 5. On remonte à la cellule TD supérieure qui contient cette TABLE
+              .closest('td')
+              // 6. On retourne la TABLE finale qui contient cette cellule
+              .closest('table');*/
+              ;
+              const $maTableColP = recupererTousLesP($maTable)
+              console.log(elCont + ' : ' + $maTableColP.length)
+
+              function recupererTousLesP(tableElement) {
+
+                // Recherche tous les éléments P qui sont des descendants de cellules (TD/TH) de cette table
+                return tableElement.find('th > p, td > p, table p');
               }
-              else if (elCont === 'L’ÉCHO DES COMITÉS') {
-                $el.attr('id', elCont);
-                index = 2;
+            }
+            else if (elCont === '* Les initiatives à venir') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 3;
 
-                // 1. Remplacer le contenu par le texte brut
-                // 2. Ajouter les classes d'un coup
-                // 3. Envelopper tout le contenu texte fraîchement injecté dans une balise <strong>
-                $el.text("L’ÉCHO DES COMITÉS")
-                  .addClass("rubrique-new echo isNotCity")
-                  .wrapInner('<strong></strong>');
+              // 1. Remplacer le contenu texte
+              // 2. Ajouter les classes d'un coup
+              // 3. Envelopper le texte inséré dans une balise <strong>
+              $el.text("* Les initiatives à venir...")
+                .addClass("markerGroupDebTitle isNotCity")
+                .wrapInner('<strong></strong>');
 
-                // 1 & 3. Créer le nouvel élément Sommaire et l'insérer juste avant $el
-                $('<p>', {
-                  id: 'Sommaire',
-                  text: 'Sommaire',
-                  css: {
-                    display: 'none'
-                  }
-                  // class: 'no-pdf' // Décommentez si vous souhaitez réactiver la classe
-                }).insertBefore($el);
-              }
-              else if (elCont === '* Les initiatives à venir') {
-                $el.attr('id', elCont);
-                index = 3;
+              // 1 & 3. Créer le nouvel élément avec ses classes/styles et l'insérer juste avant $el
+              $('<p>')
+                .addClass("markerGroupDeb rubrique-new echo-titre-1 isNotCity")
+                .css('display', 'none')
+                // .addClass("no-pdf") // Décommentez si besoin
+                .insertBefore($el);
+            }
+            else if (elCont === '* Les initiatives tenues') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 4;
 
-                // 1. Remplacer le contenu texte
-                // 2. Ajouter les classes d'un coup
-                // 3. Envelopper le texte inséré dans une balise <strong>
-                $el.text("* Les initiatives à venir...")
-                  .addClass("markerGroupDebTitle isNotCity")
-                  .wrapInner('<strong></strong>');
+              $el.text("* Les initiatives tenues...")
+                .addClass("markerGroupDebTitle isNotCity")
+                .wrapInner('<strong></strong>');
 
-                // 1 & 3. Créer le nouvel élément avec ses classes/styles et l'insérer juste avant $el
+              $('<p>')
+                .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
+                .css('display', 'none')
+                .insertBefore($el);
+              if ($.inArray('* Les initiatives à venir', trouve) == -1) {
                 $('<p>')
                   .addClass("markerGroupDeb rubrique-new echo-titre-1 isNotCity")
                   .css('display', 'none')
-                  // .addClass("no-pdf") // Décommentez si besoin
                   .insertBefore($el);
-              }
-              else if (elCont === '* Les initiatives tenues') {
-                $el.attr('id', elCont);
-                index = 4;
-
-                $el.text("* Les initiatives tenues...")
+                $('<p>')
                   .addClass("markerGroupDebTitle isNotCity")
-                  .wrapInner('<strong></strong>');
+                  .css('display', 'none')
+                  .insertBefore($el);
+                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' n'existe pas encore dans trouve.");
+              }
+              else {
+                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' existe dans trouve !");
+              }
+            }
+            else if (elCont === '* Communiqués, prise de position ...') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 5;
 
+              $el.text("* Communiqués, prise de position...")
+                .addClass("markerGroupDebTitle isNotCity")
+                .wrapInner('<strong></strong>');
+
+              $('<p>')
+                .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
+                .css('display', 'none')
+                .insertBefore($el);
+              if ($.inArray('* Les initiatives tenues', trouve) == -1) {
                 $('<p>')
                   .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
                   .css('display', 'none')
                   .insertBefore($el);
-              }
-              else if (elCont === '* Communiqués, prise de position ...') {
-                $el.attr('id', elCont);
-                index = 5;
-
-                $el.text("* Communiqués, prise de position...")
+                $('<p>')
                   .addClass("markerGroupDebTitle isNotCity")
-                  .wrapInner('<strong></strong>');
-
+                  .css('display', 'none')
+                  .insertBefore($el);
+                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' n'existe pas encore dans trouve.");
+              }
+              else {
+                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' existe dans trouve !");
+              }
+            }
+            else if (elCont === 'AUTRES INFOS LOCALES') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 6;
+              $el.addClass("markerGroupDeb rubrique-new autres isNotCity");
+              if ($.inArray('* Communiqués, prise de position ...', trouve) == -1) {
                 $('<p>')
                   .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
                   .css('display', 'none')
                   .insertBefore($el);
+                $('<p>')
+                  .addClass("markerGroupDebTitle isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
+                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' n'existe pas encore dans trouve.");
               }
-              else if (elCont === 'AUTRES INFOS LOCALES') {
-                $el.attr('id', elCont)
-                  .addClass("markerGroupDeb rubrique-new autres isNotCity");
-                index = 6;
+              else {
+                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' existe dans trouve !");
               }
-              else if (elCont === 'NOUS AVONS REÇU...') {
-                $el.attr('id', elCont);
-                index = 7;
-                $el.addClass("rubrique-new reçu isNotCity");
-
-                $('<p>', {
-                  id: 'Dossier',
-                  text: 'Dossier',
-                  css: {
-                    display: 'none'
-                  }
-                }).insertBefore($el);
-              }
-              else if (elCont === '* Communiqué, déclaration ...') {
-                $el.attr('id', elCont);
-                index = 6;
-
-                $el.text("* Communiqué, déclaration...")
-                  .addClass("rubrique-new reçu sous-titre-1 isNotCity")
-                  .wrapInner('<strong></strong>');
-              }
-              else if (isVille) {
-                // Remplace el.parentElement.parentElement.parentElement par un .closest() ou .parents() si la structure est fixe
-                const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
-
-                $el.attr('id', elCont)
-                  .addClass("isCity");
-              }
-              //index++;
-              //console.log("Aucun conteneur correspondant n'a été trouvé.");
             }
+            else if (elCont === 'NOUS AVONS REÇU...') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 7;
+              $el.addClass("rubrique-new reçu isNotCity");
+
+              $('<p>', {
+                id: 'Dossier',
+                text: 'Dossier',
+                css: {
+                  display: 'none'
+                }
+              }).insertBefore($el);
+            }
+            else if (elCont === 'CULTURE'|| elCont === 'Culture') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 7;
+              $el.addClass("rubrique-new culture isNotCity");
+            }
+            else if (elCont === '* Communiqué, déclaration ...') {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 6;
+
+              $el.text("* Communiqué, déclaration...")
+                .addClass("rubrique-new reçu sous-titre-1 isNotCity")
+                .wrapInner('<strong></strong>');
+            }
+            else if (isVille) {
+              trouve.push(elCont);
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              // Remplace el.parentElement.parentEle"ment.parentElement par un .closest() ou .parents() si la structure est fixe
+              const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
+
+              $el.attr('id', elCont)
+                .addClass("isCity");
+            }
+            //index++;
+            //console.log("Aucun conteneur correspondant n'a été trouvé.");
+
           })
-          //break; // On s'arrête au premier conteneur trouvé
+          return trouve
+          
+        function isContVille(elCont) {
+          // Vérifie si le elCont est celui d'une ville
+          // Expression régulière (Regex) :
+          // ^.+  -> Commence par un ou plusieurs caractères
+          // \s+  -> Suivi d'un ou plusieurs espaces
+          // \(   -> Parenthèse ouvrante
+          // \d{2}   -> deux chiffres à l'intérieur des parenthèses
+          // \)   -> Parenthèse fermante (le $ indique la fin de la chaîne)
+          const regex = /^.+\s+\(\d{2}\)$/;
+          const filtelCont = elCont.text().trim();
+          const isVille = regex.test(filtelCont);
+          return isVille;
+          //if (isVille) return true;
+          //else return false
         };
-      }
+       
+        };
+
 
     };
     //return;
@@ -1476,7 +1641,7 @@ if (tableSource.length) {
     curElem = fillDiv(banDiv, curElem, '', $(this));
 
     // recherche d'un commentaire infosComités
-    ///var infosComités = $(this).find('.infosComités').first();
+    //var infosComités = $(this).find('.infosComités').first();
     //var curElem = infosComités.children().first();
     //InfosComitésCom = curElem.html();
     InfosComitésCom = "";

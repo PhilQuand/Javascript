@@ -1238,7 +1238,7 @@ if (tableSource.length) {
         divCible.find('div').each(function(index, element) {
           // $(this).contents().unwrap() fait la même chose pour chaque élément
 // Le "!" au début signifie "SI NE CONTIENT PAS"
-if (!$(this).hasClass('LA-CITATION-DE-LA-SEMAINE')) {
+if (!$(this).hasClass('Citation')) {
     $(this).replaceWith($(this).contents()); // Supprime la div
     console.log("La div a été supprimée car elle n'avait pas la classe requise.");
 };
@@ -1411,8 +1411,8 @@ if (!$(this).hasClass('LA-CITATION-DE-LA-SEMAINE')) {
               trouve.push(elCont);
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
+              //const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass('Citation');
  
               const $maTable = $el // 3. On remonte au parent direct TD (cellule qui contient le P)
               /*.closest('td')

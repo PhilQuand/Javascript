@@ -2171,5 +2171,4 @@ document.execCommand('print');
     }
   })();
 
-
 })(jQuery);

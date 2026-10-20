@@ -457,7 +457,7 @@ padding: 5px;
 .sous-titre-1 {
 text-align: left; 
 }
-.groupmarker-1 .markerGroupDebTitle strong {
+/*.groupmarker-1 .markerGroupDebTitle strong {
 background-color: #9F41CF;
 color: #F7F7F7;
 }
@@ -496,7 +496,61 @@ display: block;
 background-color: #0836FF;
 color: #F7F7F7;
 width: 100%;
+}*/
+.groupmarker-1 .markerGroupDebTitle strong {
+background-color: #801180;
+color: #F7F7F7;
 }
+.groupmarker-2 .markerGroupDebTitle strong {
+background-color: #801180;
+color: #F7F7F7;
+}
+.groupmarker-3 .markerGroupDebTitle strong {
+background-color: #801180;
+color: #F7F7F7;
+}
+.groupmarker-4 .markerGroupDebTitle strong {
+background-color: #0836FF;
+color: #F7F7F7;
+}
+.marker-1 p > span > b {
+display: block;
+background-color: #801180;
+color: #F7F7F7;
+width: 100%;
+}
+.marker-2 p > span > b {
+display: block;
+background-color: #801180;
+color: #F7F7F7;
+width: 100%;
+}
+.marker-3 p > span > b {
+display: block;
+background-color: #801180;
+color: #F7F7F7;
+width: 100%;
+}
+.marker-4 p > span > b {
+display: block;
+background-color: #0836FF;
+color: #F7F7F7;
+width: 100%;
+}
+@media print {
+    /* On cache tout le site */
+    body * { visibility: hidden; }
+    /* On affiche uniquement la div à exporter et ses enfants */
+    #HTML2pdf, #HTML2pdf * { visibility: visible; }
+    #HTML2pdf { 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%;
+    }
+    #btData, #monBoutonPdf img { visibility: hidden; }
+}
+
 .echo-sous-titre {
 text-align: left; 
 }

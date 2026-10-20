@@ -460,7 +460,8 @@
           //  chargements des dépendances js
           load.js('https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'),
           //load.js('https://philquand.github.io/Javascript/LeafLet/leaflet-button/L.Control.Button.js'),
-        ]).then(function() {
+        ])
+        .then(function() {
           console.log('Everything has loaded!');
           checkautresDepts(map, indexEvent);
 
@@ -1750,7 +1751,21 @@ if (!$(this).hasClass('Citation')) {
            // 1. Récupérer l'élément DOM natif (en extrayant l'élément de jQuery)
            const elementDLink = $('#monBoutonPdf');
 
-           var element = document.getElementById('element-to-print');
+           const btData = $('#btData');
+           const btDataHTML = btData.text();
+           elementDLink.on('click', function() {
+             if (btDataHTML == "Données") {
+               btData.trigger("click");
+             };
+
+
+document.execCommand('print');
+ // Ouvre la boîte de dialogue système "Enregistrer au format PDF"
+
+            if (btDataHTML == "Données") btData.trigger("click");
+
+
+            });
 
            var options = {
              margin: 10, // Marge de sécurité en mm tout autour de la page
@@ -1762,7 +1777,7 @@ if (!$(this).hasClass('Citation')) {
              html2canvas: {
                scale: 2, // Améliore la netteté
                useCORS: true, // Évite les bugs liés aux images
-               logging: false
+               logging: true
              },
              jsPDF: {
                unit: 'mm',
@@ -1858,7 +1873,7 @@ if (!$(this).hasClass('Citation')) {
                mode: 'avoid-all'
              }
            };*/
-           elementDLink.on('click', function(e) {
+           /*elementDLink.on('click', function(e) {
 
              const btData = $('#btData');
              $('#btData').addClass('no-pdf');
@@ -1867,61 +1882,21 @@ if (!$(this).hasClass('Citation')) {
                btData.trigger("click");
              };
 
-             function html2pdfPrep() {
-               //const elementDiv = $('.corpsLettre')[0];
-               if ($('#html2pdfDIV').length == 0) {
-                 $("body").append("<div id='html2pdfDIV'></div>")
-                 // Clone l'élément source et l'ajoute à l'intérieur de l'élément cible
-                 $(".corpsLettre").clone().appendTo("#html2pdfDIV");
-                 //$('#html2pdfDIV').find('#btData').remove()
-                 /*$('#html2pdfDIV').find('.sumComité').addClass('no-pdf')
-                 $('#html2pdfDIV').find('#Sommaire').addClass('no-pdf')
-                 $('#html2pdfDIV').find('.markerGroupDeb').addClass('no-pdf')
-                 $('#html2pdfDIV').find('#Dossier').addClass('no-pdf')
-                 //$('#html2pdfDIV').find('.no-pdf').hide;*/
-               }
-               else $('#html2pdfDIV').show();
-               return $('#html2pdfDIV')[0];
-             };
-             const elementDiv = html2pdfPrep();
-             $('.sumComité').addClass('no-pdf')
-             $('#Sommaire').addClass('no-pdf')
-             $('.markerGroupDeb').addClass('no-pdf')
-             $('#Dossier').addClass('no-pdf')
+
+             //const elementDiv = html2pdfPrep();
+             const elementDiv = $('#HTML2pdf')[0];
+
 
              const elementToHide = $('.no-pdf');
              // 2. Masquez l'élément temporairement
              elementToHide.hide();
 
-             //elementsToHide.hide();
-
-             // 3. Assigner la source comme la première table
-             /*const elementsToHide = elementDivToHide.each(function(index, element) {
-               $(this).hide;
-             });*/
-
-
              //const pageBreaks = $(); // Pour garder une trace des sauts ajoutés
              //const elementAvecSaut = $('.element-avec-saut');
-
-             // 2. Parcourir TOUS les éléments devant forcer un saut de page
-             /*elementAvecSaut.each(function() {
-                 // Créer un div avec la classe spécifique reconnue par html2pdf
-                 const pageBreak = $('<div class="html2pdf__page-break"></div>');
-                 
-                 // Insérer le saut de page juste avant l'élément courant
-                 $(this).before(pageBreak);
-                 
-                 // Ajouter à notre collection pour pouvoir le supprimer après
-                 pageBreaks = pageBreaks.add(pageBreak);
-             });*/
-
 
              // 1. Empêche le saut de page
              e.preventDefault();
 
-             //const elementDiv = $('#corpsLettre')[0];
-             //const elementDiv = $('#forPDF')[0];
              const $lien = $(this);
 
              if (!elementDiv) {
@@ -1933,28 +1908,33 @@ if (!$(this).hasClass('Citation')) {
              $lien.css('opacity', '0.5');
 
              // Génération
-             /*html2pdf().from(element).set(options).save().then(function() {
-                 // Restauration de l'affichage
-                 //elementsToHide.show();
-             });*/
-             html2pdf()
-               .from(elementDiv)
-               .set(options)
-               .output('blob')
-               .save().then(() => {
+              html2pdf()
+                .from(elementDiv)
+                .set(options)
+                .output('blob')
+                .save().then(function() {
                  if (btDataHTML == "Données") btData.trigger("click");
                  // 5. NETTOYAGE : Réafficher les éléments masqués et supprimer les sauts dynamiques
 
-                 $('#html2pdfDIV').hide();
-                 elementToHide.show();
-                 $lien.css('opacity', '1');
-                 console.log("La génération du PDF terminée");
+                 // supprimer la div de travail pour quelle ne soit plus visible
+                 //elementDiv.remove();
+                  //$('#HTML2pdf').show();
+                  elementToHide.show();
+                  //$('#html2pdfDIV').attr('display','none')
+                  $lien.css('opacity', '1');
+                  console.log('Le PDF a été généré avec succès !');
+                  alert('Téléchargement réussi.');
+                })
+                .catch(function(erreur) {
+                  // Ce bloc capture les erreurs éventuelles pendant le processus
+                  console.error('Erreur lors de la génération du PDF :', erreur);
+                  alert('Une erreur est survenue lors de la création du PDF.');
+                });
+                
 
-               })
 
+           });*/
 
-
-           });
          });
         }
 

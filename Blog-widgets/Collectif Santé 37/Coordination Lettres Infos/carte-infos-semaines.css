@@ -452,7 +452,8 @@ display: none;
 /*text-align: left;*/ 
 font-size: xx-large;
 font-style: italic;
-padding: 5px;
+//padding: 0px;
+margin: 5px;
 }
 .sous-titre-1 {
 text-align: left; 
@@ -549,6 +550,49 @@ width: 100%;
         width: 100%;
     }
     #btData, #monBoutonPdf img { visibility: hidden; }
+
+  /* Tenter d’éviter les coupures à l’intérieur de certains blocs */
+  .no-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Empêcher un titre de se retrouver seul en bas de page */
+  h1, h2, h3, .no-page-break-after {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+
+  /* Forcer un saut de page AVANT cet élément */
+  .page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  /* Forcer un saut de page APRÈS cet élément */
+  .page-break-after {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  /* Éviter de couper à l’intérieur d’un bloc */
+  .no-break-inside {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .no-page-break-before {
+    page-break-before: avoid;   /* pour les anciens moteurs d'impression */
+    break-before: avoid;        /* spécification CSS plus récente */
+  }
+
+}
+
+/* Marges et format de page (certains navigateurs respectent partiellement seulement) */
+@page {
+  size: A4;
+  //margin: 10mm;
 }
 
 .echo-sous-titre {

@@ -1770,7 +1770,7 @@ $('.isCity').each(function () {
           var curHTML = '<a href="' + $('.corpsLettrePDF  a').attr('href') + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';
         }
         else {
-         var curHTML = '<a id="monBoutonPdf" href="' + 'Lien Html2Pdf' + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';
+         var curHTML = '<a id="monBoutonPdf" href="' + 'Lien Html2Pdf' + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://philquand.github.io/Javascript/Blog-widgets/Collectif%20Sant%C3%A9%2037/Ressources/imprimante.png" data-original-height="122"/></a>';
          //$('.corpsLettrePDF  a').attr('id', 'monBoutonPdf');
          $(document).ready(function() {
            const HTML2pdf = false;

@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYtmsxPKftvG4T08OVxGS_m3JKN1WPIwf9RPEoxR3GzD64OBSKbsVisBRX-QZEaqqW_i1IHJF2gkI2ZtLtlZXyTjvpXBmk0OTDYwdWow78QxXKhwR-GbBQTCTDro5NWFQVxkALafId8WHbtKbnbyP2clpFoTbSfLpPgZGjoqroK4VAJHuQ0HosSmUgGOg/s1600/TdfS%20tract%20sept%2026.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgENQfLy78M5ht4Glazx-XpO-zTAHSnD5kQ94L5FBvQ4oFr7dEZAkLIKc53M6lvOT15pWDUXQu_XUiBZK3OfQkoWQ_8_YuTquiWj6-yL2Ajn6681vJ0Ks874R71DmEbzK_JH_iOBASJzFq1fS_9psW2me4FlJpusMV18M0fFiKthOEPMAu1HHwpukZ9i9c/s1600/QUIZZ%20Se%CC%81curite%CC%81%20sociale.png",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -858,6 +858,10 @@ $(document).ready(function() {
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
                   },*/
+           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgENQfLy78M5ht4Glazx-XpO-zTAHSnD5kQ94L5FBvQ4oFr7dEZAkLIKc53M6lvOT15pWDUXQu_XUiBZK3OfQkoWQ_8_YuTquiWj6-yL2Ajn6681vJ0Ks874R71DmEbzK_JH_iOBASJzFq1fS_9psW2me4FlJpusMV18M0fFiKthOEPMAu1HHwpukZ9i9c/s1600/QUIZZ%20Se%CC%81curite%CC%81%20sociale.png"
+          },
            {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYtmsxPKftvG4T08OVxGS_m3JKN1WPIwf9RPEoxR3GzD64OBSKbsVisBRX-QZEaqqW_i1IHJF2gkI2ZtLtlZXyTjvpXBmk0OTDYwdWow78QxXKhwR-GbBQTCTDro5NWFQVxkALafId8WHbtKbnbyP2clpFoTbSfLpPgZGjoqroK4VAJHuQ0HosSmUgGOg/s1600/TdfS%20tract%20sept%2026.jpg"

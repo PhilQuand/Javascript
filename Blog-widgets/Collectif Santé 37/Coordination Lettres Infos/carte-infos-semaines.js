@@ -1747,6 +1747,7 @@ if (!$(this).hasClass('Citation')) {
          var curHTML = '<a id="monBoutonPdf" href="' + 'Lien Html2Pdf' + '"><img style="float: right; width: 40px;" border="0" data-original-width="98" src="https://1.bp.blogspot.com/-fPuNmgIRUKs/XbbUdRTf-BI/AAAAAAAAkSs/fBtJBo3fYgQUxPnZkZB43xiqgYxT67boACLcBGAsYHQ/s1600/pdf%2Bicon-2.jpg" data-original-height="122"/></a>';
          //$('.corpsLettrePDF  a').attr('id', 'monBoutonPdf');
          $(document).ready(function() {
+           const HTML2pdf = false;
 
            // 1. Récupérer l'élément DOM natif (en extrayant l'élément de jQuery)
            const elementDLink = $('#monBoutonPdf');
@@ -1754,190 +1755,73 @@ if (!$(this).hasClass('Citation')) {
            const btData = $('#btData');
            const btDataHTML = btData.text();
            elementDLink.on('click', function() {
+
              if (btDataHTML == "Données") {
-               btData.trigger("click");
+               $('#btData').html('Carte');
+               $('.dispInfoMap').css('display', 'none')
+               //$('.dispInfoMap').classList.add("no-pdf")
+               $('.infosComités').css('display', 'block')
              };
 
+             if (HTML2pdf) {
+               // 2. Sélectionner l'élément à exporter
+               var element = document.getElementById('HTML2pdf');
 
-document.execCommand('print');
- // Ouvre la boîte de dialogue système "Enregistrer au format PDF"
+               // 2. Définir des options neuves et isolées
+               var opt = {
+                 margin: 10,
+                 filename: 'export.pdf',
+                 image: {
+                   type: 'jpeg',
+                   quality: 0.98
+                 },
+                 html2canvas: {
+                   scale: 2,
+                   useCORS: true,
+                   logging: false // Évite de surcharger la console au second appel
+                 },
+                 jsPDF: {
+                   unit: 'mm',
+                   format: 'a4',
+                   orientation: 'portrait'
+                 }
+               };
 
-            if (btDataHTML == "Données") btData.trigger("click");
+               const elementToHide = $('.no-pdf');
 
-
-            });
-
-           var options = {
-             margin: 10, // Marge de sécurité en mm tout autour de la page
-             filename: 'mon-document.pdf',
-             image: {
-               type: 'jpeg',
-               quality: 0.98
-             },
-             html2canvas: {
-               scale: 2, // Améliore la netteté
-               useCORS: true, // Évite les bugs liés aux images
-               logging: true
-             },
-             jsPDF: {
-               unit: 'mm',
-               format: 'a4',
-               orientation: 'portrait'
-             },
-             // Indique à html2pdf de s'appuyer en priorité sur le CSS pour éviter les coupes sauvages
-             pagebreak: {
-               mode: ['css', 'legacy']
+               // 3. Masquer temporairement les éléments internes indésirables
+               //$('#btData, #monBoutonPdf img').css('visibility', 'hidden');
+               elementToHide.hide();
+               // 4. Utiliser une NOUVELLE instance vierge (html2pdf().set...)
+               html2pdf().set(opt).from(element).save().then(function() {
+                 // 5. Réafficher les boutons une fois le PDF généré
+                 //$('#btData, #monBoutonPdf img').css('visibility', 'visible');
+                 elementToHide.show()
+                 if (btDataHTML == "Données") {
+                   $('#btData').html('Données');
+                   $('.dispInfoMap').css('display', 'block')
+                   //map.invalidateSize();
+                   $('.infosComités').css('display', 'none')
+                 };
+               }).catch(function(err) {
+                 console.error("Erreur lors de la génération :", err);
+                 // Sécurité : Réafficher les boutons même s'il y a eu un bug
+                 //$('#btData, #monBoutonPdf img').css('visibility', 'visible');
+                 elementToHide.show()
+               });
              }
-           };
-           // 3. Options de configuration pour html2pdf (facultatif mais recommandé)
-           /*const options = {
-               margin: 10,
-               filename: 'mon-document.pdf',
-               image: {
-                 type: 'jpeg',
-                 quality: 0.98
-               },
-               html2canvas: {
-                 scale: 2,
-                 useCORS: true
-               },
-               jsPDF: {
-                 unit: 'mm',
-                 format: 'a4',
-                 orientation: 'portrait'
-               }
-             };*/
-           /*const options = {
-    margin:       10,
-    filename:     'mon-document.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { 
-        scale: 2, 
-        useCORS: true,
-        scrollY: 0 // Évite les décalages de capture si la page a défilé
-    },
-    // On utilise un format personnalisé infini ou très haut, 
-    // ou on configure jsPDF pour ne pas couper les pages
-    jsPDF:        { 
-        unit: 'mm', 
-        format: 'a4', // ou une taille sur mesure, voir ci-dessous
-        orientation: 'portrait' 
-    },
-    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] } // Empêche les sauts de page automatiques
-};*/
-           /*const options = {
-             margin: 10, // Marge autour du document (en mm)
-             filename: 'mon-document-continu.pdf',
-             image: {
-               type: 'jpeg',
-               quality: 0.98
-             },
-             html2canvas: {
-               scale: 2, // Qualité/Netteté
-               useCORS: true,
-               scrollY: 0
-             },
-             // Le secret pour une page continue : on passe jsPDF en mode 'auto' ou on laisse calculer, 
-             // mais la méthode la plus robuste avec html2pdf pour une seule page est d'utiliser 
-             // un format personnalisé ou de laisser jsPDF s'aligner sur les dimensions du canvas.
-             jsPDF: {
-               unit: 'mm',
-               format: [elementDiv.scrollWidth / 3.78, elementDiv.scrollHeight / 3.78], // Calcul dynamique approximatif en mm basé sur les pixels
-               orientation: 'portrait'
-             },
-             pagebreak: {
-               mode: 'avoid-all'
-             } // Empêche absolument toute pagination
-           };*/
-           // On récupère la largeur et la hauteur réelle, mais on retire un peu de sécurité sur la hauteur
-           //const largeurMm = elementDiv.scrollWidth / 3.78;
-           //const hauteurMm = (elementDiv.scrollHeight / 3.78) - 5; // On retire 5mm pour éviter le débordement sur la 2e page
-           /*const options = {
-             margin: 5,
-             filename: 'mon-document.pdf',
-             image: {
-               type: 'jpeg',
-               quality: 0.98
-             },
-             html2canvas: {
-               scale: 2,
-               useCORS: true,
-               scrollY: 0
-             },
-             jsPDF: {
-               unit: 'mm',
-               format: [largeurMm, hauteurMm], // Format sur-mesure ajusté
-               orientation: 'portrait'
-             },
-             pagebreak: {
-               mode: 'avoid-all'
+             else {
+               window.print(); // Ouvre la boîte de dialogue système "Enregistrer au format PDF"
+               if (btDataHTML == "Données") {
+                 $('#btData').html('Données');
+                 $('.dispInfoMap').css('display', 'block')
+                 //map.invalidateSize();
+                 $('.infosComités').css('display', 'none')
+               };
              }
-           };*/
-           /*elementDLink.on('click', function(e) {
-
-             const btData = $('#btData');
-             $('#btData').addClass('no-pdf');
-             const btDataHTML = btData.text();
-             if (btDataHTML == "Données") {
-               btData.trigger("click");
-             };
-
-
-             //const elementDiv = html2pdfPrep();
-             const elementDiv = $('#HTML2pdf')[0];
-
-
-             const elementToHide = $('.no-pdf');
-             // 2. Masquez l'élément temporairement
-             elementToHide.hide();
-
-             //const pageBreaks = $(); // Pour garder une trace des sauts ajoutés
-             //const elementAvecSaut = $('.element-avec-saut');
-
-             // 1. Empêche le saut de page
-             e.preventDefault();
-
-             const $lien = $(this);
-
-             if (!elementDiv) {
-               console.error("Erreur : #corpsLettre introuvable !");
-               return;
-             }
-
-             // Indication visuelle optionnelle (ex: changer l'opacité ou le texte)
-             $lien.css('opacity', '0.5');
-
-             // Génération
-              html2pdf()
-                .from(elementDiv)
-                .set(options)
-                .output('blob')
-                .save().then(function() {
-                 if (btDataHTML == "Données") btData.trigger("click");
-                 // 5. NETTOYAGE : Réafficher les éléments masqués et supprimer les sauts dynamiques
-
-                 // supprimer la div de travail pour quelle ne soit plus visible
-                 //elementDiv.remove();
-                  //$('#HTML2pdf').show();
-                  elementToHide.show();
-                  //$('#html2pdfDIV').attr('display','none')
-                  $lien.css('opacity', '1');
-                  console.log('Le PDF a été généré avec succès !');
-                  alert('Téléchargement réussi.');
-                })
-                .catch(function(erreur) {
-                  // Ce bloc capture les erreurs éventuelles pendant le processus
-                  console.error('Erreur lors de la génération du PDF :', erreur);
-                  alert('Une erreur est survenue lors de la création du PDF.');
-                });
-                
-
-
-           });*/
-
-         });
+           });
+         })        
         }
-
       }
       else var curHTML = '';
       if (infoWeek.length == 3) curHTML += '<div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-end;" data-summary="no"><img border="0" style="width: 400px; max-width: 40%;" id="banCoord" alt="banCoord.png" src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" class="banInfos" width="400px"/><div><p style="text-align: center;"><span style="font-size: 24pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">L’INFO</span><br/><span style="font-size: 20pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">' + infoWeek[1] + '</span><br/><span style="font-size: 20pt; font-family: ' + "'Century Schoolbook'" + ', serif; color: #0070c0;">' + infoWeek[2] + '</span></p></div></div>';
@@ -2170,5 +2054,4 @@ document.execCommand('print');
       img: _load('img')
     }
   })();
-
 })(jQuery);

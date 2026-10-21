@@ -1300,6 +1300,23 @@ if (!$(this).hasClass('Citation')) {
             };
           });
 
+$('.isCity').each(function () {
+  var $start = $(this);
+  var $container = $start.parent(); // ou .closest('.tonConteneur')
+
+  var endSelector = '.isCity, .markerGroupDeb, #Dossier';
+  var $end = $start.nextAll(endSelector).first();
+
+  if ($end.length) {
+    var $between = $start.nextUntil($end);
+
+    // Exemple : regrouper dans un sous-div à l’intérieur du même conteneur
+    if ($between.length) {
+      $between.wrapAll('<div class="contCity isNotCity no-break-inside no-page-break-before"></div>');
+    }
+  }
+});
+
           corpsLettre.removeClass('Brevo')
           corpsLettre.removeAttr('id')
 
@@ -1393,8 +1410,9 @@ if (!$(this).hasClass('Citation')) {
               // 2. Ajouter les classes d'un coup
               // 3. Envelopper tout le contenu texte fraîchement injecté dans une balise <strong>
               $el.text("L’ÉCHO DES COMITÉS")
-                .addClass("rubrique-new echo isNotCity")
-                .wrapInner('<strong></strong>');
+                .addClass("rubrique-new echo isNotCity page-break-before")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
               // Entoure l'élément avec une nouvelle DIV
 
 
@@ -1445,8 +1463,9 @@ if (!$(this).hasClass('Citation')) {
               // 2. Ajouter les classes d'un coup
               // 3. Envelopper le texte inséré dans une balise <strong>
               $el.text("* Les initiatives à venir...")
-                .addClass("markerGroupDebTitle isNotCity")
-                .wrapInner('<strong></strong>');
+                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
 
               // 1 & 3. Créer le nouvel élément avec ses classes/styles et l'insérer juste avant $el
               $('<p>')
@@ -1464,8 +1483,9 @@ if (!$(this).hasClass('Citation')) {
               index = 4;
 
               $el.text("* Les initiatives tenues...")
-                .addClass("markerGroupDebTitle isNotCity")
-                .wrapInner('<strong></strong>');
+                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
 
               $('<p>')
                 .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
@@ -1495,8 +1515,9 @@ if (!$(this).hasClass('Citation')) {
               index = 5;
 
               $el.text("* Communiqués, prise de position...")
-                .addClass("markerGroupDebTitle isNotCity")
-                .wrapInner('<strong></strong>');
+                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
 
               $('<p>')
                 .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
@@ -1524,7 +1545,8 @@ if (!$(this).hasClass('Citation')) {
               const elTexteNettoye = $el.text().replace(/ /g, '-');
               $el.closest('div').addClass(elTexteNettoye);
               index = 6;
-              $el.addClass("markerGroupDeb rubrique-new autres isNotCity");
+              $el.addClass("markerGroupDeb rubrique-new autres isNotCity page-break-before")
+                 .removeAttr('style');
               if ($.inArray('* Communiqués, prise de position ...', trouve) == -1) {
                 $('<p>')
                   .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
@@ -1547,7 +1569,9 @@ if (!$(this).hasClass('Citation')) {
               const elTexteNettoye = $el.text().replace(/ /g, '-');
               $el.closest('div').addClass(elTexteNettoye);
               index = 7;
-              $el.addClass("rubrique-new reçu isNotCity");
+              $el.addClass("rubrique-new reçu isNotCity page-break-before")
+                 .removeAttr('style');
+
 
               $('<p>', {
                 id: 'Dossier',
@@ -1564,7 +1588,8 @@ if (!$(this).hasClass('Citation')) {
               const elTexteNettoye = $el.text().replace(/ /g, '-');
               $el.closest('div').addClass(elTexteNettoye);
               index = 7;
-              $el.addClass("rubrique-new culture isNotCity");
+              $el.addClass("rubrique-new culture isNotCity")
+              $el.removeAttr('style');
             }
             else if (elCont === '* Communiqué, déclaration ...') {
               trouve.push(elCont);
@@ -1576,7 +1601,8 @@ if (!$(this).hasClass('Citation')) {
 
               $el.text("* Communiqué, déclaration...")
                 .addClass("rubrique-new reçu sous-titre-1 isNotCity")
-                .wrapInner('<strong></strong>');
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
             }
             else if (isVille) {
               trouve.push(elCont);

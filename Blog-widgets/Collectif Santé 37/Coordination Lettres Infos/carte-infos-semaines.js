@@ -1182,166 +1182,173 @@
       //elements.after(divCible);
       // 2. Insérer la div juste AVANT la première table
 // 1. Assigner et insérer la div cible avant la première table
+  // Cloner un élément et l'ajouter à la suite d'un autre
+  //$('table:first').clone().appendTo('table:first');
 const tableSource = $('table:first');
 const divCible = $('<div></div>').attr('id', 'divBrevo');
 
 if (tableSource.length) {
 
-    tableSource.before(divCible);
+  tableSource.before(divCible);
 
-    // 2 & 3. Parcourir les cellules (td, th) et déplacer leur contenu non vide
-    tableSource.find('td, th').each(function() {
-        const cellule = $(this);
-        const estVide = $.trim(cellule.text()) === '' && cellule.children().length === 0;
-        
-        if (!estVide) {
-            cellule.contents().appendTo(divCible);
-        }
-    });
+  // 2 & 3. Parcourir les cellules (td, th) et déplacer leur contenu non vide
+  tableSource.find('td, th').each(function() {
+    const cellule = $(this);
+    const estVide = $.trim(cellule.text()) === '' && cellule.children().length === 0;
 
-    // 4. Nettoyage et traitement de #divBrevo
-     if (divCible.length) {
-    
-        const trouve = contMotclef(divCible);
-
-        // Supprime toutes les tables à l'intérieur de #divBrevo
-        //divBrevo.find('table').remove();
-        /*$(document).ready(function() {
-          const cible = document.getElementById('corpsLettre');
-
-          if (cible) {
-            // 1. Crée l'observateur qui va surveiller les changements
-            const observateur = new MutationObserver(function(mutations, observer) {
-              // Cherche s'il y a des tables dans le conteneur
-              const tables = $('#corpsLettre table');
-
-              if (tables.length > 0) {
-                tables.remove(); // Supprime les tables dès qu'elles apparaissent
-                observer.disconnect(); // Arrête d'observer pour libérer la mémoire
-              }
-            });
-
-            // 2. Lance l'observation sur le conteneur
-            observateur.observe(cible, {
-              childList: true, // Surveille l'ajout/suppression d'enfants
-              subtree: true // Surveille aussi les enfants des enfants
-            });
-          }
-          console.log(`table(s) supprimée(s) de la #corpsLettre avec succès !`);
-
-        });*/
-
-        // Extrait le contenu de toutes les div internes et supprime les balises div parentes (unwrap)
-        divCible.find('table').contents().unwrap();
-        divCible.find('tbody').remove();
-        //autre alternative permettant un traitement individuel de chaque div
-        // Récupérer et boucler sur chaque div interne
-        divCible.find('div').each(function(index, element) {
-          // $(this).contents().unwrap() fait la même chose pour chaque élément
-// Le "!" au début signifie "SI NE CONTIENT PAS"
-if (!$(this).hasClass('Citation')) {
-    $(this).replaceWith($(this).contents()); // Supprime la div
-    console.log("La div a été supprimée car elle n'avait pas la classe requise.");
-};
-        });
-        console.log(`div(s) déplacée(s) avec succès !`);
-        // supprime la signature Brevo
-        divCible.children().slice(-7).remove()
-        // Supprime la table source initiale
-        tableSource.remove();
- 
-        // Appels de vos fonctions de suite
-        prepCarte(divCible);
+    if (!estVide) {
+      cellule.contents().appendTo(divCible);
     }
+  });
+
+
+  // 4. Nettoyage et traitement de #divBrevo
+  if (divCible.length) {
+
+    const trouve = contMotclef(divCible);
+
+    // Supprime toutes les tables à l'intérieur de #divBrevo
+    //divBrevo.find('table').remove();
+    /*$(document).ready(function() {
+      const cible = document.getElementById('corpsLettre');
+
+      if (cible) {
+        // 1. Crée l'observateur qui va surveiller les changements
+        const observateur = new MutationObserver(function(mutations, observer) {
+          // Cherche s'il y a des tables dans le conteneur
+          const tables = $('#corpsLettre table');
+
+          if (tables.length > 0) {
+            tables.remove(); // Supprime les tables dès qu'elles apparaissent
+            observer.disconnect(); // Arrête d'observer pour libérer la mémoire
+          }
+        });
+
+        // 2. Lance l'observation sur le conteneur
+        observateur.observe(cible, {
+          childList: true, // Surveille l'ajout/suppression d'enfants
+          subtree: true // Surveille aussi les enfants des enfants
+        });
+      }
+      console.log(`table(s) supprimée(s) de la #corpsLettre avec succès !`);
+
+    });*/
+
+    // Extrait le contenu de toutes les div internes et supprime les balises div parentes (unwrap)
+    divCible.find('table').contents().unwrap();
+    divCible.find('tbody').remove();
+    //autre alternative permettant un traitement individuel de chaque div
+    // Récupérer et boucler sur chaque div interne
+    divCible.find('div').each(function(index, element) {
+      // $(this).contents().unwrap() fait la même chose pour chaque élément
+      // Le "!" au début signifie "SI NE CONTIENT PAS"
+      if (!$(this).hasClass('Citation')) {
+        $(this).replaceWith($(this).contents()); // Supprime la div
+        console.log("La div a été supprimée car elle n'avait pas la classe requise.");
+      };
+    });
+    console.log(`div(s) déplacée(s) avec succès !`);
+    // supprime la signature Brevo
+    divCible.children().slice(-7).remove()
+    // Supprime la table source initiale
+    tableSource.remove();
+
+    // Appels de vos fonctions de suite
+    prepCarte(divCible);
+  }
 }
 
     function prepCarte(divCible) {
-        //const trouve = contMotclef(divCible);
-        divCible.contents().unwrap();
-        netFinal(divCible);
+      //const trouve = contMotclef(divCible);
+      divCible.contents().unwrap();
+      netFinal(divCible);
 
-        function netFinal(divCible) {
+      function netFinal(divCible) {
 
-          /// 1. Récupérer tous les <p> de la page
-          const paragraphes = document.querySelectorAll('p');
+        /// 1. Récupérer tous les <p> de la page
+        //const paragraphes = document.querySelectorAll('p');
 
-          // 2. Extraire les 6 derniers et les supprimer
-          //Array.from(paragraphes).slice(-6).forEach(p => p.remove());
+        // 2. Extraire les 6 derniers et les supprimer
+        //Array.from(paragraphes).slice(-6).forEach(p => p.remove());
 
-          // Récupère toutes les images
-          //const toutesLesImages = corpsLettre.find('img');
+        // Récupère toutes les images
+        //const toutesLesImages = corpsLettre.find('img');
 
-          // Vérifie qu'il y a au moins une image pour éviter une erreur
-          /*if (toutesLesImages.length > 0) {
-            // La dernière image se trouve à l'index (longueur - 1)
-            const derniereImg = toutesLesImages[toutesLesImages.length - 1];
-            derniereImg.remove();
-          }*/
+        // Vérifie qu'il y a au moins une image pour éviter une erreur
+        /*if (toutesLesImages.length > 0) {
+          // La dernière image se trouve à l'index (longueur - 1)
+          const derniereImg = toutesLesImages[toutesLesImages.length - 1];
+          derniereImg.remove();
+        }*/
 
-          $('.corpsLettre img').each(function(index, element) {
-            const img = $(this); // Récupère l'attribut src
-            const srcOriginal = img.attr('src'); // Récupère l'attribut src
-            if (srcOriginal !== "https://img.mailinblue.com/8963076/images/content_library/original/6a5e5c8662f042e7fe2f9e84.jpg") {
-              console.log('Image ' + index + ' : ' + srcOriginal);
-              const wrapper = document.createElement('div');
-              wrapper.className = 'VignetteBR center';
-              wrapper.style.alignItems = 'center';
+        $('.corpsLettre img').each(function(index, element) {
+          const img = $(this); // Récupère l'attribut src
+          const srcOriginal = img.attr('src'); // Récupère l'attribut src
+          if (srcOriginal !== "https://img.mailinblue.com/8963076/images/content_library/original/6a5e5c8662f042e7fe2f9e84.jpg") {
+            console.log('Image ' + index + ' : ' + srcOriginal);
+            const wrapper = document.createElement('div');
+            wrapper.className = 'VignetteBR center';
+            wrapper.style.alignItems = 'center';
 
-              // Injecter la structure HTML souhaitée à l'intérieur
-              wrapper.innerHTML = `
+            // Injecter la structure HTML souhaitée à l'intérieur
+            wrapper.innerHTML = `
         <div class="divImg" style="max-width: 400px;" align="center">
             <img class="skip-lazy" src="${srcOriginal}" />
         </div>
         <!--div class="divText">
         </div>-->`;
 
-              // 4. Remplacer l'ancienne image par la nouvelle structure
-              img.replaceWith(wrapper);
-            };
-          });
+            // 4. Remplacer l'ancienne image par la nouvelle structure
+            img.replaceWith(wrapper);
+          };
+        });
+        $('.isCity').each(function() {
+          var $start = $(this);
+          var $container = $start.parent(); // ou .closest('.tonConteneur')
 
-$('.isCity').each(function () {
-  var $start = $(this);
-  var $container = $start.parent(); // ou .closest('.tonConteneur')
+          var endSelector = '.isCity, .markerGroupDeb, #Dossier';
+          var $end = $start.nextAll(endSelector).first();
 
-  var endSelector = '.isCity, .markerGroupDeb, #Dossier';
-  var $end = $start.nextAll(endSelector).first();
+          if ($end.length) {
+            var $between = $start.nextUntil($end);
 
-  if ($end.length) {
-    var $between = $start.nextUntil($end);
+            // Exemple : regrouper dans un sous-div à l’intérieur du même conteneur
+            if ($between.length) {
+              $between.wrapAll('<div class="contCity isNotCity no-break-inside no-page-break-before"></div>');
+            }
+          }
+        });
+        const corpsLettreHTML = corpsLettre.html();
+        corpsLettre.html(corpsLettreHTML
+                         .replace(/><(p|h\d|div|table)/g, '>\n<$1')
+                         .replace(/<(p|h\d|div|table)(.*?)><br><\n\1>/g, '')
+                         .split('\n').slice(2).join('\n')
+                         );
+        corpsLettre.removeClass('Brevo')
+        corpsLettre.removeAttr('id')
 
-    // Exemple : regrouper dans un sous-div à l’intérieur du même conteneur
-    if ($between.length) {
-      $between.wrapAll('<div class="contCity isNotCity no-break-inside no-page-break-before"></div>');
+        const codeComplet = corpsLettre.prop('outerHTML');
+        const blob = new Blob([codeComplet], {
+          type: 'text/html;charset=utf-8'
+        });
+        const url = URL.createObjectURL(blob);
+
+        const lien = document.createElement('a');
+        lien.href = url;
+        lien.download = 'corpsLettre.html';
+        lien.click();
+
+        URL.revokeObjectURL(url);
+        $('.corpsLettre').append(divCible);
+      };
+
+
+      function netContHTML(elCont) {
+        // textContent ignore les balises HTML, .trim() enlève les espaces/retours à la ligne superflus
+        return texteBrut = elCont.textContent ? elCont.textContent.trim() : '';
+      };
+
     }
-  }
-});
-
-          corpsLettre.removeClass('Brevo')
-          corpsLettre.removeAttr('id')
-
-          const codeComplet = corpsLettre.prop('outerHTML');
-          const blob = new Blob([codeComplet], {
-            type: 'text/html;charset=utf-8'
-          });
-          const url = URL.createObjectURL(blob);
-
-          const lien = document.createElement('a');
-          lien.href = url;
-          lien.download = 'corpsLettre.html';
-          lien.click();
-
-          URL.revokeObjectURL(url);
-          $('.corpsLettre').append(divCible);
-        };
-        
-
-        function netContHTML(elCont) {
-          // textContent ignore les balises HTML, .trim() enlève les espaces/retours à la ligne superflus
-          return texteBrut = elCont.textContent ? elCont.textContent.trim() : '';
-        };
-
-       }
       
     function contMotclef(elemCible) {
           //const colMotsClefs = ['ÉDITO', 'L’ÉCHO DES COMITÉS', '* Les initiatives à venir', '* Les initiatives tenues', '* Communiqués, prise de position ...', 'AUTRES INFOS LOCALES', 'NOUS AVONS REÇU...'];

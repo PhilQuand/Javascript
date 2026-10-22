@@ -1184,6 +1184,23 @@
 // 1. Assigner et insérer la div cible avant la première table
   // Cloner un élément et l'ajouter à la suite d'un autre
   //$('table:first').clone().appendTo('table:first');
+  // 1. Sélectionner l'élément d'origine
+//var $original = $('#monElement');
+
+// 2. Créer le clone (avec ses enfants)
+const $clone = corpsLettre.clone();
+
+// 3. Désactiver le clone (pour mémoire)
+$clone
+  .attr('id', corpsLettre.attr('id') + '-clone') // Évite les doublons d'ID
+  .addClass('disabled-clone')                  // Permet de le cibler en CSS
+  .css({
+      'opacity': '0.5',                        /* Effet visuel désactivé */
+      'pointer-events': 'none',                /* Bloque les clics et hovers */
+      'user-select': 'none',                   /* Empêche la sélection du texte */
+  })
+  .find('*').prop('disabled', true);           /* Désactive les inputs/boutons internes */
+
 const tableSource = $('table:first');
 const divCible = $('<div></div>').attr('id', 'divBrevo');
 
@@ -1320,12 +1337,16 @@ if (tableSource.length) {
         });
         const corpsLettreHTML = corpsLettre.html();
         corpsLettre.html(corpsLettreHTML
-                         .replace(/><(p|h\d|div|table)/g, '>\n<$1')
+                         .replace(/><(p|h\d|div|table|title|style)/g, '>\n<$1')
                          .replace(/<(p|h\d|div|table)(.*?)><br><\n\1>/g, '')
                          .split('\n').slice(2).join('\n')
                          );
         corpsLettre.removeClass('Brevo')
         corpsLettre.removeAttr('id')
+        // 4. Inclure le clone à la fin de l'élément d'origine
+        //$clone.html('\n' + $clone.html());
+        //corpsLettre.append($clone);
+        //$('#corpsLettre-clone').css('display','none')
 
         const codeComplet = corpsLettre.prop('outerHTML');
         const blob = new Blob([codeComplet], {

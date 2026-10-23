@@ -1375,6 +1375,7 @@ if (tableSource.length) {
           //const colMotsClefs = ['ÉDITO', 'L’ÉCHO DES COMITÉS', '* Les initiatives à venir', '* Les initiatives tenues', '* Communiqués, prise de position ...', 'AUTRES INFOS LOCALES', 'NOUS AVONS REÇU...'];
           // 2. Initialiser l'index pour la boucle while
           let index = 0;
+          let contBG = 'non défini';
 
           // 3. Parcourir la collection avec le while
           //while (index < colMotsClefs.length) {
@@ -1389,21 +1390,8 @@ if (tableSource.length) {
           $tousLesElements.each(function() {
 
             const $el = $(this); // Convertit l'élément courant en objet jQuery
-            /*// 1. Cibler l'élément enfant / de départ
-            $($el).each(function() {
-              var $enfant = $(this);
-
-              // 2. Parcourir tous ses ancêtres qui sont des DIV
-              $enfant.parents('div').each(function(index) {
-                // index commence à 0 pour la DIV la plus proche (le parent direct)
-                var niveau = index + 1;
-
-                // 3. Ajouter la classe d'élévation (ex: elevation-1, elevation-2...)
-                $(this).addClass('elevation-' + niveau);
-              });
-            });*/
-            const elCont = $el.text().trim(); // Conserve l'élément natif (this) si la fonction l'attend
-            const isVille = isContVille($el);
+            const elCont = $el.text().trim(); 
+            const isVille = isContVille($el, contBG);
 
             // 3. Traitement conditionnel selon les mots-clés
             if (elCont === 'ÉDITO') {
@@ -1456,6 +1444,7 @@ if (tableSource.length) {
             }
             else if (elCont === 'LA CITATION DE LA SEMAINE') {
               trouve.push(elCont);
+              
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               //const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1481,6 +1470,7 @@ if (tableSource.length) {
             }
             else if (elCont === '* Les initiatives à venir') {
               trouve.push(elCont);
+              contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1504,6 +1494,7 @@ if (tableSource.length) {
             }
             else if (elCont === '* Les initiatives tenues') {
               trouve.push(elCont);
+              contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1536,6 +1527,7 @@ if (tableSource.length) {
             }
             else if (elCont === '* Communiqués, prise de position ...') {
               trouve.push(elCont);
+              contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1568,6 +1560,7 @@ if (tableSource.length) {
             }
             else if (elCont === 'AUTRES INFOS LOCALES') {
               trouve.push(elCont);
+              contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1650,7 +1643,14 @@ if (tableSource.length) {
           })
           return trouve
           
-        function isContVille(elCont) {
+        function isContVille(el, contCSS) {
+          // Option 1
+          // Vérifie si le elCont est celui d'une ville
+          // Expression régulière (Regex) :
+          // ne contient que des caractères majuscule ou des espaces
+          //const regex = /^[A-Za-zÀ-ÿ\s]+$/;
+          const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
+          // Option 2
           // Vérifie si le elCont est celui d'une ville
           // Expression régulière (Regex) :
           // ^.+  -> Commence par un ou plusieurs caractères
@@ -1658,13 +1658,57 @@ if (tableSource.length) {
           // \(   -> Parenthèse ouvrante
           // \d{2}   -> deux chiffres à l'intérieur des parenthèses
           // \)   -> Parenthèse fermante (le $ indique la fin de la chaîne)
-          const regex = /^.+\s+\(\d{2}\)$/;
-          const filtelCont = elCont.text().trim();
-          const isVille = regex.test(filtelCont);
+          //const regex = /^.+\s+\(\d{2}\)$/;
+          const elCont = el.text().trim();
+          const elColor = quelBG(el);
+          //const isVille = regex.test(elCont);
+          const isVille = regex.test(elCont) && elColor == contCSS;
+          if (isVille) console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
           return isVille;
-          //if (isVille) return true;
-          //else return false
         };
+        
+        /*function quelBG(el) {
+          var $descendantLePlusProfond;
+          var maxProfondeur = -1;
+
+          // Parcourir tous les descendants pour trouver le plus profond
+          el.find('*').each(function() {
+            var profondeurActuelle = $(this).parentsUntil(el).length;
+            if (profondeurActuelle > maxProfondeur) {
+              maxProfondeur = profondeurActuelle;
+              $descendantLePlusProfond = $(this);
+            }
+          });
+
+          // Appliquer ou récupérer le background
+          if ($descendantLePlusProfond) {
+            // 1. Pour MODIFIER le background :
+            //$descendantLePlusProfond.css('background-color', 'red');
+
+            // 2. Pour RÉCUPÉRER le background :
+            var bg = $descendantLePlusProfond.css('background-color');
+            console.log("Le background-color du plus profond est :", bg);
+            return bg;
+          }
+          else return 'inconnu'
+        };*/
+        function quelBG($element) {
+          var couleurTrouvee = null;
+
+          // .find('*') parcourt toute la descendance dans l'ordre du DOM
+          $element.find('*').each(function() {
+            var bg = $(this).css('background-color');
+
+            // On vérifie si la couleur est définie et n'est pas transparente
+            if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+              couleurTrouvee = bg;
+              return false; // Coupe la boucle .each() immédiatement
+            }
+          });
+
+          return couleurTrouvee;
+        }
+
        
         };
 

@@ -1391,7 +1391,8 @@ if (tableSource.length) {
 
             const $el = $(this); // Convertit l'élément courant en objet jQuery
             const elCont = $el.text().trim(); 
-            const isVille = isContVille($el, contBG);
+            const isVille = 'isVille' == isContVille($el, contBG);
+            const isblockGen = 'isblockGen' == isContVille($el, contBG);
 
             // 3. Traitement conditionnel selon les mots-clés
             if (elCont === 'ÉDITO') {
@@ -1625,7 +1626,7 @@ if (tableSource.length) {
                 .wrapInner('<strong></strong>')
                 .removeAttr('style');
             }
-            else if (isVille) {
+            else if (isVille | isblockGen) {
               trouve.push(elCont);
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
@@ -1634,9 +1635,9 @@ if (tableSource.length) {
               // Remplace el.parentElement.parentEle"ment.parentElement par un .closest() ou .parents() si la structure est fixe
               const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
 
-              $el.attr('id', elCont)
-                .addClass("isCity");
-            }
+              if (isVille) $el.attr('id', elCont).addClass("isCity");
+              else $el.attr('id', elCont).addClass("blockGen isNotCity");
+           }
             //index++;
             //console.log("Aucun conteneur correspondant n'a été trouvé.");
 
@@ -1650,7 +1651,9 @@ if (tableSource.length) {
           // ne contient que des caractères majuscule ou des espaces
           //const regex = /^[A-Za-zÀ-ÿ\s]+$/;
           //const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
-          const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
+          //const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
+          const regex_ville = /^.+\s+\(\d{2}\)$/
+          const regex_blockGen = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ ']+)$/
 
           // Option 2
           // Vérifie si le elCont est celui d'une ville
@@ -1664,36 +1667,19 @@ if (tableSource.length) {
           const elCont = el.text().trim();
           const elColor = quelBG(el);
           //const isVille = regex.test(elCont);
-          const isVille = regex.test(elCont) && elColor == contCSS;
-          if (isVille) console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
-          return isVille;
-        };
-        
-        /*function quelBG(el) {
-          var $descendantLePlusProfond;
-          var maxProfondeur = -1;
-
-          // Parcourir tous les descendants pour trouver le plus profond
-          el.find('*').each(function() {
-            var profondeurActuelle = $(this).parentsUntil(el).length;
-            if (profondeurActuelle > maxProfondeur) {
-              maxProfondeur = profondeurActuelle;
-              $descendantLePlusProfond = $(this);
-            }
-          });
-
-          // Appliquer ou récupérer le background
-          if ($descendantLePlusProfond) {
-            // 1. Pour MODIFIER le background :
-            //$descendantLePlusProfond.css('background-color', 'red');
-
-            // 2. Pour RÉCUPÉRER le background :
-            var bg = $descendantLePlusProfond.css('background-color');
-            console.log("Le background-color du plus profond est :", bg);
-            return bg;
+          const isVille = regex_ville.test(elCont) && elColor == contCSS;
+          const isblockGen = regex_blockGen.test(elCont) && elColor == contCSS;
+          if (isVille) {
+            console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
+            return 'isVille';
+          }
+          else if (isblockGen) {
+            console.log("isContVille blockGen trouvée: " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
+            return 'isblockGen';
           }
           else return 'inconnu'
-        };*/
+        };
+        
         function quelBG($element) {
           var couleurTrouvee = null;
 
@@ -1710,8 +1696,7 @@ if (tableSource.length) {
 
           return couleurTrouvee;
         }
-
-       
+      
         };
 
 

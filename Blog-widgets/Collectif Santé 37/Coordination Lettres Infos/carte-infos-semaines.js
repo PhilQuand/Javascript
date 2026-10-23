@@ -1635,6 +1635,7 @@ if (tableSource.length) {
               // Remplace el.parentElement.parentEle"ment.parentElement par un .closest() ou .parents() si la structure est fixe
               const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
 
+              $el.text(elCont);
               if (isVille) $el.attr('id', elCont).addClass("isCity");
               else $el.attr('id', elCont).addClass("blockGen isNotCity");
            }

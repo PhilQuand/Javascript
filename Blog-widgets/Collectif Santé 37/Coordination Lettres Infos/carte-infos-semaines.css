@@ -545,6 +545,53 @@ width: 100%;
 .marker-1 p, .marker-2 p, .marker-3 p, .marker-4 p {
 background-color: #ffffff !important;
 }
+.blockGen_1 strong {
+background-color: #801180;
+color: #F7F7F7;
+}
+.blockGen_2 strong{
+background-color: #801180;
+color: #F7F7F7;
+}
+.blockGen_3 strong {
+background-color: #801180;
+color: #F7F7F7;
+}
+.blockGen_4 strong {
+background-color: #0836FF;
+color: #F7F7F7;
+.blockGen_1 > span > b {
+display: block;
+padding: 5px;
+background-color: #801180;
+color: #F7F7F7;
+width: 100%;
+}
+.blockGen_2 > span > b {
+display: block;
+padding: 5px;
+background-color: #801180;
+color: #F7F7F7;
+width: 100%;
+}
+.blockGen_3 > span > b {
+display: block;
+padding: 5px;
+background-color: #801180;
+color: #F7F7F7;
+width: 100%;
+}
+.blockGen_4 > span > b {
+display: block;
+padding: 5px;
+background-color: #0836FF;
+color: #F7F7F7;
+width: 100%;
+}
+.blockGen_1, .blockGen_2, .blockGen_3, .blockGen_4 {
+background-color: #ffffff !important;
+}
+
 @media print {
     /* On cache tout le site */
     body * { visibility: hidden; }

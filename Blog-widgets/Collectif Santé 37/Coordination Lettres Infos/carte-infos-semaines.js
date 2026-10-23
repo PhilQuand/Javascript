@@ -1637,7 +1637,18 @@ if (tableSource.length) {
 
               $el.text(elCont).wrapInner('<strong></strong>')
               if (isVille) $el.attr('id', elCont).addClass("isCity");
-              else $el.attr('id', elCont).addClass("blockGen isNotCity");
+              else if ($.inArray('AUTRES INFOS LOCALES', trouve) !== -1) {
+                $el.attr('id', elCont).addClass("blockGen_4 isNotCity");
+              }
+              else if ($.inArray('* Communiqués, prise de position ...', trouve) !== -1) {
+                $el.attr('id', elCont).addClass("blockGen_3 isNotCity");
+              }
+              else if ($.inArray('* Les initiatives tenues', trouve) !== -1) {
+                $el.attr('id', elCont).addClass("blockGen_2 isNotCity");
+              }
+              else if ($.inArray('* Les initiatives à venir', trouve) !== -1) {
+                $el.attr('id', elCont).addClass("blockGen_1 isNotCity");
+              }
            }
             //index++;
             //console.log("Aucun conteneur correspondant n'a été trouvé.");

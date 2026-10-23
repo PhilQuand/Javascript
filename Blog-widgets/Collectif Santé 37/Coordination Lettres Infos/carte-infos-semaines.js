@@ -1649,7 +1649,9 @@ if (tableSource.length) {
           // Expression régulière (Regex) :
           // ne contient que des caractères majuscule ou des espaces
           //const regex = /^[A-Za-zÀ-ÿ\s]+$/;
-          const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
+          //const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
+          const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
+
           // Option 2
           // Vérifie si le elCont est celui d'une ville
           // Expression régulière (Regex) :

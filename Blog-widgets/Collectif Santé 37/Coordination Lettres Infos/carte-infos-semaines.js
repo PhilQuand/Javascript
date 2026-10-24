@@ -1223,7 +1223,7 @@ if (tableSource.length) {
   // 4. Nettoyage et traitement de #divBrevo
   if (divCible.length) {
 
-    const trouve = contMotclef(divCible);
+    contMotclef(divCible);
 
     // Supprime toutes les tables à l'intérieur de #divBrevo
     //divBrevo.find('table').remove();
@@ -1382,9 +1382,9 @@ if (tableSource.length) {
           //const motClef = colMotsClefs[index];
           // Trouver le conteneur de type typeCont contenant uniquement le mot clef motClef (malgré les balises HTML)
           // 1. Sélectionner tous les éléments du DOM
-          let trouve = []
           const $tousLesElements = elemCible.find('p');
-          let motTrouve = null;
+          let contexteBrevo_1 = '';
+          let contexteBrevo_2 = '';
 
           // 2. Parcourir les éléments avec jQuery .each()
           $tousLesElements.each(function() {
@@ -1396,7 +1396,7 @@ if (tableSource.length) {
 
             // 3. Traitement conditionnel selon les mots-clés
             if (elCont === 'ÉDITO') {
-              trouve.push(elCont);
+              contexteBrevo_1 = elCont;
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1416,7 +1416,7 @@ if (tableSource.length) {
               // return false; 
             }
             else if (elCont === 'L’ÉCHO DES COMITÉS') {
-              trouve.push(elCont);
+              contexteBrevo_1 = elCont;
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1444,33 +1444,15 @@ if (tableSource.length) {
               }).insertBefore($el);
             }
             else if (elCont === 'LA CITATION DE LA SEMAINE') {
-              trouve.push(elCont);
               
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               //const elTexteNettoye = $el.text().replace(/ /g, '-');
               $el.closest('div').addClass('Citation');
  
-              const $maTable = $el // 3. On remonte au parent direct TD (cellule qui contient le P)
-              /*.closest('td')
-              // 4. On remonte à la TABLE parente directe qui contient ce TD
-              .closest('table')
-              // 5. On remonte à la cellule TD supérieure qui contient cette TABLE
-              .closest('td')
-              // 6. On retourne la TABLE finale qui contient cette cellule
-              .closest('table');*/
-              ;
-              const $maTableColP = recupererTousLesP($maTable)
-              console.log(elCont + ' : ' + $maTableColP.length)
-
-              function recupererTousLesP(tableElement) {
-
-                // Recherche tous les éléments P qui sont des descendants de cellules (TD/TH) de cette table
-                return tableElement.find('th > p, td > p, table p');
-              }
             }
             else if (elCont === '* Les initiatives à venir') {
-              trouve.push(elCont);
+              contexteBrevo_2 = elCont;
               contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
@@ -1494,7 +1476,6 @@ if (tableSource.length) {
                 .insertBefore($el);
             }
             else if (elCont === '* Les initiatives tenues') {
-              trouve.push(elCont);
               contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
@@ -1511,7 +1492,7 @@ if (tableSource.length) {
                 .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
                 .css('display', 'none')
                 .insertBefore($el);
-              if ($.inArray('* Les initiatives à venir', trouve) == -1) {
+              if ('* Les initiatives à venir' != contexteBrevo_2) {
                 $('<p>')
                   .addClass("markerGroupDeb rubrique-new echo-titre-1 isNotCity")
                   .css('display', 'none')
@@ -1520,14 +1501,14 @@ if (tableSource.length) {
                   .addClass("markerGroupDebTitle isNotCity")
                   .css('display', 'none')
                   .insertBefore($el);
-                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' n'existe pas encore dans trouve.");
+                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' n'est pas dans contexteBrevo_2 !");
               }
               else {
-                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' existe dans trouve !");
+                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' est dans contexteBrevo_2 !");
               }
+              contexteBrevo_2 = elCont;
             }
             else if (elCont === '* Communiqués, prise de position ...') {
-              trouve.push(elCont);
               contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
@@ -1544,7 +1525,7 @@ if (tableSource.length) {
                 .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
                 .css('display', 'none')
                 .insertBefore($el);
-              if ($.inArray('* Les initiatives tenues', trouve) == -1) {
+              if ('* Les initiatives à venir' != contexteBrevo_2) {
                 $('<p>')
                   .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
                   .css('display', 'none')
@@ -1553,14 +1534,15 @@ if (tableSource.length) {
                   .addClass("markerGroupDebTitle isNotCity")
                   .css('display', 'none')
                   .insertBefore($el);
-                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' n'existe pas encore dans trouve.");
+                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' n'est pas dans contexteBrevo_2 !");
               }
               else {
-                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' existe dans trouve !");
+                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' est dans contexteBrevo_2 !");
               }
+              contexteBrevo_2 = elCont;
             }
             else if (elCont === 'AUTRES INFOS LOCALES') {
-              trouve.push(elCont);
+              contexteBrevo_2 = elCont;
               contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
@@ -1569,7 +1551,7 @@ if (tableSource.length) {
               index = 6;
               $el.addClass("markerGroupDeb rubrique-new autres isNotCity page-break-before")
                  .removeAttr('style');
-              if ($.inArray('* Communiqués, prise de position ...', trouve) == -1) {
+              if ('* Communiqués, prise de position ...' != contexteBrevo_2) {
                 $('<p>')
                   .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
                   .css('display', 'none')
@@ -1578,14 +1560,15 @@ if (tableSource.length) {
                   .addClass("markerGroupDebTitle isNotCity")
                   .css('display', 'none')
                   .insertBefore($el);
-                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' n'existe pas encore dans trouve.");
+                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' n'est pas dans contexteBrevo_2 !");
               }
               else {
-                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' existe dans trouve !");
+                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' est dans contexteBrevo_2 !");
               }
+              contexteBrevo_2 = elCont;
             }
             else if (elCont === 'NOUS AVONS REÇU...') {
-              trouve.push(elCont);
+              contexteBrevo_1 = elCont;
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1603,18 +1586,8 @@ if (tableSource.length) {
                 }
               }).insertBefore($el);
             }
-            else if (elCont === 'CULTURE'|| elCont === 'Culture') {
-              trouve.push(elCont);
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 7;
-              $el.addClass("rubrique-new culture isNotCity")
-              $el.removeAttr('style');
-            }
             else if (elCont === '* Communiqué, déclaration ...') {
-              trouve.push(elCont);
+              contexteBrevo_2 = elCont;
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1626,8 +1599,17 @@ if (tableSource.length) {
                 .wrapInner('<strong></strong>')
                 .removeAttr('style');
             }
+            else if (elCont === 'CULTURE'|| elCont === 'Culture') {
+              contexteBrevo_1 = 'CULTURE';
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id',elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 7;
+              $el.addClass("rubrique-new culture isNotCity")
+              $el.removeAttr('style');
+            }
             else if (isVille | isblockGen) {
-              trouve.push(elCont);
               if ($el.attr('id') == elCont) return false;
               $el.attr('id',elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1636,79 +1618,96 @@ if (tableSource.length) {
               const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
 
               $el.text(elCont).wrapInner('<strong></strong>')
+              defContBrevo($el) 
               if (isVille) $el.attr('id', elCont).addClass("isCity");
-              else if ($.inArray('AUTRES INFOS LOCALES', trouve) !== -1) {
-                $el.attr('id', elCont).addClass("blockGen_4 isNotCity");
-              }
-              else if ($.inArray('* Communiqués, prise de position ...', trouve) !== -1) {
-                $el.attr('id', elCont).addClass("blockGen_3 isNotCity");
-              }
-              else if ($.inArray('* Les initiatives tenues', trouve) !== -1) {
-                $el.attr('id', elCont).addClass("blockGen_2 isNotCity");
-              }
-              else if ($.inArray('* Les initiatives à venir', trouve) !== -1) {
-                $el.attr('id', elCont).addClass("blockGen_1 isNotCity");
-              }
+              else $el.attr('id', elCont).addClass("isNotCity");
            }
             //index++;
             //console.log("Aucun conteneur correspondant n'a été trouvé.");
 
           })
-          return trouve
+          return;
           
-        function isContVille(el, contCSS) {
-          // Option 1
-          // Vérifie si le elCont est celui d'une ville
-          // Expression régulière (Regex) :
-          // ne contient que des caractères majuscule ou des espaces
-          //const regex = /^[A-Za-zÀ-ÿ\s]+$/;
-          //const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
-          //const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
-          const regex_ville = /^.+\s+\(\d{2}\)$/
-          const regex_blockGen = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ ']+)$/
+          function isContVille(el, contCSS) {
+            // Option 1
+            // Vérifie si le elCont est celui d'une ville
+            // Expression régulière (Regex) :
+            // ne contient que des caractères majuscule ou des espaces
+            //const regex = /^[A-Za-zÀ-ÿ\s]+$/;
+            //const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
+            //const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
+            const regex_ville = /^.+\s+\(\d{2}\)$/
+            const regex_blockGen = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ ']+)$/
 
-          // Option 2
-          // Vérifie si le elCont est celui d'une ville
-          // Expression régulière (Regex) :
-          // ^.+  -> Commence par un ou plusieurs caractères
-          // \s+  -> Suivi d'un ou plusieurs espaces
-          // \(   -> Parenthèse ouvrante
-          // \d{2}   -> deux chiffres à l'intérieur des parenthèses
-          // \)   -> Parenthèse fermante (le $ indique la fin de la chaîne)
-          //const regex = /^.+\s+\(\d{2}\)$/;
-          const elCont = el.text().trim();
-          const elColor = quelBG(el);
-          //const isVille = regex.test(elCont);
-          const isVille = regex_ville.test(elCont) && elColor == contCSS;
-          const isblockGen = regex_blockGen.test(elCont) && elColor == contCSS;
-          if (isVille) {
-            console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
-            return 'isVille';
-          }
-          else if (isblockGen) {
-            console.log("isContVille blockGen trouvée: " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
-            return 'isblockGen';
-          }
-          else return 'inconnu'
-        };
-        
-        function quelBG($element) {
-          var couleurTrouvee = null;
-
-          // .find('*') parcourt toute la descendance dans l'ordre du DOM
-          $element.find('*').each(function() {
-            var bg = $(this).css('background-color');
-
-            // On vérifie si la couleur est définie et n'est pas transparente
-            if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
-              couleurTrouvee = bg;
-              return false; // Coupe la boucle .each() immédiatement
+            // Option 2
+            // Vérifie si le elCont est celui d'une ville
+            // Expression régulière (Regex) :
+            // ^.+  -> Commence par un ou plusieurs caractères
+            // \s+  -> Suivi d'un ou plusieurs espaces
+            // \(   -> Parenthèse ouvrante
+            // \d{2}   -> deux chiffres à l'intérieur des parenthèses
+            // \)   -> Parenthèse fermante (le $ indique la fin de la chaîne)
+            //const regex = /^.+\s+\(\d{2}\)$/;
+            const elCont = el.text().trim();
+            const elColor = quelBG(el);
+            //const isVille = regex.test(elCont);
+            const isVille = regex_ville.test(elCont) && elColor == contCSS;
+            const isblockGen = regex_blockGen.test(elCont) && elColor == contCSS;
+            if (isVille) {
+              console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
+              return 'isVille';
             }
-          });
+            else if (isblockGen) {
+              console.log("isContVille blockGen trouvée: " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
+              return 'isblockGen';
+            }
+            else return 'inconnu'
+          };
+        
+          function quelBG($element) {
+            var couleurTrouvee = null;
 
-          return couleurTrouvee;
-        }
+            // .find('*') parcourt toute la descendance dans l'ordre du DOM
+            $element.find('*').each(function() {
+              var bg = $(this).css('background-color');
+
+              // On vérifie si la couleur est définie et n'est pas transparente
+              if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+                couleurTrouvee = bg;
+                return false; // Coupe la boucle .each() immédiatement
+              }
+            });
+
+            return couleurTrouvee;
+          }
       
+          function defContBrevo($el) {
+            const elCont = $el.text().trim(); 
+            switch (contexteBrevo_1) {
+              case 'EDITO':
+                break;
+              case 'L’ÉCHO DES COMITÉS':
+                switch (contexteBrevo_2) {
+                  case '* Les initiatives à venir':
+                    $el.attr('id', elCont).addClass("brevo-1-1");
+                    break;
+                  case '* Les initiatives tenues':
+                    $el.attr('id', elCont).addClass("brevo-1-2");
+                    break;
+                  case '* Communiqués, prise de position ...':
+                    $el.attr('id', elCont).addClass("brevo-1-3");
+                    break;
+                  case 'AUTRES INFOS LOCALES':
+                    $el.attr('id', elCont).addClass("brevo-1-4");
+                    break;
+                }
+                break;
+              case 'NOUS AVONS REÇU...':
+                break;
+              case 'CULTURE':
+            }
+            return;
+          }
         };
 
 

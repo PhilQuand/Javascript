@@ -1598,6 +1598,7 @@ if (tableSource.length) {
                 .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity")
                 .wrapInner('<strong></strong>')
                 .removeAttr('style');
+              $el.find('strong').removeAttr('style')
             }
             else if (elCont === 'CULTURE'|| elCont === 'Culture') {
               contexteBrevo_1 = 'CULTURE';
@@ -1706,7 +1707,8 @@ if (tableSource.length) {
                 switch (contexteBrevo_2) {
                   case '* Communiqué, déclaration ...':
                     if ($el.find('strong span').css('color') == 'rgb(28, 153, 30)') {
-                      $el.addClass("brevo-3-2")
+                      $el.removeAttr('style').addClass("brevo-3-2")
+                      $el.find('strong').removeAttr('style')
                     }
                     break;
                }

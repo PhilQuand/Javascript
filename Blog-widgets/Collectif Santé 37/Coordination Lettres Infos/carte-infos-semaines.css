@@ -545,53 +545,49 @@ width: 100%;
 .marker-1 p, .marker-2 p, .marker-3 p, .marker-4 p {
 background-color: #ffffff !important;
 }
-.blockGen_1 strong {
-background-color: #801180;
-color: #F7F7F7;
-}
-.blockGen_2 strong{
-background-color: #801180;
-color: #F7F7F7;
-}
-.blockGen_3 strong {
-background-color: #801180;
-color: #F7F7F7;
-}
-.blockGen_4 strong {
-background-color: #0836FF;
-color: #F7F7F7;
-.blockGen_1 > span > b {
-display: block;
-padding: 5px;
-background-color: #801180;
-color: #F7F7F7;
-width: 100%;
-}
-.blockGen_2 > span > b {
-display: block;
-padding: 5px;
-background-color: #801180;
-color: #F7F7F7;
-width: 100%;
-}
-.blockGen_3 > span > b {
-display: block;
-padding: 5px;
-background-color: #801180;
-color: #F7F7F7;
-width: 100%;
-}
-.blockGen_4 > span > b {
-display: block;
-padding: 5px;
-background-color: #0836FF;
-color: #F7F7F7;
-width: 100%;
-}
-.blockGen_1, .blockGen_2, .blockGen_3, .blockGen_4 {
-background-color: #ffffff !important;
-}
+.contCity img {    
+    width: 400px;
+    max-width: 80%;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+    }
 
+.brevo-1-1, .brevo-1-2, .brevo-1-3, .brevo-1-4 {
+    text-align: -webkit-center;
+    background-color: #ffffff !important;
+    width: 700px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    align-content: center;
+    clear: both;
+    padding: 5px;
+    }
+.brevo-1-1 > span > b, .brevo-1-1 > strong, .brevo-1-2 > span > b, .brevo-1-2 > strong, .brevo-1-3 > span > b, .brevo-1-3 > strong {
+    text-transform: uppercase;
+    font-family: Arial, serif;
+    font-size: 14pt;
+    display: block;
+    padding: 5px;
+    background-color: #801180;
+    color: #F7F7F7;
+    width: 100%;
+    }
+.brevo-1-4 {
+    text-align: -webkit-center;
+    font-size: large;
+    width: 700px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    align-content: center;
+    text-transform: uppercase;
+    clear: both;
+    padding: 5px;
+    background: rgb(0, 0, 255);
+    color: rgb(255, 255, 255);
+    }    
+    
 @media print {
     /* On cache tout le site */
     body * { visibility: hidden; }

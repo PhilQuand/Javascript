@@ -1598,6 +1598,7 @@ if (tableSource.length) {
                 .addClass("rubrique-new reçu sous-titre-1 isNotCity")
                 .wrapInner('<strong></strong>')
                 .removeAttr('style');
+              defContBrevo($el);
             }
             else if (elCont === 'CULTURE'|| elCont === 'Culture') {
               contexteBrevo_1 = 'CULTURE';
@@ -1617,13 +1618,11 @@ if (tableSource.length) {
               // Remplace el.parentElement.parentEle"ment.parentElement par un .closest() ou .parents() si la structure est fixe
               const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
 
-              $el.text(elCont).wrapInner('<strong></strong>')
-              defContBrevo($el) 
+              $el.text(elCont).wrapInner('<strong></strong>');
+              defContBrevo($el); 
               if (isVille) $el.attr('id', elCont).addClass("isCity");
-              else $el.attr('id', elCont).addClass("isNotCity");
-           }
-            //index++;
-            //console.log("Aucun conteneur correspondant n'a été trouvé.");
+              else $el.attr('id', elCont).addClass("isNotCity");          
+           } 
 
           })
           return;
@@ -1689,20 +1688,25 @@ if (tableSource.length) {
               case 'L’ÉCHO DES COMITÉS':
                 switch (contexteBrevo_2) {
                   case '* Les initiatives à venir':
-                    $el.attr('id', elCont).addClass("brevo-1-1");
+                    $el.attr('id', elCont).addClass("brevo-2-1");
                     break;
                   case '* Les initiatives tenues':
-                    $el.attr('id', elCont).addClass("brevo-1-2");
+                    $el.attr('id', elCont).addClass("brevo-2-2");
                     break;
                   case '* Communiqués, prise de position ...':
-                    $el.attr('id', elCont).addClass("brevo-1-3");
+                    $el.attr('id', elCont).addClass("brevo-2-3");
                     break;
                   case 'AUTRES INFOS LOCALES':
-                    $el.attr('id', elCont).addClass("brevo-1-4");
+                    $el.attr('id', elCont).addClass("brevo-2-4");
                     break;
                 }
                 break;
               case 'NOUS AVONS REÇU...':
+                switch (contexteBrevo_2) {
+                  case '* Communiqué, déclaration ...':
+                    if ($el.css('color') == 'rgb(28, 153, 30)') $el.addClass("brevo-3-2")
+                    break;
+               }
                 break;
               case 'CULTURE':
             }

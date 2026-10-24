@@ -1595,10 +1595,9 @@ if (tableSource.length) {
               index = 6;
 
               $el.text("* Communiqué, déclaration...")
-                .addClass("rubrique-new reçu sous-titre-1 isNotCity")
+                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity")
                 .wrapInner('<strong></strong>')
                 .removeAttr('style');
-              defContBrevo($el);
             }
             else if (elCont === 'CULTURE'|| elCont === 'Culture') {
               contexteBrevo_1 = 'CULTURE';
@@ -1622,8 +1621,10 @@ if (tableSource.length) {
               defContBrevo($el); 
               if (isVille) $el.attr('id', elCont).addClass("isCity");
               else $el.attr('id', elCont).addClass("isNotCity");          
-           } 
-
+            }
+            else if (contexteBrevo_1 == 'NOUS AVONS REÇU...' && contexteBrevo_2 == '* Communiqué, déclaration ...') {
+              defContBrevo($el);
+            }
           })
           return;
           
@@ -1704,7 +1705,9 @@ if (tableSource.length) {
               case 'NOUS AVONS REÇU...':
                 switch (contexteBrevo_2) {
                   case '* Communiqué, déclaration ...':
-                    if ($el.css('color') == 'rgb(28, 153, 30)') $el.addClass("brevo-3-2")
+                    if ($el.find('strong span').css('color') == 'rgb(28, 153, 30)') {
+                      $el.addClass("brevo-3-2")
+                    }
                     break;
                }
                 break;

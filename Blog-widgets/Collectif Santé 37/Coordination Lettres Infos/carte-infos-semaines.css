@@ -595,7 +595,6 @@ background-color: #ffffff !important;
     text-align: left;
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: large;
     } 
 .brevo-3-1 strong {   
     color: #ffffff;
@@ -608,11 +607,16 @@ background-color: #ffffff !important;
     
     }
 .brevo-3-2 {
-    text-align: -webkit-center;
-    font-size: large;  
+    text-align: -webkit-center !important;
+    font-size: x-large !important;  
+    padding: 10px !important;
 }
-
-    
+.brevo-3-2 strong span {
+    text-align: -webkit-center;
+    font-size: x-large !important;
+    color: rgb(28, 153, 30) !important;
+}
+   
 @media print {
     /* On cache tout le site */
     body * { visibility: hidden; }

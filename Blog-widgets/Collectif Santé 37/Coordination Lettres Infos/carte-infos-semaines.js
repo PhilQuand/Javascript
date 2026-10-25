@@ -1207,7 +1207,9 @@
         if (divCible.length) {
 
           contMotclef(divCible);
-
+          // Protège le flux initial du mot clef dossiers
+          const divHTML = divCible.html();
+          divCible.html(divHTML.replace('dossier', '<span>dos</span>sier'));
           // Extrait le contenu de toutes les div internes et supprime les balises div parentes (unwrap)
           divCible.find('table').contents().unwrap();
           divCible.find('tbody').remove();
@@ -1227,6 +1229,7 @@
           // Supprime la table source initiale
           tableSource.remove();
         }
+        //console.log("create_divCible : divCible : "+ divCible.html())
         return divCible
         function contMotclef(elemCible) {
           //const colMotsClefs = ['ÉDITO', 'L’ÉCHO DES COMITÉS', '* Les initiatives à venir', '* Les initiatives tenues', '* Communiqués, prise de position ...', 'AUTRES INFOS LOCALES', 'NOUS AVONS REÇU...'];
@@ -1406,8 +1409,18 @@
               const elTexteNettoye = $el.text().replace(/ /g, '-');
               $el.closest('div').addClass(elTexteNettoye);
               index = 6;
-              $el.addClass("markerGroupDeb rubrique-new autres isNotCity page-break-before")
+              /*$el.addClass("markerGroupDeb rubrique-new autres isNotCity page-break-before")
+                .removeAttr('style');*/
+              $el.text("AUTRES INFOS LOCALES")
+                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
+                .wrapInner('<strong></strong>')
                 .removeAttr('style');
+
+              $('<p>')
+                .addClass("markerGroupDeb rubrique-new autres isNotCity")
+                .css('display', 'none')
+                .insertBefore($el);
+                
               if ('* Communiqués, prise de position ...' != contexteBrevo_2) {
                 $('<p>')
                   .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
@@ -1464,7 +1477,7 @@
               const elTexteNettoye = $el.text().replace(/ /g, '-');
               $el.closest('div').addClass(elTexteNettoye);
               index = 7;
-              $el.addClass("rubrique-new culture isNotCity")
+              $el.addClass("rubrique-new culture isNotCity page-break-before")
               $el.removeAttr('style');
             }
             else if (isVille | isblockGen) {

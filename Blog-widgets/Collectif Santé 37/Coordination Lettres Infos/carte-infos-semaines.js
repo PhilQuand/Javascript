@@ -1181,107 +1181,404 @@
       //const elements = document.querySelector('#filtreData');
       //elements.after(divCible);
       // 2. Insérer la div juste AVANT la première table
-// 1. Assigner et insérer la div cible avant la première table
-  // Cloner un élément et l'ajouter à la suite d'un autre
-  //$('table:first').clone().appendTo('table:first');
-  // 1. Sélectionner l'élément d'origine
-//var $original = $('#monElement');
 
-/*
-// 2. Créer le clone (avec ses enfants)
-const $clone = corpsLettre.clone();
-$clone
-  .attr('id', corpsLettre.attr('id') + '-clone') // Évite les doublons d'ID
-  .addClass('disabled-clone')                  // Permet de le cibler en CSS
-  .css({
-      'opacity': '0.5',                        // Effet visuel désactivé 
-      'pointer-events': 'none',                // Bloque les clics et hovers
-      'user-select': 'none',                   // Empêche la sélection du texte
-  })
-  .find('*').prop('disabled', true);           // Désactive les inputs/boutons internes
-*/
+      const tableSource = $('table:first');
 
-const tableSource = $('table:first');
-const divCible = $('<div></div>').attr('id', 'divBrevo');
+      const divCible = create_divCible();
+      prep_divCible(divCible);
+      export_divCible(divCible);
+      
+      function create_divCible() {
+        const divCible = $('<div></div>').attr('id', 'divBrevo');
+        tableSource.before(divCible);
 
+        // 2 & 3. Parcourir les cellules (td, th) et déplacer leur contenu non vide
+        tableSource.find('td, th').each(function() {
+          const cellule = $(this);
+          const estVide = $.trim(cellule.text()) === '' && cellule.children().length === 0;
 
-if (tableSource.length) {
-
-  tableSource.before(divCible);
-
-  // 2 & 3. Parcourir les cellules (td, th) et déplacer leur contenu non vide
-  tableSource.find('td, th').each(function() {
-    const cellule = $(this);
-    const estVide = $.trim(cellule.text()) === '' && cellule.children().length === 0;
-
-    if (!estVide) {
-      cellule.contents().appendTo(divCible);
-    }
-  });
-
-
-  // 4. Nettoyage et traitement de #divBrevo
-  if (divCible.length) {
-
-    contMotclef(divCible);
-
-    // Supprime toutes les tables à l'intérieur de #divBrevo
-    //divBrevo.find('table').remove();
-    /*$(document).ready(function() {
-      const cible = document.getElementById('corpsLettre');
-
-      if (cible) {
-        // 1. Crée l'observateur qui va surveiller les changements
-        const observateur = new MutationObserver(function(mutations, observer) {
-          // Cherche s'il y a des tables dans le conteneur
-          const tables = $('#corpsLettre table');
-
-          if (tables.length > 0) {
-            tables.remove(); // Supprime les tables dès qu'elles apparaissent
-            observer.disconnect(); // Arrête d'observer pour libérer la mémoire
+          if (!estVide) {
+            cellule.contents().appendTo(divCible);
           }
         });
 
-        // 2. Lance l'observation sur le conteneur
-        observateur.observe(cible, {
-          childList: true, // Surveille l'ajout/suppression d'enfants
-          subtree: true // Surveille aussi les enfants des enfants
-        });
-      }
-      console.log(`table(s) supprimée(s) de la #corpsLettre avec succès !`);
 
-    });*/
+        // 4. Nettoyage et traitement de #divBrevo
+        if (divCible.length) {
 
-    // Extrait le contenu de toutes les div internes et supprime les balises div parentes (unwrap)
-    divCible.find('table').contents().unwrap();
-    divCible.find('tbody').remove();
-    //autre alternative permettant un traitement individuel de chaque div
-    // Récupérer et boucler sur chaque div interne
-    divCible.find('div').each(function(index, element) {
-      // $(this).contents().unwrap() fait la même chose pour chaque élément
-      // Le "!" au début signifie "SI NE CONTIENT PAS"
-      if (!$(this).hasClass('Citation')) {
-        $(this).replaceWith($(this).contents()); // Supprime la div
-        console.log("La div a été supprimée car elle n'avait pas la classe requise.");
-      };
-    });
-    console.log(`div(s) déplacée(s) avec succès !`);
-    // supprime la signature Brevo
-    divCible.children().slice(-7).remove()
-    // Supprime la table source initiale
-    tableSource.remove();
+          contMotclef(divCible);
 
-    // Appels de vos fonctions de suite
-    prepCarte(divCible);
-  }
+          // Extrait le contenu de toutes les div internes et supprime les balises div parentes (unwrap)
+          divCible.find('table').contents().unwrap();
+          divCible.find('tbody').remove();
+          //autre alternative permettant un traitement individuel de chaque div
+          // Récupérer et boucler sur chaque div interne
+          divCible.find('div').each(function(index, element) {
+            // $(this).contents().unwrap() fait la même chose pour chaque élément
+            // Le "!" au début signifie "SI NE CONTIENT PAS"
+            if (!$(this).hasClass('Citation')) {
+              $(this).replaceWith($(this).contents()); // Supprime la div
+              console.log("La div a été supprimée car elle n'avait pas la classe requise.");
+            };
+          });
+          console.log(`div(s) déplacée(s) avec succès !`);
+          // supprime la signature Brevo
+          divCible.children().slice(-7).remove()
+          // Supprime la table source initiale
+          tableSource.remove();
+        }
+        return divCible
+        function contMotclef(elemCible) {
+          //const colMotsClefs = ['ÉDITO', 'L’ÉCHO DES COMITÉS', '* Les initiatives à venir', '* Les initiatives tenues', '* Communiqués, prise de position ...', 'AUTRES INFOS LOCALES', 'NOUS AVONS REÇU...'];
+          // 2. Initialiser l'index pour la boucle while
+          let index = 0;
+          let contBG = 'non défini';
+
+          // 3. Parcourir la collection avec le while
+          //while (index < colMotsClefs.length) {
+          //const motClef = colMotsClefs[index];
+          // Trouver le conteneur de type typeCont contenant uniquement le mot clef motClef (malgré les balises HTML)
+          // 1. Sélectionner tous les éléments du DOM
+          const $tousLesElements = elemCible.find('p');
+          let contexteBrevo_1 = '';
+          let contexteBrevo_2 = '';
+
+          // 2. Parcourir les éléments avec jQuery .each()
+          $tousLesElements.each(function() {
+
+            const $el = $(this); // Convertit l'élément courant en objet jQuery
+            const elCont = $el.text().trim();
+            const isVille = 'isVille' == isContVille($el, contBG);
+            const isblockGen = 'isblockGen' == isContVille($el, contBG);
+
+            // 3. Traitement conditionnel selon les mots-clés
+            if (elCont === 'ÉDITO') {
+              contexteBrevo_1 = elCont;
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('table').wrap('<div class=' + elTexteNettoye + '></div>');
+              index = 1;
+
+              // 1. Créer le nouvel Édito et l'insérer juste avant $el
+              $('<p>', {
+                text: 'Édito',
+                css: {
+                  display: 'none'
+                }
+                // class: 'no-pdf' // Décommentez si besoin
+              }).insertBefore($el);
+
+              // Si vous souhaitez arrêter la boucle après avoir trouvé l'ÉDITO :
+              // return false; 
+            }
+            else if (elCont === 'L’ÉCHO DES COMITÉS') {
+              contexteBrevo_1 = elCont;
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 2;
+
+              // 1. Remplacer le contenu par le texte brut
+              // 2. Ajouter les classes d'un coup
+              // 3. Envelopper tout le contenu texte fraîchement injecté dans une balise <strong>
+              $el.text("L’ÉCHO DES COMITÉS")
+                .addClass("rubrique-new echo isNotCity page-break-before")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
+              // Entoure l'élément avec une nouvelle DIV
+
+
+              // 1 & 3. Créer le nouvel élément Sommaire et l'insérer juste avant $el
+              $('<p>', {
+                id: 'Sommaire',
+                text: 'Sommaire',
+                css: {
+                  display: 'none'
+                }
+                // class: 'no-pdf' // Décommentez si vous souhaitez réactiver la classe
+              }).insertBefore($el);
+            }
+            else if (elCont === 'LA CITATION DE LA SEMAINE') {
+
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              //const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass('Citation');
+
+            }
+            else if (elCont === '* Les initiatives à venir') {
+              contexteBrevo_2 = elCont;
+              contBG = quelBG($el)
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 3;
+
+              // 1. Remplacer le contenu texte
+              // 2. Ajouter les classes d'un coup
+              // 3. Envelopper le texte inséré dans une balise <strong>
+              $el.text("* Les initiatives à venir...")
+                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
+
+              // 1 & 3. Créer le nouvel élément avec ses classes/styles et l'insérer juste avant $el
+              $('<p>')
+                .addClass("markerGroupDeb rubrique-new echo-titre-1 isNotCity")
+                .css('display', 'none')
+                // .addClass("no-pdf") // Décommentez si besoin
+                .insertBefore($el);
+            }
+            else if (elCont === '* Les initiatives tenues') {
+              contBG = quelBG($el)
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 4;
+
+              $el.text("* Les initiatives tenues...")
+                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
+
+              $('<p>')
+                .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
+                .css('display', 'none')
+                .insertBefore($el);
+              if ('* Les initiatives à venir' != contexteBrevo_2) {
+                $('<p>')
+                  .addClass("markerGroupDeb rubrique-new echo-titre-1 isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
+                $('<p>')
+                  .addClass("markerGroupDebTitle isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
+                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' n'est pas dans contexteBrevo_2 !");
+              }
+              else {
+                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' est dans contexteBrevo_2 !");
+              }
+              contexteBrevo_2 = elCont;
+            }
+            else if (elCont === '* Communiqués, prise de position ...') {
+              contBG = quelBG($el)
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 5;
+
+              $el.text("* Communiqués, prise de position...")
+                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
+
+              $('<p>')
+                .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
+                .css('display', 'none')
+                .insertBefore($el);
+              if ('* Les initiatives à venir' != contexteBrevo_2) {
+                $('<p>')
+                  .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
+                $('<p>')
+                  .addClass("markerGroupDebTitle isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
+                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' n'est pas dans contexteBrevo_2 !");
+              }
+              else {
+                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' est dans contexteBrevo_2 !");
+              }
+              contexteBrevo_2 = elCont;
+            }
+            else if (elCont === 'AUTRES INFOS LOCALES') {
+              contexteBrevo_2 = elCont;
+              contBG = quelBG($el)
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 6;
+              $el.addClass("markerGroupDeb rubrique-new autres isNotCity page-break-before")
+                .removeAttr('style');
+              if ('* Communiqués, prise de position ...' != contexteBrevo_2) {
+                $('<p>')
+                  .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
+                $('<p>')
+                  .addClass("markerGroupDebTitle isNotCity")
+                  .css('display', 'none')
+                  .insertBefore($el);
+                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' n'est pas dans contexteBrevo_2 !");
+              }
+              else {
+                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' est dans contexteBrevo_2 !");
+              }
+              contexteBrevo_2 = elCont;
+            }
+            else if (elCont === 'NOUS AVONS REÇU...') {
+              contexteBrevo_1 = elCont;
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 7;
+              $el.addClass("rubrique-new reçu isNotCity page-break-before")
+                .removeAttr('style');
+
+
+              $('<p>', {
+                id: 'Dossier',
+                text: 'Dossier',
+                css: {
+                  display: 'none'
+                }
+              }).insertBefore($el);
+            }
+            else if (elCont === '* Communiqué, déclaration ...') {
+              contexteBrevo_2 = elCont;
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 6;
+
+              $el.text("* Communiqué, déclaration...")
+                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
+              $el.find('strong').removeAttr('style')
+            }
+            else if (elCont === 'CULTURE' || elCont === 'Culture') {
+              contexteBrevo_1 = 'CULTURE';
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 7;
+              $el.addClass("rubrique-new culture isNotCity")
+              $el.removeAttr('style');
+            }
+            else if (isVille | isblockGen) {
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              // Remplace el.parentElement.parentEle"ment.parentElement par un .closest() ou .parents() si la structure est fixe
+              const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
+
+              $el.text(elCont).wrapInner('<strong></strong>');
+              defContBrevo($el);
+              if (isVille) $el.attr('id', elCont).addClass("isCity");
+              else $el.attr('id', elCont).addClass("isNotCity");
+            }
+            else if (contexteBrevo_1 == 'NOUS AVONS REÇU...' && contexteBrevo_2 == '* Communiqué, déclaration ...') {
+              defContBrevo($el);
+            }
+          })
+          return;
+
+          function isContVille(el, contCSS) {
+            // Option 1
+            // Vérifie si le elCont est celui d'une ville
+            // Expression régulière (Regex) :
+            // ne contient que des caractères majuscule ou des espaces
+            //const regex = /^[A-Za-zÀ-ÿ\s]+$/;
+            //const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
+            //const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
+            const regex_ville = /^.+\s+\(\d{2}\)$/
+            const regex_blockGen = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ ']+)$/
+
+            // Option 2
+            // Vérifie si le elCont est celui d'une ville
+            // Expression régulière (Regex) :
+            // ^.+  -> Commence par un ou plusieurs caractères
+            // \s+  -> Suivi d'un ou plusieurs espaces
+            // \(   -> Parenthèse ouvrante
+            // \d{2}   -> deux chiffres à l'intérieur des parenthèses
+            // \)   -> Parenthèse fermante (le $ indique la fin de la chaîne)
+            //const regex = /^.+\s+\(\d{2}\)$/;
+            const elCont = el.text().trim();
+            const elColor = quelBG(el);
+            //const isVille = regex.test(elCont);
+            const isVille = regex_ville.test(elCont) && elColor == contCSS;
+            const isblockGen = regex_blockGen.test(elCont) && elColor == contCSS;
+            if (isVille) {
+              console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
+              return 'isVille';
+            }
+            else if (isblockGen) {
+              console.log("isContVille blockGen trouvée: " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
+return 'isblockGen';
+}
+else return 'inconnu'
+};
+
+function quelBG($element) {
+  var couleurTrouvee = null;
+
+  // .find('*') parcourt toute la descendance dans l'ordre du DOM
+  $element.find('*').each(function() {
+    var bg = $(this).css('background-color');
+
+    // On vérifie si la couleur est définie et n'est pas transparente
+    if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+      couleurTrouvee = bg;
+      return false; // Coupe la boucle .each() immédiatement
+    }
+  });
+
+  return couleurTrouvee;
 }
 
-    function prepCarte(divCible) {
-      //const trouve = contMotclef(divCible);
-      divCible.contents().unwrap();
-      netFinal(divCible);
-
-      function netFinal(divCible) {
+function defContBrevo($el) {
+  const elCont = $el.text().trim();
+  switch (contexteBrevo_1) {
+    case 'EDITO':
+      break;
+    case 'L’ÉCHO DES COMITÉS':
+      switch (contexteBrevo_2) {
+        case '* Les initiatives à venir':
+          $el.attr('id', elCont).addClass("brevo-2-1");
+          break;
+        case '* Les initiatives tenues':
+          $el.attr('id', elCont).addClass("brevo-2-2");
+          break;
+        case '* Communiqués, prise de position ...':
+          $el.attr('id', elCont).addClass("brevo-2-3");
+          break;
+        case 'AUTRES INFOS LOCALES':
+          $el.attr('id', elCont).addClass("brevo-2-4");
+          break;
+      }
+      break;
+    case 'NOUS AVONS REÇU...':
+      switch (contexteBrevo_2) {
+        case '* Communiqué, déclaration ...':
+          if ($el.find('strong span').css('color') == 'rgb(28, 153, 30)') {
+            $el.removeAttr('style').addClass("brevo-3-2")
+            $el.find('strong').removeAttr('style')
+          }
+          break;
+      }
+      break;
+    case 'CULTURE':
+  }
+  return;
+}
+};
+      };
+      
+      function prep_divCible(divCible) {
+        divCible.contents().unwrap();
 
         /// 1. Récupérer tous les <p> de la page
         //const paragraphes = document.querySelectorAll('p');
@@ -1336,12 +1633,48 @@ if (tableSource.length) {
             }
           }
         });
+        
+        // 1. Récupérer le <p> qui contient "Semaine"
+        let dateFromDiv = $('p:contains("Semaine")').first();
+        // 2. reformate la Semaine et retour le résultat dans un nouveau <div>
+        const dateFromDivNew = dateReform(dateFromDiv)
+        // 2. Remplacer le <p> de départ par ce nouveau <div>
+        $('#ÉDITO').before(dateFromDivNew);
+        
+        function dateReform(dateFromDiv) {
+          const texte = dateFromDiv.text().trim();
+          //var texte = $p.text().trim();
+          // ex : "Semaine 41 du 5 au 11 octobre 2026"
+
+          // 3. Extraire les infos avec une regex
+          var m = texte.match(/Semaine\s+(\d+)\s+du\s+(\d+)\s+au\s+(.+)$/);
+          if (m) {
+            var numSemaine = m[1]; // "41"
+            var debutJour = m[2]; // "5"
+            var finTexte = m[3]; // "11 octobre 2026"
+
+            var htmlBlock =
+              "<p>L'info de la semaine " + numSemaine + "</p><p>du " + debutJour + " au " + finTexte + "</p>";
+
+            // 4. Créer le nouveau div
+            var $div = $('<div id="blocDate">').html(htmlBlock);
+
+            return $div
+          };
+        };
+        /*function netContHTML(elCont) {
+          // textContent ignore les balises HTML, .trim() enlève les espaces/retours à la ligne superflus
+          return texteBrut = elCont.textContent ? elCont.textContent.trim() : '';
+        };*/
+};
+      
+      function export_divCible(divCible) {
         const corpsLettreHTML = corpsLettre.html();
+        // mise en forme de la div et suppression des deux premières lignes avant minification pour l'exportation 
         corpsLettre.html(corpsLettreHTML
-                         .replace(/><(p|h\d|div|table|title|style)/g, '>\n<$1')
-                         .replace(/<(p|h\d|div|table)(.*?)><br><\n\1>/g, '')
-                         .split('\n').slice(2).join('\n')
-                         );
+          .replace(/><(p|h\d|div|table|title|style)/g, '>\n<$1')
+          .replace(/<(p|h\d|div|table)(.*?)><br><\n\1>/g, '')
+        );
         corpsLettre.removeClass('Brevo')
         corpsLettre.removeAttr('id')
         /* 4. Inclure le clone à la fin de l'élément d'origine
@@ -1362,363 +1695,6 @@ if (tableSource.length) {
         URL.revokeObjectURL(url);
         $('.corpsLettre').append(divCible);
       };
-
-
-      function netContHTML(elCont) {
-        // textContent ignore les balises HTML, .trim() enlève les espaces/retours à la ligne superflus
-        return texteBrut = elCont.textContent ? elCont.textContent.trim() : '';
-      };
-
-    }
-      
-    function contMotclef(elemCible) {
-          //const colMotsClefs = ['ÉDITO', 'L’ÉCHO DES COMITÉS', '* Les initiatives à venir', '* Les initiatives tenues', '* Communiqués, prise de position ...', 'AUTRES INFOS LOCALES', 'NOUS AVONS REÇU...'];
-          // 2. Initialiser l'index pour la boucle while
-          let index = 0;
-          let contBG = 'non défini';
-
-          // 3. Parcourir la collection avec le while
-          //while (index < colMotsClefs.length) {
-          //const motClef = colMotsClefs[index];
-          // Trouver le conteneur de type typeCont contenant uniquement le mot clef motClef (malgré les balises HTML)
-          // 1. Sélectionner tous les éléments du DOM
-          const $tousLesElements = elemCible.find('p');
-          let contexteBrevo_1 = '';
-          let contexteBrevo_2 = '';
-
-          // 2. Parcourir les éléments avec jQuery .each()
-          $tousLesElements.each(function() {
-
-            const $el = $(this); // Convertit l'élément courant en objet jQuery
-            const elCont = $el.text().trim(); 
-            const isVille = 'isVille' == isContVille($el, contBG);
-            const isblockGen = 'isblockGen' == isContVille($el, contBG);
-
-            // 3. Traitement conditionnel selon les mots-clés
-            if (elCont === 'ÉDITO') {
-              contexteBrevo_1 = elCont;
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('table').wrap('<div class=' + elTexteNettoye + '></div>');
-              index = 1;
-
-              // 1. Créer le nouvel Édito et l'insérer juste avant $el
-              $('<p>', {
-                text: 'Édito',
-                css: {
-                  display: 'none'
-                }
-                // class: 'no-pdf' // Décommentez si besoin
-              }).insertBefore($el);
-
-              // Si vous souhaitez arrêter la boucle après avoir trouvé l'ÉDITO :
-              // return false; 
-            }
-            else if (elCont === 'L’ÉCHO DES COMITÉS') {
-              contexteBrevo_1 = elCont;
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 2;
-
-              // 1. Remplacer le contenu par le texte brut
-              // 2. Ajouter les classes d'un coup
-              // 3. Envelopper tout le contenu texte fraîchement injecté dans une balise <strong>
-              $el.text("L’ÉCHO DES COMITÉS")
-                .addClass("rubrique-new echo isNotCity page-break-before")
-                .wrapInner('<strong></strong>')
-                .removeAttr('style');
-              // Entoure l'élément avec une nouvelle DIV
-
-
-              // 1 & 3. Créer le nouvel élément Sommaire et l'insérer juste avant $el
-              $('<p>', {
-                id: 'Sommaire',
-                text: 'Sommaire',
-                css: {
-                  display: 'none'
-                }
-                // class: 'no-pdf' // Décommentez si vous souhaitez réactiver la classe
-              }).insertBefore($el);
-            }
-            else if (elCont === 'LA CITATION DE LA SEMAINE') {
-              
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              //const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass('Citation');
- 
-            }
-            else if (elCont === '* Les initiatives à venir') {
-              contexteBrevo_2 = elCont;
-              contBG = quelBG($el)
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 3;
-
-              // 1. Remplacer le contenu texte
-              // 2. Ajouter les classes d'un coup
-              // 3. Envelopper le texte inséré dans une balise <strong>
-              $el.text("* Les initiatives à venir...")
-                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
-                .wrapInner('<strong></strong>')
-                .removeAttr('style');
-
-              // 1 & 3. Créer le nouvel élément avec ses classes/styles et l'insérer juste avant $el
-              $('<p>')
-                .addClass("markerGroupDeb rubrique-new echo-titre-1 isNotCity")
-                .css('display', 'none')
-                // .addClass("no-pdf") // Décommentez si besoin
-                .insertBefore($el);
-            }
-            else if (elCont === '* Les initiatives tenues') {
-              contBG = quelBG($el)
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 4;
-
-              $el.text("* Les initiatives tenues...")
-                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
-                .wrapInner('<strong></strong>')
-                .removeAttr('style');
-
-              $('<p>')
-                .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
-                .css('display', 'none')
-                .insertBefore($el);
-              if ('* Les initiatives à venir' != contexteBrevo_2) {
-                $('<p>')
-                  .addClass("markerGroupDeb rubrique-new echo-titre-1 isNotCity")
-                  .css('display', 'none')
-                  .insertBefore($el);
-                $('<p>')
-                  .addClass("markerGroupDebTitle isNotCity")
-                  .css('display', 'none')
-                  .insertBefore($el);
-                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' n'est pas dans contexteBrevo_2 !");
-              }
-              else {
-                console.log("'* Les initiatives tenues...' : La valeur '* Les initiatives à venir' est dans contexteBrevo_2 !");
-              }
-              contexteBrevo_2 = elCont;
-            }
-            else if (elCont === '* Communiqués, prise de position ...') {
-              contBG = quelBG($el)
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 5;
-
-              $el.text("* Communiqués, prise de position...")
-                .addClass("markerGroupDebTitle isNotCity no-page-break-after")
-                .wrapInner('<strong></strong>')
-                .removeAttr('style');
-
-              $('<p>')
-                .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
-                .css('display', 'none')
-                .insertBefore($el);
-              if ('* Les initiatives à venir' != contexteBrevo_2) {
-                $('<p>')
-                  .addClass("markerGroupDeb rubrique-new echo-titre-2 isNotCity")
-                  .css('display', 'none')
-                  .insertBefore($el);
-                $('<p>')
-                  .addClass("markerGroupDebTitle isNotCity")
-                  .css('display', 'none')
-                  .insertBefore($el);
-                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' n'est pas dans contexteBrevo_2 !");
-              }
-              else {
-                console.log("'* Communiqués, prise de position...' : La valeur '* Les initiatives tenues...' est dans contexteBrevo_2 !");
-              }
-              contexteBrevo_2 = elCont;
-            }
-            else if (elCont === 'AUTRES INFOS LOCALES') {
-              contexteBrevo_2 = elCont;
-              contBG = quelBG($el)
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 6;
-              $el.addClass("markerGroupDeb rubrique-new autres isNotCity page-break-before")
-                 .removeAttr('style');
-              if ('* Communiqués, prise de position ...' != contexteBrevo_2) {
-                $('<p>')
-                  .addClass("markerGroupDeb rubrique-new echo-titre-3 isNotCity")
-                  .css('display', 'none')
-                  .insertBefore($el);
-                $('<p>')
-                  .addClass("markerGroupDebTitle isNotCity")
-                  .css('display', 'none')
-                  .insertBefore($el);
-                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' n'est pas dans contexteBrevo_2 !");
-              }
-              else {
-                console.log("'AUTRES INFOS LOCALES' : La valeur '* Communiqués, prise de position...' est dans contexteBrevo_2 !");
-              }
-              contexteBrevo_2 = elCont;
-            }
-            else if (elCont === 'NOUS AVONS REÇU...') {
-              contexteBrevo_1 = elCont;
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 7;
-              $el.addClass("rubrique-new reçu isNotCity page-break-before")
-                 .removeAttr('style');
-
-
-              $('<p>', {
-                id: 'Dossier',
-                text: 'Dossier',
-                css: {
-                  display: 'none'
-                }
-              }).insertBefore($el);
-            }
-            else if (elCont === '* Communiqué, déclaration ...') {
-              contexteBrevo_2 = elCont;
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 6;
-
-              $el.text("* Communiqué, déclaration...")
-                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity")
-                .wrapInner('<strong></strong>')
-                .removeAttr('style');
-              $el.find('strong').removeAttr('style')
-            }
-            else if (elCont === 'CULTURE'|| elCont === 'Culture') {
-              contexteBrevo_1 = 'CULTURE';
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              index = 7;
-              $el.addClass("rubrique-new culture isNotCity")
-              $el.removeAttr('style');
-            }
-            else if (isVille | isblockGen) {
-              if ($el.attr('id') == elCont) return false;
-              $el.attr('id',elCont); // Assigne l'ID en jQuery
-              const elTexteNettoye = $el.text().replace(/ /g, '-');
-              $el.closest('div').addClass(elTexteNettoye);
-              // Remplace el.parentElement.parentEle"ment.parentElement par un .closest() ou .parents() si la structure est fixe
-              const bgColor = $el.closest('tr').css('background-color') || $el.parents().eq(2).css('background-color');
-
-              $el.text(elCont).wrapInner('<strong></strong>');
-              defContBrevo($el); 
-              if (isVille) $el.attr('id', elCont).addClass("isCity");
-              else $el.attr('id', elCont).addClass("isNotCity");          
-            }
-            else if (contexteBrevo_1 == 'NOUS AVONS REÇU...' && contexteBrevo_2 == '* Communiqué, déclaration ...') {
-              defContBrevo($el);
-            }
-          })
-          return;
-          
-          function isContVille(el, contCSS) {
-            // Option 1
-            // Vérifie si le elCont est celui d'une ville
-            // Expression régulière (Regex) :
-            // ne contient que des caractères majuscule ou des espaces
-            //const regex = /^[A-Za-zÀ-ÿ\s]+$/;
-            //const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
-            //const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
-            const regex_ville = /^.+\s+\(\d{2}\)$/
-            const regex_blockGen = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ ']+)$/
-
-            // Option 2
-            // Vérifie si le elCont est celui d'une ville
-            // Expression régulière (Regex) :
-            // ^.+  -> Commence par un ou plusieurs caractères
-            // \s+  -> Suivi d'un ou plusieurs espaces
-            // \(   -> Parenthèse ouvrante
-            // \d{2}   -> deux chiffres à l'intérieur des parenthèses
-            // \)   -> Parenthèse fermante (le $ indique la fin de la chaîne)
-            //const regex = /^.+\s+\(\d{2}\)$/;
-            const elCont = el.text().trim();
-            const elColor = quelBG(el);
-            //const isVille = regex.test(elCont);
-            const isVille = regex_ville.test(elCont) && elColor == contCSS;
-            const isblockGen = regex_blockGen.test(elCont) && elColor == contCSS;
-            if (isVille) {
-              console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
-              return 'isVille';
-            }
-            else if (isblockGen) {
-              console.log("isContVille blockGen trouvée: " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
-              return 'isblockGen';
-            }
-            else return 'inconnu'
-          };
-        
-          function quelBG($element) {
-            var couleurTrouvee = null;
-
-            // .find('*') parcourt toute la descendance dans l'ordre du DOM
-            $element.find('*').each(function() {
-              var bg = $(this).css('background-color');
-
-              // On vérifie si la couleur est définie et n'est pas transparente
-              if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
-                couleurTrouvee = bg;
-                return false; // Coupe la boucle .each() immédiatement
-              }
-            });
-
-            return couleurTrouvee;
-          }
-      
-          function defContBrevo($el) {
-            const elCont = $el.text().trim(); 
-            switch (contexteBrevo_1) {
-              case 'EDITO':
-                break;
-              case 'L’ÉCHO DES COMITÉS':
-                switch (contexteBrevo_2) {
-                  case '* Les initiatives à venir':
-                    $el.attr('id', elCont).addClass("brevo-2-1");
-                    break;
-                  case '* Les initiatives tenues':
-                    $el.attr('id', elCont).addClass("brevo-2-2");
-                    break;
-                  case '* Communiqués, prise de position ...':
-                    $el.attr('id', elCont).addClass("brevo-2-3");
-                    break;
-                  case 'AUTRES INFOS LOCALES':
-                    $el.attr('id', elCont).addClass("brevo-2-4");
-                    break;
-                }
-                break;
-              case 'NOUS AVONS REÇU...':
-                switch (contexteBrevo_2) {
-                  case '* Communiqué, déclaration ...':
-                    if ($el.find('strong span').css('color') == 'rgb(28, 153, 30)') {
-                      $el.removeAttr('style').addClass("brevo-3-2")
-                      $el.find('strong').removeAttr('style')
-                    }
-                    break;
-               }
-                break;
-              case 'CULTURE':
-            }
-            return;
-          }
-        };
-
 
     };
     //return;

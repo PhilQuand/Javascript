@@ -1287,7 +1287,7 @@
               // 2. Ajouter les classes d'un coup
               // 3. Envelopper tout le contenu texte fraîchement injecté dans une balise <strong>
               $el.text("L’ÉCHO DES COMITÉS")
-                .addClass("rubrique-new echo isNotCity page-break-before")
+                .addClass("rubrique-new echo isNotCity no-page-break-after")
                 .wrapInner('<strong></strong>')
                 .removeAttr('style');
               // Entoure l'élément avec une nouvelle DIV
@@ -1402,7 +1402,6 @@
               contexteBrevo_2 = elCont;
             }
             else if (elCont === 'AUTRES INFOS LOCALES') {
-              contexteBrevo_2 = elCont;
               contBG = quelBG($el)
               if ($el.attr('id') == elCont) return false;
               $el.attr('id', elCont); // Assigne l'ID en jQuery
@@ -1444,7 +1443,7 @@
               const elTexteNettoye = $el.text().replace(/ /g, '-');
               $el.closest('div').addClass(elTexteNettoye);
               index = 7;
-              $el.addClass("rubrique-new reçu isNotCity page-break-before")
+              $el.addClass("rubrique-new reçu isNotCity no-page-break-after")
                 .removeAttr('style');
 
 
@@ -1455,6 +1454,20 @@
                   display: 'none'
                 }
               }).insertBefore($el);
+            }
+            else if (elCont === '* Invitation ...') {
+              contexteBrevo_2 = elCont;
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 6;
+
+              $el.text("* Invitation...")
+                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
+              $el.find('strong').removeAttr('style')
             }
             else if (elCont === '* Communiqué, déclaration ...') {
               contexteBrevo_2 = elCont;
@@ -1477,10 +1490,10 @@
               const elTexteNettoye = $el.text().replace(/ /g, '-');
               $el.closest('div').addClass(elTexteNettoye);
               index = 7;
-              $el.addClass("rubrique-new culture isNotCity page-break-before")
+              $el.addClass("rubrique-new culture isNotCity no-page-break-after")
               $el.removeAttr('style');
             }
-            else if (isVille | isblockGen) {
+            else if (isVille || isblockGen) {
               if ($el.attr('id') == elCont) return false;
               $el.attr('id', elCont); // Assigne l'ID en jQuery
               const elTexteNettoye = $el.text().replace(/ /g, '-');
@@ -1507,7 +1520,7 @@
             //const regex = /^[A-Za-zÀ-ÿ\s]+$/;
             //const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
             //const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
-            const regex_ville = /^.+\s+\(\d{2}\)$/
+            const regex_ville = /^.+\s+\(\s*\d{2}\s*\)$/;
             const regex_blockGen = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ ']+)$/
 
             // Option 2
@@ -1575,13 +1588,34 @@ function defContBrevo($el) {
       break;
     case 'NOUS AVONS REÇU...':
       switch (contexteBrevo_2) {
-        case '* Communiqué, déclaration ...':
-          if ($el.find('strong span').css('color') == 'rgb(28, 153, 30)') {
-            $el.removeAttr('style').addClass("brevo-3-2")
-            $el.find('strong').removeAttr('style')
-          }
+    
+        case '* Invitation ...':
+          $el.filter(function() {
+            return $(this).find('span').filter(function() {
+              const attrStyle = $(this).attr('style') || '';
+              // Cherche le texte "color" suivi de "rgb(0,128,0)" avec ou sans espaces, ou "green"
+              return /color\s*:\s*rgb\(\s*0\s*,\s*128\s*,\s*0\s*\)/i.test(attrStyle) ||
+                /color\s*:\s*green/i.test(attrStyle);
+            }).length > 0;
+          }).addClass("brevo-3-2");
+          //console.log('Invitation text : ' + $el.text());
+          //console.log('Invitation color : ' + $el.find('strong span').attr('color'));
+          $el.find('strong span').removeAttr('style')
           break;
-      }
+         case '* Communiqué, déclaration ...':
+          $el.filter(function() {
+            return $(this).find('span').filter(function() {
+              const attrStyle = $(this).attr('style') || '';
+              // Cherche le texte "color" suivi de "rgb(0,128,0)" avec ou sans espaces, ou "green"
+              return /color\s*:\s*rgb\(\s*0\s*,\s*128\s*,\s*0\s*\)/i.test(attrStyle) ||
+                /color\s*:\s*green/i.test(attrStyle);
+            }).length > 0;
+          }).addClass("brevo-3-2");
+          //console.log('Invitation text : ' + $el.text());
+          //console.log('Invitation color : ' + $el.find('span').attr('color'));
+          $el.find('strong span').removeAttr('style')
+          break;
+     }
       break;
     case 'CULTURE':
   }
@@ -1632,8 +1666,7 @@ function defContBrevo($el) {
         });
         $('.isCity').each(function() {
           var $start = $(this);
-          var $container = $start.parent(); // ou .closest('.tonConteneur')
-
+      
           var endSelector = '.isCity, .markerGroupDeb, #Dossier';
           var $end = $start.nextAll(endSelector).first();
 
@@ -1646,7 +1679,32 @@ function defContBrevo($el) {
             }
           }
         });
+        $('.brevo-3-2').each(function() {
+          var $start = $(this);
+      
+          var endSelector = '.brevo-3-2, [id="* Communiqué, déclaration ..."], #Culture';
+          var $end = $start.nextAll(endSelector).first();
+
+          if ($end.length) {
+            var $between = $start.nextUntil($end);
+
+            // Exemple : regrouper dans un sous-div à l’intérieur du même conteneur
+            if ($between.length) {
+              $between.wrapAll('<div class="contbrevo-3-2 no-break-inside no-page-break-before"></div>');
+            }
+          }
+        });
+
+        // Sélectionne les éléments intermédiaires, y ajoute #Culture, puis englobe le tout
+        $('#Culture').nextUntil('#divBrevo').addBack().wrapAll('<div id="debCulture"></div id="finCulture">');
+        $('[id="NOUS AVONS REÇU..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debReçu"></div id="finReçu">');
+        $('#debReçu').nextUntil('#divBrevo').addBack().wrapAll('<div id="contReçuCulture"></div id="finReçuCulture">');
         
+        $('[id="* Invitation ..."]').nextUntil('[id="* Communiqué, déclaration ..."]').addBack().wrapAll('<div id="debInvitation"></div id="finInvitation">');
+        $('[id="* Communiqué, déclaration ..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debCommuniquén"></div id="finCommuniqué">');
+        
+
+       
         // 1. Récupérer le <p> qui contient "Semaine"
         let dateFromDiv = $('p:contains("Semaine")').first();
         // 2. reformate la Semaine et retour le résultat dans un nouveau <div>

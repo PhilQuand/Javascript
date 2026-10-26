@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Infos CNHMP 2026 semaines 01</title>
+<!-- jQuery for FancyBox 3-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- Load Leaflet -->
+  <link crossorigin='' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css' integrity='sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==' rel='stylesheet'/>
+  <script crossorigin='' integrity='sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==' src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+<!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.3.0/dist/esri-leaflet.js"
+  integrity="sha512-1tScwpjXwwnm6tTva0l0/ZgM3rYNbdyMj5q6RSQMbNX6EUMhYDE3pMRGZaT41zHEvLoWEK7qFEJmZDOoDMU7/Q=="
+  crossorigin=""></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+    crossorigin="">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+    crossorigin=""></script>
+<!-- Load html2pdf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!--Load markerclusters -->
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.css' rel='stylesheet' type='text/css'/>
+  <link href='https://philquand.github.io/Javascript/LeafLet/MarkerCluster/MarkerCluster.Default.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/LeafLet/MarkerCluster/leaflet.markercluster-src.js" type='text/javascript'></script>
+  <script src="https://unpkg.com/leaflet.markercluster.freezable@1.0.0/dist/leaflet.markercluster.freezable.js" type='text/javascript'></script>
+<!--Load datepicker -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--Load footnotes -->
+  <script src="https://philquand.github.io/Javascript/FootnotesAndRef.js" type="text/javascript"></script>
+<!--Load carte-infos-semaines -->
+  <link href='https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.css' rel='stylesheet' type='text/css'/>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines.js"></script>
+<script>
+</script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Adresses.js"></script>
+  <script src="https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/Coordination Lettres Infos/carte-infos-semaines-Icons.js"></script>
+<!--Load iframeResizer : https://davidjbradshaw.github.io/iframe-resizer/ -->
+  <script src="https://philquand.github.io/Javascript/iframe-resizer-master/js/iframeResizer.contentWindow.js"></script>
+
+<link href="https://philquand.github.io/Javascript/Blog-widgets/All-Blogs-Style.css" rel="stylesheet" type="text/css" />
+
+<base target="_blank">
+</head>
+<body>
+<!--style>
+@media print {
+  .corpsLettreWeek-new {
+    display: none;
+  }
+}    
+</style-->
+<!--style>
+/* Ce CSS s'applique à l'écran et sera capturé fidèlement par html2pdf */
+#HTML2pdf { 
+    width: 100%;
+    max-width: 800px; /* Idéal pour simuler une largeur de page A4 */
+    background: #ffffff; /* Assure un fond blanc sur le PDF */
+    margin: 0 auto;
+}
+</style-->
+<div id="HTML2pdf">
+<img src="https://4.bp.blogspot.com/-WgwJsMGzYPE/WkoKfP1TJDI/AAAAAAAAAG0/7vLne-Wtd3cjxFK4Qm-NOJPFBeWShhlKwCLcBGAs/s400/AE8A2A5A-3BDA-4D84-82D5-B34D7215D364.png" width="400" height="216" border="0" data-original-height="526" data-original-width="968" />
+<div style="display:none">
+
+Nous sommes passés d’une journée de dénonciation de l’inaction climatique et sociale à une mobilisation moyenne de la fonction publique, puis un mouvement lycéen très violemment réprimé et qui pourtant démontre l’angoisse, la colère et les demandes de jeunes qui se sentent trahis
+
+</div>
+<!--more-->
+<div style="display:none">
+<p><a href="https://www.base64-image.de/">conversions images en base64 et code d'intégration</a></p>
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/image_p7_14.png"/>
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/pieds.webp"/>
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p4_3.png"/>
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2026/08/image_p7_7.png"/>
+
+<div class="VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 400px;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2026/09/Image_002.jpg" />
+
+<div class="VignetteBR flex right" style="align-items: center;">
+<div class="divIcon" style="padding-right:100px">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/image_p7_14.png"/>
+</div>
+<div class="divText">
+<p style="padding-left: 17pt;text-indent: 0pt;line-height: 14pt;text-align: center;">Le Maire de Senlis appelle à une mobilisation le 12 septembre dans sa ville.</p>
+<p class="s8" style="padding-left: 158pt;text-indent: 0pt;text-align: center;"><a href="https://www.oisehebdo.fr/2026/08/31/creil-une-manifestation-dampleur-attendue-devant-lhopital-de-creil-jeudi-3-septembre/" class="a" target="_blank">L’article de l’Oise Hebdo du 31 annonçant la manifestation</a> <a href="https://www.oisehebdo.fr/2026/09/03/creil-hopital-les-elus-exigent-de-stopper-lhemorragie/" target="_blank">L’article de l’Oise Hebdo du 3 septembre après la manifestation</a></p>
+</div>
+
+<p class="rubrique-new reçu">NOUS AVONS REÇU ...</p>
+
+<p class="rubrique-new reçu sous-titre-1">Initiatives</p>
+<p class="rubrique-new reçu sous-titre-1">Communiqué – déclaration...</p>
+<p class="rubrique-new reçu-sous-titre-2">Soins palliatifs</p>
+
+<p class="rubrique-new culture">CULTURE</p>
+</div>
+
+</div></div>
+
+</div>
+<div class="corpsLettreWeek-new">
+<div class="corpsLettreWeek-new-ban  VignetteBR flex center" style="align-items: center;">
+<div class="divImg" style="max-width: 100%;" align="center">
+<img src="https://coordination-defense-sante.org/wp-content/uploads/2026/07/bannière.webp" />
+</div>
+</div>
+<!--p>L'INFO de la semaine 41
+<br/>du 05 oct. au 11 oct. 2026</p-->
+</div>
+<div style="display: none" class="corpsLettrePDF">
+<a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Infos-CNHMP-2026-semaines-43.pdf">Pdf correspondant</a>
+<!--a href="version en ligne">Pdf correspondant</a-->
+</div>
+<!--div class="corpsLettre Brevo">
+</div-->
+<div class="corpsLettre">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="format-detection" content="telephone=no"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bulletin 43_copy</title>
+<style type="text/css" emogrify="no">#outlook a { padding:0; } .ExternalClass { width:100%; } .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; } table td { border-collapse: collapse; mso-line-height-rule: exactly; } .editable.image { font-size: 0 !important; line-height: 0 !important; } .nl2go_preheader { display: none !important; mso-hide:all !important; mso-line-height-rule: exactly; visibility: hidden !important; line-height: 0px !important; font-size: 0px !important; } body { width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; } img { outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; } a img { border:none; } table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; } th { font-weight: normal; text-align: left; } *[class="gmail-fix"] { display: none !important; }</style>
+<style type="text/css" emogrify="no"> @media (max-width: 600px) { .gmx-killpill { content: ' \03D1';} } </style>
+<style type="text/css" emogrify="no">@media (max-width: 600px) { .gmx-killpill { content: ' \03D1';} .r0-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 100% !important } .r1-i { background-color: transparent !important } .r2-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 320px !important } .r3-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 320px !important } .r4-i { padding-bottom: 5px !important; padding-top: 5px !important } .r5-c { box-sizing: border-box !important; display: block !important; valign: top !important; width: 100% !important } .r6-o { border-style: solid !important; width: 100% !important } .r7-i { padding-left: 10px !important; padding-right: 10px !important; text-align: center !important } .r8-i { background-color: #ffffff !important } .r9-i { padding-bottom: 15px !important; padding-top: 15px !important } .r10-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 100% !important } .r11-i { padding-bottom: 20px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 20px !important } .r12-i { padding-left: 0px !important; padding-right: 0px !important } .r13-c { box-sizing: border-box !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: left !important; valign: top !important; width: 100% !important } .r14-c { box-sizing: border-box !important; text-align: left !important; valign: top !important; width: 100% !important } .r15-o { border-style: solid !important; margin: 0 auto 0 0 !important; width: 100% !important } .r16-i { padding-bottom: 15px !important; padding-top: 15px !important; text-align: justify !important } .r17-i { background-color: #cad9f1 !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: justify !important } .r18-i { padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important } .r19-c { box-sizing: border-box !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important; valign: top !important; width: 100% !important } .r20-i { padding-bottom: 0px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 0px !important } .r21-i { background-color: #eff2f7 !important; color: #3b3f44 !important; padding-bottom: 20px !important; padding-left: 15px !important; padding-right: 15px !important; padding-top: 20px !important } .r22-i { color: #3b3f44 !important; padding-left: 0px !important; padding-right: 0px !important } .r23-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important; text-align: center !important } .r24-c { box-sizing: border-box !important; padding-bottom: 0px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important; text-align: left !important; valign: top !important; width: 100% !important } .r25-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-top: 15px !important; text-align: center !important } .r26-i { color: #3b3f44 !important; padding-bottom: 0px !important; padding-top: 0px !important; text-align: center !important } .r27-i { color: #3b3f44 !important; padding-bottom: 15px !important; padding-top: 15px !important; text-align: center !important } .r28-c { box-sizing: border-box !important; text-align: center !important; width: 100% !important } .r29-i { color: #3b3f44 !important; padding-bottom: 15px !important; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important } .r30-c { box-sizing: border-box !important; text-align: center !important; valign: top !important; width: 129px !important } .r31-o { border-style: solid !important; margin: 0 auto 0 auto !important; width: 129px !important } .r32-i { color: #3b3f44 !important } body { -webkit-text-size-adjust: none } .nl2go-responsive-hide { display: none } .nl2go-body-table { min-width: unset !important } .mobshow { height: auto !important; overflow: visible !important; max-height: unset !important; visibility: visible !important } .resp-table { display: inline-table !important } .magic-resp { display: table-cell !important } }</style><!--[if !mso]><!-->
+<style type="text/css" emogrify="no">@import url("https://fonts.googleapis.com/css2?family=Arial black");</style><!--<![endif]-->
+<style type="text/css">.nl2go-default-textstyle { color: #3b3f44; font-family: Arial; font-size: 16px; line-height: 1.5; word-break: break-word } .default-button { color: #ffffff; font-family: Arial; font-size: 16px; font-style: normal; font-weight: normal; line-height: 1.15; text-decoration: none; word-break: break-word } a, a:link { background-color: #ffffff; color: #037acc; text-decoration: underline } .default-heading1 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 36px; word-break: break-word } .default-heading2 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 32px; word-break: break-word } .default-heading3 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 24px; word-break: break-word } .default-heading4 { color: #1F2D3D; font-family: Arial Black, arial; font-size: 18px; word-break: break-word } p, h1, h2, h3, h4, ol, ul, li { margin: 0; } a[x-apple-data-detectors] { color: inherit !important; text-decoration: inherit !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; } .no-show-for-you { border: none; display: none; float: none; font-size: 0; height: 0; line-height: 0; max-height: 0; mso-hide: all; overflow: hidden; table-layout: fixed; visibility: hidden; width: 0; }</style>
+<style type="text/css">a:link { background-color: #fff; color: #037acc; text-decoration: underline }</style><!--[if mso]><xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml><![endif]-->
+<p style="margin:0"><a href="{{ mirror }}" style="background-color:#ffffff;color:#037acc;text-decoration:underline"><span style="font-family: arial,helvetica,sans-serif;color:#858588;font-size: 12px; text-decoration: underline;">
+                      Afficher dans le navigateur</span></a></p><img src="https://img.mailinblue.com/8963076/images/content_library/original/6a5e5c8662f042e7fe2f9e84.jpg" width="600" border="0" style="display: block; width: 100%;">
+<p style="margin:0"><span style="font-family: Arial black, helvetica, sans-serif, arial; font-size: 26px; color: rgb(128, 0, 128); background-color: rgb(255, 255, 255);"><strong>Semaine&nbsp;</strong></span><strong><span style="font-family: Arial black, helvetica, sans-serif, arial; font-size: 26px; color: rgb(128, 0, 128); background-color: rgb(255, 255, 255)">43 du 19 au 25 octobre 2026</span></strong></p>
+<p style="display: none;">Édito</p>
+<div id="blocDate">
+<p>L'info de la semaine 43</p>
+<p>du 19 au 25 octobre 2026</p></div>
+<p style="margin:0" id="ÉDITO"><span style="font-size: 36px;font-family: Impact, fantasy, arial;"><strong><span style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 255);">É</span></strong><strong><span style="color: rgb(255, 255, 255); background-color: rgb(0, 0, 255);">DITO</span></strong></span></p>
+<p style="margin:0;text-align:justify"><em>Ce 24 octobre, Monsieur Nuñez, interrogé sur BFM TV, se satisfait de la baisse du nombre de rassemblements et de manifestants, de l’augmentation des contrôles. La responsabilité des débordements serait dûe à l’ultra gauche et à l’extrême gauche radicale…<br id="isPasted">Les revendications, les inquiétudes des lycéens, des étudiants et tous&nbsp;les autres ? Il n’en a pas été question : puisqu’on vous dit que le gouvernement fait son travail !</em></p>
+<p style="margin:0;text-align:right"><em><br>Rosine Leverrier</em></p>
+<div class="Citation">
+<p style="margin:0" id="LA CITATION DE LA SEMAINE"><strong><span style="color: rgb(0, 0, 255);">LA CITATION </span></strong><span style="color: rgb(0, 0, 255);"><strong>DE LA SEMAINE</strong></span></p>
+<p style="margin:0"><span style="color:rgb(0, 0, 255)"><em>Diviser pour régner, se rassembler pour gagner !&nbsp;</em></span></p></div>
+<p id="Sommaire" style="display: none;">Sommaire</p>
+<p id="L’ÉCHO DES COMITÉS" class="rubrique-new echo isNotCity no-page-break-after"><strong>L’ÉCHO DES COMITÉS</strong></p>
+<p class="markerGroupDeb rubrique-new echo-titre-1 isNotCity" style="display: none;"></p>
+<p id="* Les initiatives à venir" class="markerGroupDebTitle isNotCity no-page-break-after"><strong>* Les initiatives à venir...</strong></p>
+<p style="margin:0;text-align:center" id="DOLE (39)" class="brevo-2-1 isCity"><strong>DOLE (39)</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center"><strong>Samedi 31 octobre place du 8 mai entre 10h et 12h animation théâtre-forum</strong></p>
+<p style="margin:0;text-align:center">Le 5 novembre mobilisons-nous !</p>
+<p style="margin:0;text-align:center"><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/INFO-Flash-127_compressed.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">INFO Flash 127</a></u><br><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/petition-renovation-thermique_hopital.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">petition-renovation-thermique_hopital</a></u></p>
+<p style="margin:0;text-align:center"><br></p></div>
+<p style="margin:0;text-align:center" id="LUÇON&nbsp;(85)" class="brevo-2-1 isCity"><strong>LUÇON&nbsp;(85)</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center"><strong>Les rendez-vous des services publics</strong></p>
+<p style="margin:0;text-align:justify">Ce sera le 31 octobre de 9h30 à 12 h place des acacias. C’est une initiative de l'ADSP en lien avec la campagne nationale de la Coordination Nationale des comités de défense des hôpitaux et maternités contre le projet de budget 2027 et pour la défense de la Sécurité Sociale.</p>
+<p style="margin:0;text-align:justify">La pétition contre les les dépassements d'honoraires et autres restes à charge lancée à cette occasion a déjà recueilli mercredi dernier au marché de Luçon 240 signatures.</p>
+<p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/lucon-725x1024.jpg" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le flyer</a></p></div>
+<p class="markerGroupDeb rubrique-new echo-titre-2 isNotCity" style="display: none;"></p>
+<p id="* Les initiatives tenues" class="markerGroupDebTitle isNotCity no-page-break-after"><strong>* Les initiatives tenues...</strong></p>
+<p style="margin:0" id="CANNES&nbsp;(06)" class="brevo-2-2 isCity"><strong>CANNES&nbsp;(06)</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0"><strong>Le Comité de Défense des Hôpitaux 06 était présent à la fête des Libertés à Cannes Le Cannet</strong></p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6ade40b2d7ef0d19180fefa7.jpg">
+        </div>
+        <!--div class="divText">
+        </div>--></div></div>
+<p class="markerGroupDeb rubrique-new echo-titre-3 isNotCity" style="display: none;"></p>
+<p class="markerGroupDeb rubrique-new echo-titre-2 isNotCity" style="display: none;"></p>
+<p class="markerGroupDebTitle isNotCity" style="display: none;"></p>
+<p id="* Communiqués, prise de position ..." class="markerGroupDebTitle isNotCity no-page-break-after"><strong>* Communiqués, prise de position...</strong></p>
+<p style="margin:0;text-align:center" id="BAGNÈRES DE BIGORRE&nbsp;(65)" class="brevo-2-3 isCity"><strong>BAGNÈRES DE BIGORRE&nbsp;(65)</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center"><strong>Les représentants de l’association Sauvons l’hôpital B2B ont rencontré le directeur de l’hôpital</strong></p>
+<p style="margin:0">Réunis le 14 octobre avec le directeur de l’hôpital de Bagnères-de-Bigorre, les représentants de l’association Sauvons l’hôpital B2B ont fait le point sur les projets en cours. Si plusieurs <span>dos</span>siers avancent, l’avenir des urgences reste leur principale préoccupation, dans un contexte de manque persistant de médecins urgentistes et d’ouverture très limitée du service. Le projet de scanner est encore en attente. L’association fait le point après cette rencontre.</p>
+<p style="margin:0;text-align:center"><a href="https://www.lasemainedespyrenees.fr/hopital-de-bagneres-de-bigorre-les-urgences-au-coeur-des-inquietudes-de-lassociation-sauvons-lhopital-b2b/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de la Semaine des Pyrénées</a></p>
+<p style="margin:0;text-align:center"><br></p></div>
+<p style="margin:0;text-align:center" id="SAINT CLAUDE&nbsp;(39)" class="brevo-2-3 isCity"><strong>SAINT CLAUDE&nbsp;(39)</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center"><strong>Le bloc opératoire est menacé de fermeture.</strong></p>
+<p style="margin:0">A l’hôpital les bloc opératoire est menacé de fermeture, les syndicats inquiets : « certains élus nous ont dit qu’il fallait avoir le courage que nous avons eu en 2018 année de la fermeture de la maternité et de la pédiatrie ! »</p>
+<p style="margin:0">Francis Lahaut, ancien maire de Saint-Claude, est vice-président du comité de défense de l'hôpital. Au micro de France3, il enrage : "C'est plus qu'une inquiétude parce que la menace est réelle. [...] C'est quand même incroyable, ce rapport de l'ANAP. Les gens d'ici, du Haut-Jura, n'en ont absolument pas connaissance et les décisions sont prises en haut lieu par des gens qui ne voient qu'une chose : faire des économies. C'est à la mode. [...] Le bloc opératoire c'est 800 interventions bon an, mal an, dont 300 réalisées par le centre de l'œil qui a fermé. Donc essayons de faire revenir des ophtalmologistes. C'est possible à Saint-Claude. À Dole ils recrutent deux ophtalmologistes. Il y a un manque de volonté politique. On sent qu'on veut liquider l'hôpital."</p>
+<p style="margin:0;text-align:center"><a href="https://france3-regions.franceinfo.fr/bourgogne-franche-comte/jura/saint-claude/on-sent-qu-on-veut-liquider-l-hopital-le-bloc-operatoire-de-l-hopital-de-saint-claude-menace-de-fermeture-les-syndicats-vent-debout-la-direction-repond-3435891.html" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de France 3 du 20 octobre</a></p>
+<p style="margin:0;text-align:center"><br></p></div>
+<p style="margin:0;text-align:center" id="MONTCEAU LES MINES&nbsp;(71)" class="brevo-2-3 isCity"><strong>MONTCEAU LES MINES&nbsp;(71)</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center"><strong>Jean Bouveri : de beaux murs, et après ?&nbsp;</strong></p>
+<p style="margin:0">Bravo à Gilles Desnoix*. Nous ne connaissons personne dans le bassin montcellien capable de transformer une rallonge déjà promise en événement historique. Il fallait oser « enfin, une perspective d'avenir » pour des 65 M€ annoncés par Catherine Vautrin dès 2024. Vendredi, nous avons reçu une Ministre venue confirmer un chèque déjà promis depuis 2 ans …</p>
+<p style="margin:0;text-align:center"><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/de-beaux-murs-et-apre%CC%80s-_.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">de beaux murs, et après</a></u></p>
+<p style="margin:0;text-align:center">Nous voulons des conditions de travail dignes d’un véritable service public !</p>
+<p style="margin:0;text-align:center"><u><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Abandonner-les-soignants-cest-abandonner-les-patients.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Abandonner les soignants, c'est abandonner les patients</a></u></p>
+<p style="margin:0;text-align:center"><br></p></div>
+<p style="margin:0;text-align:center" id="RAMBOUILLET&nbsp;(78)" class="brevo-2-3 isCity"><strong>RAMBOUILLET&nbsp;(78)</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center"><strong>Des sous pour la Sécu, un Centre public de santé ! La seule façon de défendre nos droits .</strong></p>
+<p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/Flash-Infos-27.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le Flash Info 27</a></p></div>
+<p class="markerGroupDeb rubrique-new autres isNotCity" style="display: none;"></p>
+<p id="AUTRES INFOS LOCALES" class="markerGroupDebTitle isNotCity no-page-break-after"><strong>AUTRES INFOS LOCALES</strong></p>
+<p style="margin:0" id="RENNES&nbsp;(35 )" class="brevo-2-4 isCity"><strong>RENNES&nbsp;(35 )</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0"><strong>Régulation des urgences au CHU de Rennes</strong></p>
+<p style="margin:0">Le SNPHARE appelle à une sortie de crise rapide.</p>
+<p style="margin:0"><a href="https://www.snphare.fr/fr/blog/posts/regulation-des-urgences-au-chu-de-rennes--le-snphare-appelle-a-une-sortie-de-crise-rapide" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a></p>
+<p style="margin:0"><br></p></div>
+<p style="margin:0" id="PARIS (75 )" class="brevo-2-4 isCity"><strong>PARIS (75 )</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0"><strong>Fondation Croix Saint-Simon : 17 structures vont fermer et des centaines de salariés vont être licenciés</strong></p>
+<p style="margin:0"><a href="https://www.whatsupdoc-lemag.fr/article/fondation-croix-saint-simon-17-structures-vont-fermer-et-des-centaines-de-salaries-vont" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de What’s up doc du 21 octobre</a></p>
+<p style="margin:0"><br></p></div>
+<p style="margin:0" id="PAU&nbsp;(64 )" class="brevo-2-4 isCity"><strong>PAU&nbsp;(64 )</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0"><strong>Fermeture des urgences de la clinique de Navarre la nuit</strong></p>
+<p style="margin:0">Cette décision aggrave la situation de l’hôpital de Pau.</p>
+<p style="margin:0"><a href="https://www.ici.fr/nouvelle-aquitaine/pyrenees-atlantiques-64/pau/c-est-infernal-les-urgences-de-navarre-ferment-la-nuit-celles-de-l-hopital-de-pau-debordent-1837878" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article de ICI du 20 octobre</a></p>
+<p style="margin:0"><br></p></div>
+<p style="margin:0" id="LES MUREAUX&nbsp;(78 )" class="brevo-2-4 isCity"><strong>LES MUREAUX&nbsp;(78 )</strong></p>
+<div class="contCity isNotCity no-break-inside no-page-break-before">
+<p style="margin:0"><strong>Avec le soutien du collectif santé Sud Yvelines</strong></p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6ade41d2d7ef0d19180fefc3.jpg">
+        </div>
+        <!--div class="divText">
+        </div>--></div>
+<p style="margin:0"><a href="https://journal-deux-rives.com/2026/10/le-collectif-defense-et-developpement-chimm-sensibilise-la-population-au-marche-de-verneuil-sur-seine/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’article du journal des deux rives</a></p></div>
+<p id="Dossier" style="display: none;">Dossier</p>
+<div id="contReçuCulture">
+<div id="debReçu">
+<p id="NOUS AVONS REÇU..." class="rubrique-new reçu isNotCity no-page-break-after"><span style="font-family: Impact, fantasy, arial;font-size:36px;color:rgb(255, 255, 255);background-color:rgb(28, 153, 30)"><strong>NOUS AVONS REÇU...</strong></span></p>
+<div id="debInvitation">
+<p id="* Invitation ..." class="rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity"><strong>* Invitation...</strong></p>
+<p style="margin:0;text-align:center"><strong><span style="background-color: rgb(255, 255, 255); font-size: 20px; color: rgb(0, 128, 0);">Ateliers de la refondation du service public hospitalier et du soin</span></strong></p>
+<p style="margin:0">Une rencontre publique est organisée le 14 novembre à Montreuil consacrée à la restitution et aux débats autour des premiers résultats de l'enquête citoyenne EnCollineS.</p>
+<p style="margin:0">EnCollineS est constitué de membres du Collectif Inter-Urgences, du LPED (Aix-Marseille Université-IRD), des Ateliers Travail et démocratie, du RPpsy (Université Rennes 2), de l'hôpital de Nantes, de l'EHESP et du Printemps de la psychiatrie. Cette enquête a été menée dans le cadre d’un projet de recherche financé par la MSH Paris Nord et par l’Agence Nationale de la Recherche. Elle s’inscrit dans la continuité des travaux au sein des Ateliers pour la refondation du service public hospitalier et du soin</p>
+<p style="margin:0;text-align:center"><a href="https://www.ateliersrefondationhopitalpublic.org/quest-ce-que-bien-soigner-rencontre-publique-encollines-le-14-novembre-a-laeri-montreuil/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">L’invitation</a></p></div>
+<div id="debCommuniquén">
+<p id="* Communiqué, déclaration ..." class="rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity"><strong>* Communiqué, déclaration...</strong></p>
+<p style="margin:0;text-align:center" class="brevo-3-2"><strong><span>Sud Santé Sociaux</span></strong></p>
+<div class="contbrevo-3-2 no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center"><strong>P</strong><strong>réavis de grève du 1er au 30 novembre</strong></p>
+<p style="margin:0">pour : un service public de santé correspondant aux besoins, la fin de la marchandisation de la santé et de bonnes conditions de travail</p>
+<p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/preavis-de-greve-sud-sante-sociaux-novembre-2026.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le préavis</a></p>
+<p style="margin:0;text-align:center"><br></p></div>
+<p style="margin:0;text-align:center" class="brevo-3-2"><strong><span>Psychiatrie</span></strong></p>
+<div class="contbrevo-3-2 no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center"><strong>Les neurosciences, beaucoup d’argent mais peu de résultats pour le malade…</strong></p>
+<p style="margin:0;text-align:center"><a href="https://vif-fragiles.org/les-neurosciences-beaucoup-dargent-mais-peu-de-resultats-pour-le-malade/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Une analyse de Paul Machto</a></p>
+<p style="margin:0;text-align:center"><br></p>
+<p style="margin:0;text-align:center"><strong>La souffrance psychique n’est pas déconnectée de la souffrance sociale</strong></p>
+<p style="margin:0">On ne peut pas prétendre faire de la santé mentale une priorité nationale tout en négligeant les déterminants sociaux, économiques et politiques qui contribuent à la fragiliser :une analyse d’une association de psychologues.</p>
+<p style="margin:0;text-align:center"><a href="https://associationm3p-psychologues.fr/la-souffrance-psychique-nest-pas-deconnectee-de-la-souffrance-sociale-communique-du-m3p-21-octobre-2026/" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué du M3P</a></p>
+<p style="margin:0;text-align:center"><br></p></div>
+<p style="margin:0;text-align:center" class="brevo-3-2"><strong><span>Fédération Nationale des Centres de Santé</span></strong></p>
+<div class="contbrevo-3-2 no-break-inside no-page-break-before">
+<p style="margin:0">La Fédération Nationale des Centres de Santé rappelle que la santé est un droit pour tous : le PLFSS doit garantir ce droit.</p>
+<p style="margin:0;text-align:center"><a href="https://www.fncs.org/file/34382/download?token=fpaWqnAK" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a></p>
+<p style="margin:0;text-align:center"><br></p></div>
+<p style="margin:0;text-align:center" class="brevo-3-2"><strong><span>Convergence des Services Publics</span></strong></p>
+<div class="contbrevo-3-2 no-break-inside no-page-break-before">
+<p style="margin:0;text-align:center">Pour la démocratie, pour une politique sociale, pour les services publics.</p>
+<p style="margin:0;text-align:center"><a href="https://coordination-defense-sante.org/wp-content/uploads/2026/10/CSP-CP-2026-10-20.pdf" style="background-color:#ffffff;color:#037acc;text-decoration:underline">Le communiqué</a></p></div></div></div>
+<div id="debCulture">
+<p id="Culture" class="rubrique-new culture isNotCity no-page-break-after"><span style="font-family: Impact, fantasy, arial; font-size: 36px; color: rgb(255, 255, 255); background-color: rgb(195, 10, 97);"><strong>&nbsp;Culture&nbsp;</strong></span></p>
+<div class="VignetteBR center" style="align-items: center;">
+        <div class="divImg" style="max-width: 400px;" align="center">
+            <img class="skip-lazy" src="https://img.mailinblue.com/8963076/images/content_library/original/6ade42e80dd7883b0f6cdb22.jpg">
+        </div>
+        <!--div class="divText">
+        </div>--></div>
+<p style="margin:0"><strong>Et si on n’avait des solutions pour l’avancement !</strong></p>
+<p style="margin:0"><u><a href="https://www.youtube.com/watch?v=18HBMsuOGy4" style="background-color:#ffffff;color:#037acc;text-decoration:underline">https://www.youtube.com/watch?v=18HBMsuOGy4</a></u></p></div></div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+$('.corpsLettre').CNLetter(
+        [{
+          class: "marker-0",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir ...',
+        },{
+          class: "marker-1",
+          icon: simpleVioletIcon,
+          title: 'Les initiatives à venir ...',
+        }, {
+          class: "marker-2",
+          icon: simpleGreenIcon,
+          title: 'Les initiatives tenues ...',
+        }, {
+          class: "marker-3",
+          icon: simpleRedIcon,
+          title: 'Communiqués, prises de position ...'
+        }, {
+          class: "marker-4",
+          icon: simpleBlueIcon,
+          title: "Autres infos locales",
+       }]
+);
+});
+</script>
+<!--style>
+.groupmarker-4 .infoComité .western {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style-->
+</body>
+</html>

@@ -1535,20 +1535,26 @@
             const elCont = el.text().trim();
             const elColor = quelBG(el);
             //const isVille = regex.test(elCont);
-            const isVille = regex_ville.test(elCont) && elColor == contCSS;
-            const isblockGen = regex_blockGen.test(elCont) && elColor == contCSS;
+            const isVille = regex_ville.test(elCont);
+            const isblockGen = regex_blockGen.test(elCont);
+            const isColor = elColor == contCSS;
             if (isVille) {
-              console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
-              return 'isVille';
+              if (isColor) {
+                console.log("isContVille Ville trouvée : " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
+                return 'isVille';
+              }
             }
-            else if (isblockGen) {
-              console.log("isContVille blockGen trouvée: " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
-return 'isblockGen';
-}
-else return 'inconnu'
-};
+            else
+            if (isblockGen) {
+              if (isColor) {
+                console.log("isContVille blockGen trouvée: " + elCont + "elColor : " + elColor + "contCSS" + contCSS);
+                return 'isblockGen';
+              }
+            }
+            else return 'inconnu';
+          };
 
-function quelBG($element) {
+          function quelBG($element) {
   var couleurTrouvee = null;
 
   // .find('*') parcourt toute la descendance dans l'ordre du DOM
@@ -1565,7 +1571,7 @@ function quelBG($element) {
   return couleurTrouvee;
 }
 
-function defContBrevo($el) {
+          function defContBrevo($el) {
   const elCont = $el.text().trim();
   switch (contexteBrevo_1) {
     case 'EDITO':
@@ -1574,15 +1580,23 @@ function defContBrevo($el) {
       switch (contexteBrevo_2) {
         case '* Les initiatives à venir':
           $el.attr('id', elCont).addClass("brevo-2-1");
+          $el.css('background-color','#9A26CA')
+          $el.css('color','white')
           break;
         case '* Les initiatives tenues':
           $el.attr('id', elCont).addClass("brevo-2-2");
+          $el.css('background-color','#2DAD25')
+          $el.css('color','white')
           break;
         case '* Communiqués, prise de position ...':
           $el.attr('id', elCont).addClass("brevo-2-3");
+          $el.css('background-color','#D0465D')
+          $el.css('color','white')
           break;
         case 'AUTRES INFOS LOCALES':
           $el.attr('id', elCont).addClass("brevo-2-4");
+          $el.css('background-color','#4294CF')
+          $el.css('color','white')
           break;
       }
       break;

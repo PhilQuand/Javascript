@@ -1732,7 +1732,7 @@
           // ex : "Semaine 41 du 5 au 11 octobre 2026"
 
           // 3. Extraire les infos avec une regex
-          var m = texte.match(/Semaine\s+(\d+)\s+du\s+(\d+)\s+au\s+(.+)$/);
+          var m = texte.match(/Semaine\s+(\d+)\s+du\s+(.*?)\s+au\s+(.*?)$/);
           if (m) {
             var numSemaine = m[1]; // "41"
             var debutJour = m[2]; // "5"

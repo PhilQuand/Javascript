@@ -1521,7 +1521,7 @@
             //const regex = /^[A-ZÀ-Ÿ0-9\s()]+$/;
             //const regex = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ0-9 '()]+|[A-ZÀ-Ÿ0-9\s'()]+)$/
             const regex_ville = /^.+\s+\(\s*\d{2}\s*\)$/;
-            const regex_blockGen = /^(?:(?!\*)[A-Za-zÀ-ÖØ-öø-ÿ ']+)$/
+            const regex_blockGen = /^[\p{L}\s.,;:!?'"()\-–—]+$/
 
             // Option 2
             // Vérifie si le elCont est celui d'une ville
@@ -1536,7 +1536,8 @@
             const elColor = quelBG(el);
             //const isVille = regex.test(elCont);
             const isVille = regex_ville.test(elCont);
-            const isblockGen = regex_blockGen.test(elCont);
+            //const isblockGen = regex_blockGen.test(elCont);
+            const isblockGen = true;
             const isColor = elColor == contCSS;
             if (isVille) {
               if (isColor) {

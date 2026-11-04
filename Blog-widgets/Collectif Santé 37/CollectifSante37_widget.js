@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgENQfLy78M5ht4Glazx-XpO-zTAHSnD5kQ94L5FBvQ4oFr7dEZAkLIKc53M6lvOT15pWDUXQu_XUiBZK3OfQkoWQ_8_YuTquiWj6-yL2Ajn6681vJ0Ks874R71DmEbzK_JH_iOBASJzFq1fS_9psW2me4FlJpusMV18M0fFiKthOEPMAu1HHwpukZ9i9c/s1600/QUIZZ%20Se%CC%81curite%CC%81%20sociale.png",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYsLC01XBVSLLKltGu304cEZkBoN1T8KZ9G017Ys9aLvYICursOKH0fM-2Ks0HM2FsfvSgX3e6Ou0BO1rVCm59FOHH2poO_GfnQxXaSgKW4Xbv3OMXhSfZIqlJ__yTuenmCl_OneObgQ1luyqU0akYeXkeQvnOEERysk5iKoFw8pkSk0jDOenf_egCnGk/s1600/2026_11_05_Appel_Mobilisation_Intersyndicale_37.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -860,9 +860,12 @@ $(document).ready(function() {
                   },*/
            {
             dataType: "images",
-            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgENQfLy78M5ht4Glazx-XpO-zTAHSnD5kQ94L5FBvQ4oFr7dEZAkLIKc53M6lvOT15pWDUXQu_XUiBZK3OfQkoWQ_8_YuTquiWj6-yL2Ajn6681vJ0Ks874R71DmEbzK_JH_iOBASJzFq1fS_9psW2me4FlJpusMV18M0fFiKthOEPMAu1HHwpukZ9i9c/s1600/QUIZZ%20Se%CC%81curite%CC%81%20sociale.png"
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYsLC01XBVSLLKltGu304cEZkBoN1T8KZ9G017Ys9aLvYICursOKH0fM-2Ks0HM2FsfvSgX3e6Ou0BO1rVCm59FOHH2poO_GfnQxXaSgKW4Xbv3OMXhSfZIqlJ__yTuenmCl_OneObgQ1luyqU0akYeXkeQvnOEERysk5iKoFw8pkSk0jDOenf_egCnGk/s1600/2026_11_05_Appel_Mobilisation_Intersyndicale_37.jpg"
           },
            {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwWPAusA3CHSGGsigSlBirfLFPFRqc0vVcvGwkuLB8q6c5OQyg5w4CkiQYW4no5-6zURNuOgZ9ElI91IBIduxxIyQYg4O8ipBny7rHekLEvTwUm7buk_kyst_9H0vo6oBBFV7S9q5kOYWE0iJ8V0NpnnObW7ADzCyQpkmViA8KV-lKS335gOglVAn_XlA/s1600/communique%CC%815novembreVD.jpg"
+          },           {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYtmsxPKftvG4T08OVxGS_m3JKN1WPIwf9RPEoxR3GzD64OBSKbsVisBRX-QZEaqqW_i1IHJF2gkI2ZtLtlZXyTjvpXBmk0OTDYwdWow78QxXKhwR-GbBQTCTDro5NWFQVxkALafId8WHbtKbnbyP2clpFoTbSfLpPgZGjoqroK4VAJHuQ0HosSmUgGOg/s1600/TdfS%20tract%20sept%2026.jpg"
           },

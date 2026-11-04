@@ -1464,7 +1464,7 @@
               index = 6;
 
               $el.text("* Invitation...")
-                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity")
+                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity no-break-inside")
                 .wrapInner('<strong></strong>')
                 .removeAttr('style');
               $el.find('strong').removeAttr('style')
@@ -1478,7 +1478,7 @@
               index = 6;
 
               $el.text("* Communiqué, déclaration...")
-                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity")
+                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity no-break-inside")
                 .wrapInner('<strong></strong>')
                 .removeAttr('style');
               $el.find('strong').removeAttr('style')
@@ -1580,22 +1580,22 @@
     case 'L’ÉCHO DES COMITÉS':
       switch (contexteBrevo_2) {
         case '* Les initiatives à venir':
-          $el.attr('id', elCont).addClass("brevo-2-1");
+          $el.attr('id', elCont).addClass("brevo-2-1 no-break-inside");
           $el.css('background-color','#9A26CA')
           $el.css('color','white')
           break;
         case '* Les initiatives tenues':
-          $el.attr('id', elCont).addClass("brevo-2-2");
+          $el.attr('id', elCont).addClass("brevo-2-2 no-break-inside");
           $el.css('background-color','#2DAD25')
           $el.css('color','white')
           break;
         case '* Communiqués, prise de position ...':
-          $el.attr('id', elCont).addClass("brevo-2-3");
+          $el.attr('id', elCont).addClass("brevo-2-3 no-break-inside");
           $el.css('background-color','#D0465D')
           $el.css('color','white')
           break;
         case 'AUTRES INFOS LOCALES':
-          $el.attr('id', elCont).addClass("brevo-2-4");
+          $el.attr('id', elCont).addClass("brevo-2-4 no-break-inside");
           $el.css('background-color','#4294CF')
           $el.css('color','white')
           break;
@@ -1612,7 +1612,7 @@
               return /color\s*:\s*rgb\(\s*0\s*,\s*128\s*,\s*0\s*\)/i.test(attrStyle) ||
                 /color\s*:\s*green/i.test(attrStyle);
             }).length > 0;
-          }).addClass("brevo-3-2");
+          }).addClass("brevo-3-2 no-break-inside");
           //console.log('Invitation text : ' + $el.text());
           //console.log('Invitation color : ' + $el.find('strong span').attr('color'));
           $el.find('strong span').removeAttr('style')
@@ -1625,7 +1625,7 @@
               return /color\s*:\s*rgb\(\s*0\s*,\s*128\s*,\s*0\s*\)/i.test(attrStyle) ||
                 /color\s*:\s*green/i.test(attrStyle);
             }).length > 0;
-          }).addClass("brevo-3-2");
+          }).addClass("brevo-3-2 no-break-inside");
           //console.log('Invitation text : ' + $el.text());
           //console.log('Invitation color : ' + $el.find('span').attr('color'));
           $el.find('strong span').removeAttr('style')

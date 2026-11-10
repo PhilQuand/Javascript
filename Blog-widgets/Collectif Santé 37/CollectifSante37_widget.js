@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYsLC01XBVSLLKltGu304cEZkBoN1T8KZ9G017Ys9aLvYICursOKH0fM-2Ks0HM2FsfvSgX3e6Ou0BO1rVCm59FOHH2poO_GfnQxXaSgKW4Xbv3OMXhSfZIqlJ__yTuenmCl_OneObgQ1luyqU0akYeXkeQvnOEERysk5iKoFw8pkSk0jDOenf_egCnGk/s1600/2026_11_05_Appel_Mobilisation_Intersyndicale_37.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRoVprs4Ob_jYyK3-OE3OHGC64v6_a8XX-2tQUT_HCmhiImaNb9VvcV3krzRppzVmE-cHlLuyho4lnpARMN9zZVS1yQkVi_WL75aghUx1EqsV8aqmIhA3YkqsY71APzjsybfXFZ2vxLLxsmAQPOhtMm3f-fcY6A0K_f9gsvkJ7xqI82nZQxHWQKUG8TLc/s1600/maudite%20soit%20la%20guerre%2011%20nov%2026.webp",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -858,6 +858,18 @@ $(document).ready(function() {
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
                   },*/
+           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRoVprs4Ob_jYyK3-OE3OHGC64v6_a8XX-2tQUT_HCmhiImaNb9VvcV3krzRppzVmE-cHlLuyho4lnpARMN9zZVS1yQkVi_WL75aghUx1EqsV8aqmIhA3YkqsY71APzjsybfXFZ2vxLLxsmAQPOhtMm3f-fcY6A0K_f9gsvkJ7xqI82nZQxHWQKUG8TLc/s1600/maudite%20soit%20la%20guerre%2011%20nov%2026.webp"
+          },
+           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8is5dbKeT-FgL5u2q9JlHAoT61S2aIQR5HTsGSqro8dBBJdFg7z7DT8neMZi6E0xMX7ruLknY0WJtlkfCKHI6PFUI2PkvtDxcN6BqKE7RK0mEf7gjPk34gZuMOda-awYi2eYQv8KUbNedR7bqSLh_XyqAKRy_sGcHqOvwuy9pbkmIL-tsBk27Hi7CQ0Q/s1600/2026-11-07_Expression%20commune%20pour%20le%2011%20novembre%20p1.jpg"
+          },           {
+            dataType: "images",
+            dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixeCnSjXxtXgrSqgyA0jHs9uLDRpj5wslTYay8wzryWRql_q8aIGDt1z2el1aF7YQlq89VL8_eVAeD7djiICIF6neSrFDo66QauMvuXQ1GOlp_n7GTF33XGHGhCggPqHPC2p-Ke-j1PRY1Mwq-X9JzT_y9Gqplg-BiLT47nswvhpCilN-n5QIOACCnWaU/s1600/2026-11-07_Expression%20commune%20pour%20le%2011%20novembre%20p2.jpg"
+
+          },
            {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYsLC01XBVSLLKltGu304cEZkBoN1T8KZ9G017Ys9aLvYICursOKH0fM-2Ks0HM2FsfvSgX3e6Ou0BO1rVCm59FOHH2poO_GfnQxXaSgKW4Xbv3OMXhSfZIqlJ__yTuenmCl_OneObgQ1luyqU0akYeXkeQvnOEERysk5iKoFw8pkSk0jDOenf_egCnGk/s1600/2026_11_05_Appel_Mobilisation_Intersyndicale_37.jpg"

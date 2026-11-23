@@ -1716,7 +1716,7 @@
         $('#debReçu').nextUntil('#divBrevo').addBack().wrapAll('<div id="contReçuCulture"></div id="finReçuCulture">');
         
         $('[id="* Invitation ..."]').nextUntil('[id="* Communiqué, déclaration ..."]').addBack().wrapAll('<div id="debInvitation"></div id="finInvitation">');
-        $('[id="* Communiqué, déclaration ..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debCommuniquén"></div id="finCommuniqué">');
+        $('[id="* Communiqué, déclaration ..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debCommuniqué"></div id="finCommuniqué">');
         
 
        
@@ -1748,6 +1748,9 @@
             return $div
           };
         };
+        
+        // Suppression de la Bannière de Michèle Leflon dans Brevo
+        $('.corpsLettre').find('p').slice(-7).remove();
         /*function netContHTML(elCont) {
           // textContent ignore les balises HTML, .trim() enlève les espaces/retours à la ligne superflus
           return texteBrut = elCont.textContent ? elCont.textContent.trim() : '';

@@ -840,7 +840,7 @@ $(document).ready(function() {
       //if (window.location.pathname == '/') $('.header-widget').css('visibility', 'hidden')
       $('.subscribe-button.pill-button').addClass('styled')
       $('#ACCEUIL-AlaUne').AlaUneFB4({
-        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwWPAusA3CHSGGsigSlBirfLFPFRqc0vVcvGwkuLB8q6c5OQyg5w4CkiQYW4no5-6zURNuOgZ9ElI91IBIduxxIyQYg4O8ipBny7rHekLEvTwUm7buk_kyst_9H0vo6oBBFV7S9q5kOYWE0iJ8V0NpnnObW7ADzCyQpkmViA8KV-lKS335gOglVAn_XlA/s1600/communique%CC%815novembreVD.jpg",
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7bXSOBj-cWCiyTuXMWDoPscmlw7yUkVMzLiJnnCaK7nDl9lJ8yPWh8n5UZAP_tSiWGm2iY3gw_u5QOeLI-RHf5JitHBFDUyH9LkE17h7Ml0qr0i6sZ3ypOPQ3ubrkThSaBlXD0oAMxtPwUmGlnfcxj3oHNBvdLE9INLLBVl9c7i884gtoT-hca9wIFEA/s1600/TRACT_25_NOV_26.jpg",
         fancyClass: {
           //baseClass: 'demain20200923AlaUneBaseClass',
           baseClass: 'articleFancyClass',
@@ -858,21 +858,22 @@ $(document).ready(function() {
           <p style="color: red; text-align: center; font-size: 42px; line-height: 150%;"><b>samedi 15 juin à 10h<br />Place de la Liberté à Tours</b>.</p> \
           </div>'
                   },*/
-           {
+          {
+            dataType: "iframe",
+            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7bXSOBj-cWCiyTuXMWDoPscmlw7yUkVMzLiJnnCaK7nDl9lJ8yPWh8n5UZAP_tSiWGm2iY3gw_u5QOeLI-RHf5JitHBFDUyH9LkE17h7Ml0qr0i6sZ3ypOPQ3ubrkThSaBlXD0oAMxtPwUmGlnfcxj3oHNBvdLE9INLLBVl9c7i884gtoT-hca9wIFEA/s1600/TRACT_25_NOV_26.jpg",
+            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/TRACT_25_NOV_26.pdf"
+          },
+          {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwWPAusA3CHSGGsigSlBirfLFPFRqc0vVcvGwkuLB8q6c5OQyg5w4CkiQYW4no5-6zURNuOgZ9ElI91IBIduxxIyQYg4O8ipBny7rHekLEvTwUm7buk_kyst_9H0vo6oBBFV7S9q5kOYWE0iJ8V0NpnnObW7ADzCyQpkmViA8KV-lKS335gOglVAn_XlA/s1600/communique%CC%815novembreVD.jpg"
-          },           {
+          },           
+          /*{
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYtmsxPKftvG4T08OVxGS_m3JKN1WPIwf9RPEoxR3GzD64OBSKbsVisBRX-QZEaqqW_i1IHJF2gkI2ZtLtlZXyTjvpXBmk0OTDYwdWow78QxXKhwR-GbBQTCTDro5NWFQVxkALafId8WHbtKbnbyP2clpFoTbSfLpPgZGjoqroK4VAJHuQ0HosSmUgGOg/s1600/TdfS%20tract%20sept%2026.jpg"
           },
            {
             dataType: "images",
             dataSrc: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO4P0q8XpDO2qw_lS8rgHVHxRtj5fcvt7ftCrRCp0WWUYBIdfrK1fAKUZx8Rh-AoKfwx9eZYQmgx16nTy5MpOrY_kxVoe2rDVS2Sx3PaEcegLizkQRBBtExTxOZCTKRjXfRBgZGNemoVZ1pkJPp7p3BesG49DEhftmt0WmxHX98m63gzOpw9fjOUN1fJ0/s1600/TdfS%20tract%20sept%2026%20P2.jpg"
-          },
-          /*{
-            dataType: "iframe",
-            dataThumb: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr9PhSE8MjaJFptsyfyvuBzELB2So57aO11PuW2e8j4MntCaCS8YEsmKyLC1e888TG2ulrkbX4Gr2EWOTjKSBo-WgGxIX0B6sYTxYGxQBaDBuwvy7MvL9i7ips-Iw27JZK0PoPFHjQ2Ge-WpWrpHA7qXhJxDUaTFZmXerD5Eo_gPYbVxeBY5IacNTPArk/s841/Communique%CC%81%20TDFS%20janvier%202026.jpg",
-            dataSrc: "https://philquand.github.io/Javascript/Blog-widgets/Collectif Santé 37/articles pdf/CommuniqueTDFSJanvier2026.pdf"
           },
           {
             dataType: "video",

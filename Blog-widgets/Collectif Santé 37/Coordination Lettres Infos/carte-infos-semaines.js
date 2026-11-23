@@ -1455,6 +1455,20 @@
                 }
               }).insertBefore($el);
             }
+            else if (elCont === '* Santé environnementale ...') {
+              contexteBrevo_2 = elCont;
+              if ($el.attr('id') == elCont) return false;
+              $el.attr('id', elCont); // Assigne l'ID en jQuery
+              const elTexteNettoye = $el.text().replace(/ /g, '-');
+              $el.closest('div').addClass(elTexteNettoye);
+              index = 6;
+
+              $el.text("* Santé environnementale...")
+                .addClass("rubrique-new reçu sous-titre-1 brevo-3-1 isNotCity no-break-inside")
+                .wrapInner('<strong></strong>')
+                .removeAttr('style');
+              $el.find('strong').removeAttr('style')
+            }
             else if (elCont === '* Invitation ...') {
               contexteBrevo_2 = elCont;
               if ($el.attr('id') == elCont) return false;
@@ -1506,7 +1520,7 @@
               if (isVille) $el.attr('id', elCont).addClass("isCity");
               else $el.attr('id', elCont).addClass("isNotCity");
             }
-            else if (contexteBrevo_1 == 'NOUS AVONS REÇU...' && contexteBrevo_2 == '* Communiqué, déclaration ...') {
+            else if (contexteBrevo_1 == 'NOUS AVONS REÇU...') {
               defContBrevo($el);
             }
           })
@@ -1572,7 +1586,7 @@
   return couleurTrouvee;
 }
 
-          function defContBrevo($el) {
+  function defContBrevo($el) {
   const elCont = $el.text().trim();
   switch (contexteBrevo_1) {
     case 'EDITO':
@@ -1604,6 +1618,17 @@
     case 'NOUS AVONS REÇU...':
       switch (contexteBrevo_2) {
     
+        case '* Santé environnementale ...':
+          $el.filter(function() {
+            return $(this).find('span').filter(function() {
+              const attrStyle = $(this).attr('style') || '';
+              // Cherche le texte "color" suivi de "rgb(0,128,0)" avec ou sans espaces, ou "green"
+              return /color\s*:\s*rgb\(\s*0\s*,\s*128\s*,\s*0\s*\)/i.test(attrStyle) ||
+                /color\s*:\s*green/i.test(attrStyle);
+            }).length > 0;
+          }).addClass("brevo-3-2 no-break-inside");
+          $el.find('strong span').removeAttr('style')
+          break;
         case '* Invitation ...':
           $el.filter(function() {
             return $(this).find('span').filter(function() {
@@ -1617,7 +1642,7 @@
           //console.log('Invitation color : ' + $el.find('strong span').attr('color'));
           $el.find('strong span').removeAttr('style')
           break;
-         case '* Communiqué, déclaration ...':
+        case '* Communiqué, déclaration ...':
           $el.filter(function() {
             return $(this).find('span').filter(function() {
               const attrStyle = $(this).attr('style') || '';
@@ -1715,7 +1740,8 @@
         $('[id="NOUS AVONS REÇU..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debReçu"></div id="finReçu">');
         $('#debReçu').nextUntil('#divBrevo').addBack().wrapAll('<div id="contReçuCulture"></div id="finReçuCulture">');
         
-        $('[id="* Invitation ..."]').nextUntil('[id="* Communiqué, déclaration ..."]').addBack().wrapAll('<div id="debInvitation"></div id="finInvitation">');
+        $('[id="* Santé environnementale ..."]').nextUntil('[id^="* "]').addBack().wrapAll('<div id="debSantéEnv"></div id="finSantéEnv">');
+        $('[id="* Invitation ..."]').nextUntil('[id^="* "]').addBack().wrapAll('<div id="debInvitation"></div id="finInvitation">');
         $('[id="* Communiqué, déclaration ..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debCommuniqué"></div id="finCommuniqué">');
         
 

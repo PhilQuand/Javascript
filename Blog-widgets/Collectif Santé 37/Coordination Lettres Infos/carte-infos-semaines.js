@@ -1736,13 +1736,19 @@
         });
 
         // Sélectionne les éléments intermédiaires, y ajoute #Culture, puis englobe le tout
-        $('#Culture').nextUntil('#divBrevo').addBack().wrapAll('<div id="debCulture"></div id="finCulture">');
-        $('[id="NOUS AVONS REÇU..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debReçu"></div id="finReçu">');
+        // true si un élément avec id="CULTURE" existe
+        if ($('#CULTURE').length > 0) {
+           $('#Culture').nextUntil('#divBrevo').addBack().wrapAll('<div id="debCulture"></div id="finCulture">');
+           $('[id="* Communiqué, déclaration ..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debCommuniqué"></div id="finCommuniqué">');
+           $('[id="NOUS AVONS REÇU..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debReçu"></div id="finReçu">');
+        } else {
+           $('[id="* Communiqué, déclaration ..."]').nextUntil('#divBrevo').addBack().wrapAll('<div id="debCommuniqué"></div id="finCommuniqué">');
+           $('[id="NOUS AVONS REÇU..."]').nextUntil('#divBrevo').addBack().wrapAll('<div id="debReçu"></div id="finReçu">');
+        }
         $('#debReçu').nextUntil('#divBrevo').addBack().wrapAll('<div id="contReçuCulture"></div id="finReçuCulture">');
         
         $('[id="* Santé environnementale ..."]').nextUntil('[id^="* "]').addBack().wrapAll('<div id="debSantéEnv"></div id="finSantéEnv">');
         $('[id="* Invitation ..."]').nextUntil('[id^="* "]').addBack().wrapAll('<div id="debInvitation"></div id="finInvitation">');
-        $('[id="* Communiqué, déclaration ..."]').nextUntil('#debCulture').addBack().wrapAll('<div id="debCommuniqué"></div id="finCommuniqué">');
         
 
        

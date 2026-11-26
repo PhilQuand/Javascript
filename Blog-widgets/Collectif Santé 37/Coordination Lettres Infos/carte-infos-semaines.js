@@ -1520,7 +1520,9 @@
               if (isVille) $el.attr('id', elCont).addClass("isCity");
               else $el.attr('id', elCont).addClass("isNotCity");
             }
-            else if (contexteBrevo_1 == 'NOUS AVONS REÇU...') {
+            else {
+            //else if (contexteBrevo_1 == 'NOUS AVONS REÇU...') {
+              $el.addClass("isAutre");
               defContBrevo($el);
             }
           })
@@ -1594,24 +1596,56 @@
     case 'L’ÉCHO DES COMITÉS':
       switch (contexteBrevo_2) {
         case '* Les initiatives à venir':
+          if (!$el.hasClass('isAutre')) {
           $el.attr('id', elCont).addClass("brevo-2-1 no-break-inside");
           $el.css('background-color','#9A26CA')
           $el.css('color','white')
+          }
+          else {
+            if ($el.find('strong').length > 0) {
+              $el.addClass("brevo-2-1-1 no-break-inside");
+            }
+            $el.removeClass('isAutre');
+          }
           break;
         case '* Les initiatives tenues':
-          $el.attr('id', elCont).addClass("brevo-2-2 no-break-inside");
-          $el.css('background-color','#2DAD25')
-          $el.css('color','white')
+          if (!$el.hasClass('isAutre')) {
+            $el.attr('id', elCont).addClass("brevo-2-2 no-break-inside");
+            $el.css('background-color', '#2DAD25')
+            $el.css('color', 'white')
+          }
+          else {
+            if ($el.find('strong').length > 0) {
+              $el.addClass("brevo-2-2-1 no-break-inside");
+            }
+            $el.removeClass('isAutre');
+          }
           break;
         case '* Communiqués, prise de position ...':
+          if (!$el.hasClass('isAutre')) {
           $el.attr('id', elCont).addClass("brevo-2-3 no-break-inside");
           $el.css('background-color','#D0465D')
           $el.css('color','white')
+          }
+          else {
+            if ($el.find('strong').length > 0) {
+              $el.addClass("brevo-2-3-1 no-break-inside");
+            }
+            $el.removeClass('isAutre');
+          }
           break;
         case 'AUTRES INFOS LOCALES':
+          if (!$el.hasClass('isAutre')) {
           $el.attr('id', elCont).addClass("brevo-2-4 no-break-inside");
           $el.css('background-color','#4294CF')
           $el.css('color','white')
+          }
+          else {
+            if ($el.find('strong').length > 0) {
+              $el.addClass("brevo-2-4-1 no-break-inside");
+            }
+            $el.removeClass('isAutre');
+          }
           break;
       }
       break;
@@ -1719,6 +1753,14 @@
             }
           }
         });
+        /*$('.contCity p').each(function() {
+          const fw = $(this).css('font-weight');
+          if (fw === 'bold' || parseInt(fw, 10) >= 700 || $(this).find('strong').length) {
+            console.log('Ce P est en gras', this);
+            $(this).addClass("brevo-3-2 no-break-inside");
+          }
+        });*/
+
         $('.brevo-3-2').each(function() {
           var $start = $(this);
       
